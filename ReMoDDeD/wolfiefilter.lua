@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.4
+--- Filter Title: WolfieeifloW's Filter v1.9
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 
@@ -21,85 +21,97 @@
 -- - Filter more Base items that are 'bad' bases
 
 return {
-    reload = "WolfieeifloW's Filter v1.4: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.9: {green}reloaded",
     rules = {
         -- +-------------------------+
         -- | GOLD                    |
         -- +-------------------------+
-        { -- Rule 1: Hide 200 gold and less if Character Level 20+
+        { -- Rule 1: Hide 100 gold and less if Character Level 20+
             code = "gld",
-            stat = { index = 14, op = "<=", value = 200 },
+            stat = { index = 14, op = "<=", value = 100 },
             pstat = { index = 12, op = ">=", value = 20 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 2: Hide 300 gold and less if Character Level 30+
+        { -- Rule 2: Hide 125 gold and less if Character Level 40+
             code = "gld",
-            stat = { index = 14, op = "<=", value = 500 },
-            pstat = { index = 12, op = ">=", value = 30 },
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-            hide = true
-        },
-        { -- Rule 3: Hide 500 gold and less if Character Level 40+
-            code = "gld",
-            stat = { index = 14, op = "<=", value = 500 },
+            stat = { index = 14, op = "<=", value = 125 },
             pstat = { index = 12, op = ">=", value = 40 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 4: Hide 1000 gold and less if Character Level 50+
+        { -- Rule 3: Hide 150 gold and less if Character Level 60+
             code = "gld",
-            stat = { index = 14, op = "<=", value = 1000 },
-            pstat = { index = 12, op = ">=", value = 50 },
+            stat = { index = 14, op = "<=", value = 150 },
+            pstat = { index = 12, op = ">=", value = 60 },
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+            hide = true
+        },
+        { -- Rule 4: Hide 175 gold and less if Character Level 80+
+            code = "gld",
+            stat = { index = 14, op = "<=", value = 175 },
+            pstat = { index = 12, op = ">=", value = 80 },
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+            hide = true
+        },
+        { -- Rule 5: Hide 200 gold and less if Character Level 99+
+            code = "gld",
+            stat = { index = 14, op = "<=", value = 200 },
+            pstat = { index = 12, op = ">=", value = 99 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
         -- +-------------------------+
         -- | RMD STARTER ITEMS       |
         -- +-------------------------+
-        { -- Rule 5: Reminder to pick up Horadric Cube so it doesn't get left behind
+        { -- Rule 6: Reminder to pick up Horadric Cube so it doesn't get left behind
             code = "box",
             notify = "{gold}DON'T FORGET ME! {link}",
             border = { 199, 179, 119, 255, 5 }
         },
-        { -- Rule 6: Reminder to pick up Town Portal Book so it doesn't get left behind
+        { -- Rule 7: Reminder to pick up Town Portal Book so it doesn't get left behind
             code = "tbk",
             name_override = "{blue}Book of Safe Return",
             notify = "{blue}DON'T FORGET ME! {link}",
             border = { 110, 110, 255, 255, 5 }
         },
-        { -- Rule 7: Reminder to pick up Identify Book so it doesn't get left behind
+        { -- Rule 8: Reminder to pick up Identify Book so it doesn't get left behind
             code = "ibk",
             name_override = "{red}Book of Insight",
             notify = "{red}DON'T FORGET ME! {link}",
             border = { 255, 77, 77, 255, 5 }
         },
-        { -- Rule 8: Overriding Tome of Town Portal name to the cooler name
+        { -- Rule 9: Overriding Tome of Town Portal name to the cooler name
             code = "tbk",
             name_override = "{blue}Book of Safe Return",
             location = "onplayer"
         },
-        { -- Rule 9: Overriding Tome of Identify name to the cooler name
+        { -- Rule 10: Overriding Tome of Identify name to the cooler name
             code = "ibk",
             name_override = "{red}Book of Insight",
             location = "onplayer"
         },
-        { -- Rule 10: Reminder to pick up Key so it doesn't get left behind
+        { -- Rule 11: Reminder to pick up Key so it doesn't get left behind
             code = "key",
             notify = "{gold}DON'T FORGET ME! {link}",
             border = { 199, 179, 119, 255, 5 }
         },
-        { -- Rule 11: Reminder to pick up The Statue of Mythos Soul Tracker so it doesn't get left behind
+        { -- Rule 12: Reminder to pick up The Statue of Mythos Soul Tracker so it doesn't get left behind
             codes = { "y01", "y02", "y03", "y04", "y05", "y06", "y07", "y08", "y34", "y35", "y36", "y37", "y38", "y39", "y40" },
             notify = "{gold}DON'T FORGET ME! {link}",
             border = { 199, 179, 119, 255, 5 }
         },
-        { -- Rule 12: Reminder to pick up Storage Bag so it doesn't get left behind
+        { -- Rule 13: Reminder to pick up Storage Bag so it doesn't get left behind
             code = "Z01",
             notify = "{gold}DON'T FORGET ME! {link}",
             border = { 199, 179, 119, 255, 5 }
         },
-        { -- Rule 13: Reminder to pick up Starter's Cube of Endless Convenience so it doesn't get left behind
+        { -- Rule 14: Fixing Storage Bag helper info
+            code = "Z01",
+            prefix = "{purple}------------------\nÿcU(Cube with item to store it)\n",
+            location = "onplayer"
+        },
+        { -- Rule 15: Reminder to pick up Starter's Cube of Endless Convenience so it doesn't get left behind
             code = "y66",
             notify = "ÿcNDON'T FORGET ME! {link}",
             border = { 6, 165, 221, 255, 5 }
@@ -107,42 +119,42 @@ return {
         -- +-------------------------+
         -- | RMD NEW ITEMS           |
         -- +-------------------------+
-        { -- Rule 14: Notify and medium border for all Codexes
+        { -- Rule 16: Notify and medium border for all Codexes
             codes = { "a10", "a11", "a12", "a13", "a14", "a15", "a16", "a17", "a18", "a19", "a20", "a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a30", "a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a40", "a41", "a42", "a43", "a44", "a45", "a46", "a47", "a48", "a49", "a50", "a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58" },
             notify = "{purple}Codex Drop {gold}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
-        { -- Rule 15: Notify and medium border for all Blood Contracts
+        { -- Rule 17: Notify and medium border for all Blood Contracts
             codes = { "a00", "A00", "a01", "A01", "a02", "A02", "a03", "A03", "a04", "A04", "a05", "A05", "A06", "a07", "A07", "a08", "A08", "a09", "A09", "A10", "A11", "A12", "A13", "A14", "A15", "A16", "A17", "A18", "A19", "A20", "A21", "A22", "A23", "A24", "A25", "A26", "A27", "A28", "A29", "A30", "A31", "A32", "A33", "A34", "A35", "A36", "A37", "A38", "A39", "A40", "A41", "A42", "A43", "A44", "A45", "A46", "A47", "A48", "A49", "A50", "A51", "A52", "A53", "A54", "A55", "A56", "A57", "A58", "A59", "A60", "A61", "A62", "A63", "A64", "A65", "A66", "a67", "A67", "a68", "A68", "a69", "A69", "a70", "A70", "a71", "A71", "a72", "A72", "a73", "A73", "a74", "A74", "a75", "A75", "a76", "A76", "a77", "A77", "a78", "A78", "a79", "A79", "a80", "A80", "a81", "A81", "a82", "A82", "a83", "A83", "a84", "A84", "a85", "A85", "a86", "A86", "a87", "A87", "a88", "A88", "a89", "A89", "a90", "A90", "a91", "A91", "a92", "A92", "a93", "A93", "a94", "A94", "a95", "A95", "a96", "A96", "a97", "A97", "a98", "A98", "a99", "A99", "b00", "b01", "b02", "b03", "b04", "b05", "b06", "b07", "b08", "b09", "b10", "b11", "b12", "b13", "b14", "b15", "b16", "b17", "b18", "b19", "b20", "b21", "b22", "b23", "b24", "b25", "b26", "b27", "b28", "b29", "b30", "b31", "b32", "b33", "b34", "b35", "b36", "b37", "b38", "b39", "b40", "b41", "b42", "b43", "b44", "b45", "b46", "b47", "b48", "b49", "b50", "b51", "b52", "b53", "b54", "b55", "b56", "b57", "b58", "b59", "b60", "b61", "b62", "b63" },
             notify = "{purple}RMD Item {orange}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
-        { -- Rule 16: Random RMD items that have gold names (used to match chat color brackets for notify)
+        { -- Rule 18: Random RMD items that have gold names (used to match chat color brackets for notify)
             codes = { "a06", "b64", "b65", "BoH", "luv", "m27", "m32", "m33", "m34", "m35", "m36", "Rgx", "TK0", "TK8", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "z00", "z01", "z02", "Z02", "z03", "Z03", "z04", "Z04", "z05", "Z05", "z06", "Z06", "z07", "Z07", "z08", "Z08", "z09", "Z09", "z10", "Z10", "z11", "Z11", "z12", "Z12", "z13", "Z13", "z14", "Z14", "z15", "Z15", "z16", "Z16", "z17", "Z17", "z18", "Z18", "Z19", "Z20", "Z21", "Z22", "Z23", "Z24", "Z25", "Z26", "Z27", "Z28", "Z29", "Z30", "Z31", "Z32", "Z33", "Z34", "Z35", "Z36", "Z37", "Z38", "Z39", "Z40", "Z41", "Z42", "Z43", "Z44", "Z45", "Z46", "Z47", "Z48", "Z49", "Z50", "Z51", "Z60", "Z61", "Z62", "Z63", "Z64", "Z65", "Z66", "Z67", "Z68", "Z69", "Z70", "Z71", "Z72", "Z73", "Z74", "Z75", "Z76", "Z77", "Z78", "Z79", "z80", "Z80", "z81", "Z81", "z82", "Z82", "z83", "Z83", "z84", "Z84", "Z85", "Z86", "Z87", "Z88", "Z89", "Z90", "Z91", "Z92", "Z93", "Z94", "Z95", "Z96", "Z97", "Z98", "Z99" },
             notify = "{purple}RMD Item {gold}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
-        { -- Rule 17: Random RMD items that have red names (used to match chat color brackets for notify)
+        { -- Rule 19: Random RMD items that have red names (used to match chat color brackets for notify)
             codes = { "hpf", "hpo", "rpl", "rps", "y67" },
             notify = "{purple}RMD Item {red}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
-        { -- Rule 18: Random RMD items that have blue names (used to match chat color brackets for notify)
+        { -- Rule 20: Random RMD items that have blue names (used to match chat color brackets for notify)
             codes = { "m00", "m01", "m02", "m03", "m04", "m05", "m06", "m07", "m08", "m09", "m10", "m11", "m12", "m13", "m14", "m15", "m16", "m17", "m18", "m19", "m20", "m21", "m22", "m23", "m24", "m25", "m26" },
             notify = "{purple}RMD Item {blue}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
-        { -- Rule 19: Random RMD items that have white names (used to match chat color brackets for notify)
+        { -- Rule 21: Random RMD items that have white names (used to match chat color brackets for notify)
             codes = { "0sc", "bpl", "bps", "brz", "elx", "eyz", "flg", "fng", "GBd", "hrn", "hrt", "jaw", "m28", "m29", "m30", "m31", "mpf", "mpo", "scz", "sol", "spe", "tal", "tch", "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27", "z28", "z29", "z30", "z31", "z32", "z33", "z34", "z35", "z36", "z37", "z38", "z39", "z40", "z41", "z42", "z43", "z44", "z45", "z46", "z47", "z48", "z49", "z50", "z51", "z52", "z53", "z54", "z55", "z56", "z57", "z58", "z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73", "z74", "z75", "z76", "z77" },
             notify = "{purple}RMD Item {white}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
-        { -- Rule 20: Random RMD items that have pink names (used to match chat color brackets for notify)
+        { -- Rule 22: Random RMD items that have pink names (used to match chat color brackets for notify)
             codes = { "y33" },
             notify = "{purple}RMD Item {pink}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
-        { -- Rule 21: Random RMD items that I'm unsure what color their name is (recoloring them white for now)
+        { -- Rule 23: Random RMD items that I'm unsure what color their name is (recoloring them white for now)
             codes = { "Bbp", "C00", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34", "C35", "C36", "C37", "Cr1", "Cr2", "Cr3", "Cr4", "Cr5", "Cr6", "D06", "D07", "D10", "D18", "D22", "D32", "Ebp", "EcW", "Ev0", "Ev1", "Ev2", "Ev3", "Ev4", "Ev5", "Ev6", "Ev7", "Ev8", "Gu1", "Gu2", "Gu3", "Gu4", "Gu5", "IN1", "IN2", "IN3", "IN4", "IN5", "IN6", "IN7", "K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80", "L00", "L01", "L02", "L03", "L04", "L05", "L06", "L07", "L08", "L09", "L10", "L11", "L12", "L13", "L14", "L15", "L16", "L17", "L18", "L19", "L20", "L21", "L22", "L23", "L24", "L25", "L26", "L27", "L28", "L29", "L30", "L31", "L32", "L33", "L34", "L35", "L36", "L37", "L38", "L39", "L40", "L41", "L42", "L43", "L44", "L45", "L46", "L47", "L48", "L49", "L50", "L51", "L52", "L53", "L54", "L55", "L56", "L57", "L58", "L59", "L60", "L61", "L62", "L63", "L64", "L65", "L66", "L67", "L68", "L69", "L70", "L71", "L72", "L73", "L74", "L75", "L76", "L77", "L78", "L79", "L80", "L81", "L82", "L83", "L84", "L85", "L86", "L87", "L88", "L89", "L90", "L91", "L92", "L93", "L94", "L95", "L96", "L97", "L98", "L99", "S01", "TK1", "TK2", "TK3", "TK4", "TK5", "TK6", "TK7", "UCR", "Xbp", "Y20", "Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59" },
             notify = "{purple}RMD Item {white}{link}",
             border = { 174, 0, 255, 255, 3 }
@@ -150,7 +162,7 @@ return {
         -- +-------------------------+
         -- | QUEST ITEMS             |
         -- +-------------------------+
-        { -- Rule 22: Notify and medium border all quest items
+        { -- Rule 24: Notify and medium border all quest items
             codes = { "bks", "bkd", "leg", "hdm", "ass", "tr1", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2" },
             notify = "Quest Item {link}",
             border = { 199, 179, 119, 255, 3 }
@@ -158,7 +170,7 @@ return {
         -- +-------------------------+
         -- | ESSENCES & TOKEN        |
         -- +-------------------------+
-        { -- Rule 23: Notify and small border on essences and tokens
+        { -- Rule 25: Notify and small border on essences and tokens
             codes = { "tes", "ceh", "bet", "fed", "toa" },
             notify = "Essence Drop {link}",
             border = { 255, 168, 0, 255, 1 }
@@ -166,12 +178,12 @@ return {
         -- +-------------------------+
         -- | UBER ITEMS              |
         -- +-------------------------+
-        { -- Rule 24: Notify and small border on Uber items
+        { -- Rule 26: Notify and small border on Uber items
             codes = { "pk1", "pk2", "pk3", "mbr", "dhn", "bey" },
             notify = "{orange}Ubers Item {link}",
             border = { 255, 168, 0, 255, 1 }
         },
-        { -- Rule 25: Notify and small border on Standard of Heroes
+        { -- Rule 27: Notify and small border on Standard of Heroes
             code = "std",
             notify = "Ubers Item {link}",
             border = { 199, 179, 119, 255, 1 }
@@ -179,27 +191,27 @@ return {
         -- +-------------------------+
         -- | RUNES                   |
         -- +-------------------------+
-        { -- Rule 26: Always give runes a small border (will be overridden by other borders below)
+        { -- Rule 28: Always give runes a small border (will be overridden by other borders below)
             codes = { "r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11", "r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22", "r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33", "r34", "r35", "r36" },
             border = { 255, 168, 0, 255, 1 }
         },
-        { -- Rule 27: Notify until Character Level 25 and small border for Low Runes
+        { -- Rule 29: Notify until Character Level 25 and small border for Low Runes
             codes = { "r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11" },
             pstat = { index = 12, op = "<=", value = 25 },
             notify = "{green}Low Rune {orange}{link}"
         },
-        { -- Rule 28: Notify until Character Level 75 and medium border for Mid Runes
+        { -- Rule 30: Notify until Character Level 75 and medium border for Mid Runes
             codes = { "r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22" },
             pstat = { index = 12, op = "<=", value = 75 },
             notify = "{yellow}Mid Rune {orange}{link}",
             border = { 255, 168, 0, 255, 3 }
         },
-        { -- Rule 29: Notify and large border for High Runes
+        { -- Rule 31: Notify and large border for High Runes
             codes = { "r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33" },
             notify = "{red}High Rune {orange}{link}",
             border = { 255, 168, 0, 255, 5 }
         },
-        { -- Rule 30: Notify and extra large border for Ultra Runes
+        { -- Rule 32: Notify and extra large border for Ultra Runes
             codes = { "r34", "r35", "r36" },
             notify = "{purple}Ultra Rune {orange}{link}",
             border = { 255, 168, 0, 255, 7 }
@@ -207,7 +219,7 @@ return {
         -- +-------------------------+
         -- | MAGIC ITEMS             |
         -- +-------------------------+
-        { -- Rule 31: Hide all non-RMD magic items at Character Level 75+ (Magic items can be gambled for crafting)
+        { -- Rule 33: Hide all non-RMD magic items at Character Level 75+ (Magic items can be gambled for crafting)
             codes = { "2ax", "2hs", "6bs", "6cb", "6cs", "6hb", "6hx", "6l7", "6lb", "6ls", "6lw", "6lx", "6mx", "6rx", "6s7", "6sb", "6ss", "6sw", "6ws", "72a", "72h", "7ar", "7ax", "7b7", "7b8", "7ba", "7bk", "7bl", "7br", "7bs", "7bt", "7bw", "7cl", "7cm", "7cr", "7cs", "7dg", "7di", "7fb", "7fc", "7fl", "7ga", "7gd", "7gi", "7gl", "7gm", "7gs", "7gw", "7h7", "7ha", "7hw", "7ja", "7kr", "7la", "7ls", "7lw", "7m7", "7ma", "7mf", "7mp", "7o7", "7p7", "7pa", "7pi", "7qr", "7qs", "7s7", "7s8", "7sb", "7sc", "7sm", "7sp", "7sr", "7ss", "7st", "7ta", "7tk", "7tr", "7ts", "7vo", "7wa", "7wb", "7wc", "7wd", "7wh", "7wn", "7ws", "7xf", "7yw", "8bs", "8cb", "8cs", "8hb", "8hx", "8l8", "8lb", "8ls", "8lw", "8lx", "8mx", "8rx", "8s8", "8sb", "8ss", "8sw", "8ws", "92a", "92h", "9ar", "9ax", "9b7", "9b8", "9b9", "9ba", "9bk", "9bl", "9br", "9bs", "9bt", "9bw", "9cl", "9cm", "9cr", "9cs", "9dg", "9di", "9fb", "9fc", "9fl", "9ga", "9gd", "9gi", "9gl", "9gm", "9gs", "9gw", "9h9", "9ha", "9hw", "9ja", "9kr", "9la", "9ls", "9lw", "9m9", "9ma", "9mp", "9mt", "9p9", "9pa", "9pi", "9qr", "9qs", "9s8", "9s9", "9sb", "9sc", "9sm", "9sp", "9sr", "9ss", "9st", "9ta", "9tk", "9tr", "9ts", "9vo", "9wa", "9wb", "9wc", "9wd", "9wh", "9wn", "9ws", "9xf", "9yw", "aar", "am1", "am2", "am3", "am4", "am5", "am6", "am7", "am8", "am9", "ama", "amb", "amc", "amd", "ame", "amf", "axe", "axf", "ba1", "ba2", "ba3", "ba4", "ba5", "ba6", "ba7", "ba8", "ba9", "baa", "bab", "bac", "bad", "bae", "baf", "bal", "bar", "bax", "bhm", "bkf", "bld", "brn", "brs", "bsd", "bsh", "bst", "bsw", "btl", "btx", "buc", "bwn", "cap", "cbw", "ces", "chn", "ci0", "ci1", "ci2", "ci3", "clb", "clm", "clw", "crn", "crs", "dgr", "dir", "dr1", "dr2", "dr3", "dr4", "dr5", "dr6", "dr7", "dr8", "dr9", "dra", "drb", "drc", "drd", "dre", "drf", "fhl", "fla", "flb", "flc", "fld", "ful", "gax", "ghm", "gis", "gix", "glv", "gma", "gsc", "gsd", "gst", "gth", "gts", "gwn", "hal", "hax", "hbl", "hbt", "hbw", "hgl", "hla", "hlm", "hxb", "jav", "kit", "kri", "ktr", "lax", "lbb", "lbl", "lbt", "lbw", "lea", "lgl", "lrg", "lsd", "lst", "ltp", "lwb", "lxb", "mac", "mau", "mbl", "mbt", "mgl", "mpi", "msk", "mst", "mxb", "ne1", "ne2", "ne3", "ne4", "ne5", "ne6", "ne7", "ne8", "ne9", "nea", "neb", "nec", "ned", "nee", "nef", "ob1", "ob2", "ob3", "ob4", "ob5", "ob6", "ob7", "ob8", "ob9", "oba", "obb", "obc", "obd", "obe", "obf", "pa1", "pa2", "pa3", "pa4", "pa5", "pa6", "pa7", "pa8", "pa9", "paa", "pab", "pac", "pad", "pae", "paf", "pax", "pik", "pil", "plt", "qui", "rng", "rxb", "sbb", "sbr", "sbw", "scl", "scm", "scp", "scy", "skp", "skr", "sml", "spc", "spk", "spl", "spr", "spt", "ssd", "ssp", "sst", "stu", "swb", "tax", "tbl", "tbt", "tgl", "tkf", "tow", "tri", "tsp", "uap", "uar", "ucl", "uea", "uh9", "uhb", "uhc", "uhg", "uhl", "uhm", "uhn", "uit", "ukp", "ula", "ulb", "ulc", "uld", "ulg", "ulm", "ult", "umb", "umc", "umg", "uml", "ung", "uow", "upk", "upl", "urg", "urn", "urs", "ush", "usk", "utb", "utc", "utg", "uth", "utp", "uts", "utu", "uuc", "uui", "uul", "uvb", "uvc", "uvg", "vbl", "vbt", "vgl", "vou", "wax", "whm", "wnd", "wrb", "wsc", "wsd", "wsp", "wst", "xap", "xar", "xcl", "xea", "xh9", "xhb", "xhg", "xhl", "xhm", "xhn", "xit", "xkp", "xla", "xlb", "xld", "xlg", "xlm", "xlt", "xmb", "xmg", "xml", "xng", "xow", "xpk", "xpl", "xrg", "xrn", "xrs", "xsh", "xsk", "xtb", "xtg", "xth", "xtp", "xts", "xtu", "xuc", "xui", "xul", "xvb", "xvg", "ywn", "zhb", "zlb", "zmb", "ztb", "zvb" },
             quality = "4",
             -- rarity = "1-", -- uncomment this line to hide ONLY Normal & Exceptional tier items
@@ -215,7 +227,7 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 32: Hide all magic Amulets, Rings, & Quivers at Character Level 75+ (Magic items can be gambled for crafting)
+        { -- Rule 34: Hide all magic Amulets, Rings, & Quivers at Character Level 75+ (Magic items can be gambled for crafting)
             codes = { "amu", "rin", "aqv", "cqv" },
             quality = "4",
             pstat = { index = 12, op = ">=", value = 75 },
@@ -225,7 +237,7 @@ return {
         -- +-------------------------+
         -- | SET ITEMS               |
         -- +-------------------------+
-        { -- Rule 33: Notify and small border for all Set items
+        { -- Rule 35: Notify and small border for all Set items
             codes = "allitems",
             quality = "5",
             notify = "{green}Set Drop {link}",
@@ -234,7 +246,7 @@ return {
         -- +-------------------------+
         -- | RARE ITEMS              |
         -- +-------------------------+
-        { -- Rule 34: Small border on Rare Amulets, Rings, and Jewels
+        { -- Rule 36: Small border on Rare Amulets, Rings, and Jewels
             codes = { "amu", "rin", "jew" },
             quality = "6",
             border = { 255, 255, 100, 255, 1 }
@@ -242,7 +254,7 @@ return {
         -- +-------------------------+
         -- | UNIQUE ITEMS            |
         -- +-------------------------+
-        { -- Rule 35: Notify and small border for all Unique items
+        { -- Rule 37: Notify and small border for all Unique items
             codes = "allitems",
             quality = "7",
             notify = "Unique Drop {link}",
@@ -251,7 +263,7 @@ return {
         -- +-------------------------+
         -- | CRAFTED ITEMS           |
         -- +-------------------------+
-        { -- Rule 36: Reminder to pick up Crafted items so they don't get left behind
+        { -- Rule 38: Reminder to pick up Crafted items so they don't get left behind
             codes = "allitems",
             quality = "8",
             notify = "{orange}DON'T FORGET ME! {link}"
@@ -259,7 +271,7 @@ return {
         -- +-------------------------+
         -- | TEMPERED ITEMS          |
         -- +-------------------------+
-        { -- Rule 37: Reminder to pick up Tempered items so they don't get left behind
+        { -- Rule 39: Reminder to pick up Tempered items so they don't get left behind
             codes = "allitems",
             quality = "9",
             notify = "{green}DON'T FORGET ME! {link}"
@@ -267,7 +279,7 @@ return {
         -- +-------------------------+
         -- | POTIONS                 |
         -- +-------------------------+
-        { -- Rule 38: Hides all non-large Potions & Scrolls after Normal Difficulty
+        { -- Rule 40: Hides all non-large Potions & Scrolls after Normal Difficulty
             codes = { "mp1", "mp2", "mp3", "hp1", "hp2", "hp3", "isc", "tsc", "rvs"},
             difficulty = "1+",
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
@@ -276,13 +288,13 @@ return {
         -- +-------------------------+
         -- | BASE ITEMS              |
         -- +-------------------------+
-        { -- Rule 39: Reminder to pick up Runeword items so they don't get left behind
+        { -- Rule 41: Reminder to pick up Runeword items so they don't get left behind
             codes = "allitems",
             runeword = true,
             notify = "{gray}DON'T FORGET ME! {gold}{link}",
             border = { 199, 179, 119, 255, 3 }
         },
-        { -- Rule 40: Hiding Inferior items at Character Level 10+
+        { -- Rule 42: Hiding Inferior items at Character Level 10+
             codes = "allitems",
             quality = "1",
             runeword = false,
@@ -290,14 +302,14 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 41: Hiding Normal quivers at Character Level 10+
+        { -- Rule 43: Hiding Normal quivers at Character Level 10+
             codes = { "aqv", "cqv" },
             quality = "3-",
             pstat = { index = 12, op = ">=", value = 10 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 42: Hides all 1 socket Inferior, Normal, and Superior items at Character Level 25+
+        { -- Rule 44: Hides all 1 socket Inferior, Normal, and Superior items at Character Level 25+
             codes = "allitems",
             sockets = "1",
             quality = "3-",
@@ -305,7 +317,7 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 43: Hides non-Superior bases that have 0 sockets at Character Level 25+
+        { -- Rule 45: Hides non-Superior bases that have 0 sockets at Character Level 25+
             codes = { "2ax", "2hs", "6bs", "6cb", "6cs", "6hb", "6hx", "6l7", "6lb", "6ls", "6lw", "6lx", "6mx", "6rx", "6s7", "6sb", "6ss", "6sw", "6ws", "72a", "72h", "7ar", "7ax", "7b7", "7b8", "7ba", "7bk", "7bl", "7br", "7bs", "7bt", "7bw", "7cl", "7cm", "7cr", "7cs", "7dg", "7di", "7fb", "7fc", "7fl", "7ga", "7gd", "7gi", "7gl", "7gm", "7gs", "7gw", "7h7", "7ha", "7hw", "7ja", "7kr", "7la", "7ls", "7lw", "7m7", "7ma", "7mf", "7mp", "7o7", "7p7", "7pa", "7pi", "7qr", "7s7", "7s8", "7sb", "7sm", "7sp", "7sr", "7ss", "7st", "7ta", "7tk", "7tr", "7ts", "7vo", "7wa", "7wb", "7wc", "7wd", "7wh", "7wn", "7xf", "7yw", "8bs", "8cb", "8cs", "8hb", "8hx", "8l8", "8lb", "8ls", "8lw", "8lx", "8mx", "8rx", "8s8", "8sb", "8ss", "8sw", "8ws", "92a", "92h", "9ar", "9ax", "9b7", "9b8", "9b9", "9ba", "9bk", "9bl", "9br", "9bs", "9bt", "9bw", "9cl", "9cm", "9cr", "9cs", "9dg", "9di", "9fb", "9fc", "9fl", "9ga", "9gd", "9gi", "9gl", "9gm", "9gs", "9gw", "9h9", "9ha", "9hw", "9ja", "9kr", "9la", "9ls", "9lw", "9m9", "9ma", "9mp", "9mt", "9p9", "9pa", "9pi", "9qr", "9s8", "9s9", "9sb", "9sm", "9sp", "9sr", "9ss", "9st", "9ta", "9tk", "9tr", "9ts", "9vo", "9wa", "9wb", "9wc", "9wd", "9wh", "9wn", "9xf", "9yw", "aar", "am1", "am2", "am3", "am4", "am5", "am6", "am7", "am8", "am9", "ama", "amb", "amc", "amd", "ame", "amf", "axe", "axf", "ba1", "ba2", "ba3", "ba4", "ba5", "ba6", "ba7", "ba8", "ba9", "baa", "bab", "bac", "bad", "bae", "baf", "bal", "bar", "bax", "bhm", "bkf", "bld", "brn", "brs", "bsd", "bsh", "bst", "bsw", "btl", "btx", "buc", "bwn", "cap", "cbw", "ces", "chn", "ci0", "ci1", "ci2", "ci3", "clb", "clm", "clw", "crn", "crs", "dgr", "dir", "dr1", "dr2", "dr3", "dr4", "dr5", "dr6", "dr7", "dr8", "dr9", "dra", "drb", "drc", "drd", "dre", "drf", "fhl", "fla", "flb", "flc", "fld", "ful", "gax", "ghm", "gis", "gix", "glv", "gma", "gsd", "gst", "gth", "gts", "gwn", "hal", "hax", "hbl", "hbt", "hbw", "hgl", "hla", "hlm", "hxb", "jav", "kit", "kri", "ktr", "lax", "lbb", "lbl", "lbt", "lbw", "lea", "lgl", "lrg", "lsd", "lst", "ltp", "lwb", "lxb", "mac", "mau", "mbl", "mbt", "mgl", "mpi", "msk", "mst", "mxb", "ne1", "ne2", "ne3", "ne4", "ne5", "ne6", "ne7", "ne8", "ne9", "nea", "neb", "nec", "ned", "nee", "nef", "ob1", "ob2", "ob3", "ob4", "ob5", "ob6", "ob7", "ob8", "ob9", "oba", "obb", "obc", "obd", "obe", "obf", "pa1", "pa2", "pa3", "pa4", "pa5", "pa6", "pa7", "pa8", "pa9", "paa", "pab", "pac", "pad", "pae", "paf", "pax", "pik", "pil", "plt", "qui", "rng", "rxb", "sbb", "sbr", "sbw", "scl", "scm", "scy", "skp", "skr", "sml", "spc", "spk", "spl", "spr", "spt", "ssd", "ssp", "sst", "stu", "swb", "tax", "tbl", "tbt", "tgl", "tkf", "tow", "tri", "tsp", "uap", "uar", "ucl", "uea", "uh9", "uhb", "uhc", "uhg", "uhl", "uhm", "uhn", "uit", "ukp", "ula", "ulb", "ulc", "uld", "ulg", "ulm", "ult", "umb", "umc", "umg", "uml", "ung", "uow", "upk", "upl", "urg", "urn", "urs", "ush", "usk", "utb", "utc", "utg", "uth", "utp", "uts", "utu", "uuc", "uui", "uul", "uvb", "uvc", "uvg", "vbl", "vbt", "vgl", "vou", "wax", "whm", "wnd", "wrb", "wsc", "wsd", "wst", "xap", "xar", "xcl", "xea", "xh9", "xhb", "xhg", "xhl", "xhm", "xhn", "xit", "xkp", "xla", "xlb", "xld", "xlg", "xlm", "xlt", "xmb", "xmg", "xml", "xng", "xow", "xpk", "xpl", "xrg", "xrn", "xrs", "xsh", "xsk", "xtb", "xtg", "xth", "xtp", "xts", "xtu", "xuc", "xui", "xul", "xvb", "xvg", "ywn", "zhb", "zlb", "zmb", "ztb", "zvb" },
             quality = "2-",
             sockets = "0",
@@ -313,7 +325,7 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 44: Hides all +0 to Paladin Skill Levels Scepters at Character Level 50+
+        { -- Rule 46: Hides all +0 to Paladin Skill Levels Scepters at Character Level 50+
             codes = { "scp", "gsc", "wsp", "7sc", "7qs", "7ws", "9sc", "9qs", "9ws" },
             quality = "4-",
             runeword = false,
@@ -322,34 +334,46 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 45: Hides bases that don't roll their maximum of 3 sockets at Character Level 80+
-            codes = { "xla", "xui", "xea", "brs", "chn", "ltp", "scl", "rng", "9cl", "clb", "7cl", "7ha", "9ha", "hax", "sbw", "7sp", "9sp", "spc", "7cs", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "amf", "ama", "am5", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "6ss", "8ss", "sst", "k01", "k02", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9ss", "9sm", "9sb", "9fc", "flc", "sbr", "ssd", "scm", "wsd", "ne6", "ne7", "ne1", "ne2", "uuc", "xsh", "bsh", "lrg", "spk", "dr9", "dr1", "bab", "bae", "bad", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba1", "ba2", "ba3", "drb", "drf", "drd", "dre", "drc", "dr6", "dr7", "dr8", "dra", "dr3", "dr4", "dr2", "dr5", "ulm", "uh9", "urn", "usk", "uhl", "ukp", "uap", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1", "l08", "l09", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "ci0", "ci1", "ci2", "ci3", "ulb", "uvb", "umb", "utb", "uhb", "xvb", "xmb", "xtb", "xhb", "hbt", "tbt", "Ab1", "Ab4", "Ab2", "Ab5", "Ab3", "Ab6", "l11", "Ag2", "Ag4", "Ag5", "Ag6", "uvg", "xvg", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "ulg", "utg", "uhg", "umg", "xmg", "xtg", "xhg", "tgl", "hgl", "l10" },
+        { -- Rule 47: Hides bases that don't roll their maximum of 3 sockets at Character Level 80+
+            -- codes = { "xla", "xui", "xea", "brs", "chn", "ltp", "scl", "rng", "9cl", "clb", "7cl", "7ha", "9ha", "hax", "sbw", "7sp", "9sp", "spc", "7cs", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "amf", "ama", "am5", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "6ss", "8ss", "sst", "k01", "k02", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9ss", "9sm", "9sb", "9fc", "flc", "sbr", "ssd", "scm", "wsd", "ne6", "ne7", "ne1", "ne2", "uuc", "xsh", "bsh", "lrg", "spk", "dr9", "dr1", "bab", "bae", "bad", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba1", "ba2", "ba3", "drb", "drf", "drd", "dre", "drc", "dr6", "dr7", "dr8", "dra", "dr3", "dr4", "dr2", "dr5", "ulm", "uh9", "urn", "usk", "uhl", "ukp", "uap", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1", "l08", "l09", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "ci0", "ci1", "ci2", "ci3", "ulb", "uvb", "umb", "utb", "uhb", "xvb", "xmb", "xtb", "xhb", "hbt", "tbt", "Ab1", "Ab4", "Ab2", "Ab5", "Ab3", "Ab6", "l11", "Ag2", "Ag4", "Ag5", "Ag6", "uvg", "xvg", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "ulg", "utg", "uhg", "umg", "xmg", "xtg", "xhg", "tgl", "hgl", "l10" },
+            codes = "allitems",
             quality = "3-",
             sockets = "1, 2",
+            maxsock = "3",
+            ilvl = "41+",
             runeword = false,
             pstat = { index = 12, op = ">=", value = 80 },
             hide = true
         },
-        { -- Rule 46: Hides bases that don't roll their maximum of 4 sockets at Character Level 80+
-            codes = { "Wp3", "Gg3", "Oa3", "Oa2", "Oa1", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Bp3", "Bp6", "Bp1", "Bp4", "Bp2", "Bp5", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "utp", "upl", "uhn", "ung", "uui", "urs", "ult", "uld", "uth", "ucl", "uar", "ula", "uul", "utu", "uea", "xul", "xrs", "xth", "xng", "xtp", "xhn", "xar", "xpl", "xld", "xlt", "xcl", "xtu", "aar", "fld", "ful", "gth", "plt", "spl", "Ca1", "Ca4", "Ca5", "Ca2", "Ca6", "Ca3", "l01", "l02", "l03", "l04", "l05", "l06", "Ss3", "Ss4", "Bf4", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8cs", "8bs", "8ls", "bst", "cst", "lst", "bsw", "k03", "72h", "92h", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp", "nef", "neg", "neb", "ned", "nee", "ne9", "nea", "ne8", "ne5", "ne4", "ne3", "pad", "pac", "pab", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "urg", "uml", "uit", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "kit", "tow", "l12" },
+        { -- Rule 48: Hides bases that don't roll their maximum of 4 sockets at Character Level 80+
+            -- codes = { "Wp3", "Gg3", "Oa3", "Oa2", "Oa1", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Bp3", "Bp6", "Bp1", "Bp4", "Bp2", "Bp5", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "utp", "upl", "uhn", "ung", "uui", "urs", "ult", "uld", "uth", "ucl", "uar", "ula", "uul", "utu", "uea", "xul", "xrs", "xth", "xng", "xtp", "xhn", "xar", "xpl", "xld", "xlt", "xcl", "xtu", "aar", "fld", "ful", "gth", "plt", "spl", "Ca1", "Ca4", "Ca5", "Ca2", "Ca6", "Ca3", "l01", "l02", "l03", "l04", "l05", "l06", "Ss3", "Ss4", "Bf4", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8cs", "8bs", "8ls", "bst", "cst", "lst", "bsw", "k03", "72h", "92h", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp", "nef", "neg", "neb", "ned", "nee", "ne9", "nea", "ne8", "ne5", "ne4", "ne3", "pad", "pac", "pab", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "urg", "uml", "uit", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "kit", "tow", "l12" },
+            codes = "allitems",
             quality = "3-",
             sockets = "1, 2, 3",
+            maxsock = "4",
+            ilvl = "41+",
             runeword = false,
             pstat = { index = 12, op = ">=", value = 80 },
             hide = true
         },
-        { -- Rule 47: Hides bases that don't roll their maximum of 5 sockets at Character Level 80+
-            codes = { "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "6lx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8" },
+        { -- Rule 49: Hides bases that don't roll their maximum of 5 sockets at Character Level 80+
+            -- codes = { "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "6lx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8" },
+            codes = "allitems",
             quality = "3-",
             sockets = "1, 2, 3, 4",
+            maxsock = "5",
+            ilvl = "41+",
             runeword = false,
             pstat = { index = 12, op = ">=", value = 80 },
             hide = true
         },
-        { -- Rule 48: Hides bases that don't roll their maximum of 6 sockets at Character Level 80+
-            codes = { "Ss1", "7s8", "7fb", "Ss2", "9mp", "mpi", "7mp", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf5", "Bf6", "7wa", "7ga", "7bt", "72a", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "amc", "amb", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "6hx", "8hx", "hxb", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "9fl", "7vo", "7pa", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "7p7", "9h9", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "7ws", "9ws", "7mp", "7wc", "9wc", "9s8", "mpi", "wsc", "amd", "ame", "am8", "am9", "am3", "am4", "Ds4", "Ds5", "Ds6", "6ws", "8ws", "wst", "7gd", "7gd", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "7cr", "9cr", "crs", "7b8", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 50: Hides bases that don't roll their maximum of 6 sockets at Character Level 80+
+            -- codes = { "Ss1", "7s8", "7fb", "Ss2", "9mp", "mpi", "7mp", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf5", "Bf6", "7wa", "7ga", "7bt", "72a", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "amc", "amb", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "6hx", "8hx", "hxb", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "9fl", "7vo", "7pa", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "7p7", "9h9", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "7ws", "9ws", "7mp", "7wc", "9wc", "9s8", "mpi", "wsc", "amd", "ame", "am8", "am9", "am3", "am4", "Ds4", "Ds5", "Ds6", "6ws", "8ws", "wst", "7gd", "7gd", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "7cr", "9cr", "crs", "7b8", "l13", "l14", "l15", "l16", "l17" },
+            codes = "allitems",
             quality = "3-",
             sockets = "1, 2, 3, 4, 5",
+            maxsock = "6",
+            ilvl = "41+",
             runeword = false,
             pstat = { index = 12, op = ">=", value = 80 },
             hide = true
@@ -357,35 +381,321 @@ return {
         -- +-------------------------+
         -- | TAGS & GENERIC RULES    |
         -- +-------------------------+
-        { -- Rule 49: Adding [Eth] tag to items
+        { -- Rule 51: Adding item level to appropriate items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
+            codes = "allitems",
+            itype = { 10, 12, 45, 50, 58, 82, 83, 84 },
+            location = { "onplayer", "equipped" , "onground", "dropping", "atvendor" },
+            suffix = " ({ilvl})"
+        },
+        { -- Rule 52: Adding [Eth] tag to items
             codes = "allitems",
             ethereal = true,
             suffix = " {gray}[Eth]"
         },
-        { -- Rule 50: Adding socket number tag to Ethereal items
+        { -- Rule 53: Adding socket number tag to Ethereal items
             codes = "allitems",
             ethereal = true,
             sockets = "1+",
             prefix = "ÿcI",
             suffix = "{gray}[{sockets}]"
         },
-        { -- Rule 51: Adding socket number tag to Non-Ethereal items
+        { -- Rule 54: Adding socket number tag to Non-Ethereal items
             codes = "allitems",
             ethereal = false,
             sockets = "1+",
             suffix = " {gray}[{sockets}]"
             -- This second rule makes [Eth] and socket number ([#]) beside each other
-        }, -- Add a comma here if you uncomment testing rule below
+        },
+        { -- Rule 55: Adding superscript "1" in front of Normal tier items names
+            codes = "allitems",
+            rarity = 0,
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "¹"
+        },
+        { -- Rule 56: Adding superscript "2" in front of Exceptional tier items names
+            codes = "allitems",
+            rarity = 1,
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "²"
+        },
+        { -- Rule 57: Adding superscript "EB 3" in front of Elite tier items names
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "ⅲ ³"
+        },
+        { -- Rule 58: Adding superscript "LB 3" in front of Elite tier Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "ⅳ ³"
+            -- prefix = "⁴"
+        },
+        -- +-------------------------+
+        -- | ITEM HELPER TEXT        |
+        -- +-------------------------+
+        { -- Rule 59: Scroll of Inifuss
+            code = "bks",
+            location = "onplayer",
+            prefix = "{gold}in Act 1\nTalk to Akara\n"
+        },
+        { -- Rule 60: Scroll of Inifuss, deciphered
+            code = "bkd",
+            location = "onplayer",
+            prefix = "{gold}Go to Act 1: Stony Field\n"
+        },
+        { -- Rule 61: Wirt's Leg
+            code = "leg",
+            location = "onplayer",
+            prefix = "{gold}Act 1 to open Cow Level\nCube w/ Tome of Town Portal in\n"
+        },
+        { -- Rule 62: Horadric Malus
+            code = "hdm",
+            location = "onplayer",
+            prefix = "{gold}Give to Charsi in Act 1\n"
+        },
+        { -- Rule 63: Book of Skill
+            code = "ass",
+            location = "onplayer",
+            prefix = "{gold}+1 Skill Point\nRight click for \n"
+        },
+        { -- Rule 64: Horadric Staff
+            code = "hst",
+            location = "onplayer",
+            prefix = "{red}0  )  []  +  >>  /\\  0)\nTombs:\n\n{gold}Act 2: Tal Rashas Tomb\nPlace in Tomb Orifice in\n"
+        },
+        { -- Rule 65: Amulet of the Viper
+            code = "vip",
+            location = "onplayer",
+            prefix = "{orange}Staff of Kings {gold}(Act 2 Maggot Lair)\nCube with:\n"
+        },
+        { -- Rule 66: Staff of Kings
+            code = "msf",
+            location = "onplayer",
+            prefix = "{orange}Amulet of the Viper {gold}(Act 2: Claw Viper Temple)\nCube with:\n"
+        },
+        { -- Rule 67: A Jade Figurine
+            code = "j34",
+            location = "onplayer",
+            prefix = "{gold}in Act 3\nGive to Meshif\n"
+        },
+        { -- Rule 68: The Golden Bird
+            code = "g34",
+            location = "onplayer",
+            prefix = "{gold}in Act 3\nGive to Alkor\n"
+        },
+        { -- Rule 69: Potion of Life
+            code = "xyz",
+            location = "onplayer",
+            prefix = "{gold}permanent +20 to Life\nRight click for a\n"
+        },
+        { -- Rule 70: Gidbinn
+            code = "g33",
+            location = "onplayer",
+            prefix = "{gold}Give to Ormus in Act 3\n"
+        },
+        { -- Rule 71: Khalim's Eye
+            code = "qey",
+            location = "onplayer",
+            prefix = "{orange}Khalim's Flail {gold}(Act 3: Travincal)\n{orange}Khalim's Heart {gold}(Act 3: Kurast Sewers)\n{orange}Khalim's Brain {gold}(Act 3: Flayer Dungeon)\nCube with:\n\nDrops in Act 3: Spider Cavern\n"
+        },
+        { -- Rule 72: Khalim's Brain
+            code = "qbr",
+            location = "onplayer",
+            prefix = "{orange}Khalim's Flail {gold}(Act 3: Travincal)\n{orange}Khalim's Heart {gold}(Act 3: Kurast Sewers)\n{orange}Khalim's Eye {gold}(Act 3: Spider Cavern)\nCube with:\n\nDrops in Act 3: Flayer Dungeon\n"
+        },
+        { -- Rule 73: Khalim's Heart
+            code = "qhr",
+            location = "onplayer",
+            prefix = "{orange}Khalim's Flail {gold}(Act 3: Travincal)\n{orange}Khalim's Brain {gold}(Act 3: Flayer Dungeon)\n{orange}Khalim's Eye {gold}(Act 3: Spider Cavern)\nCube with:\n\nDrops in Act 3: Kurast Sewers\n"
+        },
+        { -- Rule 74: Khalim's Flail
+            code = "qf1",
+            location = "onplayer",
+            prefix = "{orange}Khalim's Heart {gold}(Act 3: Kurast Sewers)\n{orange}Khalim's Brain {gold}(Act 3: Flayer Dungeon)\n{orange}Khalim's Eye {gold}(Act 3: Spider Cavern)\nCube with:\n\nDrops in Act 3: Travincal\n"
+        },
+        { -- Rule 75: Khalim's Will
+            code = "qf2",
+            location = "onplayer",
+            prefix = "{gold}Attack Compelling Orb in Act 3: Travincal\n"
+        },
+        { -- Rule 76: Lam Esen's Tome
+            code = "bbb",
+            location = "onplayer",
+            prefix = "{gold}+5 Stat Points\nGive to Alkor for\n"
+        },
+        { -- Rule 77: Mephisto's Soulstone
+            code = "mss",
+            location = "onplayer",
+            prefix = "{gold}Act 4: River of Flame\nTake to the Hellforge in\n"
+        },
+        { -- Rule 78: Hellforge Hammer
+            code = "hfh",
+            location = "onplayer",
+            prefix = "{gold}Attack Hellforge in Act 4: River of Flame\n"
+        },
+        { -- Rule 79: Malah's Potion
+            code = "ice",
+            location = "onplayer",
+            prefix = "{gold}Act 5: Frozen River\nTouch Anya in\n"
+        },
+        { -- Rule 80: Scroll of Resistance
+            code = "tr2",
+            location = "onplayer",
+            prefix = "{gold}All Resistances +10\nRight click for a permanent\n"
+        },
+        { -- Rule 81: Twisted Essence of Suffering
+            code = "tes",
+            location = "onplayer",
+            prefix = "{gold}Cube with 1x of each essence for a Socket Remover\n\nCube with Storage Bag for +(4-7) Gems\nDrops from Hell Andariel\n{orange}"
+        },
+        { -- Rule 82: Charged Essence of Hatred
+            code = "ceh",
+            location = "onplayer",
+            prefix = "{gold}Cube with 1x of each essence for a Socket Remover\n\nCube with Storage Bag for +(1-3) High Rune Points\nDrops from Hell Mephisto\n{orange}"
+        },
+        { -- Rule 83: Burning Essence of Terror
+            code = "bet",
+            location = "onplayer",
+            prefix = "{gold}Cube with 1x of each essence for a Socket Remover\n\nCube with Storage Bag for +(3-6) Set Cores\nDrops from Hell Diablo\n{orange}"
+        },
+        { -- Rule 84: Festering Essence of Destruction
+            code = "fed",
+            location = "onplayer",
+            prefix = "{gold}Cube with 1x of each essence for a Socket Remover\n\nCube with Storage Bag for +(3-6) Unique Cores\nDrops from Hell Baal\n{orange}"
+        },
+        { -- Rule 85: Key of Terror
+            code = "pk1",
+            location = "onplayer",
+            prefix = "{gold}Cube 2x {orange}Key of Terror {gold}to get 1x {orange}Key of Hate\n\n{orange}Key of Destruction {gold}(Hell Nihlathak)\n{orange}Key of Hate {gold}(Hell Summoner)\nOpen Mini-Uber portal by cubing in Act 5 with:\nDrops from Hell Countess\n{orange}"
+        },
+        { -- Rule 86: Key of Hate
+            code = "pk2",
+            location = "onplayer",
+            prefix = "{gold}Cube 2x {orange}Key of Hate {gold}to get 1x {orange}Key of Destruction\n\n{orange}Key of Destruction {gold}(Hell Nihlathak)\n{orange}Key of Terror {gold}(Hell Countess)\nOpen Mini-Uber portal by cubing in Act 5 with:\nDrops from Hell Summoner\n{orange}"
+        },
+        { -- Rule 87: Key of Destruction
+            code = "pk3",
+            location = "onplayer",
+            prefix = "{gold}Cube 2x {orange}Key of Destruction {gold}to get 1x {orange}Key of Terror\n\n{orange}Key of Hate {gold}(Hell Summoner)\n{orange}Key of Terror {gold}(Hell Countess)\nOpen Mini-Uber portal by cubing in Act 5 with:\nDrops from Hell Nihlathak\n{orange}"
+        },
+        { -- Rule 88: Mephisto's Brain
+            code = "mbr",
+            location = "onplayer",
+            prefix = "{orange}Baal's Eye {gold}(Forgotten Sands: Uber Duriel)\n{orange}Diablo's Horn {gold}(Matron's Den: Lilith)\nOpen Uber Tristram portal by cubing in Act 5 with:\nDrops from Furance of Pain: Uber Izual\n{orange}"
+        },
+        { -- Rule 89: Diablo's Horn
+            code = "dhn",
+            location = "onplayer",
+            prefix = "{orange}Baal's Eye {gold}(Forgotten Sands: Uber Duriel)\n{orange}Mephisto's Brain {gold}(Furance of Pain: Uber Izual)\nOpen Uber Tristram portal by cubing in Act 5 with:\nDrops from Matron's Den: Lilith\n{orange}"
+        },
+        { -- Rule 90: Baal's Eye
+            code = "bey",
+            location = "onplayer",
+            prefix = "{orange}Diablo's Horn {gold}(Matron's Den: Lilith)\n{orange}Mephisto's Brain {gold}(Furance of Pain: Uber Izual)\nOpen Uber Tristram portal by cubing in Act 5 with:\nDrops from Forgotten Sands: Uber Duriel\n{orange}"
+        },
+        { -- Rule 91: Standard of Heroes
+            code = "std",
+            location = "onplayer",
+            prefix = "{gold}Can be sold to vendors to spawn Über Diablo\n"
+        },
+        { -- Rule 92: Amethyst gems
+            codes = "allitems",
+            itype = 96,
+            location = "onplayer",
+            prefix = "{gold}Used in Caster crafting\n"
+        },
+        { -- Rule 93: Diamond gems
+            codes = "allitems",
+            itype = 97,
+            location = "onplayer",
+            prefix = "{gold}Used in Legion crafting\n{white}"
+        },
+        { -- Rule 94: Emerald gems
+            codes = "allitems",
+            itype = 98,
+            location = "onplayer",
+            prefix = "{gold}Used in Safety crafting\n"
+        },
+        { -- Rule 95: Ruby gems
+            codes = "allitems",
+            itype = 99,
+            location = "onplayer",
+            prefix = "{gold}Used in Blood crafting\n"
+        },
+        { -- Rule 96: Sapphire gems
+            codes = "allitems",
+            itype = 100,
+            location = "onplayer",
+            prefix = "{gold}Used in Hit Power crafting\n"
+        },
+        { -- Rule 97: Topaz gems
+            codes = "allitems",
+            itype = 101,
+            location = "onplayer",
+            prefix = "{gold}Used in Disarm crafting\n"
+        },
+        { -- Rule 98: Normal Unique Armor upgrade recipe
+            codes = "allitems",
+            itype = 50,
+            quality = 7,
+            rarity = 0,
+            location = "onplayer",
+            prefix = "{gold}Shael Rune, & Diamond\nCube w/ Tal Rune,\n{orange}Upgrade Recipe:\n{gold}"
+        },
+        { -- Rule 99: Exceptional Unique Armor upgrade recipe
+            codes = "allitems",
+            itype = 50,
+            quality = 7,
+            rarity = 1,
+            location = "onplayer",
+            prefix = "{gold}Lem Rune, & Diamond\nCube w/ Ko Rune,\n{orange}Upgrade Recipe:\n{gold}"
+        },
+        { -- Rule 100: Normal Unique Weapon upgrade recipe
+            codes = NOT { "hst", "hdm", "msf", "g33", "qf1", "qf2", "hfh" },
+            itype = 45,
+            quality = 7,
+            rarity = 0,
+            location = "onplayer",
+            prefix = "{gold}Sol Rune, & Emerald\nCube w/ Ral Rune,\n{orange}Upgrade Recipe:\n{gold}"
+        },
+        { -- Rule 101: Exceptional Unique Weapon upgrade recipe
+            codes = "allitems",
+            itype = 45,
+            quality = 7,
+            rarity = 1,
+            location = "onplayer",
+            prefix = "{gold}Pul Rune, & Emerald\nCube w/ Lum Rune,\n{orange}Upgrade Recipe:\n{gold}"
+        },
+        { -- Rule 102: Socket Remover
+            code = "b64",
+            location = "onplayer",
+            prefix = "{gold}Socket Remover (keeps Runes/Jewels)\nCube 10x together for a Premium\n"
+        },
+        { -- Rule 103: Magic Jewels
+            code = "jew",
+            quality = 4,
+            location = "onplayer",
+            prefix = "{gold}Cube 10x {blue}Magic Jewels {gold}for 1x {yellow}Rare Jewel\n{blue}"
+        },
+        { -- Rule 104: Rainbow Facets
+            code = "jew",
+            quality = 7,
+            location = "onplayer",
+            prefix = "{gold}(30 total; 5x {red}Fire{gold}, 5x {yellow}Lightning{gold}, 5x {blue}Cold{gold}, 5x {green}Poison{gold}, 5x Physical, 5x {orange}Magic{gold})\nCube 5x of each Element for a {yellow}P{blue}r{red}i{green}s{gold}m{yellow}a{blue}t{red}i{green}c {yellow}F{blue}a{red}c{green}e{gold}t\n"
+        },
         -- +-------------------------+
         -- | TESTING                 |
         -- +-------------------------+
-        -- { -- Rule 52: For testing, adds a bunch of info to item
+        -- { -- Rule 105: For testing, adds a bunch of info to item
         --     codes = "allitems",
         --     location = { "onplayer", "equipped", "onground", "dropping" },
         --     suffix = " \n{gray}[Code: {orange}{code}{gray}]\n[Quality: {orange}{quality}{gray}]\n[Rarity: {orange}{rarity}{gray}]"
-        -- }
-
-
+        -- },
 
 -- region String Offloads
 
@@ -393,11 +703,11 @@ return {
         --Certain languages such as Russian, French, etc have lower total characters allowed in their string entries throughout files (best theory available).
         --This helps us trim the excess strings from the game files, while still allowing diverse and helpful descriptions. These entries are considered part of the mod.
 
-        { --Quality of Life Bag Description
-            code = "Z01",
-            location ="onplayer",
-            prefix = "{gray}(Cube Recipes > Quality of Life Bag)\n{white} -More info can be found on our {turquoise}Wiki\n{white}-You can find item {turquoise}removers {white}from {turquoise}Edyrem {white}in each town\n{gray}(Gems, Runes, Keys, Organs, Rare Jewels, Full Rejuvs and Set/Unique items)\n {white}-Many items can be deposited into this bag for various purposes\n{turquoise}Mod Tips:\n\n"
-        },
+        -- { --Quality of Life Bag Description
+        --     code = "Z01",
+        --     location ="onplayer",
+        --     prefix = "{gray}(Cube Recipes > Quality of Life Bag)\n{white} -More info can be found on our {turquoise}Wiki\n{white}-You can find item {turquoise}removers {white}from {turquoise}Edyrem {white}in each town\n{gray}(Gems, Runes, Keys, Organs, Rare Jewels, Full Rejuvs and Set/Unique items)\n {white}-Many items can be deposited into this bag for various purposes\n{turquoise}Mod Tips:\n\n"
+        -- },
         { --Starter Package Description
             code = "y66",
             location = "onplayer",
@@ -1633,7 +1943,7 @@ return {
                 zhTW = "\n{gray}冒險家，你的考驗已經結束，但你的旅程才剛開始...\n{gray}它幾乎讓你忘記了血液的負擔和死亡的惡臭\n{gray}從這個扭曲領域的遙遠角落收集知識賦予了你巨大的力量\n",
             }
         },
-                {
+        {
             codes = { "y01", "y02", "y03", "y04", "y05", "y06", "y07", "y34", "y35", "y36", "y37", "y38", "y39", "y40" },
             location = "onplayer",
             prefix = {
@@ -1653,117 +1963,285 @@ return {
             }
         },
         {
-            code = "rc1d",
+            code = "Z02",
+            name_override = "{purple}Amethyst {gold}Remover"
+        },
+        {
+            code = "Z03",
+            name_override = "{yellow}Topaz {gold}Remover"
+        },
+        {
+            code = "Z04",
+            name_override = "{blue}Sapphire {gold}Remover"
+        },
+        {
+            code = "Z05",
+            name_override = "{green}Emerald {gold}Remover"
+        },
+        {
+            code = "Z06",
+            name_override = "{red}Ruby {gold}Remover"
+        },
+        {
+            code = "Z07",
+            name_override = "{white}Diamond {gold}Remover"
+        },
+        {
+            code = "Z08",
+            name_override = "{gray}Skull {gold}Remover"
+        },
+        {
+            code = "Z02",
+            name_override = "{purple}Amethyst {gold}Remover",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Niedrig {white}->{blue} 1 Mittel)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Basso {white}->{blue} 1 Medio)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Niski {white}->{blue} 1 Średni)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Baixo {white}->{blue} 1 Médio)",
-                ruRU = "{gray}(Куб для изменения типа преобразователя)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}+30 Verteidigung\n{green}Helme/Gürtel: {white}+10 auf Stärke\n{green}Rüstungen/Stiefel: {white}+10 auf Stärke\n{green}Waffen/Handschuhe: {white}+150 auf Angriffswert\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}+30 Defense\n{green}Helms/Belts: {white}+10 to Strength\n{green}Armors/Boots: {white}+10 to Strength\n{green}Weapons/Gloves: {white}+150 to Attack Rating\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}+30 Defensa\n{green}Yelmos/Cinturones: {white}+10 a Fuerza\n{green}Armaduras/Botas: {white}+10 a Fuerza\n{green}Armas/Guantes: {white}+150 a Índice de Ataque\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}+30 Defensa\n{green}Yelmos/Cinturones: {white}+10 a Fuerza\n{green}Armaduras/Botas: {white}+10 a Fuerza\n{green}Armas/Guantes: {white}+150 a Índice de Ataque\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}+30 Défense\n{vert}Casques/Ceintures : {blanc}+10 à la Force\n{vert}Armures/Bottes : {blanc}+10 à la Force\n{vert}Armes/Gants : {blanc}+150 à la valeur d'attaque\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}+30 Difesa\n{verde}Elmi/Cinture: {bianco}+10 alla Forza\n{verde}Armature/Stivali: {bianco}+10 alla Forza\n{verde}Armi/Guanti: {bianco}+150 al Grado di Attacco\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}防御力+30\n{green}兜/ベルト: {white}筋力+10\n{green}鎧/ブーツ: {white}筋力+10\n{green}武器/手袋: {white}攻撃力+150\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브 하나만으로 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}+30 방어력\n{green}헬멧/벨트: {white}+10 근력\n{green}갑옷/부츠: {white}+10 근력\n{green}무기/장갑: {white}+150 공격 등급\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}+30 Obrony\n{zielony}Hełmy/Paski: {biały}+10 do Siły\n{zielony}Zbroje/Buty: {biały}+10 do Siły\n{zielony}Broń/Rękawice: {biały}+150 do Skuteczności Ataku\n{turkusowy}Podgląd Klejnotu:\n\n{biały}(Punkty Klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{verde}Escudos/Joias: {branco}+30 de Defesa\n{verde}Elmos/Cintos: {branco}+10 de Força\n{verde}Armaduras/Botas: {branco}+10 de Força\n{verde}Armas/Luvas: {branco}+150 de Taxa de Ataque\n{turquesa}Prévia da Gema:\n\n{branco}(Pontos de Gema {azul}-1{branco})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}+30 Защиты\n{green}Шлемы/Пояса: {white}+10 к Силе\n{green}Доспехи/Сапоги: {white}+10 к Силе\n{green}Оружие/Перчатки: {white}+150 к Рейтингу Атаки\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}+30 防御\n{green}头盔/腰带：{white}+10 力量\n{green}盔甲/靴子：{white}+10 力量\n{green}武器/手套：{white}+150 攻击值\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}+30 防禦\n{green}頭盔/腰帶：{white}+10 力量\n{green}盔甲/靴子：{white}+10 力量\n{green}/手套：{white}+150 折位攻擊值（nquowise; {blue}-1{white})\n"
             }
         },
         {
-            code = "rc2d",
+            code = "Z03",
+            name_override = "{yellow}Topaz {gold}Remover",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Mittel {white}->{blue} 1 Hoch)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Mid {white}->{blue} 1 Alto)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（2048 Mid {white}->{blue} 1 High）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（2048 Mid {white}->{blue} 1 High）",
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Blitzresistenz +40 %\n{green}Helme/Gürtel: {white}24 %% bessere Chance, magische Gegenstände zu erhalten\n{green}Rüstungen/Stiefel: {white}24 %% bessere Chance, magische Gegenstände zu erhalten\n{green}Waffen/Handschuhe: {white}Fügt 1-40 Blitzschaden hinzu\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Lightning Resist +40%%\n{green}Helms/Belts: {white}24%% Better Chance of Getting Magic Items\n{green}Armors/Boots: {white}24%% Better Chance of Getting Magic Items\n{green}Weapons/Gloves: {white}Adds 1-40 lightning damage\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al rayo +40%%\n{green}Yelmos/Cinturones: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armaduras/Botas: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armas/Guantes: {white}Añade 1-40 de daño por rayo\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al rayo +40%%\n{green}Yelmos/Cinturones: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armaduras/Botas: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armas/Guantes: {white}Añade 1-40 de daño por rayo\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance à la foudre +40 %\n{vert}Casques/Ceintures : {blanc}Chances supplémentaires de 24 % pour obtenir des objets magiques\n{vert}Armures/Bottes : {blanc}Chances supplémentaires de 24 % pour obtenir des objets magiques\n{vert}Armures/Gants : {blanc}Ajoute 1 à 40 points de dégâts de foudre\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza ai fulmini +40%%\n{verde}Elmi/Cinture: {bianco}24%% Maggiore probabilità di ottenere oggetti magici\n{verde}Armature/Stivali: {bianco}24%% Maggiore probabilità di ottenere oggetti magici\n{verde}Armi/Guanti: {bianco}Aggiunge 1-40 danni da fulmine\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}雷耐性 +40%%\n{green}兜/ベルト: {white}魔法のアイテム入手確率 24%% 上昇\n{green}鎧/ブーツ: {white}魔法のアイテム入手確率 24%% 上昇\n{green}武器/手袋: {white}1～40 の雷ダメージを追加\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}번개 저항력 +40%%\n{green}헬멧/벨트: {white}마법 아이템을 얻을 확률 24%% 증가\n{green}갑옷/부츠: {white}마법 아이템을 얻을 확률 24%% 증가\n{green}무기/장갑: {white}번개 피해 1~40 추가\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na pioruny +40%%\n{zielony}Hełmy/Paski: {biały}24%% większa szansa na zdobycie magicznych przedmiotów\n{zielony}Zbroje/Buty: {biały}24%% większa szansa na zdobycie magicznych przedmiotów\n{zielony}Broń/Rękawice: {biały}Dodaje 1-40 obrażeń od piorunów\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência a Raios +40%%\n{green}Elmos/Cintos: {white}24%% Mais Chance de Obter Itens Mágicos\n{green}Armaduras/Botas: {white}24%% Mais Chance de Obter Itens Mágicos\n{green}Armas/Luvas: {white}Adiciona 1-40 de dano de raio\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление молнии +40%%\n{green}Шлемы/Пояса: {white}На 24%% больше шанс получить магические предметы\n{green}Доспехи/Сапоги: {white}На 24%% больше шанс получить магические предметы\n{green}Оружие/Перчатки: {white}Добавляет от 1 до 40 урона от молнии\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}抗雷 +40%%\n{green}头盔/腰带：{white}获得魔法物品的几率增加 24%\n{green}盔甲/靴子：{white}获得魔法物品的几率增加 24%\n{green}武器/手套：{white}增加 1-40 点雷电伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}抗雷 +40%%\n{green}頭盔/腰帶：{white}獲得魔法物品的幾率增加 24%\n{green}盔甲/靴子：{white}獲得魔法物品的幾率增加 24%\n{green}盔甲/靴子：{white}獲得魔法物品的幾率增加 24%{greenhm}/Sm{pite}點雷電傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
             }
         },
         {
-            code = "rc3d",
+            code = "Z04",
+            name_override = "{blue}Sapphire {gold}Remover",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Hoch {white}->{blue} 1 Ultra)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Alto {white}->{blue} 1 Ultra)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                koKR = "{gray}(변환기 유형을 변경하기 위한 큐브)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Kälteresistenz +40%%\n{green}Helme/Gürtel: {white}+38 auf Mana\n{green}Rüstungen/Stiefel: {white}+38 auf Mana\n{green}Waffen/Handschuhe: {white}Fügt 10-14 Kälteschaden hinzu\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Cold Resist +40%%\n{green}Helms/Belts: {white}+38 to Mana\n{green}Armors/Boots: {white}+38 to Mana\n{green}Weapons/Gloves: {white}Adds 10-14 cold damage\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Resistencia al frío +40%\n{green} Cascos/Cinturones: {white} +38 al maná\n{green} Armaduras/Botas: {white} +38 al maná\n{green} Armas/Guantes: {white} Agrega 10-14 de daño por frío\n{turquoise} Vista previa de gema:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Resistencia al frío +40%\n{green} Cascos/Cinturones: {white} +38 al maná\n{green} Armaduras/Botas: {white} +38 al maná\n{green} Armas/Guantes: {white} Agrega 10-14 de daño por frío\n{turquoise} Vista previa de gema:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance au froid +40 %\n{vert}Casques/Ceintures : {blanc}+38 au mana\n{vert}Armures/Bottes : {blanc}+38 au mana\n{vert}Armes/Gants : {blanc}Ajoute 10 à 14 dégâts de froid\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza al freddo +40%%\n{verde}Elmi/Cinture: {bianco}+38 al Mana\n{verde}Armature/Stivali: {bianco}+38 al Mana\n{verde}Armi/Guanti: {bianco}Aggiunge 10-14 danni da freddo\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}シールド/ジュエリー: {white}冷気耐性 +40%%\n{green}ヘルム/ベルト: {white}マナ +38\n{green}アーマー/ブーツ: {white}マナ +38\n{green}武器/グローブ: {white}冷気ダメージを 10～14 追加\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}냉기 저항력 +40%%\n{green}헬멧/벨트: {white}마나 +38\n{green}갑옷/부츠: {white}마나 +38\n{green}무기/장갑: {white}냉기 피해 10-14 추가\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na zimno +40%%\n{zielony}Hełmy/Paski: {biały}+38 do many\n{zielony}Zbroje/Buty: {biały}+38 do many\n{zielony}Broń/Rękawice: {biały}Dodaje 10-14 obrażeń od zimna\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência ao Frio +40%%\n{green}Elmos/Cintos: {white}+38 de Mana\n{green}Armaduras/Botas: {white}+38 de Mana\n{green}Armas/Luvas: {white}Adiciona 10-14 de dano de frio\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление холоду +40%%\n{green}Шлемы/Пояса: {white}+38 к мане\n{green}Доспехи/Сапоги: {white}+38 к мане\n{green}Оружие/Перчатки: {white}Добавляет 10-14 урона от холода\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}抗寒能力 +40%%\n{green}头盔/腰带：{white}+38 法力\n{green}盔甲/靴子：{white}+38 法力\n{green}武器/手套：{white}增加 10-14 点寒冷伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可改為下一種移除類型\n\n{green}盾牌/珠寶：{white}抗寒能力 +40%%\n{green}頭盔/腰帶：{white}+38 法力\n{green}盔甲/靴子：{white}+38 法力\n{green}武器/手套：{white}點冷傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
             }
         },
         {
-            code = "rc4d",
+            code = "Z05",
+            name_override = "{green}Emerald {gold}Remover",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Mittel {white}->{blue} 2048 Niedrig)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Medium {white}->{blue} 2048 Low)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Medio {white}->{blue} 2048 Basso)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Moyen {white}->{blue} 2048 Faible)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 中 {white}->{blue} 2048 低)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(1 중간 {white}->{blue} 2048 낮음)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Średni {white}->{blue} 2048 Niski)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Médio {white}->{blue} 2048 Baixo)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Средний {white}->{blue} 2048 Низкий)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 中 {white}->{blue} 2048 低）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 中 {white}->{blue} 2048 低）",
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Giftresistenz +40 %\n{green}Helme/Gürtel: {white}+10 auf Geschicklichkeit\n{green}Rüstungen/Stiefel: {white}+10 auf Geschicklichkeit\n{green}Waffen/Handschuhe: {white}+100 Giftschaden über 7 Sekunden\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Poison Resist +40%%\n{green}Helms/Belts: {white}+10 to Dexterity\n{green}Armors/Boots: {white}+10 to Dexterity\n{green}Weapons/Gloves: {white}+100 poison damage over 7 seconds\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al veneno +40%%\n{green}Yelmos/Cinturones: {white}+10 a Destreza\n{green}Armaduras/Botas: {white}+10 a Destreza\n{green}Armas/Guantes: {white}+100 de daño por veneno durante 7 segundos\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al veneno +40%%\n{green}Yelmos/Cinturones: {white}+10 a Destreza\n{green}Armaduras/Botas: {white}+10 a Destreza\n{green}Armas/Guantes: {white}+100 de daño por veneno durante 7 segundos\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance au poison +40 %\n{vert}Casques/Ceintures : {blanc}+10 à la dextérité\n{vert}Armures/Bottes : {blanc}+10 à la dextérité\n{vert}Armes/Gants : {blanc}+100 dégâts de poison en 7 secondes\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza al veleno +40%%\n{verde}Elmi/Cinture: {bianco}+10 alla Destrezza\n{verde}Armature/Stivali: {bianco}+10 alla Destrezza\n{verde}Armi/Guanti: {bianco}+100 danni da veleno in 7 secondi\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}毒耐性 +40%%\n{green}兜/ベルト: {white}器用さ +10\n{green}鎧/ブーツ: {white}器用さ +10\n{green}武器/手袋: {white}7秒間の毒ダメージ +100\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}독 저항력 +40%%\n{green}헬멧/벨트: {white}민첩성 +10\n{green}갑옷/부츠: {white}민첩성 +10\n{green}무기/장갑: {white}7초 동안 독 피해 +100\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na truciznę +40%%\n{zielony}Hełmy/Paski: {biały}+10 do Zręczności\n{zielony}Zbroje/Buty: {biały}+10 do Zręczności\n{zielony}Broń/Rękawice: {biały}+100 obrażeń od trucizny w ciągu 7 sekund\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência a Veneno +40%%\n{green}Elmos/Cintos: {white}+10 de Destreza\n{green}Armaduras/Botas: {white}+10 de Destreza\n{green}Armas/Luvas: {white}+100 de dano de veneno ao longo de 7 segundos\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление яду +40%%\n{green}Шлемы/Пояса: {white}+10 к ловкости\n{green}Доспехи/Сапоги: {white}+10 к ловкости\n{green}Оружие/Перчатки: {white}+100 к урону от яда в течение 7 секунд\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种去除剂类型\n\n{green}盾牌/珠宝：{white}抗毒 +40%%\n{green}头盔/腰带：{white}+10 敏捷\n{green}盔甲/靴子：{white}+10 敏捷\n{green}武器/手套：{white}+100 毒性伤害，持续 7 秒\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可改為下一種去除劑類型\n\n{green}盾牌/珠寶：{white}抗毒 +40%%\n{green}頭盔/腰帶：{white}+10 盾牌\n{green}盔甲/靴子：{white}+10 敏捷\n{green}武器/敏捷\n{green}盔甲/靴子：{white}+10 敏捷\n{green}武器/敏捷：{white+107秒\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
             }
         },
         {
-            code = "rc5d",
+            code = "Z06",
+            name_override = "{red}Ruby {gold}Remover",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Hoch {white}->{blue} 2048 Mittel)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(1 High {white}->{blue} 2048 Medium)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Alto {white}->{blue} 2048 Medio)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Élevé {white}->{blue} 2048 Moyen)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 High {white}->{blue} 2048 Medium)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(1 높음 {white}->{blue} 2048 중간)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Wysoka {white}->{blue} 2048 Średnia)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Alto {white}->{blue} 2048 Médio)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Высокий {white}->{blue} 2048 Средний)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 高 {white}->{blue} 2048 中）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 高 {white}->{blue} 2048 中）",
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Feuerresistenz +40%%\n{green}Helme/Gürtel: {white}+38 zum Leben\n{green}Rüstungen/Stiefel: {white}+38 zum Leben\n{green}Waffen/Handschuhe: {white}Fügt 15-20 Feuerschaden hinzu\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Fire Resist +40%%\n{green}Helms/Belts: {white}+38 to Life\n{green}Armors/Boots: {white}+38 to Life\n{green}Weapons/Gloves: {white}Adds 15-20 fire damage\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan}Usa el cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al fuego +40%\n{green}Yelmos/Cinturones: {white}+38 a la vida\n{green}Armaduras/Botas: {white}+38 a la vida\n{green}Armas/Guantes: {white}Añade 15-20 de daño por fuego\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan}Usa el cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al fuego +40%\n{green}Yelmos/Cinturones: {white}+38 a la vida\n{green}Armaduras/Botas: {white}+38 a la vida\n{green}Armas/Guantes: {white}Añade 15-20 de daño por fuego\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance au feu +40 %\n{vert}Casques/Ceintures : {blanc}+38 à la vie\n{vert}Armures/Bottes : {blanc}+38 à la vie\n{vert}Armes/Gants : {blanc}Ajoute 15 à 20 points de dégâts de feu\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza al fuoco +40%%\n{verde}Elmi/Cinture: {bianco}+38 alla vita\n{verde}Armature/Stivali: {bianco}+38 alla vita\n{verde}Armi/Guanti: {bianco}Aggiunge 15-20 danni da fuoco\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}火炎耐性 +40%%\n{green}兜/ベルト: {white}ライフ +38\n{green}鎧/ブーツ: {white}ライフ +38\n{green}武器/手袋: {white}火炎ダメージを 15～20 追加\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}화염 저항력 +40%%\n{green}헬멧/벨트: {white}생명력 +38\n{green}갑옷/부츠: {white}생명력 +38\n{green}무기/장갑: {white}화염 피해 15-20 추가\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na ogień +40%%\n{zielony}Hełmy/Paski: {biały}+38 do Życia\n{zielony}Zbroje/Buty: {biały}+38 do Życia\n{zielony}Broń/Rękawice: {biały}Dodaje 15-20 obrażeń od ognia\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência ao Fogo +40%%\n{green}Elmos/Cintos: {white}+38 de Vida\n{green}Armaduras/Botas: {white}+38 de Vida\n{green}Armas/Luvas: {white}Adiciona 15-20 de dano de fogo\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление огню +40%%\n{green}Шлемы/Пояса: {white}+38 к Жизни\n{green}Доспехи/Сапоги: {white}+38 к Жизни\n{green}Оружие/Перчатки: {white}Добавляет 15-20 урона от огня\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}防火 +40%%\n{green}头盔/腰带：{white}+38 生命\n{green}盔甲/靴子：{white}+38 生命\n{green}武器/手套：{white}增加 15-20 火焰伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}防火 +40%%\n{green}頭盔/腰帶：{white}+38 生命\n{green}盔甲/靴子：{white}+38 生命\n{green}武器/手套：{white}增加 15hite}火焰傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
             }
         },
         {
-            code = "rc6d",
+            code = "Z07",
+            name_override = "{white}Diamond {gold}Remover",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Ultra {white}->{blue} 2048 Hoch)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                koKR = "{gray}(변환기 유형 변경용 큐브)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 Ultra {white}->{blue} 2048 High）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 Ultra {white}->{blue} 2048 High）",
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Alle Widerstände +19 %%\n{green}Helme/Gürtel: {white}+100 auf Angriffswert\n{green}Rüstungen/Stiefel: {white}+100 auf Angriffswert\n{green}Waffen/Handschuhe: {white}+68 %% Schaden an Untoten\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}All Resistances +19%%\n{green}Helms/Belts: {white}+100 to Attack Rating\n{green}Armors/Boots: {white}+100 to Attack Rating\n{green}Weapons/Gloves: {white}+68%% Damage to Undead\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Todas las resistencias +19%%\n{green} Cascos/Cinturones: {white} +100 al índice de ataque\n{green} Armaduras/Botas: {white} +100 al índice de ataque\n{green} Armas/Guantes: {white} +68%% Daño a no muertos\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Todas las resistencias +19%%\n{green} Cascos/Cinturones: {white} +100 al índice de ataque\n{green} Armaduras/Botas: {white} +100 al índice de ataque\n{green} Armas/Guantes: {white} +68%% Daño a no muertos\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Toutes les résistances +19 %\n{vert}Casques/Ceintures : {blanc}+100 au taux d'attaque\n{vert}Armures/Bottes : {blanc}+100 au taux d'attaque\n{vert}Armures/Gants : {blanc}+68 % de dégâts aux morts-vivants\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Tutte le resistenze +19%%\n{verde}Elmi/Cinture: {bianco}+100 al punteggio di attacco\n{verde}Armature/Stivali: {bianco}+100 al punteggio di attacco\n{verde}Armi/Guanti: {bianco}+68%% danni ai non morti\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブだけで次の除去タイプに変更\n\n{green}シールド/ジュエリー: {white}全耐性 +19%%\n{green}ヘルム/ベルト: {white}攻撃力 +100\n{green}アーマー/ブーツ: {white}攻撃力 +100\n{green}武器/グローブ: {white}アンデッドへのダメージ +68%%\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}모든 저항력 +19%%\n{green}헬멧/벨트: {white}공격 등급 +100\n{green}갑옷/부츠: {white}공격 등급 +100\n{green}무기/장갑: {white}언데드에게 +68%% 데미지\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Wszystkie odporności +19%%\n{zielony}Hełmy/Paski: {biały}+100 do współczynnika ataku\n{zielony}Zbroje/Buty: {biały}+100 do współczynnika ataku\n{zielony}Broń/Rękawice: {biały}+68%% obrażeń zadanych nieumarłym\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Todas as Resistências +19%%\n{green}Elmos/Cintos: {white}+100 na Classificação de Ataque\n{green}Armaduras/Botas: {white}+100 na Classificação de Ataque\n{green}Armas/Luvas: {white}+68%% de Dano a Mortos-Vivos\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Все сопротивления +19%%\n{green}Шлемы/Пояса: {white}+100 к рейтингу атаки\n{green}Доспехи/Сапоги: {white}+100 к рейтингу атаки\n{green}Оружие/Перчатки: {white}+68%% урона по нежити\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}所有抗性 +19%%\n{green}头盔/腰带：{white}+100 攻击等级\n{green}盔甲/靴子：{white}+100 攻击等级\n{green}武器/手套：{white}+68%% 对亡灵造成的伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}所有抗性 +19%%\n{green}頭盔/腰帶：{white}+100 攻擊等級\n{green}盔甲/靴子：{white}+100 攻擊等級\n{green}武器/手套：{wite對亡靈造成的傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z08",
+            name_override = "{gray}Skull {gold}Remover",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Angreifer erleidet Schaden von 20\n{green}Helme/Gürtel: {white}Mana regenerieren 19%%, Leben auffüllen +5\n{green}Rüstungen/Stiefel: {white}Mana regenerieren 19%%, Leben auffüllen +5\n{green}Waffen/Handschuhe: {white}4%% Leben pro Treffer gestohlen, 3%% Mana pro Treffer gestohlen\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Attacker Takes Damage of 20\n{green}Helms/Belts: {white}Regenerate Mana 19%%, Replenish Life +5\n{green}Armors/Boots: {white}Regenerate Mana 19%%, Replenish Life +5\n{green}Weapons/Gloves: {white}4%% Life stolen per hit, 3%% Mana stolen per hit\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} El atacante recibe 20 de daño\n{green} Cascos/Cinturones: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armaduras/Botas: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armas/Guantes: {white} 4%% de vida robada por golpe, 3%% de maná robado por golpe\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} El atacante recibe 20 de daño\n{green} Cascos/Cinturones: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armaduras/Botas: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armas/Guantes: {white} 4%% de vida robada por golpe, 3%% de maná robado por golpe\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}L'attaquant subit des dégâts de 20\n{vert}Casques/Ceintures : {blanc}Régénération de mana de 19 %, Régénération de vie +5\n{vert}Armures/Bottes : {blanc}Régénération de mana de 19 %, Régénération de vie +5\n{vert}Armures/Gants : {blanc}4 % de vie volée par coup, 3 % de mana volé par coup\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}L'attaccante subisce danni pari a 20\n{verde}Elmi/Cinture: {bianco}Rigenera Mana 19%%, Ripristina Vita +5\n{verde}Armature/Stivali: {bianco}Rigenera Mana 19%%, Ripristina Vita +5\n{verde}Armi/Guanti: {bianco}4%% Vita rubata per colpo, 3%% Mana rubato per colpo\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}シールド/ジュエリー: {white}攻撃者が20のダメージを受ける\n{green}ヘルム/ベルト: {white}マナ回復 19%%、ライフ回復 +5\n{green}アーマー/ブーツ: {white}マナ回復 19%%、ライフ回復 +5\n{green}武器/グローブ: {white}ヒットごとにライフが4%%、マナが3%%奪われる\n{turquoise}ジェムプレビュー:\n\n{white}(ジェムポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}공격자가 20의 피해를 입습니다\n{green}헬멧/벨트: {white}마나 19%% 재생, 생명력 +5 회복\n{green}갑옷/부츠: {white}마나 19%% 재생, 생명력 +5 회복\n{green}무기/장갑: {white}타격 시 생명력 4%% 훔침, 타격 시 마나 3%% 훔침\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Atakujący otrzymuje obrażenia 20\n{zielony}Hełmy/Paski: {biały}Regenerują manę 19%%, Uzupełniają życie +5\n{zielony}Zbroje/Buty: {biały}Regenerują manę 19%%, Uzupełniają życie +5\n{zielony}Broń/Rękawice: {biały}4%% skradzionego życia na trafienie, 3%% skradzionej many na trafienie\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}O atacante recebe 20 de dano\n{green}Elmos/Cintos: {white}Regenera Mana 19%%, Repõe Vida +5\n{green}Armaduras/Botas: {white}Regenera Mana 19%%, Repõe Vida +5\n{green}Armas/Luvas: {white}4%% de Vida roubada por acerto, 3%% de Mana roubada por acerto\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены типа ремувера\n\n{green}Щиты/Украшения: {white}Атакующий получает урон 20\n{green}Шлемы/Пояса: {white}Регенерация маны 19%%, восстановление жизни +5\n{green}Доспехи/Сапоги: {white}Регенерация маны 19%%, восстановление жизни +5\n{green}Оружие/Перчатки: {white}4%% кражи жизни за удар, 3%% кражи маны за удар\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}攻击者受到 20 点伤害\n{green}头盔/腰带：{white}法力再生 19%%，生命补充 +5\n{green}盔甲/靴子：{white}法力再生 19%%，生命补充 +5\n{green}武器/手套：{white}每次攻击窃取 4%% 生命，每次攻击窃取 3%% 法力\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}攻擊者受到 20 點傷害\n{green}頭盔/腰帶：{white}法力再生 19%%，生命補充 +5\n{green}盔甲/靴子：{white}法力再生 19%%，生命補充 +5\n{green}護甲/靴子：{white}法力再生 19%%，每次補生命，每次攻擊竊取 3%% 法力\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z48",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Niedrig {white}->{blue} 1 Mittel)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Basso {white}->{blue} 1 Medio)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Niski {white}->{blue} 1 Średni)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Baixo {white}->{blue} 1 Médio)\n",
+                ruRU = "{gray}(Куб для изменения типа преобразователя)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+            }
+        },
+        {
+            code = "Z49",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Mittel {white}->{blue} 1 Hoch)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Mid {white}->{blue} 1 Alto)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（2048 Mid {white}->{blue} 1 High\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（2048 Mid {white}->{blue} 1 High\n",
+            }
+        },
+        {
+            code = "Z50",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Hoch {white}->{blue} 1 Ultra)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Alto {white}->{blue} 1 Ultra)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                koKR = "{gray}(변환기 유형을 변경하기 위한 큐브)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+            }
+        },
+        {
+            code = "Z51",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Mittel {white}->{blue} 2048 Niedrig)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Medium {white}->{blue} 2048 Low)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Medio {white}->{blue} 2048 Basso)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Moyen {white}->{blue} 2048 Faible)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 中 {white}->{blue} 2048 低)\n",
+                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(1 중간 {white}->{blue} 2048 낮음)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Średni {white}->{blue} 2048 Niski)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Médio {white}->{blue} 2048 Baixo)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Средний {white}->{blue} 2048 Низкий)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 中 {white}->{blue} 2048 低\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 中 {white}->{blue} 2048 低\n",
+            }
+        },
+        {
+            code = "z80",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Hoch {white}->{blue} 2048 Mittel)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(1 High {white}->{blue} 2048 Medium)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Alto {white}->{blue} 2048 Medio)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Élevé {white}->{blue} 2048 Moyen)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 High {white}->{blue} 2048 Medium)\n",
+                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(1 높음 {white}->{blue} 2048 중간)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Wysoka {white}->{blue} 2048 Średnia)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Alto {white}->{blue} 2048 Médio)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Высокий {white}->{blue} 2048 Средний)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 高 {white}->{blue} 2048 中\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 高 {white}->{blue} 2048 中\n",
+            }
+        },
+        {
+            code = "z81",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Ultra {white}->{blue} 2048 Hoch)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                koKR = "{gray}(변환기 유형 변경용 큐브)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 Ultra {white}->{blue} 2048 High\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 Ultra {white}->{blue} 2048 High\n",
             }
         },
         {
@@ -4598,8 +5076,6 @@ return {
             }
         },
 
-        -- endregion
-
-
+-- endregion
     }
 }
