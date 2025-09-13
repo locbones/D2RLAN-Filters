@@ -1,4 +1,4 @@
---- Filter Title: Lazyelr v1.2bbb
+--- Filter Title: Lazyelr v1.2aa
 --- Filter Type: Cow Farming / General Filter
 --- Filter Description: A Filter with a large focus on farming hell cows for bases. Will work for general play also, but is less strict in rulings regarding non-base-farming than other filters may be
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Lazyelr.lua
