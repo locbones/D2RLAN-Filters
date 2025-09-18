@@ -1,12 +1,12 @@
 --- Filter Title:Charsi's Special
 --- Filter Type: 4 levels, cosmetic styles for loot, tips on various items
---- Filter Description:To cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher!\nLevel 1: Basic -- Level 2: Basic + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) CONTAIN SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (read reload message while cycling through fiter levels).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at level 'Lite' and aggressive for bases at level 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNOT A SINGLE HIDE WORKS INSIDE ANY TOWN!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides any non-superior bases.\nZero or max open socket bases only, anything in between is hidden.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 700 (Lite) and 900 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event Boxes.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nDisplays some tutorial info on various items that I felt was missing from those.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
+--- Filter Description:To cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher!\nLevel 1: Basic -- Level 2: Basic + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) CONTAIN SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (read reload message while cycling through fiter levels).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at level 'Lite' and aggressive for bases at level 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNOT A SINGLE HIDE WORKS INSIDE ANY TOWN!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides any non-superior bases.\nZero or max open socket bases only, anything in between is hidden.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 500 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event Boxes.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nDisplays some tutorial info on various items that I felt was missing from those.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.0) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.1) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      				BASES
@@ -621,7 +621,7 @@ allowOverrides = true,
 
 		{ -- Hide gold drops unter 900 for clvl above 80 Aggressive
 			code = "gld",
-            stat = {index = 14, op = "<=", value=899}, 
+            stat = {index = 14, op = "<=", value=799}, 
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			pstat = {index = 12, op = ">=", value = 80},
@@ -630,7 +630,7 @@ allowOverrides = true,
         },
 		{ -- Hide gold drops unter 700 for clvl above 80 Lite
 			code = "gld",
-            stat = {index = 14, op = "<=", value=699}, 
+            stat = {index = 14, op = "<=", value=499}, 
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			pstat = {index = 12, op = ">=", value = 80},
@@ -819,13 +819,13 @@ allowOverrides = true,
             itype = { 45, 50 },
             prefix = "ⅳ "
         },
-		{code = "Z02",name_override="{purple}Amethyst {gold}Remover"}, --Onground display for Amethyst Remover
-        {code = "Z03",name_override="{yellow}Topaz {gold}Remover"}, --Onground display for Topaz Remover
-        {code = "Z04",name_override="{blue}Sapphire {gold}Remover"}, --Onground display for Sapphire Remover
-        {code = "Z05", name_override="{green}Emerald {gold}Remover"}, --Onground display for Emerald Remover
-        {code = "Z06",name_override="{red}Ruby {gold}Remover"}, --Onground display for Ruby Remover
-        {code = "Z07",name_override="{white}Diamond {gold}Remover"}, --Onground display for Diamond Remover
-        {code = "Z08",name_override="{gray}Skull {gold}Remover"}, --Onground display for Skull Remover
+		{code="Z02",name_override="{purple}Amethyst {gold}Remover"}, --Onground display for Amethyst Remover
+        {code="Z03",name_override="{yellow}Topaz {gold}Remover"}, --Onground display for Topaz Remover
+        {code="Z04",name_override="{blue}Sapphire {gold}Remover"}, --Onground display for Sapphire Remover
+        {code="Z05",name_override="{green}Emerald {gold}Remover"}, --Onground display for Emerald Remover
+        {code="Z06",name_override="{red}Ruby {gold}Remover"}, --Onground display for Ruby Remover
+        {code="Z07",name_override="{white}Diamond {gold}Remover"}, --Onground display for Diamond Remover
+        {code="Z08",name_override="{gray}Skull {gold}Remover"}, --Onground display for Skull Remover
 		
 			
 					--                                                                           Display very good superior rolls
