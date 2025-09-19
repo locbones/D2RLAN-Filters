@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.01
+--- Filter Title: Zexylol's Hardfilter v1.02
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nIf you like seeing loot alot of loot, DO NOT USE THIS FILTER. \nYou will see Set, Unique, rare(amu/ring/jewels), Magic (Charms). \nAs for bases..... ONLY PERFECT ROLLED SUPERIORS.... \nMight be some items ive missed to hide or add to notify.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -9,6 +9,18 @@ return {
 	filter_titles = {"1", "2", "3",},
 	allowOverrides = true,
 	rules = {
+		--Rule Debugg.
+		{
+			--codes = "allitems",
+			--location = {"onground", "onplayer"},
+			--prefix = " [{index}]",
+			--prefix = " [{code}] [{rarity}]",
+			--suffix = " [{quality}]",
+			--suffix = " [{rarity}]",
+			--suffix = " [{index}]",
+			--suffix = "[{ilvl}]",
+			--filter_levels = "1,2,3"
+		},
 --[[				Rule 1-9 shows sockets, runewords, tempered, crafted, low/mid/hi/ultra runes, tempering souls.
 ]]--	
 
@@ -707,7 +719,7 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed Attribute!",	
+			suffix = "\n {red} Attribute!",	
 			filter_levels = "1,2,3"			
 		},
 		
@@ -722,7 +734,22 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed All Res!",		
+			suffix = "\n {red} All Res!",		
+			filter_levels = "1,2,3"
+		},
+
+		{
+			codes = { "Bp4", "Bp5"},
+			quality = "3",
+			runeword = false,
+			location = "onground",
+			stat = {
+			{ index = 39, op = "==", value = 25 }, --MAX FIRE RESS = MAX ALL RES!
+					},
+			border = { 255, 128, 0, 230 },
+			--notify = "Maxed Superior!",
+			--name_style = "Rainbow",
+			suffix = "\n {red} All Res!",		
 			filter_levels = "1,2,3"
 		},
 
@@ -737,7 +764,7 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed Max res!",		
+			suffix = "\n {red} Max res!",		
 			filter_levels = "1,2,3"
 		},		
 		
@@ -752,7 +779,22 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed CB/AR!",		
+			suffix = "\n {red} CB/AR!",		
+			filter_levels = "1,2,3"
+		},
+
+		{
+			code = { "Bm7", "Bm9"},
+			quality = "3",
+			runeword = false,
+			location = "onground",
+			stat = {
+			{ index = 136, op = "==", value = 30 }, --MAX CRUSHING BLOW!
+					},
+			border = { 255, 128, 0, 230 },
+			--notify = "Maxed Superior!",
+			--name_style = "Rainbow",
+			suffix = "\n {red} CB/AR!",		
 			filter_levels = "1,2,3"
 		},
 		
@@ -767,7 +809,7 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed Run Speed!",		
+			suffix = "\n {red} Run Speed!",		
 			filter_levels = "1,2,3"
 		},
 		
@@ -783,7 +825,7 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed -res/immun!",		
+			suffix = "\n {red} -Res/Immune!",		
 			filter_levels = "1,2,3"
 		},	
 		
@@ -799,7 +841,7 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed atkspd/fcr!",		
+			suffix = "\n {red} Atkspd/FCR!",		
 			filter_levels = "1,2,3"
 		},	
 		
@@ -818,7 +860,7 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed exp/life/mana!",		
+			suffix = "\n {red} Exp/Life/Mana!",		
 			filter_levels = "1,2,3"
 		},		
 		-- Rule 51,
@@ -834,7 +876,7 @@ return {
 			border = { 255, 128, 0, 230 },
 			--notify = "Maxed Superior!",
 			--name_style = "Rainbow",
-			suffix = "\n {red} Maxed cd/buff!",	
+			suffix = "\n {red} CD/Buff!",	
 			filter_levels = "1,2,3"
 		},
 		-- Rule 52, Hides Supperior items by checking between the stats.
@@ -863,6 +905,7 @@ return {
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			filter_levels = "2,3"
 		},
+
 		-- Rule 53, Shows Indestructible Superior items.
 		{
 			codes = "allitems",
@@ -935,18 +978,7 @@ return {
 			hide = true,
 			filter_levels = "2,3"
 		},
-		--Rule Debugg.
-		{
-			--codes = "allitems",
-			--location = {"onground", "onplayer"},
-			--prefix = " [{index}]",
-			--prefix = " [{code}] [{rarity}]",
-			--suffix = " [{quality}]",
-			--suffix = " [{rarity}]",
-			--suffix = " [{index}]",
-			--suffix = "[{ilvl}]",
-			--filter_levels = "1,2,3"
-		},
+
 		
         { --Display item levels for weapons, armors, charms, jewels, rings and amulets in white, to the right of item name, (x)
             codes = "allitems",
@@ -970,7 +1002,6 @@ return {
             itype = { 45, 50 },
             ilvl = "103+",
             suffix = " {tan}ⅳ",
-			notify = "{link}",
 			filter_levels = "1,2,3"
         },
         { --Display gold values normally, without ilvls
