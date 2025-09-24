@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.14
+--- Filter Title: WolfieeifloW's Filter v1.15
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -22,8 +22,9 @@
 -- - Filter more Base items that are 'bad' bases
 
 return {
-    reload = "WolfieeifloW's Filter v1.14: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.15: {green}reloaded",
     allowOverrides = true,
+    -- debug = true,
     rules = {
         -- +-------------------------+
         -- | GOLD                    |
@@ -1115,7 +1116,7 @@ return {
             hide = true
         },
         { -- Rule 151: Hides bases that don't roll their maximum of 3 sockets at Character Level 80+
-            codes = "allitems",
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             quality = "3-",
             sockets = "1, 2",
             maxsock = "3",
@@ -1126,7 +1127,7 @@ return {
             hide = true
         },
         { -- Rule 152: Hides bases that don't roll their maximum of 4 sockets at Character Level 80+
-            codes = "allitems",
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             quality = "3-",
             sockets = "1, 2, 3",
             maxsock = "4",
@@ -1137,7 +1138,7 @@ return {
             hide = true
         },
         { -- Rule 153: Hides bases that don't roll their maximum of 5 sockets at Character Level 80+
-            codes = "allitems",
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             quality = "3-",
             sockets = "1, 2, 3, 4",
             maxsock = "5",
@@ -1148,7 +1149,7 @@ return {
             hide = true
         },
         { -- Rule 154: Hides bases that don't roll their maximum of 6 sockets at Character Level 80+
-            codes = "allitems",
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             quality = "3-",
             sockets = "1, 2, 3, 4, 5",
             maxsock = "6",
