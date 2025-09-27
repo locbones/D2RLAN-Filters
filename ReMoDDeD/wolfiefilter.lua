@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.15
+--- Filter Title: WolfieeifloW's Filter v1.16
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -15,14 +15,9 @@
 --
 -- All items are only hidden OUTSIDE of towns.
 -- All items will be shown in towns for muling and other purposes.
---
--- TODO:
--- - Add "+3 Passive And Magic OR +3 Javelin And Spear Skills" rule to filter out non-+3 Javs at higher CLVL
--- - Filter more Magic items that are 'bad' bases
--- - Filter more Base items that are 'bad' bases
 
 return {
-    reload = "WolfieeifloW's Filter v1.15: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.16: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
@@ -111,9 +106,8 @@ return {
         },
         { -- Rule 14: Fixing Storage Bag helper info
             code = "Z01",
-            prefix = "",
-            prefix_desc = "{purple}------------------\nÿcU(Cube with item to store it)\n",
-            location = "onplayer"
+            location = "onplayer",
+            prefix_desc = "{purple}------------------\n{pink}(Cube with item to store it)\n",
         },
         { -- Rule 15: Reminder to pick up Starter's Cube of Endless Convenience so it doesn't get left behind
             code = "y66",
@@ -1439,13 +1433,13 @@ return {
             code = "jew",
             quality = 4,
             location = "onplayer",
-            prefix_desc = "{gold}Cube 10x {blue}Magic Jewels {gold}for 1x {yellow}Rare Jewel\n{blue}"
+            prefix_desc = "{purple}------------------\n{gold}ID Scroll for 1x {yellow}R{blue}a{red}i{green}n{gold}b{yellow}o{blue}w {red}F{green}a{gold}c{yellow}e{blue}t{gold}\nCube with Storage Bag (30 Rare Jewels) +\nCube 10x {blue}Magic Jewels {gold}for 1x {yellow}Rare Jewel\n{blue}"
         },
         { -- Rule 207: Rainbow Facets
             code = "jew",
             quality = 7,
             location = "onplayer",
-            prefix_desc = "{gold}(30 total; 5x {red}Fire{gold}, 5x {yellow}Lightning{gold}, 5x {blue}Cold{gold}, 5x {green}Poison{gold}, 5x Physical, 5x {orange}Magic{gold})\nCube 5x of each Element for a {yellow}P{blue}r{red}i{green}s{gold}m{yellow}a{blue}t{red}i{green}c {yellow}F{blue}a{red}c{green}e{gold}t\n"
+            prefix_desc = "{purple}------------------\n{gold}(30 total; 5x {red}Fire{gold}, 5x {yellow}Lightning{gold}, 5x {blue}Cold{gold}, 5x {green}Poison{gold}, 5x Physical, 5x {orange}Magic{gold})\nCube 5x of each Element for a {yellow}P{blue}r{red}i{green}s{gold}m{yellow}a{blue}t{red}i{green}c {yellow}F{blue}a{red}c{green}e{gold}t\n"
         },
         { -- Rule 208: Enhancement Crystals warning their only usable on Weapons/Armors
             codes = { "z00", "z01", "z02", "z03", "z04", "z05", "z06", "z07", "z08", "z09", "z10", "z11", "z12", "z13", "z14", "z15", "z16", "z17", "z18", "Z60", "Z61", "Z62", "Z63", "Z64", "Z65", "Z66", "Z67", "Z68", "Z69", "Z70", "Z71", "Z72", "Z73", "Z74", "Z75", "Z76", "Z77", "Z78", "Z79", "Z80", "Z81", "Z82", "Z83", "Z84", "Z85", "Z86", "Z87", "Z88", "Z89", "Z90", "Z91", "Z92", "Z93", "Z94", "Z95", "Z96", "Z97", "Z98", "Z99" },
@@ -1787,7 +1781,7 @@ return {
         -- +-------------------------+
         -- | TESTING                 |
         -- +-------------------------+
-        -- { -- Rule 250: For testing, adds a bunch of info to item
+        -- {-- Rule 250: For testing, adds a bunch of info to item
         --     codes = "allitems",
         --     location = { "onplayer", "equipped", "onground", "dropping", "atvendor" },
         --     suffix = " \n{gray}[Code: {orange}{code}{gray}]\n[Quality: {orange}{quality}{gray}]\n[Rarity: {orange}{rarity}{gray}]\n[Index: {orange}{index}{gray}]"
