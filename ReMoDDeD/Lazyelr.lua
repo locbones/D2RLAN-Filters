@@ -4,7 +4,7 @@
 
 return {
     debug = false,
-    reload = "{red}Lazyelr v1.3a  {grey}Last Updated: 29 Sept 19:38 elrtime {green}[Reloaded] ",
+    reload = "{red}Lazyelr v1.3aa  {grey}Last Updated: 29 Sept 19:38 elrtime {green}[Reloaded] ",
     rules = { --This version of the filter comes with moderate-strong filtering of bases in Hell Cows, to remove this, delete all rules after rule 17.
          --1.  Hides 1 Socket Items
         {  
