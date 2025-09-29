@@ -1,10 +1,10 @@
---- Filter Title: Lazyelr v1.3aa
+--- Filter Title: Lazyelr v1.3b
 --- Filter Type: Cow Farming / General Filter
 --- Filter Description: A Filter with a large focus on farming hell cows for bases. Will work for general play also, but is less strict in rulings regarding non-base-farming than other filters may be
 
 return {
     debug = false,
-    reload = "{red}Lazyelr v1.3aa  {grey}Last Updated: 29 Sept 19:38 elrtime {green}[Reloaded] ",
+    reload = "{red}Lazyelr v1.3b {grey}Last Updated: 29 Sept 19:38 elrtime {green}[Reloaded] ",
     rules = { --This version of the filter comes with moderate-strong filtering of bases in Hell Cows, to remove this, delete all rules after rule 17.
          --1.  Hides 1 Socket Items
         {  
@@ -316,6 +316,7 @@ return {
             itype = { 45, 50 },
             prefix = "ⅲ "
         },
+        -- Displays in-chat message on LB drop
         {
             notify = "{Red}Limit Break Base Dropped",
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
