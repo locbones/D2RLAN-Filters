@@ -664,7 +664,7 @@ return {
         {
             codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
             notify = "{red}A Powerful Enhancement Appears?",
-            name_override = "ÿc4Ultra Enhancement Crystal",
+            name_override = "ÿcEUltra Enhancement Crystal",
             background = { 255, 255, 255, 230 },
             border = { 240, 0, 0, 230, 2 } 
 
