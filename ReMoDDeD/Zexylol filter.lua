@@ -21,6 +21,19 @@ return {
 			--suffix = "[{ilvl}]",
 			--filter_levels = "1,2,3"
 		},
+		--[[ Used to identify items that needs to be cubed in next patch.
+		{
+			codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", 
+			"Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "m32", "m34", "m35", "m36" },
+			location = {"onground", "onplayer"},
+			prefix = " {green}[{code}]",
+			--suffix = " [{code}]",
+			name_override = "{red} CUBE ALONE TO TURN {green}[{code}] > 1,2,3",
+		},
+		]]--
+
+
+
 --[[				Rule 1-9 shows sockets, runewords, tempered, crafted, low/mid/hi/ultra runes, tempering souls.
 ]]--	
 
