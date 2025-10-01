@@ -1,350 +1,13 @@
---- Filter Title: Lazyelr v1.3b
---- Filter Type: Cow Farming / General Filter
---- Filter Description: A Filter with a large focus on farming hell cows for bases. Will work for general play also, but is less strict in rulings regarding non-base-farming than other filters may be
-
 return {
-    debug = false,
-    reload = "{red}Lazyelr v1.3b {grey}Last Updated: 29 Sept 19:38 elrtime {green}[Reloaded] ",
-    rules = { --This version of the filter comes with moderate-strong filtering of bases in Hell Cows, to remove this, delete all rules after rule 17.
-         --1.  Hides 1 Socket Items
-        {  
-            codes = "allitems",
-            quality = "3-",
-            sockets = "1",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-         --2. Hides all non superior Bases with no Sockets, except some Paladin Maces
-        {  
-            codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "7qs"},
-            quality = "2",
-            sockets = "0",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-         --3. Hides all Gold under 250 if the Player reached level 75 (reduced from standard filter because gold is life)
-        { 
-            code = "gld",
-            stat = { index = 14, op = "<=", value = 250}, -- Value = Gold minimum to be shown
-            pstat = { index = 12, op = ">=", value = 75 }, -- Value = Character Level
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        }, 
-         --4. Hides non rare+ Arrows
-        {  
-            code = "aqv",
-            quality = "4-", -- to show magic, change to "3-"
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-         --5. Hides Scrolls, Potions and Small Juvs
-        {
-            codes = { "mp1", "mp2", "mp3", "mp4", "mp5", "hp1", "hp2", "hp3", "hp4", "hp5", "isc", "tsc", "rvs"},
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        -- 6.Hides Large Charms
-        {   
-            code = "cm2",
-            quality = "4",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-         --7. Highlights Treasure Chests
-        {  
-            codes = {"y09","y10","y11","y12","y13","y14","y15","y16","y17","y18","y19","y20","y21","y22","y23","y24","y25","y26","y27","y28","y29","y30","y31","y32"},
-            hide = false,
-            notify = "Lootboxes, in my diablo game?",
-            prefix = "{Yellow} [",
-            suffix = "{Yellow}] "
-        },
-        --8. Highlights Rama Gifts
-        {   
-            code = "Rgx",
-            notify = "Ramalamadingdong!",
-            prefix = "{Red}| ",
-            suffix = "{Red} |",
-            background = {255, 255, 255, 255}
-        },
-         --9. Highlights ultra runes.. aggressively 
-        {  
-            codes = {"r34", "r35", "r36"},
-            notify = "ÿc1**          ULTRA Rune Dropped*:", 
-            prefix = "{Red}|          ",
-            suffix = "{Red}          |",
-            background = {255, 255, 255, 255}
-        },
-        --10. Highlights high runes Mal-Zod but not as angrily as ultras because theyre less cool
-        {
-            codes = {"r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33"},
-            notify = "ÿc@*High Rune Dropped*:",
-            prefix = "|     ",
-            suffix = "     |",
-            background = {255, 255, 255, 255}
-        },
-        --11. Hides Med or lower runes when clvl=80+
-        {
-            codes = {"r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11", "r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22"},
-            pstat = { index = 12, op = ">=", value = 80 },  --playerstat = index 12 (12 = player lvl), operation = greater than or equal too (>=), value selected = 80 (plvl >=80)
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-         --12. Hides Grand Charms until clvl=44 (low level gcs are rarely worth looking at due to statue benefits)
-        {
-            code = "cm3",
-            pstat = { index = 12, op = "<=", value = 44 },
-            hide = true,
-            quality = "4",
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --13. Highlight Unique items with bases that are contested for a good unique (no ID spoilers)
-        {
-            codes = {"vgl", "utp", "6ls", "rin", "amu", "aqv"},
-            quality = "7",
-            notify = "ÿcO Contested Base Unique Dropped - GL",
-            prefix = "[   ",
-            suffix = "   ]"
-        },
-        --14. Highlights rare rings and amulets specifically when clvl is <= 70
-        {
-            codes = {"rin", "amu"}, --add codes here to expand highlight list
-            quality = "6",
-            notify = "ÿcO Potential Rare Dropped",
-            prefix = "{red}** ",
-            suffix = "{red}  **",
-            pstat = { index = 12, op = "<=", value = 70 },
-        },
-        --15. Highlight all Superior bases (does not check for mods)
-        {
-            codes = "allitems",
-            quality = "3",
-            prefix = "{tan}* ",
-            suffix = "{tan} *"
-        },
-        --16. Hide all throwing weapons because theyre annoying and common
-        {
-            codes = {"tkf", "tax", "tsp"},
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --17. Hide almost all magic items when clvl is 80 or above
-        {
-            codes = {"7fb", "7s8", "Ab4", "Ab5", "Ab6", "Bp5", "Bp6", "Ca1", "Ca2", "Ca3", "Ss1", "Ss3", "Ss4", "dr1", "dr9","Ss2", "amu", "rin", "Gg1", "Gg2", "hla", "lea", "qui", "stu", "Wp1", "Wp2", "brs", "chn", "ltp", "rng", "scl", "xea", "xla", "xui", "Ca4", "Ca5", "Ca6", "aar", "Bp1", "Bp2", "Bp3", "Bp4", "fld", "ful", "gth", "Gg3", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Oa1", "Oa2", "Oa3", "plt", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "spl", "ult", "uld", "uar", "ucl", "uea", "uhn", "ula", "ulg", "ung", "uui", "urs", "utp", "uth", "utu", "upl", "uul", "Wp3", "xar", "xcl", "xhn", "xld", "xlt", "xng", "xpl", "xrs", "xth", "xtp", "xtu", "xul", "7bk", "7bw", "7dg", "7di", "7gw", "7ta", "7tk", "7wn", "7yw", "9bk", "9bw", "9dg", "9di", "9gw", "9ta", "9tk", "9wn", "9yw", "bkf", "bwn", "ces", "dir", "dgr", "gwn", "jav", "ktr", "ob1", "ob2", "ob3", "ob4", "ob6", "ob7", "ob8", "ob9", "obc", "obd", "obe", "obb", "pil", "tkf", "tax", "wnd", "ywn", "9cl", "7cl", "clb", "7ha", "9ha", "hax", "sbw", "7sp", "9sp", "spc", "7cs", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "amf", "ama", "am5", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "6ss", "8ss", "sst", "k01", "k02", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9ss", "9sm", "9sb", "9fc", "flc", "sbr", "ssd", "scm", "wsd", "Bf4", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8cs", "8bs", "8ls", "bst", "cst", "lst", "bsw", "k03", "72h", "92h", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp", "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "6lx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8", "9mp", "7mp", "mpi", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf5", "Bf6", "7wa", "7ga", "7bt", "72a", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "amc", "amb", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "6hx", "8hx", "hxb", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "9fl", "7vo", "7pa", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "7p7", "9h9", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "7ws", "9ws", "7mp", "7wc", "9wc", "9s8", "mpi", "wsc", "amd", "ame", "am8", "am9", "am3", "am4", "Ds4", "Ds5", "Ds6", "6ws", "8ws", "wst", "7gd", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "7cr", "9cr", "crs", "7b8", "xuc", "xml", "buc", "sml", "ne6", "ne7", "ne1", "ne2", "uuc", "xsh", "bsh", "lrg", "spk", "nef", "neg", "neb", "ned", "nee", "ne9", "nea", "ne8", "ne5", "ne4", "ne3", "pad", "pac", "pab", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "urg", "uml", "uit", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "kit", "tow", "xap", "cap", "hlm", "skp", "bab", "bae", "bad", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba1", "ba2", "ba3", "drb", "drf", "drd", "dre", "drc", "dr6", "dr7", "dr8", "dra", "dr3", "dr4", "dr2", "dr5", "ulm", "uh9", "urn", "usk", "uhl", "ukp", "uap", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "ci0", "ci1", "ci2", "ci3", "xlb", "lbt", "vbt", "mbt", "ulb", "uvb", "umb", "utb", "uhb", "xvb", "xmb", "xtb", "xhb", "hbt", "tbt", "Ab1", "Ab2", "Ab3", "Ag3", "Ag1", "xlg", "lgl", "vgl", "mgl", "Ag2", "Ag4", "Ag5", "Ag6", "uvg", "xvg", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "ulg", "utg", "uhg", "umg", "xmg", "xtg", "xhg", "tgl", "hgl", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "uhc", "umc", "ulc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "lbl", "vbl", "mbl", "tbl", "hbl"},
-            quality = "4",
-            pstat = { index = 12, op = ">=", value = 80 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        ----------------------------------------------------------------------------------------------------------------------                        ----------------------------------------------------------------------------------------------------------------------
-        ---------------------------------------------------------------------------------------------------------------------- COW FARMING BASE RULES ----------------------------------------------------------------------------------------------------------------------
-        ----------------------------------------------------------------------------------------------------------------------                        ----------------------------------------------------------------------------------------------------------------------
-        -- Hiding items dropping with <max sockets rules (applies after clvl 80, assuming you're at hell cow farm level)
-        --18. Weapons
-        {
-            codes = {"9cl", "7cl", "clb", "7ha", "9ha", "hax", "sbw", "7sp", "9sp", "spc", "7cs", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "amf", "ama", "am5", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "6ss", "8ss", "sst", "k01", "k02", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9ss", "9sm", "9sb", "9fc", "flc", "sbr", "ssd", "scm", "wsd"},
-            quality = "3-",
-            sockets = "2",
-            pstat = { index = 12, op = ">=", value = 80 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        -- 19.
-        {
-            codes = {"Ss2", "Ss4", "Bf4", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8cs", "8bs", "8ls", "bst", "cst", "lst", "bsw", "k03", "72h", "92h", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp"},
-            quality = "3-",
-            sockets = "3,2",
-            pstat = { index = 12, op = ">=", value = 80 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --20.
-        {
-            codes = {"axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "6lx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8"},
-            quality = "3-",
-            sockets = "4,3,2",
-            pstat = { index = 12, op = ">=", value = 80 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --21.
-        {
-            codes = {"Ss2", "7fb", "7s8", "Ss1", "9mp", "7cr", "7mp", "mpi", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf5", "Bf6", "7wa", "7ga", "7bt", "72a", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "amc", "amb", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "6hx", "8hx", "hxb", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "9fl", "7vo", "7pa", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "7p7", "9h9", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "7ws", "9ws", "7mp", "7wc", "9wc", "9s8", "mpi", "wsc", "amd", "ame", "am8", "am9", "am3", "am4", "Ds4", "Ds5", "Ds6", "6ws", "8ws", "wst", "7gd", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "9cr", "crs", "7b8"},
-            quality = "3-",
-            sockets = "2,3,4,5",
-            pstat = { index = 12, op = ">=", value = 80 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --22. Body Armours
-        {
-            codes = {"brs", "chn", "ltp", "rng", "scl", "xea", "xla", "xui"} ,
-            quality = "3-",
-            sockets = "2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --23.
-        {
-            codes = {"Ca1", "Ca2", "Ca3", "Bp5", "Bp6", "aar", "Bp1", "Bp2", "Bp3", "fld", "ful", "gth", "Gg3", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Oa1", "Oa2", "Oa3", "plt", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "spl", "ult", "uld", "uar", "ucl", "uea", "uhn", "ula", "ulg", "ung", "uui", "urs", "utp", "uth", "utu", "upl", "uul", "Wp3", "xar", "xcl", "xhn", "xld", "xlt", "xng", "xpl", "xrs", "xth", "xtp", "xtu", "xul"},
-            quality = "3-",
-            sockets = "3,2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --24. Shields (including necro heads) - Hides the shields that can only have 2os after clvl60
-        {
-            codes = {"xuc", "xml", "buc", "sml"},
-            quality = "3-",
-            pstat = { index = 12, op = ">=", value = 60 },
-            hide = true
-        },
-        --25.
-        {
-            codes = {"ne6", "ne7", "ne1", "ne2", "uuc", "xsh", "bsh", "lrg", "spk"},
-            quality = "3-",
-            sockets = "2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --26. Rule that displays the 3os limit on bases that *do* drop, that cannot have 4
-        {
-            codes = {"ne6", "ne7", "ne1", "ne2", "uuc", "xsh", "bsh", "lrg", "spk"},
-            suffix = "[Max 3os]"
-        },
-        --27.
-        {
-            codes = {"nef", "neg", "neb", "ned", "nee", "ne9", "nea", "ne8", "ne5", "ne4", "ne3", "pad", "pac", "pab", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "urg", "uml", "uit", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "kit", "tow"},
-            quality = "3-",
-            sockets = "3,2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        -- Helms
-        { --28. Hides helms that max out at 2os after clvl 60
-            codes = {"xap", "cap", "hlm", "skp"},
-            quality = "3-",
-            pstat = { index = 12, op = ">=", value = 60 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --29.
-        {
-            codes = {"dr9", "dr1", "bab", "bae", "bad", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba1", "ba2", "ba3", "drb", "drf", "drd", "dre", "drc", "dr6", "dr7", "dr8", "dra", "dr3", "dr4", "dr2", "dr5", "ulm", "uh9", "urn", "usk", "uhl", "ukp", "uap", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1"},
-            quality = "3-",
-            sockets = "2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --30. Circlets
-        {
-            codes = {"Zc1", "Zc2", "Zc3", "ci0", "ci1", "ci2", "ci3"},
-            quality = "3-",
-            sockets = "2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        -- Boots
-        { --31. Hides max 2os max boots after clvl 60
-            codes = {"xlb", "lbt", "vbt", "mbt"},
-            quality = "3-",
-            pstat = { index = 12, op = ">=", value = 60 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --32.
-        {
-            codes = {"Ab4", "Ab5", "Ab6", "ulb", "uvb", "umb", "utb", "uhb", "xvb", "xmb", "xtb", "xhb", "hbt", "tbt", "Ab1", "Ab2", "Ab3"},
-            quality = "3-",
-            sockets = "2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        -- Gloves
-        { --33. Hides max 2os gloves after clvl 60
-            codes = {"Ag3", "Ag1", "xlg", "lgl", "vgl", "mgl"},
-            quality = "3-",
-            pstat = { index = 12, op = ">=", value = 60 },
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --34.
-        {
-            codes = {"Ag2", "Ag4", "Ag5", "Ag6", "uvg", "xvg", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "ulg", "utg", "uhg", "umg", "xmg", "xtg", "xhg", "tgl", "hgl"},
-            quality = "3-",
-            sockets = "2",
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --35. OPTIONAL, DISABLED BY DEFAULT.    Hides all items listed in rule 17 at RARE rarity. Is not hiding rare jewels
-        {
-            codes = {"rin", "amu", "Gg1", "Gg2", "hla", "lea", "qui", "stu", "Wp1", "Wp2", "brs", "chn", "ltp", "rng", "scl", "xea", "xla", "xui", "Ca4", "Ca5", "Ca6", "aar", "Bp1", "Bp2", "Bp3", "Bp4", "fld", "ful", "gth", "Gg3", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Oa1", "Oa2", "Oa3", "plt", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "spl", "ult", "uld", "uar", "ucl", "uea", "uhn", "ula", "ulg", "ung", "uui", "urs", "utp", "uth", "utu", "upl", "uul", "Wp3", "xar", "xcl", "xhn", "xld", "xlt", "xng", "xpl", "xrs", "xth", "xtp", "xtu", "xul", "7bk", "7bw", "7dg", "7di", "7gw", "7ta", "7tk", "7wn", "7yw", "9bk", "9bw", "9dg", "9di", "9gw", "9ta", "9tk", "9wn", "9yw", "bkf", "bwn", "ces", "dir", "dgr", "gwn", "jav", "ktr", "ob1", "ob2", "ob3", "ob4", "ob6", "ob7", "ob8", "ob9", "obc", "obd", "obe", "obb", "pil", "tkf", "tax", "wnd", "ywn", "9cl", "7cl", "clb", "7ha", "9ha", "hax", "sbw", "7sp", "9sp", "spc", "7cs", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "amf", "ama", "am5", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "6ss", "8ss", "sst", "k01", "k02", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9ss", "9sm", "9sb", "9fc", "flc", "sbr", "ssd", "scm", "wsd", "Bf4", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8cs", "8bs", "8ls", "bst", "cst", "lst", "bsw", "k03", "72h", "92h", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp", "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "6lx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8", "9mp", "7mp", "mpi", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf5", "Bf6", "7wa", "7ga", "7bt", "72a", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "amc", "amb", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "6hx", "8hx", "hxb", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "9fl", "7vo", "7pa", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "7p7", "9h9", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "7ws", "9ws", "7mp", "7wc", "9wc", "9s8", "mpi", "wsc", "amd", "ame", "am8", "am9", "am3", "am4", "Ds4", "Ds5", "Ds6", "6ws", "8ws", "wst", "7gd", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "7cr", "9cr", "crs", "7b8", "xuc", "xml", "buc", "sml", "ne6", "ne7", "ne1", "ne2", "uuc", "xsh", "bsh", "lrg", "spk", "nef", "neg", "neb", "ned", "nee", "ne9", "nea", "ne8", "ne5", "ne4", "ne3", "pad", "pac", "pab", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "urg", "uml", "uit", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "kit", "tow", "xap", "cap", "hlm", "skp", "bab", "bae", "bad", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba1", "ba2", "ba3", "drb", "drf", "drd", "dre", "drc", "dr6", "dr7", "dr8", "dra", "dr3", "dr4", "dr2", "dr5", "ulm", "uh9", "urn", "usk", "uhl", "ukp", "uap", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "ci0", "ci1", "ci2", "ci3", "xlb", "lbt", "vbt", "mbt", "ulb", "uvb", "umb", "utb", "uhb", "xvb", "xmb", "xtb", "xhb", "hbt", "tbt", "Ab1", "Ab2", "Ab3", "Ag3", "Ag1", "xlg", "lgl", "vgl", "mgl", "Ag2", "Ag4", "Ag5", "Ag6", "uvg", "xvg", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "ulg", "utg", "uhg", "umg", "xmg", "xtg", "xhg", "tgl", "hgl", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "uhc", "umc", "ulc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "lbl", "vbl", "mbl", "tbl", "hbl"},
-            quality = "6",
-            pstat = { index = 12, op = ">=", value = 80 },
-            hide = false,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        --36. Slight highlighting on rare jewels because I'm blind
-        {
-            code = "jew",
-            quality = "6",
-            hide = false,
-            prefix = "RARE "
-        },
-        -- Hide all gems (not gem veins)
-        {
-            codes = {"gcv", "gfv", "gsv", "gzv", "gpv", "gcy", "gfy", "gsy", "gly", "gpy", "gcb", "gfb", "gsb", "glb", "gpb", "gcg", "gfg", "gsg", "glg", "gpg", "gcr", "gfr", "gsr", "glr", "gpr", "gcw", "gfw", "gsw", "glw", "gpw"},
-            hide = true,
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
-        },
-        -- Highlighting of 3rd Anniversary box
-        {
-            code = "Ev0",
-            notify = "{yellow}Anniversary Box Dropped",
-            name_override = "{pink}|     Anniversary Box     |"
-        },
-        -- Shows iLvl on Items for which it makes sense
-        {
-			codes = {"aqv","rin", "amu", "cm2", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18", "jew", "m32", "m33", "m34", "m35", "cm1", "cm2", "cm3"},
-			location = {"onground", "onplayer", "atvendor", "equipped"},
-			suffix = " ({ilvl})"
-		},
-        -- Shows EB Icon on Elite Bases
-        { 
-            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
-            rarity = 2,
-            location = { "onground", "onplayer", "equipped", "atvendor" },
-            itype = { 45, 50 },
-            prefix = "ⅲ "
-        },
-        -- Displays in-chat message on LB drop
-        {
-            notify = "{Red}Limit Break Base Dropped",
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
-            location = "onground"
-        },
-        -- Adds LB Icon to Limit Broken Bases
-        { 
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
-            location = { "onground", "onplayer", "equipped", "atvendor" },
-            prefix = "ⅳ "
-        },
-
-
-
-
-
-
+    reload = "OVERRIDES ONLY (DONT USE)",
+    language = "enUS",
+    rules = {
 -- region String Offloads
 
         --String offload tooltips. These are helper tooltips for various RMD-Only items that are no longer displayed in the string files for string limit reasons.
         --Certain languages such as Russian, French, etc have lower total characters allowed in their string entries throughout files (best theory available).
         --This helps us trim the excess strings from the game files, while still allowing diverse and helpful descriptions. These entries are considered part of the mod.
 
-        { --Quality of Life Bag Description
-            code = "Z01",
-            location ="onplayer",
-            prefix = "{gray}(Cube Recipes > Quality of Life Bag)\n{white} -More info can be found on our {turquoise}Wiki\n{white}-You can find item {turquoise}removers {white}from {turquoise}Edyrem {white}in each town\n{gray}(Gems, Runes, Keys, Organs, Rare Jewels, Full Rejuvs and Set/Unique items)\n {white}-Many items can be deposited into this bag for various purposes\n{turquoise}Mod Tips:\n\n"
-        },
         { --Starter Package Description
             code = "y66",
             location = "onplayer",
@@ -356,7 +19,7 @@ return {
                 frFR = "{green}(Cubo da solo per ricevere ricompense)\n\n{gold}-Portachiavi infinito\n{gold}-Libro dell'intuizione\n{gold}-Libro del ritorno sicuro\n{tan}Contiene:\n\n",
                 itIT = "{green}(Cube seul pour recevoir des récompenses)\n\n{gold}-Porte-clés sans fin\n{gold}-Livre de perspicacité\n{gold}-Livre de retour en toute sécurité\n{tan}Contient:\n\n",
                 jaJP = "{green}(キューブ単体で報酬を受け取る)\n\n{gold}-エンドレス キーリング\n{gold}-洞察の書\n{gold}-セーフ リターンの書\n{tan}内容:\n\n",
-                koKR = "{green}(큐빙)\n\n{gold}-끝없는 열쇠고리\n{gold}-통찰의 책\n{gold}-안전한 귀환의 책\n{tan}포함:\n\n",
+                koKR = "{green}(큐빙)\n\n{gold}-열쇠(수량회복)\n{gold}-감별의 고서(수량회복)\n{gold}-차원문 고서(수량회복)\n{tan}포함:\n\n",
                 plPL = "{green}(Sama kostka do otrzymywania nagród)\n\n{gold}-Niekończący się brelok\n{gold}-Księga wglądu\n{gold}-Księga bezpiecznego powrotu\n{tan}Zawiera:\n\n",
                 ptBR = "{green}(Cubo sozinho para receber recompensas)\n\n{gold}-Chaveiro sem fim\n{gold}-Livro do Insight\n{gold}-Livro do Retorno Seguro\n{tan}Contém:\n\n",
                 ruRU = "{green}(только куб для получения наград)\n\n{gold}-Бесконечное кольцо для ключей\n{gold}-Книга проницательности\n{gold}-Книга безопасного возвращения\n{tan}Содержит:\n\n",
@@ -366,135 +29,135 @@ return {
         },
         { --Scroll of Belial Description
             code = "y67",
-            location = "onplayer",
+            location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}Ein unheiliger Handel bringt große Macht oder Elend",
-                enUS = "{gray}An unholy bargain grants great power or misery",
-                esES = "{gray}Un trato impío otorga gran poder o miseria",
-                esMX = "{gray}Un trato impío otorga gran poder o miseria",
-                frFR = "{gray}Un marché impie accorde un grand pouvoir ou de la misère",
-                itIT = "{gray}Un patto empio garantisce grande potere o miseria",
-                jaJP = "{gray}不浄な取引は強大な力や悲惨さを与える",
-                koKR = "{gray}부정한 거래는 큰 힘이나 불행을 가져옵니다",
-                plPL = "{gray} Bezbożny interes zapewnia wielką moc lub nieszczęście",
-                ptBR = "{gray}Uma barganha profana concede grande poder ou miséria",
-                ruRU = "{gray}Нечестивая сделка дает великую власть или несчастье.",
-                zhCN = "{gray}邪恶的交易会赋予巨大的力量或痛苦",
-                zhTW = "{gray}邪惡的交易會賦予巨大的力量或痛苦",
+                deDE = "{gray}Ein unheiliger Handel bringt große Macht oder Elend\n",
+                enUS = "{gray}An unholy bargain grants great power or misery\n",
+                esES = "{gray}Un trato impío otorga gran poder o miseria\n",
+                esMX = "{gray}Un trato impío otorga gran poder o miseria\n",
+                frFR = "{gray}Un marché impie accorde un grand pouvoir ou de la misère\n",
+                itIT = "{gray}Un patto empio garantisce grande potere o miseria\n",
+                jaJP = "{gray}不浄な取引は強大な力や悲惨さを与える\n",
+                koKR = "{gray}ÿc5부정한 거래는 큰 힘이나 불행을 가져옵니다\n",
+                plPL = "{gray} Bezbożny interes zapewnia wielką moc lub nieszczęście\n",
+                ptBR = "{gray}Uma barganha profana concede grande poder ou miséria\n",
+                ruRU = "{gray}Нечестивая сделка дает великую власть или несчастье.\n",
+                zhCN = "{gray}邪恶的交易会赋予巨大的力量或痛苦\n",
+                zhTW = "{gray}邪惡的交易會賦予巨大的力量或痛苦\n",
             }
         },
         { --Unique Weapon Blood Contract Description
             code = "a00",
             location = "onplayer",
             prefix = {
-                deDE = "{white}Cube, um eine {gold}Unique-Waffe zu erhalten",
-                enUS = "{white}Cube alone to receive a {gold}Unique Weapon",
-                esES = "{white}Cube solo para recibir un arma {gold}Unique",
-                esMX = "{white}Cube solo para recibir un arma {gold}Unique",
-                frFR = "{white}Cube seul pour recevoir une arme {gold}Unique",
-                itIT = "{white}Cube da solo per ricevere un'arma {gold}Unique",
-                jaJP = "{white}Cube だけで {gold}Unique Weapon を受け取ります",
-                koKR = "{white}큐빙해서 {gold}Unique 무기 획득",
-                plPL = "{white}Cube sam, aby otrzymać {gold}Unique Weapon",
-                ptBR = "{white}Cube sozinho para receber uma arma {gold}Unique",
-                ruRU = "{white}Cube в одиночку, чтобы получить {gold}Unique Weapon",
-                zhCN = "{white}Cube 单独获得 {gold}Unique 武器",
-                zhTW = "{white}Cube 單獨取得 {gold}Unique 武器",
+                deDE = "{white}Cube, um eine {gold}Unique-Waffe zu erhalten\n",
+                enUS = "{white}Cube alone to receive a {gold}Unique Weapon\n",
+                esES = "{white}Cube solo para recibir un arma {gold}Unique\n",
+                esMX = "{white}Cube solo para recibir un arma {gold}Unique\n",
+                frFR = "{white}Cube seul pour recevoir une arme {gold}Unique\n",
+                itIT = "{white}Cube da solo per ricevere un'arma {gold}Unique\n",
+                jaJP = "{white}Cube だけで {gold}Unique Weapon を受け取ります\n",
+                koKR = "{white}큐빙해서 {gold}유니크 무기 획득\n",
+                plPL = "{white}Cube sam, aby otrzymać {gold}Unique Weapon\n",
+                ptBR = "{white}Cube sozinho para receber uma arma {gold}Unique\n",
+                ruRU = "{white}Cube в одиночку, чтобы получить {gold}Unique Weapon\n",
+                zhCN = "{white}Cube 单独获得 {gold}Unique 武器\n",
+                zhTW = "{white}Cube 單獨取得 {gold}Unique 武器\n",
             }
         },
         { --Unique Armor Blood Contract Description
             code = "a01",
             location = "onplayer",
             prefix = {
-                deDE = "{white}Cube, um eine {gold}Unique-Rüstung zu erhalten",
-                enUS = "{white}Cube alone to receive a {gold}Unique Armor",
-                esES = "{white}Cube solo para recibir una armadura {gold}Unique",
-                esMX = "{white}Cube solo para recibir una armadura {gold}Unique",
-                frFR = "{white}Cube seul pour recevoir une {gold}Unique Armor",
-                itIT = "{white}Cube da solo per ricevere un'armatura {gold}Unique",
-                jaJP = "{white}Cube 単独で {gold}Unique Armor を受け取る",
-                koKR = "{white}큐빙해서 {gold}Unique Armor 획득",
-                plPL = "{white}Cube sam, aby otrzymać {gold}Unique Armor",
-                ptBR = "{white}Cube sozinho para receber uma armadura {gold}Unique",
-                ruRU = "{white}Cube в одиночку, чтобы получить {gold}Unique Armor",
-                zhCN = "{white}Cube 单独获得 {gold}Unique Armor",
-                zhTW = "{white}Cube 單獨取得 {gold}Unique Armor",
+                deDE = "{white}Cube, um eine {gold}Unique-Rüstung zu erhalten\n",
+                enUS = "{white}Cube alone to receive a {gold}Unique Armor\n",
+                esES = "{white}Cube solo para recibir una armadura {gold}Unique\n",
+                esMX = "{white}Cube solo para recibir una armadura {gold}Unique\n",
+                frFR = "{white}Cube seul pour recevoir une {gold}Unique Armor\n",
+                itIT = "{white}Cube da solo per ricevere un'armatura {gold}Unique\n",
+                jaJP = "{white}Cube 単独で {gold}Unique Armor を受け取る\n",
+                koKR = "{white}큐빙해서 {gold}유니크 방어구 획득\n",
+                plPL = "{white}Cube sam, aby otrzymać {gold}Unique Armor\n",
+                ptBR = "{white}Cube sozinho para receber uma armadura {gold}Unique\n",
+                ruRU = "{white}Cube в одиночку, чтобы получить {gold}Unique Armor\n",
+                zhCN = "{white}Cube 单独获得 {gold}Unique Armor\n",
+                zhTW = "{white}Cube 單獨取得 {gold}Unique Armor\n",
             }
         },
         { --Unique Jewelry Blood Contract Description
             code = "a02",
             location = "onplayer",
             prefix = {
-                deDE = "{white}Cube, um {gold}Unique-Schmuck zu erhalten",
-                enUS = "{white}Cube alone to receive {gold}Unique Jewelry",
-                esES = "{white}Cube solo para recibir {gold}Unique Jewelry",
-                esMX = "{white}Cube solo para recibir {gold}Unique Jewelry",
-                frFR = "{white}Cube seul pour recevoir les bijoux {gold}Unique",
-                itIT = "{white}Cube da solo per ricevere gioielli {gold}Unique",
-                jaJP = "{white}Cube だけで {gold}Unique Jewelry を受け取ります",
-                koKR = "{white}큐빙해서도 {gold}Unique Jewelry 획득",
-                plPL = "{white}Cube sam, aby otrzymać {gold}Unique Jewelry",
-                ptBR = "{white}Cube sozinho para receber joias {gold}Unique",
-                ruRU = "{white}Cube в одиночку получит {gold}Unique Jewelry",
-                zhCN = "{white}Cube单独获得{gold}Unique珠宝",
-                zhTW = "{white}Cube單獨取得{gold}Unique珠寶",
+                deDE = "{white}Cube, um {gold}Unique-Schmuck zu erhalten\n",
+                enUS = "{white}Cube alone to receive {gold}Unique Jewelry\n",
+                esES = "{white}Cube solo para recibir {gold}Unique Jewelry\n",
+                esMX = "{white}Cube solo para recibir {gold}Unique Jewelry\n",
+                frFR = "{white}Cube seul pour recevoir les bijoux {gold}Unique\n",
+                itIT = "{white}Cube da solo per ricevere gioielli {gold}Unique\n",
+                jaJP = "{white}Cube だけで {gold}Unique Jewelry を受け取ります\n",
+                koKR = "{white}큐빙해서도 {gold}유니크 장신구 획득\n",
+                plPL = "{white}Cube sam, aby otrzymać {gold}Unique Jewelry\n",
+                ptBR = "{white}Cube sozinho para receber joias {gold}Unique\n",
+                ruRU = "{white}Cube в одиночку получит {gold}Unique Jewelry\n",
+                zhCN = "{white}Cube单独获得{gold}Unique珠宝\n",
+                zhTW = "{white}Cube單獨取得{gold}Unique珠寶\n",
             }
         },
         { --Set Weapon Blood Contract Description
             code = "a03",
             location = "onplayer",
             prefix = {
-                deDE = "{white}Cube, um eine {green}Set-Waffe zu erhalten",
-                enUS = "{white}Cube alone to receive a {green}Set Weapon",
-                esES = "{white}Cube solo para recibir un arma {green}Set",
-                esMX = "{white}Cube solo para recibir un arma {green}Set",
-                frFR = "{white}Cube seul pour recevoir une arme {green}Set",
-                itIT = "{white}Cube da solo per ricevere un'arma {green}Set",
-                jaJP = "{white}Cube だけで {green}Set 武器を受け取ります",
-                koKR = "{white}큐빙해서 {green}Set 무기 획득",
-                plPL = "{white}Cube sam, aby otrzymać broń {green}Set",
-                ptBR = "{white}Cube sozinho para receber uma arma {green}Set",
-                ruRU = "{white}Cube в одиночку, чтобы получить {green}Set Weapon",
-                zhCN = "{white}Cube单独获得{green}Set武器",
-                zhTW = "{white}Cube單獨取得{green}Set武器",
+                deDE = "{white}Cube, um eine {green}Set-Waffe zu erhalten\n",
+                enUS = "{white}Cube alone to receive a {green}Set Weapon\n",
+                esES = "{white}Cube solo para recibir un arma {green}Set\n",
+                esMX = "{white}Cube solo para recibir un arma {green}Set\n",
+                frFR = "{white}Cube seul pour recevoir une arme {green}Set\n",
+                itIT = "{white}Cube da solo per ricevere un'arma {green}Set\n",
+                jaJP = "{white}Cube だけで {green}Set 武器を受け取ります\n",
+                koKR = "{white}큐빙해서 {green}셋트 무기 획득\n",
+                plPL = "{white}Cube sam, aby otrzymać broń {green}Set\n",
+                ptBR = "{white}Cube sozinho para receber uma arma {green}Set\n",
+                ruRU = "{white}Cube в одиночку, чтобы получить {green}Set Weapon\n",
+                zhCN = "{white}Cube单独获得{green}Set武器\n",
+                zhTW = "{white}Cube單獨取得{green}Set武器\n",
             }
         },
         { --Set Armor Blood Contract Description
             code = "a04",
             location = "onplayer",
             prefix = {
-                deDE = "{white}Cube, um eine {green}Set-Rüstung zu erhalten",
-                enUS = "{white}Cube alone to receive a {green}Set Armor",
-                esES = "{white}Cube solo para recibir una armadura {green}Set",
-                esMX = "{white}Cube solo para recibir una armadura {green}Set",
-                frFR = "{white}Cube seul pour recevoir une armure {green}Set",
-                itIT = "{white}Cube da solo per ricevere un'armatura {green}Set",
-                jaJP = "{white}Cube 単独で {green}Set Armor を受け取る",
-                koKR = "{white}큐빙해서 {green}Set 방어구 획득",
-                plPL = "{white}Cube sam, aby otrzymać zbroję {green}Set",
-                ptBR = "{white}Cube sozinho para receber uma armadura {green}Set",
-                ruRU = "{white}Cube в одиночку, чтобы получить {green}Set Armor",
-                zhCN = "{white}Cube 单独获得 {green}Set Armor",
-                zhTW = "{white}Cube 單獨獲得 {green}Set Armor",
+                deDE = "{white}Cube, um eine {green}Set-Rüstung zu erhalten\n",
+                enUS = "{white}Cube alone to receive a {green}Set Armor\n",
+                esES = "{white}Cube solo para recibir una armadura {green}Set\n",
+                esMX = "{white}Cube solo para recibir una armadura {green}Set\n",
+                frFR = "{white}Cube seul pour recevoir une armure {green}Set\n",
+                itIT = "{white}Cube da solo per ricevere un'armatura {green}Set\n",
+                jaJP = "{white}Cube 単独で {green}Set Armor を受け取る\n",
+                koKR = "{white}큐빙해서 {green}셋트 방어구 획득\n",
+                plPL = "{white}Cube sam, aby otrzymać zbroję {green}Set\n",
+                ptBR = "{white}Cube sozinho para receber uma armadura {green}Set\n",
+                ruRU = "{white}Cube в одиночку, чтобы получить {green}Set Armor\n",
+                zhCN = "{white}Cube 单独获得 {green}Set Armor\n",
+                zhTW = "{white}Cube 單獨獲得 {green}Set Armor\n",
             }
         },
         { --Set Jewelry Blood Contract Description
             code = "a05",
             location = "onplayer",
             prefix = {
-                deDE = "{white}Cube, um {green}Set-Schmuck zu erhalten",
-                enUS = "{white}Cube alone to receive {green}Set Jewelry",
-                esES = "{white}Cube solo para recibir {green}Set Jewelry",
-                esMX = "{white}Cube solo para recibir {green}Set Jewelry",
-                frFR = "{white}Cube seul pour recevoir les bijoux {green}Set",
-                itIT = "{white}Cube da solo per ricevere gioielli {green}Set",
-                jaJP = "{white}Cube 単独で {green}Set ジュエリーを受け取る",
-                koKR = "{white}큐빙해서 {green}Set 쥬얼리를 받으세요",
-                plPL = "{white}Cube sam, aby otrzymać biżuterię {green}Set",
-                ptBR = "{white}Cube sozinho para receber {green}Set Jewelry",
-                ruRU = "{white}Cube в одиночку получит украшения {green}Set",
-                zhCN = "{white}Cube单独领取{green}Set Jewelry",
-                zhTW = "{white}Cube單獨領{green}Set Jewelry",
+                deDE = "{white}Cube, um {green}Set-Schmuck zu erhalten\n",
+                enUS = "{white}Cube alone to receive {green}Set Jewelry\n",
+                esES = "{white}Cube solo para recibir {green}Set Jewelry\n",
+                esMX = "{white}Cube solo para recibir {green}Set Jewelry\n",
+                frFR = "{white}Cube seul pour recevoir les bijoux {green}Set\n",
+                itIT = "{white}Cube da solo per ricevere gioielli {green}Set\n",
+                jaJP = "{white}Cube 単独で {green}Set ジュエリーを受け取る\n",
+                koKR = "{white}큐빙해서 {green}셋트 장신구 획득\n",
+                plPL = "{white}Cube sam, aby otrzymać biżuterię {green}Set\n",
+                ptBR = "{white}Cube sozinho para receber {green}Set Jewelry\n",
+                ruRU = "{white}Cube в одиночку получит украшения {green}Set\n",
+                zhCN = "{white}Cube单独领取{green}Set Jewelry\n",
+                zhTW = "{white}Cube單獨領{green}Set Jewelry\n",
             }
         },
         { --Testament 1:1 Description
@@ -1565,19 +1228,19 @@ return {
             code = "a66",
             location = "onplayer",
             prefix = {
-                deDE = "\n{gray}Deine Prüfungen sind vorbei, Abenteurer, aber deine Reise hat gerade erst begonnen...\n{gray}Es lässt dich fast die Last des Blutes und den widerlichen Gestank des Todes vergessen\n{gray}Das Sammeln von Wissen aus den entlegensten Winkeln dieses verdrehten Reiches hat dir immense Macht verliehen\n",
-                enUS = "\n{gray}And may you find peace, wherever you are\nLet virtue alone be your north star\nNavigate the pitfalls and re-kindle hope\nSo Traveler be wary, of your journey's scope\n\nFor in the shadows, the deadliest sins hide\nIn virtues, find strength, let wisdom guide\nGuard thy heart from sins' treacherous sea\nOh, wayfarer, heed this poetic decree\n",
-                esES = "\n{gray}Tus pruebas han terminado, aventurero, pero tu viaje acaba de comenzar...\n{gray}Casi te hace olvidar la carga de sangre y el hedor fétido de la muerte\n{gray}Reunir conocimientos de los rincones más lejanos de este reino retorcido te ha otorgado un poder inmenso\n",
-                esMX = "\n{gray}Tus pruebas han terminado, aventurero, pero tu viaje acaba de comenzar...\n{gray}Casi te hace olvidar la carga de sangre y el hedor fétido de la muerte\n{gray}Reunir conocimientos de los rincones más lejanos de este reino retorcido te ha otorgado un poder inmenso\n",
-                frFR = "\n{gray}Vos épreuves sont terminées, aventurier, mais votre voyage ne fait que commencer...\n{gray}Cela vous fait presque oublier le fardeau du sang et la puanteur nauséabonde de la mort\n{gray}La collecte de connaissances des coins les plus reculés de ce royaume tordu vous a conféré un pouvoir immense.\n",
-                itIT = "\n{gray}Le tue prove sono finite, avventuriero, ma il tuo viaggio è appena iniziato...\n{gray}Ti fa quasi dimenticare il peso del sangue e il fetore della morte\n{gray}Raccogliere conoscenza dagli angoli più remoti di questo regno contorto ti ha concesso un potere immenso\n",
-                jaJP = "\n{gray}冒険者よ、あなたの試練は終わりました、しかし、あなたの旅は始まったばかりです...\n{gray}それはあなたに血の重荷と死の悪臭をほとんど忘れさせます\n{gray}このねじれた領域の隅々から知識を集めることは、あなたに計り知れない力を与えました\n",
-                koKR = "\n{gray}ULTIMATE CHARM",
-                plPL = "\n{gray}Twoje próby dobiegły końca, poszukiwaczu przygód, ale twoja podróż dopiero się zaczęła...\n{gray}To prawie sprawia, żezapominasz o ciężarze krwi i okropnym smrodzie śmierci\n{gray}Zbieranie wiedzy z odległych zakątków tej pokręconej krainy dało ci ogromną moc\n",
-                ptBR = "\n{gray}Suas provações terminaram, aventureiro, mas sua jornada apenas começou...\n{gray}Isso quase faz você esquecer o peso do sangue e o fedor fétido da morte\n{gray}Reunir conhecimento dos cantos mais distantes deste reino distorcido lhe concedeu imenso poder\n",
-                ruRU = "\n{gray}Твои испытания закончились, искатель приключений, но твоё путешествие только началось...\n{gray}Это почти заставит тебя забыть бремя крови и отвратительный запах смерти\n{gray}Сбор знаний из дальних уголков этого извращенного мира дал тебе огромную силу\n",
-                zhCN = "\n{gray}冒险家，你的考验已经结束，但你的旅程才刚刚开始...\n{gray}它几乎让你忘记血液的负担和死亡的恶臭\n{gray}从这个扭曲领域的遥远角落收集知识赋予了你巨大的力量\n",
-                zhTW = "\n{gray}冒險家，你的考驗已經結束，但你的旅程才剛開始...\n{gray}它幾乎讓你忘記了血液的負擔和死亡的惡臭\n{gray}從這個扭曲領域的遙遠角落收集知識賦予了你巨大的力量\n",
+                deDE = "\n{gray}Deine Prüfungen sind vorbei, Abenteurer, aber deine Reise hat gerade erst begonnen...\n{gray}Es lässt dich fast die Last des Blutes und den widerlichen Gestank des Todes vergessen\n{gray}Das Sammeln von Wissen aus den entlegensten Winkeln dieses verdrehten Reiches hat dir immense Macht verliehen{gold}\n",
+                enUS = "\n{gray}And may you find peace, wherever you are\nLet virtue alone be your north star\nNavigate the pitfalls and re-kindle hope\nSo Traveler be wary, of your journey's scope\n\nFor in the shadows, the deadliest sins hide\nIn virtues, find strength, let wisdom guide\nGuard thy heart from sins' treacherous sea\nOh, wayfarer, heed this poetic decree{gold}\n",
+                esES = "\n{gray}Tus pruebas han terminado, aventurero, pero tu viaje acaba de comenzar...\n{gray}Casi te hace olvidar la carga de sangre y el hedor fétido de la muerte\n{gray}Reunir conocimientos de los rincones más lejanos de este reino retorcido te ha otorgado un poder inmenso{gold}\n",
+                esMX = "\n{gray}Tus pruebas han terminado, aventurero, pero tu viaje acaba de comenzar...\n{gray}Casi te hace olvidar la carga de sangre y el hedor fétido de la muerte\n{gray}Reunir conocimientos de los rincones más lejanos de este reino retorcido te ha otorgado un poder inmenso{gold}\n",
+                frFR = "\n{gray}Vos épreuves sont terminées, aventurier, mais votre voyage ne fait que commencer...\n{gray}Cela vous fait presque oublier le fardeau du sang et la puanteur nauséabonde de la mort\n{gray}La collecte de connaissances des coins les plus reculés de ce royaume tordu vous a conféré un pouvoir immense.{gold}\n",
+                itIT = "\n{gray}Le tue prove sono finite, avventuriero, ma il tuo viaggio è appena iniziato...\n{gray}Ti fa quasi dimenticare il peso del sangue e il fetore della morte\n{gray}Raccogliere conoscenza dagli angoli più remoti di questo regno contorto ti ha concesso un potere immenso{gold}\n",
+                jaJP = "\n{gray}冒険者よ、あなたの試練は終わりました、しかし、あなたの旅は始まったばかりです...\n{gray}それはあなたに血の重荷と死の悪臭をほとんど忘れさせます\n{gray}このねじれた領域の隅々から知識を集めることは、あなたに計り知れない力を与えました{gold}\n",
+                koKR = "\n{gray}그리고 그대가 어디에 있든 평안을 찾기를\n덕행만이 그대의 북극성이 되기를\n험난한 길을 헤치고 희망을 다시 밝히소서\n그러니 여행자여, 여정의 깊이를 경계하라\n\n어둠 속에는 가장 치명적인 죄악이 숨어 있으니\n덕행 속에서 힘을 찾고, 지혜가 길잡이가 되리라\n죄악의 배신 가득한 바다에서 마음을 지키소서\n오, 나그네여, 이 시의 계율을 새겨 두라{gold}\n",
+                plPL = "\n{gray}Twoje próby dobiegły końca, poszukiwaczu przygód, ale twoja podróż dopiero się zaczęła...\n{gray}To prawie sprawia, żezapominasz o ciężarze krwi i okropnym smrodzie śmierci\n{gray}Zbieranie wiedzy z odległych zakątków tej pokręconej krainy dało ci ogromną moc{gold}\n",
+                ptBR = "\n{gray}Suas provações terminaram, aventureiro, mas sua jornada apenas começou...\n{gray}Isso quase faz você esquecer o peso do sangue e o fedor fétido da morte\n{gray}Reunir conhecimento dos cantos mais distantes deste reino distorcido lhe concedeu imenso poder{gold}\n",
+                ruRU = "\n{gray}Твои испытания закончились, искатель приключений, но твоё путешествие только началось...\n{gray}Это почти заставит тебя забыть бремя крови и отвратительный запах смерти\n{gray}Сбор знаний из дальних уголков этого извращенного мира дал тебе огромную силу{gold}\n",
+                zhCN = "\n{gray}冒险家，你的考验已经结束，但你的旅程才刚刚开始...\n{gray}它几乎让你忘记血液的负担和死亡的恶臭\n{gray}从这个扭曲领域的遥远角落收集知识赋予了你巨大的力量{gold}\n",
+                zhTW = "\n{gray}冒險家，你的考驗已經結束，但你的旅程才剛開始...\n{gray}它幾乎讓你忘記了血液的負擔和死亡的惡臭\n{gray}從這個扭曲領域的遙遠角落收集知識賦予了你巨大的力量{gold}\n",
             }
         },
                 {
@@ -1591,7 +1254,7 @@ return {
                 frFR = "\n{gray}Régénération de mana, course/marche plus rapide, toutes les compétences, dextérité, PV max%%, rayon de lumière\n{turquoise}CStatistiques actuellement modifiées :\n\n{white}Consultez la page d'informations du mod pour plus de détails\nDiverses statistiques seront modifiées en fonction de vos éliminations, de vos morts et  poids de charme utilisé\n{tan}Un artefact ancien lié à votre âme, façonnant sa forme même{gold}\n",
                 itIT = "\n{gray}Mana Regen, Corsa/Cammina più veloce, Tutte le abilità, Destrezza, HP%% massimo%, Raggio di luce\n{turquoise}CStatistiche attualmente modificate:\n\n{white}Visualizza la pagina delle informazioni sulla mod per i dettagli completi\nVarie statistiche verranno modificate in base alle tue uccisioni, morti e  peso del fascino utilizzato\n{tan}Un antico manufatto legato alla tua anima, modellandone la forma stessa{gold}\n",
                 jaJP = "\n{gray}マナ回復、より速い走力/歩行、すべてのスキル、器用さ、最大HP%%、光の半径\n{turquoise}現在変更されている統計:\n\n{white}詳細についてはMOD情報ページをご覧ください\nさまざまな統計はキル数、死亡数、およびキル数に基づいて変更されます。 使用されるチャームウェイト\n{tan}あなたの魂に結びつけられ、まさにその形を形作る古代のアーティファクト{gold}\n",
-                koKR = "\n{gray}마나 재생, 더 빠른 달리기/걷기, 모든 기술, 민첩, 최대 HP%%, 가벼운 반경\n{turquoise}현재 변경된 통계:\n\n{white}자세한 내용은 모드 정보 페이지를 확인하세요\n다양한 통계는 처치, 사망 및  사용된 부적 무게\n{tan}당신의 영혼에 결속되어 형태를 형성하는 고대 유물입니다{gold}\n",
+                koKR = "\n{gray}마나 재생, 달리기/걷기 속도 증가, 모든 기술, 민첩, 최대 생명력%%, 시야 범위\n{turquoise}현재 변경된 능력치:\n\n{white}자세한 내용은 모드 정보 페이지를 확인하세요\n사냥, 죽음, 사용한 참 무게에 따라 다양한 능력치가 변경됩니다\n{tan}당신의 영혼에 묶여 그 형태 자체를 빚어내는 고대의 유물{gold}\n",
                 plPL = "\n{gray}Regeneracja many, szybszy bieg/chodzenie, wszystkie umiejętności, zręczność, maksymalne HP%%, promień światła\n{turquoise}Aktualnie zmienione statystyki:\n\n{white}Zobacz stronę z informacjami o modzie, aby uzyskać szczegółowe informacje\nRóżne statystyki zostaną zmodyfikowane w oparciu o twoje zabójstwa, śmierć i  użyto ciężaru uroku\n{tan}Starożytny artefakt związany z twoją duszą, kształtujący jej formę{gold}\n",
                 ptBR = "\n{gray}Regeneração de Mana, Corrida/Caminhada mais rápida, Todas as habilidades, Destreza, HP máximo%%, Raio de luz\n{turquoise}Estatísticas alteradas atualmente:\n\n{white}Veja a página de informações do mod para detalhes completos\nVárias estatísticas serão modificadas com base em suas mortes, mortes e  peso do amuleto usado\n{tan}Um artefato antigo que está ligado à sua alma, moldando sua própria forma{gold}\n",
                 ruRU = "\n{gray}Регенерация маны, более быстрый бег/ходьба, все навыки, ловкость, макс. HP%%, радиус света\n{turquoise}Текущая измененная статистика:\n\n{white}Посмотрите страницу с информацией о моде для получения полной информации\nРазличные характеристики будут изменены в зависимости от ваших убийств, смертей и  использованный вес очарования\n{tan}Древний артефакт, связанный с вашей душой, формирующий ее форму.{gold}\n",
@@ -1603,114 +1266,247 @@ return {
             code = "Z48",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Niedrig {white}->{blue} 1 Mittel)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Basso {white}->{blue} 1 Medio)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Niski {white}->{blue} 1 Średni)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Baixo {white}->{blue} 1 Médio)",
-                ruRU = "{gray}(Куб для изменения типа преобразователя)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
-                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 Low {white}->{blue} 1 Mid)",
+                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Niedrig {white}->{blue} 1 Mittel)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Bajo {white}->{blue} 1 Medio)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Basso {white}->{blue} 1 Medio)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                koKR = "{gray}(큐브로 변환기 종류 변경)\n{blue}(2048 하급 {white}->{blue} 1 중급)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Niski {white}->{blue} 1 Średni)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Baixo {white}->{blue} 1 Médio)\n",
+                ruRU = "{gray}(Куб для изменения типа преобразователя)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
+                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 Low {white}->{blue} 1 Mid)\n",
             }
         },
         {
             code = "Z49",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Mittel {white}->{blue} 1 Hoch)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Mid {white}->{blue} 1 Alto)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 Mid {white}->{blue} 1 High)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（2048 Mid {white}->{blue} 1 High）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（2048 Mid {white}->{blue} 1 High）",
+                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Mittel {white}->{blue} 1 Hoch)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Mid {white}->{blue} 1 Alto)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                koKR = "{gray}(큐브로 변환기 종류 변경)\n{blue}(2048 중급 {white}->{blue} 1 상급)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 Mid {white}->{blue} 1 High)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（2048 Mid {white}->{blue} 1 High\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（2048 Mid {white}->{blue} 1 High\n",
             }
         },
         {
             code = "Z50",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Hoch {white}->{blue} 1 Ultra)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Alto {white}->{blue} 1 Ultra)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                koKR = "{gray}(변환기 유형을 변경하기 위한 큐브)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
-                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 High {white}->{blue} 1 Ultra)",
+                deDE = "{gray}(Würfel zum Wechseln)\n{blue}(2048 Hoch {white}->{blue} 1 Ultra)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(2048 Alto {white}->{blue} 1 Ultra)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                koKR = "{gray}(큐브로 변환기 종류 변경)\n{blue}(2048 상급 {white}->{blue} 1 울트라)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                zhCN = "{gray}(改变转换器类型的立方体)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
+                zhTW = "{gray}(改變轉換器類型的立方體)\n{blue}(2048 High {white}->{blue} 1 Ultra)\n",
             }
         },
         {
             code = "Z51",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Mittel {white}->{blue} 2048 Niedrig)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Medium {white}->{blue} 2048 Low)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Medio {white}->{blue} 2048 Basso)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Moyen {white}->{blue} 2048 Faible)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 中 {white}->{blue} 2048 低)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(1 중간 {white}->{blue} 2048 낮음)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Średni {white}->{blue} 2048 Niski)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Médio {white}->{blue} 2048 Baixo)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Средний {white}->{blue} 2048 Низкий)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 中 {white}->{blue} 2048 低）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 中 {white}->{blue} 2048 低）",
+                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Mittel {white}->{blue} 2048 Niedrig)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Medium {white}->{blue} 2048 Low)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Medio {white}->{blue} 2048 Bajo)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Medio {white}->{blue} 2048 Basso)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Moyen {white}->{blue} 2048 Faible)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 中 {white}->{blue} 2048 低)\n",
+                koKR = "{gray}(큐브로 변환기 종류 변경)\n{blue}(1 중급 {white}->{blue} 2048 하급)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Średni {white}->{blue} 2048 Niski)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Médio {white}->{blue} 2048 Baixo)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Средний {white}->{blue} 2048 Низкий)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 中 {white}->{blue} 2048 低\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 中 {white}->{blue} 2048 低\n",
             }
         },
         {
             code = "z80",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Hoch {white}->{blue} 2048 Mittel)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(1 High {white}->{blue} 2048 Medium)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Alto {white}->{blue} 2048 Medio)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Élevé {white}->{blue} 2048 Moyen)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 High {white}->{blue} 2048 Medium)",
-                koKR = "{gray}(변환기 유형을 변경하는 큐브)\n{blue}(1 높음 {white}->{blue} 2048 중간)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Wysoka {white}->{blue} 2048 Średnia)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Alto {white}->{blue} 2048 Médio)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Высокий {white}->{blue} 2048 Средний)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 高 {white}->{blue} 2048 中）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 高 {white}->{blue} 2048 中）",
+                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Hoch {white}->{blue} 2048 Mittel)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(1 High {white}->{blue} 2048 Medium)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Alto {white}->{blue} 2048 Medio)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Alto {white}->{blue} 2048 Medio)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Élevé {white}->{blue} 2048 Moyen)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 High {white}->{blue} 2048 Medium)\n",
+                koKR = "{gray}(큐브로 변환기 종류 변경)\n{blue}(1 상급 {white}->{blue} 2048 중급)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Wysoka {white}->{blue} 2048 Średnia)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Alto {white}->{blue} 2048 Médio)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Высокий {white}->{blue} 2048 Средний)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 高 {white}->{blue} 2048 中\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 高 {white}->{blue} 2048 中\n",
             }
         },
         {
             code = "z81",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Ultra {white}->{blue} 2048 Hoch)",
-                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)",
-                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)",
-                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)",
-                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                koKR = "{gray}(변환기 유형 변경용 큐브)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Ultra {white}->{blue} 2048 High)",
-                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 Ultra {white}->{blue} 2048 High）",
-                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 Ultra {white}->{blue} 2048 High）",
+                deDE = "{gray}(Würfel zum Ändern des Konvertertyps)\n{blue}(1 Ultra {white}->{blue} 2048 Hoch)\n",
+                enUS = "{gray}(Cube to change converter type)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                esES = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)\n",
+                esMX = "{gray}(Cubo para cambiar el tipo de convertidor)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)\n",
+                frFR = "{gray}(Cubo per cambiare tipo di convertitore)\n{blue}(1 Ultra {white}->{blue} 2048 Alto)\n",
+                itIT = "{gray}(Cube pour changer le type de convertisseur)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                jaJP = "{gray}(コンバータ タイプを変更するキューブ)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                koKR = "{gray}(큐브로 변환기 종류 변경)\n{blue}(1 울트라 {white}->{blue} 2048 상급)\n",
+                plPL = "{gray}(Kostka do zmiany typu konwertera)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                ptBR = "{gray}(Cubo para alterar o tipo de conversor)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                ruRU = "{gray}(Куб для изменения типа конвертера)\n{blue}(1 Ultra {white}->{blue} 2048 High)\n",
+                zhCN = "{gray}（用于更改转换器类型的立方体）\n{blue}（1 Ultra {white}->{blue} 2048 High\n",
+                zhTW = "{gray}（用於更改轉換器類型的立方體）\n{blue}（1 Ultra {white}->{blue} 2048 High\n",
+            }
+        },
+        {
+            code = "Z02",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}+30 Verteidigung\n{green}Helme/Gürtel: {white}+10 auf Stärke\n{green}Rüstungen/Stiefel: {white}+10 auf Stärke\n{green}Waffen/Handschuhe: {white}+150 auf Angriffswert\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}+30 Defense\n{green}Helms/Belts: {white}+10 to Strength\n{green}Armors/Boots: {white}+10 to Strength\n{green}Weapons/Gloves: {white}+150 to Attack Rating\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}+30 Defensa\n{green}Yelmos/Cinturones: {white}+10 a Fuerza\n{green}Armaduras/Botas: {white}+10 a Fuerza\n{green}Armas/Guantes: {white}+150 a Índice de Ataque\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}+30 Defensa\n{green}Yelmos/Cinturones: {white}+10 a Fuerza\n{green}Armaduras/Botas: {white}+10 a Fuerza\n{green}Armas/Guantes: {white}+150 a Índice de Ataque\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}+30 Défense\n{vert}Casques/Ceintures : {blanc}+10 à la Force\n{vert}Armures/Bottes : {blanc}+10 à la Force\n{vert}Armes/Gants : {blanc}+150 à la valeur d'attaque\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}+30 Difesa\n{verde}Elmi/Cinture: {bianco}+10 alla Forza\n{verde}Armature/Stivali: {bianco}+10 alla Forza\n{verde}Armi/Guanti: {bianco}+150 al Grado di Attacco\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}防御力+30\n{green}兜/ベルト: {white}筋力+10\n{green}鎧/ブーツ: {white}筋力+10\n{green}武器/手袋: {white}攻撃力+150\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브 하나만으로 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}+30 방어력\n{green}헬멧/벨트: {white}+10 근력\n{green}갑옷/부츠: {white}+10 근력\n{green}무기/장갑: {white}+150 공격 등급\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}+30 Obrony\n{zielony}Hełmy/Paski: {biały}+10 do Siły\n{zielony}Zbroje/Buty: {biały}+10 do Siły\n{zielony}Broń/Rękawice: {biały}+150 do Skuteczności Ataku\n{turkusowy}Podgląd Klejnotu:\n\n{biały}(Punkty Klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{verde}Escudos/Joias: {branco}+30 de Defesa\n{verde}Elmos/Cintos: {branco}+10 de Força\n{verde}Armaduras/Botas: {branco}+10 de Força\n{verde}Armas/Luvas: {branco}+150 de Taxa de Ataque\n{turquesa}Prévia da Gema:\n\n{branco}(Pontos de Gema {azul}-1{branco})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}+30 Защиты\n{green}Шлемы/Пояса: {white}+10 к Силе\n{green}Доспехи/Сапоги: {white}+10 к Силе\n{green}Оружие/Перчатки: {white}+150 к Рейтингу Атаки\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}+30 防御\n{green}头盔/腰带：{white}+10 力量\n{green}盔甲/靴子：{white}+10 力量\n{green}武器/手套：{white}+150 攻击值\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}+30 防禦\n{green}頭盔/腰帶：{white}+10 力量\n{green}盔甲/靴子：{white}+10 力量\n{green}/手套：{white}+150 折位攻擊值（nquowise; {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z03",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Blitzresistenz +40 %%\n{green}Helme/Gürtel: {white}24 %% bessere Chance, magische Gegenstände zu erhalten\n{green}Rüstungen/Stiefel: {white}24 %% bessere Chance, magische Gegenstände zu erhalten\n{green}Waffen/Handschuhe: {white}Fügt 1-40 Blitzschaden hinzu\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Lightning Resist +40%%\n{green}Helms/Belts: {white}24%% Better Chance of Getting Magic Items\n{green}Armors/Boots: {white}24%% Better Chance of Getting Magic Items\n{green}Weapons/Gloves: {white}Adds 1-40 lightning damage\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al rayo +40%%\n{green}Yelmos/Cinturones: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armaduras/Botas: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armas/Guantes: {white}Añade 1-40 de daño por rayo\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al rayo +40%%\n{green}Yelmos/Cinturones: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armaduras/Botas: {white}24%% más de probabilidad de obtener objetos mágicos\n{green}Armas/Guantes: {white}Añade 1-40 de daño por rayo\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance à la foudre +40 %\n{vert}Casques/Ceintures : {blanc}Chances supplémentaires de 24 % pour obtenir des objets magiques\n{vert}Armures/Bottes : {blanc}Chances supplémentaires de 24 % pour obtenir des objets magiques\n{vert}Armures/Gants : {blanc}Ajoute 1 à 40 points de dégâts de foudre\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza ai fulmini +40%%\n{verde}Elmi/Cinture: {bianco}24%% Maggiore probabilità di ottenere oggetti magici\n{verde}Armature/Stivali: {bianco}24%% Maggiore probabilità di ottenere oggetti magici\n{verde}Armi/Guanti: {bianco}Aggiunge 1-40 danni da fulmine\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}雷耐性 +40%%\n{green}兜/ベルト: {white}魔法のアイテム入手確率 24%% 上昇\n{green}鎧/ブーツ: {white}魔法のアイテム入手確率 24%% 上昇\n{green}武器/手袋: {white}1～40 の雷ダメージを追加\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}번개 저항력 +40%%\n{green}헬멧/벨트: {white}마법 아이템을 얻을 확률 24%% 증가\n{green}갑옷/부츠: {white}마법 아이템을 얻을 확률 24%% 증가\n{green}무기/장갑: {white}번개 피해 1~40 추가\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na pioruny +40%%\n{zielony}Hełmy/Paski: {biały}24%% większa szansa na zdobycie magicznych przedmiotów\n{zielony}Zbroje/Buty: {biały}24%% większa szansa na zdobycie magicznych przedmiotów\n{zielony}Broń/Rękawice: {biały}Dodaje 1-40 obrażeń od piorunów\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência a Raios +40%%\n{green}Elmos/Cintos: {white}24%% Mais Chance de Obter Itens Mágicos\n{green}Armaduras/Botas: {white}24%% Mais Chance de Obter Itens Mágicos\n{green}Armas/Luvas: {white}Adiciona 1-40 de dano de raio\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление молнии +40%%\n{green}Шлемы/Пояса: {white}На 24%% больше шанс получить магические предметы\n{green}Доспехи/Сапоги: {white}На 24%% больше шанс получить магические предметы\n{green}Оружие/Перчатки: {white}Добавляет от 1 до 40 урона от молнии\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}抗雷 +40%%\n{green}头盔/腰带：{white}获得魔法物品的几率增加 24%%\n{green}盔甲/靴子：{white}获得魔法物品的几率增加 24%%\n{green}武器/手套：{white}增加 1-40 点雷电伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}抗雷 +40%%\n{green}頭盔/腰帶：{white}獲得魔法物品的幾率增加 24%%\n{green}盔甲/靴子：{white}獲得魔法物品的幾率增加 24%%\n{green}盔甲/靴子：{white}獲得魔法物品的幾率增加 24%{greenhm}/Sm{pite}點雷電傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z04",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Kälteresistenz +40%%\n{green}Helme/Gürtel: {white}+38 auf Mana\n{green}Rüstungen/Stiefel: {white}+38 auf Mana\n{green}Waffen/Handschuhe: {white}Fügt 10-14 Kälteschaden hinzu\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Cold Resist +40%%\n{green}Helms/Belts: {white}+38 to Mana\n{green}Armors/Boots: {white}+38 to Mana\n{green}Weapons/Gloves: {white}Adds 10-14 cold damage\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Resistencia al frío +40%%\n{green} Cascos/Cinturones: {white} +38 al maná\n{green} Armaduras/Botas: {white} +38 al maná\n{green} Armas/Guantes: {white} Agrega 10-14 de daño por frío\n{turquoise} Vista previa de gema:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Resistencia al frío +40%%\n{green} Cascos/Cinturones: {white} +38 al maná\n{green} Armaduras/Botas: {white} +38 al maná\n{green} Armas/Guantes: {white} Agrega 10-14 de daño por frío\n{turquoise} Vista previa de gema:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance au froid +40 %\n{vert}Casques/Ceintures : {blanc}+38 au mana\n{vert}Armures/Bottes : {blanc}+38 au mana\n{vert}Armes/Gants : {blanc}Ajoute 10 à 14 dégâts de froid\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza al freddo +40%%\n{verde}Elmi/Cinture: {bianco}+38 al Mana\n{verde}Armature/Stivali: {bianco}+38 al Mana\n{verde}Armi/Guanti: {bianco}Aggiunge 10-14 danni da freddo\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}シールド/ジュエリー: {white}冷気耐性 +40%%\n{green}ヘルム/ベルト: {white}マナ +38\n{green}アーマー/ブーツ: {white}マナ +38\n{green}武器/グローブ: {white}冷気ダメージを 10～14 追加\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}냉기 저항력 +40%%\n{green}헬멧/벨트: {white}마나 +38\n{green}갑옷/부츠: {white}마나 +38\n{green}무기/장갑: {white}냉기 피해 10-14 추가\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na zimno +40%%\n{zielony}Hełmy/Paski: {biały}+38 do many\n{zielony}Zbroje/Buty: {biały}+38 do many\n{zielony}Broń/Rękawice: {biały}Dodaje 10-14 obrażeń od zimna\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência ao Frio +40%%\n{green}Elmos/Cintos: {white}+38 de Mana\n{green}Armaduras/Botas: {white}+38 de Mana\n{green}Armas/Luvas: {white}Adiciona 10-14 de dano de frio\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление холоду +40%%\n{green}Шлемы/Пояса: {white}+38 к мане\n{green}Доспехи/Сапоги: {white}+38 к мане\n{green}Оружие/Перчатки: {white}Добавляет 10-14 урона от холода\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}抗寒能力 +40%%\n{green}头盔/腰带：{white}+38 法力\n{green}盔甲/靴子：{white}+38 法力\n{green}武器/手套：{white}增加 10-14 点寒冷伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可改為下一種移除類型\n\n{green}盾牌/珠寶：{white}抗寒能力 +40%%\n{green}頭盔/腰帶：{white}+38 法力\n{green}盔甲/靴子：{white}+38 法力\n{green}武器/手套：{white}點冷傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z05",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Giftresistenz +40 %%\n{green}Helme/Gürtel: {white}+10 auf Geschicklichkeit\n{green}Rüstungen/Stiefel: {white}+10 auf Geschicklichkeit\n{green}Waffen/Handschuhe: {white}+100 Giftschaden über 7 Sekunden\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Poison Resist +40%%\n{green}Helms/Belts: {white}+10 to Dexterity\n{green}Armors/Boots: {white}+10 to Dexterity\n{green}Weapons/Gloves: {white}+100 poison damage over 7 seconds\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al veneno +40%%\n{green}Yelmos/Cinturones: {white}+10 a Destreza\n{green}Armaduras/Botas: {white}+10 a Destreza\n{green}Armas/Guantes: {white}+100 de daño por veneno durante 7 segundos\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al veneno +40%%\n{green}Yelmos/Cinturones: {white}+10 a Destreza\n{green}Armaduras/Botas: {white}+10 a Destreza\n{green}Armas/Guantes: {white}+100 de daño por veneno durante 7 segundos\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance au poison +40 %\n{vert}Casques/Ceintures : {blanc}+10 à la dextérité\n{vert}Armures/Bottes : {blanc}+10 à la dextérité\n{vert}Armes/Gants : {blanc}+100 dégâts de poison en 7 secondes\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza al veleno +40%%\n{verde}Elmi/Cinture: {bianco}+10 alla Destrezza\n{verde}Armature/Stivali: {bianco}+10 alla Destrezza\n{verde}Armi/Guanti: {bianco}+100 danni da veleno in 7 secondi\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}毒耐性 +40%%\n{green}兜/ベルト: {white}器用さ +10\n{green}鎧/ブーツ: {white}器用さ +10\n{green}武器/手袋: {white}7秒間の毒ダメージ +100\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}독 저항력 +40%%\n{green}헬멧/벨트: {white}민첩성 +10\n{green}갑옷/부츠: {white}민첩성 +10\n{green}무기/장갑: {white}7초 동안 독 피해 +100\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na truciznę +40%%\n{zielony}Hełmy/Paski: {biały}+10 do Zręczności\n{zielony}Zbroje/Buty: {biały}+10 do Zręczności\n{zielony}Broń/Rękawice: {biały}+100 obrażeń od trucizny w ciągu 7 sekund\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência a Veneno +40%%\n{green}Elmos/Cintos: {white}+10 de Destreza\n{green}Armaduras/Botas: {white}+10 de Destreza\n{green}Armas/Luvas: {white}+100 de dano de veneno ao longo de 7 segundos\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление яду +40%%\n{green}Шлемы/Пояса: {white}+10 к ловкости\n{green}Доспехи/Сапоги: {white}+10 к ловкости\n{green}Оружие/Перчатки: {white}+100 к урону от яда в течение 7 секунд\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种去除剂类型\n\n{green}盾牌/珠宝：{white}抗毒 +40%%\n{green}头盔/腰带：{white}+10 敏捷\n{green}盔甲/靴子：{white}+10 敏捷\n{green}武器/手套：{white}+100 毒性伤害，持续 7 秒\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可改為下一種去除劑類型\n\n{green}盾牌/珠寶：{white}抗毒 +40%%\n{green}頭盔/腰帶：{white}+10 盾牌\n{green}盔甲/靴子：{white}+10 敏捷\n{green}武器/敏捷\n{green}盔甲/靴子：{white}+10 敏捷\n{green}武器/敏捷：{white+107秒\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z06",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Feuerresistenz +40%%\n{green}Helme/Gürtel: {white}+38 zum Leben\n{green}Rüstungen/Stiefel: {white}+38 zum Leben\n{green}Waffen/Handschuhe: {white}Fügt 15-20 Feuerschaden hinzu\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Fire Resist +40%%\n{green}Helms/Belts: {white}+38 to Life\n{green}Armors/Boots: {white}+38 to Life\n{green}Weapons/Gloves: {white}Adds 15-20 fire damage\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan}Usa el cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al fuego +40%%\n{green}Yelmos/Cinturones: {white}+38 a la vida\n{green}Armaduras/Botas: {white}+38 a la vida\n{green}Armas/Guantes: {white}Añade 15-20 de daño por fuego\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan}Usa el cubo solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Resistencia al fuego +40%%\n{green}Yelmos/Cinturones: {white}+38 a la vida\n{green}Armaduras/Botas: {white}+38 a la vida\n{green}Armas/Guantes: {white}Añade 15-20 de daño por fuego\n{turquoise}Vista previa de la gema:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Résistance au feu +40 %\n{vert}Casques/Ceintures : {blanc}+38 à la vie\n{vert}Armures/Bottes : {blanc}+38 à la vie\n{vert}Armes/Gants : {blanc}Ajoute 15 à 20 points de dégâts de feu\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Resistenza al fuoco +40%%\n{verde}Elmi/Cinture: {bianco}+38 alla vita\n{verde}Armature/Stivali: {bianco}+38 alla vita\n{verde}Armi/Guanti: {bianco}Aggiunge 15-20 danni da fuoco\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}盾/宝飾品: {white}火炎耐性 +40%%\n{green}兜/ベルト: {white}ライフ +38\n{green}鎧/ブーツ: {white}ライフ +38\n{green}武器/手袋: {white}火炎ダメージを 15～20 追加\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}화염 저항력 +40%%\n{green}헬멧/벨트: {white}생명력 +38\n{green}갑옷/부츠: {white}생명력 +38\n{green}무기/장갑: {white}화염 피해 15-20 추가\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Odporność na ogień +40%%\n{zielony}Hełmy/Paski: {biały}+38 do Życia\n{zielony}Zbroje/Buty: {biały}+38 do Życia\n{zielony}Broń/Rękawice: {biały}Dodaje 15-20 obrażeń od ognia\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Resistência ao Fogo +40%%\n{green}Elmos/Cintos: {white}+38 de Vida\n{green}Armaduras/Botas: {white}+38 de Vida\n{green}Armas/Luvas: {white}Adiciona 15-20 de dano de fogo\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Сопротивление огню +40%%\n{green}Шлемы/Пояса: {white}+38 к Жизни\n{green}Доспехи/Сапоги: {white}+38 к Жизни\n{green}Оружие/Перчатки: {white}Добавляет 15-20 урона от огня\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}防火 +40%%\n{green}头盔/腰带：{white}+38 生命\n{green}盔甲/靴子：{white}+38 生命\n{green}武器/手套：{white}增加 15-20 火焰伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}防火 +40%%\n{green}頭盔/腰帶：{white}+38 生命\n{green}盔甲/靴子：{white}+38 生命\n{green}武器/手套：{white}增加 15hite}火焰傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z07",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Alle Widerstände +19 %%\n{green}Helme/Gürtel: {white}+100 auf Angriffswert\n{green}Rüstungen/Stiefel: {white}+100 auf Angriffswert\n{green}Waffen/Handschuhe: {white}+68 %% Schaden an Untoten\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}All Resistances +19%%\n{green}Helms/Belts: {white}+100 to Attack Rating\n{green}Armors/Boots: {white}+100 to Attack Rating\n{green}Weapons/Gloves: {white}+68%% Damage to Undead\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Todas las resistencias +19%%\n{green} Cascos/Cinturones: {white} +100 al índice de ataque\n{green} Armaduras/Botas: {white} +100 al índice de ataque\n{green} Armas/Guantes: {white} +68%% Daño a no muertos\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} Todas las resistencias +19%%\n{green} Cascos/Cinturones: {white} +100 al índice de ataque\n{green} Armaduras/Botas: {white} +100 al índice de ataque\n{green} Armas/Guantes: {white} +68%% Daño a no muertos\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue} -1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}Toutes les résistances +19 %\n{vert}Casques/Ceintures : {blanc}+100 au taux d'attaque\n{vert}Armures/Bottes : {blanc}+100 au taux d'attaque\n{vert}Armures/Gants : {blanc}+68 % de dégâts aux morts-vivants\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}Tutte le resistenze +19%%\n{verde}Elmi/Cinture: {bianco}+100 al punteggio di attacco\n{verde}Armature/Stivali: {bianco}+100 al punteggio di attacco\n{verde}Armi/Guanti: {bianco}+68%% danni ai non morti\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブだけで次の除去タイプに変更\n\n{green}シールド/ジュエリー: {white}全耐性 +19%%\n{green}ヘルム/ベルト: {white}攻撃力 +100\n{green}アーマー/ブーツ: {white}攻撃力 +100\n{green}武器/グローブ: {white}アンデッドへのダメージ +68%%\n{turquoise}宝石プレビュー:\n\n{white}(宝石ポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}모든 저항력 +19%%\n{green}헬멧/벨트: {white}공격 등급 +100\n{green}갑옷/부츠: {white}공격 등급 +100\n{green}무기/장갑: {white}언데드에게 +68%% 데미지\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Wszystkie odporności +19%%\n{zielony}Hełmy/Paski: {biały}+100 do współczynnika ataku\n{zielony}Zbroje/Buty: {biały}+100 do współczynnika ataku\n{zielony}Broń/Rękawice: {biały}+68%% obrażeń zadanych nieumarłym\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}Todas as Resistências +19%%\n{green}Elmos/Cintos: {white}+100 na Classificação de Ataque\n{green}Armaduras/Botas: {white}+100 na Classificação de Ataque\n{green}Armas/Luvas: {white}+68%% de Dano a Mortos-Vivos\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены на следующий тип ремувера\n\n{green}Щиты/Украшения: {white}Все сопротивления +19%%\n{green}Шлемы/Пояса: {white}+100 к рейтингу атаки\n{green}Доспехи/Сапоги: {white}+100 к рейтингу атаки\n{green}Оружие/Перчатки: {white}+68%% урона по нежити\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}所有抗性 +19%%\n{green}头盔/腰带：{white}+100 攻击等级\n{green}盔甲/靴子：{white}+100 攻击等级\n{green}武器/手套：{white}+68%% 对亡灵造成的伤害\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}所有抗性 +19%%\n{green}頭盔/腰帶：{white}+100 攻擊等級\n{green}盔甲/靴子：{white}+100 攻擊等級\n{green}武器/手套：{wite對亡靈造成的傷害\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
+            }
+        },
+        {
+            code = "Z08",
+            location = { "onplayer", "atvendor" },
+            prefix = {
+                deDE = "{tan}Würfel allein, um zum nächsten Entfernertyp zu wechseln\n\n{green}Schilde/Schmuck: {white}Angreifer erleidet Schaden von 20\n{green}Helme/Gürtel: {white}Mana regenerieren 19%%, Leben auffüllen +5\n{green}Rüstungen/Stiefel: {white}Mana regenerieren 19%%, Leben auffüllen +5\n{green}Waffen/Handschuhe: {white}4%% Leben pro Treffer gestohlen, 3%% Mana pro Treffer gestohlen\n{turquoise}Edelsteinvorschau:\n\n{white}(Edelsteinpunkte {blue}-1{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Attacker Takes Damage of 20\n{green}Helms/Belts: {white}Regenerate Mana 19%%, Replenish Life +5\n{green}Armors/Boots: {white}Regenerate Mana 19%%, Replenish Life +5\n{green}Weapons/Gloves: {white}4%% Life stolen per hit, 3%% Mana stolen per hit\n{turquoise}Gem Preview:\n\n{white}(Gem Points {blue}-1{white})\n",
+                esES = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} El atacante recibe 20 de daño\n{green} Cascos/Cinturones: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armaduras/Botas: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armas/Guantes: {white} 4%% de vida robada por golpe, 3%% de maná robado por golpe\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                esMX = "{tan} Cubo solo para cambiar al siguiente tipo de removedor\n\n{green} Escudos/Joyas: {white} El atacante recibe 20 de daño\n{green} Cascos/Cinturones: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armaduras/Botas: {white} Regeneración de maná 19%%, Reposición de vida +5\n{green} Armas/Guantes: {white} 4%% de vida robada por golpe, 3%% de maná robado por golpe\n{turquoise} Vista previa de gemas:\n\n{white}(Puntos de gema {blue}-1{white})\n",
+                frFR = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{vert}Boucliers/Bijoux : {blanc}L'attaquant subit des dégâts de 20\n{vert}Casques/Ceintures : {blanc}Régénération de mana de 19 %, Régénération de vie +5\n{vert}Armures/Bottes : {blanc}Régénération de mana de 19 %, Régénération de vie +5\n{vert}Armures/Gants : {blanc}4 % de vie volée par coup, 3 % de mana volé par coup\n{turquoise}Aperçu des gemmes :\n\n{blanc}(Points de gemmes {bleu}-1{blanc})\n",
+                itIT = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{verde}Scudi/Gioielli: {bianco}L'attaccante subisce danni pari a 20\n{verde}Elmi/Cinture: {bianco}Rigenera Mana 19%%, Ripristina Vita +5\n{verde}Armature/Stivali: {bianco}Rigenera Mana 19%%, Ripristina Vita +5\n{verde}Armi/Guanti: {bianco}4%% Vita rubata per colpo, 3%% Mana rubato per colpo\n{turchese}Anteprima gemma:\n\n{bianco}(Punti gemma {blu}-1{bianco})\n",
+                jaJP = "{tan}キューブのみで次の除去タイプに変更\n\n{green}シールド/ジュエリー: {white}攻撃者が20のダメージを受ける\n{green}ヘルム/ベルト: {white}マナ回復 19%%、ライフ回復 +5\n{green}アーマー/ブーツ: {white}マナ回復 19%%、ライフ回復 +5\n{green}武器/グローブ: {white}ヒットごとにライフが4%%、マナが3%%奪われる\n{turquoise}ジェムプレビュー:\n\n{white}(ジェムポイント {blue}-1{white})\n",
+                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white}공격자가 20의 피해를 입습니다\n{green}헬멧/벨트: {white}마나 19%% 재생, 생명력 +5 회복\n{green}갑옷/부츠: {white}마나 19%% 재생, 생명력 +5 회복\n{green}무기/장갑: {white}타격 시 생명력 4%% 훔침, 타격 시 마나 3%% 훔침\n{turquoise}보석 미리보기:\n\n{white}(보석 포인트 {blue}-1{white})\n",
+                plPL = "{tan}Sama kostka, aby zmienić na następny typ usuwania\n\n{zielony}Tarcze/Biżuteria: {biały}Atakujący otrzymuje obrażenia 20\n{zielony}Hełmy/Paski: {biały}Regenerują manę 19%%, Uzupełniają życie +5\n{zielony}Zbroje/Buty: {biały}Regenerują manę 19%%, Uzupełniają życie +5\n{zielony}Broń/Rękawice: {biały}4%% skradzionego życia na trafienie, 3%% skradzionej many na trafienie\n{turkusowy}Podgląd klejnotu:\n\n{biały}(Punkty klejnotów {niebieski}-1{biały})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Joias: {white}O atacante recebe 20 de dano\n{green}Elmos/Cintos: {white}Regenera Mana 19%%, Repõe Vida +5\n{green}Armaduras/Botas: {white}Regenera Mana 19%%, Repõe Vida +5\n{green}Armas/Luvas: {white}4%% de Vida roubada por acerto, 3%% de Mana roubada por acerto\n{turquoise}Prévia da Gema:\n\n{white}(Pontos de Gema {blue}-1{white})\n",
+                ruRU = "{tan}Один куб для смены типа ремувера\n\n{green}Щиты/Украшения: {white}Атакующий получает урон 20\n{green}Шлемы/Пояса: {white}Регенерация маны 19%%, восстановление жизни +5\n{green}Доспехи/Сапоги: {white}Регенерация маны 19%%, восстановление жизни +5\n{green}Оружие/Перчатки: {white}4%% кражи жизни за удар, 3%% кражи маны за удар\n{turquoise}Предпросмотр камня:\n\n{white}(Очки камней {blue}-1{white})\n",
+                zhCN = "{tan}单独立方体即可更改为下一种移除类型\n\n{green}盾牌/珠宝：{white}攻击者受到 20 点伤害\n{green}头盔/腰带：{white}法力再生 19%%，生命补充 +5\n{green}盔甲/靴子：{white}法力再生 19%%，生命补充 +5\n{green}武器/手套：{white}每次攻击窃取 4%% 生命，每次攻击窃取 3%% 法力\n{turquoise}宝石预览:\n\n{white}(宝石点数 {blue}-1{white})\n",
+                zhTW = "{tan}單獨立方體即可更改為下一種移除類型\n\n{green}盾牌/珠寶：{white}攻擊者受到 20 點傷害\n{green}頭盔/腰帶：{white}法力再生 19%%，生命補充 +5\n{green}盔甲/靴子：{white}法力再生 19%%，生命補充 +5\n{green}護甲/靴子：{white}法力再生 19%%，每次補生命，每次攻擊竊取 3%% 法力\n{turquoise}寶石預覽:\n\n{white}(寶石點數 {blue}-1{white})\n"
             }
         },
         {
@@ -1724,7 +1520,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 15 Difesa, 1 a raggio leggero\n{green}Elmi/Cinture: {white} 10 Difesa, 1 a raggio leggero\n{green}Armature/Stivali: {white} 10 Difesa, 1 a raggio leggero\nn{green}Armi/Guanti: {white} 30 al grado di attacco, 1 al raggio di luce\n{turquoise}Rune Anteprima:\n\n{white}(Punti bassi {blue}-1{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white} 15Défense, 1 à Rayon léger\n{green}Casques/Ceintures: {white} 10Défense, 1 à Rayon léger\n{green}Armures/Bottes: {white} 10Défense, 1 à Rayon léger\nn{green}Armes/Gants: {white} 30 au Score d'attaque, 1 au Rayon lumineux\n{turquoise}Rune Preview:\n\n{white}(Bas Points {blue}-1{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 15 Defense、1 to Light Radius\n{green}Helms/Belts: {white} 10 Defense、1 to Light Radius\n{green}Armors/Boots: {white} 10 Defense、1 to Light Radius\nn{green}Weapons/Gloves: {white} 30 to Attack Rating、1 to Light Radius\n{turquoise}Rune プレビュー:\n\n{white}(Low Points {blue}-1{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}방어력 +15, 빛 반경 +1\n{green}헬름/벨트: {white}방어력 +10, 빛 반경 +1\n{green}갑옷/장화: {white}방어력 +10, 빛 반경 +1{white}\n{green}무기/장갑: {white}공격 등급 +30, 빛 반경 +1\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-1{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}방어력 +15, 시야 +1\n{green}헬름/벨트: {white}방어력 +10, 시야 +1\n{green}갑옷/장화: {white}방어력 +10, 시야 +1{white}\n{green}무기/장갑: {white}명중률 +30, 시야 +1\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-1{white})\n",
                 plPL = "{tan}Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 15 Obrona, 1 do Promień Światła\n{green}Hełmy/Pasy: {white} 10 Obrona, 1 do Promień Światła\n{green}Pancerz/Buty: {white} 10 Obrona, 1 do Promień Światła\nn{green}Bronie/rękawice: {white} 30 do współczynnika ataku, 1 do promienia światła\n{turquoise}Rune Podgląd:\n\n{white}(niskie punkty {blue}-1{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 15 Defesa, 1 para Raio de Luz\n{green} Elmos/Cintos: {white} 10 Defesa, 1 para Raio de Luz\n{green}Armaduras/Botas: {white} 10 Defesa, 1 para Raio de Luz\nn{green}Armas/Luvas: {white} 30 para Classificação de Ataque, 1 para Raio de Luz\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-1{white})\n",
                 ruRU = "{tan}Куб в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white} 15 защиты, 1 радиус света\n{green}Шлемы/ремни: {white} 10 защиты, 1 радиус света\n{green}Доспехи/обувь: {white} 10 защиты, 1 радиус света\nn{green}Оружие/перчатки: {white} 30 к рейтингу атаки, 1 к радиусу света\n{turquoise}Rune Preview:\n\n{white}(Низкие очки {blue}-1{white})\n",
@@ -1740,10 +1536,10 @@ return {
                 enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}7%% Increased Chance of Blocking\n{green}Helms/Belts: {white}+5%% Faster Run/Walk\n{green}Armors/Boots: {white}+5%% Faster Run/Walk\n{green}Weapons/Gloves: {white}+75%% Damage and +50%% Attack Rating to Undead\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-2{white})\n",
                 esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}7 %% de mayor probabilidad de bloqueo\n{green}Yelmos/cinturones: {white} 5 %% más rápido para correr/caminar\n{green}Armaduras/botas: {white} {white} 5 %% más rápido para correr/caminar\n{green}Armas/guantes:  {white} 75 %% de daño y 50 %% de índice de ataque a muertos vivientes\n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-2{white})\n",
                 esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}7 %% de mayor probabilidad de bloqueo\n{green}Yelmos/cinturones: {white} 5 %% más rápido para correr/caminar\n{green}Armaduras/botas: {white} {white} 5 %% más rápido para correr/caminar\n{green}Armas/guantes:  {white} 75 %% de daño y 50 %% de índice de ataque a muertos vivientes\n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-2{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}7%% Aumentata possibilità di blocco\n{green}Elmi/Cinture: {white} Corsa/camminata più veloce del 5%\n{green}Armature/Stivali: {white} Corsa/camminata più veloce del 5%\n{green}Armi/Guanti:  {white} 75%% di danno e 50%% di attacco ai non morti\n{turquoise}Rune Anteprima:\n\n{white}(Punti bassi {blue}-2{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}7%% Aumentata possibilità di blocco\n{green}Elmi/Cinture: {white} Corsa/camminata più veloce del 5%%\n{green}Armature/Stivali: {white} Corsa/camminata più veloce del 5%%\n{green}Armi/Guanti:  {white} 75%% di danno e 50%% di attacco ai non morti\n{turquoise}Rune Anteprima:\n\n{white}(Punti bassi {blue}-2{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}7%% de chances de bloquer\n{green}Casques/Ceintures: {white} Course/marche 5%% plus rapide\n{green}Armures/Bottes: {white} Course/marche 5%% plus rapide\n{green}Armes/Gants:  {white} 75%% de dégâts et 50%% de taux d'attaque contre les morts-vivants\n{turquoise}Rune Preview:\n\n{white}(Points bas {blue}-2{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}7%% 防御の可能性が増加\n{green}Helms/Belts: {white} 5%% 速く走る/歩く\n{green}Armors/Boots: {white} 5%% 速く走る/歩く\n{green}Weapons/Gloves:  {white} アンデッドに対する 75%% のダメージと 50%% の攻撃力\n{turquoise}Rune プレビュー:\n\n{white}(低ポイント {blue}-2{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}차단 확률 +7%\n{green}헬름/벨트: {white}걷기/달리기 속도 +5%\n{green}갑옷/장화: {white}걷기/달리기 속도 +2%{white}\n{green}무기/장갑: {white}언데드에 대한 피해 +75%% 및 언데드에 대한 공격 등급 +50%\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-2{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}막기 확률 +7%%\n{green}투구/벨트: {white}달리기/걷기 속도 +5%%\n{green}갑옷/부츠: {white}달리기/걷기 속도 +5%%\n{green}무기/장갑: {white}언데드에게 주는 피해 +75%% 및 명중률 +50%%\n{turquoise}룬 미리보기:\n\n{white}(하급 점수 {blue}-2{white})\n",
                 plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}7%% Zwiększona szansa na blokowanie\n{green}Hełmy/Pasy: {white} 5%% szybsze bieganie/chodzenie\n{green}Pancerze/Buty: {white} 5%% szybsze biegi/bronie: c2  {white} 75%% Obrażeń i 50%% Ataku Nieumarłych\n{turquoise}Rune Podgląd:\n\n{white}(Niskie Punkty {blue}-2{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}7%% Maior Chance de Bloqueio\n{green}Capacetes/Cintos: {white} 5%% Correr/Andar Mais Rápido\n{green}Armaduras/Botas: {white} Correr/Andar 5%% Mais Rápido\n{green}Armas/Luvas:  {white} 75%% de Dano e 50%% de Classificação de Ataque para Mortos-vivos\n{turquoise}Rune Pré-visualização:\n\n{white}(Pontos baixos {blue}-2{white})\n",
                 ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white}7%% повышенный шанс блокировки\n{green}Шлемы/пояса: {white} 5%% Быстрее бега/ходьбы\n{green}Доспехи/обувь: {white} 5%% Быстрее бега/ходьбы\n{green}Оружие/перчатки:  {white} 75%% урона и 50%% рейтинга атаки для нежити\n{turquoise}Rune Preview:\n\n{white}(Низкие очки {blue}-2{white})\n",
@@ -1762,7 +1558,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 2 Mana dopo ogni uccisione\n{green}Elmi/Cinture: {white} 2 Mana dopo ogni uccisione\n{green}Armature/Stivali: {white} 2 Mana dopo ogni uccisione\n{green}Armi/Guanti: {white} 2  Mana dopo ogni uccisione\n{turquoise}Rune Anteprima:\n\n{white}(Punti bassi {blue}-4{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 2Mana après chaque élimination\n{green}Casques/Ceintures: {white} 2Mana après chaque élimination\n{green}Armures/Bottes: {white} 2Mana après chaque élimination\n{green}Armes/Gants: {white} 2  Mana après chaque kill\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-4{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 2 キルごとのマナ\n{green}Helms/Belts: {white} 2 マナごとのキル\n{green}Armors/Boots: {white} 2 マナごとのキル\n{green}Weapons/Gloves: {white} 2 各キル後のマナ\n{turquoise}Rune プレビュー:\n\n{white}(低いポイント {blue}-4{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}처치 당 마나 +2\n{green}헬름/벨트: {white}처치 당 +2 마나\n{green}갑옷/장화: {white}처치 당 +2 마나{white}\n{green}무기/장갑: {white}처치 당 +2 마나\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-4{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}적 처치 시 마나 +2\n{green}투구/벨트: {white}적 처치 시 마나 +2\n{green}갑옷/부츠: {white}적 처치 시 마나 +2\n{green}무기/장갑: {white}적 처치 시 마나 +2\n{turquoise}룬 미리보기:\n\n{white}(하급 점수 {blue}-4{white})\n",
                 plPL = "{tan}Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 2 Many po każdym zabiciu\n{green}Hełmy/Pasy: {white} 2 Many po każdym zabiciu\n{green}Pancerz/Buty: {white} 2 Many po każdym zabiciu\n{green}Broń: ÿc  Mana po każdym zabiciu\n{turquoise}Rune Podgląd:\n\n{white}(Niskie punkty {blue}-4{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 2 Mana após cada morte\n{green}Capacetes/Cintos: {white} 2 Mana após cada morte\n{green}Armaduras/Botas: {white} 2 Mana após cada morte\n{green}Armas/Luvas: {white} 2  Mana após cada morte\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-4{white})\n",
                 ruRU = "{tan}Один куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 2 маны после каждого убийства\n{green}Шлемы/ремни: {white} 2 маны после каждого убийства\n{green}Доспехи/ботинки: {white} 2 маны после каждого убийства\n{green}Оружие/перчатки: {white} 2  Мана после каждого убийства\n{turquoise}Rune Preview:\n\n{white}(Низкие очки {blue}-4{white})\n",
@@ -1793,19 +1589,19 @@ return {
             code = "Z13",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Regeneriere Mana 15%\n{green}Helme/Gürtel: {white}Regeneriere Mana 10%\n{green}Rüstungen/Stiefel: {white}Regeneriere Mana 10%\n{green}Waffen/Handschuhe: {white}-25%% Zielverteidigung\nÿcRune Preview:\n\n{white}(Niedrig {blue}-16{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Regenerate Mana 15%\n{green}Helms/Belts: {white}Regenerate Mana 10%\n{green}Armors/Boots: {white}Regenerate Mana 10%\n{green}Weapons/Gloves: {white}-25%% Target Defense\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-16{white})\n",
-                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Regenerar maná 15 %\n{green}Yelmos/Cinturones: {white}Regenerar maná 10 %\n{green}Armaduras/botas: {white}Regenerar maná 10 %\n{green}Armas/guantes: {white}-25 %cune Defense  Vista previa:\n\n{white}(Puntos bajos {blue}-16{white})\n",
-                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Regenerar maná 15 %\n{green}Yelmos/Cinturones: {white}Regenerar maná 10 %\n{green}Armaduras/botas: {white}Regenerar maná 10 %\n{green}Armas/guantes: {white}-25 %cune Defense  Vista previa:\n\n{white}(Puntos bajos {blue}-16{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Rigenera mana 15%\n{green}Elmi/Cinture: {white}Rigenera mana 10%\n{green}Armature/Stivali: {white}Rigenera mana 10%\n{green}Armi/Guanti: {white}-25%Difesa bersaglio{white}-25%cNRune  Anteprima:\n\n{white}(Punti bassi {blue}-16{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Régénérer le mana 15%\n{green}Casques/Ceintures: {white}Régénérer le mana 10%\n{green}Armures/Bottes: {white}Régénérer le mana 10%\n{green}Armes/Gants: {white}-25%% Défense de cible\nÿc  Aperçu:\n\n{white}(Points bas {blue}-16{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Regenerate Mana 15%\n{green}Helms/Belts: {white}Regenerate Mana 10%\n{green}Armors/Boots: {white}Regenerate Mana 10%\n{green}Weapons/Gloves: ÿcune0-25%% ターゲット防御 プレビュー:\n\n{white}(Low Points {blue}-16{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}마나 재생 +15%\n{green}헬름/벨트: {white}마나 재생 +10%\n{green}갑옷/장화: {white}마나 재생 +10%{white}\n{green}무기/장갑: {white}대상 방어력 -25%\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-16{white})\n",
-                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Regeneracja many 15%\n{green}Hełmy/Pasy: {white}Regeneracja many 10%\n{green}Pancerz/Buty: {white}Regeneracja many 10%\n{green}-25%% broni ÿcG  Podgląd:\n\n{white}(Niskie punkty {blue}-16{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Regenerar Mana 15%\n{green}Capacetes/Cintos: {white}Regenerar Mana 10%\n{green}Armaduras/Botas: {white}Regenerar Mana 10%\n{green}Armas/Luvas: {white}-25%% Defesa do Alvo\n  Visualização:\n\n{white}(Low Points {blue}-16{white})\n",
-                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Регенерация маны 15%\n{green}Шлемы/ремни: {white}Регенерация маны 10%\n{green}Доспехи/обувь: {white}Регенерация маны 10%\n{green}Оружие/перчатки: {white}\n{green} Защита цели  Предварительный просмотр:\n\n{white}(Низкие баллы {blue}-16{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个移除器类型\n\n{green}盾牌/珠宝：{white}Regenerate Mana 15%\n{green}Helms/Belts：{white}Regenerate Mana 10%\n{green}Armors/Boots：{white}Regenerate Mana 10%\n{green}武器/手套：{white}-25%% 目标\n 预览：\n\n{white}（低分 {blue}-16{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個移除器類型\n\n{green}盾牌/珠寶：{white}Regenerate Mana 15%\n{green}Helms/Belts：{white}Regenerate Mana 10%\n{green}Armors/Boots：{white}Regenerate Mana 10%\n{green}武器/手套：{white}-25%% 目標\n 預覽：\n\n{white}（低分 {blue}-16{white}）\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Regeneriere Mana 15%%\n{green}Helme/Gürtel: {white}Regeneriere Mana 10%%\n{green}Rüstungen/Stiefel: {white}Regeneriere Mana 10%%\n{green}Waffen/Handschuhe: {white}-25%% Zielverteidigung\nÿcRune Preview:\n\n{white}(Niedrig {blue}-16{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Regenerate Mana 15%%\n{green}Helms/Belts: {white}Regenerate Mana 10%%\n{green}Armors/Boots: {white}Regenerate Mana 10%%\n{green}Weapons/Gloves: {white}-25%% Target Defense\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-16{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Regenerar maná 15 %%\n{green}Yelmos/Cinturones: {white}Regenerar maná 10 %%\n{green}Armaduras/botas: {white}Regenerar maná 10 %%\n{green}Armas/guantes: {white}-25 %cune Defense  Vista previa:\n\n{white}(Puntos bajos {blue}-16{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Regenerar maná 15 %%\n{green}Yelmos/Cinturones: {white}Regenerar maná 10 %%\n{green}Armaduras/botas: {white}Regenerar maná 10 %%\n{green}Armas/guantes: {white}-25 %cune Defense  Vista previa:\n\n{white}(Puntos bajos {blue}-16{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Rigenera mana 15%%\n{green}Elmi/Cinture: {white}Rigenera mana 10%%\n{green}Armature/Stivali: {white}Rigenera mana 10%%\n{green}Armi/Guanti: {white}-25%Difesa bersaglio{white}-25%cNRune  Anteprima:\n\n{white}(Punti bassi {blue}-16{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Régénérer le mana 15%%\n{green}Casques/Ceintures: {white}Régénérer le mana 10%%\n{green}Armures/Bottes: {white}Régénérer le mana 10%%\n{green}Armes/Gants: {white}-25%% Défense de cible\nÿc  Aperçu:\n\n{white}(Points bas {blue}-16{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Regenerate Mana 15%%\n{green}Helms/Belts: {white}Regenerate Mana 10%%\n{green}Armors/Boots: {white}Regenerate Mana 10%%\n{green}Weapons/Gloves: ÿcune0-25%% ターゲット防御 プレビュー:\n\n{white}(Low Points {blue}-16{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}마나 재생 +15%%\n{green}헬름/벨트: {white}마나 재생 +10%%\n{green}갑옷/장화: {white}마나 재생 +10%%{white}\n{green}무기/장갑: {white}대상 방어력 -25%%\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-16{white})\n",
+                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Regeneracja many 15%%\n{green}Hełmy/Pasy: {white}Regeneracja many 10%%\n{green}Pancerz/Buty: {white}Regeneracja many 10%%\n{green}-25%% broni ÿcG  Podgląd:\n\n{white}(Niskie punkty {blue}-16{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Regenerar Mana 15%%\n{green}Capacetes/Cintos: {white}Regenerar Mana 10%%\n{green}Armaduras/Botas: {white}Regenerar Mana 10%%\n{green}Armas/Luvas: {white}-25%% Defesa do Alvo\n  Visualização:\n\n{white}(Low Points {blue}-16{white})\n",
+                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Регенерация маны 15%%\n{green}Шлемы/ремни: {white}Регенерация маны 10%%\n{green}Доспехи/обувь: {white}Регенерация маны 10%%\n{green}Оружие/перчатки: {white}\n{green} Защита цели  Предварительный просмотр:\n\n{white}(Низкие баллы {blue}-16{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个移除器类型\n\n{green}盾牌/珠宝：{white}Regenerate Mana 15%%\n{green}Helms/Belts：{white}Regenerate Mana 10%%\n{green}Armors/Boots：{white}Regenerate Mana 10%%\n{green}武器/手套：{white}-25%% 目标\n 预览：\n\n{white}（低分 {blue}-16{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個移除器類型\n\n{green}盾牌/珠寶：{white}Regenerate Mana 15%%\n{green}Helms/Belts：{white}Regenerate Mana 10%%\n{green}Armors/Boots：{white}Regenerate Mana 10%%\n{green}武器/手套：{white}-25%% 目標\n 預覽：\n\n{white}（低分 {blue}-16{white}）\n",
             }
         },
         {
@@ -1819,7 +1615,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 15%% dei danni subiti va a Mana\n{green}Elmi/Cinture: {white} 10%% dei danni subiti va a Mana\n{green}Armature/Stivali: {white} 10%% dei danni subiti va a Mana\nn{green}Armi/Guanti: da {white} 6 a danno massimo\n{turquoise}Rune Anteprima:\n\n{white}(Punti bassi {blue}-32{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white} 15%% de dégâts subis vont au mana\n{green}Casques/ceintures: {white} 10%% de dégâts subis vont au mana\n{green}Armures/bottes: {white} 10%% de dégâts subis vont au mana\nn{green}Armes/Gants: {white} 6 aux dégâts maximum\n{turquoise}Rune Preview:\n\n{white}(Points bas {blue}-32{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 15%% 被ダメージがマナ\n{green}Helms/Belts: {white} 10%% 被ダメージが Mana\n{green}Armors/Boots: {white} 10%% 被ダメージが Mana\nn{green}Weapons/Gloves: {white} 6 から最大ダメージ\n{turquoise}Rune プレビュー:\n\n{white}(Low Points {blue}-32{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}받는 피해의 15%만큼 마나 회복\n{green}헬름/벨트: {white}받는 피해의 10%만큼 마나 회복\n{green}갑옷/장화: {white}받는 피해의 10%만큼 마나 회복{white}\n{green}무기/장갑: {white}최대 피해 +6\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-32{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}받는 피해의 15%%만큼 마나 회복\n{green}헬름/벨트: {white}받는 피해의 10%%만큼 마나 회복\n{green}갑옷/장화: {white}받는 피해의 10%%만큼 마나 회복{white}\n{green}무기/장갑: {white}최대 피해 +6\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-32{white})\n",
                 plPL = "{tan}Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 15%% otrzymanych obrażeń przechodzi do many\n{green}Hełmy/pasy: {white} 10%% otrzymywanych obrażeń przechodzi do many\n{green}Pancerz/Buty: {white} 10%% otrzymywanych obrażeń przechodzi do many\nn{green}Bronie/rękawice: {white} 6 do maksymalnych obrażeń\n{turquoise}Rune Podgląd:\n\n{white}(niskie punkty {blue}-32{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 15%% do Dano Sofrido vai para Mana\n{green}Helmes/Cintos: {white} 10%% do Dano Sofrido vai para Mana\n{green}Armaduras/Botas: {white} 10%% do Dano Sofrido vai para Mana\nn{green}Armas/Luvas: {white} 6 ao Dano Máximo\n{turquoise}Rune Preview:\n\n{white}(Baixo Pontos {blue}-32{white})\n",
                 ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 15%% получаемого урона переходит в ману\n{green}Шлемы/ремни: {white} 10%% получаемого урона переходит в ману\n{green}Доспехи/обувь: {white} 10%% получаемого урона переходит в ману\nn{green}Оружие/перчатки: от {white} 6 до максимального урона\n{turquoise}Rune Preview:\n\n{white}(Низкие очки {blue}-32{white})\n",
@@ -1831,76 +1627,76 @@ return {
             code = "Z15",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Giftwiderstand +20%\n{green}Helme/Gürtel: {white}Giftwiderstand +10%\n{green}Rüstungen/Stiefel: {white}Giftwiderstand +10%\n{green}Waffen/Handschuhe: {white}+38 Giftschaden über 5 Sekunden\nn{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-64{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Poison Resist +20%\n{green}Helms/Belts: {white}Poison Resist +10%\n{green}Armors/Boots: {white}Poison Resist +10%\n{green}Weapons/Gloves: {white}+38 Poison Damage over 5 Seconds\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-64{white})\n",
-                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al veneno 20 %\n{green}Yelmos/Cinturones: {white}Resistencia al veneno 10 %\n{green}Armaduras/Botas: {white}Resistencia al veneno 10 %\n{green}Armas/Guantes: {white} 58segundos de daño por veneno  n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-64{white})\n",
-                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al veneno 20 %\n{green}Yelmos/Cinturones: {white}Resistencia al veneno 10 %\n{green}Armaduras/Botas: {white}Resistencia al veneno 10 %\n{green}Armas/Guantes: {white} 58segundos de daño por veneno  n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-64{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Resiste al veleno del 20%\n{green}Elmi/Cinture: {white}Resiste al veleno del 10%\n{green}Armature/Stivali: {white}Resiste al veleno del 10%\n{green}Armi/Guanti: {white} Danno da veleno superiore a 35 secondi\n{green}  Anteprima n{turquoise}Rune:\n\n{white}(Punti bassi {blue}-64{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance au poison 20%\n{green}Casques/Ceintures: {white}Résistance au poison 10%\n{green}Armures/Bottes: {white}Résistance au poison 10%\n{green}Armes/Gants: {white} 38dégâts de poison en 5secondes  n{turquoise}Rune Preview:\n\n{white}(Points bas {blue}-64{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Poison Resist 20%\n{green}Helms/Belts: {white}Poison Resist 10%\n{green}Armors/Boots: {white}Poison Resist 10%\n{green}Weapons/Gloves: {white} 38 Poison Damage over 5 Seconds  n{turquoise}Rune プレビュー:\n\n{white}(Low Points {blue}-64{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}독 저항 +20%\n{green}헬름/벨트: {white}독 저항 +10%\n{green}갑옷/장화: {white}독 저항 +10%{white}\n{green}무기/장갑: {white}독 피해 +38(5초에 걸쳐)\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-64{white})\n",
-                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na truciznę 20%\n{green}Hełmy/Pasy: {white}Odporność na truciznę 10%\n{green}Pancerz/Buty: {white}Odporność na truciznę 10%\n{green}Odporność na truciznę {white} 38 sekund:  n{turquoise}Rune Podgląd:\n\n{white}(niskie punkty {blue}-64{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistir a Veneno 20%\n{green}Elmos/Cintos: {white}Resistir a Veneno 10%\n{green}Armaduras/Botas: {white}Resistir a Veneno 10%\n{green}Armas/Luvas: {white} 38 Dano a Veneno em 5 segundos\nn{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-64{white})\n",
-                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Сопротивление яду 20%\n{green}Шлемы/ремни: {white}Сопротивление яду 10%\n{green}Доспехи/обувь: {white}Сопротивление яду 10%\n{green}Оружие/перчатки: {white} 38 Seconds Poison Damage  n{turquoise}Rune Preview:\n\n{white}(Низкие баллы {blue}-64{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green} 盾牌/珠宝：{white} 抗毒 20%\n{green} 头盔/腰带：{white} 抗毒 10%\n{green} 盔甲/靴子：{white} 抗毒 10%\n{green}武器/手套：{white} 38 秒以上的毒伤害 n{turquoise}Rune 预览：\n\n{white}（低点 {blue}-64{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green} 盾牌/珠寶：{white} 抗毒 20%\n{green} 頭盔/腰帶：{white} 抗毒 10%\n{green} 盔甲/靴子：{white} 抗毒 10%\n{green}武器/手套：{white} 38 秒以上的毒傷害 n{turquoise}Rune 預覽：\n\n{white}（低點 {blue}-64{white}）\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Giftwiderstand +20%%\n{green}Helme/Gürtel: {white}Giftwiderstand +10%%\n{green}Rüstungen/Stiefel: {white}Giftwiderstand +10%%\n{green}Waffen/Handschuhe: {white}+38 Giftschaden über 5 Sekunden\nn{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-64{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Poison Resist +20%%\n{green}Helms/Belts: {white}Poison Resist +10%%\n{green}Armors/Boots: {white}Poison Resist +10%%\n{green}Weapons/Gloves: {white}+38 Poison Damage over 5 Seconds\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-64{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al veneno 20 %%\n{green}Yelmos/Cinturones: {white}Resistencia al veneno 10 %%\n{green}Armaduras/Botas: {white}Resistencia al veneno 10 %%\n{green}Armas/Guantes: {white} 58segundos de daño por veneno  n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-64{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al veneno 20 %%\n{green}Yelmos/Cinturones: {white}Resistencia al veneno 10 %%\n{green}Armaduras/Botas: {white}Resistencia al veneno 10 %%\n{green}Armas/Guantes: {white} 58segundos de daño por veneno  n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-64{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Resiste al veleno del 20%%\n{green}Elmi/Cinture: {white}Resiste al veleno del 10%%\n{green}Armature/Stivali: {white}Resiste al veleno del 10%%\n{green}Armi/Guanti: {white} Danno da veleno superiore a 35 secondi\n{green}  Anteprima n{turquoise}Rune:\n\n{white}(Punti bassi {blue}-64{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance au poison 20%%\n{green}Casques/Ceintures: {white}Résistance au poison 10%%\n{green}Armures/Bottes: {white}Résistance au poison 10%%\n{green}Armes/Gants: {white} 38dégâts de poison en 5secondes  n{turquoise}Rune Preview:\n\n{white}(Points bas {blue}-64{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Poison Resist 20%%\n{green}Helms/Belts: {white}Poison Resist 10%%\n{green}Armors/Boots: {white}Poison Resist 10%%\n{green}Weapons/Gloves: {white} 38 Poison Damage over 5 Seconds  n{turquoise}Rune プレビュー:\n\n{white}(Low Points {blue}-64{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}독 저항 +20%%\n{green}헬름/벨트: {white}독 저항 +10%%\n{green}갑옷/장화: {white}독 저항 +10%%{white}\n{green}무기/장갑: {white}독 피해 +38(5초에 걸쳐)\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-64{white})\n",
+                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na truciznę 20%%\n{green}Hełmy/Pasy: {white}Odporność na truciznę 10%%\n{green}Pancerz/Buty: {white}Odporność na truciznę 10%%\n{green}Odporność na truciznę {white} 38 sekund:  n{turquoise}Rune Podgląd:\n\n{white}(niskie punkty {blue}-64{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistir a Veneno 20%%\n{green}Elmos/Cintos: {white}Resistir a Veneno 10%%\n{green}Armaduras/Botas: {white}Resistir a Veneno 10%%\n{green}Armas/Luvas: {white} 38 Dano a Veneno em 5 segundos\nn{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-64{white})\n",
+                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Сопротивление яду 20%%\n{green}Шлемы/ремни: {white}Сопротивление яду 10%%\n{green}Доспехи/обувь: {white}Сопротивление яду 10%%\n{green}Оружие/перчатки: {white} 38 Seconds Poison Damage  n{turquoise}Rune Preview:\n\n{white}(Низкие баллы {blue}-64{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green} 盾牌/珠宝：{white} 抗毒 20%%\n{green} 头盔/腰带：{white} 抗毒 10%%\n{green} 盔甲/靴子：{white} 抗毒 10%%\n{green}武器/手套：{white} 38 秒以上的毒伤害 n{turquoise}Rune 预览：\n\n{white}（低点 {blue}-64{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green} 盾牌/珠寶：{white} 抗毒 20%%\n{green} 頭盔/腰帶：{white} 抗毒 10%%\n{green} 盔甲/靴子：{white} 抗毒 10%%\n{green}武器/手套：{white} 38 秒以上的毒傷害 n{turquoise}Rune 預覽：\n\n{white}（低點 {blue}-64{white}）\n",
             }
         },
         {
             code = "Z16",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Feuerresistenz +20%\n{green}Helme/Gürtel: {white}Feuerresistenz +10%\n{green}Rüstungen/Stiefel: {white}Feuerresistenz +10%\n{green}Waffen/Handschuhe: {white}+3-15 Feuerschaden\n{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-128{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Fire Resist +20%\n{green}Helms/Belts: {white}Fire Resist +10%\n{green}Armors/Boots: {white}Fire Resist +10%\n{green}Weapons/Gloves: {white}Adds 3-15 Fire Damage\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-128{white})\n",
-                esES = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al fuego 20%\n{green}Yelmos/Cinturones: {white}Resistencia al fuego 10%\n{green}Armaduras/Botas: {white}Resistencia al fuego 10%\n{green}Armas/Guantes: {white}Agrega 3-15NR de daño por fuego  Vista previa:\n\n{white}(Puntos bajos {blue}-128{white})\n",
-                esMX = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al fuego 20%\n{green}Yelmos/Cinturones: {white}Resistencia al fuego 10%\n{green}Armaduras/Botas: {white}Resistencia al fuego 10%\n{green}Armas/Guantes: {white}Agrega 3-15NR de daño por fuego  Vista previa:\n\n{white}(Puntos bajos {blue}-128{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di dispositivo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Resistenze al fuoco 20%\n{green}Elmi/Cinture: {white}Resistenze al fuoco 10%\n{green}Armature/Stivali: {white}Resiste al fuoco 10%\n{green}Armi/Guanti: {white}Nrdanni 3n\n\n\nFire aggiunti 3  Anteprima:\n\n{white}(Punti bassi {blue}-128{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance au feu 20%\n{green}Casques/Ceintures: {white}Résistance au feu 10%\n{green}Armures/Bottes: {white}Résistance au feu 10%\n{green}Armes/Gants: {white}Ajoute 3 à 15dégâts de feu\nÿc  Aperçu:\n\n{white}(Points bas {blue}-128{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry:{white}Fire Resist 20%\n{green}Helms/Belts:{white}Fire Resist 10%\n{green}Armors/Boots:{white}Fire Resist 10%\n{green}Weapons/Gloves:{white}NR 3-15 Fire Damageを追加\nÿc プレビュー:\n\n{white}(Low Points {blue}-128{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}화염 저항 +20%\n{green}헬름/벨트: {white}화염 저항 +10%\n{green}갑옷/장화: {white}화염 저항 +10%{white}\n{green}무기/장갑: {white}화염 피해 3-15 추가\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-128{white})\n",
-                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na ogień 20%\n{green}Hełmy/Pasy: {white}Odporność na ogień 10%\n{green}Pancerze/Buty: {white}Odporność na ogień 10%\n{green}Broń{blue}-150obrażenia  Podgląd:\n\n{white}(Niskie punkty {blue}-128{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistência ao Fogo 20%\n{green}Capacetes/Cintos: {white}Resistência ao Fogo 10%\n{green}Armaduras/Botas: {white}Resistência ao Fogo 10%\n{green}Armas/Luvas: {white}Adiciona 3-15 Dano de Fogo\n  Visualização:\n\n{white}(Low Points {blue}-128{white})\n",
-                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Сопротивление огню 20%\n{green}Шлемы/пояса: {white}Сопротивление огню 10%\n{green}Доспехи/обувь: {white}Сопротивление огню 10%\n{green}Оружие/перчатки: NR1D Damune\n{white}5 Увеличивает урон от огня 3-10  Предварительный просмотр:\n\n{white}(Низкие баллы {blue}-128{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}防火 20%\n{green}头盔/腰带：{white}防火 10%\n{green}盔甲/靴子：{white}防火 10%\n{green}武器/手套：{white}增加 3-15 火焰伤害\n 预览：\n\n{white}（低分 {blue}-128{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}防火 20%\n{green}頭盔/腰帶：{white}防火 10%\n{green}盔甲/靴子：{white}防火 10%\n{green}武器/手套：{white}增加 3-15 火焰傷害\n 預覽：\n\n{white}（低分 {blue}-128{white}）\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Feuerresistenz +20%%\n{green}Helme/Gürtel: {white}Feuerresistenz +10%%\n{green}Rüstungen/Stiefel: {white}Feuerresistenz +10%%\n{green}Waffen/Handschuhe: {white}+3-15 Feuerschaden\n{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-128{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Fire Resist +20%%\n{green}Helms/Belts: {white}Fire Resist +10%%\n{green}Armors/Boots: {white}Fire Resist +10%%\n{green}Weapons/Gloves: {white}Adds 3-15 Fire Damage\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-128{white})\n",
+                esES = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al fuego 20%%\n{green}Yelmos/Cinturones: {white}Resistencia al fuego 10%%\n{green}Armaduras/Botas: {white}Resistencia al fuego 10%%\n{green}Armas/Guantes: {white}Agrega 3-15NR de daño por fuego  Vista previa:\n\n{white}(Puntos bajos {blue}-128{white})\n",
+                esMX = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia al fuego 20%%\n{green}Yelmos/Cinturones: {white}Resistencia al fuego 10%%\n{green}Armaduras/Botas: {white}Resistencia al fuego 10%%\n{green}Armas/Guantes: {white}Agrega 3-15NR de daño por fuego  Vista previa:\n\n{white}(Puntos bajos {blue}-128{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di dispositivo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Resistenze al fuoco 20%%\n{green}Elmi/Cinture: {white}Resistenze al fuoco 10%%\n{green}Armature/Stivali: {white}Resiste al fuoco 10%%\n{green}Armi/Guanti: {white}Nrdanni 3n\n\n\nFire aggiunti 3  Anteprima:\n\n{white}(Punti bassi {blue}-128{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance au feu 20%%\n{green}Casques/Ceintures: {white}Résistance au feu 10%%\n{green}Armures/Bottes: {white}Résistance au feu 10%%\n{green}Armes/Gants: {white}Ajoute 3 à 15dégâts de feu\nÿc  Aperçu:\n\n{white}(Points bas {blue}-128{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry:{white}Fire Resist 20%%\n{green}Helms/Belts:{white}Fire Resist 10%%\n{green}Armors/Boots:{white}Fire Resist 10%%\n{green}Weapons/Gloves:{white}NR 3-15 Fire Damageを追加\nÿc プレビュー:\n\n{white}(Low Points {blue}-128{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}화염 저항 +20%%\n{green}헬름/벨트: {white}화염 저항 +10%%\n{green}갑옷/장화: {white}화염 저항 +10%%{white}\n{green}무기/장갑: {white}화염 피해 3-15 추가\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-128{white})\n",
+                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na ogień 20%%\n{green}Hełmy/Pasy: {white}Odporność na ogień 10%%\n{green}Pancerze/Buty: {white}Odporność na ogień 10%%\n{green}Broń{blue}-150obrażenia  Podgląd:\n\n{white}(Niskie punkty {blue}-128{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistência ao Fogo 20%%\n{green}Capacetes/Cintos: {white}Resistência ao Fogo 10%%\n{green}Armaduras/Botas: {white}Resistência ao Fogo 10%%\n{green}Armas/Luvas: {white}Adiciona 3-15 Dano de Fogo\n  Visualização:\n\n{white}(Low Points {blue}-128{white})\n",
+                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Сопротивление огню 20%%\n{green}Шлемы/пояса: {white}Сопротивление огню 10%%\n{green}Доспехи/обувь: {white}Сопротивление огню 10%%\n{green}Оружие/перчатки: NR1D Damune\n{white}5 Увеличивает урон от огня 3-10  Предварительный просмотр:\n\n{white}(Низкие баллы {blue}-128{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}防火 20%%\n{green}头盔/腰带：{white}防火 10%%\n{green}盔甲/靴子：{white}防火 10%%\n{green}武器/手套：{white}增加 3-15 火焰伤害\n 预览：\n\n{white}（低分 {blue}-128{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}防火 20%%\n{green}頭盔/腰帶：{white}防火 10%%\n{green}盔甲/靴子：{white}防火 10%%\n{green}武器/手套：{white}增加 3-15 火焰傷害\n 預覽：\n\n{white}（低分 {blue}-128{white}）\n",
             }
         },
         {
             code = "Z17",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Blitzwiderstand +20%\n{green}Helme/Gürtel: {white}Blitzwiderstand +10%\n{green}Rüstungen/Stiefel: {white}Blitzwiderstand +10%\n{green}Waffen/Handschuhe: {white}+1-25 Blitzschaden\n{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-256{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Lightning Resist +20%\n{green}Helms/Belts: {white}Lightning Resist +10%\n{green}Armors/Boots: {white}Lightning Resist +10%\n{green}Weapons/Gloves: {white}Adds 1-25 Lightning Damage\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-256{white})\n",
-                esES = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia a los rayos 20 %\n{green}Yelmos/Cinturones: {white}Resistencia a los rayos 10 %\n{green}Armaduras/Botas: {white}Resistencia a los rayos 10 %\n{green}Armas/Guantes: {white}Agrega 1-25cNR de daño por rayos  Vista previa:\n\n{white}(Puntos bajos {blue}-256{white})\n",
-                esMX = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia a los rayos 20 %\n{green}Yelmos/Cinturones: {white}Resistencia a los rayos 10 %\n{green}Armaduras/Botas: {white}Resistencia a los rayos 10 %\n{green}Armas/Guantes: {white}Agrega 1-25cNR de daño por rayos  Vista previa:\n\n{white}(Puntos bajos {blue}-256{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Resistenza ai fulmini del 20%\n{green}Elmi/Cinture: {white}Resistenza ai fulmini del 10%\n{green}Armature/Stivali: {white}Resistenza ai fulmini del 10%\n{green}Armi/Guanti: ÿ25NRi danni: ÿ25ÿAggiunta 1 fulmine  Anteprima:\n\n{white}(Punti bassi {blue}-256{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance à la foudre 20%\n{green}Casques/Ceintures: {white}Résistance à la foudre 10%\n{green}Armures/Bottes: {white}Résistance à la foudre 10%\n{green}Armes/Gants: {white}Ajoute 1 à 25dégâts de foudre\nÿc  Aperçu:\n\n{white}(Points bas {blue}-256{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Lightning Resist 20%\n{green}Helms/Belts: {white}Lightning Resist 10%\n{green}Armors/Boots: {white}Lightning Resist 10%\n{green}Weapons/Gloves: {white}Adds 1-25 Lightning Damage\n\n プレビュー:\n\n{white}(Low Points {blue}-256{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}번개 저항 +20%\n{green}헬름/벨트: {white}번개 저항 +10%\n{green}갑옷/장화: {white}번개 저항 +10%{white}\n{green}무기/장갑: {white}번개 피해 1-25 추가\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-256{white})\n{tan}오르트 {gold}제거기\n",
-                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na Błyskawicę 20%\n{green}Hełmy/Pasy: {white}Odporność na Błyskawice 10%\n{green}Pancerze/Buty: {white}Odporność na Błyskawice 10%\n{green}Broń przeciwbłyskawiczna: 1-25G  Podgląd:\n\n{white}(niskie punkty {blue}-256{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistência a raios 20%\n{green}Capacetes/Cintos: {white}Resistência a raios 10%\n{green}Armaduras/Botas: {white}Resistência a raios 10%\n{green}Armas/Luvas: {white}Adiciona 1-25  Visualização:\n\n{white}(Pontos baixos {blue}-256{white})\n",
-                ruRU = "{tan}Только куб для смены на следующий тип ремувера\n\n{green}Щиты/украшения: {white}Сопротивление молнии 20%\n{green}Шлемы/ремни: {white}Сопротивление молнии 10%\n{green}Доспехи/обувь: {white}Сопротивление молнии 10%\n{green}Оружие/перчатки: {white}Урон от молнии {white}25Добавки {white}  Предварительный просмотр:\n\n{white}(Низкие точки {blue}-256{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}Lightning Resist 20%\n{green}头盔/腰带：{white}Lightning Resist 10%\n{green}Armors/Boots：{white}Lightning Resist 10%\n{green}武器/手套：{white}NR增加1-25闪电伤害 预览：\n\n{white}（低点 {blue}-256{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}Lightning Resist 20%\n{green}頭盔/腰帶：{white}Lightning Resist 10%\n{green}Armors/Boots：{white}Lightning Resist 10%\n{green}武器/手套：{white}NR增加1-25閃電傷害 預覽：\n\n{white}（低點 {blue}-256{white}）\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Blitzwiderstand +20%%\n{green}Helme/Gürtel: {white}Blitzwiderstand +10%%\n{green}Rüstungen/Stiefel: {white}Blitzwiderstand +10%%\n{green}Waffen/Handschuhe: {white}+1-25 Blitzschaden\n{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-256{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Lightning Resist +20%%\n{green}Helms/Belts: {white}Lightning Resist +10%%\n{green}Armors/Boots: {white}Lightning Resist +10%%\n{green}Weapons/Gloves: {white}Adds 1-25 Lightning Damage\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-256{white})\n",
+                esES = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia a los rayos 20 %%\n{green}Yelmos/Cinturones: {white}Resistencia a los rayos 10 %%\n{green}Armaduras/Botas: {white}Resistencia a los rayos 10 %%\n{green}Armas/Guantes: {white}Agrega 1-25cNR de daño por rayos  Vista previa:\n\n{white}(Puntos bajos {blue}-256{white})\n",
+                esMX = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Resistencia a los rayos 20 %%\n{green}Yelmos/Cinturones: {white}Resistencia a los rayos 10 %%\n{green}Armaduras/Botas: {white}Resistencia a los rayos 10 %%\n{green}Armas/Guantes: {white}Agrega 1-25cNR de daño por rayos  Vista previa:\n\n{white}(Puntos bajos {blue}-256{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Resistenza ai fulmini del 20%%\n{green}Elmi/Cinture: {white}Resistenza ai fulmini del 10%%\n{green}Armature/Stivali: {white}Resistenza ai fulmini del 10%%\n{green}Armi/Guanti: ÿ25NRi danni: ÿ25ÿAggiunta 1 fulmine  Anteprima:\n\n{white}(Punti bassi {blue}-256{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance à la foudre 20%%\n{green}Casques/Ceintures: {white}Résistance à la foudre 10%%\n{green}Armures/Bottes: {white}Résistance à la foudre 10%%\n{green}Armes/Gants: {white}Ajoute 1 à 25dégâts de foudre\nÿc  Aperçu:\n\n{white}(Points bas {blue}-256{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Lightning Resist 20%%\n{green}Helms/Belts: {white}Lightning Resist 10%%\n{green}Armors/Boots: {white}Lightning Resist 10%%\n{green}Weapons/Gloves: {white}Adds 1-25 Lightning Damage\n\n プレビュー:\n\n{white}(Low Points {blue}-256{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}번개 저항 +20%%\n{green}헬름/벨트: {white}번개 저항 +10%%\n{green}갑옷/장화: {white}번개 저항 +10%%{white}\n{green}무기/장갑: {white}번개 피해 1-25 추가\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-256{white})\n",
+                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na Błyskawicę 20%%\n{green}Hełmy/Pasy: {white}Odporność na Błyskawice 10%%\n{green}Pancerze/Buty: {white}Odporność na Błyskawice 10%%\n{green}Broń przeciwbłyskawiczna: 1-25G  Podgląd:\n\n{white}(niskie punkty {blue}-256{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistência a raios 20%%\n{green}Capacetes/Cintos: {white}Resistência a raios 10%%\n{green}Armaduras/Botas: {white}Resistência a raios 10%%\n{green}Armas/Luvas: {white}Adiciona 1-25  Visualização:\n\n{white}(Pontos baixos {blue}-256{white})\n",
+                ruRU = "{tan}Только куб для смены на следующий тип ремувера\n\n{green}Щиты/украшения: {white}Сопротивление молнии 20%%\n{green}Шлемы/ремни: {white}Сопротивление молнии 10%%\n{green}Доспехи/обувь: {white}Сопротивление молнии 10%%\n{green}Оружие/перчатки: {white}Урон от молнии {white}25Добавки {white}  Предварительный просмотр:\n\n{white}(Низкие точки {blue}-256{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}Lightning Resist 20%%\n{green}头盔/腰带：{white}Lightning Resist 10%%\n{green}Armors/Boots：{white}Lightning Resist 10%%\n{green}武器/手套：{white}NR增加1-25闪电伤害 预览：\n\n{white}（低点 {blue}-256{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}Lightning Resist 20%%\n{green}頭盔/腰帶：{white}Lightning Resist 10%%\n{green}Armors/Boots：{white}Lightning Resist 10%%\n{green}武器/手套：{white}NR增加1-25閃電傷害 預覽：\n\n{white}（低點 {blue}-256{white}）\n",
             }
         },
         {
             code = "Z18",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Kältewiderstand +20%\n{green}Helme/Gürtel: {white}Kältewiderstand +10%\n{green}Rüstungen/Stiefel: {white}Kältewiderstand +10%\n{green}Waffen/Handschuhe: {white}+2-7 Kälteschaden\n{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-512{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Cold Resist +20%\n{green}Helms/Belts: {white}Cold Resist +10%\n{green}Armors/Boots: {white}Cold Resist +10%\n{green}Weapons/Gloves: {white}Adds 2-7 Cold Damage\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-512{white})\n",
-                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyería: {white}Resistencia al frío 20 %\n{green}Yelmos/Cinturones: {white}Resistencia al frío 10 %\n{green}Armaduras/Botas: {white}Resistencia al frío 10 %\n{green}Armas/Guantes: {white}Agrega 2-7NR de daño por frío  Vista previa:\n\n{white}(Puntos bajos {blue}-512{white})\n",
-                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyería: {white}Resistencia al frío 20 %\n{green}Yelmos/Cinturones: {white}Resistencia al frío 10 %\n{green}Armaduras/Botas: {white}Resistencia al frío 10 %\n{green}Armas/Guantes: {white}Agrega 2-7NR de daño por frío  Vista previa:\n\n{white}(Puntos bajos {blue}-512{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Cold Resist 20%\n{green}Elmi/Cinture: {white}Cold Resist 10%\n{green}Armature/Stivali: {white}Cold Resist 10%\n{green}Armi/Guanti: {white} Cold Damage Aggiunge n2  Anteprima:\n\n{white}(Punti bassi {blue}-512{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance au froid 20%\n{green}Casques/Ceintures: {white}Résistance au froid 10%\n{green}Armures/Bottes: {white}Résistance au froid 10%\n{green}Armes/Gants: {white}Ajoute 2 à 7dégâts de Coldune\n{white}  Aperçu:\n\n{white}(Points bas {blue}-512{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Cold Resist 20%\n{green}Helms/Belts: {white}Cold Resist 10%\n{green}Armors/Boots: {white}Cold Resist 10%\n{green}Weapons/Gloves: {white}追加 ÿc NR 冷気ダメージ\n プレビュー:\n\n{white}(Low Points {blue}-512{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}냉기 저항 +20%\n{green}헬름/벨트: {white}냉기 저항 +10%\n{green}갑옷/장화: {white}냉기 저항 +10%{white}\n{green}무기/장갑: {white}냉기 피해 2-7 추가\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-512{white})\n{tan}주울 {gold}제거기\n",
-                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na zimno 20%\n{green}Hełmy/Pasy: {white}Odporność na zimno 10%\n{green}Zbroje/Buty: {white}Odporność na zimno 10%\n{green}Broń {green}Uzbrojenie/Rękawice:  Podgląd:\n\n{white}(niskie punkty {blue}-512{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistência ao Frio 20%\n{green}Capacetes/Cintos: {white}Resistência ao Frio 10%\n{green}Armaduras/Botas: {white}Resistência ao Frio 10%\n{green}Armas/Luvas: {white}Adiciona 2-7 Dano ao Frio\n{turquoise}Rune  Visualização:\n\n{white}(Low Points {blue}-512{white})\n",
-                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Сопротивление холоду 20%\n{green}Шлемы/ремни: {white}Сопротивление холоду 10%\n{green}Броня/Ботинки: {white}Сопротивление холоду 10%\n{green}Оружие/перчатки: {white}Урон 2-7 холода  Предварительный просмотр:\n\n{white}(Низкие баллы {blue}-512{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}Cold Resist 20%\n{green}头盔/腰带：{white}Cold Resist 10%\n{green}Armors/Boots：{white}Cold Resist 10%\n{green}NR武器/手套：{white} 增加 2-7 伤害\nÿc 预览：\n\n{white}（低分 {blue}-512{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}Cold Resist 20%\n{green}頭盔/腰帶：{white}Cold Resist 10%\n{green}Armors/Boots：{white}Cold Resist 10%\n{green}NR武器/手套：{white} 增加 2-7 傷害\nÿc 預覽：\n\n{white}（低分 {blue}-512{white}）\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Kältewiderstand +20%%\n{green}Helme/Gürtel: {white}Kältewiderstand +10%%\n{green}Rüstungen/Stiefel: {white}Kältewiderstand +10%%\n{green}Waffen/Handschuhe: {white}+2-7 Kälteschaden\n{turquoise}Rune Preview:\n\n{white}(Niedrig {blue}-512{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Cold Resist +20%%\n{green}Helms/Belts: {white}Cold Resist +10%%\n{green}Armors/Boots: {white}Cold Resist +10%%\n{green}Weapons/Gloves: {white}Adds 2-7 Cold Damage\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-512{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyería: {white}Resistencia al frío 20 %%\n{green}Yelmos/Cinturones: {white}Resistencia al frío 10 %%\n{green}Armaduras/Botas: {white}Resistencia al frío 10 %%\n{green}Armas/Guantes: {white}Agrega 2-7NR de daño por frío  Vista previa:\n\n{white}(Puntos bajos {blue}-512{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyería: {white}Resistencia al frío 20 %%\n{green}Yelmos/Cinturones: {white}Resistencia al frío 10 %%\n{green}Armaduras/Botas: {white}Resistencia al frío 10 %%\n{green}Armas/Guantes: {white}Agrega 2-7NR de daño por frío  Vista previa:\n\n{white}(Puntos bajos {blue}-512{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Cold Resist 20%%\n{green}Elmi/Cinture: {white}Cold Resist 10%%\n{green}Armature/Stivali: {white}Cold Resist 10%%\n{green}Armi/Guanti: {white} Cold Damage Aggiunge n2  Anteprima:\n\n{white}(Punti bassi {blue}-512{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Résistance au froid 20%%\n{green}Casques/Ceintures: {white}Résistance au froid 10%%\n{green}Armures/Bottes: {white}Résistance au froid 10%%\n{green}Armes/Gants: {white}Ajoute 2 à 7dégâts de Coldune\n{white}  Aperçu:\n\n{white}(Points bas {blue}-512{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Cold Resist 20%%\n{green}Helms/Belts: {white}Cold Resist 10%%\n{green}Armors/Boots: {white}Cold Resist 10%%\n{green}Weapons/Gloves: {white}追加 ÿc NR 冷気ダメージ\n プレビュー:\n\n{white}(Low Points {blue}-512{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}냉기 저항 +20%%\n{green}헬름/벨트: {white}냉기 저항 +10%%\n{green}갑옷/장화: {white}냉기 저항 +10%%{white}\n{green}무기/장갑: {white}냉기 피해 2-7 추가\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-512{white})\n",
+                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Odporność na zimno 20%%\n{green}Hełmy/Pasy: {white}Odporność na zimno 10%%\n{green}Zbroje/Buty: {white}Odporność na zimno 10%%\n{green}Broń {green}Uzbrojenie/Rękawice:  Podgląd:\n\n{white}(niskie punkty {blue}-512{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Resistência ao Frio 20%%\n{green}Capacetes/Cintos: {white}Resistência ao Frio 10%%\n{green}Armaduras/Botas: {white}Resistência ao Frio 10%%\n{green}Armas/Luvas: {white}Adiciona 2-7 Dano ao Frio\n{turquoise}Rune  Visualização:\n\n{white}(Low Points {blue}-512{white})\n",
+                ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Сопротивление холоду 20%%\n{green}Шлемы/ремни: {white}Сопротивление холоду 10%%\n{green}Броня/Ботинки: {white}Сопротивление холоду 10%%\n{green}Оружие/перчатки: {white}Урон 2-7 холода  Предварительный просмотр:\n\n{white}(Низкие баллы {blue}-512{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}Cold Resist 20%%\n{green}头盔/腰带：{white}Cold Resist 10%%\n{green}Armors/Boots：{white}Cold Resist 10%%\n{green}NR武器/手套：{white} 增加 2-7 伤害\nÿc 预览：\n\n{white}（低分 {blue}-512{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}Cold Resist 20%%\n{green}頭盔/腰帶：{white}Cold Resist 10%%\n{green}Armors/Boots：{white}Cold Resist 10%%\n{green}NR武器/手套：{white} 增加 2-7 傷害\nÿc 預覽：\n\n{white}（低分 {blue}-512{white}）\n",
             }
         },
         {
@@ -1914,7 +1710,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Spine: 14\n{green}Elmi/Cinture: {white}Spine: 14\n{green}Armature/Stivali: {white}Spine: 14\n{green}Armi/Guanti: {white}5%% Life Stolen Perune Hit\n{turquoise}R Preview:\n{turquoise}R Hits:  n\n{white}(Punti bassi {blue}-1024{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Épines: 14\n{green}Casques/Ceintures: {white}Épines: 14\n{green}Armures/Bottes: {white}Épines: 14\n{green}Armes/Gants: {white}5%% de vie volée par coup:\n{turquoise}Rune Preview  n\n{white}(Points bas {blue}-1024{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Thorns: 14\n{green}Helms/Belts: {white}Thorns: 14\n{green}Armors/Boots: {white}Thorns: 14\n{green}Weapons/Gloves: {white}NR\n\nÿcune プレビュー:  n\n{white}(低点{blue}-1024{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}가시 피해 14\n{green}헬름/벨트: {white}가시 피해 14\n{green}갑옷/장화: {white}가시 피해 14{white}\n{green}무기/장갑: {white}적중당 생명력 5%% 훔침\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-1024{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}공격자가 받는 피해 14\n{green}헬름/벨트: {white}공격자가 받는 피해 14\n{green}갑옷/장화: {white}공격자가 받는 피해 14{white}\n{green}무기/장갑: {white}적중당 생명력 5%% 훔침\n{turquoise}룬 미리 보기:\n\n{white}(하급 점수 {blue}-1024{white})\n",
                 plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Thorns: 14\n{green}Hełmy/Pasy: {white}Thorns: 14\n{green}Zbroje/Buty: {white}Thorns: 14\n{green}Podgląd broni ÿNRune\n  n\n{white}(Niskie punkty {blue}-1024{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Espinhos: 14\n{green}Capacetes/Cintos: {white}Espinhos: 14\n{green}Armaduras/Botas: {white}Espinhos: 14\n{green}Armas/Luvas: {white}5%% Vida Roubada por Acerto\n{turquoise}R Visualização:\nn\n{white}(Pontos baixos {blue}-1024{white})\n",
                 ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Thorns: 14\n{green}Шлемы/пояса: {white}Thorns: 14\n{green}Доспехи/ботинки: {white}Thorns: 14\n{green}Оружие/перчатки: {white}5%% Life Stolen Per Hitune\n{green}  n\n{white}(Низкие точки {blue}-1024{white})\n",
@@ -1952,7 +1748,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di dispositivo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}20%% Tasso di blocco più rapido\n{green}Elmi/Cinture: {white}10%% Recupero del colpo più rapido\n{green}Armature/Stivali: {white}10%% Recupero del colpo più rapido\n{green}Armi/Guanti: {white}10%% Velocità d'attacco aumentata  \n{turquoise}Rune Anteprima:\n\n{white}(Punti medi {blue}-2{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}20%% de taux de blocage plus rapide\n{green}Casques/Ceintures: {white}10%% de récupération de coup plus rapide\n{green}Armures/bottes: {white}10%% de récupération de coup plus rapide\n{green}Armes/Gants: {white}10%% de vitesse d'attaque accrue  \n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-2{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}20%% 高速ブロック率\n{green}Helms/Belts: {white}10%% 高速ヒット回復\n{green}Armors/Boots: {white}10%% 高速ヒット回復\n{green}Weapons/Gloves: {white}10%% 攻撃速度増加 \n{turquoise}Rune プレビュー:\n\n{white}(中間点 {blue}-2{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}막기 속도 +20%\n{green}헬름/벨트: {white}타격 회복 속도 +10%\n{green}갑옷/장화: {white}타격 회복 속도 +10%{white}\n{green}무기/장갑: {white}공격 속도 +10%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-2{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}막기 속도 +20%%\n{green}헬름/벨트: {white}타격 회복 속도 +10%%\n{green}갑옷/장화: {white}타격 회복 속도 +10%%{white}\n{green}무기/장갑: {white}공격 속도 +10%%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-2{white})\n",
                 plPL = "ÿC7 sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}20%% szybsze blokowanie\n{green}Hełmy/pasy: {white}10%% szybsze odzyskiwanie trafień\n{green}Pancerz/Buty: {white}10%% Szybsze odzyskiwanie trafień\n{green}Wzrost prędkości ataku/c010%%  \n{turquoise}Rune Podgląd:\n\n{white}(Punkty środkowe {blue}-2{white})\n",
                 ptBR = "{tan}Cube sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}20%% Taxa de Bloqueio Mais Rápida\n{green}Capacetes/Cintos: {white}10%% Recuperação de Acertos Mais Rápida\n{green}Armaduras/Botas: {white}10%% Recuperação de Acertos Mais Rápida\n{green}Armas/Luvas: {white}10%% Maior Velocidade de Ataque  \n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-2{white})\n",
                 ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}20%% более высокая скорость блока\n{green}Шлемы/пояса: {white}10%% более быстрое восстановление после удара\n{green}Доспехи/обувь: {white}10%% более быстрое восстановление после удара\n{green}Оружие/перчатки: {white}10%% повышенная скорость атаки  \n{turquoise}Rune Preview:\n\n{white}(Средние точки {blue}-2{white})\n",
@@ -1964,38 +1760,38 @@ return {
             code = "Z22",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Leben auffüllen +7\n{green}Helme/Gürtel: {white}Leben auffüllen +3\n{green}Rüstungen/Stiefel: {white}Leben auffüllen +3\n{green}Waffen/Handschuhe: {white}Treffer lässt Monster fliehen 25%\n{turquoise}Rune Preview:\n\n{white}(Mittel {blue}-4{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Replenish Life +7\n{green}Helms/Belts: {white}Replenish Life +3\n{green}Armors/Boots: {white}Replenish Life +3\n{green}Weapons/Gloves: {white}Hit Causes Monster to Flee 25%\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-4{white})\n",
-                esES = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Reponer vida 7\n{green}Yelmos/Cinturones: {white}Reponer vida 3\n{green}Armaduras/Botas: {white}Reponer vida 3\n{green}Armas/guantes: {white}Golpear hace que el monstruo huya 25%\nRuneview:  \n\n{white}(Puntos medios {blue}-4{white})\n",
-                esMX = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Reponer vida 7\n{green}Yelmos/Cinturones: {white}Reponer vida 3\n{green}Armaduras/Botas: {white}Reponer vida 3\n{green}Armas/guantes: {white}Golpear hace que el monstruo huya 25%\nRuneview:  \n\n{white}(Puntos medios {blue}-4{white})\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Leben auffüllen +7\n{green}Helme/Gürtel: {white}Leben auffüllen +3\n{green}Rüstungen/Stiefel: {white}Leben auffüllen +3\n{green}Waffen/Handschuhe: {white}Treffer lässt Monster fliehen 25%%\n{turquoise}Rune Preview:\n\n{white}(Mittel {blue}-4{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Replenish Life +7\n{green}Helms/Belts: {white}Replenish Life +3\n{green}Armors/Boots: {white}Replenish Life +3\n{green}Weapons/Gloves: {white}Hit Causes Monster to Flee 25%%\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-4{white})\n",
+                esES = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Reponer vida 7\n{green}Yelmos/Cinturones: {white}Reponer vida 3\n{green}Armaduras/Botas: {white}Reponer vida 3\n{green}Armas/guantes: {white}Golpear hace que el monstruo huya 25%%\nRuneview:  \n\n{white}(Puntos medios {blue}-4{white})\n",
+                esMX = "{tan}Cube solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Reponer vida 7\n{green}Yelmos/Cinturones: {white}Reponer vida 3\n{green}Armaduras/Botas: {white}Reponer vida 3\n{green}Armas/guantes: {white}Golpear hace que el monstruo huya 25%%\nRuneview:  \n\n{white}(Puntos medios {blue}-4{white})\n",
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Replenish Life 7\n{green}Elmi/Cinture: {white}Replenish Life 3\n{green}Armature/Stivali: {white}Replenish Life 3\n{green}Armi/Guanti: {white}Il colpo fa fuggire il mostro 25%ÿNRcune: Anteprima  \n\n{white}(Punti medi {blue}-4{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Replenish Life 7\n{green}Casques/Ceintures: {white}Replenish Life 3\n{green}Armures/Bottes: {white}Replenish Life 3\n{green}Armes/Gants: {white}Le coup fait fuir le monstre de 25%\n{dark green}perçu NR:  \n\n{white}(Points médians {blue}-4{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Replenish Life 7\n{green}Casques/Ceintures: {white}Replenish Life 3\n{green}Armures/Bottes: {white}Replenish Life 3\n{green}Armes/Gants: {white}Le coup fait fuir le monstre de 25%%\n{dark green}perçu NR:  \n\n{white}(Points médians {blue}-4{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Replenish Life 7\n{green}Helms/Belts: {white}Replenish Life 3\n{green}Armors/Boots: {white}Replenish Life 3\n{green}Weapons/Gloves: {white}Hit NR Monster to Flee 25%% プレビューcuneÿn:  \n\n{white}(中間点{blue}-4{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}생명력 회복 +7\n{green}헬름/벨트: {white}생명력 회복 +3\n{green}갑옷/장화: {white}생명력 회복 +3{white}\n{green}무기/장갑: {white}적중 시 괴물 도주 +25%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-4{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}생명력 회복 +7\n{green}헬름/벨트: {white}생명력 회복 +3\n{green}갑옷/장화: {white}생명력 회복 +3{white}\n{green}무기/장갑: {white}적중 시 괴물 도주 +25%%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-4{white})\n",
                 plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Uzupełnij życie 7\n{green}Hełmy/pasy: {white}Uzupełnij życie 3\n{green}Zbroje/Buty: {white}Uzupełnij życie 3\n{green}Przyczyny{green}Przyczyny{white}Rękawice:  \n\n{white}(punkty środkowe {blue}-4{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Reabastecer Vida 7\n{green}Capacetes/Cintos: {white}Reabastecer Vida 3\n{green}Armaduras/Botas: {white}Reabastecer Vida 3\n{green}Armas/Luvas: {white}Acerto Faz com que o Monstro Fuja 25%\nÿ  \n\n{white}(Pontos médios {blue}-4{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Reabastecer Vida 7\n{green}Capacetes/Cintos: {white}Reabastecer Vida 3\n{green}Armaduras/Botas: {white}Reabastecer Vida 3\n{green}Armas/Luvas: {white}Acerto Faz com que o Monstro Fuja 25%%\nÿ  \n\n{white}(Pontos médios {blue}-4{white})\n",
                 ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Replenish Life 7\n{green}Шлемы/ремни: {white}Replenish Life 3\n{green}Доспехи/обувь: {white}Replenish Life 3\n{green}Оружие/перчатки: {white}Hit заставляет монстра бежать 25%NRcune:ÿ\n  \n\n{white}(Средние точки {blue}-4{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}Shields/Jewelry：{white}Replenish Life 7\n{green}Helms/Belts：{white}Replenish Life 3\n{green}Armors/Boots：{white}Replenish Life 3\n{green}Weapons/Gloves：{white}Hit Causes Monster to Flee 25%\nÿc  \n\n{white}（中点 {blue}-4{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}Shields/Jewelry：{white}Replenish Life 7\n{green}Helms/Belts：{white}Replenish Life 3\n{green}Armors/Boots：{white}Replenish Life 3\n{green}Weapons/Gloves：{white}Hit 導致怪物逃跑預覽：25%\nÿ  \n\n{white}（中點 {blue}-4{white}）\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}Shields/Jewelry：{white}Replenish Life 7\n{green}Helms/Belts：{white}Replenish Life 3\n{green}Armors/Boots：{white}Replenish Life 3\n{green}Weapons/Gloves：{white}Hit Causes Monster to Flee 25%%\nÿc  \n\n{white}（中点 {blue}-4{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}Shields/Jewelry：{white}Replenish Life 7\n{green}Helms/Belts：{white}Replenish Life 3\n{green}Armors/Boots：{white}Replenish Life 3\n{green}Weapons/Gloves：{white}Hit 導致怪物逃跑預覽：25%%\nÿ  \n\n{white}（中點 {blue}-4{white}）\n",
             }
         },
         {
             code = "Z23",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Anforderungen -15%\n{green}Helme/Gürtel: {white}Anforderungen -15%\n{green}Rüstungen/Stiefel: {white}Anforderungen -15%\n{green}Waffen/Handschuhe: {white}Anforderungen -20%\n{turquoise}Rune Preview:\n\n{white}(Mittel {blue}-8{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Requirements -15%\n{green}Helms/Belts: {white}Requirements -15%\n{green}Armors/Boots: {white}Requirements -15%\n{green}Weapons/Gloves: {white}Requirements -20%\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-8{white})\n",
-                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Requisitos -15%\n{green}Yelmos/Cinturones: {white}Requisitos -15%\n{green}Armaduras/Botas: {white}Requisitos -15%\n{green}Armas/Guantes: {white}Requisitos -c0%NRuneVista previa:  \n\n{white}(Puntos medios {blue}-8{white})\n",
-                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Requisitos -15%\n{green}Yelmos/Cinturones: {white}Requisitos -15%\n{green}Armaduras/Botas: {white}Requisitos -15%\n{green}Armas/Guantes: {white}Requisitos -c0%NRuneVista previa:  \n\n{white}(Puntos medios {blue}-8{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Requirements -15%\n{green}Elmi/Cinture: {white}Requirements -15%\n{green}Armature/Stivali: {white}Requirements -15%\n{green}Armi/Guanti: {white}Requirements -20%NR Preview:n{green}NR Preview:n{green}  \n\n{white}(Punti medi {blue}-8{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Exigences -15%\n{green}Casques/Ceintures: {white}Exigences -15%\n{green}Armures/Bottes: {white}Exigences -15%\n{green}Armes/Gants: {white}Exigences -20%\n{turquoise}Rune Preview  \n\n{white}(Points médians {blue}-8{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Requirements -15%\n{green}Helms/Belts: {white}Requirements -15%\n{green}Armors/Boots: {white}Requirements -15%\n{green}Weapons/Gloves: {white}Requirements -20%\n{turquoise}Rune プレビュー:  \n\n{white}(中間点{blue}-8{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}착용 조건 -15%{white}\n{green}무기/장갑: {white}착용 조건 -20%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-8{white})\n",
-                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Wymagania -15%\n{green}Hełmy/Pasy: {white}Wymagania -15%\n{green}Pancerze/Buty: {white}Wymagania -15%\n{green}Wymagania Previewc2Weapons: -20G  \n\n{white}(punkty środkowe {blue}-8{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Requisitos -15%\n{green}Capacetes/Cintos: {white}Requisitos -15%\n{green}Armaduras/Botas: {white}Requisitos -15%\n{green}Armas/Luvas: {white}Requisitos -20%\n{turquoise}R Pré-visualização: {white}Requisitos -20%\n{turquoise}R  \n\n{white}(Pontos médios {blue}-8{white})\n",
-                ruRU = "{tan}Cube один, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Требования -15%\n{green}Шлемы/ремни: {white}Требования -15%\n{green}Доспехи/обувь: {white}Требования -15%\n{green}Оружие/перчатки: {white}Требования -20%\nÿcune Preview:  \n\n{white}(Средние точки {blue}-8{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}要求 -15%\n{green}头盔/腰带：{white}要求 -15%\n{green}盔甲/靴子：{white}要求 -15%\n{green}武器/手套：{white}要求 -20%\n{turquoise}Rune 预览：  \n\n{white}（中间点 {blue}-8{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}要求 -15%\n{green}頭盔/腰帶：{white}要求 -15%\n{green}盔甲/靴子：{white}要求 -15%\n{green}武器/手套：{white}要求 -20%\n{turquoise}Rune 預覽：  \n\n{white}（中間點 {blue}-8{white}）\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Anforderungen -15%%\n{green}Helme/Gürtel: {white}Anforderungen -15%%\n{green}Rüstungen/Stiefel: {white}Anforderungen -15%%\n{green}Waffen/Handschuhe: {white}Anforderungen -20%%\n{turquoise}Rune Preview:\n\n{white}(Mittel {blue}-8{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Requirements -15%%\n{green}Helms/Belts: {white}Requirements -15%%\n{green}Armors/Boots: {white}Requirements -15%%\n{green}Weapons/Gloves: {white}Requirements -20%%\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-8{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Requisitos -15%%\n{green}Yelmos/Cinturones: {white}Requisitos -15%%\n{green}Armaduras/Botas: {white}Requisitos -15%%\n{green}Armas/Guantes: {white}Requisitos -c0%NRuneVista previa:  \n\n{white}(Puntos medios {blue}-8{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Requisitos -15%%\n{green}Yelmos/Cinturones: {white}Requisitos -15%%\n{green}Armaduras/Botas: {white}Requisitos -15%%\n{green}Armas/Guantes: {white}Requisitos -c0%NRuneVista previa:  \n\n{white}(Puntos medios {blue}-8{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Requirements -15%%\n{green}Elmi/Cinture: {white}Requirements -15%%\n{green}Armature/Stivali: {white}Requirements -15%%\n{green}Armi/Guanti: {white}Requirements -20%NR Preview:n{green}NR Preview:n{green}  \n\n{white}(Punti medi {blue}-8{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white}Exigences -15%%\n{green}Casques/Ceintures: {white}Exigences -15%%\n{green}Armures/Bottes: {white}Exigences -15%%\n{green}Armes/Gants: {white}Exigences -20%%\n{turquoise}Rune Preview  \n\n{white}(Points médians {blue}-8{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Requirements -15%%\n{green}Helms/Belts: {white}Requirements -15%%\n{green}Armors/Boots: {white}Requirements -15%%\n{green}Weapons/Gloves: {white}Requirements -20%%\n{turquoise}Rune プレビュー:  \n\n{white}(中間点{blue}-8{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}착용 조건 -15%%{white}\n{green}무기/장갑: {white}착용 조건 -20%%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-8{white})\n",
+                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Wymagania -15%%\n{green}Hełmy/Pasy: {white}Wymagania -15%%\n{green}Pancerze/Buty: {white}Wymagania -15%%\n{green}Wymagania Previewc2Weapons: -20G  \n\n{white}(punkty środkowe {blue}-8{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Requisitos -15%%\n{green}Capacetes/Cintos: {white}Requisitos -15%%\n{green}Armaduras/Botas: {white}Requisitos -15%%\n{green}Armas/Luvas: {white}Requisitos -20%%\n{turquoise}R Pré-visualização: {white}Requisitos -20%%\n{turquoise}R  \n\n{white}(Pontos médios {blue}-8{white})\n",
+                ruRU = "{tan}Cube один, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Требования -15%%\n{green}Шлемы/ремни: {white}Требования -15%%\n{green}Доспехи/обувь: {white}Требования -15%%\n{green}Оружие/перчатки: {white}Требования -20%%\nÿcune Preview:  \n\n{white}(Средние точки {blue}-8{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}要求 -15%%\n{green}头盔/腰带：{white}要求 -15%%\n{green}盔甲/靴子：{white}要求 -15%%\n{green}武器/手套：{white}要求 -20%%\n{turquoise}Rune 预览：  \n\n{white}（中间点 {blue}-8{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}要求 -15%%\n{green}頭盔/腰帶：{white}要求 -15%%\n{green}盔甲/靴子：{white}要求 -15%%\n{green}武器/手套：{white}要求 -20%%\n{turquoise}Rune 預覽：  \n\n{white}（中間點 {blue}-8{white}）\n",
             }
         },
         {
@@ -2085,7 +1881,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 50%% di oro extra dai mostri\n{green}Elmi/Cinture: {white} 50%% di oro extra dai mostri\n{green}Armature/Stivali: {white} 50%% oro extra dai mostri\n{green}Armi/Guanti  : {white} 75%% di oro extra da Monsters\n{turquoise}Rune Anteprima:\n\n{white}(Punti medi {blue}-256{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 50%% d'or supplémentaire des monstres\n{green}Casques/ceintures: {white} 50%% d'or supplémentaire des monstres\n{green}Armures/bottes: {white} 50%% d'or supplémentaire des monstres\n{green}Armes/Gants : {white} 75%% d'or supplémentaire des monstres\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-256{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}盾/ジュエリー: {white} モンスターから 50%% 追加ゴールド\n{green}ヘルム/ベルト: {white} モンスターから 50%% 追加ゴールド\n{green}防具/ブーツ: {white} モンスターから 50%% 追加ゴールド\n{green}武器/手袋 : {white} モンスターから 75%% 追加ゴールド\n{turquoise}Rune プレビュー:\n\n{white}(中間点 {blue}-256{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}골찬 50%% 증가\n{green}헬름/벨트: {white}골찬 50%% 증가\n{green}갑옷/장화: {white}골찬 50%% 증가{white}\n{green}무기/장갑: {white}골찬 75%% 증가\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-256{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}괴물에게서 얻는 금화 50%% 증가\n{green}헬름/벨트: {white}괴물에게서 얻는 금화 50%% 증가\n{green}갑옷/장화: {white}괴물에게서 얻는 금화 50%% 증가{white}\n{green}무기/장갑: {white}괴물에게서 얻는 금화 75%% 증가\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-256{white})\n",
                 plPL = "{tan}Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 50%% dodatkowego złota z potworów\n{green}Hełmy/pasy: {white} 50%% dodatkowego złota z potworów\n{green}Zbroje/Buty: {white} 50%% dodatkowego złota z potworów\n{green}Broń/G  : {white} 75%% Dodatkowego Złota z Potworów\n{turquoise}Rune Podgląd:\n\n{white}(Mid Punkty {blue}-256{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 50%% de Ouro Extra de Monstros\n{green}Elmos/Cintos: {white} 50%% de Ouro Extra de Monstros\n{green}Armaduras/Botas: {white} 50%% de Ouro Extra de Monstros\n{green}Armas/Luvas  : {white} 75%% Extra Gold de Monstros\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-256{white})\n",
                 ruRU = "{tan}Один куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white} 50%% дополнительного золота от монстров\n{green}Шлемы/ремни: {white} 50%% дополнительного золота от монстров\n{green}Доспехи/обувь: {white} 50%% дополнительного золота от монстров\n{green}Оружие/перчатки  : {white} 75%% дополнительного золота от монстров\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-256{white})\n",
@@ -2104,7 +1900,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 30%% Difesa migliorata\n{green}Elmi/Cinture: {white} 20%% Difesa migliorata\n{green}Armature/Stivali: {white} 20%% Difesa migliorata\n{green}Armi/Guanti: {white} 50 al Rating Attacco  e 40%% di danni ai demoni\n{turquoise}Rune Anteprima:\n\n{white}(Punti medi {blue}-512{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 30%% de Défense améliorée\n{green}Casques/Ceintures: {white} 20%% de Défense améliorée\n{green}Armures/Bottes: {white} 20%% de Défense améliorée\n{green}Armes/Gants: {white} 50 au Taux d'attaque  et 40%% de dégâts aux démons\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-512{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 30%% 防御力強化\n{green}Helms/Belts: {white} 20%% 防御力強化\n{green}Armors/Boots: {white} 20%% 防御力強化\n{green}Weapons/Gloves: {white} 50 攻撃力 および悪魔への 40%% のダメージ\n{turquoise}Rune プレビュー:\n\n{white}(中間点 {blue}-512{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}방어력 +30%% 증가\n{green}헬름/벨트: {white}방어력 +20%% 증가\n{green}갑옷/장화: {white}방어력 +20%% 증가{white}\n{green}무기/장갑: {white}악마에게 주는 피해 +40%, 악마에 대한 명중률 +50\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-512{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}방어력 +30%% 증가\n{green}헬름/벨트: {white}방어력 +20%% 증가\n{green}갑옷/장화: {white}방어력 +20%% 증가{white}\n{green}무기/장갑: {white}악마에게 주는 피해 +40%%, 악마에 대한 명중률 +50\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-512{white})\n",
                 plPL = "ÿC7Sam Kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 30%% Ulepszona obrona\n{green}Hełmy/Pasy: {white} 20%% Ulepszona obrona\n{green}Zbroje/Buty: {white} 20%% Ulepszona obrona\n{green} Broń/Rękawice 50 do ataku: ÿ  i 40%% Obrażeń Demonom\n{turquoise}Rune Podgląd:\n\n{white}(Mid Punkty {blue}-4{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 30%% de Defesa Aprimorada\n{green}Capacetes/Cintos: {white} 20%% de Defesa Aprimorada\n{green}Armaduras/Botas: {white} 20%% de Defesa Aprimorada\n{green}Armas/Luvas: {white} 50 de Classificação de Ataque  e 40%% de Dano aos Demônios\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-512{white})\n",
                 ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 30%% усиленной защиты\n{green}Шлемы/пояса: {white} 20%% усиленной защиты\n{green}Доспехи/ботинки: {white} 20%% усиленной защиты\n{green}Оружие/перчатки: {white} 50 к рейтингу атаки  и 40%% урона демонам\n{turquoise}RПредварительный просмотр руны:\n\n{white}(Средние точки {blue}-512{white})\n",
@@ -2116,14 +1912,14 @@ return {
             code = "Z30",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Alle Widerstände +22%\n{green}Helme/Gürtel: {white}Alle Widerstände +10%\n{green}Rüstungen/Stiefel: {white}Alle Widerstände +10%\n{green}Waffen/Handschuhe: {white}10%% Chance auf offene Wunden\n{turquoise}Rune Preview:\n\n{white}(Mittel {blue}-1024{white})\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Alle Widerstände +22%%\n{green}Helme/Gürtel: {white}Alle Widerstände +10%%\n{green}Rüstungen/Stiefel: {white}Alle Widerstände +10%%\n{green}Waffen/Handschuhe: {white}10%% Chance auf offene Wunden\n{turquoise}Rune Preview:\n\n{white}(Mittel {blue}-1024{white})\n",
                 enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}All Resistances +22\n{green}Helms/Belts: {white}All Resistances +10\n{green}Armors/Boots: {white}All Resistances +10\n{green}Weapons/Gloves: {white}10%% Chance of Open Wounds\n{turquoise}Rune Preview:\n\n{white}(Mid Points {blue}-1024{white})\n",
                 esES = "{tan}Cube solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Todas las resistencias 22\n{green}Yelmos/Cinturones: {white}Todas las resistencias 10\n{green}Armaduras/Botas: {white}Todas las resistencias 10\n{green}Armas/Guantes: {white}10%% de probabilidad de heridas abiertas\nVista previa de heridas abiertas\n{green}  n\n{white}(Puntos medios {blue}-1024{white})\n",
                 esMX = "{tan}Cube solo para cambiar al siguiente tipo de removedor\n\n{green}Escudos/Joyas: {white}Todas las resistencias 22\n{green}Yelmos/Cinturones: {white}Todas las resistencias 10\n{green}Armaduras/Botas: {white}Todas las resistencias 10\n{green}Armas/Guantes: {white}10%% de probabilidad de heridas abiertas\nVista previa de heridas abiertas\n{green}  n\n{white}(Puntos medios {blue}-1024{white})\n",
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}All Resistances 22\n{green}Elmi/Cinture: {white}All Resistances 10\n{green}Armature/Stivali: {white}All Resistances 10\n{green}Armi/Guanti: {white}10%% Chance of Open Woundune\n{turquoise}R Preview:  n\n{white}(Punti medi {blue}-1024{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white}Toutes les résistances 22\n{green}Casques/Ceintures: {white}Toutes les résistances 10\n{green}Armures/Bottes: {white}Toutes les résistances 10\n{green}Armes/Gants: {white}10%% de chances de blessures ouvertes\n{turquoise}Rune Preview:  n\n{white}(Points médians {blue}-1024{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}All Resistances 22\n{green}Helms/Belts: {white}All Resistances 10\n{green}Armors/Boots: {white}All Resistances 10\n{green}Weapons/Gloves: {white}10%% 開いた傷のプレビュー\n{turquoise}R:\n{turquoise}R  n\n{white}(中間点{blue}-1024{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}모든 저항 +22\n{green}헬름/벨트: {white}모든 저항 +10\n{green}갑옷/장화: {white}모든 저항 +10{white}\n{green}무기/장갑: {white}상처 악화 확률 10%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-1024{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}모든 저항 +22\n{green}헬름/벨트: {white}모든 저항 +10\n{green}갑옷/장화: {white}모든 저항 +10{white}\n{green}무기/장갑: {white}상처 악화 확률 10%%\n{turquoise}룬 미리 보기:\n\n{white}(중급 점수 {blue}-1024{white})\n",
                 plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Wszystkie odporności 22\n{green}Hełmy/pasy: {white}Wszystkie odporności 10\n{green}Pancerz/Buty: {white}Wszystkie odporności 10\n{green}Podgląd broni/rękawice%:c ÿ  n\n{white}(Punkty środkowe {blue}-1024{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Todas as Resistências 22\n{green}Capacetes/Cintos: {white}Todas as Resistências 10\n{green}Armaduras/Botas: {white}Todas as Resistências 10\n{green}Armas/Luvas: {white}10%% Chance de Abrir Feridas\n{turquoise}RVisualizar  n\n{white}(Pontos médios {blue}-1024{white})\n",
                 ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Все сопротивления 22\n{green}Шлемы/пояса: {white}Все сопротивления 10\n{green}Доспехи/ботинки: {white}Все сопротивления 10\n{green}Оружие/перчатки: {white}10%% шанс открытых ран\nR Preview:\nÿview  n\n{white}(Средние точки {blue}-1024{white})\n",
@@ -2161,7 +1957,7 @@ return {
                 frFR = "{tan}Solo cubo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 25%% ritrovamento magico aumentato\n{green}Elmi/cinture: {white} 10%% ritrovamento magico aumentato\n{green}Armature/stivali: {white} 10%% ritrovamento magico aumentato\n{green}Armi/guanti: {white} 15  %% di ritrovamento magico aumentato\n{turquoise}Rune Anteprima:\n\n{white}(Punti massimi {blue}-2{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux:{white}25%% d'Augmentation de la Recherche de Magie\n{green}Casques/Ceintures:{white} 10%% d'Augmentation de la Recherche de Magie\n{green}Armures/Bottes:{white} 10%% d'Augmentation de la Recherche de Magie\n{green}Armes/Gants:{white} 15  %Augmentation de la recherche magique\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-2{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 25%% 増加 Magic Find\n{green}Helms/Belts: {white} 10%% 増加 Magic Find\n{green}Armors/Boots: {white} 10%% 増加 Magic Find\n{green}Weapons/Gloves: {white} 15  %% 増加した魔法の発見\n{turquoise}Rune プレビュー:\n\n{white}(ハイポイント {blue}-2{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}매찬 25%% 증가\n{green}헬름/벨트: {white}매찬 10%% 증가\n{green}갑옷/장화: {white}매찬 10%% 증가{white}\n{green}무기/장갑: {white}매찬 15%% 증가\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-2{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}마법 아이템 발견 확률 25%% 증가\n{green}헬름/벨트: {white}마법 아이템 발견 확률 10%% 증가\n{green}갑옷/장화: {white}마법 아이템 발견 확률 10%% 증가{white}\n{green}무기/장갑: {white}마법 아이템 발견 확률 15%% 증가\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-2{white})\n",
                 plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 25%% Zwiększone odnajdywanie magii\n{green}Hełmy/pasy: {white} 10%% Zwiększone odnajdywanie magii\n{green}Pancerz/Buty: {white} 10%% Zwiększone odnajdywanie magii\n{green}Broń/c0 15:  %% Zwiększone znajdowanie magii\n{turquoise}Rune Podgląd:\n\n{white}(Wysokie punkty {blue}-2{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} Aumento de 25%% em Achados Mágicos\n{green}Elmos/Cintos: {white} Aumento de 10%% em Achados Mágicos\n{green}Armaduras/Botas: {white} Aumento de 10%% em Achados Mágicos\n{green}Armas/Luvas: {white} 15  %% de aumento de Magic find\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-2{white})\n",
                 ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 25%% увеличение скорости поиска магии\n{green}Шлемы/ремни: {white} 10%% увеличение скорости поиска магии\n{green}Доспехи/обувь: {white} 10%% увеличение скорости поиска магии\n{green}Оружие/перчатки: {white} 15  %% увеличение количества магических находок\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-2{white})\n",
@@ -2180,7 +1976,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 5%% alla massima resistenza al veleno\n{green}Elmi/Cinture: {white} 5%% alla massima resistenza al veleno\n{green}Armature/Stivali: {white} 5%% alla massima resistenza al veleno\n{green}Armi/guanti  : {white}15%% Bonus al Rating Attacco\n{turquoise}Rune Anteprima:\n\n{white}(Punti più alti {blue}-4{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 5%% à la résistance maximale au poison\n{green}Casques/ceintures: {white} 5%% à la résistance maximale au poison\n{green}Armures/bottes: {white} 5%% à la résistance maximale au poison\n{green}Armes/Gants : {white}15%% de bonus au niveau d'attaque\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-4{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 5%% から最大毒耐性\n{green}Helms/Belts: {white} 5%% から最大毒耐性\n{green}Armors/Boots: {white} 5%% から最大毒耐性\n{green}Weapons/Gloves  : {white}15%% 攻撃レーティングへのボーナス\n{turquoise}Rune プレビュー:\n\n{white}(ハイポイント {blue}-4{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 독 저항 +5%{white}\n{green}무기/장갑: {white}명중률 보너스 15%\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-4{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 독 저항 +5%%{white}\n{green}무기/장갑: {white}명중률 보너스 15%%\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-4{white})\n",
                 plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 5%% do maksymalnej odporności na trucizny\n{green}Hełmy/pasy: {white} 5%% do maksymalnej odporności na trucizny\n{green}Pancerze/Buty: {white} 5%% do maksymalnej odporności na trucizny\n{green}Wesa  : {white}15%% premii do oceny ataku\n{turquoise}Rune Podgląd:\n\n{white}(Wysokie punkty {blue}-4{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 5%% para Resistência Máxima a Veneno\n{green}Capacetes/Cintos: {white} 5%% para Resistência Máxima a Veneno\n{green}Armaduras/Botas: {white} 5%% para Resistência Máxima a Veneno\n{green}Armas/Luvas  : {white}15%% Bônus de Classificação de Ataque\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-4{white})\n",
                 ruRU = "{tan}Один куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white} 5%% к максимальному сопротивлению яду\n{green}Шлемы/пояса: {white} 5%% к максимальному сопротивлению яду\n{green}Доспехи/обувь: {white} 5%% к максимальному сопротивлению яду\n{green}Оружие/перчатки  : {white}15%% Бонус к рейтингу атаки\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-4{white})\n",
@@ -2199,7 +1995,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 5%% alla massima resistenza al fuoco\n{green}Elmi/Cinture: {white} 5%% alla massima resistenza al fuoco\n{green}Armature/Stivali: {white} 5%% alla massima resistenza al fuoco\n{green}Armi/Guanti  : {white}5%% Mana rubato per colpo\n{turquoise}Rune Anteprima:\n\n{white}(Punti massimi {blue}-8{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white} 5%% pour la résistance au feu maximale\n{green}Casques/Ceintures: {white} 5%% pour la résistance au feu maximale\n{green}Armures/Bottes: {white} 5%% pour la résistance au feu maximale\n{green}Armes/Gants : {white}5%% de mana volé par coup\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-8{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 5%% で最大耐火力\n{green}Helms/Belts: {white} 5%% で最大耐火力\n{green}Armors/Boots: {white} 5%% で最大耐火力\n{green}Weapons/Gloves  : ヒットごとに {white}5%% マナが奪われます\n{turquoise}Rune プレビュー:\n\n{white}(ハイポイント {blue}-8{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 화염 저항 +5%{white}\n{green}무기/장갑: {white}적중당 마나 5%% 훔침\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-8{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 화염 저항 +5%%{white}\n{green}무기/장갑: {white}적중당 마나 5%% 훔침\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-8{white})\n",
                 plPL = "{tan}Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 5%% do maksymalnej odporności na ogień\n{green}Hełmy/pasy: {white} 5%% do maksymalnej odporności na ogień\n{green}Pancerze/Buty: {white} 5%% do maksymalnej odporności na ogień\n{green}Broń/rękawice  : {white}5%% skradzionej many za trafienie\n{turquoise}RunePodgląd:\n\n{white}(Wysokie punkty {blue}-8{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 5%% para Resistência Máxima ao Fogo\n{green}Capacetes/Cintos: {white} 5%% para Resistência Máxima ao Fogo\n{green}Armaduras/Botas: {white} 5%% para Resistência Máxima ao Fogo\n{green}Armas/Luvas  : {white}5%% de Mana Roubada por Hit\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-8{white})\n",
                 ruRU = "{tan}Только куб, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white} 5%% к максимальному сопротивлению огню\n{green}Шлемы/ремни: {white} 5%% к максимальному сопротивлению огню\n{green}Доспехи/обувь: {white} 5%% к максимальному сопротивлению огню\n{green}Оружие/перчатки  : {white}5%% кражи маны за удар\n{turquoise}RПредварительный просмотр трассы:\n\n{white}(Высокие баллы {blue}-8{white})\n",
@@ -2216,12 +2012,12 @@ return {
                 esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 5 %% para resistencia máxima al frío\n{green}Cascos/cinturones: {white} 5 %% para resistencia máxima al frío\n{green}Armaduras/botas: {white} 5 %% para resistencia máxima al frío\n{green}Armas/guantes  : {white} 35 %% de daño mejorado\n{turquoise}Rune Preview:\n\n{white}(Puntos altos {blue}-16{white})\n",
                 esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 5 %% para resistencia máxima al frío\n{green}Cascos/cinturones: {white} 5 %% para resistencia máxima al frío\n{green}Armaduras/botas: {white} 5 %% para resistencia máxima al frío\n{green}Armas/guantes  : {white} 35 %% de daño mejorado\n{turquoise}Rune Preview:\n\n{white}(Puntos altos {blue}-16{white})\n",
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 5%% alla massima resistenza al freddo\n{green}Elmi/Cinture: {white} 5%% alla massima resistenza al freddo\n{green}Armature/Stivali: {white} 5%% alla massima resistenza al freddo\n{green}Armi/Guanti  : {white} 35%% del danno potenziato\n{turquoise}Rune Anteprima:\n\n{white}(Punti massimi {blue}-16{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 5%% pour la résistance maximale au froid\n{green}Casques/Ceintures: {white} 5%% pour la résistance maximale au froid\n{green}Armures/Bottes: {white} 5%% pour la résistance maximale au froid\n{green}Armes/Gants : {white} Dégâts améliorés de 35%\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-16{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 5%% pour la résistance maximale au froid\n{green}Casques/Ceintures: {white} 5%% pour la résistance maximale au froid\n{green}Armures/Bottes: {white} 5%% pour la résistance maximale au froid\n{green}Armes/Gants : {white} Dégâts améliorés de 35%%\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-16{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 5%% から最大耐寒性\n{green}Helms/Belts: {white} 5%% から最大耐寒性\n{green}Armors/Boots: {white} 5%% から最大耐寒性\n{green}Weapons/Gloves  : {white} 35%% 強化されたダメージ\n{turquoise}Rune プレビュー:\n\n{white}(ハイポイント {blue}-16{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 냉기 저항 +5%{white}\n{green}무기/장갑: {white}피해 +35%% 증가\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-16{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 냉기 저항 +5%%{white}\n{green}무기/장갑: {white}피해 +35%% 증가\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-16{white})\n",
                 plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 5%% do maksymalnej odporności na zimno\n{green}Hełmy/pasy: {white} 5%% do maksymalnej odporności na zimno\n{green}Pancerze/Buty: {white} 5%% do maksymalnej odporności na zimno\n{green}Broń/Broń  : {white} 35%% zwiększone obrażenia\n{turquoise}Rune Podgląd:\n\n{white}(Wysokie punkty {blue}-16{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 5%% para Resistência Máxima ao Frio\n{green}Capacetes/Cintos: {white} 5%% para Resistência Máxima ao Frio\n{green}Armaduras/Botas: {white} 5%% para Resistência Máxima ao Frio\n{green}Armas/Luvas  : {white} 35%% de dano aprimorado\n{turquoise}Rune Preview:\n\n{white}(Pontos altos {blue}-16{white})\n",
-                ruRU = "{tan}Только куб для смены на следующий тип ремувера\n\n{green}Щиты/украшения: {white} 5%% от максимального сопротивления холоду\n{green}Шлемы/пояса: {white} 5%% до максимального сопротивления холоду\n{green}Доспехи/ботинки: {white} 5%% до максимального сопротивления холоду\n{green}Оружие/перчатки  : {white} Увеличение урона на 35%\n{turquoise}RПредварительный просмотр руны:\n\n{white}(Высокие точки {blue}-16{white})\n",
+                ruRU = "{tan}Только куб для смены на следующий тип ремувера\n\n{green}Щиты/украшения: {white} 5%% от максимального сопротивления холоду\n{green}Шлемы/пояса: {white} 5%% до максимального сопротивления холоду\n{green}Доспехи/ботинки: {white} 5%% до максимального сопротивления холоду\n{green}Оружие/перчатки  : {white} Увеличение урона на 35%%\n{turquoise}RПредварительный просмотр руны:\n\n{white}(Высокие точки {blue}-16{white})\n",
                 zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white} 5%% 至最大抗寒性\n{green}头盔/腰带：{white} 5%% 至最大抗寒性\n{green}盔甲/靴子：{white} 5%% 至最大抗寒性\n{green}武器/手套 ：{white} 35%% 增强伤害\n{turquoise}Rune 预览：\n\n{white}（高点 {blue}-16{white}）\n",
                 zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white} 5%% 至最大抗寒性\n{green}頭盔/腰帶：{white} 5%% 至最大抗寒性\n{green}盔甲/靴子：{white} 5%% 至最大抗寒性\n{green}武器/手套 ：{white} 35%% 增強傷害\n{turquoise}Rune 預覽：\n\n{white}（高點 {blue}-16{white}）\n",
             }
@@ -2237,7 +2033,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 5%% alla massima resistenza ai fulmini\n{green}Elmi/Cinture: {white} 5%% alla massima resistenza ai fulmini\n{green}Armature/Stivali: {white} 5%% alla massima resistenza ai fulmini\n{green}Armi/Guanti  : {white}10%% Attacco mortale\n{turquoise}Rune Anteprima:\n\n{white}(Punti alti {blue}-32{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux: {white} 5%% pour la résistance maximale à la foudre\n{green}Casques/Ceintures: {white} 5%% pour la résistance maximale à la foudre\n{green}Armures/Bottes: {white} 5%% pour la résistance maximale à la foudre\n{green}Armes/Gants : {white}10%% Frappe mortelle\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-32{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 5%% で最大雷耐性\n{green}Helms/Belts: {white} 5%% で最大雷耐性\n{green}Armors/Boots: {white} 5%% で最大雷耐性\n{green}Weapons/Gloves  : {white}10%% Deadly Strike\n{turquoise}Rune プレビュー:\n\n{white}(High Points {blue}-32{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 번개 저항 +5%{white}\n{green}무기/장갑: {white}치명적 공격 10%\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-32{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}최대 번개 저항 +5%%{white}\n{green}무기/장갑: {white}치명적 공격 10%%\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-32{white})\n",
                 plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 5%% do maksymalnej odporności na błyskawice\n{green}Hełmy/pasy: {white} 5%% do maksymalnej odporności na błyskawice\n{green}Pancerze/Buty: {white} 5%% do maksymalnej odporności na błyskawice\n{green}Wea  : {white}10%% Śmiertelne Uderzenie\n{turquoise}Rune Podgląd:\n\n{white}(Wysokie Punkty {blue}-32{white})\n",
                 ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 5%% para Resistência Máxima a Raios\n{green}Capacetes/Cintos: {white} 5%% para Resistência Máxima a Raios\n{green}Armaduras/Botas: {white} 5%% para Resistência Máxima a Raios\n{green}Armas/Luvas  : {white}10%% Deadly Strike\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-32{white})\n",
                 ruRU = "{tan}Только куб для смены на следующий тип ремувера\n\n{green}Щиты/украшения: {white} 5%% от максимального сопротивления молнии\n{green}Шлемы/пояса: {white} 5%% до максимального сопротивления молнии\n{green}Доспехи/обувь: {white} 5%% до максимального сопротивления молнии\n{green}Оружие/перчатки  : {white}10%% Deadly Strike\n{turquoise}RПредварительный просмотр руны:\n\n{white}(Высокие баллы {blue}-32{white})\n",
@@ -2249,19 +2045,19 @@ return {
             code = "Z37",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}+50 Mana\n{green}Helme/Gürtel: {white}Max Mana +5%\n{green}Rüstungen/Stiefel: {white}Max Mana +5%\n{green}Waffen/Handschuhe: {white}TZreffer blendet Ziel\n{turquoise}Rune Preview:\n\n{white}(Hohe {blue}-64{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}+50 to Mana\n{green}Helms/Belts: {white}Maximum Mana +5%\n{green}Armors/Boots: {white}Maximum Mana +5%\n{green}Weapons/Gloves: {white}Hit Blinds Target\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-64{white})\n",
-                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a maná\n{green}Yelmos/cinturones: {white}Máximo de maná 5 %\n{green}Armaduras/botas: {white}Máximo de maná 5 %\n{green}Armas/guantes: {white}Hit Blinds Target Preview\nÿc  n\n{white}(Puntos altos {blue}-64{white})\n",
-                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a maná\n{green}Yelmos/cinturones: {white}Máximo de maná 5 %\n{green}Armaduras/botas: {white}Máximo de maná 5 %\n{green}Armas/guantes: {white}Hit Blinds Target Preview\nÿc  n\n{white}(Puntos altos {blue}-64{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 50 a Mana\n{green}Elmi/Cinture: {white}Mana massimo 5%\n{green}Armature/Stivali: {white}Mana massimo 5%\n{green}Armi/Guanti: {white}Bersaglio ciechi colpisci\n{turquoise}RAnteprima:\n{turquoise}R  n\n{white}(Punti massimi {blue}-64{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 50 à Mana\n{green}Casques/Ceintures: {white}Mana maximum 5%\n{green}Armures/Bottes: {white}Mana maximum 5%\n{green}Armes/Gants: {white}Hit Blinds Target\n{turquoise}Rune Preview  n\n{white}(High Points {blue}-64{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 50 to Mana\n{green}Helms/Belts: {white}Maximum Mana 5%\n{green}Armors/Boots: {white}Maximum Mana 5%\n{green}Weapons/Gloves: {white}ヒット ブラインド プレビュー\nÿc:  n\n{white}(ハイポイント{blue}-64{white})\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}+50 Mana\n{green}Helme/Gürtel: {white}Max Mana +5%%\n{green}Rüstungen/Stiefel: {white}Max Mana +5%%\n{green}Waffen/Handschuhe: {white}TZreffer blendet Ziel\n{turquoise}Rune Preview:\n\n{white}(Hohe {blue}-64{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}+50 to Mana\n{green}Helms/Belts: {white}Maximum Mana +5%%\n{green}Armors/Boots: {white}Maximum Mana +5%%\n{green}Weapons/Gloves: {white}Hit Blinds Target\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-64{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a maná\n{green}Yelmos/cinturones: {white}Máximo de maná 5 %%\n{green}Armaduras/botas: {white}Máximo de maná 5 %%\n{green}Armas/guantes: {white}Hit Blinds Target Preview\nÿc  n\n{white}(Puntos altos {blue}-64{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a maná\n{green}Yelmos/cinturones: {white}Máximo de maná 5 %%\n{green}Armaduras/botas: {white}Máximo de maná 5 %%\n{green}Armas/guantes: {white}Hit Blinds Target Preview\nÿc  n\n{white}(Puntos altos {blue}-64{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 50 a Mana\n{green}Elmi/Cinture: {white}Mana massimo 5%%\n{green}Armature/Stivali: {white}Mana massimo 5%%\n{green}Armi/Guanti: {white}Bersaglio ciechi colpisci\n{turquoise}RAnteprima:\n{turquoise}R  n\n{white}(Punti massimi {blue}-64{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 50 à Mana\n{green}Casques/Ceintures: {white}Mana maximum 5%%\n{green}Armures/Bottes: {white}Mana maximum 5%%\n{green}Armes/Gants: {white}Hit Blinds Target\n{turquoise}Rune Preview  n\n{white}(High Points {blue}-64{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 50 to Mana\n{green}Helms/Belts: {white}Maximum Mana 5%%\n{green}Armors/Boots: {white}Maximum Mana 5%%\n{green}Weapons/Gloves: {white}ヒット ブラインド プレビュー\nÿc:  n\n{white}(ハイポイント{blue}-64{white})\n",
                 koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}마나 +50\n{green}헬름/벨트: {white}최대 마나 5%% 증가\n{green}갑옷/장화: {white}최대 마나 5%% 증가{white}\n{green}무기/장갑: {white}적중 시 대상 실명\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-64{white})\n",
-                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 50 do Many\n{green}Hełmy/Pasy: {white}Maksymalna Mana 5%\n{green}Pancerz/Buty: {white}Maksymalna Mana 5%\n{green}BrońÿNruRękawice:  n\n{white}(Wysokie punkty {blue}-64{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 50 para Mana\n{green}Capacetes/Cintos: {white}Máximo de Mana 5%\n{green}Armaduras/Botas: {white}Máximo de Mana 5%\n{green}Armas/Luvas: {white}Atingir Alvo de Blinds\nÿ  n\n{white}(Pontos altos {blue}-64{white})\n",
-                ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 50 на ману\n{green}Шлемы/пояса: {white}Максимум маны 5%\n{green}Доспехи/обувь: {white}Максимум маны 5%\n{green}Оружие/перчатки: {white}Hit Blindsune\n{white}Hit Blindsune  n\n{white}(Высокие точки {blue}-64{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white} 50 到法力\n{green}头盔/腰带：{white}最大法力 5%\n{green}盔甲/靴子：{white}最大法力 5%\n{green}武器/手套：{white}Hit Blinds Target\n{turquoise}R  n\n{white}（高点 {blue}-64{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white} 50 到法力\n{green}頭盔/腰帶：{white}最大法力 5%\n{green}盔甲/靴子：{white}最大法力 5%\n{green}武器/手套：{white}Hit Blinds Target\n{turquoise}R  n\n{white}（高點 {blue}-64{white}）\n",
+                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 50 do Many\n{green}Hełmy/Pasy: {white}Maksymalna Mana 5%%\n{green}Pancerz/Buty: {white}Maksymalna Mana 5%%\n{green}BrońÿNruRękawice:  n\n{white}(Wysokie punkty {blue}-64{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 50 para Mana\n{green}Capacetes/Cintos: {white}Máximo de Mana 5%%\n{green}Armaduras/Botas: {white}Máximo de Mana 5%%\n{green}Armas/Luvas: {white}Atingir Alvo de Blinds\nÿ  n\n{white}(Pontos altos {blue}-64{white})\n",
+                ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 50 на ману\n{green}Шлемы/пояса: {white}Максимум маны 5%%\n{green}Доспехи/обувь: {white}Максимум маны 5%%\n{green}Оружие/перчатки: {white}Hit Blindsune\n{white}Hit Blindsune  n\n{white}(Высокие точки {blue}-64{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white} 50 到法力\n{green}头盔/腰带：{white}最大法力 5%%\n{green}盔甲/靴子：{white}最大法力 5%%\n{green}武器/手套：{white}Hit Blinds Target\n{turquoise}R  n\n{white}（高点 {blue}-64{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white} 50 到法力\n{green}頭盔/腰帶：{white}最大法力 5%%\n{green}盔甲/靴子：{white}最大法力 5%%\n{green}武器/手套：{white}Hit Blinds Target\n{turquoise}R  n\n{white}（高點 {blue}-64{white}）\n",
             }
         },
         {
@@ -2269,37 +2065,37 @@ return {
             location = { "onplayer", "atvendor" },
             prefix = {
                 deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}Schaden um 8%% reduziert\n{green}Helme/Gürtel: {white}Schaden um 8%% reduziert\n{green}Rüstungen/Stiefel: {white}Schaden um 8%% reduziert\n{green}Waffen/Handschuhe: {white}+10%% Chance auf Vernichtenden Schlag\n{turquoise}Rune Preview:\n\n{white}(Hohe {blue}-128{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Damage Reduced by 8%\n{green}Helms/Belts: {white}Damage Reduced by 8%\n{green}Armors/Boots: {white}Damage Reduced by 8%\n{green}Weapons/Gloves: {white}+10%% Chance of Crushing Blow\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-128{white})\n",
-                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Daño reducido en un 8%\n{green}Yelmos/Cinturones: {white}Daño reducido en un 8%\n{green}Armaduras/Botas: {white}Daño reducido en un 8%\n{green}Armas/Guantes: {white} Probabilidad de 10%%  Golpe aplastante\n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-128{white})\n",
-                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Daño reducido en un 8%\n{green}Yelmos/Cinturones: {white}Daño reducido en un 8%\n{green}Armaduras/Botas: {white}Daño reducido en un 8%\n{green}Armas/Guantes: {white} Probabilidad de 10%%  Golpe aplastante\n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-128{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Danni ridotti dell'8%\n{green}Elmi/Cinture: {white}Danni ridotti dell'8%\n{green}Armature/Stivali: {white}Danni ridotti dell'8%\n{green}Armi/Guanti: {white} 10%% di probabilità  Colpo schiacciante\n{turquoise}Rune Anteprima:\n\n{white}(Punti bassi {blue}-128{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white}Dégâts réduits de 8%\n{green}Casques/Ceintures: {white}Dégâts réduits de 8%\n{green}Armures/Bottes: {white}Dégâts réduits de 8%\n{green}Armes/Gants: {white} 10%% de chances de  Coup écrasant\n{turquoise}RAperçu de l'une:\n\n{white}(Points bas {blue}-128{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Damage Reduced by 8%%\n{green}Helms/Belts: {white}Damage Reduced by 8%%\n{green}Armors/Boots: {white}Damage Reduced by 8%%\n{green}Weapons/Gloves: {white}+10%% Chance of Crushing Blow\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-128{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Daño reducido en un 8%%\n{green}Yelmos/Cinturones: {white}Daño reducido en un 8%%\n{green}Armaduras/Botas: {white}Daño reducido en un 8%%\n{green}Armas/Guantes: {white} Probabilidad de 10%%  Golpe aplastante\n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-128{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Daño reducido en un 8%%\n{green}Yelmos/Cinturones: {white}Daño reducido en un 8%%\n{green}Armaduras/Botas: {white}Daño reducido en un 8%%\n{green}Armas/Guantes: {white} Probabilidad de 10%%  Golpe aplastante\n{turquoise}Rune Preview:\n\n{white}(Puntos bajos {blue}-128{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Danni ridotti dell'8%%\n{green}Elmi/Cinture: {white}Danni ridotti dell'8%%\n{green}Armature/Stivali: {white}Danni ridotti dell'8%%\n{green}Armi/Guanti: {white} 10%% di probabilità  Colpo schiacciante\n{turquoise}Rune Anteprima:\n\n{white}(Punti bassi {blue}-128{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white}Dégâts réduits de 8%%\n{green}Casques/Ceintures: {white}Dégâts réduits de 8%%\n{green}Armures/Bottes: {white}Dégâts réduits de 8%%\n{green}Armes/Gants: {white} 10%% de chances de  Coup écrasant\n{turquoise}RAperçu de l'une:\n\n{white}(Points bas {blue}-128{white})\n",
                 jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white}Damage が 8%% 減少\n{green}Helms/Belts: {white}Damage が 8%% 減少\n{green}Armors/Boots: {white}Damage が 8%% 減少\n{green}Weapons/Gloves: {white} 10%% のチャンス クラッシュ ブロー\n{turquoise}Rune プレビュー:\n\n{white}(ロー ポイント {blue}-128{white})\n",
-                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}피해 8%% 감소{white}\n{green}무기/장갑: {white}강타 확률 10%\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-128{white})\n",
-                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Obrażenia zmniejszone o 8%\n{green}Hełmy/Pasy: {white}Obrażenia zmniejszone o 8%\n{green}Zbroje/Buty: {white}Obrażenia zmniejszone o 8%% broni0%\ncG2  Miażdżący cios\n{turquoise}Rune Podgląd:\n\n{white}(niskie punkty {blue}-128{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Dano reduzido em 8%\n{green}Capacetes/Cintos: {white}Dano reduzido em 8%\n{green}Armaduras/Botas: {white}Dano reduzido em 8%\n{green}Armas/Luvas: {white} 10%% de chance de  Crushing Blow\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-128{white})\n",
-                ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Урон уменьшен на 8%\n{green}Шлемы/ремни: {white}Урон уменьшен на 8%\n{green}Доспехи/обувь: {white}Урон уменьшен на 8%\n{green}Оружие/перчатки: {white} 10%% шанс  Crushing Blow\n{turquoise}Rune Preview:\n\n{white}(Низкие баллы {blue}-128{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}伤害降低 8%\n{green}头盔/腰带：{white}伤害降低 8%\n{green}盔甲/靴子：{white}伤害降低 8%\n{green}武器/手套：{white} 10%% 几率 粉碎打击\n{turquoise}Rune 预览：\n\n{white}（低分 {blue}-128{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}傷害減少 8%\n{green}頭盔/腰帶：{white}傷害減少 8%\n{green}盔甲/靴子：{white}傷害減少 8%\n{green}武器/手套：{white} 10%% 機率 粉碎打擊\n{turquoise}Rune 預覽：\n\n{white}（低分 {blue}-128{white}）\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}갑옷/장화/헬름/벨트/방패/장신구: {white}피해 8%% 감소{white}\n{green}무기/장갑: {white}강한 타격 확률 10%%\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-128{white})\n",
+                plPL = "ÿC7Sama kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white}Obrażenia zmniejszone o 8%%\n{green}Hełmy/Pasy: {white}Obrażenia zmniejszone o 8%%\n{green}Zbroje/Buty: {white}Obrażenia zmniejszone o 8%% broni0%%\ncG2  Miażdżący cios\n{turquoise}Rune Podgląd:\n\n{white}(niskie punkty {blue}-128{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Dano reduzido em 8%%\n{green}Capacetes/Cintos: {white}Dano reduzido em 8%%\n{green}Armaduras/Botas: {white}Dano reduzido em 8%%\n{green}Armas/Luvas: {white} 10%% de chance de  Crushing Blow\n{turquoise}Rune Preview:\n\n{white}(Low Points {blue}-128{white})\n",
+                ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/украшения: {white}Урон уменьшен на 8%%\n{green}Шлемы/ремни: {white}Урон уменьшен на 8%%\n{green}Доспехи/обувь: {white}Урон уменьшен на 8%%\n{green}Оружие/перчатки: {white} 10%% шанс  Crushing Blow\n{turquoise}Rune Preview:\n\n{white}(Низкие баллы {blue}-128{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white}伤害降低 8%%\n{green}头盔/腰带：{white}伤害降低 8%%\n{green}盔甲/靴子：{white}伤害降低 8%%\n{green}武器/手套：{white} 10%% 几率 粉碎打击\n{turquoise}Rune 预览：\n\n{white}（低分 {blue}-128{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white}傷害減少 8%%\n{green}頭盔/腰帶：{white}傷害減少 8%%\n{green}盔甲/靴子：{white}傷害減少 8%%\n{green}武器/手套：{white} 10%% 機率 粉碎打擊\n{turquoise}Rune 預覽：\n\n{white}（低分 {blue}-128{white}）\n",
             }
         },
         {
             code = "Z39",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}+50 Leben\n{green}Helme/Gürtel: {white}Max Leben +2%\n{green}Rüstungen/Stiefel: {white}Max Leben +2%\n{green}Waffen/Handschuhe: {white}Ignoriert Verteidigung\n{turquoise}Rune Preview:\n\n{white}(Hohe {blue}-256{white})\n",
-                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}+50 to Life\n{green}Helms/Belts: {white}Maximum Life +2%\n{green}Armors/Boots: {white}Maximum Life +2%\n{green}Weapons/Gloves: {white}Ignore Target's Defense\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-256{white})\n",
-                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a la Vida\n{green}Yelmos/Cinturones: {white}Vida máxima 2%\n{green}Armaduras/Botas: {white}Vida máxima 2%\n{green}Armas/Guantes: {white}Ignorar la defensa del objetivo\nVista previa de NRune:ÿc  n\n{white}(Puntos altos {blue}-256{white})\n",
-                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a la Vida\n{green}Yelmos/Cinturones: {white}Vida máxima 2%\n{green}Armaduras/Botas: {white}Vida máxima 2%\n{green}Armas/Guantes: {white}Ignorar la defensa del objetivo\nVista previa de NRune:ÿc  n\n{white}(Puntos altos {blue}-256{white})\n",
-                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 50 a Vita\n{green}Elmi/Cinture: {white}Vita massima 2%\n{green}Armature/Stivali: {white}Vita massima 2%\n{green}Armi/Guanti: {white}Ignora difesa del bersaglio\n{turquoise}R Anteprima:\n{turquoise}R  n\n{white}(Punti massimi {blue}-256{white})\n",
-                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 50 à Vie\n{green}Casques/Ceintures: {white}Durée de vie maximale 2%\n{green}Armures/Bottes: {white}Durée de vie maximale 2%\n{green}Armes/Gants: {white}Ignorer la défense de la cible\n{turquoise}Rune Preview:  n\n{white}(High Points {blue}-256{white})\n",
-                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 50 to Life\n{green}Helms/Belts: {white}Maximum Life 2%\n{green}Armors/Boots: {white}Maximum Life 2%\n{green}Weapons/Gloves: {white}ターゲットの防御を無視\n{turquoise}Rune: Preview  n\n{white}(ハイポイント{blue}-256{white})\n",
+                deDE = "{tan}Würfel allein, zum Removertyp wechseln\n\n{green}Schilde/Schmuck: {white}+50 Leben\n{green}Helme/Gürtel: {white}Max Leben +2%%\n{green}Rüstungen/Stiefel: {white}Max Leben +2%%\n{green}Waffen/Handschuhe: {white}Ignoriert Verteidigung\n{turquoise}Rune Preview:\n\n{white}(Hohe {blue}-256{white})\n",
+                enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}+50 to Life\n{green}Helms/Belts: {white}Maximum Life +2%%\n{green}Armors/Boots: {white}Maximum Life +2%%\n{green}Weapons/Gloves: {white}Ignore Target's Defense\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-256{white})\n",
+                esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a la Vida\n{green}Yelmos/Cinturones: {white}Vida máxima 2%%\n{green}Armaduras/Botas: {white}Vida máxima 2%%\n{green}Armas/Guantes: {white}Ignorar la defensa del objetivo\nVista previa de NRune:ÿc  n\n{white}(Puntos altos {blue}-256{white})\n",
+                esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white} 50 a la Vida\n{green}Yelmos/Cinturones: {white}Vida máxima 2%%\n{green}Armaduras/Botas: {white}Vida máxima 2%%\n{green}Armas/Guantes: {white}Ignorar la defensa del objetivo\nVista previa de NRune:ÿc  n\n{white}(Puntos altos {blue}-256{white})\n",
+                frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 50 a Vita\n{green}Elmi/Cinture: {white}Vita massima 2%%\n{green}Armature/Stivali: {white}Vita massima 2%%\n{green}Armi/Guanti: {white}Ignora difesa del bersaglio\n{turquoise}R Anteprima:\n{turquoise}R  n\n{white}(Punti massimi {blue}-256{white})\n",
+                itIT = "{tan}Cube seul pour passer au type de décapant suivant\n\n{green}Boucliers/Bijoux: {white} 50 à Vie\n{green}Casques/Ceintures: {white}Durée de vie maximale 2%%\n{green}Armures/Bottes: {white}Durée de vie maximale 2%%\n{green}Armes/Gants: {white}Ignorer la défense de la cible\n{turquoise}Rune Preview:  n\n{white}(High Points {blue}-256{white})\n",
+                jaJP = "{tan}Cube だけで次のリムーバー タイプに変更\n\n{green}Shields/Jewelry: {white} 50 to Life\n{green}Helms/Belts: {white}Maximum Life 2%%\n{green}Armors/Boots: {white}Maximum Life 2%%\n{green}Weapons/Gloves: {white}ターゲットの防御を無視\n{turquoise}Rune: Preview  n\n{white}(ハイポイント{blue}-256{white})\n",
                 koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}생명력 +50\n{green}헬름/벨트: {white}최대 생명력 2%% 증가\n{green}갑옷/장화: {white}최대 생명력 2%% 증가{white}\n{green}무기/장갑: {white}대상의 방어력 무시\n{turquoise}룬 미리 보기:\n\n{white}(상급 점수 {blue}-256{white})\n",
-                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 50 do życia\n{green}Hełmy/Pasy: {white}Maksymalne życie 2%\n{green}Pancerz/Buty: {white}Maksymalne życie 2%\n{green}Zapowiedź\n{white}Rękawice:  n\n{white}(Wysokie punkty {blue}-256{white})\n",
-                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 50 para Vida\n{green}Capacetes/Cintos: {white}Vida Máxima 2%\n{green}Armaduras/Botas: {white}Vida Máxima 2%\n{green}Armas/Luvas: {white}Ignorar Defesa do Alvo\n{turquoise}R Visualização:\n\n{white}(Pontos altos {blue}-256{white})\n",
-                ruRU = "{tan}Cube один, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 50 к жизни\n{green}Шлемы/ремни: {white}Maximum Life 2%\n{green}Доспехи/обувь: {white}Maximum Life 2%\n{green}Оружие/перчатки: {white}Ignore Target's Defense\nÿview:\n{green}  n\n{white}(Высокие точки {blue}-256{white})\n",
-                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white} 50 生命\n{green}头盔/腰带：{white}最大生命 2%\n{green}盔甲/靴子：{white}最大生命 2%\n{green}武器/手套：{white}忽略目标的防御\n{turquoise}Rune：  n\n{white}（高点 {blue}-256{white}）\n",
-                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white} 50 生命\n{green}頭盔/腰帶：{white}最大生命 2%\n{green}盔甲/靴子：{white}最大生命 2%\n{green}武器/手套：{white}忽略目標的防禦\n{turquoise}Rune：  n\n{white}（高點 {blue}-256{white}）\n",
+                plPL = "ÿC7Sam kostka do zmiany na następny typ usuwania\n\n{green}Tarcze/Biżuteria: {white} 50 do życia\n{green}Hełmy/Pasy: {white}Maksymalne życie 2%%\n{green}Pancerz/Buty: {white}Maksymalne życie 2%%\n{green}Zapowiedź\n{white}Rękawice:  n\n{white}(Wysokie punkty {blue}-256{white})\n",
+                ptBR = "{tan}Cubo sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 50 para Vida\n{green}Capacetes/Cintos: {white}Vida Máxima 2%%\n{green}Armaduras/Botas: {white}Vida Máxima 2%%\n{green}Armas/Luvas: {white}Ignorar Defesa do Alvo\n{turquoise}R Visualização:\n\n{white}(Pontos altos {blue}-256{white})\n",
+                ruRU = "{tan}Cube один, чтобы перейти к следующему типу ремувера\n\n{green}Щиты/ювелирные изделия: {white} 50 к жизни\n{green}Шлемы/ремни: {white}Maximum Life 2%%\n{green}Доспехи/обувь: {white}Maximum Life 2%%\n{green}Оружие/перчатки: {white}Ignore Target's Defense\nÿview:\n{green}  n\n{white}(Высокие точки {blue}-256{white})\n",
+                zhCN = "{tan}Cube 单独更改为下一个卸妆类型\n\n{green}盾牌/珠宝：{white} 50 生命\n{green}头盔/腰带：{white}最大生命 2%%\n{green}盔甲/靴子：{white}最大生命 2%%\n{green}武器/手套：{white}忽略目标的防御\n{turquoise}Rune：  n\n{white}（高点 {blue}-256{white}）\n",
+                zhTW = "{tan}Cube 單獨更改為下一個卸妝類型\n\n{green}盾牌/珠寶：{white} 50 生命\n{green}頭盔/腰帶：{white}最大生命 2%%\n{green}盔甲/靴子：{white}最大生命 2%%\n{green}武器/手套：{white}忽略目標的防禦\n{turquoise}Rune：  n\n{white}（高點 {blue}-256{white}）\n",
             }
         },
         {
@@ -2313,7 +2109,7 @@ return {
                 frFR = "{tan}Cube da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Durata di congelamento a metà\n{green}Elmi/Cinture: {white}Durata di congelamento a metà\n{green}Armature/Stivali: {white}Durata di congelamento a metà\n{green}Armi/Guanti: {white}Obiettivo di congelamento 2\n{turquoise}R un'anteprima:\n\n{white}  (Punti più alti {blue}-512{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux : {white}Demi-durée de gel\n{green}Casques/ceintures : {white}Demi-durée de gel\n{green}Armures/bottes : {white}Demi-durée de gel\n{green}Armes/Gants : {white}Cible de gel 2\n{turquoise}R une Aperçu :\n\n{white}  (Points forts {blue}-512{white})\n",
                 jaJP = "{tan}Cube のみで次のリムーバー タイプに変更します\n\n{green}シールド/ジュエリー: {white} 半分のフリーズ期間\n{green} ヘルム/ベルト: {white} 半分のフリーズ期間\n{green} アーマー/ブーツ: {white} 半分のフリーズ期間\n{green}武器/グローブ: {white} ターゲット 2 をフリーズ\n{turquoise}Rune プレビュー: \n\n{white}  (ハイポイント {blue}-512{white})\n",
-                koKR = "{tan}큐브만 사용하여 다음 제거제 유형으로 변경\n\n{green}방패/장신구: {white}냉동 지속시간 절반\n{green}헬름/벨트: {white}냉동 지속시간 절반\n{green}방어구/부츠: {white}냉동 지속시간 절반\n{green}무기/장갑: {white}대상 2냉동\nÿ cNRune 미리보기:\n\n{white}  (하이 포인트 {blue}-512{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}빙결 지속시간 절반으로 감소\n{green}투구/벨트: {white}빙결 지속시간 절반으로 감소\n{green}갑옷/부츠: {white}빙결 지속시간 절반으로 감소\n{green}무기/장갑: {white}빙결 대상 +2\n{turquoise}룬 미리보기:\n\n{white}(상급 점수 {blue}-512{white})\n",
                 plPL = "{tan}Cube, aby zmienić na następny typ narzędzia do usuwania\n\n{green}Tarcze/biżuteria: {white}Czas trwania połowy zamrożenia\n{green}Helmy/pasy: {white}Czas trwania połowy zamrożenia\n{green}Zbroje/buty: {white}Czas trwania połowy zamrożenia\n{green}Broń/rękawice: {white}Zamraża cel 2\n Podgląd {turquoise}Rune:\n\n{white}  (Wysokie punkty {blue}-512{white})\n",
                 ptBR = "{tan}Cube sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Half Freeze Duration\n{green}Helms/Belts: {white}Half Freeze Duration\n{green}Armors/Boots: {white}Half Freeze Duration\n{green}Weapons/Luvas: {white}Freezes Target 2\nÿc Visualização do NRune:\n\n{white}  (Pontos altos {blue}-512{white})\n",
                 ruRU = "{tan}Cube самостоятельно, чтобы перейти к следующему типу средства удаления.\n\n{green}Щиты/Ювелирные изделия: {white}Половинная продолжительность заморозки\n{green}Шлемы/Ремни: {white}Половинная продолжительность заморозки\n{green}Броня/Ботинки: {white}Половинная продолжительность заморозки\n{green}Оружие/перчатки: {white}Freezes Target 2\nПредварительный просмотр n{turquoise}Rune:\n\n{white}  (Высокие баллы {blue}-512{white})\n",
@@ -2329,10 +2125,10 @@ return {
                 enUS = "{tan}Cube alone to change to next remover type\n\n{green}Shields/Jewelry: {white}Indestructible, +5%% Cold, Lightning, Fire, Magic Absorb\n{green}Helms/Belts: {white}Indestructible, +5%% Cold, Lightning, Fire, Magic Absorb\n{green}Armors/Boots: {white}Indestructible, +5%% Cold, Lightning, Fire, Magic Absorb\n{green}Weapons/Gloves: {white}Indestructible, +5%% Cold, Lightning, Fire, Magic Absorb\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-1024{white})\n",
                 esES = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Indestructible, 5%% de absorción elemental\n{green}Cascos/cinturones: {white}Indestructible, 5%% de absorción elemental\n{green}Armas/Botas: {white}Indestructible, 5%% de absorción elemental\n{green}Armas/ Guantes: {white}Indestructible,  5 %% de absorción elemental\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-1024{white})\n",
                 esMX = "{tan}Cubo solo para cambiar al siguiente tipo de eliminador\n\n{green}Escudos/Joyas: {white}Indestructible, 5%% de absorción elemental\n{green}Cascos/cinturones: {white}Indestructible, 5%% de absorción elemental\n{green}Armas/Botas: {white}Indestructible, 5%% de absorción elemental\n{green}Armas/ Guantes: {white}Indestructible,  5 %% de absorción elemental\n{turquoise}Rune Preview:\n\n{white}(High Points {blue}-1024{white})\n",
-                frFR = "{tan}Cube da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Indistruttibile, 5%% Assorbimento elementale\n{green}Elmi/Cinture: {white}Indistruttibile, 5%% Assorbimento elementale\n{green}Armature/Stivali: {white}Indistruttibile, 5%% Assorbimento elementale\n{green}Armi/Guanti : {white}Indistruttibile,  Assorbimento elementale 5%\n{turquoise}Rune Anteprima:\n\n{white}(Punti alti {blue}-1024{white})\n",
+                frFR = "{tan}Cube da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white}Indistruttibile, 5%% Assorbimento elementale\n{green}Elmi/Cinture: {white}Indistruttibile, 5%% Assorbimento elementale\n{green}Armature/Stivali: {white}Indistruttibile, 5%% Assorbimento elementale\n{green}Armi/Guanti : {white}Indistruttibile,  Assorbimento elementale 5%%\n{turquoise}Rune Anteprima:\n\n{white}(Punti alti {blue}-1024{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux : {white}Indestructible, 5 %% d'absorption élémentaire\n{green}Casques/ceintures : {white}Indestructible, 5 %% d'absorption élémentaire\n{green}Armures/bottes : {white}Indestructible, 5 %% d'absorption élémentaire\n{green}Armes/Gants : {white}Indestructible,  5 %% d'absorption élémentaire\n{turquoise}Rune Preview :\n\n{white}(High Points {blue}-1024{white})\n",
                 jaJP = "次のリムーバー タイプに変更するには {tan}Cube のみ\n\n{green}シールド/ジュエリー: {white} 破壊不能、5%% 属性吸収\n{green} ヘルム/ベルト: {white} 破壊不能、5%% 属性吸収\n{green} アーマー/ブーツ: {white} 破壊不能、5%% 属性吸収\n{green} 武器/G大好き: {white}Indestructible、  5%% エレメンタル吸収\n{turquoise}Rune プレビュー:\n\n{white}(ハイポイント {blue}-1024{white})\n",
-                koKR = "{tan}큐브만 사용하여 다음 제거제 유형으로 변경 가능\n\n{green}방패/장신구: {white}불멸, 5%% 원소 흡수\n{green}헬름/벨트: {white}불멸, 5%% 원소 흡수\n{green}방어구/부츠: {white}불멸, 5%% 원소 흡수\n{green}Weapons/G 사랑함: {white}Indestructible,  5%% 원소 흡수\n{turquoise}Rune 미리보기:\n\n{white}(높은 포인트 {blue}-1024{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}파괴 불가, 냉기/번개/화염/마법 흡수 +5%%\n{green}투구/벨트: {white}파괴 불가, 냉기/번개/화염/마법 흡수 +5%%\n{green}갑옷/부츠: {white}파괴 불가, 냉기/번개/화염/마법 흡수 +5%%\n{green}무기/장갑: {white}파괴 불가, 냉기/번개/화염/마법 흡수 +5%%\n{turquoise}룬 미리보기:\n\n{white}(상급 점수 {blue}-1024{white})\n",
                 plPL = "{tan}Kostka do zmiany na następny typ narzędzia do usuwania\n\n{green}Tarcze/biżuteria: {white}Niezniszczalny, 5%% absorpcji żywiołów\n{green}Helmy/pasy: {white}Niezniszczalny, 5%% absorpcji żywiołów\n{green}Zbroje/buty: {white}Niezniszczalny, 5%% absorpcji żywiołów\n{green}Broń /Rękawice: {white}Niezniszczalne,  5%% absorpcji żywiołów\nÿcPodgląd NRune:\n\n{white} (najwyższe punkty {blue}-1024{white})\n",
                 ptBR = "{tan}Cube sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white}Indestrutível, 5%% de Absorção Elemental\n{green}Elmos/Cintos: {white}Indestrutível, 5%% de Absorção Elemental\n{green}Armaduras/Botas: {white}Indestrutível, 5%% de Absorção Elemental\n{green}Weapons/G ama: {white}Indestrutível,  5%% de absorção elementar\n{turquoise}Rune Preview:\n\n{white}(Pontos altos {blue}-1024{white})\n",
                 ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу средства удаления\n\n{green}Щиты/Ювелирные изделия: {white}Неразрушимость, 5%% поглощения стихий\n{green}Шлемы/Ремни: {white}Неразрушимость, 5%% поглощения стихий\n{green}Броня/Ботинки: {white}Неразрушимость, 5%% поглощения стихий\n{green}Weapons/G любит: {white}Indestructible,  5%% поглощения стихий\n{turquoise}Rune Preview:\n\n{white}(Высокие очки {blue}-1024{white})\n",
@@ -2351,7 +2147,7 @@ return {
                 frFR = "{blue} 2 Niveau Exigence \n 3 Force \n{purple} Pour les forgerons: \n \n{blue} 2 Niveau exigence \n 2 Force\n",
                 itIT = "{blue} requisito di livello 2 \n 3 resistenza \n{purple} per i fabbri: \n \n{blue} 2 requisiti di livello \n 2 resistenza\n",
                 jaJP = "°2レベル要件\n 3強度\n{purple}鍛冶屋の場合：\n \n{blue} 2レベル要件\n 2強さ\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 3 강도 \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 2 강도\n",
+                koKR = "{blue}레벨 요구 조건 +2\n힘 +3\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n힘 +2\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 3 siła \n{purple} dla kowalczy: \n \n{blue} 2 Wymagania poziomu \n 2 siła\n",
                 ptBR = "{blue} 2 Requisito de nível \n 3 Força \n{purple} para ferreiros: \n \n{blue} 2 Requisito de nível \n 2 Força\n",
                 ruRU = "{blue} 2 Требование уровня \n 3 прочность \n{purple} для кузнецов: \n \n{blue} 2 Требование уровня \n 2 Прочность\n",
@@ -2370,7 +2166,7 @@ return {
                 frFR = "{blue} 2 Niveau exigence \n 3 Dextérité \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 2 Dextérité\n",
                 itIT = "ÿC3 requisito di livello 2 \n 3 destrezza \n{purple} per i fabbri: \n \n{blue} 2 requisiti di livello \n 2 destrezza\n",
                 jaJP = "°2レベル要件\n 3 DEXTERITY \nÿC;鍛冶屋の場合：\n \nc32レベル要件\n 2 Dexterity\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 3 Dexterity \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 2 Dexterity\n",
+                koKR = "{blue}레벨 요구 조건 +2\n민첩 +3\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n민첩 +2\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 3 Zręczność \n{purple} dla kowal\n",
                 ptBR = "{blue} 2 Nível Requisito \n 3 DeSTerity \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 2 Destreity\n",
                 ruRU = "{blue} 2 Требование уровня \n 3 Дексейность \n{purple} для кузнецов: \n \n{blue} 2 Требование уровня \n 2 Лесвяти\n",
@@ -2389,7 +2185,7 @@ return {
                 frFR = "{blue} 2 Niveau exigence \n 3 vitalité \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 2 Vitality\n",
                 itIT = "ÿC3 requisito a 2 livelli \n 3 vitality \n{purple} per i fabbri: \n \n{blue} 2 Livello Requisito \n 2 Vitalità\n",
                 jaJP = "°2レベル要件\n 3バイタリティ\n{purple}鍛冶屋の場合：\n \n{blue}2レベル要件\n 2活力\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 3 활력 \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 2 Vitality\n",
+                koKR = "{blue}레벨 요구 조건 +2\n활력 +3\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n활력 +2\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 3 witalność \n{purple} dla kowalczy: \n \n{blue} 2 wymagania poziomu \n 2 witalność\n",
                 ptBR = "{blue} 2 Requisito de nível \n 3 vitalidade \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 2 vitalidade\n",
                 ruRU = "{blue} 2 Требование уровня \n 3 жизнеспособность \n{purple} для кузнецов: \n \n{blue} 2 Требование уровня \n 2 жизнеспособность\n",
@@ -2408,7 +2204,7 @@ return {
                 frFR = "{blue} 2 Niveau exigence \n 3 Energy \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 2 énergie\n",
                 itIT = "ÿC3 requisito di livello 2 \n 3 energia \n{purple} per i fabbri: \n \n{blue} 2 requisiti di livello \n 2 energia\n",
                 jaJP = "C32レベル要件\n 3エネルギー\n{purple}鍛冶屋の場合：\n \n{blue} 2レベル要件\n 2エネルギー\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 3 에너지 \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 2 에너지\n",
+                koKR = "{blue}레벨 요구 조건 +2\n마력 +3\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n마력 +2\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 3 energia \n{purple} dla kowalczy: \n \n{blue} 2 Wymagania poziomu \n 2 Energia\n",
                 ptBR = "{blue} 2 Requisito de nível \n 3 Energia \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 2 energia\n",
                 ruRU = "{blue} 2 Требование уровня \n 3 энергия \n{purple} для кузнецов: \n \n{blue} 2 Требование уровня \n 2 энергия\n",
@@ -2427,7 +2223,7 @@ return {
                 frFR = "ÿC3 3 Niveau exigence \n 2%% Run / Walk plus rapide \n{purple} pour les forgerons: \n \n{blue} 3 Niveau exigence \n 1%% Run / marche plus rapide\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 2%% più veloce run/walk \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 1%% più veloce run/walk\n",
                 jaJP = "C33レベル要件\n 2%%ラン/ウォーク\nc;鍛冶屋の場合：\n \n{blue}3レベル要件\n 1%%高速のラン/ウォーク\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 2%% 더 빠른 달리기/보행 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 1%% 더 빠른 달리기/보행\n",
+                koKR = "{blue}레벨 요구 조건 +3\n달리기/걷기 속도 +2%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n달리기/걷기 속도 +1%%\n",
                 plPL = "ÿC3 3 Wymagania poziomu \n 2%% szybciej bieg/spacer \n{purple} dla kowalczy: \n \nÿC3 3 wymagania poziomu \n 1%% szybsze run/spacer\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 2%% Run/Walk \n{purple} para ferreiros: \n \n{blue} Requisito de 3 níveis \n 1%% Run/Walk mais rápido\n",
                 ruRU = "ÿC3 3 Требование уровня \n 2%% быстрее пробежать/ходить \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 1%% быстрее пробега/ходьба\n",
@@ -2446,7 +2242,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 2%% RÉCUPTION HIT plus rapide \n{purple} Pour les forgerons: \n \n{blue} 3 Besoin de niveau \n 1%% de récupération de frappe plus rapide\n",
                 itIT = "ÿC3 Requisito di livello 3 \n 2%% più veloce hit Recovery \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 1%% più veloce Recupero hit\n",
                 jaJP = "C33レベル要件\n 2%%ヒット回復\nÿC;鍛冶屋の場合：\n \n{blue}3レベル要件\n 1%%ヒット回復の高速\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 2%% 더 빠른 적중 복구 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 1%% 더 빠른 적중 복구\n",
+                koKR = "{blue}레벨 요구 조건 +3\n빠른 회복 속도 +2%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n빠른 회복 속도 +1%%\n",
                 plPL = "ÿC3 3 Wymaganie poziomu \n 2%% szybsze odzyskiwanie uderzeń \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de nível 3 \n 2%% mais rápido recuperação \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 1%% Recuperação de acerto mais rápido\n",
                 ruRU = "ÿC3 3 Требование уровня \n 2%% более быстрое восстановление \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 1%% быстрее удалось\n",
@@ -2465,7 +2261,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 2%% Taux de blocage plus rapide \n{purple} pour les forgerons: \n \n{blue} 3 exigence de niveau \n 1%% de taux de blocage plus rapide\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 2%% più rapido tasso di blocco \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 1%% più veloce tasso di blocco\n",
                 jaJP = "C33レベル要件\n 2%%ブロックレートの高速\n{purple}鍛冶屋の場合：\n \n{blue}3レベル要件\n 1%%高速ブロックレート\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 2%% 더 빠른 블록 속도 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 1%% 더 빠른 블록 속도\n",
+                koKR = "{blue}레벨 요구 조건 +3\n막기 속도 +2%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n막기 속도 +1%%\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 2%% szybsza szybkość bloków \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de nível 3 \n 2%% Taxa de bloco mais rápida \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 1%% taxa de bloco mais rápida\n",
                 ruRU = "ÿC3 3 Требование уровня \n 2%% более быстрая скорость блока \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 1%% более быстрая скорость блока\n",
@@ -2484,7 +2280,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 2%% Speed ​​d'attaque plus rapide \n{purple} pour les forgerons: \n \n{blue} 3 exigence de niveau \n 1%% de vitesse d'attaque plus rapide\n",
                 itIT = "ÿC3 Requisito di livello 3 \n 2%% più veloce Velocità di attacco \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 1%% più veloce velocità di attacco\n",
                 jaJP = "°3レベル要件\n 2%%攻撃速度\nc;鍛冶屋の場合：\n \n{blue}3レベル要件\n 1%%攻撃速度が高速\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 2%% 더 빠른 공격 속도 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 1%% 빠른 공격 속도\n",
+                koKR = "{blue}레벨 요구 조건 +3\n공격 속도 +2%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n공격 속도 +1%%\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 2%% szybsza prędkość ataku \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de nível de 3 \n 2%% Velocidade de ataque mais rápida \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 1%% Velocidade de ataque mais rápida\n",
                 ruRU = "ÿC3 3 Требование уровня \n 2%% более быстрая скорость атаки \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 1%% более быстрая скорость атаки\n",
@@ -2503,7 +2299,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 2%% Taux de coulée plus rapide \n{purple} pour les forgerons: \n \n{blue} 3 exigence de niveau \n 1%% de taux de coulée plus rapide\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 2%% più rapido tasso di cast \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 1%% più veloce tasso di cast\n",
                 jaJP = "°3レベル要件\n 2%%キャストレートの高速\nc;鍛冶屋の場合：\n \nc33レベル要件\n 1%%キャストレートの高速\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 2%% 더 빠른 캐스트 속도 \n{purple} 대장장이의 경우 : \n \n{blue} 3 레벨 요구 사항 \n 1%% 빠른 캐스트 속도\n",
+                koKR = "{blue}레벨 요구 조건 +3\n시전 속도 +2%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n시전 속도 +1%%\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 2%% szybsza szybkość rzucania \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de nível 3 \n 2%% Taxa de elenco mais rápida \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 1%% taxa de elenco mais rápida\n",
                 ruRU = "{blue} 3 Требование уровня \n 2%% быстрее лисовая ставка \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 1%% быстрее лисовая ставка\n",
@@ -2522,7 +2318,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 4%% invocation hp \n{purple} pour les forgerons: \n \n{blue} 3 exigence de niveau \n 2%% Summon HP\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 4%% evoca hp \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 2%% evocare HP\n",
                 jaJP = "°3レベル要件\n 4%%召喚HP \n{purple}鍛冶屋の場合：\n \nc33レベル要件\n 2%%サマンHP\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 4%% 소환 hp \n{purple} 대장장이의 경우 : \n \n{blue} 3 레벨 요구 사항 \n 2%% 소환 hp\n",
+                koKR = "{blue}레벨 요구 조건 +3\n소환수 생명력 +4%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n소환수 생명력 +2%%\n",
                 plPL = "{blue} 3 Wymaganie poziomu \n 4%% Przywołaj HP \n{purple} dla kowalczy: \n \n{blue} 3 wymagania poziomu \n 2%% przywołanie HP\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 4%% HP \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 2%% HP HP\n",
                 ruRU = "{blue} 3 Требование уровня \n 4%% вызывает HP \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 2%% вызывает HP\n",
@@ -2541,7 +2337,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 4%% dommage invoqué \n{purple} pour les forgerons: \n \n{blue} 3 exigence de niveau \n 2%% dommage à l'invocation\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 4%% Evoca danni \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 2%% evocare danni\n",
                 jaJP = "°3レベル要件\n 4%%召喚ダメージ\n{purple}鍛冶屋の場合：\n \n{blue}3レベル要件\n 2%%サモンダメージ\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 4%% 소환 손상 \n{purple} 대장장이의 경우 : \n \n{blue} 3 레벨 요구 사항 \n 2%% 소환 손상\n",
+                koKR = "{blue}레벨 요구 조건 +3\n소환수 피해 +4%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n소환수 피해 +2%%\n",
                 plPL = "ÿC3 3 Wymaganie poziomu \n 4%% Przywołaj uszkodzenie \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de nível 3 \n 4%% Danos de convocação \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 2%% de dano de convocação\n",
                 ruRU = "ÿC3 3 Требование уровня \n 4%% призывают повреждение \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 2%% призыв\n",
@@ -2560,7 +2356,7 @@ return {
                 frFR = "ÿC3 3 Niveau exigence \n 2%% Invocant la cote de combat \n{purple} pour les forgerons: \n \n{blue} 3 Niveau exigence \n 1%% Invocant la cote de combat\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 2%% evocare valutazione del combattimento \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 1%% di evoca valutazione di combattimento\n",
                 jaJP = "C33レベル要件\n 2%%召喚戦闘評価\n{purple}鍛冶屋の場合：\n \n{blue}3レベル要件\n 1%%サマン戦闘評価\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 2%% 소환 전투 등급 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 1%% 소환 전투 등급\n",
+                koKR = "{blue}레벨 요구 조건 +3\n소환수 명중률 +2%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n소환수 명중률 +1%%\n",
                 plPL = "ÿC3 3 Wymaganie poziomu \n 2%% Zwołaj znęcanie się nad walką \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de nível 3 \n 2%% de convocação de combate rating \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 1%% de convocação classificação de combate\n",
                 ruRU = "{blue} 3 Требование уровня \n 2%% Summon Combat Rating \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 1%% Common Combat Rating\n",
@@ -2579,7 +2375,7 @@ return {
                 frFR = "ÿC3 3 Niveau exigence \ningerse durée de la malédiction de 2 secondes \n{purple} pour les forgerons: \n \n{blue} 3 Niveau exigence \ningerse Durée de la malédiction de 1 seconde\n",
                 itIT = "ÿC3 Requisito di 3 livelli \nincrease Curse Durata di 2 secondi \n{purple} per i fabbri: \n \n{blue} requisito a 3 livelli \nincrease maledizione durata di 1 secondo\n",
                 jaJP = "C33レベル要件\ninクリース呪いの期間程度\nc;鍛冶屋の場合：\n \nc33レベル要件\nincrease呪いの期間\n",
-                koKR = "{blue} 3 레벨 요구 사항 \nincrease 저주 지속 시간 \n{purple} 대장장이의 경우 : \n \n{blue} 3 레벨 요구 사항 \n 1 초 씩 저주 기간을 1 초\n",
+                koKR = "{blue}레벨 요구 조건 +3\n저주 지속시간 +2초\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n저주 지속시간 +1초\n",
                 plPL = "ÿC3 3 Wymaganie poziomu \ninCrease Czas trwania o 2 sekundy \nÿC; dla kowalczy: \n \n{blue} 3 Wymaganie poziomu \nincrease Klątwa do 1 sekundy\n",
                 ptBR = "{blue} Requisito de 3 níveis \nincrease Duração da maldição por 2 segundos \n{purple} para ferreiros: \n \n{blue} requisito de 3 níveis \nincrease Duração da maldição por 1 Segundo Segundo\n",
                 ruRU = "{blue} 3 Требование уровня \nincrease продолжительность проклятия на 2 секунды \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \nincrease продолжительность проклятия на 1 секунду\n",
@@ -2598,7 +2394,7 @@ return {
                 frFR = "ÿC3 5 Niveau exigence \ningerse Crease Radius de malédiction par 2 \n{purple} pour les forgerons: \n \n{blue} 5 Niveau exigence \ningerse Crease Radius par 1\n",
                 itIT = "ÿC3 Requisito di livello 5 \nincrease Curse Raggio di 2 \n{purple} per i fabbri: \n \n{blue} 5 Livello requisito \nincrease Curse Raggio di 1\n",
                 jaJP = "C35レベル要件\ninクリース呪いの半径は2 \nc;鍛冶屋の場合：\n \n{blue}5レベル要件\nincrease呪いの半径は1\n",
-                koKR = "{blue} 5 레벨 요구 사항 \nincrease 저주 반경으로 2 \n{purple} 대장장이의 경우 : \n \n{blue} 5 레벨 요구 사항 \nincrease radius x 1\n",
+                koKR = "{blue}레벨 요구 조건 +5\n저주 범위 +2\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n저주 범위 +1\n",
                 plPL = "{blue} 5 Wymagania poziomu \ninCrease Clamit\n",
                 ptBR = "{blue} 5 Requisito de nível \nincrease Radius de maldição por 2 \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \nincrease Radius por 1 por 1\n",
                 ruRU = "{blue} 5 Требование уровня \nincrease Радиус проклятия на 2 \n{purple} для кузнецов: \n \n{blue} 5 Требование уровня \nincrease Радиус проклятия на 1\n",
@@ -2617,7 +2413,7 @@ return {
                 frFR = "ÿC3 5 Niveau exigence \ncurse Durée sur auto-réduite de 5%% \n{purple} pour les forgerons: \n \n{blue} 5 Niveau exigence \ncurse Durée sur auto-réduite de 3%%\n",
                 itIT = "ÿC3 Requisito di livello 5 a 5 Durata \ncurse su auto ridotta del 5%%\n{purple} per i fabbri: \n \n{blue} 5 requisiti di livello \ncurse durata su auto ridotta del 3%%\n",
                 jaJP = "C35レベル要件\ncurse in fir on self dequird dequire dequire dequirds blacksmiths：\n \n{blue}5レベル要件\n",
-                koKR = "{blue} 5 레벨 요구 사항 \ncurse의 자체 기간은 5%%\n{purple} 대장장이의 경우 : \n \n{blue} 5 레벨 요구 사항 \ncurse 지속 시간 자체 감소 3%%\n",
+                koKR = "{blue}레벨 요구 조건 +5\n자신에게 걸린 저주 지속시간 -5%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n자신에게 걸린 저주 지속시간 -3%%\n",
                 plPL = "ÿC3 5 Wymagania poziomu \ncurse Czas trwania na siebie zmniejszony o 5%%\n{purple} dla kowalczy: \n \n{blue} 5 Wymagania poziomu \ncurse Czas trwania samowystarczalności o 3%%\n",
                 ptBR = "{blue} 5 Requisito de nível \n\ncurse em si mesmo reduzido em 5%%\n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n\ncurse duração em auto -reduzida em 3%%\n",
                 ruRU = "ÿC3 5 Требование уровня \ncurse продолжительность самооценки на 5%%.\n",
@@ -2636,7 +2432,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 2%% Block Chance \n{purple} Pour les forgerons: \n \n{blue} 3 exigence de niveau \n 1%% de chance\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 2%% blocco Chance \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 1%% blocco probabilità\n",
                 jaJP = "°3レベル要件\n 2%%ブロックチャンス\n{purple}鍛冶屋の場合：\n \n{blue}3レベル要件\n 1%%ブロックチャンス\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 2%% 블록 기회 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 1%% 블록 확률\n",
+                koKR = "{blue}레벨 요구 조건 +3\n막기 확률 +2%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n막기 확률 +1%%\n",
                 plPL = "ÿC3 3 Wymaganie poziomu \n 2%% szansa blokowa \n{purple} dla kowalczy: \n \n{blue} 3\n",
                 ptBR = "{blue} Requisito de nível 3 \n 2%% Chance de bloco \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 1%% Chance de bloco\n",
                 ruRU = "{blue} 3 Требование уровня \n 2%% блок шанс \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 1%% блок шанс\n",
@@ -2655,7 +2451,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 4%% résistant au feu \n{purple} pour les forgerons: \n \n{blue} 3 exigences de niveau \n 2%% de résistance au feu\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 4%% Resistenza di incendio \n{purple} per i fabbri: \n \n{blue} Requisito di livello 3 \n 2%% Resistenza di incendio\n",
                 jaJP = "°3レベル要件\n 4%%火災抵抗\n{purple}鍛冶屋の場合：\n \n{blue}3レベル要件\n 2%%火災抵抗\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 4%% 내화성 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 2%% 내화성\n",
+                koKR = "{blue}레벨 요구 조건 +3\n화염 저항 +4%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n화염 저항 +2%%\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 4%% Ogniarnia \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 4%% resistência a incêndio \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 2%% de resistência ao incêndio\n",
                 ruRU = "{blue} 3 Требование уровня \n 4%% Огненное сопротивление \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 2%% пожарного сопротивления\n",
@@ -2674,7 +2470,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 4%% résistant à froid \n{purple} pour les forgerons: \n \n{blue} 3 Besoin de niveau \n 2%% de résistance à froid\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 4%% a freddo resistenza \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 2%% resist a freddo\n",
                 jaJP = "°3レベル要件\n 4%%コールドレジスト\n{purple}鍛冶屋の場合：\n \nΩ3レベル要件\n 2%%コールドレジスト\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 4%% 콜드 저항 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 2%% 콜드 저항\n",
+                koKR = "{blue}레벨 요구 조건 +3\n냉기 저항 +4%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n냉기 저항 +2%%\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 4%% odporność na zimno \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 4%% resistência a frio \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 2%% Resistência a frio\n",
                 ruRU = "{blue} 3 Требование уровня \n 4%% холодное сопротивление \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 2%% холодного сопротивления\n",
@@ -2693,7 +2489,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 4%% Lightning Resist \n{purple} Pour les forgerons: \n \n{blue} 3 Besoin de niveau \n 2%% de foudre Résister\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 4%% Lightning Resist \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 2%% fulmini resistenti\n",
                 jaJP = "°3レベル要件\n 4%%Lightning Resist \n{purple}鍛冶屋の場合：\n \nc33レベル要件\n 2%%稲妻抵抗\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 4%% 번개 저항 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 2%% 번개 저항\n",
+                koKR = "{blue}레벨 요구 조건 +3\n번개 저항 +4%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n번개 저항 +2%%\n",
                 plPL = "ÿC3 3 Wymagania poziomu \n 4%% Błyskawicy Odporność \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 4%% resistência ao raio \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 2%% resistência ao raio\n",
                 ruRU = "{blue} 3 Требование уровня \n 4%% молния\n",
@@ -2712,7 +2508,7 @@ return {
                 frFR = "ÿC3 3 Niveau exigence \n 4%% Résisonction de poison \n{purple} Pour les forgerons: \n \n{blue} 3 Besoin de niveau \n 2%% Résister à Poison\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 4%% di veleno resiste \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 2%% di veleno resister\n",
                 jaJP = "°3レベル要件\n 4%%毒抵抗\n{purple}鍛冶屋の場合：\n \n{blue}3レベル要件\n 2%%毒抵抗\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 4%% 독에 대한 저항 \n{purple} 대장장이의 경우 : \n \n{blue} 3 레벨 요구 사항 \n 2%% 독에 대한 저항\n",
+                koKR = "{blue}레벨 요구 조건 +3\n독 저항 +4%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n독 저항 +2%%\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 4%% Resist \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de nível 3 \n 4%% de resistência ao veneno \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 2%% de resistência ao veneno\n",
                 ruRU = "ÿC3 3 Требование уровня \n 4%% яд\n",
@@ -2731,7 +2527,7 @@ return {
                 frFR = "ÿC3 5 Niveau exigence \n 8%% BONUS À la note d'attaque \nÿC; pour les forgerons: \n \n{blue} 5 Niveau exigence \n 5%% de bonus à l'attaque\n",
                 itIT = "ÿC3 Requisito di livello 5 \n 8%% bonus al rating di attacco \n{purple} per i fabbri: \n \n{blue} 5 LIVELLO REDICAZIONE \n Bonus 5%% al rating di attacco\n",
                 jaJP = "C35レベル要件\n 8%%攻撃のボーナス攻撃\n{purple}鍛冶屋の場合：\n \n{blue}5レベル要件\n 5%%ボーナス攻撃格付けのボーナス\n",
-                koKR = "{blue} 5 레벨 요구 사항 \n 8%% 공격 등급에 대한 보너스 \n{purple} 대장장이 : \n \n{blue} 5 레벨 요구 사항 \n 공격 등급에 대한 5%% 보너스\n",
+                koKR = "{blue}레벨 요구 조건 +5\n명중률 보너스 +8%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n명중률 보너스 +5%%\n",
                 plPL = "ÿC3 5 Wymagania poziomu \n 8%% premia do oceny ataku \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de 5%% do nível de 5%% para atacar a classificação \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n 5%% Bônus para atacar classificação de ataque\n",
                 ruRU = "ÿC3 5 Требование уровня \n 8%% бонус к рейтингу атаки \n{purple} для кузнецов: \n \n{blue} 5 Требование уровня \n 5%% бонус к рейтингу атаки\n",
@@ -2750,7 +2546,7 @@ return {
                 frFR = "ÿC3 4 Niveau exigence \n 250 Évaluation d'attaque \n{purple} pour les forgerons: \n \n{blue} 4 Niveau exigence \n 150 Évaluation d'attaque\n",
                 itIT = "ÿC3 Requisito a 4 livelli \n 250 Valutazione degli attacchi \n{purple} per i fabbri: \n \n{blue} Requisito di livello 4 \n 150 Valutazione degli attacchi\n",
                 jaJP = "°4レベル要件\n 250攻撃評価\n{purple}鍛冶屋の場合：\n \n{blue}4レベル要件\n 150攻撃評価\n",
-                koKR = "{blue} 4 레벨 요구 사항 \n 250 공격 등급 \n{purple} 대장장이 : \n \n{blue} 4 레벨 요구 사항 \n 150 공격 등급\n",
+                koKR = "{blue}레벨 요구 조건 +4\n명중률 +250\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +4\n명중률 +150\n",
                 plPL = "{blue} 4 wymaganie poziomu \n 250 Ocena ataku \n{purple} dla kowal\n",
                 ptBR = "{blue} 4 Requisito de nível \n 250 Classificação de ataque \n{purple} para ferreiros: \n \n{blue} requisito de nível 4 \n 150 Classificação de ataque\n",
                 ruRU = "{blue} 4 Требование уровня \n 250 Рейтинг атаки \n{purple} для кузнецов: \n \n{blue} 4 Требование уровня \n 150 Рейтинг атаки\n",
@@ -2769,7 +2565,7 @@ return {
                 frFR = "{blue} 2 Niveau exigence \n 3 dommages \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 2 dommages\n",
                 itIT = "ÿC3 requisito di livello 2 \n 3 danno \n{purple} per i fabbri: \n \n{blue} 2 requisiti di livello \n 2 danno\n",
                 jaJP = "C32レベル要件\n 3ダメージ\n{purple}鍛冶屋の場合：\n \n \n{blue}2レベル要件\n 2ダメージ\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 3 손상 \n{purple} 대장장이의 경우 : \n \n{blue} 2 레벨 요구 사항 \n 2 손상\n",
+                koKR = "{blue}레벨 요구 조건 +2\n피해 +3\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n피해 +2\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 3 obrażenia \n{purple} dla kowalczy: \n \n{blue} 2 wymagania poziomu \n 2 obrażenia\n",
                 ptBR = "{blue} 2 Requisito de nível \n 3 danos \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 2 danos\n",
                 ruRU = "{blue} 2 Требование уровня \n 3 Урон \n{purple} для кузнецов: \n \n{blue} 2 Требование уровня \n 2 Урон\n",
@@ -2788,7 +2584,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 7%% Dommages améliorés \nÿC; Pour les forgerons: \n \n{blue} 3 Besoin de niveau \n 4%% de dégâts améliorés\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 7%% danno migliorato \n{purple} per i fabbri: \n \n{blue} requisito di livello 3 \n 4%% danno migliorato\n",
                 jaJP = "°3レベル要件\n 7%%強化ダメージ\n{purple}鍛冶屋の場合：\n \n{blue}3レベル要件\n 4%%強化ダメージ\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 7%% 향상된 손상 \n{purple} 대장장이 : \n \n{blue} 3 레벨 요구 사항 \n 4%% 향상된 손상\n",
+                koKR = "{blue}레벨 요구 조건 +3\n피해 +7%% 증가\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +3\n피해 +4%% 증가\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 7%% Zwiększone obrażenia \n{purple} dla kowal\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 7%% Dano aumentado \n{purple} para ferreiros: \n \n{blue} 3 requisito de nível \n 4%% dano aumentado\n",
                 ruRU = "{blue} 3 Требование уровня \n 7%% Увеличенное урон \n{purple} для кузнецов: \n \n{blue} 3 Требование уровня \n 4%% Увеличенное повреждение\n",
@@ -2807,7 +2603,7 @@ return {
                 frFR = "ÿC3 2 Niveau exigence \n 7-10 Dégâts de feu \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 4-7 Dégâts d'incendie\n",
                 itIT = "ÿC3 requisito di livello 2 \n 7-10 danni da fuoco \n{purple} per i fabbri: \n \n{blue} requisito di livello 2 \n 4-7 danni da fuoco\n",
                 jaJP = "°2レベル要件\n 7-10火災損傷\n{purple}鍛冶屋の場合：\n \n{blue}2レベル要件\n 4-7火災ダメージ\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 7-10 화재 손상 \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 4-7 화재 피해\n",
+                koKR = "{blue}레벨 요구 조건 +2\n화염 피해 +7-10\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n화염 피해 +4-7\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 7-10 Obrażenia od pożaru \n{purple} dla kowal\n",
                 ptBR = "{blue} 2 Requisito de nível \n 7-10 Dano de incêndio \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 4-7 Dano de incêndio\n",
                 ruRU = "ÿC3 2 Требование уровня \n 7-10 Пожарный урон \n{purple} для кузнецов: \n \n{blue} 2 Требование уровня \n 4-7 Пожарный урон\n",
@@ -2826,7 +2622,7 @@ return {
                 frFR = "ÿC3 2 Niveau exigence \n 7-10 Dégâts du froid \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 4-7 Dégâts du froid\n",
                 itIT = "ÿC3 requisito di livello 2 \n 7-10 Danno freddo \n{purple} per i fabbri: \n \n{blue} requisito di livello 2 \n 4-7 danni da freddo\n",
                 jaJP = "°2レベル要件\n 7-10コールドダメージ\n{purple}鍛冶屋の場合：\n \n{blue}2レベル要件\n 4-7コールドダメージ\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 7-10 콜드 데미지 \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 4-7 콜드 피해\n",
+                koKR = "{blue}레벨 요구 조건 +2\n냉기 피해 +7-10\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n냉기 피해 +4-7\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 7-10 obrażeń zimnych \n{purple} dla kowal\n",
                 ptBR = "{blue} 2 Requisito de nível \n 7-10 Dano de frio \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 4-7 danos causados ​​pelo frio\n",
                 ruRU = "{blue} 2 Требование уровня \n 7-10 холодный урон \n{purple} для кузнецов: \n \n{blue} 2 уровня требования \n 4-7 холодный урон\n",
@@ -2845,7 +2641,7 @@ return {
                 frFR = "{blue} 2 Niveau exigence \n 1-28 Dommage de foudre \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 1-14 dommage de la foudre\n",
                 itIT = "ÿC3 requisito a 2 livelli \n 1-28 Danno fulmine \n{purple} per i fabbri: \n \n{blue} requisito di livello 2 \n 1-14 danni da fulmine\n",
                 jaJP = "°2レベル要件\n 1-28稲妻ダメージ\nc;鍛冶屋の場合：\n \nc32レベル要件\n 1-14稲妻ダメージ\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 1-28 번개 손상 \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 1-14 번개 손상\n",
+                koKR = "{blue}레벨 요구 조건 +2\n번개 피해 +1-28\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n번개 피해 +1-14\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 1-28 Uszkodzenie błyskawicy \n{purple} dla kowal\n",
                 ptBR = "{blue} 2 Requisito de nível \n 1-28 Dano de raios \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 1-14 Dano de raios\n",
                 ruRU = "{blue} 2 Требование уровня \n 1-28 Урон молниенос.\n",
@@ -2864,7 +2660,7 @@ return {
                 frFR = "{blue} 2 Niveau exigence \n 40 dommages de poison sur 2 secondes \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 20 dommages de poison en 2 secondes\n",
                 itIT = "{blue} requisito di livello 2 \n 40 danni da veleno su 2 secondi \n{purple} per i fabbri: \n \n{blue} 2 requisiti di livello \n 20 danni da veleno in 2 secondi\n",
                 jaJP = "°2レベル要件\n 40 2秒にわたる毒物損傷\n{purple}鍛冶屋の場合：\n \nc32レベル要件\n 20 2秒間の毒物損傷\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 40 2 초에 걸친 독 피해 \n{purple} 대장장이의 경우 : \n \n{blue} 2 레벨 요구 사항 \n 20 2 초의 독 손상\n",
+                koKR = "{blue}레벨 요구 조건 +2\n독 피해 40 (2초에 걸쳐)\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n독 피해 20 (2초에 걸쳐)\n",
                 plPL = "ÿC3 2 Wymaganie poziomu \n 40 Uszkodzenie zatrucia w ciągu 2 sekund \n{purple} dla kowal\n",
                 ptBR = "{blue} 2 Requisito de nível \n 40 Danos por veneno em 2 segundos \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 20 danos de veneno em 2 segundos\n",
                 ruRU = "ÿC3 2 Требование уровня \n 40 Урон ядовитом в течение 2 секунд\n",
@@ -2883,7 +2679,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 5%% Magic Find \n{purple} Pour les forgerons: \n \n{blue} 5 Niveau exigence \n 5%% Magic Find\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 5%% Magic Find \n{purple} per i fabbri: \n \n{blue} requisito di livello 5 \n 5%% Magic Find\n",
                 jaJP = "°3レベル要件\n 5%%マジックファインド\n{purple}鍛冶屋の場合：\n \n{blue}5レベル要件\n 5%%マジックファインド\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 5%% 마술 찾기 \n{purple} 대장장이 : \n \n{blue} 5 레벨 요구 사항 \n 5%% 마술 찾기\n",
+                koKR = "{blue}레벨 요구 조건 +3\n마법 아이템 발견 확률 +5%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n마법 아이템 발견 확률 +5%%\n",
                 plPL = "{blue} 3 Wymagania poziomu \n 5%% Magic Find \n{purple} dla kowalskich: \n \n{blue} 5\n",
                 ptBR = "{blue} 3 Requisito de nível \n 5%% Magic encontre \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n 5%% Magic encontre\n",
                 ruRU = "{blue} 3 Требование уровня \n 5%% Волшебство\n",
@@ -2902,7 +2698,7 @@ return {
                 frFR = "ÿC3 3 Niveau exigence \n 10%% d'or trouver \n{purple} pour les forgerons: \n \n{blue} 5 exigence de niveau \n 10%% d'or.\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 10%% Gold Find \n{purple} per i fabbri: \n \n{blue} Requisito di livello 5 \n 10%% Gold Find\n",
                 jaJP = "°3レベル要件\n 10%%ゴールドファインド\n{purple}鍛冶屋の場合：\n \nc35レベル要件\n 10%%ゴールドファインド\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 10%% 골드 찾기 \n{purple} 대장장이 : \n \n{blue} 5 레벨 요구 사항 \n 10%% 골드 찾기\n",
+                koKR = "{blue}레벨 요구 조건 +3\n괴물에게서 얻는 금화 +10%% 증가\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n괴물에게서 얻는 금화 +10%% 증가\n",
                 plPL = "{blue} 3 Wymaganie poziomu \n 10%% Złota Znajdź \n{purple} dla kowalczy: \n \n{blue} 5\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 10%% Gold encontre \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n 10%% de ouro achado\n",
                 ruRU = "ÿC3 3 Требование уровня \n 10%% золото находки \n{purple} для кузнецов: \n \n{blue} 5 уровня требования \n 10%% золото находки\n",
@@ -2921,7 +2717,7 @@ return {
                 frFR = "ÿC3 2 Niveau exigence \n 1%% Verce de durée de vie \n{purple} pour les forgerons: \n \n{blue} 5 Niveau exigence \n 1%% de vie voler\n",
                 itIT = "ÿC3 requisito a 2 livelli \n 1%% Life Steal \n{purple} per i fabbri: \n \n{blue} requisito di livello 5 \n 1%% di vita rubata\n",
                 jaJP = "°2レベル要件\n 1%%寿命\nc;鍛冶屋の場合：\n \n{blue}5レベル要件\n 1%%ライフスチール\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 1%% 수명 도둑\n",
+                koKR = "{blue}레벨 요구 조건 +2\n적중당 생명력 1%% 훔침\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n적중당 생명력 1%% 훔침\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 1%% kradzież życia \n{purple} dla kowal\n",
                 ptBR = "{blue} 2 Requisito de nível \n 1%% de roubo de vida \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n 1%% de roubo de vida\n",
                 ruRU = "{blue} 2 Требование уровня \n 1%% Жизнь кража \n{purple} для кузнецов: \n \n{blue} 5 Требование уровня \n 1%%\n",
@@ -2940,7 +2736,7 @@ return {
                 frFR = "{blue} 2 Niveau exigence \n 1%% mana voler \n{purple} pour les forgerons: \n \n{blue} 5 exigence de niveau \n 1%% mana voler\n",
                 itIT = "{blue} requisito di livello 2 \n 1%% mana ruba\n",
                 jaJP = "°2レベル要件\n 1%%MANA STEAL \nÿC;鍛冶屋の場合：\n \n{blue}5レベル要件\n 1%%mana steal\n",
-                koKR = "{blue} 2 레벨 요구 사항 \n 1%% 마나 도둑질 \n{purple} 대장장이 : \n \n{blue} 5 레벨 요구 사항 \n 1%% 마나 도둑질\n",
+                koKR = "{blue}레벨 요구 조건 +2\n적중당 마나 1%% 훔침\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n적중당 마나 1%% 훔침\n",
                 plPL = "{blue} 2 Wymagania poziomu \n 1%% mana kradną \n{purple} dla kowal\n",
                 ptBR = "{blue} 2 Requisito de nível \n 1%% de mana roubo \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n 1%% de mana roubo\n",
                 ruRU = "{blue} 2 Требование уровня \n 1%% Мана крадет \n{purple} для кузнецов: \n \n{blue} 5 уровня требования \n 1%%\n",
@@ -2959,7 +2755,7 @@ return {
                 frFR = "{blue} 1 Niveau exigence \n 5%% mana Regen \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \n 5%% mana régén\n",
                 itIT = "ÿC3 1 requisito di livello \n 5%% mana regen \n{purple} per fabbri: \n \n{blue} requisito di livello 2 \n 5%% mana regen\n",
                 jaJP = "C31レベル要件\n 5%%MANA REGEN \nÿC;鍛冶屋の場合：\n \n{blue}2レベル要件\n 5%%MANA REGEN\n",
-                koKR = "{blue} 1 레벨 요구 사항 \n 5%% 마나 regen \n{purple} 대장장이 : \n \n{blue} 2 레벨 요구 사항 \n 5%% 마나 레지턴\n",
+                koKR = "{blue}레벨 요구 조건 +1\n마나 재생 +5%%\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n마나 재생 +5%%\n",
                 plPL = "ÿC3 1 Wymaganie poziomu \n 5%% mana regenen \n{purple} dla kowal\n",
                 ptBR = "{blue} 1 Requisito de nível \n 5%% mana regen \n{purple} para ferreiros: \n \n{blue} 2 requisito de nível \n 5%% mana regen\n",
                 ruRU = "{blue} 1 Требование уровня \n 5%% мана регенерация\n",
@@ -2978,7 +2774,7 @@ return {
                 frFR = "ÿC3 1 Niveau exigence \nhits réduisent la défense ennemie de 10 \n{purple} pour les forgerons: \n \n{blue} 2 Niveau exigence \nhits réduisent la défense ennemie de 10\n",
                 itIT = "ÿC3 1 Livello Requisito \nhits riduce la difesa nemica di 10 \n{purple} per i fabbri: \n \n{blue} 2 requisiti di livello \nhit riduce la difesa nemica di 10\n",
                 jaJP = "C31レベル要件\nhits鍛冶屋の場合、敵の防御を10 \n{purple}\n",
-                koKR = "{blue} 1 레벨 요구 사항 \nhits는 적의 방어를 10 \nÿc로 줄입니다. 대장장이 : \n \n{blue} 2 레벨 요구 사항 \nhits 적 방어를 10으로 줄입니다.\n",
+                koKR = "{blue}레벨 요구 조건 +1\n적중 시 적 방어력 -10\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +2\n적중 시 적 방어력 -10\n",
                 plPL = "{blue} 1 Wymagania poziomu \nhits Zmniejsz obronę wroga o 10 \n{purple} dla kowalczy: \n \n{blue} 2 wymagania poziomu \nhits Zmniejsz obronę wroga o 10\n",
                 ptBR = "{blue} 1 Requisito de nível \nhits reduz a defesa inimiga em 10 \n{purple} para ferreiros: \n \n{blue} 2 requisitos de nível \nhits reduz a defesa inimiga por 10\n",
                 ruRU = "{blue} 1 Требование уровня \nhits уменьшает оборону противника на 10 \n{purple} для кузнецов: \n \n{blue} 2 Требование уровня \nhits уменьшает защиту противника на 10\n",
@@ -2997,7 +2793,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 5 Réduction des dommages physiques \n{purple} pour les forgerons: \n \n{blue} 5 Besoin de niveau \n 5 Réduction des dommages physiques\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 5 Riduzione del danno fisico \n{purple} per i fabbri: \n \n{blue} requisito di livello 5 \n 5 Riduzione del danno fisico\n",
                 jaJP = "°3レベル要件\n 5身体的ダメージの軽減\nc;鍛冶屋の場合：\n \n{blue}5レベル要件\n 5物理的なダメージの軽減\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 5 물리적 손상 감소 \n{purple} 대장장이 : \n \n{blue} 5 레벨 요구 사항 \n 5 물리적 손상 감소\n",
+                koKR = "{blue}레벨 요구 조건 +3\n물리 피해 감소 +5\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n물리 피해 감소 +5\n",
                 plPL = "ÿC3 3 Wymaganie poziomu \n 5 Redukcja obrażeń fizycznych \n{purple} dla kowalczy: \n \n{blue} 5 Wymagania poziomu \n 5 Redukcja obrażeń fizycznych\n",
                 ptBR = "{blue} Requisito de 3 níveis \n 5 Redução de danos físicos \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n 5 redução de danos físicos\n",
                 ruRU = "ÿC3 3 Требование уровня \n 5 Уничтожение физического урона \n{purple} для кузнецов: \n \n{blue} 5 Требование уровня \n 5 Уничтожение физического урона\n",
@@ -3016,7 +2812,7 @@ return {
                 frFR = "{blue} 3 Niveau exigence \n 5 Réduction des dégâts magiques \n{purple} pour les forgerons: \n \n{blue} 5 Besoin de niveau \n 5 Réduction des dégâts magiques\n",
                 itIT = "ÿC3 Requisito a 3 livelli \n 5 Riduzione del danno magico \n{purple} per i fabbri: \n \n{blue} requisito di livello 5 \n 5 Riduzione del danno magico\n",
                 jaJP = "°3レベル要件\n 5魔法のダメージの軽減\n{purple}鍛冶屋の場合：\n \nc35レベル要件\n 5魔法のダメージの軽減\n",
-                koKR = "{blue} 3 레벨 요구 사항 \n 5 마법의 손상 감소 \n{purple} 대장장이 : \n \n{blue} 5 레벨 요구 사항 \n 5 마법의 손상 감소\n",
+                koKR = "{blue}레벨 요구 조건 +3\n마법 피해 감소 +5\n{purple}대장장이 전용\n\n{blue}레벨 요구 조건 +5\n마법 피해 감소 +5\n",
                 plPL = "{blue} 3 Wymaganie poziomu \n 5 Magiczne zmniejszenie obrażeń \n{purple} dla kowal\n",
                 ptBR = "{blue} 3 Requisito de nível \n 5 Redução de danos mágicos \n{purple} para ferreiros: \n \n{blue} 5 requisito de nível \n 5 Redução de danos mágicos\n",
                 ruRU = "ÿC3 3 Требование уровня \n 5 Магическое уменьшение урона \n{purple} для кузнецов: \n \n{blue} 5 Требование уровня \n 5\n",
@@ -3035,7 +2831,7 @@ return {
                 frFR = "{blue} 35 Niveau exigence \n 1 à toutes les compétences \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 30 Niveau exigence \n 1 à toutes les compétences\n",
                 itIT = "ÿC3 35 Requisito di livello \n 1 a tutte le abilità \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 30 requisiti di livello \n a tutte le competenze\n",
                 jaJP = "°C3 35レベル要件\n 1すべてのスキルへの\n1.鍛冶屋の場合（使用制限なし）：\n \nc330レベル要件\n 1すべてのスキルへ\n",
-                koKR = "{blue} 35 레벨 요구 사항 \n 1에 대한 모든 기술 \n{purple} 대장장이 (사용법 제한 없음) : \n \n{blue} 30 레벨 요구 사항 \n 모든 기술에 대한 1\n",
+                koKR = "{blue}레벨 요구 조건 +35\n모든 기술 +1\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +30\n모든 기술 +1\n",
                 plPL = "ÿC3 35 Wymagania poziomu \n 1 do wszystkich umiejętności \n{purple} dla kowalskich (brak limitu użytkowania): \n \n{blue} 30 wymaganie poziomu \n 1 do wszystkich umiejętności\n",
                 ptBR = "{blue} 35 Requisito de nível \n 1 para todas as habilidades \n{purple} para ferreiros (sem limite de uso): \n \n{blue} requisito de nível 30 \n 1 para todas as habilidades\n",
                 ruRU = "{blue} 35 Требование уровня \n 1 ко всем навыкам \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 30 Требование уровня \n 1 для всех навыков\n",
@@ -3054,7 +2850,7 @@ return {
                 frFR = "ÿC3 20 Niveau exigence \n 15%% à toutes les résistances \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence \n 15%% à toutes les résistances\n",
                 itIT = "{blue} 20 requisiti di livello \n 15%% a tutte le resistenze \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n 15%% a tutte le resistenze\n",
                 jaJP = "C320レベル要件\nすべての抵抗に対して15%%\nc;鍛冶屋の場合（使用制限なし）：\n \nÿC315レベル要件\nすべての抵抗に対して15%%\n",
-                koKR = "{blue} 20 레벨 요구 사항 \n 모든 저항에 대한 15%% \n{purple} 대장장이 (사용 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \n 모든 저항에 대한 15%%\n",
+                koKR = "{blue}레벨 요구 조건 +20\n모든 저항 +15%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n모든 저항 +15%%\n",
                 plPL = "ÿC3 20 Wymaganie poziomu \n 15%% do wszystkich rezystancji \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymaganie poziomu \n 15%% na wszystkie rezystancje\n",
                 ptBR = "{blue} 20 Requisito de nível \n 15%% para todas as resistências \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \n 15%% para todas as resistências\n",
                 ruRU = "ÿC3 20 Требование уровня \n 15%% ко всем сопротивлениям \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 15 Требование уровня \n 15%% ко всем сопротивлениям\n",
@@ -3073,7 +2869,7 @@ return {
                 frFR = "{blue} 20 Niveau exigence \n 5%% Bouot de broyage \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence \n 5%% Bouot de broyage\n",
                 itIT = "{blue} 20 requisiti di livello \n 5%% di schiacciamento \n{purple} per fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n 5%% di schiacciamento\n",
                 jaJP = "c320レベル要件\n 5%%砕石\n{purple}鍛冶屋の場合（使用制限なし）：\n \nμc315レベル要件\n 5%%粉砕打撃\n",
-                koKR = "{blue} 20 레벨 요구 사항 \n 5%% 크러싱 블로우 \n{purple} 대장장이 (사용법 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \n 5%% 분쇄 타격\n",
+                koKR = "{blue}레벨 요구 조건 +20\n강한 타격 확률 +5%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n강한 타격 확률 +5%%\n",
                 plPL = "{blue} 20 Wymagania poziomu \n 5%% kruszące cios \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymaganie poziomu \n 5%% ciosu kruszenia\n",
                 ptBR = "{blue} requisito de nível 20 \n 5%% de bloqueio de esmagamento \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \n 5%% de golpe de esmagamento\n",
                 ruRU = "ÿC3 20 Требование уровня \n 5%% Друшкому удару \n{purple} для кузнецов (нет предела использования): \n \n{blue} 15 Требование уровня \n 5%% раздавливание удара\n",
@@ -3092,7 +2888,7 @@ return {
                 frFR = "ÿC3 20 Niveau exigence \n 5%% des plaies ouvertes \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence \n 5%% des plaies ouvertes\n",
                 itIT = "ÿC3 20 requisiti di livello \n 5%% ferite aperte \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n 5%% ferite aperte\n",
                 jaJP = "C320レベル要件\n 5%%開いた傷\n{purple}鍛冶屋の場合（使用制限なし）：\n \nÿC315レベル要件\n 5%%開いた傷\n",
-                koKR = "{blue} 20 레벨 요구 사항 \n 5%% 오픈 상처 \n{purple} 대장장이 (사용 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \n 5%% 열린 상처\n",
+                koKR = "{blue}레벨 요구 조건 +20\n상처 악화 확률 +5%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n상처 악화 확률 +5%%\n",
                 plPL = "{blue} 20 Wymagania poziomu \n 5%% otwarte rany \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymaganie poziomu \n 5%% otwartych ran\n",
                 ptBR = "{blue} 20 Requisito de nível \n 5%% Feridas abertas \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \n 5%% de feridas abertas\n",
                 ruRU = "{blue} 20 Требование уровня \n 5%% открытые раны \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 15 Требование уровня \n 5%% открытые раны\n",
@@ -3111,7 +2907,7 @@ return {
                 frFR = "{blue} 20 Niveau exigence \n 5%% grève mortelle \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence \n 5%% grève mortelle\n",
                 itIT = "{blue} 20 requisiti di livello \n 5%% mortale \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n 5%% mortale Strike\n",
                 jaJP = "c320レベル要件\n 5%%致命的なストライク\n{purple}鍛冶屋の場合（使用制限なし）：\n \nc315レベル要件\n 5%%致命的なストライク\n",
-                koKR = "{blue} 20 레벨 요구 사항 \n 5%% 치명적인 스트라이크 \n{purple} 대장장이 (사용 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \n 5%% 치명적인 스트라이크\n",
+                koKR = "{blue}레벨 요구 조건 +20\n치명적 공격 확률 +5%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n치명적 공격 확률 +5%%\n",
                 plPL = "ÿC3 20 Wymaganie poziomu \n 5%% śmiertelne uderzenie \n{purple} dla kowalskich (brak limitu użytkowania): \n \n{blue} 15 Wymaganie poziomu \n 5%% śmiertelne strajk\n",
                 ptBR = "{blue} 20 Requisito de nível \n 5%% greve mortal \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \n 5%% de greve mortal\n",
                 ruRU = "ÿC3 20 Требование уровня \n 5%% Смертельный удар \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 15 Требование уровня \n 5%% Смертельный удар\n",
@@ -3130,7 +2926,7 @@ return {
                 frFR = "{blue} 20 Niveau exigence \n 1 Power Power \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence \n 1 Power d'invocation\n",
                 itIT = "ÿC3 Requisito di livello 20 \n 1 Potenza di evocazione \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n 1 Potenza di evocazione\n",
                 jaJP = "c320レベル要件\n 1召喚パワー\n{purple}鍛冶屋用（使用制限なし）：\n \nc315レベル要件\n 1召喚パワー\n",
-                koKR = "{blue} 20 레벨 요구 사항 \n 1 소환 전력 \n{purple} 대장장이 (사용 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \n 1 소환 전력\n",
+                koKR = "{blue}레벨 요구 조건 +20\n소환력 +1\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n소환력 +1\n",
                 plPL = "ÿC3 20 Wymagania poziomu \n 1 Moc przywoływania \n{purple} dla kowalskich (brak limitu użytkowania): \n \n{blue} 15 Wymaganie poziomu \n 1 moc przywoływania\n",
                 ptBR = "{blue} 20 Requisito de nível \n 1 potência de convocação \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \n 1 poder de convocação\n",
                 ruRU = "{blue} 20 Требование уровня \n 1 Призыв мощность \n{purple} для кузнецов (нет предела использования): \n \n{blue} 15 Требование уровня \n 1 Призывная сила\n",
@@ -3149,7 +2945,7 @@ return {
                 frFR = "ÿC3 20 Niveau exigence \n 1 Power de combat \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence \n 1 Power de combat\n",
                 itIT = "ÿC3 Requisito di livello 20 \n 1 potenza di combattimento \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n 1 potenza di combattimento\n",
                 jaJP = "°C3 20レベル要件\n 1戦闘力\nc;鍛冶屋の場合（使用制限なし）：\n \nÿC315レベル要件\n 1戦闘パワー\n",
-                koKR = "{blue} 20 레벨 요구 사항 \n 1 전투 전력 \n{purple} 대장장이 (사용 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \n 1 전투 전력\n",
+                koKR = "{blue}레벨 요구 조건 +20\n전투력 +1\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n전투력 +1\n",
                 plPL = "ÿC3 20 Wymagania poziomu \n 1 Moc bojowa \n{purple} dla kowalskich (brak limitu użytkowania): \n \n{blue} 15 Wymagania poziomu \n 1 moc walki\n",
                 ptBR = "{blue} 20 Requisito de nível \n 1 potência de combate \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \n 1 poder de combate\n",
                 ruRU = "{blue} 20 Требование уровня \n 1 Боевая мощность \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 15 Требование уровня \n 1 Боевая мощность\n",
@@ -3168,7 +2964,7 @@ return {
                 frFR = "{blue} 20 Niveau exigence \n 1 Spell Power \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence \n 1 Spell Power\n",
                 itIT = "ÿC3 20 Livello Requisito \n 1 Power incantesimo \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisiti di livello \n 1 Power incantesimo\n",
                 jaJP = "°c3 20レベル要件\n 1スペルパワー\n{purple}鍛冶屋用（使用制限なし）：\n \n{blue}15レベル要件\n 1スペルパワー\n",
-                koKR = "{blue} 20 레벨 요구 사항 \n 1 주문 전력 \n{purple} 대장장이 (사용법 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \n 1 Spell Power\n",
+                koKR = "{blue}레벨 요구 조건 +20\n주문력 +1\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n주문력 +1\n",
                 plPL = "{blue} 20 Wymaganie poziomu \n 1 Moc zaklęcia \n{purple} dla kowalskich (brak limitu użytkowania): \n \n{blue} 15 Wymagania poziomu \n 1 Power zaklęcia\n",
                 ptBR = "{blue} 20 Requisito de nível \n 1 Power de feitiço \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \n 1 poder de feitiço\n",
                 ruRU = "{blue} 20 Требование уровня \n 1 заклинание мощность \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 15 Требование уровня \n 1 заклинание сила\n",
@@ -3187,7 +2983,7 @@ return {
                 frFR = "{blue} 35 Niveau exigence \n 5%% Résistance au feu maximale \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 25 Besoin de niveau \n 5%% de résistance au feu maximum\n",
                 itIT = "ÿC3 35 Requisito di livello \n 5%% Resistenza al fuoco massima \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 25 requisito di livello \n 5%% resistenza al fuoco massima\n",
                 jaJP = "C335レベル要件\n 5%%最大火災抵抗\n{purple}鍛冶屋の場合（使用制限なし）：\n \nÿC325レベル要件\n 5%%最大火災抵抗\n",
-                koKR = "{blue} 35 레벨 요구 사항 \n 5%% 최대 내화 저항 \n{purple} 대장장이의 경우 (사용 제한 없음) : \n \n{blue} 25 레벨 요구 사항 \n 5%% 최대 내화 저항\n",
+                koKR = "{blue}레벨 요구 조건 +35\n최대 화염 저항 +5%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +25\n최대 화염 저항 +5%%\n",
                 plPL = "{blue} 35 Wymagania poziomu \n 5%% Maksymalna odporność ognio\n",
                 ptBR = "{blue} 35 Requisito de nível \n 5%% resistência ao incêndio máximo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 25 requisito de nível \n 5%% resistência ao incêndio máximo\n",
                 ruRU = "{blue} 35 Требование уровня \n 5%% Максимальный пожарный сопротивление \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 25 Требование уровня \n 5%% Максимальный пожарный сопротивление\n",
@@ -3206,7 +3002,7 @@ return {
                 frFR = "{blue} 35 Bidik-Besoin \n 5%% MAXIMUM Cold Resist \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 25 Besoin de niveau \n 5%% de résistance à froid maximale\n",
                 itIT = "ÿC3 35 Requisito di livello \n 5%% Resistenza a freddo massima \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 25 requisito di livello \n 5%% resistenti al freddo massimo\n",
                 jaJP = "C335レベル要件\n 5%%最大コールドレジスト\nÿC;鍛冶屋の場合（使用制限なし）：\n \nÿC325レベル要件\n 5%%最大コールドレジスト\n",
-                koKR = "{blue} 35 레벨 요구 사항 \n 5%% 최대 냉장 저항 \n{purple} 대장장이 (사용량 제한 없음) : \n \n{blue} 25 레벨 요구 사항 \n 최대 콜드 저항\n",
+                koKR = "{blue}레벨 요구 조건 +35\n최대 냉기 저항 +5%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +25\n최대 냉기 저항 +5%%\n",
                 plPL = "ÿC3 35 Wymagania poziomu \n 5%% Maksymalna odporność na zimno \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 25 Wymagania poziomu \n 5%% Maksymalna odporność na zimno\n",
                 ptBR = "{blue} 35 Requisito de nível \n 5%% resistência a frio máximo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 25 requisito de nível \n 5%% resistência a frio máximo\n",
                 ruRU = "{blue} 35 Требование уровня \n 5%% Максимальный холодный сопротивление \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 25 Требование уровня \n 5%% Максимальный холодный сопротивление\n",
@@ -3225,7 +3021,7 @@ return {
                 frFR = "{blue} 35 Bidik-exigence \n 5%% maximum Lightning Resist \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 25 Besoin de niveau \n 5%% de foudre maximale\n",
                 itIT = "ÿC3 35 Requisito di livello \n 5%% Lightning Maximum Resist \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 25 requisito di livello \n 5%% massimo resist\n",
                 jaJP = "C335レベル要件\n 5%%最大稲妻抵抗\n{purple}鍛冶屋の場合（使用制限なし）：\n \n{blue}25レベル要件\n 5%%最大稲妻抵抗\n",
-                koKR = "{blue} 35 레벨 요구 사항 \n 5%% 최대 번개 저항 \n{purple} 대장장이의 경우 (사용 제한 없음) : \n \n{blue} 25 레벨 요구 사항 \n 5%% 최대 번개 저항\n",
+                koKR = "{blue}레벨 요구 조건 +35\n최대 번개 저항 +5%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +25\n최대 번개 저항 +5%%\n",
                 plPL = "{blue} 35 Wymagania poziomu \n 5%% Maksymalna błyskawiczna odporność na błyskawicę;\n",
                 ptBR = "{blue} 35 Requisito de nível \n 5%% resistência ao raio máximo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 25 requisito de nível \n 5%% resistência ao raio máximo\n",
                 ruRU = "{blue} 35 Требование уровня \n 5%% Максимальная резист молнии \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 25 Требование уровня \n 5%% Максимальный резист молнии\n",
@@ -3244,7 +3040,7 @@ return {
                 frFR = "{blue} 35 Niveau exigence \n 5%% Résistation de poison maximale \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 25 Niveau exigence\n",
                 itIT = "ÿC3 35 Requisito di livello \n 5%% Maximum Poison Resist \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 25 requisito di livello \n 5%% massimo resistenza veleno\n",
                 jaJP = "C335レベル要件\n 5%%最大毒抵抗\n{purple}鍛冶屋の場合（使用制限なし）：\n \nÿC325レベル要件\n 5%%最大ポイズンレジスト\n",
-                koKR = "{blue} 35 레벨 요구 사항 \n 5%% 최대 독에 대한 저항 \n{purple} 대장장이 (사용 제한 없음) : \n \n{blue} 25 레벨 요구 사항 \n 5%% 최대 독에 대한 저항\n",
+                koKR = "{blue}레벨 요구 조건 +35\n최대 독 저항 +5%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +25\n최대 독 저항 +5%%\n",
                 plPL = "ÿC3 35 Wymagania poziomu \n 5%% Maksymalna oporność na truciznę \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue}\n",
                 ptBR = "{blue} 35 Requisito de nível \n 5%% resistência ao veneno máximo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 25 requisito de nível \n 5%% resistência ao veneno máximo\n",
                 ruRU = "ÿC3 35 Требование уровня \n 5%% Максимальный яд\n",
@@ -3263,7 +3059,7 @@ return {
                 frFR = "ÿC3 15 Niveau exigence \n-10%% Résistance au feu ennemi \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 10 Niveau exigence \n-10%% Résistance au feu ennemi\n",
                 itIT = "ÿC3 15 requisiti di livello \n-10%% Resistenza al fuoco nemico \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} requisito di livello 10 \n-10%% resistenza al fuoco nemico\n",
                 jaJP = "C315レベル要件\n-10%%敵の耐火性\nc;鍛冶屋の場合（使用制限なし）：\n \n{blue}10レベル要件\n-10%%敵の耐火性\n",
-                koKR = "{blue} 15 레벨 요구 사항 \n-10%% 적의 내화성 \n{purple} 대장장이의 경우 (사용량 제한 없음) : \n \n{blue} 10 레벨 요구 사항 \n-10%% 적 내화 저항\n",
+                koKR = "{blue}레벨 요구 조건 +15\n적의 화염 저항 -10%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +10\n적의 화염 저항 -10%%\n",
                 plPL = "{blue} 15 Wymagania poziomu \n-10%% wrogie odporność na ogień \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 10 wymaganie poziomu \n-10%% odporność na ogień wroga\n",
                 ptBR = "{blue} Requisito de 15 níveis \n-10%% resistência ao incêndio inimigo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 10 requisito de nível \n-10%% resistência ao incêndio inimigo\n",
                 ruRU = "ÿC3 15 Требование уровня \n-10%% вражеское сопротивление огне\n",
@@ -3282,7 +3078,7 @@ return {
                 frFR = "ÿC3 15 Niveau exigence \n-10%% Résistance au froid ennemi \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 10 Niveau Exigence\n",
                 itIT = "ÿC3 15 requisiti di livello \n-10%% Resistenza a freddo nemico \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} requisito di livello 10 \n-10%% resistenza a freddo nemico\n",
                 jaJP = "C315レベル要件\n-10%%敵のコールドレジスタンス\nÿC;鍛冶屋の場合（使用制限なし）：\n \n{blue}10レベル要件\n-10%%敵のコールドレジスタンス\n",
-                koKR = "{blue} 15 레벨 요구 사항 \n-10%% 적의 냉간 저항 \n{purple} 대장장이 (사용법 제한 없음) : \n \n{blue} 10 레벨 요구 사항 \n-10%% 적의 냉기 저항\n",
+                koKR = "{blue}레벨 요구 조건 +15\n적의 냉기 저항 -10%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +10\n적의 냉기 저항 -10%%\n",
                 plPL = "{blue} 15 Wymagania poziomu \n-10%% wroga odporność na zimno \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 10 wymaganie poziomu \n-10%% odporność na zimno wroga\n",
                 ptBR = "{blue} Requisito de 15 níveis \n-10%% resistência ao frio inimigo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 10 requisito de nível \n-10%% resistência ao frio inimigo\n",
                 ruRU = "{blue} 15 Требование уровня \n-10%% вражеское холодное сопротивление \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 10 Требование уровня \n-10%% холодное сопротивление врага.\n",
@@ -3301,7 +3097,7 @@ return {
                 frFR = "ÿC3 15 Niveau exigence \n-10%% Résistance à la foudre ennemi \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 10 Niveau exigence\n",
                 itIT = "ÿC3 15 requisiti di livello \n-10%% resistenza alla fulmine nemica \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} requisito di livello 10 \n-10%% fulmine nemico Resistenza\n",
                 jaJP = "c3 15レベル要件\n-10%%敵の稲妻抵抗\n{purple}鍛冶屋の場合（使用制限なし）：\n \nμc310レベル要件\n-10%%敵の稲妻抵抗\n",
-                koKR = "{blue} 15 레벨 요구 사항 \n-10%% 적의 번개 저항 \n{purple} 대장장이의 경우 (사용 제한 없음) : \n \n{blue} 10 레벨 요구 사항 \n-10%% 적의 번개 저항\n",
+                koKR = "{blue}레벨 요구 조건 +15\n적의 번개 저항 -10%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +10\n적의 번개 저항 -10%%\n",
                 plPL = "{blue} 15 Wymagania poziomu \n-10%% Wrogiem Odporność na błyskawicę \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 10 Wymaganie poziomu \n-10%% oporność na błyskawicę wroga\n",
                 ptBR = "ÿC3 Requisito de 15 níveis \n-10%% Resistência ao raio inimigo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 10 requisito de nível \n-10%% resistência ao relâmpago inimigo\n",
                 ruRU = "{blue} 15 Требование уровня \n-10%% вражеское сопротивление молнии \n{purple} для кузнецов (без ограничения использования): \n \n{blue} 10 Требование уровня \n-10%% вражеское сопротивление молнии\n",
@@ -3320,7 +3116,7 @@ return {
                 frFR = "{blue} 15 Niveau exigence \n-10%% Résistance au poison ennemi \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 10 Niveau exigence \n-10%% Résistance au poison ennemi\n",
                 itIT = "ÿC3 15 requisiti di livello \n-10%% Nemy Poison Resistance \n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} requisito di livello 10 \n-10%% di avvelenamento nemico\n",
                 jaJP = "C315レベル要件\n-10%%敵の毒抵抗\n{purple}鍛冶屋の場合（使用制限なし）：\n \nμc310レベル要件\n-10%%敵の毒抵抗\n",
-                koKR = "{blue} 15 레벨 요구 사항 \n-10%% 적 독극물 저항 \n{purple} 대장장이의 경우 (사용 제한 없음) : \n \n{blue} 10 레벨 요구 사항 \n-10%% 적 독성 저항\n",
+                koKR = "{blue}레벨 요구 조건 +15\n적의 독 저항 -10%%\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +10\n적의 독 저항 -10%%\n",
                 plPL = "{blue} 15 Wymaganie poziomu \n-10%% Resistance Poison Resistance \n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 10 wymaganie poziomu \n-10%% opór trucizny wroga\n",
                 ptBR = "ÿC3 Requisito de 15 níveis \n-10%% Resistência ao veneno inimigo \n{purple} para ferreiros (sem limite de uso): \n \n{blue} 10 requisito de nível \n-10%% resistência ao inimigo veneno\n",
                 ruRU = "{blue} 15 Требование уровня \n-10%% вражеское сопротивление яда\n",
@@ -3339,7 +3135,7 @@ return {
                 frFR = "ÿC3 20 Niveau exigence \nENEMY IMMUNITÉ DE CHOD RÉDUIT DE 10%% \nÿC; pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence\n",
                 itIT = "{blue} 20 requisiti di livello \nenemy immunità fredda ridotta del 10%%\n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \nenemy immunità fredda ridotta del 10%%\n",
                 jaJP = "c320レベル要件\nenemy cold免疫は10%%\n{purple}鍛冶屋の場合（使用制限なし）：\n \n{blue}15レベル要件\nネネミー風免疫は10%%減少\n",
-                koKR = "{blue} 20 레벨 요구 사항 \nenemy 냉 면역은 10%%\n{purple} 대장장이의 경우 (사용량 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \nenemy 냉 면역력 감소 10%%\n",
+                koKR = "{blue}레벨 요구 조건 +20\n적의 냉기 면역 -10%% 파괴됨\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n적의 냉기 면역 -10%% 파괴됨\n",
                 plPL = "ÿC3 20 Wymaganie poziomu \neneMy Zimna odporność zmniejszona o 10%%\n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymaganie poziomu \neneMusza zmniejszona o 10%%\n",
                 ptBR = "{blue} 20 Requisito de nível \nenemy imunidade a frio reduzida em 10%%\n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \nenemy imunidade a frio reduzido por 10%%\n",
                 ruRU = "{blue} 20 Требование уровня \nenemy холодное иммунитет уменьшен на 10%%\n{purple} для кузнецов (без ограничения использования): \n \n{blue} 15 Требование уровня \nenemy холодный иммунитет уменьшен на 10%%\n",
@@ -3358,7 +3154,7 @@ return {
                 frFR = "ÿC3 20 Niveau exigence \nENEMY IMMUNITÉ DE FEU RÉDUIT DE 10%% \nÿC; Pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence\n",
                 itIT = "{blue} 20 requisiti di livello \nenemy Immunità al fuoco ridotta del 10%%\n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \nenemy Immunità al fuoco ridotto del 10%%\n",
                 jaJP = "c320レベル要件\nenemy射撃免疫は10%%\n{purple}鍛冶屋の場合（使用制限なし）：\n \n{blue}15レベル要件\nネネミー火災免疫は10%%減少しました\n",
-                koKR = "{blue} 20 레벨 요구 사항 \nenemy 화재 면역은 10%%\n{purple} 대장장이의 경우 (사용량 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \nenemy 화재 면역력 감소 10%%\n",
+                koKR = "{blue}레벨 요구 조건 +20\n적의 화염 면역 -10%% 파괴됨\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n적의 화염 면역 -10%% 파괴됨\n",
                 plPL = "ÿC3 20 Wymaganie poziomu \neneMy odporność pożarową zmniejszona o 10%%\nÿC; dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymagania poziomu \nenemy pożar zmniejszone o 10%%\n",
                 ptBR = "{blue} 20 Requisito de nível \nenemy imunidade de incêndio reduzida em 10%%\n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \nenemy imunidade de incêndio reduzida por 10%%\n",
                 ruRU = "{blue} 20 Требование уровня \nenemy пожарное иммунитет уменьшен на 10%%\n{purple} для кузнецов (без ограничения использования): \n \n{blue}.\n",
@@ -3377,7 +3173,7 @@ return {
                 frFR = "ÿC3 20 Niveau exigence \nENEMY Lightning Immunity réduit de 10%% \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence\n",
                 itIT = "ÿC3 20 Livello Requisito \nenemy Lightning Immunità ridotta del 10%%\n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \nenemy fulmine immunità ridotta del 10%%\n",
                 jaJP = "c320レベル要件\nenemy稲妻免疫は10%%\n{purple}鍛冶屋の場合（使用制限なし）：\n \n{blue}15レベル要件\nenemy稲妻免疫は10%%減少しました\n",
-                koKR = "{blue} 20 레벨 요구 사항 \nenemy Lightning Immunity는 10%%\n{purple} 대장장이의 경우 (사용량 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \nenemy Lightning Immunity 감소 10%%\n",
+                koKR = "{blue}레벨 요구 조건 +20\n적의 번개 면역 -10%% 파괴됨\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n적의 번개 면역 -10%% 파괴됨\n",
                 plPL = "ÿC3 20 Wymagania poziomu \neneMy Lightning zmniejszona o 10%%\nÿC; dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymagania poziomu \nenemy Lightning zmniejszone o 10%%\n",
                 ptBR = "{blue} 20 Requisito de nível \nenemy Rightning Imunidade reduzida em 10%%\n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \nenemy Lightning Imunity reduzido em 10%%\n",
                 ruRU = "ÿC3 20 Требование уровня \nenemy Lightning Immunity снижается на 10%%\n{purple} для кузнецов (без ограничения использования): \n \n{blue}.\n",
@@ -3396,7 +3192,7 @@ return {
                 frFR = "{blue} 20 Niveau exigence \nENEMY IMMUNITÉ POISON RÉDUÉE DE 10%% \nÿC; pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence\n",
                 itIT = "{blue} 20 requisiti di livello \n immunità avvelenata nenemia ridotta del 10%%\n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n immunità velenosa nenemia ridotta del 10%%\n",
                 jaJP = "c320レベル要件\nenemy毒免疫は10%%\n{purple}鍛冶屋の場合（使用制限なし）：\n \n{blue}15レベル要件\n",
-                koKR = "{blue} 20 레벨 요구 사항 \nenemy 독 면역은 10%%\n{purple} 대장장이의 경우 (사용량 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \nenemy 독 면역이 10%%감소했습니다.\n",
+                koKR = "{blue}레벨 요구 조건 +20\n적의 독 면역 -10%% 파괴됨\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n적의 독 면역 -10%% 파괴됨\n",
                 plPL = "ÿC3 20 Wymaganie poziomu \neneMy Trucizon Redukowana o 10%%\n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymagania poziomu \nenemydne odporność na truciznę zmniejszoną o 10%%\n",
                 ptBR = "{blue} 20 Requisito de nível \nenemy Imunidade de veneno reduzida em 10%%\n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \nenemy imunidade a veneno reduzido por 10%%\n",
                 ruRU = "ÿC3 20 Требование уровня \nenemy -яд иммунитет снижены на 10%%\n{purple} для кузнецов (без ограничения использования): \n \n{blue}.\n",
@@ -3415,7 +3211,7 @@ return {
                 frFR = "{blue} 20 Niveau exigence \nENEMY Immunité physique réduite de 10%% \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence\n",
                 itIT = "{blue} 20 requisiti di livello \nenemia immunità fisica ridotta del 10%%\n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 Livello requisito \nenemia immunità fisica ridotta del 10%%\n",
                 jaJP = "c320レベル要件\nenemyの物理的免疫は10%%\n{purple}鍛冶屋の場合（使用制限なし）：\n \n{blue}15レベル要件\nenemy物理的免疫は10%%減少しました\n",
-                koKR = "{blue} 20 레벨 요구 사항 \nenemy 신체 면역은 10%%\n{purple} 대장장이의 경우 (사용량 제한 없음) : \n \n{blue} 15 레벨 요구 사항 \nenemy 물리 면역력 감소 10%%\n",
+                koKR = "{blue}레벨 요구 조건 +20\n적의 물리 면역 -10%% 파괴됨\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n적의 물리 면역 -10%% 파괴됨\n",
                 plPL = "ÿC3 20 Wymaganie poziomu \neneMy odporność fizyczna zmniejszona o 10%%\nÿC; dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymagania poziomu \nenemy fizyczna zmniejszona o 10%%\n",
                 ptBR = "{blue} 20 Requisito de nível \nenemy imunidade física reduzida em 10%%\n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \nenemy imunidade física reduzida por 10%%\n",
                 ruRU = "{blue} 20 Требование уровня \nenemy Физический иммунитет уменьшен на 10%%\n{purple} для кузнецов (без ограничения использования): \n \n{blue} 15 Требование уровня \nenemy Физический иммунитет уменьшен на 10%%\n",
@@ -3434,7 +3230,7 @@ return {
                 frFR = "ÿC3 20 Niveau Exigence \nENEMY Magic Immunity réduit de 10%% \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 15 Niveau exigence\n",
                 itIT = "{blue} 20 requisiti di livello \nenemia immunità magica ridotta del 10%%\n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 15 requisito di livello \n immunità magica nenemia ridotta del 10%%\n",
                 jaJP = "c320レベル要件\nenemy Magic Immunityは10%%\nc;鍛冶屋の場合（使用制限なし）：\n \nc315レベル要件\nenemyマジック免疫は10%%減少しました\n",
-                koKR = "{blue} 20 레벨 요구 사항 \nenemy 마법 면역은 10%%\n{purple} 대장장이의 경우 감소\n",
+                koKR = "{blue}레벨 요구 조건 +20\n적의 마법 면역 -10%% 파괴됨\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +15\n적의 마법 면역 -10%% 파괴됨\n",
                 plPL = "ÿC3 20 Wymagania poziomu \neneMy Magic Immortera zmniejszona o 10%%\n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 15 Wymagania poziomu \nenemy magiczna odporność zmniejszona o 10%%\n",
                 ptBR = "{blue} 20 Requisito de nível \nenemy imunidade mágica reduzida em 10%%\n{purple} para ferreiros (sem limite de uso): \n \n{blue} 15 requisito de nível \nenemy imunidade mágica reduzida por 10%%\n",
                 ruRU = "{blue} 20 Требование уровня \nenemy Magic Immunity уменьшается на 10%%\n{purple} для кузнецов (без ограничения использования): \n \n{blue}.\n",
@@ -3453,7 +3249,7 @@ return {
                 frFR = "ÿC3 30 Niveau exigence \nall Immunités ennemies réduites de 10%% \n{purple} pour les forgerons (pas de limite d'utilisation): \n \n{blue} 25 Niveau Exigence \nall Immunités ennemies réduites de 10%%\n",
                 itIT = "{blue} 30 requisiti di livello \nall immunità nemiche ridotte del 10%%\n{purple} per i fabbri (nessun limite di utilizzo): \n \n{blue} 25 requisito di livello \nall immunità nemica ridotta del 10%%del 10%%\n",
                 jaJP = "C330レベル要件\nall敵の免疫は10%%\n{purple}鍛冶屋の場合（使用制限なし）：\n \n{blue}25レベル要件\nall敵の免疫は10%%減少しました\n",
-                koKR = "{blue} 30 레벨 요구 사항 \nall 적 면역력은 10%%\n{purple} 대장장이의 경우 (사용량 제한 없음) : \n \n{blue} 25 레벨 요구 사항 \nall 적 면역이 10%%감소했습니다.\n",
+                koKR = "{blue}레벨 요구 조건 +30\n적의 모든 면역 -10%% 파괴됨\n{purple}대장장이 전용 (사용 제한 없음)\n\n{blue}레벨 요구 조건 +25\n적의 모든 면역 -10%% 파괴됨\n",
                 plPL = "{blue} 30 Wymagania poziomu \nie odporności na wroga zmniejszone o 10%%\n{purple} dla kowal (brak limitu użytkowania): \n \n{blue} 25 wymagania poziomu \nieprawidłowe odporności wroga zmniejszone o 10%%\n",
                 ptBR = "{blue} requisito de 30 níveis \nall imunidades inimigas reduzidas em 10%%\n{purple} para ferreiros (sem limite de uso): \n \n{blue} 25 requisito de nível \nall imunidades inimigas reduzidas por 10%%\n",
                 ruRU = "ÿC3 30 Требование уровня \n Недоветные иммунитеты противника уменьшены на 10%%\n{purple} для кузнецов (без ограничения использования): \n \n{blue} 25 Требование уровня \nall противника понижена на 10%%\n",
@@ -3472,7 +3268,7 @@ return {
                 frFR = "{blue} 35%% Dommages à froid / feu / Lightning pendant 10 minutes \nÿC0EAT à recevoir: \n \n{gray}a Cadeau du Boney Bunny ...\n",
                 itIT = "{blue} 35%% Danno freddo/fuoco/fulmini per 10 minuti \n{white}eat da ricevere: \n \n{gray}a regalo dal coniglietto Bonesy ...\n",
                 jaJP = "{blue} 35%%コールド/火/稲妻ダメージ10分間\nc0eat受け取る：\n \n{gray}a骨バニーからの贈り物...\n",
-                koKR = "{blue} 35%% 감기/화재/번개 손상 10 분 \n{white}eat 수신 : \n \n{gray}a Bonesy Bunny의 선물 ... ...\n",
+                koKR = "{blue}냉기/화염/번개 피해 +35%% (10분간 지속)\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물...\n",
                 plPL = "{blue} 35%% obrażeń zimnych/ognia/błyskawicy przez 10 minut \n{white}at, aby otrzymać: \n \nÿC5a Prezent od Boney Bunny ...\n",
                 ptBR = "{blue} 35%% de dano de frio/fogo/raio por 10 minutos \n{white}eat para receber: \n \n{gray}a presente do coelho Bonesy ...\n",
                 ruRU = "{blue} 35%% холодный/огнестойкий/молниеносный урон за 10 минут \n{white}eat для получения: \n \n{gray}a подарок от костей кролика ...\n",
@@ -3491,7 +3287,7 @@ return {
                 frFR = "{blue} 30 %% de vitesse d'attaque et d'incantation pendant 10 minutes\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny...\n",
                 itIT = "{blue} 30%% di attacco e velocità di lancio per 10 minuti\n{white}Mangia per ricevere:\n\n{gray}Un regalo dal coniglietto ossuto...\n",
                 jaJP = "{blue} 10 分間、攻撃力と詠唱速度が 30%% 増加\n{white} 食べると受け取ります:\n\n{gray} 骨っぽいバニーからの贈り物...\n",
-                koKR = "{blue} 10분 동안 30%% 공격 및 시전 속도\n{white}먹고 다음을 받으세요:\n\n{gray}Bonesy Bunny의 선물...\n",
+                koKR = "{blue}공격 및 시전 속도 +30%% (10분간 지속)\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물...\n",
                 plPL = "{blue} 30%% szybkości ataku i rzucania na 10 minut\n{white}Zjedz, aby otrzymać:\n\n{gray} Prezent od Kościstego Królika...\n",
                 ptBR = "{blue} 30%% de velocidade de ataque e lançamento por 10 minutos\n{white}Coma para receber:\n\n{gray}Um presente do Bonesy Bunny...\n",
                 ruRU = "{blue} Скорость атаки и сотворения чар 30%% на 10 минут.\n{white}Съешьте, чтобы получить:\n\n{gray}Подарок от Костяного кролика...\n",
@@ -3510,7 +3306,7 @@ return {
                 frFR = "{blue}IGNORE Toutes les résistances ennemies pendant 10 minutes \nÿC0EAT à recevoir: \n \n{gray}a Cadeau du BONESY BUNNY ...\n",
                 itIT = "{blue}GoGore Tutte le resistenze nemiche per 10 minuti \n{white}eat da ricevere: \n \n{gray}a regalo dal coniglietto Bonesy ...\n",
                 jaJP = "{blue}IGNOREすべての敵の抵抗は10分間\nÿC0EATを受け取る：\n \nÿC5A骨バニーからの贈り物...\n",
-                koKR = "{blue}ignore 10 분 동안의 모든 적 저항 \n{white}eat를받을 수 있습니다 : \n \n{gray}a Bonesy Bunny의 선물 ...\n",
+                koKR = "{blue}모든 적의 저항 무시 (10분간 지속)\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물...\n",
                 plPL = "{blue}ignore Wszystkie opory wroga na 10 minut \n{white}eat, aby otrzymać: \n \n{gray}a Prezent od Boney Bunny ...\n",
                 ptBR = "{blue}ignore todas as resistências inimigas por 10 minutos \n{white}eat para receber: \n \n{gray}a presente do coelho Bonesy ...\n",
                 ruRU = "{blue}Inignore все сопротивления врага в течение 10 минут \n{white}eat для получения: \n \n{gray}a подарок от костей кролика ...\n",
@@ -3529,7 +3325,7 @@ return {
                 frFR = "{blue} 100 %% d'or et de magie Trouvez pendant 10 minutes\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny...\n",
                 itIT = "{blue} Trova oro e magia al 100%% per 10 minuti\n{white}Mangia per ricevere:\n\n{gray}Un regalo dal coniglietto ossuto...\n",
                 jaJP = "{blue} 100%% ゴールドとマジックを 10 分間見つけます\n{white} 食べると受け取ります:\n\n{gray} Bonesy Bunny からの贈り物...\n",
-                koKR = "{blue} 10분 동안 100%% 골드와 마법 발견\n{white}먹고 다음을 받으세요:\n\n{gray}Bonesy Bunny의 선물...\n",
+                koKR = "{blue}금화 및 마법 아이템 발견 확률 +100%% (10분간 지속)\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물...\n",
                 plPL = "{blue} 100%% złota i magii Znajdź przez 10 minut\n{white}Zjedz, aby otrzymać:\n\n{gray}Prezent od Kościstego Króliczka...\n",
                 ptBR = "{blue} 100%% Ouro e Magia Encontre por 10 minutos\n{white}Coma para receber:\n\n{gray}Um presente do Bonesy Bunny...\n",
                 ruRU = "{blue} 100%% золото и магический поиск на 10 минут\n{white}Съешьте, чтобы получить:\n\n{gray}Подарок от Костяного кролика...\n",
@@ -3548,7 +3344,7 @@ return {
                 frFR = "{blue}Régénération de santé augmentée de 20 et Régénération de mana augmentée de 100 %% pendant 10 minutes\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny...\n",
                 itIT = "{blue}Rigenerazione salute aumentata di 20 e rigenerazione mana aumentata del 100%% per 10 minuti\n{white}Mangia per ricevere:\n\n{gray}Un regalo dal coniglietto ossuto...\n",
                 jaJP = "{blue}ヘルス回復が 20 増加し、マナ回復が 10 分間 100%% 増加しました\n{white}食べると受け取ります:\n\n{gray}Bonesy Bunny からの贈り物...\n",
-                koKR = "{blue}건강 재생은 10분 동안 20 증가하고 마나 재생은 100%% 증가합니다.\n{white}먹으면 다음을 받습니다:\n\n{gray}Bonesy Bunny로부터 선물...\n",
+                koKR = "{blue}생명력 재생 +20, 마나 재생 +100%% (10분간 지속)\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물...\n",
                 plPL = "{blue}Regeneracja zdrowia zwiększona o 20, a regeneracja many zwiększona o 100%% na 10 minut\n{white}Zjedz, aby otrzymać:\n\n{gray}Prezent od Kościstego Królika...\n",
                 ptBR = "{blue}Regeneração de Saúde aumentada em 20 e Regeneração de Mana aumentada em 100%% por 10 minutos\n{white}Coma para receber:\n\n{gray}Um presente do Coelhinho Ossudo...\n",
                 ruRU = "{blue}Регенерация здоровья увеличена на 20, а регенерация маны увеличена на 100%% на 10 минут.\n{white}Съешьте, чтобы получить:\n\n{gray}Подарок от Костяного кролика...\n",
@@ -3567,7 +3363,7 @@ return {
                 frFR = "{blue}Vitalité et énergie augmentées de 20 %% pendant 10 minutes\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny...\n",
                 itIT = "{blue}Vitalità ed energia aumentate del 20%% per 10 minuti\n{white}Mangia per ricevere:\n\n{gray}Un regalo dal coniglietto ossuto...\n",
                 jaJP = "{blue}活力とエネルギーが 10 分間 20%% 増加しました\n{white}食べると受け取ります:\n\n{gray}Bonesy Bunny からの贈り物...\n",
-                koKR = "{blue}활력과 에너지가 10분 동안 20%% 증가합니다.\n{white}먹으면 다음을 받습니다:\n\n{gray}Bonesy Bunny로부터 선물...\n",
+                koKR = "{blue}활력 및 에너지 +20%% (10분간 지속)\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물...\n",
                 plPL = "{blue}Witalność i energia zwiększone o 20%% na 10 minut\n{white}Zjedz, aby otrzymać:\n\n{gray}Prezent od Kościstego Królika...\n",
                 ptBR = "{blue}Vitalidade e energia aumentadas em 20%% por 10 minutos\n{white}Coma para receber:\n\n{gray}Um presente do Bonesy Bunny...\n",
                 ruRU = "{blue}Жизнеспособность и энергия увеличены на 20%% на 10 минут.\n{white}Съешьте, чтобы получить:\n\n{gray}Подарок от Костяного кролика...\n",
@@ -3586,7 +3382,7 @@ return {
                 frFR = "{blue}Dégâts de magie et de poison augmentés de 25 %% pendant 10 minutes\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny...\n",
                 itIT = "{blue}Danni magici e da veleno aumentati del 25%% per 10 minuti\n{white}Mangia per ricevere:\n\n{gray}Un regalo dal coniglietto ossuto...\n",
                 jaJP = "{blue}魔法と毒のダメージが 10 分間 25%% 増加しました\n{white}食べると受け取ることができます:\n\n{gray}Bonesy Bunny からの贈り物...\n",
-                koKR = "{blue}마법 및 독 피해가 10분 동안 25%% 증가했습니다.\n{white}먹으면 다음을 받습니다:\n\n{gray}Bonesy Bunny로부터 선물...\n",
+                koKR = "{blue}마법 및 독 피해 +25%% (10분간 지속)\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물...\n",
                 plPL = "{blue}Obrażenia od magii i trucizny zwiększone o 25%% na 10 minut\n{white}Zjedz, aby otrzymać:\n\n{gray}Prezent od Kościstego Królika...\n",
                 ptBR = "{blue}Dano mágico e venenoso aumentado em 25%% por 10 minutos\n{white}Coma para receber:\n\n{gray}Um presente do Coelhinho Ossudo...\n",
                 ruRU = "{blue}Урон от магии и яда увеличен на 25%% на 10 минут.\n{white}Съешьте, чтобы получить:\n\n{gray}Подарок от Костяного кролика...\n",
@@ -3605,7 +3401,7 @@ return {
                 frFR = "{gray}(Tous les effets durent 10 minutes)\n{blue}Réduisez les prix des fournisseurs de 20 %%\n 50 %% d'expérience acquise\n 1 pour toutes les compétences\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny... pour les plus intelligents d'entre vous\n",
                 itIT = "{gray}(Tutti gli effetti durano 10 minuti)\n{blue}Riduci i prezzi dei venditori del 20%%\n 50%% di esperienza acquisita\n Da 1 a tutte le abilità\n{white}Mangia per ricevere:\n\n{gray}Un regalo dal coniglietto ossuto... per i più intelligenti tra voi\n",
                 jaJP = "{gray}(すべての効果は 10 分間持続します)\n{blue}ベンダー価格を 20%% 削減\n 獲得経験値 50%%\n すべてのスキルに 1\n{white}食べると受け取れます:\n\n{gray}Bonesy Bunny からの贈り物...あなたの中の賢い人へ\n",
-                koKR = "{gray}(모든 효과는 10분 동안 지속됨)\n{blue}판매자 가격 20%% 감소\n 경험치 획득 50%%\n 모든 스킬 1개\n{white}먹으면 다음을 받을 수 있습니다:\n\n{gray}Bonesy Bunny의 선물...영리한 분들을 위한 선물\n",
+                koKR = "{gray}(모든 효과는 10분간 지속)\n{blue}상인 판매 가격 20%% 감소\n경험치 +50%%\n모든 기술 +1\n{white}사용 시 효과:\n\n{gray}Bonesy Bunny가 준 선물... 영리한 자에게\n",
                 plPL = "{gray}(Wszystkie efekty trwają 10 minut)\n{blue}Zmniejsz ceny sprzedawców o 20%%\n 50%% zdobytego doświadczenia\n 1 do wszystkich umiejętności\n{white}Zjedz, aby otrzymać:\n\n{gray}Prezent od Kościstego Królika... dla sprytnych spośród was\n",
                 ptBR = "{gray}(Todos os efeitos duram 10 minutos)\n{blue}Reduza os preços dos fornecedores em 20%%\n 50%% de experiência adquirida\n 1 para todas as habilidades\n{white}Coma para receber:\n\n{gray}Um presente do Bonesy Bunny...para os espertos entre vocês\n",
                 ruRU = "{gray}(Все эффекты длятся 10 минут)\n{blue}Снижение цен у торговцев на 20%%\n 50%% получаемого опыта\n 1 ко всем навыкам\n{white}Съешьте, чтобы получить:\n\n{gray}Подарок от Костяного кролика... для самых умных среди вас\n",
@@ -3624,7 +3420,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/gioielli: {white} 2 potere di evocazione\n{green}Elmi/cinture: {white} 2 potere magico\n{green}Armature/stivali: {white} 2 potere magico\n{green}Armi/guanti: {white} 2 potere di combattimento\n{turquoise}Rune Anteprima:  \n\n{white}(Ultra Punti {blue}-1{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux : {white} 2 Pouvoir d'invocation\n{green}Heaumes/Ceintures : {white} 2 Pouvoir des sorts\n{green}Armures/Bottes : {white} 2 Pouvoir des sorts\n{green}Armes/Gants : {white} 2 Pouvoir de combat\n{turquoise}Rune Aperçu :  \n\n{white}(Ultra Points {blue}-1{white})\n",
                 jaJP = "次のリムーバー タイプに変更するには {tan}Cube のみ\n\n{green} シールド/ジュエリー: {white} 2 召喚力\n{green} ヘルム/ベルト: {white} 2 呪文パワー\n{green} アーマー/ブーツ: {white} 2 呪文パワー\n{green} 武器/グローブ: {white} 2 戦闘力\n{turquoise}Rune プレビュー:  \n\n{white}(ウルトラポイント {blue}-1{white})\n{tan}Di {gold}リムーバー\n",
-                koKR = "{tan}큐브만 사용하여 다음 제거제 유형으로 변경\n\n{green}방패/보석: {white} 2 소환력\n{green}헬름/벨트: {white} 2 주문력\n{green}갑옷/부츠: {white} 2 주문력\n{green}무기/장갑: {white} 2 전투력\n{turquoise}Rune 미리보기:  \n\n{white}(울트라 포인트 {blue}-1{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}소환력 +2\n{green}투구/벨트: {white}주문력 +2\n{green}갑옷/부츠: {white}주문력 +2\n{green}무기/장갑: {white}전투력 +2\n{turquoise}룬 미리보기:\n\n{white}(울트라 점수 {blue}-1{white})\n",
                 plPL = "{tan}Cube, aby zmienić na następny typ narzędzia do usuwania\n\n{green}Tarcze/biżuteria: {white} 2 moce przywołania\n{green}Helmy/pasy: {white} 2 moc zaklęć\n{green}Zbroje/buty: {white} 2 moc zaklęć\n{green}Broń/rękawice: {white} 2 moce bojowe\nÿ Podgląd cNRune:  \n\n{white}(Ultra punkty {blue}-1{white})\n{tan}Di {gold}Usuwacz\n",
                 ptBR = "{tan}Cube sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 2 Poder de Invocação\n{green}Elmos/Cintos: {white} 2 Poder Mágico\n{green}Armaduras/Botas: {white} 2 Poder Mágico\n{green}Armas/Luvas: {white} 2 Poder de Combate\n{turquoise}Rune :  \n\n{white}(Ultra Pontos {blue}-1{white})\n",
                 ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу средства удаления.\n\n{green}Щиты/Украшения: {white} 2 Сила призыва\n{green}Шлемы/Ремни: {white} 2 Сила заклинаний\n{green}Броня/Ботинки: {white} 2 Сила заклинаний\n{green}Оружие/перчатки: {white} 2 Боевая сила\n{turquoise}R Предварительный просмотр:  \n\n{white}(Ultra Points {blue}-1{white})\n",
@@ -3643,7 +3439,7 @@ return {
                 frFR = "{tan}Cube da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/gioielli: {white}Riduce i tempi di recupero del 10%%\n{green}Elmi/Cinture: {white}Aumenta la durata dei buff del 10%%\n{green}Armature/stivali: {white}Aumenta la durata dei buff del 10%%\n{green}Armi/guanti: {white}Riduce i tempi di recupero di  10%%\n{turquoise}Rune Anteprima:\n\n{white}(Ultra Points {blue}-2{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux : {white}Réduit les temps de recharge de 10 %%\n{green}Casques/Ceintures : {white}Augmente la durée des buffs de 10 %%\n{green}Armures/bottes : {white}Augmente les durées des buffs de 10 %%\n{green}Armes/Gants : {white}Réduit les temps de recharge de  10 %%\n{turquoise}Rune Aperçu :\n\n{white}(Ultra Points {blue}-2{white})\n",
                 jaJP = "{tan}キューブのみで次のリムーバータイプに変更します\n\n{green}シールド/ジュエリー: {white}クールダウンを10%%短縮\n{green}ヘルム/ベルト:{white}バフ持続時間を10%%延長\n{green}アーマー/ブーツ:{white}バフ持続時間を10%%延長\n{green}武器/グローブ: {white}クールダウンを短縮します 10%%\n{turquoise}Rune プレビュー:\n\n{white}(ウルトラ ポイント {blue}-2{white})\n",
-                koKR = "{tan}큐브만 사용하여 다음 제거제 유형으로 변경\n\n{green}방패/장신구: {white} 쿨다운 10%% 감소\n{green}헬름/벨트: {white}버프 지속 시간 10%% 증가\n{green}방어구/부츠: {white}버프 지속 시간 10%% 증가\n{green}무기/장갑 s: {white} 쿨다운을 다음과 같이 줄입니다.  10%%\n{turquoise}Rune 미리보기:\n\n{white}(울트라 포인트 {blue}-2{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}재사용 대기시간 10%% 감소\n{green}투구/벨트: {white}버프 지속시간 10%% 증가\n{green}갑옷/부츠: {white}버프 지속시간 10%% 증가\n{green}무기/장갑: {white}재사용 대기시간 10%% 감소\n{turquoise}룬 미리보기:\n\n{white}(울트라 점수 {blue}-2{white})\n",
                 plPL = "{tan}Kostka do zmiany na następny typ narzędzia do usuwania\n\n{green}Tarcze/Biżuteria: {white}Skraca czasy odnowienia o 10%%\n{green}Helmy/Paski: {white}Wydłuża czas trwania wzmocnienia o 10%%\n{green}Zbroje/buty: {white}Wydłuża czas trwania wzmocnienia o 10%%\n{green}Bronie/ Rękawice: {white} Skraca czasy odnowienia o  10%%\n{turquoise}Rune Preview:\n\n{white}(Ultra punkty {blue}-2{white})\n",
                 ptBR = "{tan}Cube sozinho para mudar para o próximo tipo de removedor\n\n{green}Shields/Jewelry: {white}Reduz o tempo de espera em 10%%\n{green}Helms/Belts: {white}Aumenta a duração do buff em 10%%\n{green}Armors/Boots: {white}Aumenta a duração do buff em 10%%\n{green}Weapons/Glove s: {white}Reduz o tempo de espera em  10%%\n{turquoise}Rune Preview:\n\n{white}(Ultra Points {blue}-2{white})\n",
                 ruRU = "{tan}Cube в одиночку, чтобы перейти к следующему типу средства удаления.\n\n{green}Щиты/Ювелирные изделия: {white}Уменьшает время восстановления на 10%%\n{green}Шлемы/Ремни: {white}Увеличивает длительность усиления на 10%%\n{green}Броня/Ботинки: {white}Увеличивает длительность усиления на 10%%\n{green}Оружие/ Перчатки: {white}Уменьшает время восстановления на  10%%\n{turquoise}Rune Preview:\n\n{white}(Ultra Points {blue}-2{white})\n",
@@ -3662,7 +3458,7 @@ return {
                 frFR = "{tan}Cubo da solo per passare al tipo di rimozione successivo\n\n{green}Scudi/Gioielli: {white} 1 a tutte le abilità\n{green}Elmi/Cinture: {white} 1 a tutte le abilità\n{green}Armature/Stivali: {white} 1 a tutte le abilità\n{green}Armi/Guanti: {white} 1 a tutte le abilità  \n{turquoise}Rune Anteprima:\n\n{white}(Ultra Points {blue}-4{white})\n",
                 itIT = "{tan}Cube seul pour passer au type de dissolvant suivant\n\n{green}Boucliers/Bijoux : {white} 1 pour toutes les compétences\n{green}Helms/Ceintures : {white} 1 pour toutes les compétences\n{green}Armures/bottes : {white} 1 pour toutes les compétences\n{green}Armes/Gants : {white} 1 pour toutes les compétences  \n{turquoise}Rune Aperçu :\n\n{white}(Ultra Points {blue}-4{white})\n",
                 jaJP = "次のリムーバー タイプに変更するには、c7Cube のみを使用します\n\n{green} シールド/ジュエリー: すべてのスキルに c0 1\n{green} ヘルム/ベルト: すべてのスキルに c0 1\n{green} アーマー/ブーツ: すべてのスキルに c0 1\n{green} 武器/手袋: すべてのスキルに c0 1  \n{turquoise}Rune プレビュー:\n\n{white}(ウルトラ ポイント {blue}-4{white})\n",
-                koKR = "{tan}큐브만 사용하여 다음 제거 유형으로 변경\n\n{green}방패/보석: {white} 1 ~ 모든 스킬\n{green}헬름/벨트: {white} 1 ~ 모든 스킬\n{green}방어구/부츠: {white} 1 ~ 모든 스킬\n{green}무기/장갑: {white} 1 ~ 모든 스킬  \n{turquoise}Rune 미리보기:\n\n{white}(울트라 포인트 {blue}-4{white})\n",
+                koKR = "{tan}큐빙해서 변경\n\n{green}방패/장신구: {white}모든 기술 +1\n{green}투구/벨트: {white}모든 기술 +1\n{green}갑옷/부츠: {white}모든 기술 +1\n{green}무기/장갑: {white}모든 기술 +1\n{turquoise}룬 미리보기:\n\n{white}(울트라 점수 {blue}-4{white})\n",
                 plPL = "{tan}Cube sam, aby zmienić na następny typ narzędzia do usuwania\n\n{green}Tarcze/biżuteria: {white} 1 do wszystkich umiejętności\n{green}Helmy/pasy: {white} 1 do wszystkich umiejętności\n{green}Zbroje/buty: {white} 1 do wszystkich umiejętności\n{green}Broń/rękawice: {white} 1 do wszystkich umiejętności  \nÿcPodgląd NRune:\n\n{white}(Ultra punkty {blue}-4{white})\n{tan}Er {gold}Usuwacz\n",
                 ptBR = "{tan}Cube sozinho para mudar para o próximo tipo de removedor\n\n{green}Escudos/Jóias: {white} 1 para todas as habilidades\n{green}Elmos/cintos: {white} 1 para todas as habilidades\n{green}Armaduras/Botas: {white} 1 para todas as habilidades\n{green}Armas/luvas: {white} 1 para todas as habilidades  \n{turquoise}Rune Preview:\n\n{white}(Ultra Points {blue}-4{white})\n",
                 ruRU = "{tan}cube только для того, чтобы перейти к следующему типу удаления \n\n{green}shields/Jewelry: {white} 1 ко всем навыкам \n{green}helms/ремни: {white} 1 ко всем навыкам \n{green}armors/Boots: {white} 1 ко всем навыкам \n{green}weapons/gloves: {white} 1 ко всем навыкам.  \n{turquoise}Rune Предварительный просмотр:\n\n{white}(Ultra Points {blue}-4{white})\n",
@@ -3681,7 +3477,7 @@ return {
                 frFR = "{gray}Sembra piuttosto vecchio e malconcio, mi chiedo se valga la pena farlo a cubetti...\nNon posso credere che siano già passati 3 anni dalla lotta contro questa orda di demoni\nÈ datato con la stessa data della grande resurrezione di questo regno\n",
                 itIT = "{gray}Il a l'air assez vieux et battu, je me demande si ça vaut la peine d'être cubé...\nJe n'arrive pas à croire que ça fait déjà 3 ans que je combats cette horde de démons\nIl est daté de la même date de la grande résurrection de ce royaume\n",
                 jaJP = "{gray}かなり年老いてボロボロのようですが、キューブ化する価値があるかどうかは疑問です...\nこのデーモンの大群と戦ってもう 3 年も経っているなんて信じられません\n日付はこの王国の大復活と同じです\n",
-                koKR = "{gray} 꽤 늙고 지쳐 보이는데, 세울만한 가치가 있는지 궁금합니다...\n이 악마 무리와 벌써 3년이나 싸웠다는 게 믿겨지지 않습니다\n날짜가 이 왕국의 위대한 부활과 같은 날짜로 되어 있습니다\n",
+                koKR = "{gray}꽤 오래되고 낡아 보인다. 큐빙할 가치가 있을까...?\n악마의 무리와 싸운 지도 벌써 3년이 지났구나.\n이곳이 다시 태어난 그날과 같은 날짜가 새겨져 있다.\n",
                 plPL = "{gray}Wygląda na dość starego i poobijanego, zastanawiam się, czy warto go pociąć w kostkę...\nNie mogę uwierzyć, że to już 3 lata walczę z tą hordą demonów\nJest datowany na tę samą datę wielkiego zmartwychwstania tego królestwa\n",
                 ptBR = "{gray}Parece bem velho e surrado, me pergunto se vale a pena cubá-lo...\nNão posso acreditar que já se passaram 3 anos lutando contra essa horda de demônios\nÉ datado com a mesma data da grande ressurreição deste reino\n",
                 ruRU = "{gray}Выглядит довольно старым и потрепанным, интересно, стоит ли его кубики...\nНе могу поверить, что уже 3 года сражаюсь с этой ордой демонов\nЭто датировано той же датой великого воскрешения этого мира\n",
@@ -3719,7 +3515,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}아리앗의 바람이 네 적들에게 신속한 심판을 내리길\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3738,7 +3534,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}이 가죽에서는 강력한 마력의 냄새가 진동한다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3757,7 +3553,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}마지막 네팔렘, 에디렘이 제작한 방패\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3776,7 +3572,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}수호자의 문장이 새겨진 갑옷\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3795,7 +3591,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}이 고통은 힘을 얻기 위한 대가다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3814,7 +3610,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}에디렘의 보물상자 바닥에서 발견된 반지\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3833,7 +3629,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}어둠 그 자체를 다룰 수 있을 것 같은 느낌이 든다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3852,7 +3648,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}아리앗 산 정상에서 제작된 투구\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3871,7 +3667,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}지옥불의 정수를 가장 순수한 형태로 정제한 것\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3890,7 +3686,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}잘랄 스스로가 축복한 가면\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3909,7 +3705,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}잠든 야만용사 군주의 장화를 훔쳐왔다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3928,7 +3724,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}라자루스조차 타락을 피할 수는 없었던 듯하다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3947,7 +3743,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}아직도 악마의 살점이 붙어 있는 것 같은데...\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3966,7 +3762,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}내 거야... 내 거야... 내 거야... 내 거야...\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -3985,7 +3781,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}이건 위저드스파이크가 아니다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4004,7 +3800,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}아르카인의 영혼이 그대를 보호하길\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4023,7 +3819,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}이성이 빛을 발할 때, 신비가 드러난다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4042,7 +3838,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}죽음이 너를 응시하는 듯한 느낌이 든다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4061,7 +3857,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}여전사의 혼이 이 투구에서 뿜어져 나온다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4080,7 +3876,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}파괴의 시대에 만들어진 것\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4099,7 +3895,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}야옹.\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4118,7 +3914,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}한때 린든이 착용했던 치명적인 장식띠\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4137,7 +3933,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}이제 룬의 대가가 네 손아귀에 있도다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4156,7 +3952,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}영혼을 수확하는 자\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4175,7 +3971,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}정의의 긴 손길이 도착했다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4194,7 +3990,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}빛나는 수련생이 마력을 부여한 무기\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4213,7 +4009,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}음메.\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4232,7 +4028,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}경이의 시대에 제작된 장갑\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4251,7 +4047,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}짓이겨라, 내려쳐라, 부숴라\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4270,7 +4066,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}강제 이주는 오래전에 잊힌 주문이지\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4289,7 +4085,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}가장 순수한 형태의 악마 영혼 정수\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4308,7 +4104,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}악마를 갈가리 찢는 게 내 취미지\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4327,7 +4123,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}자멜라가 마지막 전투에서 만들어낸 것\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4346,7 +4142,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}에디렘의 생산 라인에서 갓 만들어진 것\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4365,7 +4161,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}바지를 추켜올리는 데 쓰였던 것\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4384,7 +4180,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}계몽의 시대에 제작된 방패\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4403,7 +4199,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}이 마법을 부여해 준 말라에게 감사를...\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4422,7 +4218,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}그는 멍청하고 우둔했지만, 취향은 좋았지...\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4441,7 +4237,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}수정 얼음 동굴에서 단련된 검\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4460,7 +4256,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}언데드 하수인의 폭풍을 풀어놓아라\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4479,7 +4275,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}썰고, 자르고, 반으로 쪼개라\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4498,7 +4294,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}네게 맞서는 자들에게 죽음의 종소리가 울려 퍼진다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4517,7 +4313,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}마지막으로 배워야 할 교훈이 남아 있었군...\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4536,7 +4332,7 @@ return {
                 frFR = "{gray}Imbevuto della benedizione degli spiriti\n",
                 itIT = "{gray}Imbu de la bénédiction des esprits\n",
                 jaJP = "{gray}精霊の祝福を吹き込む\n",
-                koKR = "{gray}영혼의 축복이 깃들어\n",
+                koKR = "{gray}이 부츠는 트레킹을 위해 만들어졌다\n",
                 plPL = "{gray}Nasycony duchowym błogosławieństwem\n",
                 ptBR = "{gray}Imbuído com a Bênção dos Espíritos\n",
                 ruRU = "{gray}Наделено благословением духов\n",
@@ -4547,2160 +4343,5 @@ return {
 
         -- endregion
 
-      
     }
 }
-
-
-
---[[
-
-Exposed/Available Arguments:
-code or codes = Define the 3-character item code the game uses for the item
-index = Define the Set or Unique iitem index to search (useful for unid items)
-name_override = Change name to w/e you want, overriding it's normal display name
-prefix = Apply the designated text before the item name
-suffix = Apply the designated text after the item name
-hide = True or False. Hide or Display all items that match the provided code(s)
-notify = True or False. Send a screen text message when item has dropped
-notify_message = Optional. Change the default notification message to a custom one
-location (optional) = onground, equipped, onplayer. Only applies while item is in certain locations
-
-index = 0+, Unique numeric identifiers for set/unique items, useful for determining set/unique while still unid. Can be used as both a condition and an output
-quality = 1-7, Inferior through Unique. Can be used as both a condition and an output. Can use values such as 3+ or 3- for greater than or less than
-rarity = 0-2, Normal, Exceptional, Elite. Can be used as both a condition and an output
-sockets = 0-6, None to Max. Can be used as both a condition and an output. Can use values such as 3+ or 3- for greater than or less than
-ethereal = True or False. Can be used as both a condition and an output
-
-
-stat = Check the item for specific stats, can define multiple stat requirements.  Can be used as both a condition and an output
-stat Example Usage: stat = { index = 39, op = ">=", value = 25 }
-This checks stat #39, which is fire resistance, and confirms whether or not it's greater than or equal to 25
-You may also use this stat check to compare a range of stats, or stats special parameters. Conditional range:
-stat Example Usage: stat = { index = 39, op = "between", value = {25,35} }. This checks to verify the stat is between the min and max values
-You can also use it for parameters such as:
-stat Example Usage: stat = { index = 97, op = ">=", value = 2, param = 36}
-This checks stat#97, which grans a non-class skill, and sees if the value is 2 or higher.
-It also checks the param of the skill, to make sure it's giving +2 or more specifically to Fire Bolt, which is skill id 36.
-
-
-------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------
-
-Available Armor, Misc and Weapon Item Codes:
-
---Armors--
-cap -- Cap
-skp -- Skull Cap
-hlm -- Helm
-fhl -- Full Helm
-ghm -- Great Helm
-crn -- Crown
-msk -- Mask
-qui -- Quilted Armor
-lea -- Leather Armor
-hla -- Hard Leather Armor
-stu -- Studded Leather
-rng -- Ring Mail
-scl -- Scale Mail
-chn -- Chain Mail
-brs -- Breast Plate
-spl -- Splint Mail
-plt -- Plate Mail
-fld -- Field Plate
-gth -- Gothic Plate
-ful -- Full Plate Mail
-aar -- Ancient Armor
-ltp -- Light Plate
-buc -- Buckler
-sml -- Small Shield
-lrg -- Large Shield
-kit -- Kite Shield
-tow -- Tower Shield
-gts -- Gothic Shield
-lgl -- Leather Gloves
-vgl -- Heavy Gloves
-mgl -- Chain Gloves
-tgl -- Light Gauntlets
-hgl -- Gauntlets
-lbt -- Boots
-vbt -- Heavy Boots
-mbt -- Chain Boots
-tbt -- Light Plated Boots
-hbt -- Greaves
-lbl -- Sash
-vbl -- Light Belt
-mbl -- Belt
-tbl -- Heavy Belt
-hbl -- Plated Belt
-bhm -- Bone Helm
-bsh -- Bone Shield
-spk -- Spiked Shield
-xap -- War Hat
-xkp -- Sallet
-xlm -- Casque
-xhl -- Basinet
-xhm -- Winged Helm
-xrn -- Grand Crown
-xsk -- Death Mask
-xui -- Ghost Armor
-xea -- Serpentskin Armor
-xla -- Demonhide Armor
-xtu -- Trellised Armor
-xng -- Linked Mail
-xcl -- Tigulated Mail
-xhn -- Mesh Armor
-xrs -- Cuirass
-xpl -- Russet Armor
-xlt -- Templar Coat
-xld -- Sharktooth Armor
-xth -- Embossed Plate
-xul -- Chaos Armor
-xar -- Ornate Armor
-xtp -- Mage Plate
-xuc -- Defender
-xml -- Round Shield
-xrg -- Scutum
-xit -- Dragon Shield
-xow -- Pavise
-xts -- Ancient Shield
-xlg -- Demonhide Gloves
-xvg -- Sharkskin Gloves
-xmg -- Heavy Bracers
-xtg -- Battle Gauntlets
-xhg -- War Gauntlets
-xlb -- Demonhide Boots
-xvb -- Sharkskin Boots
-xmb -- Mesh Boots
-xtb -- Battle Boots
-xhb -- War Boots
-zlb -- Demonhide Sash
-zvb -- Sharkskin Belt
-zmb -- Mesh Belt
-ztb -- Battle Belt
-zhb -- War Belt
-xh9 -- Grim Helm
-xsh -- Grim Shield
-xpk -- Barbed Shield
-dr1 -- Wolf Head
-dr2 -- Hawk Helm
-dr3 -- Antlers
-dr4 -- Cub Cap
-dr5 -- Spirit Mask
-ba1 -- Jawbone Cap
-ba2 -- Fanged Helm
-ba3 -- Horned Helm
-ba4 -- Assault Helmet
-ba5 -- Avenger Guard
-pa1 -- Targe
-pa2 -- Rondache
-pa3 -- Heraldic Shield
-pa4 -- Aerin Shield
-pa5 -- Crown Shield
-ne1 -- Preserved Head
-ne2 -- Zombie Head
-ne3 -- Unraveller Head
-ne4 -- Gargoyle Head
-ne5 -- Demon Head
-ci0 -- Circlet
-ci1 -- Coronet
-ci2 -- Tiara
-ci3 -- Diadem
-uap -- Shako
-ukp -- Hydraskull
-ulm -- Armet
-uhl -- Giant Conch
-uhm -- Spired Helm
-urn -- Corona
-usk -- Demonhead
-uui -- Dusk Shroud
-uea -- Wyrmhide
-ula -- Scarab Husk
-utu -- Wire Fleece
-ung -- Diamond Mail
-ucl -- Loricated Mail
-uhn -- Boneweave
-urs -- Great Hauberk
-upl -- Balrog Skin
-ult -- Hellforge Plate
-uld -- Kraken Shell
-uth -- Lacquered Plate
-uul -- Shadow Plate
-uar -- Sacred Armor
-utp -- Archon Plate
-uuc -- Heater
-uml -- Luna
-urg -- Hyperion
-uit -- Monarch
-uow -- Aegis
-uts -- Ward
-ulg -- Bramble Mitts
-uvg -- Vampirebone Gloves
-umg -- Vambraces
-utg -- Crusader Gauntlets
-uhg -- Ogre Gauntlets
-ulb -- Wyrmhide Boots
-uvb -- Scarabshell Boots
-umb -- Boneweave Boots
-utb -- Mirrored Boots
-uhb -- Myrmidon Greaves
-ulc -- Spiderweb Sash
-uvc -- Vampirefang Belt
-umc -- Mithril Coil
-utc -- Troll Belt
-uhc -- Colossus Girdle
-uh9 -- Bone Visage
-ush -- Troll Nest
-upk -- Blade Barrier
-dr6 -- Alpha Helm
-dr7 -- Griffon Headress
-dr8 -- Hunter's Guise
-dr9 -- Cavernous Covering
-dra -- Totemic Mask
-ba6 -- Jawbone Visor
-ba7 -- Lion Helm
-ba8 -- Rage Mask
-ba9 -- Savage Helmet
-baa -- Slayer Guard
-pa6 -- Akaran Targe
-pa7 -- Akaran Rondache
-pa8 -- Protector Shield
-pa9 -- Gilded Shield
-paa -- Royal Shield
-ne6 -- Mummified Trophy
-ne7 -- Fetish Trophy
-ne8 -- Sexton Trophy
-ne9 -- Cantor Trophy
-nea -- Heirophant Trophy
-drb -- Blood Spirit
-drc -- Sun Spirit
-drd -- Earth Spirit
-dre -- Grizzly Visor
-drf -- Dream Spirit
-bab -- Carnage Helm
-bac -- Fury Visor
-bad -- Destroyer Helm
-bae -- Conqueror Crown
-baf -- Guardian Crown
-pab -- Sacred Targe
-pac -- Sacred Rondache
-pad -- Kurast Shield
-pae -- Zakarum Shield
-paf -- Vortex Shield
-neb -- Minion Skull
-neg -- Hellspawn Skull
-ned -- Overseer Skull
-nee -- Succubus Skull
-nef -- Bloodlord Skull
-Ca1 -- Cape
-Ca2 -- Mantle
-Ca3 -- Cloak
-Ca4 -- Assassin Cloak 1A
-Ca5 -- Assassin Cloak 1B
-Ca6 -- Assassin Cloak 1C
-Wp1 -- Wolf Cloth
-Wp2 -- Dire Pelt
-Wp3 -- Fenris Fur
-Gg1 -- Bear Hide
-Gg2 -- Sleuth Slough
-Gg3 -- Grizzly Gear
-Ab1 -- Silent Sneakers
-Ab2 -- Combat Kicks
-Ab3 -- Bladed Boots
-Ab4 -- Assassin Boots 1A
-Ab5 -- Assassin Boots 1B
-Ab6 -- Assassin Boots 1C
-Bp1 -- Blessed Plate
-Bp2 -- Hallowed Armor
-Bp3 -- Enlightened Plate
-Bp4 -- Paladin Armor 1A
-Bp5 -- Paladin Armor 1B
-Bp6 -- Paladin Armor 1C
-Oa1 -- Bark Armor
-Oa2 -- Cedar Chest
-Oa3 -- Oaken Armor
-Vg1 -- Arcanic Touch
-Vg2 -- Elemental Outreach
-Vg3 -- Vizjerei Vestige
-Vg4 -- Sorceress Gloves 1A
-Vg5 -- Sorceress Gloves 1B
-Vg6 -- Sorceress Gloves 1C
-Bb1 -- Strong Belt
-Bb2 -- Mighty Belt
-Bb3 -- Arreat Belt
-Bb4 -- Barbarian Belt 1A
-Bb5 -- Barbarian Belt 1A
-Bb6 -- Barbarian Belt 1A
-Zc1 -- Skovos Circle
-Zc2 -- Island Crown
-Zc3 -- Sister's Stone
-Zc4 -- Amazon Circlet 1A
-Zc5 -- Amazon Circlet 1B
-Zc6 -- Amazon Circlet 1C
-St1 -- Soul Summon Torso 1
-St2 -- Soul Summon Torso 2
-Pc1 -- Palisade Helm
-Pc2 -- Anointed Crown
-Pc3 -- Treasured Headdress
-Ag1 -- Amazon Gloves 1A
-Ag2 -- Amazon Gloves 1B
-Ag3 -- Amazon Gloves 1C
-Ag4 -- Amazon Gloves 2A
-Ag5 -- Amazon Gloves 2B
-Ag6 -- Amazon Gloves 2C
-Na1 -- Necromancer Armor 1A
-Na2 -- Necromancer Armor 1B
-Na3 -- Necromancer Armor 1C
-Na4 -- Necromancer Armor 2A
-Na5 -- Necromancer Armor 2B
-Na6 -- Necromancer Armor 2C
-Sa1 -- Sorceress Armor 1A
-Sa2 -- Sorceress Armor 1B
-Sa3 -- Sorceress Armor 1C
-Sa4 -- Sorceress Armor 2A
-Sa5 -- Sorceress Armor 2B
-Sa6 -- Sorceress Armor 2C
-St3 -- Soul Summon Torso 3
-St4 -- Shadow Plate Ama
-St5 -- Shadow Plate Sor
-St6 -- Shadow Plate Nec
-St7 -- Shadow Plate Pal
-St8 -- Shadow Plate Bar
-St9 -- Shadow Plate Dru
-St0 -- Shadow Plate Ass
-D01 -- Demon Armor
-D03 -- Demon Cap
-D04 -- Demon Monarch
-D05 -- Demon Fleece
-D08 -- Demon Diadem
-D09 -- Demon Coif
-D11 -- Demon Mask
-D12 -- Demon Boots
-D17 -- Demon Skin
-D19 -- Demon Visage
-D20 -- Demon Spired
-D21 -- Demon Corona
-D23 -- Demon Sash
-D29 -- Demon Gauntlets
-D35 -- Demon Boots
-D36 -- Demon Belt
-D37 -- Demon Luna
-D38 -- Demon Aegis
-D45 -- Demon Boots
-
-
---Weapons--
-hax -- Hand Axe
-axe -- Axe
-2ax -- Double Axe
-mpi -- Sickle
-wax -- War Axe
-lax -- Large Axe
-bax -- Broad Axe
-btx -- Battle Axe
-gax -- Great Axe
-gix -- Giant Axe
-wnd -- Wand
-ywn -- Yew Wand
-bwn -- Bone Wand
-gwn -- Grim Wand
-clb -- Club
-scp -- Scepter
-gsc -- Grand Scepter
-wsp -- War Scepter
-spc -- Spiked Club
-mac -- Mace
-mst -- Morning Star
-fla -- Flail
-whm -- War Hammer
-mau -- Maul
-gma -- Great Maul
-ssd -- Short Sword
-scm -- Scimitar
-sbr -- Saber
-flc -- Falchion
-crs -- Crystal Sword
-bsd -- Broad Sword
-lsd -- Long Sword
-wsd -- War Sword
-2hs -- Katana
-clm -- Claymore
-gis -- Giant Sword
-bsw -- Bastard Sword
-flb -- Flamberge
-gsd -- Great Sword
-dgr -- Dagger
-dir -- Dirk
-kri -- Kriss
-bld -- Blade
-tkf -- Throwing Knife
-tax -- Throwing Axe
-bkf -- Balanced Knife
-bal -- Balanced Axe
-jav -- Javelin
-pil -- Pilum
-ssp -- Short Spear
-glv -- Glaive
-tsp -- Throwing Spear
-spr -- Spear
-tri -- Trident
-brn -- Brandistock
-spt -- Spetum
-pik -- Pike
-bar -- Bardiche
-vou -- Voulge
-scy -- Scythe
-pax -- Poleaxe
-hal -- Halberd
-wsc -- Thresher
-sst -- Short Staff
-lst -- Long Staff
-cst -- Gnarled Staff
-bst -- Battle Staff
-wst -- War Staff
-sbw -- Short Bow
-hbw -- Hunter's Bow
-lbw -- Long Bow
-cbw -- Composite Bow
-sbb -- Short Battle Bow
-lbb -- Long Battle Bow
-swb -- Short War Bow
-lwb -- Long War Bow
-lxb -- Light Crossbow
-mxb -- Crossbow
-hxb -- Heavy Crossbow
-rxb -- Repeating Crossbow
-gps -- Rancid Gas Potion
-ops -- Oil Potion
-gpm -- Choking Gas Potion
-opm -- Exploding Potion
-gpl -- Strangling Gas Potion
-opl -- Fulminating Potion
-d33 -- Decoy Gidbinn
-g33 -- The Gidbinn
-leg -- Wirt's Leg
-hdm -- Horadric Malus
-hfh -- Hellforge Hammer
-hst -- Horadric Staff
-msf -- Staff of Kings
-9ha -- Hatchet
-9ax -- Cleaver
-92a -- Twin Axe
-9mp -- Battle Sickle
-9wa -- Naga
-9la -- Military Axe
-9ba -- Bearded Axe
-9bt -- Tabar
-9ga -- Gothic Axe
-9gi -- Ancient Axe
-9wn -- Burnt Wand
-9yw -- Petrified Wand
-9bw -- Tomb Wand
-9gw -- Grave Wand
-9cl -- Cudgel
-9sc -- Rune Scepter
-9qs -- Holy Water Sprinkler
-9ws -- Divine Scepter
-9sp -- Barbed Club
-9ma -- Flanged Mace
-9mt -- Jagged Star
-9fl -- Knout
-9wh -- Battle Hammer
-9m9 -- War Club
-9gm -- Martel de Fer
-9ss -- Gladius
-9sm -- Cutlass
-9sb -- Shamshir
-9fc -- Tulwar
-9cr -- Dimensional Blade
-9bs -- Battle Sword
-9ls -- Rune Sword
-9wd -- Ancient Sword
-92h -- Nihonto
-9cm -- Dacian Falx
-9gs -- Tusk Sword
-9b9 -- Gothic Sword
-9fb -- Zweihander
-9gd -- Executioner Sword
-9dg -- Poignard
-9di -- Rondel
-9kr -- Cinquedeas
-9bl -- Stilleto
-9tk -- Battle Dart
-9ta -- Francisca
-9bk -- War Dart
-9b8 -- Hurlbat
-9ja -- War Javelin
-9pi -- Great Pilum
-9s9 -- Simbilan
-9gl -- Spiculum
-9ts -- Harpoon
-9sr -- War Spear
-9tr -- Fuscina
-9br -- War Fork
-9st -- Yari
-9p9 -- Lance
-9b7 -- Lochaber Axe
-9vo -- Bill
-9s8 -- Grim Scythe
-9pa -- Partizan
-9h9 -- Bec-de-Corbin
-9wc -- Giant Thresher
-8ss -- Jo Staff
-8ls -- Quarterstaff
-8cs -- Cedar Staff
-8bs -- Gothic Staff
-8ws -- Rune Staff
-8sb -- Edge Bow
-8hb -- Razor Bow
-8lb -- Cedar Bow
-8cb -- Double Bow
-8s8 -- Short Siege Bow
-8l8 -- Long Siege Bow
-8sw -- Rune Bow
-8lw -- Gothic Bow
-8lx -- Arbalest
-8mx -- Siege Crossbow
-8hx -- Ballista
-8rx -- Chu-Ko-Nu
-qf1 -- Khalim's Flail
-qf2 -- Khalim's Will
-ktr -- Katar
-wrb -- Wrist Blade
-axf -- Hatchet Hands
-ces -- Cestus
-clw -- Claws
-btl -- Blade Talons
-skr -- Scissors Katar
-9ar -- Quhab
-9wb -- Wrist Spike
-9xf -- Fascia
-9cs -- Hand Scythe
-9lw -- Greater Claws
-9tw -- Greater Talons
-9qr -- Scissors Quhab
-7ar -- Suwayyah
-7wb -- Wrist Sword
-7xf -- War Fist
-7cs -- Battle Cestus
-7lw -- Feral Claws
-7tw -- Runic Talons
-7qr -- Scissors Suwayyah
-7ha -- Tomahawk
-7ax -- Small Crescent
-72a -- Ettin Axe
-7mp -- Reaper Sickle
-7wa -- Berserker Axe
-7la -- Feral Axe
-7ba -- Silver-edged Axe
-7bt -- Decapitator
-7ga -- Champion Axe
-7gi -- Glorious Axe
-7wn -- Polished Wand
-7yw -- Ghost Wand
-7bw -- Lich Wand
-7gw -- Unearthed Wand
-7cl -- Truncheon
-7sc -- Mighty Scepter
-7qs -- Seraph Rod
-7ws -- Caduceus
-7sp -- Tyrant Club
-7ma -- Reinforced Mace
-7mt -- Devil Star
-7fl -- Scourge
-7wh -- Legendary Mallet
-7m7 -- Ogre Maul
-7gm -- Thunder Maul
-7ss -- Falcata
-7sm -- Ataghan
-7sb -- Elegant Blade
-7fc -- Hydra Edge
-7cr -- Phase Blade
-7bs -- Conquest Sword
-7ls -- Cryptic Sword
-7wd -- Mythical Sword
-72h -- Shinogi
-7cm -- Highland Blade
-7gs -- Balrog Blade
-7b7 -- Champion Sword
-7fb -- Colossal Sword
-7gd -- Colossus Blade
-7dg -- Bone Knife
-7di -- Mithral Point
-7kr -- Fanged Knife
-7bl -- Legend Spike
-7tk -- Flying Knife
-7ta -- Flying Axe
-7bk -- Winged Knife
-7b8 -- Winged Axe
-7ja -- Hyperion Javelin
-7pi -- Stygian Pilum
-7s7 -- Balrog Spear
-7gl -- Ghost Glaive
-7ts -- Winged Harpoon
-7sr -- Hyperion Spear
-7tr -- Stygian Pike
-7br -- Mancatcher
-7st -- Ghost Spear
-7p7 -- War Pike
-7o7 -- Ogre Axe
-7vo -- Colossus Voulge
-7s8 -- Reaper Scythe
-7pa -- Cryptic Axe
-7h7 -- Great Poleaxe
-7wc -- Reaper Thresher
-6ss -- Walking Stick
-6ls -- Stalagmite
-6cs -- Elder Staff
-6bs -- Shillelagh
-6ws -- Archon Staff
-6sb -- Spider Bow
-6hb -- Blade Bow
-6lb -- Shadow Bow
-6cb -- Great Bow
-6s7 -- Diamond Bow
-6l7 -- Crusader Bow
-6sw -- Ward Bow
-6lw -- Hydra Bow
-6lx -- Pellet Bow
-6mx -- Gorgon Crossbow
-6hx -- Colossus Crossbow
-6rx -- Demon Crossbow
-ob1 -- Eagle Orb
-ob2 -- Sacred Globe
-ob3 -- Smoked Sphere
-ob4 -- Clasped Orb
-ob5 -- Jared's Stone
-am1 -- Stag Bow
-am2 -- Reflex Bow
-am3 -- Maiden Spear
-am4 -- Maiden Pike
-am5 -- Maiden Javelin
-ob6 -- Glowing Orb
-ob7 -- Crystalline Globe
-ob8 -- Cloudy Sphere
-ob9 -- Sparkling Ball
-oba -- Swirling Crystal
-am6 -- Ashwood Bow
-am7 -- Ceremonial Bow
-am8 -- Ceremonial Spear
-am9 -- Ceremonial Pike
-ama -- Ceremonial Javelin
-obb -- Heavenly Stone
-obc -- Eldritch Orb
-obd -- Demon Heart
-obe -- Vortex Orb
-obf -- Dimensional Shard
-amb -- Matriarchal Bow
-amc -- Grand Matron Bow
-amd -- Matriarchal Spear
-ame -- Matriarchal Pike
-amf -- Matriarchal Javelin
-k01 -- Katana
-k02 -- Katana
-k03 -- Katana
-Ds1 -- Druid Staff 1A
-Ds2 -- Druid Staff 1B
-Ds3 -- Druid Staff 1C
-Ds4 -- Druid Staff 2A
-Ds5 -- Druid Staff 2B
-Ds6 -- Druid Staff 2C
-Pm1 -- Paladin Mace 1A
-Pm2 -- Paladin Mace 1B
-Pm3 -- Paladin Mace 1C
-Bm1 -- Barbarian M Axe 1A
-Bm2 -- Barbarian M Axe 1B
-Bm3 -- Barbarian M Axe 1C
-Bm4 -- Barbarian M Sword 1A
-Bm5 -- Barbarian M Sword 1B
-Bm6 -- Barbarian M Sword 1C
-Bm7 -- Barbarian M Hammer 1A
-Bm8 -- Barbarian M Hammer 1B
-Bm9 -- Barbarian M Hammer 1C
-Bf1 -- Barbarian F Axe 1A
-Bf2 -- Barbarian F Axe 1B
-Bf3 -- Barbarian F Axe 1C
-Bf4 -- Barbarian F Sword 1A
-Bf5 -- Barbarian F Sword 1B
-Bf6 -- Barbarian F Sword 1C
-D00 -- Demon Sword
-Ss1 -- Champion Axe SS
-Ss2 -- Phase Blade SS
-Ss3 -- Shinogi SS
-Ss4 -- ShinogiB SS
-D02 -- Demon Bow
-D13 -- Demon Staff
-D14 -- Demon Tomahawk
-D15 -- Demon Knife
-D16 -- Demon Knife
-D24 -- Demon Ettin Axe
-D25 -- Demon Cryptic Axe
-D26 -- Demon Balrog Spear
-D27 -- Demon Javelin
-D28 -- Demon Javelin
-D30 -- Demon Maul
-D31 -- Demon Shard
-D33 -- Demon Vorpal Axes
-D34 -- Demon Shard
-D39 -- Demon Ataghan
-D40 -- Demon Sword
-D41 -- Demon Thresher
-D42 -- Demon Ogre Axe
-D43 -- Demon Scythe
-D44 -- Demon Staff
-Ev9 -- Snowball
-
-
---Misc--
-elx -- Elixir
-hpo -- Healing Potionx
-mpo -- Mana Potionx
-hpf -- Full Healing Potion
-mpf -- Full Mana Potion
-vps -- Stamina Potion
-yps -- Antidote Potion
-rvs -- Rejuvenation Potion
-rvl -- Full Rejuvenation Potion
-wms -- Thawing Potion
-tbk -- Tome of Town Portal
-ibk -- Tome of Identify
-amu -- Amulet
-vip -- Amulet of the Viper
-rin -- Ring
-gld -- Gold
-bks -- Scroll of Inifuss
-bkd -- Key to the Cairn Stones
-aqv -- Arrows
-tch -- Torch
-cqv -- Bolts
-tsc -- Scroll of Town Portal
-isc -- Scroll of Identify
-hrt -- Heart
-brz -- Brain
-jaw -- Jawbone
-eyz -- Eye
-hrn -- Horn
-tal -- Tail
-flg -- Flag
-fng -- Fang
-qll -- Quill
-sol -- Soul
-scz -- Scalp
-spe -- Spleen
-key -- Key
-luv -- The Black Tower Key
-xyz -- Potion of Life
-j34 -- A Jade Figurine
-g34 -- The Golden Bird
-bbb -- Lam Esen's Tome
-box -- Horadric Cube
-tr1 -- Horadric Scroll
-mss -- Mephisto's Soulstone
-ass -- Book of Skill
-qey -- Khalim's Eye
-qhr -- Khalim's Heart
-qbr -- Khalim's Brain
-ear -- Ear
-gcv -- Chipped Amethyst
-gfv -- Flawed Amethyst
-gsv -- Amethyst
-gzv -- Flawless Amethyst
-gpv -- Perfect Amethyst
-gcy -- Chipped Topaz
-gfy -- Flawed Topaz
-gsy -- Topaz
-gly -- Flawless Topaz
-gpy -- Perfect Topaz
-gcb -- Chipped Sapphire
-gfb -- Flawed Sapphire
-gsb -- Sapphire
-glb -- Flawless Sapphire
-gpb -- Perfect Sapphire
-gcg -- Chipped Emerald
-gfg -- Flawed Emerald
-gsg -- Emerald
-glg -- Flawless Emerald
-gpg -- Perfect Emerald
-gcr -- Chipped Ruby
-gfr -- Flawed Ruby
-gsr -- Ruby
-glr -- Flawless Ruby
-gpr -- Perfect Ruby
-gcw -- Chipped Diamond
-gfw -- Flawed Diamond
-gsw -- Diamond
-glw -- Flawless Diamond
-gpw -- Perfect Diamond
-hp1 -- Minor Healing Potion
-hp2 -- Light Healing Potion
-hp3 -- Healing Potion
-hp4 -- Greater Healing Potion
-hp5 -- Super Healing Potion
-mp1 -- Minor Mana Potion
-mp2 -- Light Mana Potion
-mp3 -- Mana Potion
-mp4 -- Greater Mana Potion
-mp5 -- Super Mana Potion
-skc -- Chipped Skull
-skf -- Flawed Skull
-sku -- Skull
-skl -- Flawless Skull
-skz -- Perfect Skull
- -- Expansion
-hrb -- Herb
-cm1 -- Small Charm
-cm2 -- Large Charm
-cm3 -- Grand Charm
-rps -- Small Red Potion
-rpl -- Large Red Potion
-bps -- Small Blue Potion
-bpl -- Large Blue Potion
-r01 -- El Rune
-r02 -- Eld Rune
-r03 -- Tir Rune
-r04 -- Nef Rune
-r05 -- Eth Rune
-r06 -- Ith Rune
-r07 -- Tal Rune
-r08 -- Ral Rune
-r09 -- Ort Rune
-r10 -- Thul Rune
-r11 -- Amn Rune
-r12 -- Sol Rune
-r13 -- Shael Rune
-r14 -- Dol Rune
-r15 -- Hel Rune
-r16 -- Io Rune
-r17 -- Lum Rune
-r18 -- Ko Rune
-r19 -- Fal Rune
-r20 -- Lem Rune
-r21 -- Pul Rune
-r22 -- Um Rune
-r23 -- Mal Rune
-r24 -- Ist Rune
-r25 -- Gul Rune
-r26 -- Vex Rune
-r27 -- Ohm Rune
-r28 -- Lo Rune
-r29 -- Sur Rune
-r30 -- Ber Rune
-r31 -- Jah Rune
-r32 -- Cham Rune
-r33 -- Zod Rune
-jew -- Jewel
-ice -- Malah's Potion
-0sc -- Scroll of Knowledge
-tr2 -- Scroll of Resistance
-pk1 -- Key of Terror
-pk2 -- Key of Hate
-pk3 -- Key of Destruction
-dhn -- Diablo's Horn
-bey -- Baal's Eye
-mbr -- Mephisto's Brain
-toa -- Token of Absolution
-tes -- Twisted Essence of Suffering
-ceh -- Charged Essense of Hatred
-bet -- Burning Essence of Terror
-fed -- Festering Essence of Destruction
-std -- Standard of Heroes
-S01 -- Soul Fragment
-Gu1 -- GoldUp
-Gu2 -- GoldUp
-Gu3 -- GoldUp
-Gu4 -- GoldUp
-Gu5 -- GoldUpBar
-Rgx -- Ramaladni's Gift
-Cr1 -- Sparking Crystal
-Cr2 -- Burning Crystal
-Cr3 -- Frigid Crystal
-Cr4 -- Toxic Crystal
-Cr5 -- Hardened Crystal
-Cr6 -- Shining Crystal
-UCR -- Unique Core
-Bbp -- Basic Blueprint
-Xbp -- Exceptional Blueprint
-Ebp -- Elite Blueprint
-y08 -- Mythos Log
-BoH -- Beacon
-y09 -- TreasureChestArmo4
-y10 -- TreasureChestArmo3
-y11 -- TreasureChestArmo2
-y12 -- TreasureChestArmo1
-y13 -- TreasureChestWeap4
-y14 -- TreasureChestWeap3
-y15 -- TreasureChestWeap2
-y16 -- TreasureChestWeap1
-y17 -- TreasureChestRing4
-y18 -- TreasureChestRing3
-y19 -- TreasureChestRing2
-y20 -- TreasureChestRing1
-y21 -- TreasureChestAmul4
-y22 -- TreasureChestAmul3
-y23 -- TreasureChestAmul2
-y24 -- TreasureChestAmul1
-y25 -- TreasureChestBowq4
-y26 -- TreasureChestBowq3
-y27 -- TreasureChestBowq2
-y28 -- TreasureChestBowq1
-y29 -- TreasureChestRune4
-y30 -- TreasureChestRune3
-y31 -- TreasureChestRune2
-y32 -- TreasureChestRune1
-Y20 -- ShopVoucher
-EcW -- Enchanted Wood
-IN1 -- Ashy Bone
-IN2 -- Broken Bone
-IN3 -- Soulless Skull
-IN4 -- Frail Skull
-IN5 -- Nevermelt Ice
-IN6 -- Charge Vein
-IN7 -- Life Spark
-TK0 -- Global Token
-TK1 -- Amazon Token
-TK2 -- Sorceress Token
-TK3 -- Necromancer Token
-TK4 -- Paladin Token
-TK5 -- Barbarian Token
-TK6 -- Druid Token
-TK7 -- Assassin Token
-Z01 -- Storage Bag
-Z02 -- Gem Remover
-Z03 -- Gem Remover
-Z04 -- Gem Remover
-Z05 -- Gem Remover
-Z06 -- Gem Remover
-Z07 -- Gem Remover
-Z08 -- Gem Remover
-Z09 -- Rune Remover
-Z10 -- Rune Remover
-Z11 -- Rune Remover
-Z12 -- Rune Remover
-Z13 -- Rune Remover
-Z14 -- Rune Remover
-Z15 -- Rune Remover
-Z16 -- Rune Remover
-Z17 -- Rune Remover
-Z18 -- Rune Remover
-Z19 -- Rune Remover
-Z20 -- Rune Remover
-Z21 -- Rune Remover
-Z22 -- Rune Remover
-Z23 -- Rune Remover
-Z24 -- Rune Remover
-Z25 -- Rune Remover
-Z26 -- Rune Remover
-Z27 -- Rune Remover
-Z28 -- Rune Remover
-Z29 -- Rune Remover
-Z30 -- Rune Remover
-Z31 -- Rune Remover
-Z32 -- Rune Remover
-Z33 -- Rune Remover
-Z34 -- Rune Remover
-Z35 -- Rune Remover
-Z36 -- Rune Remover
-Z37 -- Rune Remover
-Z38 -- Rune Remover
-Z39 -- Rune Remover
-Z40 -- Rune Remover
-Z41 -- Rune Remover
-Z42 -- Key Remover
-Z43 -- Key Remover
-Z44 -- Key Remover
-Z45 -- Organ Remover
-Z46 -- Organ Remover
-Z47 -- Organ Remover
-Z48 -- Rune Converter
-Z49 -- Rune Converter
-Z50 -- Rune Converter
-Z51 -- Rune Converter
-GBd -- Gold Bar Downgrader
-TK8 -- Soul Forger
-Z52 -- Empty Bottle
-Z53 -- White Bottle
-Z54 -- Black Bottle
-Z55 -- Blue Bottle
-Z56 -- Red Bottle
-Z57 -- Green Bottle
-Z58 -- Yellow Bottle
-Z59 -- Purple Bottle
-Z60 -- Enhance Crystal
-Z61 -- Enhance Crystal
-Z62 -- Enhance Crystal
-Z63 -- Enhance Crystal
-Z64 -- Enhance Crystal
-Z65 -- Enhance Crystal
-Z66 -- Enhance Crystal
-Z67 -- Enhance Crystal
-Z68 -- Enhance Crystal
-Z69 -- Enhance Crystal
-Z70 -- Enhance Crystal
-Z71 -- Enhance Crystal
-Z72 -- Enhance Crystal
-Z73 -- Enhance Crystal
-Z74 -- Enhance Crystal
-Z75 -- Enhance Crystal
-Z76 -- Enhance Crystal
-Z77 -- Enhance Crystal
-Z78 -- Enhance Crystal
-Z79 -- Enhance Crystal
-Z80 -- Enhance Crystal
-Z81 -- Enhance Crystal
-Z82 -- Enhance Crystal
-Z83 -- Enhance Crystal
-Z84 -- Enhance Crystal
-Z85 -- Enhance Crystal
-Z86 -- Enhance Crystal
-Z87 -- Enhance Crystal
-Z88 -- Enhance Crystal
-Z89 -- Enhance Crystal
-Z90 -- Enhance Crystal
-Z91 -- Enhance Crystal
-Z92 -- Enhance Crystal
-Z93 -- Enhance Crystal
-Z94 -- Enhance Crystal
-Z95 -- Enhance Crystal
-Z96 -- Enhance Crystal
-Z97 -- Enhance Crystal
-Z98 -- Enhance Crystal
-Z99 -- Enhance Crystal
-z00 -- Enhance Crystal
-z01 -- Enhance Crystal
-z02 -- Enhance Crystal
-z03 -- Enhance Crystal
-z04 -- Enhance Crystal
-z05 -- Enhance Crystal
-z06 -- Enhance Crystal
-z07 -- Enhance Crystal
-z08 -- Enhance Crystal
-z09 -- Enhance Crystal
-z10 -- Enhance Crystal
-z11 -- Enhance Crystal
-z12 -- Enhance Crystal
-z13 -- Enhance Crystal
-z14 -- Enhance Crystal
-z15 -- Enhance Crystal
-z16 -- Enhance Crystal
-z17 -- Enhance Crystal
-z18 -- Enhance Crystal
-z19 -- Enhance Crystal Remover
-z20 -- Enhance Crystal Remover
-z21 -- Enhance Crystal Remover
-z22 -- Enhance Crystal Remover
-z23 -- Enhance Crystal Remover
-z24 -- Enhance Crystal Remover
-z25 -- Enhance Crystal Remover
-z26 -- Enhance Crystal Remover
-z27 -- Enhance Crystal Remover
-z28 -- Enhance Crystal Remover
-z29 -- Enhance Crystal Remover
-z30 -- Enhance Crystal Remover
-z31 -- Enhance Crystal Remover
-z32 -- Enhance Crystal Remover
-z33 -- Enhance Crystal Remover
-z34 -- Enhance Crystal Remover
-z35 -- Enhance Crystal Remover
-z36 -- Enhance Crystal Remover
-z37 -- Enhance Crystal Remover
-z38 -- Enhance Crystal Remover
-z39 -- Enhance Crystal Remover
-z40 -- Enhance Crystal Remover
-z41 -- Enhance Crystal Remover
-z42 -- Enhance Crystal Remover
-z43 -- Enhance Crystal Remover
-z44 -- Enhance Crystal Remover
-z45 -- Enhance Crystal Remover
-z46 -- Enhance Crystal Remover
-z47 -- Enhance Crystal Remover
-z48 -- Enhance Crystal Remover
-z49 -- Enhance Crystal Remover
-z50 -- Enhance Crystal Remover
-z51 -- Enhance Crystal Remover
-z52 -- Enhance Crystal Remover
-z53 -- Enhance Crystal Remover
-z54 -- Enhance Crystal Remover
-z55 -- Enhance Crystal Remover
-z56 -- Enhance Crystal Remover
-z57 -- Enhance Crystal Remover
-z58 -- Enhance Crystal Remover
-z59 -- Enhance Crystal Remover
-z60 -- Enhance Crystal Remover
-z61 -- Enhance Crystal Remover
-z62 -- Enhance Crystal Remover
-z63 -- Enhance Crystal Remover
-z64 -- Enhance Crystal Remover
-z65 -- Enhance Crystal Remover
-z66 -- Enhance Crystal Remover
-z67 -- Enhance Crystal Remover
-z68 -- Enhance Crystal Remover
-z69 -- Enhance Crystal Remover
-z70 -- Enhance Crystal Remover
-z71 -- Enhance Crystal Remover
-z72 -- Enhance Crystal Remover
-z73 -- Enhance Crystal Remover
-z74 -- Enhance Crystal Remover
-z75 -- Enhance Crystal Remover
-z76 -- Enhance Crystal Remover
-z77 -- Enhance Crystal Remover
-y66 -- Starter Package Set
-y67 -- Belial's Scroll
-a00 -- Blood Contract
-a01 -- Blood Contract
-a02 -- Blood Contract
-a03 -- Blood Contract
-a04 -- Blood Contract
-a05 -- Blood Contract
-a06 -- Scroll of Triumph
-a07 -- Blood Contract
-a08 -- Blood Contract
-a09 -- Blood Contract
-a10 -- Trial Charm 1
-a11 -- Trial Charm 2
-a12 -- Trial Charm 3
-a13 -- Trial Charm 4
-a14 -- Trial Charm 5
-a15 -- Trial Charm 6
-a16 -- Trial Charm 7
-a17 -- Trial Charm 8
-a18 -- Trial Charm 9
-a19 -- Trial Charm 10
-a20 -- Trial Charm 11
-a21 -- Trial Charm 12
-a22 -- Trial Charm 13
-a23 -- Trial Charm 14
-a24 -- Trial Charm 15
-a25 -- Trial Charm 16
-a26 -- Trial Charm 17
-a27 -- Trial Charm 18
-a28 -- Trial Charm 19
-a29 -- Trial Charm 20
-a30 -- Trial Charm 21
-a31 -- Trial Charm 22
-a32 -- Trial Charm 23
-a33 -- Trial Charm 24
-a34 -- Trial Charm 25
-a35 -- Trial Charm 26
-a36 -- Trial Charm 27
-a37 -- Trial Charm 28
-a38 -- Trial Charm 29
-a39 -- Trial Charm 30
-a40 -- Trial Charm 31
-a41 -- Trial Charm 32
-a42 -- Trial Charm 33
-a43 -- Trial Charm 34
-a44 -- Trial Charm 35
-a45 -- Trial Charm 36
-a46 -- Trial Charm 37
-a47 -- Trial Charm 38
-a48 -- Trial Charm 39
-a49 -- Trial Charm 40
-a50 -- Trial Charm 41
-a51 -- Trial Charm 42
-a52 -- Trial Charm 43
-a53 -- Trial Charm 44
-a54 -- Trial Charm 45
-a55 -- Trial Charm 46
-a56 -- Trial Charm 47
-a57 -- Trial Charm 48
-a58 -- Trial Charm 49
-a59 -- Trial Charm C1
-a60 -- Trial Charm C2
-a61 -- Trial Charm C3
-a62 -- Trial Charm C4
-a63 -- Trial Charm C5
-a64 -- Trial Charm C6
-a65 -- Trial Charm C7
-a66 -- Trial Charm Mega
-a67 -- Blood Contract
-a68 -- Blood Contract
-a69 -- Blood Contract
-a70 -- Blood Contract
-a71 -- Blood Contract
-a72 -- Blood Contract
-a73 -- Blood Contract
-a74 -- Blood Contract
-a75 -- Blood Contract
-a76 -- Blood Contract
-a77 -- Blood Contract
-a78 -- Blood Contract
-a79 -- Blood Contract
-a80 -- Blood Contract
-a81 -- Blood Contract
-a82 -- Blood Contract
-a83 -- Blood Contract
-a84 -- Blood Contract
-a85 -- Blood Contract
-a86 -- Blood Contract
-a87 -- Blood Contract
-a88 -- Blood Contract
-a89 -- Blood Contract
-a90 -- Blood Contract
-a91 -- Blood Contract
-a92 -- Blood Contract
-a93 -- Blood Contract
-a94 -- Blood Contract
-a95 -- Blood Contract
-a96 -- Blood Contract
-a97 -- Blood Contract
-a98 -- Blood Contract
-a99 -- Blood Contract
-A00 -- Blood Contract
-A01 -- Blood Contract
-A02 -- Blood Contract
-A03 -- Blood Contract
-A04 -- Blood Contract
-A05 -- Blood Contract
-A06 -- Blood Contract
-A07 -- Blood Contract
-A08 -- Blood Contract
-A09 -- Blood Contract
-A10 -- Blood Contract
-A11 -- Blood Contract
-A12 -- Blood Contract
-A13 -- Blood Contract
-A14 -- Blood Contract
-A15 -- Blood Contract
-A16 -- Blood Contract
-A17 -- Blood Contract
-A18 -- Blood Contract
-A19 -- Blood Contract
-A20 -- Blood Contract
-A21 -- Blood Contract
-A22 -- Blood Contract
-A23 -- Blood Contract
-A24 -- Blood Contract
-A25 -- Blood Contract
-A26 -- Blood Contract
-A27 -- Blood Contract
-A28 -- Blood Contract
-A29 -- Blood Contract
-A30 -- Blood Contract
-A31 -- Blood Contract
-A32 -- Blood Contract
-A33 -- Blood Contract
-A34 -- Blood Contract
-A35 -- Blood Contract
-A36 -- Blood Contract
-A37 -- Blood Contract
-A38 -- Blood Contract
-A39 -- Blood Contract
-A40 -- Blood Contract
-A41 -- Blood Contract
-A42 -- Blood Contract
-A43 -- Blood Contract
-A44 -- Blood Contract
-A45 -- Blood Contract
-A46 -- Blood Contract
-A47 -- Blood Contract
-A48 -- Blood Contract
-A49 -- Blood Contract
-A50 -- Blood Contract
-A51 -- Blood Contract
-A52 -- Blood Contract
-A53 -- Blood Contract
-A54 -- Blood Contract
-A55 -- Blood Contract
-A56 -- Blood Contract
-A57 -- Blood Contract
-A58 -- Blood Contract
-A59 -- Blood Contract
-A60 -- Blood Contract
-A61 -- Blood Contract
-A62 -- Blood Contract
-A63 -- Blood Contract
-A64 -- Blood Contract
-A65 -- Blood Contract
-A66 -- Blood Contract
-A67 -- Blood Contract
-A68 -- Blood Contract
-A69 -- Blood Contract
-A70 -- Blood Contract
-A71 -- Blood Contract
-A72 -- Blood Contract
-A73 -- Blood Contract
-A74 -- Blood Contract
-A75 -- Blood Contract
-A76 -- Blood Contract
-A77 -- Blood Contract
-A78 -- Blood Contract
-A79 -- Blood Contract
-A80 -- Blood Contract
-A81 -- Blood Contract
-A82 -- Blood Contract
-A83 -- Blood Contract
-A84 -- Blood Contract
-A85 -- Blood Contract
-A86 -- Blood Contract
-A87 -- Blood Contract
-A88 -- Blood Contract
-A89 -- Blood Contract
-A90 -- Blood Contract
-A91 -- Blood Contract
-A92 -- Blood Contract
-A93 -- Blood Contract
-A94 -- Blood Contract
-A95 -- Blood Contract
-A96 -- Blood Contract
-A97 -- Blood Contract
-A98 -- Blood Contract
-A99 -- Blood Contract
-b00 -- Blood Contract
-b01 -- Blood Contract
-b02 -- Blood Contract
-b03 -- Blood Contract
-b04 -- Blood Contract
-b05 -- Blood Contract
-b06 -- Blood Contract
-b07 -- Blood Contract
-b08 -- Blood Contract
-b09 -- Blood Contract
-b10 -- Blood Contract
-b11 -- Blood Contract
-b12 -- Blood Contract
-b13 -- Blood Contract
-b14 -- Blood Contract
-b15 -- Blood Contract
-b16 -- Blood Contract
-b17 -- Blood Contract
-b18 -- Blood Contract
-b19 -- Blood Contract
-b20 -- Blood Contract
-b21 -- Blood Contract
-b22 -- Blood Contract
-b23 -- Blood Contract
-b24 -- Blood Contract
-b25 -- Blood Contract
-b26 -- Blood Contract
-b27 -- Blood Contract
-b28 -- Blood Contract
-b29 -- Blood Contract
-b30 -- Blood Contract
-b31 -- Blood Contract
-b32 -- Blood Contract
-b33 -- Blood Contract
-b34 -- Blood Contract
-b35 -- Blood Contract
-b36 -- Blood Contract
-b37 -- Blood Contract
-b38 -- Blood Contract
-b39 -- Blood Contract
-b40 -- Blood Contract
-b41 -- Blood Contract
-b42 -- Blood Contract
-b43 -- Blood Contract
-b44 -- Blood Contract
-b45 -- Blood Contract
-b46 -- Blood Contract
-b47 -- Blood Contract
-b48 -- Blood Contract
-b49 -- Blood Contract
-b50 -- Blood Contract
-b51 -- Blood Contract
-b52 -- Blood Contract
-b53 -- Blood Contract
-b54 -- Blood Contract
-b55 -- Blood Contract
-b56 -- Blood Contract
-b57 -- Blood Contract
-b58 -- Blood Contract
-b59 -- Blood Contract
-b60 -- Blood Contract
-b61 -- Blood Contract
-b62 -- Blood Contract
-b63 -- Blood Contract
-y33 -- GemVein
-b64 -- Socket Remover
-b65 -- Super Socket Remover
-K01 -- TT Ticket
-K02 -- TT Ticket
-K03 -- TT Ticket
-K04 -- TT Ticket
-K05 -- TT Ticket
-K06 -- TT Ticket
-K07 -- TT Ticket
-K08 -- TT Ticket
-K09 -- TT Ticket
-K10 -- TT Ticket
-K11 -- TT Ticket
-K12 -- TT Ticket
-K13 -- TT Ticket
-K14 -- TT Ticket
-K15 -- TT Ticket
-K16 -- TT Ticket
-K17 -- TT Ticket
-K18 -- TT Ticket
-K19 -- TT Ticket
-K20 -- TT Ticket
-K21 -- TT Ticket
-K22 -- TT Ticket
-K23 -- TT Ticket
-K24 -- TT Ticket
-K25 -- TT Ticket
-K26 -- TT Ticket
-K27 -- TT Ticket
-K28 -- TT Ticket
-K29 -- TT Ticket
-K30 -- TT Ticket
-K31 -- TT Ticket
-K32 -- TT Ticket
-K33 -- TT Ticket
-K34 -- TT Ticket
-K35 -- TT Ticket
-K36 -- TT Ticket
-K37 -- TT Ticket
-K38 -- TT Ticket
-K39 -- TT Ticket
-K40 -- TT Ticket
-K41 -- TT Ticket
-K42 -- TT Ticket
-K43 -- TT Ticket
-K44 -- TT Ticket
-K45 -- TT Ticket
-K46 -- TT Ticket
-K47 -- TT Ticket
-K48 -- TT Ticket
-K49 -- TT Ticket
-K50 -- TT Ticket
-K51 -- TT Ticket
-K52 -- TT Ticket
-K53 -- TT Ticket
-K54 -- TT Ticket
-K55 -- TT Ticket
-K56 -- TT Ticket
-K57 -- TT Ticket
-K58 -- TT Ticket
-K59 -- TT Ticket
-K60 -- TT Ticket
-K61 -- TT Ticket
-K62 -- TT Ticket
-K63 -- TT Ticket
-K64 -- TT Ticket
-K65 -- TT Ticket
-K66 -- TT Ticket
-K67 -- TT Ticket
-K68 -- TT Ticket
-K69 -- TT Ticket
-K70 -- TT Ticket
-K71 -- TT Ticket
-K72 -- TT Ticket
-K73 -- TT Ticket
-K74 -- TT Ticket
-K75 -- TT Ticket
-K76 -- TT Ticket
-K77 -- TT Ticket
-K78 -- TT Ticket
-K79 -- TT Ticket
-K80 -- TT Ticket
-r34 -- Di Rune
-r35 -- Ab Rune
-L00 -- Set Voucher
-L01 -- Set Voucher
-L02 -- Set Voucher
-L03 -- Set Voucher
-L04 -- Set Voucher
-L05 -- Set Voucher
-L06 -- Set Voucher
-L07 -- Set Voucher
-L08 -- Set Voucher
-L09 -- Set Voucher
-L10 -- Set Voucher
-L11 -- Set Voucher
-L12 -- Set Voucher
-L13 -- Set Voucher
-L14 -- Set Voucher
-L15 -- Set Voucher
-L16 -- Set Voucher
-L17 -- Set Voucher
-L18 -- Set Voucher
-L19 -- Set Voucher
-L20 -- Set Voucher
-L21 -- Set Voucher
-L22 -- Set Voucher
-L23 -- Set Voucher
-L24 -- Set Voucher
-L25 -- Set Voucher
-L26 -- Set Voucher
-L27 -- Set Voucher
-L28 -- Set Voucher
-L29 -- Set Voucher
-L30 -- Set Voucher
-L31 -- Set Voucher
-L32 -- Set Voucher
-L33 -- Set Voucher
-L34 -- Set Voucher
-L35 -- Set Voucher
-L36 -- Set Voucher
-L37 -- Set Voucher
-L38 -- Set Voucher
-L39 -- Set Voucher
-L40 -- Set Voucher
-L41 -- Set Voucher
-L42 -- Set Voucher
-L43 -- Set Voucher
-L44 -- Set Voucher
-L45 -- Set Voucher
-L46 -- Set Voucher
-L47 -- Set Voucher
-L48 -- Set Voucher
-L49 -- Set Voucher
-L50 -- Set Voucher
-L51 -- Set Voucher
-L52 -- Set Voucher
-L53 -- Set Voucher
-L54 -- Set Voucher
-L55 -- Set Voucher
-L56 -- Set Voucher
-L57 -- Set Voucher
-L58 -- Set Voucher
-L59 -- Set Voucher
-L60 -- Set Voucher
-L61 -- Set Voucher
-L62 -- Set Voucher
-L63 -- Set Voucher
-L64 -- Set Voucher
-L65 -- Set Voucher
-L66 -- Set Voucher
-L67 -- Set Voucher
-L68 -- Set Voucher
-L69 -- Set Voucher
-L70 -- Set Voucher
-L71 -- Set Voucher
-L72 -- Set Voucher
-L73 -- Set Voucher
-L74 -- Set Voucher
-L75 -- Set Voucher
-L76 -- Set Voucher
-L77 -- Set Voucher
-L78 -- Set Voucher
-L79 -- Set Voucher
-L80 -- Set Voucher
-L81 -- Set Voucher
-L82 -- Set Voucher
-L83 -- Set Voucher
-L84 -- Set Voucher
-L85 -- Set Voucher
-L86 -- Set Voucher
-L87 -- Set Voucher
-L88 -- Set Voucher
-L89 -- Set Voucher
-L90 -- Set Voucher
-L91 -- Set Voucher
-L92 -- Set Voucher
-L93 -- Set Voucher
-L94 -- Set Voucher
-L95 -- Set Voucher
-L96 -- Set Voucher
-L97 -- Set Voucher
-L98 -- Set Voucher
-L99 -- Set Voucher
-C00 -- Flag1
-C01 -- Flag2
-C02 -- Flag3
-C03 -- Flag4
-C04 -- Flag5
-C05 -- Flag6
-C06 -- Flag7
-C07 -- Flag8
-C08 -- Flag9
-C09 -- Flag10
-C10 -- Soul1
-C11 -- Soul2
-C12 -- Soul3
-C13 -- Soul4
-C14 -- Soul5
-C15 -- Soul6
-C16 -- Soul7
-C17 -- Soul8
-C18 -- Soul9
-C19 -- Jawbone1
-C20 -- Jawbone2
-C21 -- Jawbone3
-C22 -- Jawbone4
-C23 -- Jawbone5
-C24 -- Jawbone6
-C25 -- Horn1
-C26 -- Horn2
-C27 -- Horn3
-C28 -- Horn4
-C29 -- Horn5
-C30 -- Tail1
-C31 -- Tail2
-C32 -- Tail3
-C33 -- Tail4
-C34 -- Tail5
-C35 -- Fang1
-C36 -- Fang2
-C37 -- Fang3
-y01 -- Mythos Log1
-y02 -- Mythos Log2
-y03 -- Mythos Log3
-y04 -- Mythos Log4
-y05 -- Mythos Log5
-y06 -- Mythos Log6
-y07 -- Mythos Log7
-Ev1 -- Easter Egg
-Ev2 -- Easter Egg
-Ev3 -- Easter Egg
-Ev4 -- Easter Egg
-Ev5 -- Easter Egg
-Ev6 -- Easter Egg
-Ev7 -- Easter Egg
-Ev8 -- Easter Egg
-m00 -- Map - Basic
-m01 -- Map - Average
-m02 -- Map - Superior
-m03 -- Map - Basic
-m04 -- Map - Average
-m05 -- Map - Superior
-m06 -- Map - Basic
-m07 -- Map - Average
-m08 -- Map - Superior
-m09 -- Map - Basic
-m10 -- Map - Average
-m11 -- Map - Superior
-m12 -- Map - Basic
-m13 -- Map - Average
-m14 -- Map - Superior
-m15 -- Map - Basic
-m16 -- Map - Average
-m17 -- Map - Superior
-m18 -- Map - Basic
-m19 -- Map - Average
-m20 -- Map - Superior
-m21 -- Map - Basic
-m22 -- Map - Average
-m23 -- Map - Superior
-m24 -- Map - Basic
-m25 -- Map - Average
-m26 -- Map - Superior
-m27 -- Map - Master
-m28 -- Surveyor's Scribbles
-m29 -- Parchment of Potency
-m30 -- Quill of Quality
-m31 -- Ink of Insanity
-m32 -- Small Charm Clone
-m33 -- Large Charm Clone
-m34 -- Grand Charm Clone
-m35 -- Grand Charm Clone
-j00 -- Sacred Jewel
-r36 -- Er Rune
-z80 -- Rune Converter
-z81 -- Rune Converter
-z82 -- Rune Remover
-z83 -- Rune Remover
-z84 -- Rune Remover
-D06 -- Demon Ring
-D07 -- Demon Ring
-D10 -- Demon Large Charm
-D18 -- Demon Amulet
-D22 -- Demon Amulet
-D32 -- Demon Small Charm
-m36 -- Small Charm Low
-Ev0 -- Broken Gift
-m37 -- LB Respec Fixer
-y34 -- Mythos LogA1
-y35 -- Mythos LogA2
-y36 -- Mythos LogA3
-y37 -- Mythos LogA4
-y38 -- Mythos LogA5
-y39 -- Mythos LogA6
-y40 -- Mythos LogA7
-
-
-------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------
-
-
-Available Stat ID's:
-
-0 -- strength
-1 -- energy
-2 -- dexterity
-3 -- vitality
-4 -- statpts
-5 -- newskills
-6 -- hitpoints
-7 -- maxhp
-8 -- mana
-9 -- maxmana
-10 -- stamina
-11 -- maxstamina
-12 -- level
-13 -- experience
-14 -- gold
-15 -- goldbank
-16 -- item_armor_percent
-17 -- item_maxdamage_percent
-18 -- item_mindamage_percent
-19 -- tohit
-20 -- toblock
-21 -- mindamage
-22 -- maxdamage
-23 -- secondary_mindamage
-24 -- secondary_maxdamage
-25 -- damagepercent
-26 -- manarecovery
-27 -- manarecoverybonus
-28 -- staminarecoverybonus
-29 -- lastexp
-30 -- nextexp
-31 -- armorclass
-32 -- armorclass_vs_missile
-33 -- armorclass_vs_hth
-34 -- normal_damage_reduction
-35 -- magic_damage_reduction
-36 -- damageresist
-37 -- magicresist
-38 -- maxmagicresist
-39 -- fireresist
-40 -- maxfireresist
-41 -- lightresist
-42 -- maxlightresist
-43 -- coldresist
-44 -- maxcoldresist
-45 -- poisonresist
-46 -- maxpoisonresist
-47 -- damageaura
-48 -- firemindam
-49 -- firemaxdam
-50 -- lightmindam
-51 -- lightmaxdam
-52 -- magicmindam
-53 -- magicmaxdam
-54 -- coldmindam
-55 -- coldmaxdam
-56 -- coldlength
-57 -- poisonmindam
-58 -- poisonmaxdam
-59 -- poisonlength
-60 -- lifedrainmindam
-61 -- lifedrainmaxdam
-62 -- manadrainmindam
-63 -- manadrainmaxdam
-64 -- stamdrainmindam
-65 -- stamdrainmaxdam
-66 -- stunlength
-67 -- velocitypercent
-68 -- attackrate
-69 -- other_animrate
-70 -- quantity
-71 -- value
-72 -- durability
-73 -- maxdurability
-74 -- hpregen
-75 -- item_maxdurability_percent
-76 -- item_maxhp_percent
-77 -- item_maxmana_percent
-78 -- item_attackertakesdamage
-79 -- item_goldbonus
-80 -- item_magicbonus
-81 -- item_knockback
-82 -- item_timeduration
-83 -- item_addclassskills
-84 -- unsentparam1
-85 -- item_addexperience
-86 -- item_healafterkill
-87 -- item_reducedprices
-88 -- item_doubleherbduration
-89 -- item_lightradius
-90 -- item_lightcolor
-91 -- item_req_percent
-92 -- item_levelreq
-93 -- item_fasterattackrate
-94 -- item_levelreqpct
-95 -- lastblockframe
-96 -- item_fastermovevelocity
-97 -- item_nonclassskill
-98 -- state
-99 -- item_fastergethitrate
-100 -- monster_playercount
-101 -- skill_poison_override_length
-102 -- item_fasterblockrate
-103 -- skill_bypass_undead
-104 -- skill_bypass_demons
-105 -- item_fastercastrate
-106 -- skill_bypass_beasts
-107 -- item_singleskill
-108 -- item_restinpeace
-109 -- curse_resistance
-110 -- item_poisonlengthresist
-111 -- item_normaldamage
-112 -- item_howl
-113 -- item_stupidity
-114 -- item_damagetomana
-115 -- item_ignoretargetac
-116 -- item_fractionaltargetac
-117 -- item_preventheal
-118 -- item_halffreezeduration
-119 -- item_tohit_percent
-120 -- item_damagetargetac
-121 -- item_demondamage_percent
-122 -- item_undeaddamage_percent
-123 -- item_demon_tohit
-124 -- item_undead_tohit
-125 -- item_throwable
-126 -- item_elemskill
-127 -- item_allskills
-128 -- item_attackertakeslightdamage
-129 -- ironmaiden_level
-130 -- lifetap_level
-131 -- thorns_percent
-132 -- bonearmor
-133 -- bonearmormax
-134 -- item_freeze
-135 -- item_openwounds
-136 -- item_crushingblow
-137 -- item_kickdamage
-138 -- item_manaafterkill
-139 -- item_healafterdemonkill
-140 -- item_extrablood
-141 -- item_deadlystrike
-142 -- item_absorbfire_percent
-143 -- item_absorbfire
-144 -- item_absorblight_percent
-145 -- item_absorblight
-146 -- item_absorbmagic_percent
-147 -- item_absorbmagic
-148 -- item_absorbcold_percent
-149 -- item_absorbcold
-150 -- item_slow
-151 -- item_aura
-152 -- item_indesctructible
-153 -- item_cannotbefrozen
-154 -- item_staminadrainpct
-155 -- item_reanimate
-156 -- item_pierce
-157 -- item_magicarrow
-158 -- item_explosivearrow
-159 -- item_throw_mindamage
-160 -- item_throw_maxdamage
-161 -- skill_handofathena
-162 -- skill_staminapercent
-163 -- skill_passive_staminapercent
-164 -- skill_concentration
-165 -- skill_enchant
-166 -- skill_pierce
-167 -- skill_conviction
-168 -- skill_chillingarmor
-169 -- skill_frenzy
-170 -- skill_decrepify
-171 -- skill_armor_percent
-172 -- alignment
-173 -- target0
-174 -- target1
-175 -- goldlost
-176 -- conversion_level
-177 -- conversion_maxhp
-178 -- unit_dooverlay
-179 -- attack_vs_montype
-180 -- damage_vs_montype
-181 -- fade
-182 -- armor_override_percent
-183 -- killtrack
-184 -- deathtrack
-185 -- bonus_mindamage
-186 -- bonus_maxdamage
-187 -- item_pierce_cold_immunity
-188 -- item_addskill_tab
-189 -- item_pierce_fire_immunity
-190 -- item_pierce_light_immunity
-191 -- item_pierce_poison_immunity
-192 -- item_pierce_damage_immunity
-193 -- item_pierce_magic_immunity
-194 -- item_numsockets
-195 -- item_skillonattack
-196 -- item_skillonkill
-197 -- item_skillondeath
-198 -- item_skillonhit
-199 -- item_skillonlevelup
-200 -- item_charge_noconsume
-201 -- item_skillongethit
-202 -- modifierlist_castid
-203 -- unused203
-204 -- item_charged_skill
-205 -- item_noconsume
-206 -- passive_mastery_noconsume
-207 -- passive_mastery_replenish_oncrit
-208 -- Item_Enhanced
-209 -- pali_killtrack
-210 -- unused210
-211 -- unused211
-212 -- passive_mastery_gethit_rate
-213 -- passive_mastery_attack_speed
-214 -- item_armor_perlevel
-215 -- item_armorpercent_perlevel
-216 -- item_hp_perlevel
-217 -- item_mana_perlevel
-218 -- item_maxdamage_perlevel
-219 -- item_maxdamage_percent_perlevel
-220 -- item_strength_perlevel
-221 -- item_dexterity_perlevel
-222 -- item_energy_perlevel
-223 -- item_vitality_perlevel
-224 -- item_tohit_perlevel
-225 -- item_tohitpercent_perlevel
-226 -- item_cold_damagemax_perlevel
-227 -- item_fire_damagemax_perlevel
-228 -- item_ltng_damagemax_perlevel
-229 -- item_pois_damagemax_perlevel
-230 -- item_resist_cold_perlevel
-231 -- item_resist_fire_perlevel
-232 -- item_resist_ltng_perlevel
-233 -- item_resist_pois_perlevel
-234 -- item_absorb_cold_perlevel
-235 -- item_absorb_fire_perlevel
-236 -- item_absorb_ltng_perlevel
-237 -- item_absorb_mag_perlevel
-238 -- item_thorns_perlevel
-239 -- item_find_gold_perlevel
-240 -- item_find_magic_perlevel
-241 -- item_regenstamina_perlevel
-242 -- item_stamina_perlevel
-243 -- item_damage_demon_perlevel
-244 -- item_damage_undead_perlevel
-245 -- item_tohit_demon_perlevel
-246 -- item_tohit_undead_perlevel
-247 -- item_crushingblow_perlevel
-248 -- item_openwounds_perlevel
-249 -- item_kick_damage_perlevel
-250 -- item_deadlystrike_perlevel
-251 -- item_find_gems_perlevel
-252 -- item_replenish_durability
-253 -- item_replenish_quantity
-254 -- item_extra_stack
-255 -- item_find_item
-256 -- item_openwounds_perstr
-257 -- item_deadlystrike_perdex
-258 -- item_deadlystrike_perstr
-259 -- item_armor_perstr
-260 -- item_fastercastrate_perenr
-261 -- item_crushingblow_perstr
-262 -- item_strength_percent
-263 -- item_dexterity_percent
-264 -- item_vitality_percent
-265 -- item_energy_percent
-266 -- item_splash
-267 -- item_skillonmisshit
-268 -- skill_freezesyn
-269 -- skill_chillsyn
-270 -- cheatcheck
-271 -- item_attackertakesfiredamage
-272 -- dont_use_me_272
-273 -- dont_use_me_273
-274 -- mana_per_gethit
-275 -- life_per_gethit
-276 -- ex_missiles
-277 -- item_attackertakescolddamage
-278 -- ex_attacks
-279 -- map_quality
-280 -- curse_resistance_perenr
-281 -- sum_dmg_perc
-282 -- sum_speed
-283 -- sum_ex
-284 -- sum_hp_perc
-285 -- sum_cr
-286 -- item_cooldownreduction
-287 -- item_pierce_perdex
-288 -- skill_bonesyn
-289 -- skill_rage
-290 -- skill_focus
-291 -- GB_Total
-292 -- RB_Low
-293 -- RB_Mid
-294 -- RB_High
-295 -- KB_Terror
-296 -- KB_Hate
-297 -- KB_Dest
-298 -- OB_Diablo
-299 -- OB_Baal
-300 -- OB_Meph
-301 -- unused301
-302 -- relic_tracker
-303 -- oskill_display
-151 -- aura_display
-305 -- item_pierce_cold
-306 -- item_pierce_fire
-307 -- item_pierce_ltng
-308 -- item_pierce_pois
-309 -- item_damage_vs_monster
-310 -- item_damage_percent_vs_monster
-311 -- item_tohit_vs_monster
-312 -- item_tohit_percent_vs_monster
-313 -- item_ac_vs_monster
-314 -- item_ac_percent_vs_monster
-315 -- firelength
-316 -- burningmin
-317 -- burningmax
-318 -- progressive_damage
-319 -- progressive_steal
-320 -- progressive_other
-321 -- progressive_fire
-322 -- progressive_cold
-323 -- progressive_lightning
-324 -- item_extra_charges
-325 -- progressive_tohit
-326 -- poison_count
-327 -- damage_framerate
-328 -- pierce_idx
-329 -- passive_fire_mastery
-330 -- passive_ltng_mastery
-331 -- passive_cold_mastery
-332 -- passive_pois_mastery
-333 -- passive_fire_pierce
-334 -- passive_ltng_pierce
-335 -- passive_cold_pierce
-336 -- passive_pois_pierce
-337 -- passive_critical_strike
-338 -- passive_dodge
-339 -- passive_avoid
-340 -- passive_evade
-341 -- passive_warmth
-342 -- passive_mastery_melee_th
-343 -- passive_mastery_melee_dmg
-344 -- passive_mastery_melee_crit
-345 -- passive_mastery_throw_th
-346 -- passive_mastery_throw_dmg
-347 -- passive_mastery_throw_crit
-348 -- passive_weaponblock
-349 -- passive_summon_resist
-350 -- modifierlist_skill
-351 -- modifierlist_level
-352 -- last_sent_hp_pct
-353 -- source_unit_type
-354 -- source_unit_id
-355 -- shortparam1
-356 -- questitemdifficulty
-357 -- passive_mag_mastery
-358 -- passive_mag_pierce
-359 -- skill_cooldown
-360 -- skill_missile_damage_scale
-361 -- CD_White
-362 -- CD_Black
-363 -- CD_Blue
-364 -- CD_Red
-365 -- CD_Green
-366 -- CD_Yellow
-367 -- CD_Purple
-368 -- CD_Tracker
-369 -- score_tracker
-370 -- Soul_Ama
-371 -- Soul_Sor
-372 -- Soul_Nec
-373 -- Soul_Pal
-374 -- Soul_Bar
-375 -- Soul_Dru
-376 -- Soul_Ass
-377 -- RW_Tracker
-378 -- Celestial_Aid
-379 -- boneadded
-380 -- vitality_hidden
-381 -- hsbonus
-382 -- item_slow_perdex
-383 -- chest_treasure
-384 -- enhance_low
-385 -- enhance_high
-386 -- ucore_tracker
-387 -- portals_unlock
-388 -- smite
-389 -- kill_dummy
-390 -- kill_display
-391 -- item_killregister
-392 -- death_dummy
-393 -- death_display
-394 -- item_deathregister
-395 -- sorceress
-396 -- mana_per_hit
-397 -- life_per_hit
-398 -- body_level
-399 -- unused399
-400 -- incant_duration
-401 -- incant_radius
-402 -- demontemper_check
-403 -- item_ravendamage
-404 -- item_maulsteal
-405 -- item_feralsteal
-406 -- Soul_Tracker
-407 -- item_fireskill
-408 -- item_lightskill
-409 -- item_coldskill
-410 -- item_poisskill
-411 -- item_magskill
-412 -- Soul_Level
-413 -- item_openwounds_perdex
-414 -- Weight_Tracker
-415 -- Weight_Capacity
-416 -- Weight_CapacityBase
-417 -- hitpoints_hidden
-418 -- fireball_radius
-419 -- JB_Rare
-420 -- PB_Rejuv
-421 -- KillBonus
-422 -- KillBonus_Dummy
-423 -- KillBonus_Display
-424 -- item_fasterattackrate_perstr
-425 -- item_tohit_perenr
-426 -- item_fasterattackrate_perenr
-427 -- buff_length_modifier
-428 -- skel_commander
-429 -- Weight_Dummy
-430 -- Weight_Display
-431 -- Freeze_HalfToFull
-432 -- map_e_defper
-433 -- map_e_hpper
-434 -- map_e_level
-435 -- map_e_dmgres
-436 -- map_e_magres
-437 -- map_e_fireres
-438 -- map_e_lightres
-439 -- map_e_coldres
-440 -- map_e_psnres
-441 -- map_e_speeda
-442 -- map_e_speedm
-443 -- map_e_cnbf
-444 -- map_e_allskills
-445 -- map_e_crush
-446 -- map_p_defper
-447 -- map_p_hpper
-448 -- map_p_dmgres
-449 -- map_p_magres
-450 -- map_p_fireres
-451 -- map_p_lightres
-452 -- map_p_coldres
-453 -- map_p_psnres
-454 -- map_p_speedm
-455 -- map_p_speeda
-456 -- map_p_speedc
-457 -- map_p_cnbf
-458 -- map_p_demon
-459 -- map_p_undead
-460 -- map_p_maek
-461 -- map_p_haek
-462 -- map_p_gold
-463 -- map_p_magic
-464 -- map_p_exp
-465 -- map_p_itd
-466 -- map_p_cdr
-467 -- map_p_crush
-468 -- item_reanimate_display
-469 -- item_skillonhit_noctc
-470 -- item_skillonhit_hidden
-471 -- item_skillongethit_hidden
-472 -- item_numsockets_percent
-473 -- energy_hidden
-474 -- RW_Tier
-475 -- RW_TierDisplay
-476 -- RB_Ultra
-477 -- item_skillonhit_sweeping
-478 -- item_skillonhit_cleaving
-479 -- item_skillonhit_piercing
-480 -- item_skillonmondeath
-481 -- xp_hidden
-482 -- LB_Unlock
-483 -- LB_One
-484 -- LB_Two
-485 -- LB_Three
-
-]]--
