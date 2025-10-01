@@ -1182,7 +1182,7 @@ allowOverrides = true,
 --			codes = {"Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "m32", "m34", "m35", "m36"},
 --			location = {"onplayer", "equipped", "onground", "atvendor"},
 --			name_override = "{red}Cube This Item Alone To Fix",
---			notify = "{red}WARNING!!! If you do not cube {pink}{name}{red} alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Those items can be in: eq / merc eq / stash. Click through all your Stash Pages and visit all your characters, so this tool can detect any broken items."
+--			notify = "{red}WARNING!!! If you do not cube {pink}{name}{red} alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Those items can be in: inv/merc/stash. Click through all your Stash Pages and visit all your characters, so this tool can detect any broken items."
 --		}
     }
 }
