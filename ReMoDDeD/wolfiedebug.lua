@@ -1,10 +1,10 @@
---- Filter Title: WolfieeifloW's Debug v1.5
+--- Filter Title: WolfieeifloW's Debug v1.6
 --- Filter Type: NOT FOR NORMAL USAGE. Used for debugging and testing, mostly for filter creators.
 --- Filter Description: DO NOT USE THIS FOR NORMAL PLAY. It is for testing and debugging.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiedebug.lua
 
 return {
-    reload = "WolfieeifloW's DEBUG v1.5: {green}reloaded",
+    reload = "WolfieeifloW's DEBUG v1.6: {green}reloaded",
     debug = false,
     allowOverrides = true,
     rules = {

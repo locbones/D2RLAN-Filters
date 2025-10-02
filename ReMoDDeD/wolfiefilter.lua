@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.18
+--- Filter Title: WolfieeifloW's Filter v1.19
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,7 +17,7 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.18: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.19: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
