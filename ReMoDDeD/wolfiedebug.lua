@@ -9,22 +9,219 @@ return {
     allowOverrides = true,
     rules = {
         -- +-------------------------+
+        -- | HOTFIXES                |
+        -- +-------------------------+
+        { -- Rule 1: Cube these bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            location = { "onplayer", "equipped", "atvendor" },
+            prefix_desc = "{red}It will fix the item {tan}without {red}rerolling the stats\nCube this item alone before the next patch to fix it\n"
+        },
+        { -- Rule 2: Cube these Non-Ethereal 0 socket Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = false,
+            sockets = "0",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {white}{link}"
+        },
+        { -- Rule 3: Cube these Non-Ethereal 0 socket Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = false,
+            sockets = "0",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {white}{link}"
+        },
+        { -- Rule 4: Cube these Non-Ethereal 0 socket Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = false,
+            sockets = "0",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {white}{link}"
+        },
+        { -- Rule 5: Cube these Ethereal Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = true,
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gray}{link}"
+        },
+        { -- Rule 6: Cube these Ethereal Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = true,
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {gray}{link}"
+        },
+        { -- Rule 7: Cube these Ethereal Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = true,
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {gray}{link}"
+        },
+        { -- Rule 8: Cube these Non-Ethereal 1+ socket Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = false,
+            sockets = "1+",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gray}{link}"
+        },
+        { -- Rule 9: Cube these Non-Ethereal 1+ socket Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = false,
+            sockets = "1+",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {gray}{link}"
+        },
+        { -- Rule 10: Cube these Non-Ethereal 1+ socket Superior or lower bases to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "3-",
+            ethereal = false,
+            sockets = "1+",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {gray}{link}"
+        },
+        { -- Rule 11: Cube these Magic items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "4",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {blue}{link}"
+        },
+        { -- Rule 12: Cube these Magic items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "4",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {blue}{link}"
+        },
+        { -- Rule 13: Cube these Magic items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "4",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {blue}{link}"
+        },
+        { -- Rule 14: Cube these Set items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "5",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {green}{link}"
+        },
+        { -- Rule 15: Cube these Set items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "5",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {green}{link}"
+        },
+        { -- Rule 16: Cube these Set items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "5",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {green}{link}"
+        },
+        { -- Rule 17: Cube these Rare items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "6",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {yellow}{link}"
+        },
+        { -- Rule 18: Cube these Rare items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "6",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {yellow}{link}"
+        },
+        { -- Rule 19: Cube these Rare items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "6",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {yellow}{link}"
+        },
+        { -- Rule 20: Cube these Unique items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "7",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gold}{link}"
+        },
+        { -- Rule 21: Cube these Unique items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "7",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {gold}{link}"
+        },
+        { -- Rule 22: Cube these Unique items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "7",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {gold}{link}"
+        },
+        { -- Rule 23: Cube these Crafted items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "8",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {orange}{link}"
+        },
+        { -- Rule 24: Cube these Crafted items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "8",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {orange}{link}"
+        },
+        { -- Rule 25: Cube these Crafted items to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "8",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {orange}{link}"
+        },
+        { -- Rule 26: Cube these Demon Tempered to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "9",
+            location = "onplayer",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {dark green}{link}"
+        },
+        { -- Rule 27: Cube these Demon Tempered to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "9",
+            location = "equipped",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your equipment {dark green}{link}"
+        },
+        { -- Rule 28: Cube these Demon Tempered to fix them for upcoming changes
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
+            quality = "9",
+            location = "atvendor",
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your Merc's equipment {dark green}{link}"
+        },
+        { -- Rule 29: Cube these unique charms to fix them for upcoming changes
+            codes = { "m32", "m34", "m35", "m36" },
+            quality = "7",
+            location = { "onplayer", "equipped" },
+            prefix_desc = "{red}It will fix the item {tan}without {red}rerolling the stats\nCube this item alone before the next patch to fix it\n"
+        },
+        { -- Rule 30: Cube these unique charms to fix them for upcoming changes
+            codes = { "m32", "m34", "m35", "m36" },
+            quality = "7",
+            location = { "onplayer", "equipped" },
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gold}{link}"
+        },
+        -- +-------------------------+
         -- | MAX SOCKET HELPER TEXT  |
         -- +-------------------------+
-        { -- Rule 1: Shows maximum sockets a non-Weapon item can get
+        { -- Rule 31: Shows maximum sockets a non-Weapon item can get
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2" },
             itype = { 10, 12, 50 },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 2: Shows maximum sockets an Inferior/Normal/Magic/Rare/Crafted Weapon can get
+        { -- Rule 32: Shows maximum sockets an Inferior/Normal/Magic/Rare/Crafted Weapon can get
             codes = "allitems",
             quality = { "1", "2", "3", "4", "6", "8" },
             itype = 45,
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 3: Add helper text for Set/Unique Weapons that have a maximum of 2, 3, & 4 sockets
+        { -- Rule 33: Add helper text for Set/Unique Weapons that have a maximum of 2, 3, & 4 sockets
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2" },
             quality = { "5", "7" },
             maxsock = "4-",
@@ -32,7 +229,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 4: Add helper text for 1-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
+        { -- Rule 34: Add helper text for 1-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
             codes = { "hax", "axe", "2ax", "mpi", "wax", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "9ha", "9ax", "92a", "9mp", "9wa", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "7mp", "7wa", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "ob1", "ob2", "ob3", "ob4", "ob5", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "ama", "obb", "obc", "obd", "obe", "obf", "amf", "k01", "k02", "k03", "Pm1", "Pm2", "Pm3", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "Ss1", "Ss2", "Ss3", "Ss4", "l13", "l16", "l18" },
             quality = { "5", "7" },
             maxsock = "5+",
@@ -40,7 +237,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: 4\n"
         },
-        { -- Rule 5: Add helper text for 2-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
+        { -- Rule 35: Add helper text for 2-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
             codes = { "lax", "bax", "btx", "gax", "gix", "mau", "gma", "clm", "gis", "bsw", "flb", "gsd", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "9la", "9ba", "9bt", "9ga", "9gi", "9m9", "9gm", "9cm", "9gs", "9b9", "9fb", "9gd", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "7la", "7ba", "7bt", "7ga", "7gi", "7m7", "7gm", "7cm", "7gs", "7b7", "7fb", "7gd", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "am1", "am2", "am3", "am4", "am6", "am7", "am8", "am9", "amb", "amc", "amd", "ame", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "l14", "l15", "l17" },
             quality = { "5", "7" },
             maxsock = "5+",
@@ -48,7 +245,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 6: Special use-case for Rune Master (since it can get 5 sockets)
+        { -- Rule 36: Special use-case for Rune Master (since it can get 5 sockets)
             code = "72a",
             quality = "7",
             index = 189,
@@ -56,7 +253,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: 4\n"
         },
-        { -- Rule 7: Special use-case for Rune Master (since it can get 5 sockets)
+        { -- Rule 37: Special use-case for Rune Master (since it can get 5 sockets)
             code = "72a",
             quality = "7",
             index = 189,
@@ -67,53 +264,53 @@ return {
         -- +-------------------------+
         -- | TAGS & GENERIC RULES    |
         -- +-------------------------+
-        { -- Rule 241: Adding item level to appropriate items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
+        { -- Rule 38: Adding item level to appropriate items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
             codes = "allitems",
             itype = { 10, 12, 45, 50, 58, 82, 83, 84 },
             location = { "onplayer", "equipped" , "onground", "dropping", "atvendor" },
             suffix = " ({ilvl})"
         },
-        { -- Rule 242: Adding [Eth] tag to items
+        { -- Rule 39: Adding [Eth] tag to items
             codes = "allitems",
             ethereal = true,
             suffix = " {gray}[Eth]"
         },
-        { -- Rule 243: Adding socket number tag to Ethereal items
+        { -- Rule 40: Adding socket number tag to Ethereal items
             codes = "allitems",
             ethereal = true,
             sockets = "1+",
             prefix = "ÿcI",
             suffix = "{gray}[{sockets}]"
         },
-        { -- Rule 244: Adding socket number tag to Non-Ethereal items
+        { -- Rule 41: Adding socket number tag to Non-Ethereal items
             codes = "allitems",
             ethereal = false,
             sockets = "1+",
             suffix = " {gray}[{sockets}]"
             -- This second rule makes [Eth] and socket number ([#]) beside each other
         },
-        { -- Rule 245: Adding superscript "1" in front of Normal tier items names
+        { -- Rule 42: Adding superscript "1" in front of Normal tier items names
             codes = "allitems",
             rarity = 0,
             itype = { 45, 50 },
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "¹"
         },
-        { -- Rule 246: Adding superscript "2" in front of Exceptional tier items names
+        { -- Rule 43: Adding superscript "2" in front of Exceptional tier items names
             codes = "allitems",
             rarity = 1,
             itype = { 45, 50 },
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "²"
         },
-        { -- Rule 247: Adding superscript "EB 3" in front of Elite tier items names
+        { -- Rule 44: Adding superscript "EB 3" in front of Elite tier items names
             codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             rarity = 2,
             itype = { 45, 50 },
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "ⅲ ³"
         },
-        { -- Rule 248: Adding superscript "LB 3" in front of Elite tier Limit Break items names
+        { -- Rule 45: Adding superscript "LB 3" in front of Elite tier Limit Break items names
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             rarity = 2,
             itype = { 45, 50 },
@@ -121,7 +318,7 @@ return {
             prefix = "ⅳ ³",
             -- prefix = "⁴"
         },
-        { -- Rule 249: Notify for Elite tier Limit Break items
+        { -- Rule 46: Notify for Elite tier Limit Break items
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             rarity = 2,
             itype = { 45, 50 },
@@ -130,12 +327,12 @@ return {
         -- +-------------------------+
         -- | MISC TESTING            |
         -- +-------------------------+
-        { -- Rule 8: Adding generic information to items name
+        { -- Rule 47: Adding generic information to items name
             codes = "allitems",
             location = { "onplayer", "equipped", "onground", "dropping", "atvendor" },
             suffix = " \n{gray}[Code: {orange}{code}{gray}]\n[Quality: {orange}{quality}{gray}]\n[Rarity: {orange}{rarity}{gray}]\n[Index: {orange}{index}{gray}]"
         },
-        { -- Rule 9: Adding line break to show info below this line is generic (misc) info
+        { -- Rule 48: Adding line break to show info below this line is generic (misc) info
             codes = "allitems",
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n{red}------ MISC INFO ------{white}"
@@ -143,636 +340,636 @@ return {
         -- +-------------------------+
         -- | ITYPE TESTING           |
         -- +-------------------------+
-        { -- Rule 10: Properly coloring items text after itype info
+        { -- Rule 49: Properly coloring items text after itype info
             codes = "allitems",
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "{white}"
         },
-        { -- Rule 11: Spears and Polearms
+        { -- Rule 50: Spears and Polearms
             codes = "allitems",
             itype = 104,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[104: Spears and Polearms]"
         },
-        { -- Rule 12: Swords and Knives
+        { -- Rule 51: Swords and Knives
             codes = "allitems",
             itype = 103,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[103: Swords and Knives]"
         },
-        { -- Rule 13: Skull
+        { -- Rule 52: Skull
             codes = "allitems",
             itype = 102,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[102: Skull]"
         },
-        { -- Rule 14: Topaz
+        { -- Rule 53: Topaz
             codes = "allitems",
             itype = 101,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[101: Topaz]"
         },
-        { -- Rule 15: Sapphire
+        { -- Rule 54: Sapphire
             codes = "allitems",
             itype = 100,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[100: Sapphire]"
         },
-        { -- Rule 16: Ruby
+        { -- Rule 55: Ruby
             codes = "allitems",
             itype = 99,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[99: Ruby]"
         },
-        { -- Rule 17: Emerald
+        { -- Rule 56: Emerald
             codes = "allitems",
             itype = 98,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[98: Emerald]"
         },
-        { -- Rule 18: Diamond
+        { -- Rule 57: Diamond
             codes = "allitems",
             itype = 97,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[97: Diamond]"
         },
-        { -- Rule 19: Amethyst
+        { -- Rule 58: Amethyst
             codes = "allitems",
             itype = 96,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[96: Amethyst]"
         },
-        { -- Rule 20: Perfect Gem
+        { -- Rule 59: Perfect Gem
             codes = "allitems",
             itype = 95,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[95: Perfect Gem]"
         },
-        { -- Rule 21: Flawless Gem
+        { -- Rule 60: Flawless Gem
             codes = "allitems",
             itype = 94,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[94: Flawless Gem]"
         },
-        { -- Rule 22: Standard Gem
+        { -- Rule 61: Standard Gem
             codes = "allitems",
             itype = 93,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[93: Standard Gem]"
         },
-        { -- Rule 23: Flawed Gem
+        { -- Rule 62: Flawed Gem
             codes = "allitems",
             itype = 92,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[92: Flawed Gem]"
         },
-        { -- Rule 24: Chipped Gem
+        { -- Rule 63: Chipped Gem
             codes = "allitems",
             itype = 91,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[91: Chipped Gem]"
         },
-        { -- Rule 25: Magic Xbow Quiv
+        { -- Rule 64: Magic Xbow Quiv
             codes = "allitems",
             itype = 90,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[90: Magic Xbow Quiv]"
         },
-        { -- Rule 26: Magic Bow Quiv
+        { -- Rule 65: Magic Bow Quiv
             codes = "allitems",
             itype = 89,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[89: Magic Bow Quiv]"
         },
-        { -- Rule 27: Hand to Hand 2
+        { -- Rule 66: Hand to Hand 2
             codes = "allitems",
             itype = 88,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[88: Hand to Hand 2]"
         },
-        { -- Rule 28: Amazon Javelin
+        { -- Rule 67: Amazon Javelin
             codes = "allitems",
             itype = 87,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[87: Amazon Javelin]"
         },
-        { -- Rule 29: Amazon Spear
+        { -- Rule 68: Amazon Spear
             codes = "allitems",
             itype = 86,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[86: Amazon Spear]"
         },
-        { -- Rule 30: Amazon Bow
+        { -- Rule 69: Amazon Bow
             codes = "allitems",
             itype = 85,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[85: Amazon Bow]"
         },
-        { -- Rule 31: Large Charm
+        { -- Rule 70: Large Charm
             codes = "allitems",
             itype = 84,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[84: Large Charm]"
         },
-        { -- Rule 32: Medium Charm
+        { -- Rule 71: Medium Charm
             codes = "allitems",
             itype = 83,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[83: Medium Charm]"
         },
-        { -- Rule 33: Small Charm
+        { -- Rule 72: Small Charm
             codes = "allitems",
             itype = 82,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[82: Small Charm]"
         },
-        { -- Rule 34: Thawing Potion
+        { -- Rule 73: Thawing Potion
             codes = "allitems",
             itype = 81,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[81: Thawing Potion]"
         },
-        { -- Rule 35: Antidote Potion
+        { -- Rule 74: Antidote Potion
             codes = "allitems",
             itype = 80,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[80: Antidote Potion]"
         },
-        { -- Rule 36: Stamina Potion
+        { -- Rule 75: Stamina Potion
             codes = "allitems",
             itype = 79,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[79: Stamina Potion]"
         },
-        { -- Rule 37: Rejuv Potion
+        { -- Rule 76: Rejuv Potion
             codes = "allitems",
             itype = 78,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[78: Rejuv Potion]"
         },
-        { -- Rule 38: Mana Potion
+        { -- Rule 77: Mana Potion
             codes = "allitems",
             itype = 77,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[77: Mana Potion]"
         },
-        { -- Rule 39: Healing Potion
+        { -- Rule 78: Healing Potion
             codes = "allitems",
             itype = 76,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[76: Healing Potion]"
         },
-        { -- Rule 40: Circlet
+        { -- Rule 79: Circlet
             codes = "allitems",
             itype = 75,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[75: Circlet]"
         },
-        { -- Rule 41: Rune
+        { -- Rule 80: Rune
             codes = "allitems",
             itype = 74,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[74: Rune]"
         },
-        { -- Rule 42: Cloak
+        { -- Rule 81: Cloak
             codes = "allitems",
             itype = 73,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[73: Cloak]"
         },
-        { -- Rule 43: Pelt
+        { -- Rule 82: Pelt
             codes = "allitems",
             itype = 72,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[72: Pelt]"
         },
-        { -- Rule 44: Primal Helm
+        { -- Rule 83: Primal Helm
             codes = "allitems",
             itype = 71,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[71: Primal Helm]"
         },
-        { -- Rule 45: Auric Shields
+        { -- Rule 84: Auric Shields
             codes = "allitems",
             itype = 70,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[70: Auric Shields]"
         },
-        { -- Rule 46: Voodoo Heads
+        { -- Rule 85: Voodoo Heads
             codes = "allitems",
             itype = 69,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[69: Voodoo Heads]"
         },
-        { -- Rule 47: Orb
+        { -- Rule 86: Orb
             codes = "allitems",
             itype = 68,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[68: Orb]"
         },
-        { -- Rule 48: Hand to Hand
+        { -- Rule 87: Hand to Hand
             codes = "allitems",
             itype = 67,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[67: Hand to Hand]"
         },
-        { -- Rule 49: Druid Item
+        { -- Rule 88: Druid Item
             codes = "allitems",
             itype = 66,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[66: Druid Item]"
         },
-        { -- Rule 50: Assassin Item
+        { -- Rule 89: Assassin Item
             codes = "allitems",
             itype = 65,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[65: Assassin Item]"
         },
-        { -- Rule 51: Sorceress Item
+        { -- Rule 90: Sorceress Item
             codes = "allitems",
             itype = 64,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[64: Sorceress Item]"
         },
-        { -- Rule 52: Paladin Item
+        { -- Rule 91: Paladin Item
             codes = "allitems",
             itype = 63,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[63: Paladin Item]"
         },
-        { -- Rule 53: Necromancer Item
+        { -- Rule 92: Necromancer Item
             codes = "allitems",
             itype = 62,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[62: Necromancer Item]"
         },
-        { -- Rule 54: Barbarian Item
+        { -- Rule 93: Barbarian Item
             codes = "allitems",
             itype = 61,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[61: Barbarian Item]"
         },
-        { -- Rule 55: Amazon Item
+        { -- Rule 94: Amazon Item
             codes = "allitems",
             itype = 60,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[60: Amazon Item]"
         },
-        { -- Rule 56: Class Specific
+        { -- Rule 95: Class Specific
             codes = "allitems",
             itype = 59,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[59: Class Specific]"
         },
-        { -- Rule 57: Jewel
+        { -- Rule 96: Jewel
             codes = "allitems",
             itype = 58,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[58: Jewel]"
         },
-        { -- Rule 58: Blunt
+        { -- Rule 97: Blunt
             codes = "allitems",
             itype = 57,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[57: Blunt]"
         },
-        { -- Rule 59: Missile
+        { -- Rule 98: Missile
             codes = "allitems",
             itype = 56,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[56: Missile]"
         },
-        { -- Rule 60: Staves And Rods
+        { -- Rule 99: Staves And Rods
             codes = "allitems",
             itype = 55,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[55: Staves And Rods]"
         },
-        { -- Rule 61: Second Hand
+        { -- Rule 100: Second Hand
             codes = "allitems",
             itype = 54,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[54: Second Hand]"
         },
-        { -- Rule 62: Socket Filler
+        { -- Rule 101: Socket Filler
             codes = "allitems",
             itype = 53,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[53: Socket Filler]"
         },
-        { -- Rule 63: Miscellaneous
+        { -- Rule 102: Miscellaneous
             codes = "allitems",
             itype = 52,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[52: Miscellaneous]"
         },
-        { -- Rule 64: Any Shield
+        { -- Rule 103: Any Shield
             codes = "allitems",
             itype = 51,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[51: Any Shield]"
         },
-        { -- Rule 65: Any Armor
+        { -- Rule 104: Any Armor
             codes = "allitems",
             itype = 50,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[50: Any Armor]"
         },
-        { -- Rule 66: Combo Weapon
+        { -- Rule 105: Combo Weapon
             codes = "allitems",
             itype = 49,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[49: Combo Weapon]"
         },
-        { -- Rule 67: Thrown Weapon
+        { -- Rule 106: Thrown Weapon
             codes = "allitems",
             itype = 48,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[48: Thrown Weapon]"
         },
-        { -- Rule 68: Missile Weapon
+        { -- Rule 107: Missile Weapon
             codes = "allitems",
             itype = 47,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[47: Missile Weapon]"
         },
-        { -- Rule 69: Melee Weapon
+        { -- Rule 108: Melee Weapon
             codes = "allitems",
             itype = 46,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[46: Melee Weapon]"
         },
-        { -- Rule 70: Weapon
+        { -- Rule 109: Weapon
             codes = "allitems",
             itype = 45,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[45: Weapon]"
         },
-        { -- Rule 71: Javelin
+        { -- Rule 110: Javelin
             codes = "allitems",
             itype = 44,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[44: Javelin]"
         },
-        { -- Rule 72: Throwing Axe
+        { -- Rule 111: Throwing Axe
             codes = "allitems",
             itype = 43,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[43: Throwing Axe]"
         },
-        { -- Rule 73: Throwing Knife
+        { -- Rule 112: Throwing Knife
             codes = "allitems",
             itype = 42,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[42: Throwing Knife]"
         },
-        { -- Rule 74: Key
+        { -- Rule 113: Key
             codes = "allitems",
             itype = 41,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[41: Key]"
         },
-        { -- Rule 75: Body Part
+        { -- Rule 114: Body Part
             codes = "allitems",
             itype = 40,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[40: Body Part]"
         },
-        { -- Rule 76: Quest
+        { -- Rule 115: Quest
             codes = "allitems",
             itype = 39,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[39: Quest]"
         },
-        { -- Rule 77: Missile Potion
+        { -- Rule 116: Missile Potion
             codes = "allitems",
             itype = 38,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[38: Missile Potion]"
         },
-        { -- Rule 78: Helm
+        { -- Rule 117: Helm
             codes = "allitems",
             itype = 37,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[37: Helm]"
         },
-        { -- Rule 79: Mace
+        { -- Rule 118: Mace
             codes = "allitems",
             itype = 36,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[36: Mace]"
         },
-        { -- Rule 80: Crossbow
+        { -- Rule 119: Crossbow
             codes = "allitems",
             itype = 35,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[35: Crossbow]"
         },
-        { -- Rule 81: Polearm
+        { -- Rule 120: Polearm
             codes = "allitems",
             itype = 34,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[34: Polearm]"
         },
-        { -- Rule 82: Spear
+        { -- Rule 121: Spear
             codes = "allitems",
             itype = 33,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[33: Spear]"
         },
-        { -- Rule 83: Knife
+        { -- Rule 122: Knife
             codes = "allitems",
             itype = 32,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[32: Knife]"
         },
-        { -- Rule 84: Hammer
+        { -- Rule 123: Hammer
             codes = "allitems",
             itype = 31,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[31: Hammer]"
         },
-        { -- Rule 85: Sword
+        { -- Rule 124: Sword
             codes = "allitems",
             itype = 30,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[30: Sword]"
         },
-        { -- Rule 86: Club
+        { -- Rule 125: Club
             codes = "allitems",
             itype = 29,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[29: Club]"
         },
-        { -- Rule 87: Axe
+        { -- Rule 126: Axe
             codes = "allitems",
             itype = 28,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[28: Axe]"
         },
-        { -- Rule 88: Bow
+        { -- Rule 127: Bow
             codes = "allitems",
             itype = 27,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[27: Bow]"
         },
-        { -- Rule 89: Staff
+        { -- Rule 128: Staff
             codes = "allitems",
             itype = 26,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[26: Staff]"
         },
-        { -- Rule 90: Wand
+        { -- Rule 129: Wand
             codes = "allitems",
             itype = 25,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[25: Wand]"
         },
-        { -- Rule 91: Scepter
+        { -- Rule 130: Scepter
             codes = "allitems",
             itype = 24,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[24: Scepter]"
         },
-        { -- Rule 92: Not Used
+        { -- Rule 131: Not Used
             codes = "allitems",
             itype = 23,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[23: Not Used]"
         },
-        { -- Rule 93: Scroll
+        { -- Rule 132: Scroll
             codes = "allitems",
             itype = 22,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[22: Scroll]"
         },
-        { -- Rule 94: Torch
+        { -- Rule 133: Torch
             codes = "allitems",
             itype = 21,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[21: Torch]"
         },
-        { -- Rule 95: Gem
+        { -- Rule 134: Gem
             codes = "allitems",
             itype = 20,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[20: Gem]"
         },
-        { -- Rule 96: Belt
+        { -- Rule 135: Belt
             codes = "allitems",
             itype = 19,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[19: Belt]"
         },
-        { -- Rule 97: Book
+        { -- Rule 136: Book
             codes = "allitems",
             itype = 18,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[18: Book]"
         },
-        { -- Rule 98: Not Used
+        { -- Rule 137: Not Used
             codes = "allitems",
             itype = 17,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[17: Not Used]"
         },
-        { -- Rule 99: Gloves
+        { -- Rule 138: Gloves
             codes = "allitems",
             itype = 16,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[16: Gloves]"
         },
-        { -- Rule 100: Boots
+        { -- Rule 139: Boots
             codes = "allitems",
             itype = 15,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[15: Boots]"
         },
-        { -- Rule 101: Not Used
+        { -- Rule 140: Not Used
             codes = "allitems",
             itype = 14,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[14: Not Used]"
         },
-        { -- Rule 102: Charm
+        { -- Rule 141: Charm
             codes = "allitems",
             itype = 13,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[13: Charm]"
         },
-        { -- Rule 103: Amulet
+        { -- Rule 142: Amulet
             codes = "allitems",
             itype = 12,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[12: Amulet]"
         },
-        { -- Rule 104: Elixir
+        { -- Rule 143: Elixir
             codes = "allitems",
             itype = 11,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[11: Elixir]"
         },
-        { -- Rule 105: Ring
+        { -- Rule 144: Ring
             codes = "allitems",
             itype = 10,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[10: Ring]"
         },
-        { -- Rule 106: Potion
+        { -- Rule 145: Potion
             codes = "allitems",
             itype = 9,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[9: Potion]"
         },
-        { -- Rule 107: Herb
+        { -- Rule 146: Herb
             codes = "allitems",
             itype = 8,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[8: Herb]"
         },
-        { -- Rule 108: Player Body Part
+        { -- Rule 147: Player Body Part
             codes = "allitems",
             itype = 7,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[7: Player Body Part]"
         },
-        { -- Rule 109: Crossbow Quiver
+        { -- Rule 148: Crossbow Quiver
             codes = "allitems",
             itype = 6,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[6: Crossbow Quiver]"
         },
-        { -- Rule 110: Bow Quiver
+        { -- Rule 149: Bow Quiver
             codes = "allitems",
             itype = 5,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[5: Bow Quiver]"
         },
-        { -- Rule 111: Gold
+        { -- Rule 150: Gold
             codes = "allitems",
             itype = 4,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[4: Gold]"
         },
-        { -- Rule 112: Armor
+        { -- Rule 151: Armor
             codes = "allitems",
             itype = 3,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[3: Armor]"
         },
-        { -- Rule 113: Shield
+        { -- Rule 152: Shield
             codes = "allitems",
             itype = 2,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[2: Shield]"
         },
-        { -- Rule 114: None
+        { -- Rule 153: None
             codes = "allitems",
             itype = 1,
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[1: None]"
         },
-        { -- Rule 115: Adding line break to show info below this line is itype info
+        { -- Rule 154: Adding line break to show info below this line is itype info
             codes = "allitems",
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n{red}-------- ITYPE --------{white}"
@@ -780,2923 +977,2923 @@ return {
         -- +-------------------------+
         -- | STAT INDEX TESTING      |
         -- +-------------------------+
-        { -- Rule 116: LB_Three
+        { -- Rule 155: LB_Three
             codes = "allitems",
             stat = {index = 485, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[485: LB_Three]"
         },
-        { -- Rule 117: LB_Two
+        { -- Rule 156: LB_Two
             codes = "allitems",
             stat = {index = 484, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[484: LB_Two]"
         },
-        { -- Rule 118: LB_One
+        { -- Rule 157: LB_One
             codes = "allitems",
             stat = {index = 483, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[483: LB_One]"
         },
-        { -- Rule 119: LB_Unlock
+        { -- Rule 158: LB_Unlock
             codes = "allitems",
             stat = {index = 482, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[482: LB_Unlock]"
         },
-        { -- Rule 120: xp_hidden
+        { -- Rule 159: xp_hidden
             codes = "allitems",
             stat = {index = 481, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[481: xp_hidden]"
         },
-        { -- Rule 121: item_skillonmondeath
+        { -- Rule 160: item_skillonmondeath
             codes = "allitems",
             stat = {index = 480, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[480: item_skillonmondeath]"
         },
-        { -- Rule 122: item_skillonhit_piercing
+        { -- Rule 161: item_skillonhit_piercing
             codes = "allitems",
             stat = {index = 479, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[479: item_skillonhit_piercing]"
         },
-        { -- Rule 123: item_skillonhit_cleaving
+        { -- Rule 162: item_skillonhit_cleaving
             codes = "allitems",
             stat = {index = 478, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[478: item_skillonhit_cleaving]"
         },
-        { -- Rule 124: item_skillonhit_sweeping
+        { -- Rule 163: item_skillonhit_sweeping
             codes = "allitems",
             stat = {index = 477, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[477: item_skillonhit_sweeping]"
         },
-        { -- Rule 125: RB_Ultra
+        { -- Rule 164: RB_Ultra
             codes = "allitems",
             stat = {index = 476, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[476: RB_Ultra]"
         },
-        { -- Rule 126: RW_TierDisplay
+        { -- Rule 165: RW_TierDisplay
             codes = "allitems",
             stat = {index = 475, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[475: RW_TierDisplay]"
         },
-        { -- Rule 127: RW_Tier
+        { -- Rule 166: RW_Tier
             codes = "allitems",
             stat = {index = 474, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[474: RW_Tier]"
         },
-        { -- Rule 128: energy_hidden
+        { -- Rule 167: energy_hidden
             codes = "allitems",
             stat = {index = 473, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[473: energy_hidden]"
         },
-        { -- Rule 129: item_numsockets_percent
+        { -- Rule 168: item_numsockets_percent
             codes = "allitems",
             stat = {index = 472, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[472: item_numsockets_percent]"
         },
-        { -- Rule 130: item_skillongethit_hidden
+        { -- Rule 169: item_skillongethit_hidden
             codes = "allitems",
             stat = {index = 471, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[471: item_skillongethit_hidden]"
         },
-        { -- Rule 131: item_skillonhit_hidden
+        { -- Rule 170: item_skillonhit_hidden
             codes = "allitems",
             stat = {index = 470, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[470: item_skillonhit_hidden]"
         },
-        { -- Rule 132: item_skillonhit_noctc
+        { -- Rule 171: item_skillonhit_noctc
             codes = "allitems",
             stat = {index = 469, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[469: item_skillonhit_noctc]"
         },
-        { -- Rule 133: item_reanimate_display
+        { -- Rule 172: item_reanimate_display
             codes = "allitems",
             stat = {index = 468, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[468: item_reanimate_display]"
         },
-        { -- Rule 134: map_p_crush
+        { -- Rule 173: map_p_crush
             codes = "allitems",
             stat = {index = 467, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[467: map_p_crush]"
         },
-        { -- Rule 135: map_p_cdr
+        { -- Rule 174: map_p_cdr
             codes = "allitems",
             stat = {index = 466, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[466: map_p_cdr]"
         },
-        { -- Rule 136: map_p_itd
+        { -- Rule 175: map_p_itd
             codes = "allitems",
             stat = {index = 465, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[465: map_p_itd]"
         },
-        { -- Rule 137: map_p_exp
+        { -- Rule 176: map_p_exp
             codes = "allitems",
             stat = {index = 464, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[464: map_p_exp]"
         },
-        { -- Rule 138: map_p_magic
+        { -- Rule 177: map_p_magic
             codes = "allitems",
             stat = {index = 463, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[463: map_p_magic]"
         },
-        { -- Rule 139: map_p_gold
+        { -- Rule 178: map_p_gold
             codes = "allitems",
             stat = {index = 462, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[462: map_p_gold]"
         },
-        { -- Rule 140: map_p_haek
+        { -- Rule 179: map_p_haek
             codes = "allitems",
             stat = {index = 461, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[461: map_p_haek]"
         },
-        { -- Rule 141: map_p_maek
+        { -- Rule 180: map_p_maek
             codes = "allitems",
             stat = {index = 460, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[460: map_p_maek]"
         },
-        { -- Rule 142: map_p_undead
+        { -- Rule 181: map_p_undead
             codes = "allitems",
             stat = {index = 459, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[459: map_p_undead]"
         },
-        { -- Rule 143: map_p_demon
+        { -- Rule 182: map_p_demon
             codes = "allitems",
             stat = {index = 458, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[458: map_p_demon]"
         },
-        { -- Rule 144: map_p_cnbf
+        { -- Rule 183: map_p_cnbf
             codes = "allitems",
             stat = {index = 457, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[457: map_p_cnbf]"
         },
-        { -- Rule 145: map_p_speedc
+        { -- Rule 184: map_p_speedc
             codes = "allitems",
             stat = {index = 456, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[456: map_p_speedc]"
         },
-        { -- Rule 146: map_p_speeda
+        { -- Rule 185: map_p_speeda
             codes = "allitems",
             stat = {index = 455, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[455: map_p_speeda]"
         },
-        { -- Rule 147: map_p_speedm
+        { -- Rule 186: map_p_speedm
             codes = "allitems",
             stat = {index = 454, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[454: map_p_speedm]"
         },
-        { -- Rule 148: map_p_psnres
+        { -- Rule 187: map_p_psnres
             codes = "allitems",
             stat = {index = 453, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[453: map_p_psnres]"
         },
-        { -- Rule 149: map_p_coldres
+        { -- Rule 188: map_p_coldres
             codes = "allitems",
             stat = {index = 452, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[452: map_p_coldres]"
         },
-        { -- Rule 150: map_p_lightres
+        { -- Rule 189: map_p_lightres
             codes = "allitems",
             stat = {index = 451, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[451: map_p_lightres]"
         },
-        { -- Rule 151: map_p_fireres
+        { -- Rule 190: map_p_fireres
             codes = "allitems",
             stat = {index = 450, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[450: map_p_fireres]"
         },
-        { -- Rule 152: map_p_magres
+        { -- Rule 191: map_p_magres
             codes = "allitems",
             stat = {index = 449, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[449: map_p_magres]"
         },
-        { -- Rule 153: map_p_dmgres
+        { -- Rule 192: map_p_dmgres
             codes = "allitems",
             stat = {index = 448, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[448: map_p_dmgres]"
         },
-        { -- Rule 154: map_p_hpper
+        { -- Rule 193: map_p_hpper
             codes = "allitems",
             stat = {index = 447, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[447: map_p_hpper]"
         },
-        { -- Rule 155: map_p_defper
+        { -- Rule 194: map_p_defper
             codes = "allitems",
             stat = {index = 446, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[446: map_p_defper]"
         },
-        { -- Rule 156: map_e_crush
+        { -- Rule 195: map_e_crush
             codes = "allitems",
             stat = {index = 445, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[445: map_e_crush]"
         },
-        { -- Rule 157: map_e_allskills
+        { -- Rule 196: map_e_allskills
             codes = "allitems",
             stat = {index = 444, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[444: map_e_allskills]"
         },
-        { -- Rule 158: map_e_cnbf
+        { -- Rule 197: map_e_cnbf
             codes = "allitems",
             stat = {index = 443, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[443: map_e_cnbf]"
         },
-        { -- Rule 159: map_e_speedm
+        { -- Rule 198: map_e_speedm
             codes = "allitems",
             stat = {index = 442, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[442: map_e_speedm]"
         },
-        { -- Rule 160: map_e_speeda
+        { -- Rule 199: map_e_speeda
             codes = "allitems",
             stat = {index = 441, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[441: map_e_speeda]"
         },
-        { -- Rule 161: map_e_psnres
+        { -- Rule 200: map_e_psnres
             codes = "allitems",
             stat = {index = 440, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[440: map_e_psnres]"
         },
-        { -- Rule 162: map_e_coldres
+        { -- Rule 201: map_e_coldres
             codes = "allitems",
             stat = {index = 439, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[439: map_e_coldres]"
         },
-        { -- Rule 163: map_e_lightres
+        { -- Rule 202: map_e_lightres
             codes = "allitems",
             stat = {index = 438, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[438: map_e_lightres]"
         },
-        { -- Rule 164: map_e_fireres
+        { -- Rule 203: map_e_fireres
             codes = "allitems",
             stat = {index = 437, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[437: map_e_fireres]"
         },
-        { -- Rule 165: map_e_magres
+        { -- Rule 204: map_e_magres
             codes = "allitems",
             stat = {index = 436, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[436: map_e_magres]"
         },
-        { -- Rule 166: map_e_dmgres
+        { -- Rule 205: map_e_dmgres
             codes = "allitems",
             stat = {index = 435, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[435: map_e_dmgres]"
         },
-        { -- Rule 167: map_e_level
+        { -- Rule 206: map_e_level
             codes = "allitems",
             stat = {index = 434, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[434: map_e_level]"
         },
-        { -- Rule 168: map_e_hpper
+        { -- Rule 207: map_e_hpper
             codes = "allitems",
             stat = {index = 433, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[433: map_e_hpper]"
         },
-        { -- Rule 169: map_e_defper
+        { -- Rule 208: map_e_defper
             codes = "allitems",
             stat = {index = 432, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[432: map_e_defper]"
         },
-        { -- Rule 170: Freeze_HalfToFull
+        { -- Rule 209: Freeze_HalfToFull
             codes = "allitems",
             stat = {index = 431, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[431: Freeze_HalfToFull]"
         },
-        { -- Rule 171: Weight_Display
+        { -- Rule 210: Weight_Display
             codes = "allitems",
             stat = {index = 430, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[430: Weight_Display]"
         },
-        { -- Rule 172: Weight_Dummy
+        { -- Rule 211: Weight_Dummy
             codes = "allitems",
             stat = {index = 429, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[429: Weight_Dummy]"
         },
-        { -- Rule 173: skel_commander
+        { -- Rule 212: skel_commander
             codes = "allitems",
             stat = {index = 428, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[428: skel_commander]"
         },
-        { -- Rule 174: buff_length_modifier
+        { -- Rule 213: buff_length_modifier
             codes = "allitems",
             stat = {index = 427, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[427: buff_length_modifier]"
         },
-        { -- Rule 175: item_fasterattackrate_perenr
+        { -- Rule 214: item_fasterattackrate_perenr
             codes = "allitems",
             stat = {index = 426, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[426: item_fasterattackrate_perenr]"
         },
-        { -- Rule 176: item_tohit_perenr
+        { -- Rule 215: item_tohit_perenr
             codes = "allitems",
             stat = {index = 425, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[425: item_tohit_perenr]"
         },
-        { -- Rule 177: item_fasterattackrate_perstr
+        { -- Rule 216: item_fasterattackrate_perstr
             codes = "allitems",
             stat = {index = 424, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[424: item_fasterattackrate_perstr]"
         },
-        { -- Rule 178: KillBonus_Display
+        { -- Rule 217: KillBonus_Display
             codes = "allitems",
             stat = {index = 423, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[423: KillBonus_Display]"
         },
-        { -- Rule 179: KillBonus_Dummy
+        { -- Rule 218: KillBonus_Dummy
             codes = "allitems",
             stat = {index = 422, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[422: KillBonus_Dummy]"
         },
-        { -- Rule 180: KillBonus
+        { -- Rule 219: KillBonus
             codes = "allitems",
             stat = {index = 421, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[421: KillBonus]"
         },
-        { -- Rule 181: PB_Rejuv
+        { -- Rule 220: PB_Rejuv
             codes = "allitems",
             stat = {index = 420, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[420: PB_Rejuv]"
         },
-        { -- Rule 182: JB_Rare
+        { -- Rule 221: JB_Rare
             codes = "allitems",
             stat = {index = 419, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[419: JB_Rare]"
         },
-        { -- Rule 183: fireball_radius
+        { -- Rule 222: fireball_radius
             codes = "allitems",
             stat = {index = 418, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[418: fireball_radius]"
         },
-        { -- Rule 184: hitpoints_hidden
+        { -- Rule 223: hitpoints_hidden
             codes = "allitems",
             stat = {index = 417, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[417: hitpoints_hidden]"
         },
-        { -- Rule 185: Weight_CapacityBase
+        { -- Rule 224: Weight_CapacityBase
             codes = "allitems",
             stat = {index = 416, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[416: Weight_CapacityBase]"
         },
-        { -- Rule 186: Weight_Capacity
+        { -- Rule 225: Weight_Capacity
             codes = "allitems",
             stat = {index = 415, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[415: Weight_Capacity]"
         },
-        { -- Rule 187: Weight_Tracker
+        { -- Rule 226: Weight_Tracker
             codes = "allitems",
             stat = {index = 414, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[414: Weight_Tracker]"
         },
-        { -- Rule 188: item_openwounds_perdex
+        { -- Rule 227: item_openwounds_perdex
             codes = "allitems",
             stat = {index = 413, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[413: item_openwounds_perdex]"
         },
-        { -- Rule 189: Soul_Level
+        { -- Rule 228: Soul_Level
             codes = "allitems",
             stat = {index = 412, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[412: Soul_Level]"
         },
-        { -- Rule 190: item_magskill
+        { -- Rule 229: item_magskill
             codes = "allitems",
             stat = {index = 411, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[411: item_magskill]"
         },
-        { -- Rule 191: item_poisskill
+        { -- Rule 230: item_poisskill
             codes = "allitems",
             stat = {index = 410, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[410: item_poisskill]"
         },
-        { -- Rule 192: item_coldskill
+        { -- Rule 231: item_coldskill
             codes = "allitems",
             stat = {index = 409, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[409: item_coldskill]"
         },
-        { -- Rule 193: item_lightskill
+        { -- Rule 232: item_lightskill
             codes = "allitems",
             stat = {index = 408, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[408: item_lightskill]"
         },
-        { -- Rule 194: item_fireskill
+        { -- Rule 233: item_fireskill
             codes = "allitems",
             stat = {index = 407, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[407: item_fireskill]"
         },
-        { -- Rule 195: Soul_Tracker
+        { -- Rule 234: Soul_Tracker
             codes = "allitems",
             stat = {index = 406, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[406: Soul_Tracker]"
         },
-        { -- Rule 196: item_feralsteal
+        { -- Rule 235: item_feralsteal
             codes = "allitems",
             stat = {index = 405, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[405: item_feralsteal]"
         },
-        { -- Rule 197: item_maulsteal
+        { -- Rule 236: item_maulsteal
             codes = "allitems",
             stat = {index = 404, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[404: item_maulsteal]"
         },
-        { -- Rule 198: item_ravendamage
+        { -- Rule 237: item_ravendamage
             codes = "allitems",
             stat = {index = 403, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[403: item_ravendamage]"
         },
-        { -- Rule 199: demontemper_check
+        { -- Rule 238: demontemper_check
             codes = "allitems",
             stat = {index = 402, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[402: demontemper_check]"
         },
-        { -- Rule 200: incant_radius
+        { -- Rule 239: incant_radius
             codes = "allitems",
             stat = {index = 401, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[401: incant_radius]"
         },
-        { -- Rule 201: incant_duration
+        { -- Rule 240: incant_duration
             codes = "allitems",
             stat = {index = 400, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[400: incant_duration]"
         },
-        { -- Rule 202: unused399
+        { -- Rule 241: unused399
             codes = "allitems",
             stat = {index = 399, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[399: unused399]"
         },
-        { -- Rule 203: body_level
+        { -- Rule 242: body_level
             codes = "allitems",
             stat = {index = 398, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[398: body_level]"
         },
-        { -- Rule 204: life_per_hit
+        { -- Rule 243: life_per_hit
             codes = "allitems",
             stat = {index = 397, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[397: life_per_hit]"
         },
-        { -- Rule 205: mana_per_hit
+        { -- Rule 244: mana_per_hit
             codes = "allitems",
             stat = {index = 396, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[396: mana_per_hit]"
         },
-        { -- Rule 206: sorceress
+        { -- Rule 245: sorceress
             codes = "allitems",
             stat = {index = 395, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[395: sorceress]"
         },
-        { -- Rule 207: item_deathregister
+        { -- Rule 246: item_deathregister
             codes = "allitems",
             stat = {index = 394, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[394: item_deathregister]"
         },
-        { -- Rule 208: death_display
+        { -- Rule 247: death_display
             codes = "allitems",
             stat = {index = 393, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[393: death_display]"
         },
-        { -- Rule 209: death_dummy
+        { -- Rule 248: death_dummy
             codes = "allitems",
             stat = {index = 392, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[392: death_dummy]"
         },
-        { -- Rule 210: item_killregister
+        { -- Rule 249: item_killregister
             codes = "allitems",
             stat = {index = 391, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[391: item_killregister]"
         },
-        { -- Rule 211: kill_display
+        { -- Rule 250: kill_display
             codes = "allitems",
             stat = {index = 390, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[390: kill_display]"
         },
-        { -- Rule 212: kill_dummy
+        { -- Rule 251: kill_dummy
             codes = "allitems",
             stat = {index = 389, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[389: kill_dummy]"
         },
-        { -- Rule 213: smite
+        { -- Rule 252: smite
             codes = "allitems",
             stat = {index = 388, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[388: smite]"
         },
-        { -- Rule 214: portals_unlock
+        { -- Rule 253: portals_unlock
             codes = "allitems",
             stat = {index = 387, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[387: portals_unlock]"
         },
-        { -- Rule 215: ucore_tracker
+        { -- Rule 254: ucore_tracker
             codes = "allitems",
             stat = {index = 386, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[386: ucore_tracker]"
         },
-        { -- Rule 216: enhance_high
+        { -- Rule 255: enhance_high
             codes = "allitems",
             stat = {index = 385, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[385: enhance_high]"
         },
-        { -- Rule 217: enhance_low
+        { -- Rule 256: enhance_low
             codes = "allitems",
             stat = {index = 384, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[384: enhance_low]"
         },
-        { -- Rule 218: chest_treasure
+        { -- Rule 257: chest_treasure
             codes = "allitems",
             stat = {index = 383, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[383: chest_treasure]"
         },
-        { -- Rule 219: item_slow_perdex
+        { -- Rule 258: item_slow_perdex
             codes = "allitems",
             stat = {index = 382, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[382: item_slow_perdex]"
         },
-        { -- Rule 220: hsbonus
+        { -- Rule 259: hsbonus
             codes = "allitems",
             stat = {index = 381, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[381: hsbonus]"
         },
-        { -- Rule 221: vitality_hidden
+        { -- Rule 260: vitality_hidden
             codes = "allitems",
             stat = {index = 380, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[380: vitality_hidden]"
         },
-        { -- Rule 222: boneadded
+        { -- Rule 261: boneadded
             codes = "allitems",
             stat = {index = 379, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[379: boneadded]"
         },
-        { -- Rule 223: Celestial_Aid
+        { -- Rule 262: Celestial_Aid
             codes = "allitems",
             stat = {index = 378, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[378: Celestial_Aid]"
         },
-        { -- Rule 224: RW_Tracker
+        { -- Rule 263: RW_Tracker
             codes = "allitems",
             stat = {index = 377, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[377: RW_Tracker]"
         },
-        { -- Rule 225: Soul_Ass
+        { -- Rule 264: Soul_Ass
             codes = "allitems",
             stat = {index = 376, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[376: Soul_Ass]"
         },
-        { -- Rule 226: Soul_Dru
+        { -- Rule 265: Soul_Dru
             codes = "allitems",
             stat = {index = 375, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[375: Soul_Dru]"
         },
-        { -- Rule 227: Soul_Bar
+        { -- Rule 266: Soul_Bar
             codes = "allitems",
             stat = {index = 374, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[374: Soul_Bar]"
         },
-        { -- Rule 228: Soul_Pal
+        { -- Rule 267: Soul_Pal
             codes = "allitems",
             stat = {index = 373, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[373: Soul_Pal]"
         },
-        { -- Rule 229: Soul_Nec
+        { -- Rule 268: Soul_Nec
             codes = "allitems",
             stat = {index = 372, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[372: Soul_Nec]"
         },
-        { -- Rule 230: Soul_Sor
+        { -- Rule 269: Soul_Sor
             codes = "allitems",
             stat = {index = 371, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[371: Soul_Sor]"
         },
-        { -- Rule 231: Soul_Ama
+        { -- Rule 270: Soul_Ama
             codes = "allitems",
             stat = {index = 370, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[370: Soul_Ama]"
         },
-        { -- Rule 232: score_tracker
+        { -- Rule 271: score_tracker
             codes = "allitems",
             stat = {index = 369, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[369: score_tracker]"
         },
-        { -- Rule 233: CD_Tracker
+        { -- Rule 272: CD_Tracker
             codes = "allitems",
             stat = {index = 368, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[368: CD_Tracker]"
         },
-        { -- Rule 234: CD_Purple
+        { -- Rule 273: CD_Purple
             codes = "allitems",
             stat = {index = 367, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[367: CD_Purple]"
         },
-        { -- Rule 235: CD_Yellow
+        { -- Rule 274: CD_Yellow
             codes = "allitems",
             stat = {index = 366, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[366: CD_Yellow]"
         },
-        { -- Rule 236: CD_Green
+        { -- Rule 275: CD_Green
             codes = "allitems",
             stat = {index = 365, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[365: CD_Green]"
         },
-        { -- Rule 237: CD_Red
+        { -- Rule 276: CD_Red
             codes = "allitems",
             stat = {index = 364, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[364: CD_Red]"
         },
-        { -- Rule 238: CD_Blue
+        { -- Rule 277: CD_Blue
             codes = "allitems",
             stat = {index = 363, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[363: CD_Blue]"
         },
-        { -- Rule 239: CD_Black
+        { -- Rule 278: CD_Black
             codes = "allitems",
             stat = {index = 362, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[362: CD_Black]"
         },
-        { -- Rule 240: CD_White
+        { -- Rule 279: CD_White
             codes = "allitems",
             stat = {index = 361, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[361: CD_White]"
         },
-        { -- Rule 241: skill_missile_damage_scale
+        { -- Rule 280: skill_missile_damage_scale
             codes = "allitems",
             stat = {index = 360, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[360: skill_missile_damage_scale]"
         },
-        { -- Rule 242: skill_cooldown
+        { -- Rule 281: skill_cooldown
             codes = "allitems",
             stat = {index = 359, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[359: skill_cooldown]"
         },
-        { -- Rule 243: passive_mag_pierce
+        { -- Rule 282: passive_mag_pierce
             codes = "allitems",
             stat = {index = 358, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[358: passive_mag_pierce]"
         },
-        { -- Rule 244: passive_mag_mastery
+        { -- Rule 283: passive_mag_mastery
             codes = "allitems",
             stat = {index = 357, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[357: passive_mag_mastery]"
         },
-        { -- Rule 245: questitemdifficulty
+        { -- Rule 284: questitemdifficulty
             codes = "allitems",
             stat = {index = 356, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[356: questitemdifficulty]"
         },
-        { -- Rule 246: shortparam1
+        { -- Rule 285: shortparam1
             codes = "allitems",
             stat = {index = 355, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[355: shortparam1]"
         },
-        { -- Rule 247: source_unit_id
+        { -- Rule 286: source_unit_id
             codes = "allitems",
             stat = {index = 354, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[354: source_unit_id]"
         },
-        { -- Rule 248: source_unit_type
+        { -- Rule 287: source_unit_type
             codes = "allitems",
             stat = {index = 353, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[353: source_unit_type]"
         },
-        { -- Rule 249: last_sent_hp_pct
+        { -- Rule 288: last_sent_hp_pct
             codes = "allitems",
             stat = {index = 352, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[352: last_sent_hp_pct]"
         },
-        { -- Rule 250: modifierlist_level
+        { -- Rule 289: modifierlist_level
             codes = "allitems",
             stat = {index = 351, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[351: modifierlist_level]"
         },
-        { -- Rule 251: modifierlist_skill
+        { -- Rule 290: modifierlist_skill
             codes = "allitems",
             stat = {index = 350, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[350: modifierlist_skill]"
         },
-        { -- Rule 252: passive_summon_resist
+        { -- Rule 291: passive_summon_resist
             codes = "allitems",
             stat = {index = 349, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[349: passive_summon_resist]"
         },
-        { -- Rule 253: passive_weaponblock
+        { -- Rule 292: passive_weaponblock
             codes = "allitems",
             stat = {index = 348, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[348: passive_weaponblock]"
         },
-        { -- Rule 254: passive_mastery_throw_crit
+        { -- Rule 293: passive_mastery_throw_crit
             codes = "allitems",
             stat = {index = 347, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[347: passive_mastery_throw_crit]"
         },
-        { -- Rule 255: passive_mastery_throw_dmg
+        { -- Rule 294: passive_mastery_throw_dmg
             codes = "allitems",
             stat = {index = 346, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[346: passive_mastery_throw_dmg]"
         },
-        { -- Rule 256: passive_mastery_throw_th
+        { -- Rule 295: passive_mastery_throw_th
             codes = "allitems",
             stat = {index = 345, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[345: passive_mastery_throw_th]"
         },
-        { -- Rule 257: passive_mastery_melee_crit
+        { -- Rule 296: passive_mastery_melee_crit
             codes = "allitems",
             stat = {index = 344, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[344: passive_mastery_melee_crit]"
         },
-        { -- Rule 258: passive_mastery_melee_dmg
+        { -- Rule 297: passive_mastery_melee_dmg
             codes = "allitems",
             stat = {index = 343, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[343: passive_mastery_melee_dmg]"
         },
-        { -- Rule 259: passive_mastery_melee_th
+        { -- Rule 298: passive_mastery_melee_th
             codes = "allitems",
             stat = {index = 342, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[342: passive_mastery_melee_th]"
         },
-        { -- Rule 260: passive_warmth
+        { -- Rule 299: passive_warmth
             codes = "allitems",
             stat = {index = 341, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[341: passive_warmth]"
         },
-        { -- Rule 261: passive_evade
+        { -- Rule 300: passive_evade
             codes = "allitems",
             stat = {index = 340, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[340: passive_evade]"
         },
-        { -- Rule 262: passive_avoid
+        { -- Rule 301: passive_avoid
             codes = "allitems",
             stat = {index = 339, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[339: passive_avoid]"
         },
-        { -- Rule 263: passive_dodge
+        { -- Rule 302: passive_dodge
             codes = "allitems",
             stat = {index = 338, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[338: passive_dodge]"
         },
-        { -- Rule 264: passive_critical_strike
+        { -- Rule 303: passive_critical_strike
             codes = "allitems",
             stat = {index = 337, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[337: passive_critical_strike]"
         },
-        { -- Rule 265: passive_pois_pierce
+        { -- Rule 304: passive_pois_pierce
             codes = "allitems",
             stat = {index = 336, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[336: passive_pois_pierce]"
         },
-        { -- Rule 266: passive_cold_pierce
+        { -- Rule 305: passive_cold_pierce
             codes = "allitems",
             stat = {index = 335, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[335: passive_cold_pierce]"
         },
-        { -- Rule 267: passive_ltng_pierce
+        { -- Rule 306: passive_ltng_pierce
             codes = "allitems",
             stat = {index = 334, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[334: passive_ltng_pierce]"
         },
-        { -- Rule 268: passive_fire_pierce
+        { -- Rule 307: passive_fire_pierce
             codes = "allitems",
             stat = {index = 333, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[333: passive_fire_pierce]"
         },
-        { -- Rule 269: passive_pois_mastery
+        { -- Rule 308: passive_pois_mastery
             codes = "allitems",
             stat = {index = 332, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[332: passive_pois_mastery]"
         },
-        { -- Rule 270: passive_cold_mastery
+        { -- Rule 309: passive_cold_mastery
             codes = "allitems",
             stat = {index = 331, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[331: passive_cold_mastery]"
         },
-        { -- Rule 271: passive_ltng_mastery
+        { -- Rule 310: passive_ltng_mastery
             codes = "allitems",
             stat = {index = 330, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[330: passive_ltng_mastery]"
         },
-        { -- Rule 272: passive_fire_mastery
+        { -- Rule 311: passive_fire_mastery
             codes = "allitems",
             stat = {index = 329, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[329: passive_fire_mastery]"
         },
-        { -- Rule 273: pierce_idx
+        { -- Rule 312: pierce_idx
             codes = "allitems",
             stat = {index = 328, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[328: pierce_idx]"
         },
-        { -- Rule 274: damage_framerate
+        { -- Rule 313: damage_framerate
             codes = "allitems",
             stat = {index = 327, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[327: damage_framerate]"
         },
-        { -- Rule 275: poison_count
+        { -- Rule 314: poison_count
             codes = "allitems",
             stat = {index = 326, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[326: poison_count]"
         },
-        { -- Rule 276: progressive_tohit
+        { -- Rule 315: progressive_tohit
             codes = "allitems",
             stat = {index = 325, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[325: progressive_tohit]"
         },
-        { -- Rule 277: item_extra_charges
+        { -- Rule 316: item_extra_charges
             codes = "allitems",
             stat = {index = 324, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[324: item_extra_charges]"
         },
-        { -- Rule 278: progressive_lightning
+        { -- Rule 317: progressive_lightning
             codes = "allitems",
             stat = {index = 323, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[323: progressive_lightning]"
         },
-        { -- Rule 279: progressive_cold
+        { -- Rule 318: progressive_cold
             codes = "allitems",
             stat = {index = 322, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[322: progressive_cold]"
         },
-        { -- Rule 280: progressive_fire
+        { -- Rule 319: progressive_fire
             codes = "allitems",
             stat = {index = 321, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[321: progressive_fire]"
         },
-        { -- Rule 281: progressive_other
+        { -- Rule 320: progressive_other
             codes = "allitems",
             stat = {index = 320, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[320: progressive_other]"
         },
-        { -- Rule 282: progressive_steal
+        { -- Rule 321: progressive_steal
             codes = "allitems",
             stat = {index = 319, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[319: progressive_steal]"
         },
-        { -- Rule 283: progressive_damage
+        { -- Rule 322: progressive_damage
             codes = "allitems",
             stat = {index = 318, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[318: progressive_damage]"
         },
-        { -- Rule 284: burningmax
+        { -- Rule 323: burningmax
             codes = "allitems",
             stat = {index = 317, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[317: burningmax]"
         },
-        { -- Rule 285: burningmin
+        { -- Rule 324: burningmin
             codes = "allitems",
             stat = {index = 316, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[316: burningmin]"
         },
-        { -- Rule 286: firelength
+        { -- Rule 325: firelength
             codes = "allitems",
             stat = {index = 315, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[315: firelength]"
         },
-        { -- Rule 287: item_ac_percent_vs_monster
+        { -- Rule 326: item_ac_percent_vs_monster
             codes = "allitems",
             stat = {index = 314, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[314: item_ac_percent_vs_monster]"
         },
-        { -- Rule 288: item_ac_vs_monster
+        { -- Rule 327: item_ac_vs_monster
             codes = "allitems",
             stat = {index = 313, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[313: item_ac_vs_monster]"
         },
-        { -- Rule 289: item_tohit_percent_vs_monster
+        { -- Rule 328: item_tohit_percent_vs_monster
             codes = "allitems",
             stat = {index = 312, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[312: item_tohit_percent_vs_monster]"
         },
-        { -- Rule 290: item_tohit_vs_monster
+        { -- Rule 329: item_tohit_vs_monster
             codes = "allitems",
             stat = {index = 311, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[311: item_tohit_vs_monster]"
         },
-        { -- Rule 291: item_damage_percent_vs_monster
+        { -- Rule 330: item_damage_percent_vs_monster
             codes = "allitems",
             stat = {index = 310, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[310: item_damage_percent_vs_monster]"
         },
-        { -- Rule 292: item_damage_vs_monster
+        { -- Rule 331: item_damage_vs_monster
             codes = "allitems",
             stat = {index = 309, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[309: item_damage_vs_monster]"
         },
-        { -- Rule 293: item_pierce_pois
+        { -- Rule 332: item_pierce_pois
             codes = "allitems",
             stat = {index = 308, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[308: item_pierce_pois]"
         },
-        { -- Rule 294: item_pierce_ltng
+        { -- Rule 333: item_pierce_ltng
             codes = "allitems",
             stat = {index = 307, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[307: item_pierce_ltng]"
         },
-        { -- Rule 295: item_pierce_fire
+        { -- Rule 334: item_pierce_fire
             codes = "allitems",
             stat = {index = 306, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[306: item_pierce_fire]"
         },
-        { -- Rule 296: item_pierce_cold
+        { -- Rule 335: item_pierce_cold
             codes = "allitems",
             stat = {index = 305, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[305: item_pierce_cold]"
         },
-        { -- Rule 297: aura_display
+        { -- Rule 336: aura_display
             codes = "allitems",
             stat = {index = 304, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[305: aura_display]"
         },
-        { -- Rule 298: oskill_display
+        { -- Rule 337: oskill_display
             codes = "allitems",
             stat = {index = 303, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[303: oskill_display]"
         },
-        { -- Rule 299: relic_tracker
+        { -- Rule 338: relic_tracker
             codes = "allitems",
             stat = {index = 302, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[302: relic_tracker]"
         },
-        { -- Rule 300: unused301
+        { -- Rule 339: unused301
             codes = "allitems",
             stat = {index = 301, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[301: unused301]"
         },
-        { -- Rule 301: OB_Meph
+        { -- Rule 340: OB_Meph
             codes = "allitems",
             stat = {index = 300, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[300: OB_Meph]"
         },
-        { -- Rule 302: OB_Baal
+        { -- Rule 341: OB_Baal
             codes = "allitems",
             stat = {index = 299, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[299: OB_Baal]"
         },
-        { -- Rule 303: OB_Diablo
+        { -- Rule 342: OB_Diablo
             codes = "allitems",
             stat = {index = 298, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[298: OB_Diablo]"
         },
-        { -- Rule 304: KB_Dest
+        { -- Rule 343: KB_Dest
             codes = "allitems",
             stat = {index = 297, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[297: KB_Dest]"
         },
-        { -- Rule 305: KB_Hate
+        { -- Rule 344: KB_Hate
             codes = "allitems",
             stat = {index = 296, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[296: KB_Hate]"
         },
-        { -- Rule 306: KB_Terror
+        { -- Rule 345: KB_Terror
             codes = "allitems",
             stat = {index = 295, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[295: KB_Terror]"
         },
-        { -- Rule 307: RB_High
+        { -- Rule 346: RB_High
             codes = "allitems",
             stat = {index = 294, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[294: RB_High]"
         },
-        { -- Rule 308: RB_Mid
+        { -- Rule 347: RB_Mid
             codes = "allitems",
             stat = {index = 293, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[293: RB_Mid]"
         },
-        { -- Rule 309: RB_Low
+        { -- Rule 348: RB_Low
             codes = "allitems",
             stat = {index = 292, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[292: RB_Low]"
         },
-        { -- Rule 310: GB_Total
+        { -- Rule 349: GB_Total
             codes = "allitems",
             stat = {index = 291, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[291: GB_Total]"
         },
-        { -- Rule 311: skill_focus
+        { -- Rule 350: skill_focus
             codes = "allitems",
             stat = {index = 290, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[290: skill_focus]"
         },
-        { -- Rule 312: skill_rage
+        { -- Rule 351: skill_rage
             codes = "allitems",
             stat = {index = 289, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[289: skill_rage]"
         },
-        { -- Rule 313: skill_bonesyn
+        { -- Rule 352: skill_bonesyn
             codes = "allitems",
             stat = {index = 288, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[288: skill_bonesyn]"
         },
-        { -- Rule 314: item_pierce_perdex
+        { -- Rule 353: item_pierce_perdex
             codes = "allitems",
             stat = {index = 287, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[287: item_pierce_perdex]"
         },
-        { -- Rule 315: item_cooldownreduction
+        { -- Rule 354: item_cooldownreduction
             codes = "allitems",
             stat = {index = 286, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[286: item_cooldownreduction]"
         },
-        { -- Rule 316: sum_cr
+        { -- Rule 355: sum_cr
             codes = "allitems",
             stat = {index = 285, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[285: sum_cr]"
         },
-        { -- Rule 317: sum_hp_perc
+        { -- Rule 356: sum_hp_perc
             codes = "allitems",
             stat = {index = 284, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[284: sum_hp_perc]"
         },
-        { -- Rule 318: sum_ex
+        { -- Rule 357: sum_ex
             codes = "allitems",
             stat = {index = 283, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[283: sum_ex]"
         },
-        { -- Rule 319: sum_speed
+        { -- Rule 358: sum_speed
             codes = "allitems",
             stat = {index = 282, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[282: sum_speed]"
         },
-        { -- Rule 320: sum_dmg_perc
+        { -- Rule 359: sum_dmg_perc
             codes = "allitems",
             stat = {index = 281, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[281: sum_dmg_perc]"
         },
-        { -- Rule 321: curse_resistance_perenr
+        { -- Rule 360: curse_resistance_perenr
             codes = "allitems",
             stat = {index = 280, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[280: curse_resistance_perenr]"
         },
-        { -- Rule 322: map_quality
+        { -- Rule 361: map_quality
             codes = "allitems",
             stat = {index = 279, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[279: map_quality]"
         },
-        { -- Rule 323: ex_attacks
+        { -- Rule 362: ex_attacks
             codes = "allitems",
             stat = {index = 278, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[278: ex_attacks]"
         },
-        { -- Rule 324: item_attackertakescolddamage
+        { -- Rule 363: item_attackertakescolddamage
             codes = "allitems",
             stat = {index = 277, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[277: item_attackertakescolddamage]"
         },
-        { -- Rule 325: ex_missiles
+        { -- Rule 364: ex_missiles
             codes = "allitems",
             stat = {index = 276, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[276: ex_missiles]"
         },
-        { -- Rule 326: life_per_gethit
+        { -- Rule 365: life_per_gethit
             codes = "allitems",
             stat = {index = 275, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[275: life_per_gethit]"
         },
-        { -- Rule 327: mana_per_gethit
+        { -- Rule 366: mana_per_gethit
             codes = "allitems",
             stat = {index = 274, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[274: mana_per_gethit]"
         },
-        { -- Rule 328: dont_use_me_273
+        { -- Rule 367: dont_use_me_273
             codes = "allitems",
             stat = {index = 273, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[273: dont_use_me_273]"
         },
-        { -- Rule 329: dont_use_me_272
+        { -- Rule 368: dont_use_me_272
             codes = "allitems",
             stat = {index = 272, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[272: dont_use_me_272]"
         },
-        { -- Rule 330: item_attackertakesfiredamage
+        { -- Rule 369: item_attackertakesfiredamage
             codes = "allitems",
             stat = {index = 271, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[271: item_attackertakesfiredamage]"
         },
-        { -- Rule 331: cheatcheck
+        { -- Rule 370: cheatcheck
             codes = "allitems",
             stat = {index = 270, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[270: cheatcheck]"
         },
-        { -- Rule 332: skill_chillsyn
+        { -- Rule 371: skill_chillsyn
             codes = "allitems",
             stat = {index = 269, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[269: skill_chillsyn]"
         },
-        { -- Rule 333: skill_freezesyn
+        { -- Rule 372: skill_freezesyn
             codes = "allitems",
             stat = {index = 268, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[268: skill_freezesyn]"
         },
-        { -- Rule 334: item_skillonmisshit
+        { -- Rule 373: item_skillonmisshit
             codes = "allitems",
             stat = {index = 267, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[267: item_skillonmisshit]"
         },
-        { -- Rule 335: item_splash
+        { -- Rule 374: item_splash
             codes = "allitems",
             stat = {index = 266, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[266: item_splash]"
         },
-        { -- Rule 336: item_energy_percent
+        { -- Rule 375: item_energy_percent
             codes = "allitems",
             stat = {index = 265, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[265: item_energy_percent]"
         },
-        { -- Rule 337: item_vitality_percent
+        { -- Rule 376: item_vitality_percent
             codes = "allitems",
             stat = {index = 264, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[264: item_vitality_percent]"
         },
-        { -- Rule 338: item_dexterity_percent
+        { -- Rule 377: item_dexterity_percent
             codes = "allitems",
             stat = {index = 263, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[263: item_dexterity_percent]"
         },
-        { -- Rule 339: item_strength_percent
+        { -- Rule 378: item_strength_percent
             codes = "allitems",
             stat = {index = 262, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[262: item_strength_percent]"
         },
-        { -- Rule 340: item_crushingblow_perstr
+        { -- Rule 379: item_crushingblow_perstr
             codes = "allitems",
             stat = {index = 261, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[261: item_crushingblow_perstr]"
         },
-        { -- Rule 341: item_fastercastrate_perenr
+        { -- Rule 380: item_fastercastrate_perenr
             codes = "allitems",
             stat = {index = 260, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[260: item_fastercastrate_perenr]"
         },
-        { -- Rule 342: item_armor_perstr
+        { -- Rule 381: item_armor_perstr
             codes = "allitems",
             stat = {index = 259, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[259: item_armor_perstr]"
         },
-        { -- Rule 343: item_deadlystrike_perstr
+        { -- Rule 382: item_deadlystrike_perstr
             codes = "allitems",
             stat = {index = 258, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[258: item_deadlystrike_perstr]"
         },
-        { -- Rule 344: item_deadlystrike_perdex
+        { -- Rule 383: item_deadlystrike_perdex
             codes = "allitems",
             stat = {index = 257, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[257: item_deadlystrike_perdex]"
         },
-        { -- Rule 345: item_openwounds_perstr
+        { -- Rule 384: item_openwounds_perstr
             codes = "allitems",
             stat = {index = 256, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[256: item_openwounds_perstr]"
         },
-        { -- Rule 346: item_find_item
+        { -- Rule 385: item_find_item
             codes = "allitems",
             stat = {index = 255, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[255: item_find_item]"
         },
-        { -- Rule 347: item_extra_stack
+        { -- Rule 386: item_extra_stack
             codes = "allitems",
             stat = {index = 254, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[254: item_extra_stack]"
         },
-        { -- Rule 348: item_replenish_quantity
+        { -- Rule 387: item_replenish_quantity
             codes = "allitems",
             stat = {index = 253, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[253: item_replenish_quantity]"
         },
-        { -- Rule 349: item_replenish_durability
+        { -- Rule 388: item_replenish_durability
             codes = "allitems",
             stat = {index = 252, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[252: item_replenish_durability]"
         },
-        { -- Rule 350: item_find_gems_perlevel
+        { -- Rule 389: item_find_gems_perlevel
             codes = "allitems",
             stat = {index = 251, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[251: item_find_gems_perlevel]"
         },
-        { -- Rule 351: item_deadlystrike_perlevel
+        { -- Rule 390: item_deadlystrike_perlevel
             codes = "allitems",
             stat = {index = 250, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[250: item_deadlystrike_perlevel]"
         },
-        { -- Rule 352: item_kick_damage_perlevel
+        { -- Rule 391: item_kick_damage_perlevel
             codes = "allitems",
             stat = {index = 249, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[249: item_kick_damage_perlevel]"
         },
-        { -- Rule 353: item_openwounds_perlevel
+        { -- Rule 392: item_openwounds_perlevel
             codes = "allitems",
             stat = {index = 248, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[248: item_openwounds_perlevel]"
         },
-        { -- Rule 354: item_crushingblow_perlevel
+        { -- Rule 393: item_crushingblow_perlevel
             codes = "allitems",
             stat = {index = 247, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[247: item_crushingblow_perlevel]"
         },
-        { -- Rule 355: item_tohit_undead_perlevel
+        { -- Rule 394: item_tohit_undead_perlevel
             codes = "allitems",
             stat = {index = 246, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[246: item_tohit_undead_perlevel]"
         },
-        { -- Rule 356: item_tohit_demon_perlevel
+        { -- Rule 395: item_tohit_demon_perlevel
             codes = "allitems",
             stat = {index = 245, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[245: item_tohit_demon_perlevel]"
         },
-        { -- Rule 357: item_damage_undead_perlevel
+        { -- Rule 396: item_damage_undead_perlevel
             codes = "allitems",
             stat = {index = 244, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[244: item_damage_undead_perlevel]"
         },
-        { -- Rule 358: item_damage_demon_perlevel
+        { -- Rule 397: item_damage_demon_perlevel
             codes = "allitems",
             stat = {index = 243, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[243: item_damage_demon_perlevel]"
         },
-        { -- Rule 359: item_stamina_perlevel
+        { -- Rule 398: item_stamina_perlevel
             codes = "allitems",
             stat = {index = 242, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[242: item_stamina_perlevel]"
         },
-        { -- Rule 360: item_regenstamina_perlevel
+        { -- Rule 399: item_regenstamina_perlevel
             codes = "allitems",
             stat = {index = 241, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[241: item_regenstamina_perlevel]"
         },
-        { -- Rule 361: item_find_magic_perlevel
+        { -- Rule 400: item_find_magic_perlevel
             codes = "allitems",
             stat = {index = 240, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[240: item_find_magic_perlevel]"
         },
-        { -- Rule 362: item_find_gold_perlevel
+        { -- Rule 401: item_find_gold_perlevel
             codes = "allitems",
             stat = {index = 239, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[239: item_find_gold_perlevel]"
         },
-        { -- Rule 363: item_thorns_perlevel
+        { -- Rule 402: item_thorns_perlevel
             codes = "allitems",
             stat = {index = 238, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[238: item_thorns_perlevel]"
         },
-        { -- Rule 364: item_absorb_mag_perlevel
+        { -- Rule 403: item_absorb_mag_perlevel
             codes = "allitems",
             stat = {index = 237, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[237: item_absorb_mag_perlevel]"
         },
-        { -- Rule 365: item_absorb_ltng_perlevel
+        { -- Rule 404: item_absorb_ltng_perlevel
             codes = "allitems",
             stat = {index = 236, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[236: item_absorb_ltng_perlevel]"
         },
-        { -- Rule 366: item_absorb_fire_perlevel
+        { -- Rule 405: item_absorb_fire_perlevel
             codes = "allitems",
             stat = {index = 235, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[235: item_absorb_fire_perlevel]"
         },
-        { -- Rule 367: item_absorb_cold_perlevel
+        { -- Rule 406: item_absorb_cold_perlevel
             codes = "allitems",
             stat = {index = 234, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[234: item_absorb_cold_perlevel]"
         },
-        { -- Rule 368: item_resist_pois_perlevel
+        { -- Rule 407: item_resist_pois_perlevel
             codes = "allitems",
             stat = {index = 233, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[233: item_resist_pois_perlevel]"
         },
-        { -- Rule 369: item_resist_ltng_perlevel
+        { -- Rule 408: item_resist_ltng_perlevel
             codes = "allitems",
             stat = {index = 232, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[232: item_resist_ltng_perlevel]"
         },
-        { -- Rule 370: item_resist_fire_perlevel
+        { -- Rule 409: item_resist_fire_perlevel
             codes = "allitems",
             stat = {index = 231, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[231: item_resist_fire_perlevel]"
         },
-        { -- Rule 371: item_resist_cold_perlevel
+        { -- Rule 410: item_resist_cold_perlevel
             codes = "allitems",
             stat = {index = 230, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[230: item_resist_cold_perlevel]"
         },
-        { -- Rule 372: item_pois_damagemax_perlevel
+        { -- Rule 411: item_pois_damagemax_perlevel
             codes = "allitems",
             stat = {index = 229, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[229: item_pois_damagemax_perlevel]"
         },
-        { -- Rule 373: item_ltng_damagemax_perlevel
+        { -- Rule 412: item_ltng_damagemax_perlevel
             codes = "allitems",
             stat = {index = 228, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[228: item_ltng_damagemax_perlevel]"
         },
-        { -- Rule 374: item_fire_damagemax_perlevel
+        { -- Rule 413: item_fire_damagemax_perlevel
             codes = "allitems",
             stat = {index = 227, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[227: item_fire_damagemax_perlevel]"
         },
-        { -- Rule 375: item_cold_damagemax_perlevel
+        { -- Rule 414: item_cold_damagemax_perlevel
             codes = "allitems",
             stat = {index = 226, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[226: item_cold_damagemax_perlevel]"
         },
-        { -- Rule 376: item_tohitpercent_perlevel
+        { -- Rule 415: item_tohitpercent_perlevel
             codes = "allitems",
             stat = {index = 225, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[225: item_tohitpercent_perlevel]"
         },
-        { -- Rule 377: item_tohit_perlevel
+        { -- Rule 416: item_tohit_perlevel
             codes = "allitems",
             stat = {index = 224, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[224: item_tohit_perlevel]"
         },
-        { -- Rule 378: item_vitality_perlevel
+        { -- Rule 417: item_vitality_perlevel
             codes = "allitems",
             stat = {index = 223, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[223: item_vitality_perlevel]"
         },
-        { -- Rule 379: item_energy_perlevel
+        { -- Rule 418: item_energy_perlevel
             codes = "allitems",
             stat = {index = 222, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[222: item_energy_perlevel]"
         },
-        { -- Rule 380: item_dexterity_perlevel
+        { -- Rule 419: item_dexterity_perlevel
             codes = "allitems",
             stat = {index = 221, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[221: item_dexterity_perlevel]"
         },
-        { -- Rule 381: item_strength_perlevel
+        { -- Rule 420: item_strength_perlevel
             codes = "allitems",
             stat = {index = 220, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[220: item_strength_perlevel]"
         },
-        { -- Rule 382: item_maxdamage_percent_perlevel
+        { -- Rule 421: item_maxdamage_percent_perlevel
             codes = "allitems",
             stat = {index = 219, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[219: item_maxdamage_percent_perlevel]"
         },
-        { -- Rule 383: item_maxdamage_perlevel
+        { -- Rule 422: item_maxdamage_perlevel
             codes = "allitems",
             stat = {index = 218, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[218: item_maxdamage_perlevel]"
         },
-        { -- Rule 384: item_mana_perlevel
+        { -- Rule 423: item_mana_perlevel
             codes = "allitems",
             stat = {index = 217, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[217: item_mana_perlevel]"
         },
-        { -- Rule 385: item_hp_perlevel
+        { -- Rule 424: item_hp_perlevel
             codes = "allitems",
             stat = {index = 216, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[216: item_hp_perlevel]"
         },
-        { -- Rule 386: item_armorpercent_perlevel
+        { -- Rule 425: item_armorpercent_perlevel
             codes = "allitems",
             stat = {index = 215, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[215: item_armorpercent_perlevel]"
         },
-        { -- Rule 387: item_armor_perlevel
+        { -- Rule 426: item_armor_perlevel
             codes = "allitems",
             stat = {index = 214, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[214: item_armor_perlevel]"
         },
-        { -- Rule 388: passive_mastery_attack_speed
+        { -- Rule 427: passive_mastery_attack_speed
             codes = "allitems",
             stat = {index = 213, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[213: passive_mastery_attack_speed]"
         },
-        { -- Rule 389: passive_mastery_gethit_rate
+        { -- Rule 428: passive_mastery_gethit_rate
             codes = "allitems",
             stat = {index = 212, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[212: passive_mastery_gethit_rate]"
         },
-        { -- Rule 390: unused211
+        { -- Rule 429: unused211
             codes = "allitems",
             stat = {index = 211, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[211: unused211]"
         },
-        { -- Rule 391: unused210
+        { -- Rule 430: unused210
             codes = "allitems",
             stat = {index = 210, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[210: unused210]"
         },
-        { -- Rule 392: pali_killtrack
+        { -- Rule 431: pali_killtrack
             codes = "allitems",
             stat = {index = 209, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[209: pali_killtrack]"
         },
-        { -- Rule 393: Item_Enhanced
+        { -- Rule 432: Item_Enhanced
             codes = "allitems",
             stat = {index = 208, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[208: Item_Enhanced]"
         },
-        { -- Rule 394: passive_mastery_replenish_oncrit
+        { -- Rule 433: passive_mastery_replenish_oncrit
             codes = "allitems",
             stat = {index = 207, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[207: passive_mastery_replenish_oncrit]"
         },
-        { -- Rule 395: passive_mastery_noconsume
+        { -- Rule 434: passive_mastery_noconsume
             codes = "allitems",
             stat = {index = 206, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[206: passive_mastery_noconsume]"
         },
-        { -- Rule 396: item_noconsume
+        { -- Rule 435: item_noconsume
             codes = "allitems",
             stat = {index = 205, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[205: item_noconsume]"
         },
-        { -- Rule 397: item_charged_skill
+        { -- Rule 436: item_charged_skill
             codes = "allitems",
             stat = {index = 204, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[204: item_charged_skill]"
         },
-        { -- Rule 398: unused203
+        { -- Rule 437: unused203
             codes = "allitems",
             stat = {index = 203, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[203: unused203]"
         },
-        { -- Rule 399: modifierlist_castid
+        { -- Rule 438: modifierlist_castid
             codes = "allitems",
             stat = {index = 202, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[202: modifierlist_castid]"
         },
-        { -- Rule 400: item_skillongethit
+        { -- Rule 439: item_skillongethit
             codes = "allitems",
             stat = {index = 201, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[201: item_skillongethit]"
         },
-        { -- Rule 401: item_charge_noconsume
+        { -- Rule 440: item_charge_noconsume
             codes = "allitems",
             stat = {index = 200, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[200: item_charge_noconsume]"
         },
-        { -- Rule 402: item_skillonlevelup
+        { -- Rule 441: item_skillonlevelup
             codes = "allitems",
             stat = {index = 199, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[199: item_skillonlevelup]"
         },
-        { -- Rule 403: item_skillonhit
+        { -- Rule 442: item_skillonhit
             codes = "allitems",
             stat = {index = 198, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[198: item_skillonhit]"
         },
-        { -- Rule 404: item_skillondeath
+        { -- Rule 443: item_skillondeath
             codes = "allitems",
             stat = {index = 197, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[197: item_skillondeath]"
         },
-        { -- Rule 405: item_skillonkill
+        { -- Rule 444: item_skillonkill
             codes = "allitems",
             stat = {index = 196, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[196: item_skillonkill]"
         },
-        { -- Rule 406: item_skillonattack
+        { -- Rule 445: item_skillonattack
             codes = "allitems",
             stat = {index = 195, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[195: item_skillonattack]"
         },
-        { -- Rule 407: item_numsockets
+        { -- Rule 446: item_numsockets
             codes = "allitems",
             stat = {index = 194, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[194: item_numsockets]"
         },
-        { -- Rule 408: item_pierce_magic_immunity
+        { -- Rule 447: item_pierce_magic_immunity
             codes = "allitems",
             stat = {index = 193, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[193: item_pierce_magic_immunity]"
         },
-        { -- Rule 409: item_pierce_damage_immunity
+        { -- Rule 448: item_pierce_damage_immunity
             codes = "allitems",
             stat = {index = 192, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[192: item_pierce_damage_immunity]"
         },
-        { -- Rule 410: item_pierce_poison_immunity
+        { -- Rule 449: item_pierce_poison_immunity
             codes = "allitems",
             stat = {index = 191, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[191: item_pierce_poison_immunity]"
         },
-        { -- Rule 411: item_pierce_light_immunity
+        { -- Rule 450: item_pierce_light_immunity
             codes = "allitems",
             stat = {index = 190, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[190: item_pierce_light_immunity]"
         },
-        { -- Rule 412: item_pierce_fire_immunity
+        { -- Rule 451: item_pierce_fire_immunity
             codes = "allitems",
             stat = {index = 189, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[189: item_pierce_fire_immunity]"
         },
-        { -- Rule 413: item_addskill_tab
+        { -- Rule 452: item_addskill_tab
             codes = "allitems",
             stat = {index = 188, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[188: item_addskill_tab]"
         },
-        { -- Rule 414: item_pierce_cold_immunity
+        { -- Rule 453: item_pierce_cold_immunity
             codes = "allitems",
             stat = {index = 187, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[187: item_pierce_cold_immunity]"
         },
-        { -- Rule 415: bonus_maxdamage
+        { -- Rule 454: bonus_maxdamage
             codes = "allitems",
             stat = {index = 186, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[186: bonus_maxdamage]"
         },
-        { -- Rule 416: bonus_mindamage
+        { -- Rule 455: bonus_mindamage
             codes = "allitems",
             stat = {index = 185, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[185: bonus_mindamage]"
         },
-        { -- Rule 417: deathtrack
+        { -- Rule 456: deathtrack
             codes = "allitems",
             stat = {index = 184, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[184: deathtrack]"
         },
-        { -- Rule 418: killtrack
+        { -- Rule 457: killtrack
             codes = "allitems",
             stat = {index = 183, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[183: killtrack]"
         },
-        { -- Rule 419: armor_override_percent
+        { -- Rule 458: armor_override_percent
             codes = "allitems",
             stat = {index = 182, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[182: armor_override_percent]"
         },
-        { -- Rule 420: fade
+        { -- Rule 459: fade
             codes = "allitems",
             stat = {index = 181, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[181: fade]"
         },
-        { -- Rule 421: damage_vs_montype
+        { -- Rule 460: damage_vs_montype
             codes = "allitems",
             stat = {index = 180, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[180: damage_vs_montype]"
         },
-        { -- Rule 422: attack_vs_montype
+        { -- Rule 461: attack_vs_montype
             codes = "allitems",
             stat = {index = 179, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[179: attack_vs_montype]"
         },
-        { -- Rule 423: unit_dooverlay
+        { -- Rule 462: unit_dooverlay
             codes = "allitems",
             stat = {index = 178, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[178: unit_dooverlay]"
         },
-        { -- Rule 424: conversion_maxhp
+        { -- Rule 463: conversion_maxhp
             codes = "allitems",
             stat = {index = 177, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[177: conversion_maxhp]"
         },
-        { -- Rule 425: conversion_level
+        { -- Rule 464: conversion_level
             codes = "allitems",
             stat = {index = 176, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[176: conversion_level]"
         },
-        { -- Rule 426: goldlost
+        { -- Rule 465: goldlost
             codes = "allitems",
             stat = {index = 175, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[175: goldlost]"
         },
-        { -- Rule 427: target1
+        { -- Rule 466: target1
             codes = "allitems",
             stat = {index = 174, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[174: target1]"
         },
-        { -- Rule 428: target0
+        { -- Rule 467: target0
             codes = "allitems",
             stat = {index = 173, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[173: target0]"
         },
-        { -- Rule 429: alignment
+        { -- Rule 468: alignment
             codes = "allitems",
             stat = {index = 172, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[172: alignment]"
         },
-        { -- Rule 430: skill_armor_percent
+        { -- Rule 469: skill_armor_percent
             codes = "allitems",
             stat = {index = 171, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[171: skill_armor_percent]"
         },
-        { -- Rule 431: skill_decrepify
+        { -- Rule 470: skill_decrepify
             codes = "allitems",
             stat = {index = 170, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[170: skill_decrepify]"
         },
-        { -- Rule 432: skill_frenzy
+        { -- Rule 471: skill_frenzy
             codes = "allitems",
             stat = {index = 169, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[169: skill_frenzy]"
         },
-        { -- Rule 433: skill_chillingarmor
+        { -- Rule 472: skill_chillingarmor
             codes = "allitems",
             stat = {index = 168, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[168: skill_chillingarmor]"
         },
-        { -- Rule 434: skill_conviction
+        { -- Rule 473: skill_conviction
             codes = "allitems",
             stat = {index = 167, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[167: skill_conviction]"
         },
-        { -- Rule 435: skill_pierce
+        { -- Rule 474: skill_pierce
             codes = "allitems",
             stat = {index = 166, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[166: skill_pierce]"
         },
-        { -- Rule 436: skill_enchant
+        { -- Rule 475: skill_enchant
             codes = "allitems",
             stat = {index = 165, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[165: skill_enchant]"
         },
-        { -- Rule 437: skill_concentration
+        { -- Rule 476: skill_concentration
             codes = "allitems",
             stat = {index = 164, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[164: skill_concentration]"
         },
-        { -- Rule 438: skill_passive_staminapercent
+        { -- Rule 477: skill_passive_staminapercent
             codes = "allitems",
             stat = {index = 163, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[163: skill_passive_staminapercent]"
         },
-        { -- Rule 439: skill_staminapercent
+        { -- Rule 478: skill_staminapercent
             codes = "allitems",
             stat = {index = 162, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[162: skill_staminapercent]"
         },
-        { -- Rule 440: skill_handofathena
+        { -- Rule 479: skill_handofathena
             codes = "allitems",
             stat = {index = 161, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[161: skill_handofathena]"
         },
-        { -- Rule 441: item_throw_maxdamage
+        { -- Rule 480: item_throw_maxdamage
             codes = "allitems",
             stat = {index = 160, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[160: item_throw_maxdamage]"
         },
-        { -- Rule 442: item_throw_mindamage
+        { -- Rule 481: item_throw_mindamage
             codes = "allitems",
             stat = {index = 159, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[159: item_throw_mindamage]"
         },
-        { -- Rule 443: item_explosivearrow
+        { -- Rule 482: item_explosivearrow
             codes = "allitems",
             stat = {index = 158, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[158: item_explosivearrow]"
         },
-        { -- Rule 444: item_magicarrow
+        { -- Rule 483: item_magicarrow
             codes = "allitems",
             stat = {index = 157, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[157: item_magicarrow]"
         },
-        { -- Rule 445: item_pierce
+        { -- Rule 484: item_pierce
             codes = "allitems",
             stat = {index = 156, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[156: item_pierce]"
         },
-        { -- Rule 446: item_reanimate
+        { -- Rule 485: item_reanimate
             codes = "allitems",
             stat = {index = 155, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[155: item_reanimate]"
         },
-        { -- Rule 447: item_staminadrainpct
+        { -- Rule 486: item_staminadrainpct
             codes = "allitems",
             stat = {index = 154, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[154: item_staminadrainpct]"
         },
-        { -- Rule 448: item_cannotbefrozen
+        { -- Rule 487: item_cannotbefrozen
             codes = "allitems",
             stat = {index = 153, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[153: item_cannotbefrozen]"
         },
-        { -- Rule 449: item_indesctructible
+        { -- Rule 488: item_indesctructible
             codes = "allitems",
             stat = {index = 152, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[152: item_indesctructible]"
         },
-        { -- Rule 450: aura_display
+        { -- Rule 489: aura_display
             codes = "allitems",
             stat = {index = 151, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[151: aura_display]"
         },
-        { -- Rule 451: item_slow
+        { -- Rule 490: item_slow
             codes = "allitems",
             stat = {index = 150, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[150: item_slow]"
         },
-        { -- Rule 452: item_absorbcold
+        { -- Rule 491: item_absorbcold
             codes = "allitems",
             stat = {index = 149, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[149: item_absorbcold]"
         },
-        { -- Rule 453: item_absorbcold_percent
+        { -- Rule 492: item_absorbcold_percent
             codes = "allitems",
             stat = {index = 148, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[148: item_absorbcold_percent]"
         },
-        { -- Rule 454: item_absorbmagic
+        { -- Rule 493: item_absorbmagic
             codes = "allitems",
             stat = {index = 147, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[147: item_absorbmagic]"
         },
-        { -- Rule 455: item_absorbmagic_percent
+        { -- Rule 494: item_absorbmagic_percent
             codes = "allitems",
             stat = {index = 146, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[146: item_absorbmagic_percent]"
         },
-        { -- Rule 456: item_absorblight
+        { -- Rule 495: item_absorblight
             codes = "allitems",
             stat = {index = 145, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[145: item_absorblight]"
         },
-        { -- Rule 457: item_absorblight_percent
+        { -- Rule 496: item_absorblight_percent
             codes = "allitems",
             stat = {index = 144, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[144: item_absorblight_percent]"
         },
-        { -- Rule 458: item_absorbfire
+        { -- Rule 497: item_absorbfire
             codes = "allitems",
             stat = {index = 143, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[143: item_absorbfire]"
         },
-        { -- Rule 459: item_absorbfire_percent
+        { -- Rule 498: item_absorbfire_percent
             codes = "allitems",
             stat = {index = 142, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[142: item_absorbfire_percent]"
         },
-        { -- Rule 460: item_deadlystrike
+        { -- Rule 499: item_deadlystrike
             codes = "allitems",
             stat = {index = 141, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[141: item_deadlystrike]"
         },
-        { -- Rule 461: item_extrablood
+        { -- Rule 500: item_extrablood
             codes = "allitems",
             stat = {index = 140, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[140: item_extrablood]"
         },
-        { -- Rule 462: item_healafterdemonkill
+        { -- Rule 501: item_healafterdemonkill
             codes = "allitems",
             stat = {index = 139, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[139: item_healafterdemonkill]"
         },
-        { -- Rule 463: item_manaafterkill
+        { -- Rule 502: item_manaafterkill
             codes = "allitems",
             stat = {index = 138, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[138: item_manaafterkill]"
         },
-        { -- Rule 464: item_kickdamage
+        { -- Rule 503: item_kickdamage
             codes = "allitems",
             stat = {index = 137, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[137: item_kickdamage]"
         },
-        { -- Rule 465: item_crushingblow
+        { -- Rule 504: item_crushingblow
             codes = "allitems",
             stat = {index = 136, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[136: item_crushingblow]"
         },
-        { -- Rule 466: item_openwounds
+        { -- Rule 505: item_openwounds
             codes = "allitems",
             stat = {index = 135, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[135: item_openwounds]"
         },
-        { -- Rule 467: item_freeze
+        { -- Rule 506: item_freeze
             codes = "allitems",
             stat = {index = 134, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[134: item_freeze]"
         },
-        { -- Rule 468: bonearmormax
+        { -- Rule 507: bonearmormax
             codes = "allitems",
             stat = {index = 133, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[133: bonearmormax]"
         },
-        { -- Rule 469: bonearmor
+        { -- Rule 508: bonearmor
             codes = "allitems",
             stat = {index = 132, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[132: bonearmor]"
         },
-        { -- Rule 470: thorns_percent
+        { -- Rule 509: thorns_percent
             codes = "allitems",
             stat = {index = 131, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[131: thorns_percent]"
         },
-        { -- Rule 471: lifetap_level
+        { -- Rule 510: lifetap_level
             codes = "allitems",
             stat = {index = 130, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[130: lifetap_level]"
         },
-        { -- Rule 472: ironmaiden_level
+        { -- Rule 511: ironmaiden_level
             codes = "allitems",
             stat = {index = 129, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[129: ironmaiden_level]"
         },
-        { -- Rule 473: item_attackertakeslightdamage
+        { -- Rule 512: item_attackertakeslightdamage
             codes = "allitems",
             stat = {index = 128, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[128: item_attackertakeslightdamage]"
         },
-        { -- Rule 474: item_allskills
+        { -- Rule 513: item_allskills
             codes = "allitems",
             stat = {index = 127, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[127: item_allskills]"
         },
-        { -- Rule 475: item_elemskill
+        { -- Rule 514: item_elemskill
             codes = "allitems",
             stat = {index = 126, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[126: item_elemskill]"
         },
-        { -- Rule 476: item_throwable
+        { -- Rule 515: item_throwable
             codes = "allitems",
             stat = {index = 125, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[125: item_throwable]"
         },
-        { -- Rule 477: item_undead_tohit
+        { -- Rule 516: item_undead_tohit
             codes = "allitems",
             stat = {index = 124, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[124: item_undead_tohit]"
         },
-        { -- Rule 478: item_demon_tohit
+        { -- Rule 517: item_demon_tohit
             codes = "allitems",
             stat = {index = 123, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[123: item_demon_tohit]"
         },
-        { -- Rule 479: item_undeaddamage_percent
+        { -- Rule 518: item_undeaddamage_percent
             codes = "allitems",
             stat = {index = 122, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[122: item_undeaddamage_percent]"
         },
-        { -- Rule 480: item_demondamage_percent
+        { -- Rule 519: item_demondamage_percent
             codes = "allitems",
             stat = {index = 121, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[121: item_demondamage_percent]"
         },
-        { -- Rule 481: item_damagetargetac
+        { -- Rule 520: item_damagetargetac
             codes = "allitems",
             stat = {index = 120, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[120: item_damagetargetac]"
         },
-        { -- Rule 482: item_tohit_percent
+        { -- Rule 521: item_tohit_percent
             codes = "allitems",
             stat = {index = 119, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[119: item_tohit_percent]"
         },
-        { -- Rule 483: item_halffreezeduration
+        { -- Rule 522: item_halffreezeduration
             codes = "allitems",
             stat = {index = 118, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[118: item_halffreezeduration]"
         },
-        { -- Rule 484: item_preventheal
+        { -- Rule 523: item_preventheal
             codes = "allitems",
             stat = {index = 117, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[117: item_preventheal]"
         },
-        { -- Rule 485: item_fractionaltargetac
+        { -- Rule 524: item_fractionaltargetac
             codes = "allitems",
             stat = {index = 116, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[116: item_fractionaltargetac]"
         },
-        { -- Rule 486: item_ignoretargetac
+        { -- Rule 525: item_ignoretargetac
             codes = "allitems",
             stat = {index = 115, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[115: item_ignoretargetac]"
         },
-        { -- Rule 487: item_damagetomana
+        { -- Rule 526: item_damagetomana
             codes = "allitems",
             stat = {index = 114, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[114: item_damagetomana]"
         },
-        { -- Rule 488: item_stupidity
+        { -- Rule 527: item_stupidity
             codes = "allitems",
             stat = {index = 113, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[113: item_stupidity]"
         },
-        { -- Rule 489: item_howl
+        { -- Rule 528: item_howl
             codes = "allitems",
             stat = {index = 112, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[112: item_howl]"
         },
-        { -- Rule 490: item_normaldamage
+        { -- Rule 529: item_normaldamage
             codes = "allitems",
             stat = {index = 111, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[111: item_normaldamage]"
         },
-        { -- Rule 491: item_poisonlengthresist
+        { -- Rule 530: item_poisonlengthresist
             codes = "allitems",
             stat = {index = 110, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[110: item_poisonlengthresist]"
         },
-        { -- Rule 492: curse_resistance
+        { -- Rule 531: curse_resistance
             codes = "allitems",
             stat = {index = 109, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[109: curse_resistance]"
         },
-        { -- Rule 493: item_restinpeace
+        { -- Rule 532: item_restinpeace
             codes = "allitems",
             stat = {index = 108, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[108: item_restinpeace]"
         },
-        { -- Rule 494: item_singleskill
+        { -- Rule 533: item_singleskill
             codes = "allitems",
             stat = {index = 107, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[107: item_singleskill]"
         },
-        { -- Rule 495: skill_bypass_beasts
+        { -- Rule 534: skill_bypass_beasts
             codes = "allitems",
             stat = {index = 106, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[106: skill_bypass_beasts]"
         },
-        { -- Rule 496: item_fastercastrate
+        { -- Rule 535: item_fastercastrate
             codes = "allitems",
             stat = {index = 105, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[105: item_fastercastrate]"
         },
-        { -- Rule 497: skill_bypass_demons
+        { -- Rule 536: skill_bypass_demons
             codes = "allitems",
             stat = {index = 104, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[104: skill_bypass_demons]"
         },
-        { -- Rule 498: skill_bypass_undead
+        { -- Rule 537: skill_bypass_undead
             codes = "allitems",
             stat = {index = 103, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[103: skill_bypass_undead]"
         },
-        { -- Rule 499: item_fasterblockrate
+        { -- Rule 538: item_fasterblockrate
             codes = "allitems",
             stat = {index = 102, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[102: item_fasterblockrate]"
         },
-        { -- Rule 500: skill_poison_override_length
+        { -- Rule 539: skill_poison_override_length
             codes = "allitems",
             stat = {index = 101, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[101: skill_poison_override_length]"
         },
-        { -- Rule 501: monster_playercount
+        { -- Rule 540: monster_playercount
             codes = "allitems",
             stat = {index = 100, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[100: monster_playercount]"
         },
-        { -- Rule 502: item_fastergethitrate
+        { -- Rule 541: item_fastergethitrate
             codes = "allitems",
             stat = {index = 99, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[99: item_fastergethitrate]"
         },
-        { -- Rule 503: state
+        { -- Rule 542: state
             codes = "allitems",
             stat = {index = 98, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[98: state]"
         },
-        { -- Rule 504: item_nonclassskill
+        { -- Rule 543: item_nonclassskill
             codes = "allitems",
             stat = {index = 97, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[97: item_nonclassskill]"
         },
-        { -- Rule 505: item_fastermovevelocity
+        { -- Rule 544: item_fastermovevelocity
             codes = "allitems",
             stat = {index = 96, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[96: item_fastermovevelocity]"
         },
-        { -- Rule 506: lastblockframe
+        { -- Rule 545: lastblockframe
             codes = "allitems",
             stat = {index = 95, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[95: lastblockframe]"
         },
-        { -- Rule 507: item_levelreqpct
+        { -- Rule 546: item_levelreqpct
             codes = "allitems",
             stat = {index = 94, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[94: item_levelreqpct]"
         },
-        { -- Rule 508: item_fasterattackrate
+        { -- Rule 547: item_fasterattackrate
             codes = "allitems",
             stat = {index = 93, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[93: item_fasterattackrate]"
         },
-        { -- Rule 509: item_levelreq
+        { -- Rule 548: item_levelreq
             codes = "allitems",
             stat = {index = 92, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[92: item_levelreq]"
         },
-        { -- Rule 510: item_req_percent
+        { -- Rule 549: item_req_percent
             codes = "allitems",
             stat = {index = 91, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[91: item_req_percent]"
         },
-        { -- Rule 511: item_lightcolor
+        { -- Rule 550: item_lightcolor
             codes = "allitems",
             stat = {index = 90, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[90: item_lightcolor]"
         },
-        { -- Rule 512: item_lightradius
+        { -- Rule 551: item_lightradius
             codes = "allitems",
             stat = {index = 89, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[89: item_lightradius]"
         },
-        { -- Rule 513: item_doubleherbduration
+        { -- Rule 552: item_doubleherbduration
             codes = "allitems",
             stat = {index = 88, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[88: item_doubleherbduration]"
         },
-        { -- Rule 514: item_reducedprices
+        { -- Rule 553: item_reducedprices
             codes = "allitems",
             stat = {index = 87, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[87: item_reducedprices]"
         },
-        { -- Rule 515: item_healafterkill
+        { -- Rule 554: item_healafterkill
             codes = "allitems",
             stat = {index = 86, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[86: item_healafterkill]"
         },
-        { -- Rule 516: item_addexperience
+        { -- Rule 555: item_addexperience
             codes = "allitems",
             stat = {index = 85, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[85: item_addexperience]"
         },
-        { -- Rule 517: unsentparam1
+        { -- Rule 556: unsentparam1
             codes = "allitems",
             stat = {index = 84, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[84: unsentparam1]"
         },
-        { -- Rule 518: item_addclassskills
+        { -- Rule 557: item_addclassskills
             codes = "allitems",
             stat = {index = 83, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[83: item_addclassskills]"
         },
-        { -- Rule 519: item_timeduration
+        { -- Rule 558: item_timeduration
             codes = "allitems",
             stat = {index = 82, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[82: item_timeduration]"
         },
-        { -- Rule 520: item_knockback
+        { -- Rule 559: item_knockback
             codes = "allitems",
             stat = {index = 81, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[81: item_knockback]"
         },
-        { -- Rule 521: item_magicbonus
+        { -- Rule 560: item_magicbonus
             codes = "allitems",
             stat = {index = 80, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[80: item_magicbonus]"
         },
-        { -- Rule 522: item_goldbonus
+        { -- Rule 561: item_goldbonus
             codes = "allitems",
             stat = {index = 79, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[79: item_goldbonus]"
         },
-        { -- Rule 523: item_attackertakesdamage
+        { -- Rule 562: item_attackertakesdamage
             codes = "allitems",
             stat = {index = 78, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[78: item_attackertakesdamage]"
         },
-        { -- Rule 524: item_maxmana_percent
+        { -- Rule 563: item_maxmana_percent
             codes = "allitems",
             stat = {index = 77, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[77: item_maxmana_percent]"
         },
-        { -- Rule 525: item_maxhp_percent
+        { -- Rule 564: item_maxhp_percent
             codes = "allitems",
             stat = {index = 76, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[76: item_maxhp_percent]"
         },
-        { -- Rule 526: item_maxdurability_percent
+        { -- Rule 565: item_maxdurability_percent
             codes = "allitems",
             stat = {index = 75, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[75: item_maxdurability_percent]"
         },
-        { -- Rule 527: hpregen
+        { -- Rule 566: hpregen
             codes = "allitems",
             stat = {index = 74, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[74: hpregen]"
         },
-        { -- Rule 528: maxdurability
+        { -- Rule 567: maxdurability
             codes = "allitems",
             stat = {index = 73, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[73: maxdurability]"
         },
-        { -- Rule 529: durability
+        { -- Rule 568: durability
             codes = "allitems",
             stat = {index = 72, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[72: durability]"
         },
-        { -- Rule 530: value
+        { -- Rule 569: value
             codes = "allitems",
             stat = {index = 71, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[71: value]"
         },
-        { -- Rule 531: quantity
+        { -- Rule 570: quantity
             codes = "allitems",
             stat = {index = 70, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[70: quantity]"
         },
-        { -- Rule 532: other_animrate
+        { -- Rule 571: other_animrate
             codes = "allitems",
             stat = {index = 69, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[69: other_animrate]"
         },
-        { -- Rule 533: attackrate
+        { -- Rule 572: attackrate
             codes = "allitems",
             stat = {index = 68, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[68: attackrate]"
         },
-        { -- Rule 534: velocitypercent
+        { -- Rule 573: velocitypercent
             codes = "allitems",
             stat = {index = 67, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[67: velocitypercent]"
         },
-        { -- Rule 535: stunlength
+        { -- Rule 574: stunlength
             codes = "allitems",
             stat = {index = 66, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[66: stunlength]"
         },
-        { -- Rule 536: stamdrainmaxdam
+        { -- Rule 575: stamdrainmaxdam
             codes = "allitems",
             stat = {index = 65, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[65: stamdrainmaxdam]"
         },
-        { -- Rule 537: stamdrainmindam
+        { -- Rule 576: stamdrainmindam
             codes = "allitems",
             stat = {index = 64, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[64: stamdrainmindam]"
         },
-        { -- Rule 538: manadrainmaxdam
+        { -- Rule 577: manadrainmaxdam
             codes = "allitems",
             stat = {index = 63, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[63: manadrainmaxdam]"
         },
-        { -- Rule 539: manadrainmindam
+        { -- Rule 578: manadrainmindam
             codes = "allitems",
             stat = {index = 62, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[62: manadrainmindam]"
         },
-        { -- Rule 540: lifedrainmaxdam
+        { -- Rule 579: lifedrainmaxdam
             codes = "allitems",
             stat = {index = 61, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[61: lifedrainmaxdam]"
         },
-        { -- Rule 541: lifedrainmindam
+        { -- Rule 580: lifedrainmindam
             codes = "allitems",
             stat = {index = 60, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[60: lifedrainmindam]"
         },
-        { -- Rule 542: poisonlength
+        { -- Rule 581: poisonlength
             codes = "allitems",
             stat = {index = 59, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[59: poisonlength]"
         },
-        { -- Rule 543: poisonmaxdam
+        { -- Rule 582: poisonmaxdam
             codes = "allitems",
             stat = {index = 58, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[58: poisonmaxdam]"
         },
-        { -- Rule 544: poisonmindam
+        { -- Rule 583: poisonmindam
             codes = "allitems",
             stat = {index = 57, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[57: poisonmindam]"
         },
-        { -- Rule 545: coldlength
+        { -- Rule 584: coldlength
             codes = "allitems",
             stat = {index = 56, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[56: coldlength]"
         },
-        { -- Rule 546: coldmaxdam
+        { -- Rule 585: coldmaxdam
             codes = "allitems",
             stat = {index = 55, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[55: coldmaxdam]"
         },
-        { -- Rule 547: coldmindam
+        { -- Rule 586: coldmindam
             codes = "allitems",
             stat = {index = 54, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[54: coldmindam]"
         },
-        { -- Rule 548: magicmaxdam
+        { -- Rule 587: magicmaxdam
             codes = "allitems",
             stat = {index = 53, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[53: magicmaxdam]"
         },
-        { -- Rule 549: magicmindam
+        { -- Rule 588: magicmindam
             codes = "allitems",
             stat = {index = 52, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[52: magicmindam]"
         },
-        { -- Rule 550: lightmaxdam
+        { -- Rule 589: lightmaxdam
             codes = "allitems",
             stat = {index = 51, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[51: lightmaxdam]"
         },
-        { -- Rule 551: lightmindam
+        { -- Rule 590: lightmindam
             codes = "allitems",
             stat = {index = 50, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[50: lightmindam]"
         },
-        { -- Rule 552: firemaxdam
+        { -- Rule 591: firemaxdam
             codes = "allitems",
             stat = {index = 49, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[49: firemaxdam]"
         },
-        { -- Rule 553: firemindam
+        { -- Rule 592: firemindam
             codes = "allitems",
             stat = {index = 48, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[48: firemindam]"
         },
-        { -- Rule 554: damageaura
+        { -- Rule 593: damageaura
             codes = "allitems",
             stat = {index = 47, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[47: damageaura]"
         },
-        { -- Rule 555: maxpoisonresist
+        { -- Rule 594: maxpoisonresist
             codes = "allitems",
             stat = {index = 46, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[46: maxpoisonresist]"
         },
-        { -- Rule 556: poisonresist
+        { -- Rule 595: poisonresist
             codes = "allitems",
             stat = {index = 45, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[45: poisonresist]"
         },
-        { -- Rule 557: maxcoldresist
+        { -- Rule 596: maxcoldresist
             codes = "allitems",
             stat = {index = 44, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[44: maxcoldresist]"
         },
-        { -- Rule 558: coldresist
+        { -- Rule 597: coldresist
             codes = "allitems",
             stat = {index = 43, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[43: coldresist]"
         },
-        { -- Rule 559: maxlightresist
+        { -- Rule 598: maxlightresist
             codes = "allitems",
             stat = {index = 42, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[42: maxlightresist]"
         },
-        { -- Rule 560: lightresist
+        { -- Rule 599: lightresist
             codes = "allitems",
             stat = {index = 41, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[41: lightresist]"
         },
-        { -- Rule 561: maxfireresist
+        { -- Rule 600: maxfireresist
             codes = "allitems",
             stat = {index = 40, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[40: maxfireresist]"
         },
-        { -- Rule 562: fireresist
+        { -- Rule 601: fireresist
             codes = "allitems",
             stat = {index = 39, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[39: fireresist]"
         },
-        { -- Rule 563: maxmagicresist
+        { -- Rule 602: maxmagicresist
             codes = "allitems",
             stat = {index = 38, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[38: maxmagicresist]"
         },
-        { -- Rule 564: magicresist
+        { -- Rule 603: magicresist
             codes = "allitems",
             stat = {index = 37, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[37: magicresist]"
         },
-        { -- Rule 565: damageresist
+        { -- Rule 604: damageresist
             codes = "allitems",
             stat = {index = 36, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[36: damageresist]"
         },
-        { -- Rule 566: magic_damage_reduction
+        { -- Rule 605: magic_damage_reduction
             codes = "allitems",
             stat = {index = 35, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[35: magic_damage_reduction]"
         },
-        { -- Rule 567: normal_damage_reduction
+        { -- Rule 606: normal_damage_reduction
             codes = "allitems",
             stat = {index = 34, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[34: normal_damage_reduction]"
         },
-        { -- Rule 568: armorclass_vs_hth
+        { -- Rule 607: armorclass_vs_hth
             codes = "allitems",
             stat = {index = 33, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[33: armorclass_vs_hth]"
         },
-        { -- Rule 569: armorclass_vs_missile
+        { -- Rule 608: armorclass_vs_missile
             codes = "allitems",
             stat = {index = 32, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[32: armorclass_vs_missile]"
         },
-        { -- Rule 570: armorclass
+        { -- Rule 609: armorclass
             codes = "allitems",
             stat = {index = 31, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[31: armorclass]"
         },
-        { -- Rule 571: nextexp
+        { -- Rule 610: nextexp
             codes = "allitems",
             stat = {index = 30, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[30: nextexp]"
         },
-        { -- Rule 572: lastexp
+        { -- Rule 611: lastexp
             codes = "allitems",
             stat = {index = 29, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[29: lastexp]"
         },
-        { -- Rule 573: staminarecoverybonus
+        { -- Rule 612: staminarecoverybonus
             codes = "allitems",
             stat = {index = 28, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[28: staminarecoverybonus]"
         },
-        { -- Rule 574: manarecoverybonus
+        { -- Rule 613: manarecoverybonus
             codes = "allitems",
             stat = {index = 27, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[27: manarecoverybonus]"
         },
-        { -- Rule 575: manarecovery
+        { -- Rule 614: manarecovery
             codes = "allitems",
             stat = {index = 26, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[26: manarecovery]"
         },
-        { -- Rule 576: damagepercent
+        { -- Rule 615: damagepercent
             codes = "allitems",
             stat = {index = 25, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[25: damagepercent]"
         },
-        { -- Rule 577: secondary_maxdamage
+        { -- Rule 616: secondary_maxdamage
             codes = "allitems",
             stat = {index = 24, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[24: secondary_maxdamage]"
         },
-        { -- Rule 578: secondary_mindamage
+        { -- Rule 617: secondary_mindamage
             codes = "allitems",
             stat = {index = 23, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[23: secondary_mindamage]"
         },
-        { -- Rule 579: maxdamage
+        { -- Rule 618: maxdamage
             codes = "allitems",
             stat = {index = 22, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[22: maxdamage]"
         },
-        { -- Rule 580: mindamage
+        { -- Rule 619: mindamage
             codes = "allitems",
             stat = {index = 21, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[21: mindamage]"
         },
-        { -- Rule 581: toblock
+        { -- Rule 620: toblock
             codes = "allitems",
             stat = {index = 20, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[20: toblock]"
         },
-        { -- Rule 582: tohit
+        { -- Rule 621: tohit
             codes = "allitems",
             stat = {index = 19, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[19: tohit]"
         },
-        { -- Rule 583: item_mindamage_percent
+        { -- Rule 622: item_mindamage_percent
             codes = "allitems",
             stat = {index = 18, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[18: item_mindamage_percent]"
         },
-        { -- Rule 584: item_maxdamage_percent
+        { -- Rule 623: item_maxdamage_percent
             codes = "allitems",
             stat = {index = 17, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[17: item_maxdamage_percent]"
         },
-        { -- Rule 585: item_armor_percent
+        { -- Rule 624: item_armor_percent
             codes = "allitems",
             stat = {index = 16, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[16: item_armor_percent]"
         },
-        { -- Rule 586: goldbank
+        { -- Rule 625: goldbank
             codes = "allitems",
             stat = {index = 15, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[15: goldbank]"
         },
-        { -- Rule 587: gold
+        { -- Rule 626: gold
             codes = "allitems",
             stat = {index = 14, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[14: gold]"
         },
-        { -- Rule 588: experience
+        { -- Rule 627: experience
             codes = "allitems",
             stat = {index = 13, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[13: experience]"
         },
-        { -- Rule 589: level
+        { -- Rule 628: level
             codes = "allitems",
             stat = {index = 12, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[12: level]"
         },
-        { -- Rule 590: maxstamina
+        { -- Rule 629: maxstamina
             codes = "allitems",
             stat = {index = 11, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[11: maxstamina]"
         },
-        { -- Rule 591: stamina
+        { -- Rule 630: stamina
             codes = "allitems",
             stat = {index = 10, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[10: stamina]"
         },
-        { -- Rule 592: maxmana
+        { -- Rule 631: maxmana
             codes = "allitems",
             stat = {index = 9, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[9: maxmana]"
         },
-        { -- Rule 593: mana
+        { -- Rule 632: mana
             codes = "allitems",
             stat = {index = 8, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[8: mana]"
         },
-        { -- Rule 594: maxhp
+        { -- Rule 633: maxhp
             codes = "allitems",
             stat = {index = 7, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[7: maxhp]"
         },
-        { -- Rule 595: hitpoints
+        { -- Rule 634: hitpoints
             codes = "allitems",
             stat = {index = 6, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[6: hitpoints]"
         },
-        { -- Rule 596: newskills
+        { -- Rule 635: newskills
             codes = "allitems",
             stat = {index = 5, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[5: newskills]"
         },
-        { -- Rule 597: statpts
+        { -- Rule 636: statpts
             codes = "allitems",
             stat = {index = 4, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[4: statpts]"
         },
-        { -- Rule 598: vitality
+        { -- Rule 637: vitality
             codes = "allitems",
             stat = {index = 3, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[3: vitality]"
         },
-        { -- Rule 599: dexterity
+        { -- Rule 638: dexterity
             codes = "allitems",
             stat = {index = 2, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[2: dexterity]"
         },
-        { -- Rule 600: energy
+        { -- Rule 639: energy
             codes = "allitems",
             stat = {index = 1, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[1: energy]"
         },
-        { -- Rule 601: strength
+        { -- Rule 640: strength
             codes = "allitems",
             stat = {index = 0, op = ">=", value = 1},
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n[0: strength]"
         },
-        { -- Rule 602: Adding line break to show info below this line is stat id info
+        { -- Rule 641: Adding line break to show info below this line is stat id info
             codes = "allitems",
             location = { "onplayer", "equipped", "atvendor" },
             suffix = "\n{red}------- STAT ID -------{white}"
