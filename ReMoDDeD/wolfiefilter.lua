@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.19
+--- Filter Title: WolfieeifloW's Filter v1.20
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,7 +17,7 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.19: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.20: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
@@ -215,13 +215,13 @@ return {
             codes = { "m32", "m34", "m35", "m36" },
             quality = "7",
             location = { "onplayer", "equipped" },
-            prefix_desc = "{red}It will fix the item {tan}without {red}rerolling the stats\nCube this item alone before the next patch to fix it\n"
+            prefix_desc = "{tan}Charms are currently not working to cube alone, we must wait for a hotfix\n{red}It will fix the item {tan}without {red}rerolling the stats\nCube this item alone before the next patch to fix it\n"
         },
         { -- Rule 31: Cube these unique charms to fix them for upcoming changes
             codes = { "m32", "m34", "m35", "m36" },
             quality = "7",
             location = { "onplayer", "equipped" },
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gold}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. {tan}Charms are currently not working to cube alone. We must wait for a hotfix. {red}Check your stash and inventory {gold}{link}"
         },
         -- +-------------------------+
         -- | GOLD                    |
