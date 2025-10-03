@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.20
+--- Filter Title: WolfieeifloW's Filter v1.21
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,18 +17,13 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.20: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.21: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
         -- +-------------------------+
         -- | HOTFIXES                |
         -- +-------------------------+
-        { -- Rule 1: Hotfixing new Ultra Enhancement Crystal in Edyrem's shop
-            code = "z18",
-            location = { "onplayer", "atvendor" },
-            suffix_desc = "{red}It actually gives {blue}All enemy immunities reduced by 10%%{red}\nThe info on this crystal is incorrect!\n\n"
-        },
         { -- Rule 2: Cube these bases to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6" },
             location = { "onplayer", "equipped", "atvendor" },
