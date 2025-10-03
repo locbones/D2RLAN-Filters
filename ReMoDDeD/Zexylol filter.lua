@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.03
+--- Filter Title: Zexylol's Hardfilter v1.04
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nIf you like seeing loot alot of loot, DO NOT USE THIS FILTER. \nYou will see Set, Unique, rare(amu/ring/jewels), Magic (Charms). \nAs for bases..... ONLY PERFECT ROLLED SUPERIORS.... \nMight be some items ive missed to hide or add to notify.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -21,7 +21,7 @@ return {
 			--suffix = "[{ilvl}]",
 			--filter_levels = "1,2,3"
 		},
-		--[[ Used to identify items that needs to be cubed in next patch.
+		-- Used to identify items that needs to be cubed in next patch.
 		{
 			codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", 
 			"Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "m32", "m34", "m35", "m36" },
@@ -30,7 +30,7 @@ return {
 			--suffix = " [{code}]",
 			name_override = "{red} CUBE ALONE TO TURN {green}[{code}] > 1,2,3",
 		},
-		]]--
+		
 
 
 
