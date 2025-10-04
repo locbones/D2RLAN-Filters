@@ -1383,10 +1383,16 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{dark green}{link}"
         },
 		{
-            codes = { "m32", "m34", "m35", "m36" },
+            codes = { "m32", "m34", "m36" },
             location = { "onplayer", "equipped" },
             name_override = "{red}Cube This Item Alone To Fix",
 			notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
+        },
+		{
+            code = "m35",
+            location = { "onplayer", "equipped" },
+            name_override = "{red}Cube This Item with Token of Evil To Fix",
+			notify = "{orange}WARNING!!! {red}If you do not cube this item with Token of Evil in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
         }
     }
 }
