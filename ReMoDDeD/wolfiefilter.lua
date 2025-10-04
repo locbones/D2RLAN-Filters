@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.26
+--- Filter Title: WolfieeifloW's Filter v1.27
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,7 +17,7 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.26: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.27: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
@@ -1265,6 +1265,7 @@ return {
             codes = "allitems",
             quality = "7",
             rarity = "0",
+            stat = { index = 402, op = "==", value = 0 },
             index =  { 6, 45, 55, 71, 299, 330, 335 },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{dark green}Can be Demon-Tempered\n"
@@ -1273,6 +1274,7 @@ return {
             codes = "allitems",
             quality = "7",
             rarity = "1",
+            stat = { index = 402, op = "==", value = 0 },
             index =  { 143, 281, 286, 347, 366, 369, 379, 386, 483 },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{dark green}Can be Demon-Tempered\n"
@@ -1281,6 +1283,7 @@ return {
             codes = "allitems",
             quality = "7",
             rarity = "2",
+            stat = { index = 402, op = "==", value = 0 },
             index =  { 189, 211, 213, 217, 225, 226, 231, 246, 247, 249, 254, 262, 292, 295, 412, 413, 418, 423, 428, 433, 438, 445, 447, 453 },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{dark green}Can be Demon-Tempered\n"
@@ -1288,6 +1291,7 @@ return {
         { -- Rule 179: Misc Uniques that can be Demon-Tempered
             codes = "allitems",
             quality = "7",
+            stat = { index = 402, op = "==", value = 0 },
             index =  { 525, 527, 529, 532, 543, 556 },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{dark green}Can be Demon-Tempered\n"
