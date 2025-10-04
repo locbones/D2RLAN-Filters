@@ -210,13 +210,13 @@ return {
             codes = { "m32", "m34", "m35", "m36" },
             quality = "7",
             location = { "onplayer", "equipped" },
-            prefix_desc = "{tan}Charms are currently not working to cube alone, we must wait for a hotfix\n{red}It will fix the item {tan}without {red}rerolling the stats\nCube this item alone before the next patch to fix it\n"
+            prefix_desc = "{red}It will fix the item {tan}without {red}rerolling the stats\nCube this item alone before the next patch to fix it\n"
         },
         { -- Rule 30: Cube these unique charms to fix them for upcoming changes
             codes = { "m32", "m34", "m35", "m36" },
             quality = "7",
             location = { "onplayer", "equipped" },
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. {tan}Charms are currently not working to cube alone. We must wait for a hotfix. {red}Check your stash and inventory {gold}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gold}{link}"
         },
         -- +-------------------------+
         -- | GOLD                    |
