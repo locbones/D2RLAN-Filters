@@ -2824,7 +2824,7 @@ return {
             code = "Z96",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}25 Level-Anforderung\n-10%% an feindliche Elementarwiderstände\n{lilac} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 20 Level-Anforderung\n-10%% an feindliche Elementwiderstände\n",
+                deDE = "{blue}25 Level-Anforderung\n-10%% an feindliche Elementarwiderstände\n{purple} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 20 Level-Anforderung\n-10%% an feindliche Elementwiderstände\n",
                 enUS = "{blue}+25 Level Requirement\n-10%% to Enemy Elemental Resistances\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+20 Level Requirement\n-10%% to Enemy Elemental Resistances\n",
                 esES = "{blue}25 requisito de nivel\n-10%% a las resistencias elementales enemigas\n{purple} para herreros (sin límite de uso):\n\n{blue} 20 requisito de nivel\n-10%% para resistencias elementales enemigas\nn n n n n\n",
                 esMX = "{blue}25 requisito de nivel\n-10%% a las resistencias elementales enemigas\n{purple} para herreros (sin límite de uso):\n\n{blue} 20 requisito de nivel\n-10%% para resistencias elementales enemigas\nn n n n n\n",
@@ -3261,7 +3261,7 @@ return {
             code = "z19",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}30 Level-Anforderung\nForces 6 Sockets auf einem beliebigen Max-Socket-Element (nur LB)\n{lilac} für BlackSmiths (keine Verwendungsgrenze):\n\n{blue} 40-Stufe Anforderung\nporces 6 Sockets auf einem beliebigen Max-Socket-Element (lb)\n)\n)",
+                deDE = "{blue}30 Level-Anforderung\nForces 6 Sockets auf einem beliebigen Max-Socket-Element (nur LB)\n{purple} für BlackSmiths (keine Verwendungsgrenze):\n\n{blue} 40-Stufe Anforderung\nporces 6 Sockets auf einem beliebigen Max-Socket-Element (lb)\n)\n)",
                 enUS = "{blue}+30 Level Requirement\nForces 6 sockets on any max-socket item (LB Only)\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+40 Level Requirement\nForces 6 sockets on any max-socket item (LB Only)\n",
                 esES = "{blue}30 requisito de nivel\nforces 6 enchufes en cualquier elemento de cloqueo máximo (solamente lb)\n{purple} para herreros (sin límite de uso):\n\n{blue} 40 requisito de nivel\nforces 6 sockets en cualquier elemento de zócalo máximo (solo lb)\n)",
                 esMX = "{blue}30 requisito de nivel\nforces 6 enchufes en cualquier elemento de cloqueo máximo (solamente lb)\n{purple} para herreros (sin límite de uso):\n\n{blue} 40 requisito de nivel\nforces 6 sockets en cualquier elemento de zócalo máximo (solo lb)\n)",
@@ -3280,7 +3280,7 @@ return {
             code = "z20",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}20 Level -Anforderung\nBUFF -Dauer erhöht um 10%%\n{lilac} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 15 Level -Anforderung\nBuff -Dauer um 10%%\n",
+                deDE = "{blue}20 Level -Anforderung\nBUFF -Dauer erhöht um 10%%\n{purple} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 15 Level -Anforderung\nBuff -Dauer um 10%%\n",
                 enUS = "{blue}+20 Level Requirement\nBuff Durations Increased by 10%%\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+15 Level Requirement\nBuff Durations Increased by 10%%\n",
                 esES = "{blue}20 requisitos de nivel\nbuff Durations aumentó en 10%%\n{purple} para herreros (sin límite de uso):\n\n{blue} 15 requisitos de nivel\nbuff duraciones aumentadas en 10%%\n",
                 esMX = "{blue}20 requisitos de nivel\nbuff Durations aumentó en 10%%\n{purple} para herreros (sin límite de uso):\n\n{blue} 15 requisitos de nivel\nbuff duraciones aumentadas en 10%%\n",
@@ -3299,7 +3299,7 @@ return {
             code = "z21",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}20 Level -Anforderung\ncooldowns reduziert durch 10%%\n{lilac} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 15 Level -Anforderung\ncooldowns um 10%%\nreduziert",
+                deDE = "{blue}20 Level -Anforderung\ncooldowns reduziert durch 10%%\n{purple} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 15 Level -Anforderung\ncooldowns um 10%%\nreduziert",
                 enUS = "{blue}+20 Level Requirement\nCooldowns Reduced by 10%%\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+15 Level Requirement\nCooldowns Reduced by 10%%\n",
                 esES = "{blue}20 requisito de nivel\ncoOdowns reducido en 10%%\n{purple} para herreros (sin límite de uso):\n\n{blue} 15 requisitos de nivel\ncooldowns reducidos por 10%%\n",
                 esMX = "{blue}20 requisito de nivel\ncoOdowns reducido en 10%%\n{purple} para herreros (sin límite de uso):\n\n{blue} 15 requisitos de nivel\ncooldowns reducidos por 10%%\n",
@@ -3337,7 +3337,7 @@ return {
             code = "z23",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}30 Level -Anforderung\n2 bis kalte Fähigkeiten\n{lilac} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu kalten Fähigkeiten\n",
+                deDE = "{blue}30 Level -Anforderung\n2 bis kalte Fähigkeiten\n{purple} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu kalten Fähigkeiten\n",
                 enUS = "{blue}+30 Level Requirement\n+2 to Cold Skills\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+25 Level Requirement\n+2 to Cold Skills\n",
                 esES = "{blue}30 requisito de nivel\n2 a las habilidades frías\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades frías\n",
                 esMX = "{blue}30 requisito de nivel\n2 a las habilidades frías\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades frías\n",
@@ -3356,7 +3356,7 @@ return {
             code = "z24",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}30 Level -Anforderung\n2 zu Feuerkenntnissen\n{lilac} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu Feuerkenntnissen\n",
+                deDE = "{blue}30 Level -Anforderung\n2 zu Feuerkenntnissen\n{purple} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu Feuerkenntnissen\n",
                 enUS = "{blue}+30 Level Requirement\n+2 to Fire Skills\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+25 Level Requirement\n+2 to Fire Skills\n",
                 esES = "{blue}30 requisito de nivel\n2 para disparar habilidades\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 para disparar habilidades\n",
                 esMX = "{blue}30 requisito de nivel\n2 para disparar habilidades\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 para disparar habilidades\n",
@@ -3375,7 +3375,7 @@ return {
             code = "z25",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}30 Level -Anforderung\n2 bis Blitzfähigkeiten\n{lilac} für Schmiede (keine Verwendung):\n\n{blue} 25 Level -Anforderung\n2 zu Blitzfähigkeiten\n",
+                deDE = "{blue}30 Level -Anforderung\n2 bis Blitzfähigkeiten\n{purple} für Schmiede (keine Verwendung):\n\n{blue} 25 Level -Anforderung\n2 zu Blitzfähigkeiten\n",
                 enUS = "{blue}+30 Level Requirement\n+2 to Lightning Skills\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+25 Level Requirement\n+2 to Lightning Skills\n",
                 esES = "{blue}30 requisito de nivel\n2 a las habilidades de rayo\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades de rayo\n",
                 esMX = "{blue}30 requisito de nivel\n2 a las habilidades de rayo\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades de rayo\n",
@@ -3394,7 +3394,7 @@ return {
             code = "z26",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}30 Level -Anforderung\n2 zu Giftkenntnissen\n{lilac} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu Giftkenntnissen\n",
+                deDE = "{blue}30 Level -Anforderung\n2 zu Giftkenntnissen\n{purple} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu Giftkenntnissen\n",
                 enUS = "{blue}+30 Level Requirement\n+2 to Poison Skills\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+25 Level Requirement\n+2 to Poison Skills\n",
                 esES = "{blue}30 requisito de nivel\n2 a las habilidades de envenenamiento\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades de envenenamiento\n",
                 esMX = "{blue}30 requisito de nivel\n2 a las habilidades de envenenamiento\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades de envenenamiento\n",
@@ -3413,7 +3413,7 @@ return {
             code = "z27",
             location = { "onplayer", "atvendor" },
             prefix = {
-                deDE = "{blue}30 Level -Anforderung\n2 bis kalte Fähigkeiten\n{lilac} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu kalten Fähigkeiten\n",
+                deDE = "{blue}30 Level -Anforderung\n2 bis kalte Fähigkeiten\n{purple} für Schmiede (keine Verwendungsgrenze):\n\n{blue} 25 Level -Anforderung\n2 zu kalten Fähigkeiten\n",
                 enUS = "{blue}+35 Level Requirement\n+2 to Magic Skills\n{purple}For Blacksmiths (No Usage Limit):\n\n{blue}+30 Level Requirement\n+2 to Magic Skills\n",
                 esES = "{blue}30 requisito de nivel\n2 a las habilidades frías\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades frías\n",
                 esMX = "{blue}30 requisito de nivel\n2 a las habilidades frías\n{purple} para herreros (sin límite de uso):\n\n{blue} 25 requisito de nivel\n2 a habilidades frías\n",
@@ -3440,7 +3440,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = {
                 deDE = "{blue}35%% Kalt-/Feuer-/Blitzschaden für 10 Minuten\n{white}eat, um zu erhalten:\n\nbinc5a Geschenk vom Boney Bunny ...\n",
-                enUS = "{white}1000{orange} Candy Corn:{blue} +1 to Elemental Masteries (Blank Talent Only)\n{white}500{orange} Candy Corn:{blue}Remove Class Restriction from Buriza or Gull\n{white}250{orange} Candy Corn:{blue}Upgrade Codex to Testament\n{white}150{orange} Candy Corn:{blue}3 Random Rainbow Facets\n{white}100{orange} Candy Corn:{blue} +3-4 Unspent Stat Points (Permanent)\n{white}50{orange} Candy Corn:{blue} +1 All Skills Enhance Crystal\n{white}35{orange} Candy Corn:{blue} +100-150 Soul Shards\n{white}20{orange} Candy Corn:{blue}Buffable Unique Charms\n{white}10{orange} Candy Corn:{blue}Random Unique Archon Plate\n{white}5{orange} Candy Corn:{blue}Random Bugged/Hacked Items (or gold)\n{white}3{orange} Candy Corn:{blue}Random Rune (Up to Zod)\n{white}2{orange} Candy Corn:{blue}Random Pumpkin Perk\n{white}1{orange} Candy Corn:{blue}Random Set Item\n{purple}Hint: (Check your Recipe Menu)\n\n{lilac}Maybe they hold value elsewhere?\nLost remnants of the Mad Kings minions...\n",
+                enUS = "{white}1000{orange} Candy Corn:{blue} +1 to Elemental Masteries (Blank Talent Only)\n{white}500{orange} Candy Corn:{blue}Remove Class Restriction from Buriza or Gull\n{white}250{orange} Candy Corn:{blue}Upgrade Codex to Testament\n{white}150{orange} Candy Corn:{blue}3 Random Rainbow Facets\n{white}100{orange} Candy Corn:{blue} +3-4 Unspent Stat Points (Permanent)\n{white}50{orange} Candy Corn:{blue} +1 All Skills Enhance Crystal\n{white}35{orange} Candy Corn:{blue} +100-150 Soul Shards\n{white}20{orange} Candy Corn:{blue}Buffable Unique Charms\n{white}10{orange} Candy Corn:{blue}Random Unique Archon Plate\n{white}5{orange} Candy Corn:{blue}Random Bugged/Hacked Items (or gold)\n{white}3{orange} Candy Corn:{blue}Random Rune (Up to Zod)\n{white}2{orange} Candy Corn:{blue}Random Pumpkin Perk\n{white}1{orange} Candy Corn:{blue}Random Set Item\n{purple}Hint: (Check your Recipe Menu)\n\n{purple}Maybe they hold value elsewhere?\nLost remnants of the Mad Kings minions...\n",
                 esES = "{blue}35%% Cold/Fire/Lightning Daño durante 10 minutos\n{white}eat para recibir:\n\n{gray}a regalo del conejito de huesos ...\n",
                 esMX = "{blue}35%% Cold/Fire/Lightning Daño durante 10 minutos\n{white}eat para recibir:\n\n{gray}a regalo del conejito de huesos ...\n",
                 frFR = "{blue}35%% Dommages à froid / feu / Lightning pendant 10 minutes\n{white}EAT à recevoir:\n\n{gray}a Cadeau du Boney Bunny ...\n",
@@ -3573,7 +3573,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = {
                 deDE = "{gray}(Alle Effekte halten 10 Minuten an)\n{blue}Reduziert Händlerpreise um 20%%\n+50%% Erfahrung\n+1 alle Fertigkeiten\n{white}Iss zum erhalten:\n\n{gray}Ein Geschenk vom Bonesy Bunny ... für die Schlauen unter euch\n",
-                enUS = "{blue}Used to represent{white} 100{orange} Candy Corn{blue} during the event\n\n{lilac}You can never have too much candy...\n",
+                enUS = "{blue}Used to represent{white} 100{orange} Candy Corn{blue} during the event\n\n{purple}You can never have too much candy...\n",
                 esES = "{gray}(Todos los efectos duran 10 minutos)\n{blue}Reduce los precios de los vendedores en un 20%%\n50%% de experiencia obtenida\n1 para todas las habilidades\n{white}Come para recibir:\n\n{gray}Un regalo de Bonesy Bunny... para los inteligentes entre ustedes\n",
                 esMX = "{gray}(Todos los efectos duran 10 minutos)\n{blue}Reduce los precios de los vendedores en un 20%%\n50%% de experiencia obtenida\n1 para todas las habilidades\n{white}Come para recibir:\n\n{gray}Un regalo de Bonesy Bunny... para los inteligentes entre ustedes\n",
                 frFR = "{gray}(Tous les effets durent 10 minutes)\n{blue}Réduisez les prix des fournisseurs de 20 %%\n50 %% d'expérience acquise\n1 pour toutes les compétences\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny... pour les plus intelligents d'entre vous\n",
@@ -3593,7 +3593,7 @@ return {
             name_style = "FrostWave",
             prefix_desc = {
                 deDE = "{blue}+25%% Magie- und Giftschaden für 10 Minuten\n{white}Iss zum erhalten:\n\n{gray}Ein Geschenk vom Bonesy Bunny ...\n",
-                enUS = "{gray}(Stats will persist afer respec, permanent)\nÿcG+3-4{blue} Unspent Stat Points (50/50 Chance)\n{purple}Drink to receive:\n\n{lilac}What doesn't kill you...makes you stronger...\nA valuable liquid, acquired in the midst of night by Edyrem...\n",
+                enUS = "{gray}(Stats will persist afer respec, permanent)\nÿcG+3-4{blue} Unspent Stat Points (50/50 Chance)\n{purple}Drink to receive:\n\n{purple}What doesn't kill you...makes you stronger...\nA valuable liquid, acquired in the midst of night by Edyrem...\n",
                 esES = "{blue}El daño mágico y de veneno aumentó un 25%% durante 10 minutos\n{white}Come para recibir:\n\n{gray}Un regalo del Bonesy Bunny...\n",
                 esMX = "{blue}El daño mágico y de veneno aumentó un 25%% durante 10 minutos\n{white}Come para recibir:\n\n{gray}Un regalo del Bonesy Bunny...\n",
                 frFR = "{blue}Dégâts de magie et de poison augmentés de 25 %% pendant 10 minutes\n{white}Mangez pour recevoir :\n\n{gray}Un cadeau du Bonesy Bunny...\n",
@@ -5024,19 +5024,19 @@ return {
             location = { "onplayer", "equipped", "atvendor" },
             suffix = " {white}(Advanced)",
             prefix = {
-                deDE = "{white}Ermöglicht die Herstellung von 1{gold} Regenbogenfacette (zufällig){white} durch das Opfern von 30 verpackten{yellow} seltenen{white} Juwelen\n{tan}oder\n{white}Ermöglicht die Umwandlung eines Gegenstands von {lilac}normaler{white} Qualität in einen Gegenstand von {lilac}außergewöhnlicher{white} Qualität\n\n",
-                enUS = "{white}Allows you to create 1{gold} Rainbow Facet (random){white} by sacrificing 30 bagged{yellow} rare{white} jewels\n{tan}or\n{white}Allows you to convert a {lilac}Normal{white} Quality item into an {lilac}Exceptional{white} Quality item\n\n",
-                esES = "{white}le permite crear 1{gold} Rainbow Facet (Random){white} sacrificando 30 bolsas{yellow} raras{white} joyas\n{tan} o\n{white} le permite convertir un {lilac}{white} ítem de calidad en un {lilac} excepcional {white}\n\n",
-                esMX = "{white}le permite crear 1{gold} Rainbow Facet (Random){white} sacrificando 30 bolsas{yellow} raras{white} joyas\n{tan} o\n{white} le permite convertir un {lilac}{white} ítem de calidad en un {lilac} excepcional {white}\n\n",
-                frFR = "{white}Ti permette di creare 1 sfaccettatura arcobaleno{gold} (casuale){white} sacrificando 30 gioielli{gialli} rari{white} confezionati\n{marrone chiaro}o\n{white}Ti permette di convertire un oggetto di qualità {lilac}Normale{white} in un oggetto di qualità {lilac}Eccezionale{white}\n\n",
+                deDE = "{white}Ermöglicht die Herstellung von 1{gold} Regenbogenfacette (zufällig){white} durch das Opfern von 30 verpackten{yellow} seltenen{white} Juwelen\n{tan}oder\n{white}Ermöglicht die Umwandlung eines Gegenstands von {purple}normaler{white} Qualität in einen Gegenstand von {purple}außergewöhnlicher{white} Qualität\n\n",
+                enUS = "{white}Allows you to create 1{gold} Rainbow Facet (random){white} by sacrificing 30 bagged{yellow} rare{white} jewels\n{tan}or\n{white}Allows you to convert a {purple}Normal{white} Quality item into an {purple}Exceptional{white} Quality item\n\n",
+                esES = "{white}le permite crear 1{gold} Rainbow Facet (Random){white} sacrificando 30 bolsas{yellow} raras{white} joyas\n{tan} o\n{white} le permite convertir un {purple}{white} ítem de calidad en un {purple} excepcional {white}\n\n",
+                esMX = "{white}le permite crear 1{gold} Rainbow Facet (Random){white} sacrificando 30 bolsas{yellow} raras{white} joyas\n{tan} o\n{white} le permite convertir un {purple}{white} ítem de calidad en un {purple} excepcional {white}\n\n",
+                frFR = "{white}Ti permette di creare 1 sfaccettatura arcobaleno{gold} (casuale){white} sacrificando 30 gioielli{gialli} rari{white} confezionati\n{marrone chiaro}o\n{white}Ti permette di convertire un oggetto di qualità {purple}Normale{white} in un oggetto di qualità {purple}Eccezionale{white}\n\n",
                 itIT = "{white}Vous permet de créer 1 facette arc-en-ciel{gold} (aléatoire){white} en sacrifiant 30 joyaux {jaunes} rares{blancs} en sac\n{tan}ou\n{white}Vous permet de convertir un objet de qualité {lilas}normal{white} en un objet de qualité {lilas}exceptionnelle{white}\n\n",
-                jaJP = "{white}袋に入った{gold}レア{white}の宝石を30個犠牲にして、{yellow}のレインボー ファセット (ランダム){white}を 1 つ作成できます\n{tan}または\n{white}{lilac}ノーマル{white}品質のアイテムを{lilac}例外的な{white}品質のアイテムに変換できます\n\n",
-                koKR = "{white}30개의 가방에 담긴{gold} 희귀{white} 보석을 희생하여 1{yellow} 무지개 면(무작위){white}을 생성할 수 있습니다\n{tan}또는\n{white}{lilac}보통{white} 품질 항목을 {lilac}뛰어난{white} 품질 항목으로 변환할 수 있습니다\n\n",
-                plPL = "{white}pozwala utworzyć 1 {złoto} tęczowe faseta (losowo){white} przez poświęcenie 30 worków{yellow} rzadko{white} klejnoty\n{tan} lub\n{white} pozwala konwersji {lilac} normalnie{white} produkt jakościowy w pozycję {lilac}{white} np.\n\n",
+                jaJP = "{white}袋に入った{gold}レア{white}の宝石を30個犠牲にして、{yellow}のレインボー ファセット (ランダム){white}を 1 つ作成できます\n{tan}または\n{white}{purple}ノーマル{white}品質のアイテムを{purple}例外的な{white}品質のアイテムに変換できます\n\n",
+                koKR = "{white}30개의 가방에 담긴{gold} 희귀{white} 보석을 희생하여 1{yellow} 무지개 면(무작위){white}을 생성할 수 있습니다\n{tan}또는\n{white}{purple}보통{white} 품질 항목을 {purple}뛰어난{white} 품질 항목으로 변환할 수 있습니다\n\n",
+                plPL = "{white}pozwala utworzyć 1 {złoto} tęczowe faseta (losowo){white} przez poświęcenie 30 worków{yellow} rzadko{white} klejnoty\n{tan} lub\n{white} pozwala konwersji {purple} normalnie{white} produkt jakościowy w pozycję {purple}{white} np.\n\n",
                 ptBR = "{white}Permite que você crie 1 faceta de arco-íris{dourada} (aleatória){branca} sacrificando 30 joias{amarelas} raras{brancas} ensacadas\n{tan}ou\n{white}Permite converter um item de qualidade {lilás}Normal{white} em um item de qualidade {lilás}Excepcional{white}\n\n",
-                ruRU = "{white}позволяет создавать 1 {золото} Rainbow Facet (Random) {white}, жертвуя 30 Bagged{yellow} Rare{white} Jewels\n{tan} или\n{white} позволяет преобразовать {lilac} нормальный {белый} качественный элемент в {lilac} исключение {white}\n\n",
-                zhCN = "{white}允许您通过牺牲30个包装的{yellow}稀有{white} jewels\n{tan}或\n{white}允许您将{lililac} formal {formation formal {lilalac} expactional {lilac} expactional\n\n",
-                zhTW = "{white}允許您通過犧牲 30 顆袋裝{yellow}稀有{white}珠寶來創建 1{gold} 彩虹面（隨機）{white}\n{tan}或\n{white}允許您將{lilac}普通{white}品質物品轉換為{lilac}卓越{white}品質物品\n\n"
+                ruRU = "{white}позволяет создавать 1 {золото} Rainbow Facet (Random) {white}, жертвуя 30 Bagged{yellow} Rare{white} Jewels\n{tan} или\n{white} позволяет преобразовать {purple} нормальный {белый} качественный элемент в {purple} исключение {white}\n\n",
+                zhCN = "{white}允许您通过牺牲30个包装的{yellow}稀有{white} jewels\n{tan}或\n{white}允许您将{lililac} formal {formation formal {lilalac} expactional {purple} expactional\n\n",
+                zhTW = "{white}允許您通過犧牲 30 顆袋裝{yellow}稀有{white}珠寶來創建 1{gold} 彩虹面（隨機）{white}\n{tan}或\n{white}允許您將{purple}普通{white}品質物品轉換為{purple}卓越{white}品質物品\n\n"
             },
         },
         { --UpConverter (Elite)
@@ -5044,19 +5044,19 @@ return {
             location = { "onplayer", "equipped", "atvendor" },
             suffix = " {white}(Elite)",
             prefix = {
-                deDE = "{white}Ermöglicht Ihnen, ein {lilac} -Auskontakt in ein Elite{white} Qualitätselement {lilac} Elite{white} -Anleitungselement umzuwandeln.\n\n",
-                enUS = "{white}Allows you to convert an{lilac} Exceptional{white} Quality item into an{lilac} Elite{white} Quality item\n\n",
-                esES = "{white}le permite convertir un elemento de calidad {lilac} excepcional{white} en un {lilac} Elite{white} de calidad\n\n",
-                esMX = "{white}le permite convertir un elemento de calidad {lilac} excepcional{white} en un {lilac} Elite{white} de calidad\n\n",
-                frFR = "{white}ti consente di convertire un elemento di qualità {Lilac} eccezionale in un {lilac} elite{white} elemento di qualità\n\n",
-                itIT = "{white}vous permet de convertir un élément de qualité {lilac} exceptionnel{white} en un élément de qualité {lilac} elite {white}\n\n",
-                jaJP = "{white}を使用すると、{lilac}例外的な{white} Qualityアイテムを{lilac} Elite{white} Quality Item に変換できます。\n\n",
-                koKR = "{white}{lilac} Exceptional{white} 품질 아이템을 {lilac} Elite{white} 품질 아이템으로 변환할 수 있습니다\n\n",
-                plPL = "{white}umożliwia konwersję {lilac} wyjątkowa{white} jakość na {lilac} elite{white} pozycja jakościowa\n\n",
-                ptBR = "{white}permite converter um item {lilac} excepcional{white} de qualidade em um {lilac} elite{white} item de qualidade\n\n",
-                ruRU = "{white}Позволяет конвертировать {lilac} предмет исключительного{белого} качества в предмет {lilac} элитного{белого} качества\n\n",
-                zhCN = "{white}允许您将{lilac}异常{white}质量项目转换为{lilac}精英{white{white}质量项目\n\n",
-                zhTW = "{white}允許您將{lilac}異常{white}質量項目轉換為{lilac}精英{white{white}質量項目\n\n"
+                deDE = "{white}Ermöglicht Ihnen, ein {purple} -Auskontakt in ein Elite{white} Qualitätselement {purple} Elite{white} -Anleitungselement umzuwandeln.\n\n",
+                enUS = "{white}Allows you to convert an{purple} Exceptional{white} Quality item into an{purple} Elite{white} Quality item\n\n",
+                esES = "{white}le permite convertir un elemento de calidad {purple} excepcional{white} en un {purple} Elite{white} de calidad\n\n",
+                esMX = "{white}le permite convertir un elemento de calidad {purple} excepcional{white} en un {purple} Elite{white} de calidad\n\n",
+                frFR = "{white}ti consente di convertire un elemento di qualità {Lilac} eccezionale in un {purple} elite{white} elemento di qualità\n\n",
+                itIT = "{white}vous permet de convertir un élément de qualité {purple} exceptionnel{white} en un élément de qualité {purple} elite {white}\n\n",
+                jaJP = "{white}を使用すると、{purple}例外的な{white} Qualityアイテムを{purple} Elite{white} Quality Item に変換できます。\n\n",
+                koKR = "{white}{purple} Exceptional{white} 품질 아이템을 {purple} Elite{white} 품질 아이템으로 변환할 수 있습니다\n\n",
+                plPL = "{white}umożliwia konwersję {purple} wyjątkowa{white} jakość na {purple} elite{white} pozycja jakościowa\n\n",
+                ptBR = "{white}permite converter um item {purple} excepcional{white} de qualidade em um {purple} elite{white} item de qualidade\n\n",
+                ruRU = "{white}Позволяет конвертировать {purple} предмет исключительного{белого} качества в предмет {purple} элитного{белого} качества\n\n",
+                zhCN = "{white}允许您将{purple}异常{white}质量项目转换为{purple}精英{white{white}质量项目\n\n",
+                zhTW = "{white}允許您將{purple}異常{white}質量項目轉換為{purple}精英{white{white}質量項目\n\n"
             },
         }
 
