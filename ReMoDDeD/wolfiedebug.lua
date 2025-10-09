@@ -1,10 +1,10 @@
---- Filter Title: WolfieeifloW's Debug v1.11
+--- Filter Title: WolfieeifloW's Debug v1.12
 --- Filter Type: NOT FOR NORMAL USAGE. Used for debugging and testing, mostly for filter creators.
 --- Filter Description: DO NOT USE THIS FOR NORMAL PLAY. It is for testing and debugging.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiedebug.lua
 
 return {
-    reload = "WolfieeifloW's DEBUG v1.11: {green}reloaded",
+    reload = "WolfieeifloW's DEBUG v1.12: {green}reloaded",
     debug = false,
     allowOverrides = true,
     rules = {
@@ -22,7 +22,7 @@ return {
             ethereal = false,
             sockets = "0",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {white}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {white}{link}"
         },
         { -- Rule 3: Cube these Non-Ethereal 0 socket Superior or lower bases to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -45,7 +45,7 @@ return {
             quality = "3-",
             ethereal = true,
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gray}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {gray}{link}"
         },
         { -- Rule 6: Cube these Ethereal Superior or lower bases to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -67,7 +67,7 @@ return {
             ethereal = false,
             sockets = "1+",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gray}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {gray}{link}"
         },
         { -- Rule 9: Cube these Non-Ethereal 1+ socket Superior or lower bases to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -89,7 +89,7 @@ return {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
             quality = "4",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {blue}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {blue}{link}"
         },
         { -- Rule 12: Cube these Magic items to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -107,7 +107,7 @@ return {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
             quality = "5",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {green}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {green}{link}"
         },
         { -- Rule 15: Cube these Set items to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -125,7 +125,7 @@ return {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
             quality = "6",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {yellow}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {yellow}{link}"
         },
         { -- Rule 18: Cube these Rare items to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -143,7 +143,7 @@ return {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
             quality = "7",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gold}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {gold}{link}"
         },
         { -- Rule 21: Cube these Unique items to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -161,7 +161,7 @@ return {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
             quality = "8",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {orange}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {orange}{link}"
         },
         { -- Rule 24: Cube these Crafted items to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -179,7 +179,7 @@ return {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
             quality = "9",
             location = "onplayer",
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {dark green}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {dark green}{link}"
         },
         { -- Rule 27: Cube these Demon Tempered to fix them for upcoming changes
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Sa6", "Ca4", "Ca5", "Ca6" },
@@ -203,7 +203,7 @@ return {
             codes = { "m32", "m34", "m36" },
             quality = "7",
             location = { "onplayer", "equipped" },
-            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gold}{link}"
+            notify = "{red}WARNING! This item must be cubed alone to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {gold}{link}"
         },
         { -- Rule 31: Cube Unholy Commander charm to fix it for upcoming changes
             code = "m35",
@@ -215,7 +215,7 @@ return {
             code = "m35",
             quality = "7",
             location = { "onplayer", "equipped" },
-            notify = "{red}WARNING! This item must be cubed with a Token of Evil (from Edyrem) to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your stash and inventory {gold}{link}"
+            notify = "{red}WARNING! This item must be cubed with a Token of Evil (from Edyrem) to fix it before the next patch. It will NOT reroll the stats. The item will have a warning on it. Check your inventory and every stash{tan} page {gold}{link}"
         },
         -- +-------------------------+
         -- | MAX SOCKET HELPER TEXT  |
