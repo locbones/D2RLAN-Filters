@@ -1,25 +1,27 @@
 --- Filter Title:Charsi's Special
 --- Filter Type: 4 levels, cosmetic styles for loot, tips on various items
---- Filter Description:To cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher!\nLevel 1: Basic -- Level 2: Basic + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) CONTAIN SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (read reload message while cycling through fiter levels).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at level 'Lite' and aggressive for bases at level 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNOT A SINGLE HIDE WORKS INSIDE ANY TOWN!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides any non-superior bases.\nZero or max open socket bases only, anything in between is hidden.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 300 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event Boxes.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nDisplays some tutorial info on various items that I felt was missing from those.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher or you will see double ilvl numbers.\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
+--- Filter Description:To cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher!\nLevel 1: Basic -- Level 2: Basic + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) CONTAIN SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (read reload message while cycling through fiter levels).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at level 'Lite' and aggressive for bases at level 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNOT A SINGLE HIDE WORKS INSIDE ANY TOWN!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides any non-superior bases.\nZero or max open socket bases only, anything in between is hidden.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 400 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event Boxes.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nDisplays some tutorial info on various items that I felt was missing from those.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher or you will see double ilvl numbers.\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.2I) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.3) {Green}Reloaded\n{white}Reminder: From next patch, all crossbows (without exception) will be Assassin only! If you are using one, not as Assassin, you might want to start searching for replacement.",
 allowOverrides = true,
     rules = {
 		--																	      				BASES
 
-		--{codes="allitems",location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {orange}-{code}"},  -- DEBUG - Show item code
-		--{codes="allitems",location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {blue}-{index}"}, -- DEBUG - Show item index
+		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {orange}-{code}"},  -- DEBUG - Show item code
+		--{codes=NOT{"cm1","cm2","cm3"},{"onground", "onplayer", "atvendor", "equipped"},suffix=" {blue}-{index}"}, -- DEBUG - Show item index
+		--{codes={"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {orange}[{code}]"},  -- DEBUG - Show item code for Charms
+		--{codes={"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {blue}[{index}]\n"}, -- DEBUG - Show item index for Charms
 		{ -- Show ilvl display to items
 			codes = {"rin","aqv", "amu", "cm2", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18", "jew", "m32", "m33", "m34", "m35", "cm1", "cm2", "cm3"},
 			location = {"onground", "onplayer", "atvendor", "equipped"},
 			suffix = " ({ilvl})"
 		},
 		{ -- Hides all unwanted bases with max 2os
-			codes = {"Bb3","7tk", "cap", "uhc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "mbl", "tbl", "vbl", "hbl", "lbl", "xlb", "lbt", "mbt", "vbt", "Ag1", "Ag3", "xlg", "mgl", "vgl", "lgl", "xap", "hlm", "skp", "xuc", "xml", "buc", "sml", "Wp2", "Gg2", "Gg1", "Wp1", "Na1", "Sa1", "Sa2", "hla", "lea", "qui", "stu", "ces", "ktr", "jav", "pil", "7dg", "7di", "9dg", "9di", "dgr", "dir", "obd", "obc", "obb", "obe", "ob8", "ob7", "ob6", "ob9", "ob4", "ob1", "ob2", "ob3", "Bb6", "7ta", "9ta", "tax", "7	tk", "7bk", "9tk", "9bk", "bkf", "tkf", "7yw", "7bw", "7wn", "7gw", "9wn", "9gw", "9yw", "9bw", "bwn", "gwn", "wnd", "ywn"},
+			codes = {"Bb3", "cap", "uhc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "mbl", "tbl", "vbl", "hbl", "lbl", "xlb", "lbt", "mbt", "vbt", "Ag1", "Ag3", "xlg", "mgl", "vgl", "lgl", "xap", "hlm", "skp", "xuc", "xml", "buc", "sml", "Wp2", "Gg2", "Gg1", "Wp1", "Na1", "Sa1", "Sa2", "hla", "lea", "qui", "stu", "ces", "ktr", "jav", "pil", "7dg", "7di", "9dg", "9di", "dgr", "dir", "obd", "obc", "obb", "obe", "ob8", "ob7", "ob6", "ob9", "ob4", "ob1", "ob2", "ob3", "Bb6", "7ta", "9ta", "tax", "7	tk", "9tk", "9bk", "bkf", "tkf", "7yw", "7bw", "7wn", "7gw", "9wn", "9gw", "9yw", "9bw", "bwn", "gwn", "wnd", "ywn"},
             quality = "3-",
             area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
@@ -48,7 +50,7 @@ allowOverrides = true,
 			suffix = "ÿcR [{stat=(262)}%% STR]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 2os)
-			codes = {"Bb2", "Bb5", "umc", "ulc", "Bb1", "Bb4"},
+			codes = {"Bb2", "7tk", "7bk", "Bb5", "umc", "ulc", "Bb1", "Bb4"},
             quality = "2",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
@@ -101,7 +103,7 @@ allowOverrides = true,
 			codes = {"Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6"},
 			quality = "3",
 			sockets = "0,3",
-			stat = {index = 119, op = "<", value = 30},
+			stat = {index = 119, op = "<", value = 29},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			runeword=false,
@@ -113,7 +115,7 @@ allowOverrides = true,
 			codes = {"Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6"},
 			quality = "3-",
 			sockets = "0,3",
-			stat = {index = 119, op = ">=", value = 30},
+			stat = {index = 119, op = ">=", value = 29},
 			suffix = "ÿcR [{stat=(119)} AR%%]"
 		},
 		{ -- Hide 0/3os badly rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
@@ -416,7 +418,7 @@ allowOverrides = true,
 			hide = true
 		},
 		{ -- Hides all unwanted bases with max 6os
-			codes = {"Bm1", "8ws", "wst", "Bm2", "Bm3", "Bf2", "Bf1", "7ga", "7bt", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "amb", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "8hx", "hxb", "Bm7", "Bm8", "Bm9", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "7vo", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "6ws", "7p7", "9h9", "7wc", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "9wc", "9s8", "wsc", "7s8", "ame", "amd", "am9", "am8", "am4", "am3", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bf5", "Bm4", "Bm5", "Bm6", "7gd", "7fb", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "9cr", "crs"},
+			codes = {"Bm1", "8ws", "wst", "Bm2", "Bm3", "Bf2", "Bf1", "7ga", "7bt", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "8hx", "hxb", "Bm7", "Bm8", "Bm9", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "7vo", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "6ws", "7p7", "9h9", "7wc", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "9wc", "9s8", "wsc", "7s8", "ame", "amd", "am9", "am8", "am4", "am3", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bf5", "Bm4", "Bm5", "Bm6", "7gd", "7fb", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "9cr", "crs"},
             quality = "3-",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
@@ -426,7 +428,7 @@ allowOverrides = true,
             hide = true
         },
 		{ -- Hide 2/3/4/5os decent Superior bases (max 6os)
-			codes = {"Bf3", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8", "amc", "7ws", "9ws", "7mp", "9mp", "mpi", "Bf6"},
+			codes = {"Bf3","amb", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8", "amc", "7ws", "9ws", "7mp", "9mp", "mpi", "Bf6"},
 			quality = "3",
 			sockets = "2,3,4,5",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
@@ -436,11 +438,11 @@ allowOverrides = true,
 			filter_levels = "3,4",
 			hide = true
 		},
-		{ -- Hide 0/6os NOT 2 bow skills Grand Matron Bow Superior bases (max 6os)
-			code = "amc",
+		{ -- Hide 0/6os NOT 1/2 bow skills Grand Matron Bow or Matrialchal Bow Superior bases (max 6os)
+			codes = {"amc", "amb"},
 			quality = "3",
 			sockets = "0,6",
-			stat = {index = 188, op = "<", value = 2, param = 0},
+			stat = {index = 188, op = "<", value = 1, param = 0},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			runeword=false,
@@ -448,12 +450,20 @@ allowOverrides = true,
 			filter_levels = "3,4",
 			hide = true
 		},
+		{ -- Display 0/6os 1 bow skills Grand Matron Bow Superior bases (max 6os) - aggressive only
+			codes = {"amc", "amb"},
+			quality = "3-",
+			sockets = "0,6",
+			filter_levels = "3,4",
+			stat = {index = 188, op = "==", value = 1, param = 0},
+			suffix = "ÿcR [+1 Bow skills]"
+		},
 		{ -- Display 0/6os 2 bow skills Grand Matron Bow Superior bases (max 6os)
-			code = "amc",
+			codes = {"amc", "amb"},
 			quality = "3-",
 			sockets = "0,6",
 			stat = {index = 188, op = "==", value = 2, param = 0},
-			suffix = "ÿcR [2 to Bow skills]"
+			suffix = "ÿcR [+2 Bow skills]"
 		},
 		{ -- Hide 0/6os NOT 2/3 Pala skills Caduceous and Divine Scepter bases (max 6os)
 			codes = {"7ws", "9ws"},
@@ -472,14 +482,14 @@ allowOverrides = true,
 			quality = "3-",
 			sockets = "0,6",
 			stat = {index = 83, op = "==", value = 2, param = 3},
-			suffix = "ÿcR [2 to Pala skills]"
+			suffix = "ÿcR [+2 Paladin skills]"
 		},
 		{ -- Display 0/6os 3 Pala skills Caduceous and Divine Scepter bases (max 6os)
 			codes = {"7ws", "9ws"},
 			quality = "3-",
 			sockets = "0,6",
 			stat = {index = 83, op = "==", value = 3, param = 3},
-			suffix = "ÿcR [3 to Pala skills]"
+			suffix = "ÿcR [+3 Paladin skills]"
 		},
 		{ -- Hide 0/6os <120% Summon Damage Necro Sickle bases (max 6os)
 			codes = {"7mp", "9mp", "mpi"},
@@ -504,7 +514,7 @@ allowOverrides = true,
 			code = "Bf6",
 			quality = "3",
 			sockets = "0,6",
-			stat = {index = 60, op = "<", value = 5},
+			stat = {index = 60, op = "<", value = 4},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			runeword=false,
@@ -516,11 +526,11 @@ allowOverrides = true,
 			code = "Bf6",
 			quality = "3-",
 			sockets = "0,6",
-			stat = {index = 60, op = ">=", value = 5},
+			stat = {index = 60, op = ">=", value = 4},
 			suffix = "ÿcR [{stat=(60)}%% Life Leech]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 6os)
-			codes = {"Bf3", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8", "amc", "7ws", "9ws", "7mp", "9mp", "mpi", "Bf6"},
+			codes = {"Bf3","amb", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8", "amc", "7ws", "9ws", "7mp", "9mp", "mpi", "Bf6"},
             quality = "2",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
@@ -665,9 +675,9 @@ allowOverrides = true,
 			filter_levels = "3,4",
             hide = true
         },
-		{ -- Hide gold drops under 300 for clvl above 80 Lite
+		{ -- Hide gold drops under 400 for clvl above 80 Lite
 			code = "gld",
-            stat = {index = 14, op = "<=", value=299}, 
+            stat = {index = 14, op = "<=", value=399}, 
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			pstat = {index = 12, op = ">=", value = 80},
@@ -720,7 +730,7 @@ allowOverrides = true,
 		{ -- Unique Charms notification and border
             codes = {"cm1", "cm2", "cm3", "m32", "m33", "m34", "m35"},
             quality = 7,
-            notify = "ÿc;Unique: {name}",
+            notify = "ÿc;Unique{link}",
             border = {165, 146, 99, 230, 1} 
         },
 		{ -- Event Boxes notification and style
@@ -746,7 +756,12 @@ allowOverrides = true,
 		{ -- ID/TP Tomes, Cube and Key notify and style
 			codes = {"tbk", "ibk", "key", "box","y34","y35","y36","y37","y38","y39","y40"},
 			notify = "{red}Are you sure you want to leave it?",
-			prefix = "{yellow}"
+			prefix = "{pink}"
+		},
+		{ -- ID/TP Tomes Style
+			codes = {"tbk", "ibk"},
+			location = {"onplayer", "atvendor"},
+			prefix = "{pink}"
 		},
 		{ -- Style for Beacon of Hope
 			code = "BoH",
@@ -800,9 +815,10 @@ allowOverrides = true,
 			quality = "4",
 			background = {53, 0, 76, 170}
 		},
-		{ -- Display socket number of all socketed items
+		{ -- Display socket number of all socketed, identified items
 			codes = "allitems",
 			sockets = "1+",
+			identified = true,
 			location = {"onground", "onplayer", "atvendor", "equipped"},
 			suffix = "{turquoise}[{sockets}]"
         },
@@ -878,6 +894,12 @@ allowOverrides = true,
         {code="Z06",name_override="{red}Ruby {gold}Remover"}, --Onground display for Ruby Remover
         {code="Z07",name_override="{white}Diamond {gold}Remover"}, --Onground display for Diamond Remover
         {code="Z08",name_override="{gray}Skull {gold}Remover"}, --Onground display for Skull Remover
+		{code="cm3",index=593,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Unholy Commander ({ilvl})"}, --Unholy COmmander name color fix
+		{code="cm3",index=614,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Blank Talent ({ilvl})"}, --Blank Talent name color fix
+		{code="cm3",index=542,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Gheed's Fortune ({ilvl})"}, --Gheed's Fortune name color fix
+		{code="cm1",index=543,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Small Charm\n{gold}Annihilus ({ilvl})"}, --Annihilus name color fix
+		{code="cm1",index=609,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Small Charm\n{gold}Cola Cube ({ilvl})"}, --Cola Cube name color fix
+		{code="cm3",index=657,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Kuroneko no Himitsu ({ilvl})"}, --Kuroneko no Himitsu name color fix
 		
 			
 					--                                                                           Display very good superior rolls
@@ -888,7 +910,8 @@ allowOverrides = true,
 		{codes="allitems",quality="3",runeword=false,stat=OR{{index={333,334,335,336},op=">=",value=9},{index={187,189,190,191},op=">=",value=9}},suffix="ÿcR-{stat=(333)}%%res|-{stat=(187)}%%im"}, -- Resistance/Immunity pierce
 		{codes="allitems",quality="3",runeword=false,stat={index=136,op=">=",value=9},suffix="ÿcR{stat=(136)}%% Crushing"}, -- Crushing Blow
 		{codes={"7fl","9fl"},quality="3",runeword=false,stat={index=427,op=">=",value=16},suffix="ÿcR{stat=(427)}%% Buff Dura"}, -- Buff Duration, Knout/Scourge only
-		{codes=NOT{"Vg1","Vg2","Vg3","Vg4","Vg5","Vg6"},quality="3",runeword=false,stat={index=105,op=">=",value=14},suffix="ÿcR{stat=(105)}%% FCR"}, -- IAS/FCR
+		{codes=NOT{"Vg1","Vg2","Vg3","Vg4","Vg5","Vg6"},quality="3",runeword=false,stat={index=105,op=">=",value=14},suffix="ÿcR{stat=(105)}%% FCR"}, -- FCR
+		{codes="allitems",quality="3",runeword=false,stat={index=93,op=">=",value=14},suffix="ÿcR{stat=(93)}%% IAS"}, -- IAS
 		
 		
 			
@@ -899,15 +922,20 @@ allowOverrides = true,
 		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 HR Points\n"},-- Charged Essense of Hatred
 		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n"},-- Burning Essence of Terror
 		{code="fed",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Unique Cores\n{orange}"},-- Festering Essence of Destruction
-		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}Cube 10 Magic Jewels for 1 Rare Jewel{blue}\n"}, --Magic Jewel gameplay tip
+		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0  ︶  []  +  >>  /_\  0)\nTombs:\n"}, -- Horadric Staff gameplay tip
+		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}Bag(10x{blue}Jewels{gray})+Converter=Bag(+1{yellow}Jewel{gray}){blue}\n"}, --Magic Jewel gameplay tip
+		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}When in Bag, used to reroll Unique/Set items{yellow}\n"}, --Rare Jewel gameplay tip
 		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the ÿcRBody Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
-		{codes="allitems",quality="7",identified=true,index={433,543,428,217,299,211,418,292,213,369,231,423,225,412,45,413,556,330,483,335,254,532,366,525,55,246,189,447,71,445,527,438,249,529,6,143,281,295,286,247,347,386,453,379,262,226},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering
+		{codes="allitems",quality="7",rarity="0",identified=true,index={6,45,55,71,299,330,335},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, Normal bases
+		{codes="allitems",quality="7",rarity="1",identified=true,index={143,281,286,347,366,369,379,386,483},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, Exceptional bases
+		{codes="allitems",quality="7",rarity="2",identified=true,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, Elite bases
+		{codes="allitems",quality="7",identified=true,index={525,527,529,532,543,556},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, misc items
 		{code="y67",location={"onplayer","atvendor"},prefix="\n{gray}Cube it with a ÿcRSacred Relic{gray} and then with a ÿcRBody Part{gray} to Temper it\nÿcRIngredient{gray} for {red}Demon Tempering\n"}, -- Scroll of Belial
 		{code="S01",location={"onplayer","atvendor"},prefix="{grey}Gives 1-3 Soul Shards when bagged\n"}, -- Soul Shard
 		{code="b64",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube a stack of 10 to create Premium Socket Remover\n"}, -- Socket Remover
 		{code="b65",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube alone to turn back into 10 Socket Removers\n"}, -- Premium Socket Remover
-		{code="m35",identified=true,index=593,location={"onplayer","atvendor"},prefix="{grey}Cube alone to change amount summoned (5 max)\nÿc4"}, -- Unholy Commander
-		{code="m34",identified=true,index=614,location={"onplayer","atvendor"},prefix="{grey}Can be enhanced. Cannot be re-rolled.\nÿc4"}, -- Blank Talent
+		{code="cm3",identified=true,index=593,location={"onplayer","atvendor"},prefix="{grey}Cube alone to change amount summoned (5 max)\nÿc4"}, -- Unholy Commander
+		{code="cm3",identified=true,index=614,location={"onplayer","atvendor"},prefix="{grey}Can be enhanced. Cannot be re-rolled.\nÿc4"}, -- Blank Talent
 		{code="yps",location={"onplayer","atvendor"},prefix="{grey}Used for {green}Set{gray} Blood Contracts{white}\n"}, -- Antidote Potion
 		{code="wms",location={"onplayer","atvendor"},prefix="{grey}Used for ÿc4Unique{gray} Blood Contracts{white}\n"}, -- Thawing Potion
 		{code="isc",location={"onplayer","atvendor"},prefix="{grey}ID Scroll + HP potion in NM/Hell = New Beacon\nUsed for re-rolling Unique/Set items\n"}, -- Identify Scroll
@@ -915,13 +943,14 @@ allowOverrides = true,
 		{code="TK8",location={"onplayer","atvendor"},name_override="{grey}Beacon of Hope + X (Summon lvl +1) Class Tokens = Upgraded Summon\nClass Token + Beacon of Hope = Added Soul Summon\nToken Forger + Beacon of Hope (100 Soul Shards) = Class Token{white}\nToken Forger"}, -- Token Forger
 		{code="leg",location={"onplayer","atvendor"},prefix="{grey}Cube alone for MooMoo Farm\n{white}"}, -- Wirt's Leg
 		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Torch/Anni to reroll them\nÿc4"}, -- Standard of Heroes
-		{code="Y20",location={"onplayer","atvendor"},prefix="{red}OR\n{white}Unstacked Bars 2-5 (depends on item quality) + item = added ETH\n{red}OR\n{white}Normal/Superior item (white) + 1 Bar = max sockets\n{white}"}, -- Gold Bar
-		{code="box",location={"onplayer","atvendor"},prefix="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs only\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube tips
+		{code="Y20",location={"onplayer","atvendor"},prefix="{red}or\n{white}Unstacked Bars 2-5 (depends on item quality) + item = added ETH\n{red}or\n{white}Normal/Superior item (white) + 1 Bar = max sockets\n{white}"}, -- Gold Bar
+		{code="box",location={"onplayer","atvendor"},prefix="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube tips
 		{code="hdm",location={"onplayer","atvendor"},prefix="{gray}More about it on our Discord server\ndrop specific item/s on specific difficulty called 'Flavor Drops'\nGameplay tip: Some Unique Monsters have increased chance to\n"},-- Horadric Malus gameplay tip
 		{code="hdm",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, -- Horadric Malus tip notify
 		{code="mss",location={"onplayer","atvendor"},prefix="{gray}Entrance to levels full of Torment (Hell only)\nGameplay Tip: The {red}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soul Stone gameplay tip
 		{code="mss",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, --  Mephisto's Soul Stone tip notify
-		{code="y66",location={"onplayer","atvendor"},prefix="{gray}Always walk in RMD! Same speed as running and no defense loss\n"},-- Starter Pack gameplay tip
+		{code="y66",location={"onplayer","atvendor"},prefix="{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"},-- Starter Pack
+		{code="Z01",location={"onplayer","atvendor"},prefix="{yellow}Jewe{blue}ls{gray}, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
 		{code="tr2",location={"onplayer","atvendor"},prefix="{gray}'LB' icon in item name means 'Limit Breaking Base'/n'EB' icon in item name means 'Elite Base'\n"},-- Scroll of Resistance gameplay tip
 		{code="tr2",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, --  Scroll of Resistance tip notify
 		{code="bks",location={"onplayer","atvendor"},prefix="{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose 'Jeweled Runewords' can be made by filling excess sockets with Jewels (not gems!) BEFORE Runes\nGameplay Tip: You can make Runewords in items that have more sockets that those RWs need runes.\n"}, -- Scroll of Inifuss gameplay tip
@@ -1166,7 +1195,7 @@ allowOverrides = true,
 		{code="vip",notify="{red}Edyrem: {white}Clouds only block the sunshine temporarily. The sun always returns."}, -- Amulet of the Viper
 		{code="leg",notify="{red}Edyrem: {white}Ooooh Who lives in a pineapple under the sea..."}, -- Wirt's Leg
 		{code="ass",notify="{red}Edyrem: {white}My precious~~"}, -- Book of Skill
-		{code="hst",location={"equipped","onground"},notify="{red}Edyrem: {white}Why would you do that?"}, -- Horadric Staff
+		{code="hst",notify="{red}Edyrem: {white}Why would you do that?"}, -- Horadric Staff
 		{code="j34",notify="{red}Edyrem: {white}Is that an Anime Figurine?"}, -- A Jade Figurine
 		{code="g34",location="onplayer",notify="{red}Edyrem: {white}Pfff, a waste of Gold. Could have been made into a Gold Bar..."}, -- Golden Bird
 		{code="g33",notify="{red}Edyrem: {white}Don't even dare pointing that at me!"}, -- The Gidbinn
@@ -1177,7 +1206,7 @@ allowOverrides = true,
 		
 		
 			
-	--                                                                      Soon To Be Deleted Items (disabled until relevant)
+	--                                                                      Soon To Be Deleted Items
         { 
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
             quality = "3-",
@@ -1203,7 +1232,7 @@ allowOverrides = true,
             sockets = "0",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{white}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{white}{link}"
         },
         { 
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
@@ -1227,7 +1256,7 @@ allowOverrides = true,
             ethereal = true,
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
         },
         { 
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
@@ -1254,7 +1283,7 @@ allowOverrides = true,
             sockets = "1+",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
         },
         { 
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
@@ -1275,7 +1304,7 @@ allowOverrides = true,
             quality = "4",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{blue}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{blue}{link}"
         },
         {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
@@ -1317,7 +1346,7 @@ allowOverrides = true,
             quality = "6",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{yellow}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{yellow}{link}"
         },
         {
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
@@ -1338,7 +1367,7 @@ allowOverrides = true,
             quality = "7",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{gold}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gold}{link}"
         },
         { 
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
@@ -1359,7 +1388,7 @@ allowOverrides = true,
             quality = "8",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{orange}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{orange}{link}"
         },
         { 
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
@@ -1380,7 +1409,7 @@ allowOverrides = true,
             quality = "9",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment. {red}Item{dark green}{link}"
+            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{dark green}{link}"
         },
 		{
             codes = { "m32", "m34", "m36" },
