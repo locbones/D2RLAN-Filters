@@ -922,7 +922,7 @@ allowOverrides = true,
 		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 HR Points\n"},-- Charged Essense of Hatred
 		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n"},-- Burning Essence of Terror
 		{code="fed",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Unique Cores\n{orange}"},-- Festering Essence of Destruction
-		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0  ︶  []  +  >>  /_\  0)\nTombs:\n"}, -- Horadric Staff gameplay tip
+		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0  ︶  []  +  >>  /_\\  0)\nTombs:\n"}, -- Horadric Staff gameplay tip
 		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}Bag(10x{blue}Jewels{gray})+Converter=Bag(+1{yellow}Jewel{gray}){blue}\n"}, --Magic Jewel gameplay tip
 		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}When in Bag, used to reroll Unique/Set items{yellow}\n"}, --Rare Jewel gameplay tip
 		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the ÿcRBody Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
