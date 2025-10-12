@@ -6,13 +6,13 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.3) {Green}Reloaded\n{white}Reminder: From next patch, all crossbows (without exception) will be Assassin only! If you are using one, not as Assassin, you might want to start searching for replacement.",
+reload = "ÿc4Charsi's Special (v1.3B) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      				BASES
 
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {orange}-{code}"},  -- DEBUG - Show item code
-		--{codes=NOT{"cm1","cm2","cm3"},{"onground", "onplayer", "atvendor", "equipped"},suffix=" {blue}-{index}"}, -- DEBUG - Show item index
+		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {blue}-{index}"}, -- DEBUG - Show item index
 		--{codes={"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {orange}[{code}]"},  -- DEBUG - Show item code for Charms
 		--{codes={"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {blue}[{index}]\n"}, -- DEBUG - Show item index for Charms
 		{ -- Show ilvl display to items
@@ -733,15 +733,6 @@ allowOverrides = true,
             notify = "ÿc;Unique{link}",
             border = {165, 146, 99, 230, 1} 
         },
-		{ -- Event Boxes notification and style
-            code = "Ev0",
-            notify = "ÿc;Event Box!",
-			name_override = "Gamba Box!",
-			background = {46, 47, 67, 230},
-			border = {7, 10, 92, 230, 2},
-			notify = "{red}Edyrem: {white}Is for me?",
-            name_style = "Rainbow"
-        },
         { -- Style for Treasure Chests
             codes = {"y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32"},
             notify = "ÿc;Treasure! ヽ(♡‿♡)ノ",
@@ -894,12 +885,12 @@ allowOverrides = true,
         {code="Z06",name_override="{red}Ruby {gold}Remover"}, --Onground display for Ruby Remover
         {code="Z07",name_override="{white}Diamond {gold}Remover"}, --Onground display for Diamond Remover
         {code="Z08",name_override="{gray}Skull {gold}Remover"}, --Onground display for Skull Remover
-		{code="cm3",index=593,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Unholy Commander ({ilvl})"}, --Unholy COmmander name color fix
-		{code="cm3",index=614,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Blank Talent ({ilvl})"}, --Blank Talent name color fix
+		{code="cm3",index=590,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Unholy Commander ({ilvl})"}, --Unholy Commander name color fix
+		{code="cm3",index=611,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Blank Talent ({ilvl})"}, --Blank Talent name color fix
 		{code="cm3",index=542,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Gheed's Fortune ({ilvl})"}, --Gheed's Fortune name color fix
 		{code="cm1",index=543,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Small Charm\n{gold}Annihilus ({ilvl})"}, --Annihilus name color fix
-		{code="cm1",index=609,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Small Charm\n{gold}Cola Cube ({ilvl})"}, --Cola Cube name color fix
-		{code="cm3",index=657,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Kuroneko no Himitsu ({ilvl})"}, --Kuroneko no Himitsu name color fix
+		{code="cm1",index=606,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Small Charm\n{gold}Cola Cube ({ilvl})"}, --Cola Cube name color fix
+		{code="cm3",index=654,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Kuroneko no Himitsu ({ilvl})"}, --Kuroneko no Himitsu name color fix
 		
 			
 					--                                                                           Display very good superior rolls
@@ -922,7 +913,7 @@ allowOverrides = true,
 		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 HR Points\n"},-- Charged Essense of Hatred
 		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n"},-- Burning Essence of Terror
 		{code="fed",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Unique Cores\n{orange}"},-- Festering Essence of Destruction
-		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0  )  []  +  >>  /_\\  0)\nTombs:\n"}, -- Horadric Staff gameplay tip (creding to Wolfie, mine now hehe)
+		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff gameplay tip (creding to Wolfie, mine now hehe)
 		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}Bag(10x{blue}Jewels{gray})+Converter=Bag(+1{yellow}Jewel{gray}){blue}\n"}, --Magic Jewel gameplay tip
 		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}When in Bag, used to reroll Unique/Set items{yellow}\n"}, --Rare Jewel gameplay tip
 		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the ÿcRBody Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
@@ -944,7 +935,7 @@ allowOverrides = true,
 		{code="leg",location={"onplayer","atvendor"},prefix="{grey}Cube alone for MooMoo Farm\n{white}"}, -- Wirt's Leg
 		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Torch/Anni to reroll them\nÿc4"}, -- Standard of Heroes
 		{code="Y20",location={"onplayer","atvendor"},prefix="{red}or\n{white}Unstacked Bars 2-5 (depends on item quality) + item = added ETH\n{red}or\n{white}Normal/Superior item (white) + 1 Bar = max sockets\n{white}"}, -- Gold Bar
-		{code="box",location={"onplayer","atvendor"},prefix="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube tips
+		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube tips
 		{code="hdm",location={"onplayer","atvendor"},prefix="{gray}More about it on our Discord server\ndrop specific item/s on specific difficulty called 'Flavor Drops'\nGameplay tip: Some Unique Monsters have increased chance to\n"},-- Horadric Malus gameplay tip
 		{code="hdm",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, -- Horadric Malus tip notify
 		{code="mss",location={"onplayer","atvendor"},prefix="{gray}Entrance to levels full of Torment (Hell only)\nGameplay Tip: The {red}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soul Stone gameplay tip
@@ -1176,10 +1167,10 @@ allowOverrides = true,
 		
 		{codes="allitems",quality="7",identified=false,index=527,filter_levels="2,4",suffix="|SoJ"}, --Stone of Jordan
 		{codes="allitems",quality="7",identified=false,index=528,filter_levels="2,4",suffix="|BK"}, --Bul-Kathos' Wedding Band
-		{codes="allitems",quality="7",identified=false,index=591,filter_levels="2,4",suffix="|Life Ev"}, --Life Everlasting
-		{codes="allitems",quality="7",identified=false,index=592,filter_levels="2,4",suffix="|Hunt Mark"}, --Hunter's Mark
+		{codes="allitems",quality="7",identified=false,index=588,filter_levels="2,4",suffix="|Life Ev"}, --Life Everlasting
+		{codes="allitems",quality="7",identified=false,index=589,filter_levels="2,4",suffix="|Hunt Mark"}, --Hunter's Mark
 		{codes="allitems",quality="7",identified=false,index=541,filter_levels="2,4",suffix="|Constr",notify="Valuable Ring nearby!"}, --Constricting Ring
-		{codes="allitems",quality="7",identified=false,index=590,filter_levels="2,4",suffix="|Quintessence",notify="Rare amulet nearby!"}, --Quintessence Amulet
+		{codes="allitems",quality="7",identified=false,index=587,filter_levels="2,4",suffix="|Quintessence",notify="Rare amulet nearby!"}, --Quintessence Amulet
 		{codes="allitems",quality="7",identified=false,index=532,filter_levels="2,4",suffix="|Mara's",notify="Valuable Amulet nearby!"}, --Mara's Kaleidoscope Amulet
 
 
@@ -1204,11 +1195,28 @@ allowOverrides = true,
 		{code="hfh",notify="{red}Edyrem: {white}We have a bad feeling about this -_-"}, -- Hellforge Hammer
 		{code="vps",notify="{red}Edyrem: {white} o7"}, -- Energy Drink notify
 		
+		--                                                                          EVENTS
+		{ -- Event Boxes notification and style
+            code = "Ev0",
+            notify = "ÿc;Event Box!",
+			name_override = "Gamba Box!",
+			background = {46, 47, 67, 230},
+			border = {7, 10, 92, 230, 2},
+			notify = "{red}Edyrem: {white}Is for me?",
+            name_style = "Rainbow"
+        },
+		{ -- Candy Corn
+			code = "Ev1",
+			notify = "ÿc@Sweet sweet candy!"
+		},
+		
+		
+		
 		
 			
 	--                                                                      Soon To Be Deleted Items
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = false,
             sockets = "0",
@@ -1217,7 +1225,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{white}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = false,
             sockets = "0",
@@ -1226,7 +1234,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currrently equipped. {red}Item{white}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = false,
             sockets = "0",
@@ -1235,7 +1243,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{white}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = true,
             location = "onplayer",
@@ -1243,7 +1251,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gray}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = true,
             location = "equipped",
@@ -1251,7 +1259,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{gray}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = true,
             location = "atvendor",
@@ -1259,7 +1267,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = false,
             sockets = "1+",
@@ -1268,7 +1276,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gray}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = false,
             sockets = "1+",
@@ -1277,7 +1285,7 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{gray}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
             ethereal = false,
             sockets = "1+",
@@ -1286,126 +1294,126 @@ allowOverrides = true,
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "4",
             location = "onplayer",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{blue}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "4",
             location = "equipped",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{blue}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "4",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{blue}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "5",
             location = "onplayer",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{green}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "5",
             location = "equipped",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{green}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "5",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment . {red}Item{green}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "6",
             location = "onplayer",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{yellow}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "6",
             location = "equipped",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{yellow}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "6",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{yellow}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "7",
             location = "onplayer",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "7",
             location = "equipped",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{gold}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "7",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gold}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "8",
             location = "onplayer",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{orange}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "8",
             location = "equipped",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{orange}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "8",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{orange}{link}"
         },
         { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "9",
             location = "onplayer",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{dark green}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "9",
             location = "equipped",
 			name_override = "{red}Cube This Item Alone To Fix",
             notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently eqiopped. {red}Item{dark green}{link}"
         },
         {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
+            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "9",
             location = "atvendor",
 			name_override = "{red}Cube This Item Alone To Fix",
@@ -1422,6 +1430,132 @@ allowOverrides = true,
             location = { "onplayer", "equipped", "onground" },
             name_override = "{red}Cube This Item with Token of Evil To Fix",
 			notify = "{orange}WARNING!!! {red}If you do not cube this item with Token of Evil in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
+        },
+		        { --Color Dyed: Bright White
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 22 },
+            prefix_desc = "{lilac}Color Dyed: {white}Bright White\n"
+        },
+        { --Color Dyed: Black
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 4 },
+            prefix_desc = "{lilac}Color Dyed: {grey}Black\n"
+        },
+        { --Color Dyed: Crystal Blue
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 7 },
+            prefix_desc = "{lilac}Color Dyed: {blue}Crystal Blue\n"
+        },
+        { --Color Dyed: Crystal Red
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 10 },
+            prefix_desc = "{lilac}Color Dyed: {red}Crystal Red\n"
+        },
+        { --Color Dyed: Crystal Green
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 13 },
+            prefix_desc = "{lilac}Color Dyed: {green}Crystal Green\n"
+        },
+        { --Color Dyed: Light Yellow
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 14 },
+            prefix_desc = "{lilac}Color Dyed: {yellow}Light Yellow\n"
+        },
+        { --Color Dyed: Light Purple
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 18 },
+            prefix_desc = "{lilac}Color Dyed: {purple}Light Purple\n"
+        },
+        { --Color Dyed: White
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 1 },
+            prefix_desc = "{lilac}Color Dyed: {white}White\n"
+        },
+        { --Color Dyed: Light Grey
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 2 },
+            prefix_desc = "{lilac}Color Dyed: {grey}Light Grey\n"
+        },
+        { --Color Dyed: Dark Grey
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 3 },
+            prefix_desc = "{lilac}Color Dyed: {grey}Dark Grey\n"
+        },
+        { --Color Dyed: Light Blue
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 5 },
+            prefix_desc = "{lilac}Color Dyed: {blue}Bright White\n"
+        },
+        { --Color Dyed: Dark Blue
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 6 },
+            prefix_desc = "{lilac}Color Dyed: {blue}Dark Blue\n"
+        },
+        { --Color Dyed: Light Red
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 8 },
+            prefix_desc = "{lilac}Color Dyed: {red}Light Red\n"
+        },
+        { --Color Dyed: Dark Red
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 9 },
+            prefix_desc = "{lilac}Color Dyed: {red}Dark Red\n"
+        },
+        { --Color Dyed: Light Green
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 11 },
+            prefix_desc = "{lilac}Color Dyed: {green}Light Green\n"
+        },
+        { --Color Dyed: Dark Green
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 12 },
+            prefix_desc = "{lilac}Color Dyed: {green}Dark Green\n"
+        },
+        { --Color Dyed: Dark Yellow
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 15 },
+            prefix_desc = "{lilac}Color Dyed: {yellow}Dark Yellow\n"
+        },
+        { --Color Dyed: Dark Purple
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 19 },
+            prefix_desc = "{lilac}Color Dyed: {purple}Dark Purple\n"
+        },
+        { --Color Dyed: Orange
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 20 },
+            prefix_desc = "{lilac}Color Dyed: {orange}Orange\n"
+        },
+        { --Color Dyed: Light Gold
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 16 },
+            prefix_desc = "{lilac}Color Dyed: {gold}Light Gold\n"
+        },
+        { --Color Dyed: Dark Gold
+            codes = "allitems",
+            location = { "onplayer", "equipped", "atvendor" },
+            stat = { index = 433, op = "==", value = 17 },
+            prefix_desc = "{lilac}Color Dyed: {gold}Dark Gold\n"
         }
     }
 }
