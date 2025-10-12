@@ -925,8 +925,8 @@ allowOverrides = true,
 		{code="S01",location={"onplayer","atvendor"},prefix="{grey}Gives 1-3 Soul Shards when bagged\n"}, -- Soul Shard
 		{code="b64",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube a stack of 10 to create Premium Socket Remover\n"}, -- Socket Remover
 		{code="b65",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube alone to turn back into 10 Socket Removers\n"}, -- Premium Socket Remover
-		{code="cm3",identified=true,index=593,location={"onplayer","atvendor"},prefix="{grey}Cube alone to change amount summoned (5 max)\nÿc4"}, -- Unholy Commander
-		{code="cm3",identified=true,index=614,location={"onplayer","atvendor"},prefix="{grey}Can be enhanced. Cannot be re-rolled.\nÿc4"}, -- Blank Talent
+		{code="cm3",identified=true,index=590,location={"onplayer","atvendor"},prefix="{grey}Cube alone to change amount summoned (5 max)\nÿc4"}, -- Unholy Commander
+		{code="cm3",identified=true,index=611,location={"onplayer","atvendor"},prefix="{grey}Can be enhanced. Cannot be re-rolled.\nÿc4"}, -- Blank Talent
 		{code="yps",location={"onplayer","atvendor"},prefix="{grey}Used for {green}Set{gray} Blood Contracts{white}\n"}, -- Antidote Potion
 		{code="wms",location={"onplayer","atvendor"},prefix="{grey}Used for ÿc4Unique{gray} Blood Contracts{white}\n"}, -- Thawing Potion
 		{code="isc",location={"onplayer","atvendor"},prefix="{grey}ID Scroll + HP potion in NM/Hell = New Beacon\nUsed for re-rolling Unique/Set items\n"}, -- Identify Scroll
@@ -934,7 +934,7 @@ allowOverrides = true,
 		{code="TK8",location={"onplayer","atvendor"},name_override="{grey}Beacon of Hope + X (Summon lvl +1) Class Tokens = Upgraded Summon\nClass Token + Beacon of Hope = Added Soul Summon\nToken Forger + Beacon of Hope (100 Soul Shards) = Class Token{white}\nToken Forger"}, -- Token Forger
 		{code="leg",location={"onplayer","atvendor"},prefix="{grey}Cube alone for MooMoo Farm\n{white}"}, -- Wirt's Leg
 		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Torch/Anni to reroll them\nÿc4"}, -- Standard of Heroes
-		{code="Y20",location={"onplayer","atvendor"},prefix="{red}or\n{white}Unstacked Bars 2-5 (depends on item quality) + item = added ETH\n{red}or\n{white}Normal/Superior item (white) + 1 Bar = max sockets\n{white}"}, -- Gold Bar
+		{code="Y20",location={"onplayer","atvendor"},prefix="{red}or\n{white}1 Gold Bar + item = added ETH\n{red}or\n{white}"}, -- Gold Bar
 		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube tips
 		{code="hdm",location={"onplayer","atvendor"},prefix="{gray}More about it on our Discord server\ndrop specific item/s on specific difficulty called 'Flavor Drops'\nGameplay tip: Some Unique Monsters have increased chance to\n"},-- Horadric Malus gameplay tip
 		{code="hdm",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, -- Horadric Malus tip notify
