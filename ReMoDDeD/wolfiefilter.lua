@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.36
+--- Filter Title: WolfieeifloW's Filter v1.37
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,7 +17,7 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.36: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.37: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
@@ -1535,6 +1535,7 @@ return {
         { -- Rule 224: Hiding Inferior items at Character Level 10+
             codes = "allitems",
             quality = "1",
+            itype = { 45, 50 },
             runeword = false,
             pstat = { index = 12, op = ">=", value = 10 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
@@ -1543,6 +1544,7 @@ return {
         { -- Rule 225: Hiding Normal items at Character Level 50+
             codes = "allitems",
             quality = "2",
+            itype = { 45, 50 },
             runeword = false,
             pstat = { index = 12, op = ">=", value = 50 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
