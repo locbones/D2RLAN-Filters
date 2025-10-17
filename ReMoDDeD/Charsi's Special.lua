@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.4) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.5) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      				BASES
@@ -114,13 +114,13 @@ allowOverrides = true,
 			hide = true
 		},
 		{ -- Display good rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
-			codes = {"Ag2", "Ag4", "Ag5", "Ag6"},
+			codes = {"Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6"},
 			quality = "3-",
 			stat = {index = 221, op = "==", value = 5},
 			suffix = "ÿcR [Good Dex/lvl]"
 		},
 		{ -- Display best rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
-			codes = {"Ag2", "Ag4", "Ag5", "Ag6"},
+			codes = {"Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6"},
 			quality = "3-",
 			stat = {index = 221, op = "==", value = 6},
 			suffix = "ÿcR [Best Dex/lvl]"
@@ -221,7 +221,7 @@ allowOverrides = true,
             hide = true
         },
 		{ -- Hides all unwanted bases with max 4os
-			codes = {"Ca1", "Ca4", "Ca5", "Ca6", "neg", "neb", "ned", "nee", "ne9", "ne8", "ne5", "ne4", "ne3", "pad", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "uml", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "tow", "Wp3", "Gg3", "Oa3", "Oa2", "Oa1", "Na4", "Na5", "Na6", "Bp2", "Bp1", "Bp4", "Bp5", "Sa5", "Sa6", "upl", "uhn", "ung", "uui", "urs", "ult", "uld", "uth", "ucl", "uar", "ula", "uul", "utu", "uea", "xul", "xrs", "xth", "xng", "xtp", "xhn", "xar", "xpl", "xld", "xlt", "xcl", "xtu", "aar", "fld", "ful", "gth", "plt", "spl", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8ls", "8cs", "8bs", "bst", "cst", "lst", "bsw", "Bf4", "72h", "92h", "k03", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp"},
+			codes = {"Ca4", "Ca5", "Ca6", "pad", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "uml", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "tow", "Wp3", "Gg3", "Oa3", "Oa2", "Oa1", "Na4", "Na5", "Na6", "Bp2", "Bp1", "Bp4", "Bp5", "Sa5", "Sa6", "upl", "uhn", "ung", "uui", "urs", "ult", "uld", "uth", "ucl", "uar", "ula", "uul", "utu", "uea", "xul", "xrs", "xth", "xng", "xtp", "xhn", "xar", "xpl", "xld", "xlt", "xcl", "xtu", "aar", "fld", "ful", "gth", "plt", "spl", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8ls", "8cs", "8bs", "bst", "cst", "lst", "bsw", "Bf4", "k03", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp"},
             quality = "3-",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
@@ -230,8 +230,25 @@ allowOverrides = true,
 			filter_levels = "3,4",
             hide = true
         },
-		{ -- Hide badly rolled Necro Shield Superior bases (max 4os)
-			codes = {"nea", "nef"},
+		{ -- Hide badly rolled Assassin Katanas bases (max 4os)
+			codes = {"72h", "92h"},
+			quality = "3-",
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			difficulty = "Hell",
+			stat = {index = 427, op = "<", value = 40},
+			runeword=false,
+			pstat = {index = 12, op = ">=", value = 80},
+			filter_levels = "3,4",
+			hide = true
+		},
+		{ -- Display good rolled Assassin Katanas bases (max 4os)
+			codes = {"72h", "92h"},
+			quality = "3-",
+			stat = {index = 427, op = ">=", value = 40},
+			suffix = "ÿcR[{stat=(427)}%% Buff]"
+		},
+		{ -- Hide badly rolled Necro Shield bases (max 4os)
+			codes = {"nea", "nef", "neg", "neb", "ned", "nee", "ne9", "ne8", "ne5", "ne4", "ne3"},
 			quality = "3-",
 			stat = {index = 188, op = "<", value = 3, param = 18},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
@@ -241,11 +258,11 @@ allowOverrides = true,
 			filter_levels = "3,4",
 			hide = true
 		},
-		{ -- Display perf rolled Necro Shield Superior bases (max 4os)
-			codes = {"nea", "nef"},
+		{ -- Display perf rolled Necro Shield bases (max 4os)
+			codes = {"nea", "nef", "neg", "neb", "ned", "nee", "ne9", "ne8", "ne5", "ne4", "ne3"},
 			quality = "3-",
 			stat = {index = 188, op = "==", value = 3, param = 18},
-			suffix = "ÿcR [3 to Summoning]"
+			suffix = "ÿcR[+3 Summoning]"
 		},
 		{ -- Hide badly rolled Pally Shield Superior bases (max 4os)
 			codes = {"pac", "pab"},
@@ -283,12 +300,12 @@ allowOverrides = true,
 			quality = "3-",
             stat = {index = 43, op = ">=", value = 14},
             stat = {index = 45, op = ">=", value = 14},
-			suffix = "ÿcR [{stat=(45)}%% All Res]"
+			suffix = "ÿcR[{stat=(45)}%% All Res]"
 		},
 		{ -- Hide badly rolled Cloak/Mantle Superior bases (max 4os)
-			codes = {"Ca2", "Ca3"},
+			codes = {"Ca1", "Ca2", "Ca3"},
 			quality = "3-",
-			stat = {index = 188, op = "<=", value = 3, param = 49},
+			stat = {index = 188, op = "<=", value = 2, param = 49},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			runeword=false,
@@ -296,11 +313,17 @@ allowOverrides = true,
 			filter_levels = "3,4",
 			hide = true
 		},
+		{ -- Display good rolled Cload/Mantle Superior bases (max 4os)
+			codes = {"Ca1", "Ca2", "Ca3"},
+			quality = "3-",
+			stat = {index = 188, op = "==", value = 3, param = 49},
+			suffix = "ÿcR[+3 Shadow Disciplines]"
+		},
 		{ -- Display perf rolled Cload/Mantle Superior bases (max 4os)
-			codes = {"Ca2", "Ca3"},
+			codes = {"Ca1", "Ca2", "Ca3"},
 			quality = "3-",
 			stat = {index = 188, op = "==", value = 4, param = 49},
-			suffix = "ÿcR [+4 to Shadow Disciplines]"
+			suffix = "ÿcR[+4 Shadow Disciplines]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 4os)
 			codes = {"urg", "uit", "kit", "utp"},
@@ -421,7 +444,7 @@ allowOverrides = true,
 			code = "Bf6",
 			quality = "3-",
 			stat = {index = 60, op = ">=", value = 4},
-			suffix = "ÿcR [{stat=(60)}%% Life Leech]"
+			suffix = "ÿcR [{stat=(60)}%% LL]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 6os)
 			codes = {"Bf3", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8"},
@@ -453,6 +476,18 @@ allowOverrides = true,
 			quality = "3-",
 			notify = "LB Base{link}"
 		},
+		{ -- Magic LB items - for crafting - description
+			codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+			quality = "4",
+			location = {"onplayer", "atvendor", "equipped"},
+			prefix_desc = "{red}Trash, but nice for crafting\n"
+		},
+		{ -- Magic LB items - for crafting - notify
+			codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+			quality = "4",
+			border = {99,99,230,230,1},
+			notify = "Craft beyond limits{blue}{link}"
+		},
 		
 		
 
@@ -460,8 +495,8 @@ allowOverrides = true,
 		
 		--													                                       MAGIC
 		
-		{ -- Hides all magic items (does not include jewels or S/L/G charms) from clvl 30 above Normal
-			codes = {"rin", "amu", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+		{ -- Hides all magic items (does not include LB bases, jewels and S/L/G charms) from clvl 30 above Normal
+			codes = {"rin", "amu", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
 			quality = "4",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulties = {"Nightmare", "Hell"},
@@ -477,6 +512,17 @@ allowOverrides = true,
 			filter_levels = "3,4",
 			hide = true
 		},
+		{ -- Style for Magic Jewels
+			code = "jew",
+			quality = "4",
+			border = {0, 0, 0, 225, 2},
+			background = {3, 3, 41, 240}
+		},
+		{ -- Magic Small/Large/Grand Charm style
+			codes = {"cm1", "cm2", "cm3"},
+			quality = "4",
+			background = {29, 2, 46, 230}
+		},
 		
 				--													                                     RARE
 		{ -- Hides all rare items, besides Jewels
@@ -487,6 +533,12 @@ allowOverrides = true,
 			pstat = {index = 12, op = ">=", value = 80},
 			filter_levels = "3,4",
 			hide = true
+		},
+		{ -- Style for Rare Jewels
+			code = "jew",
+			quality = "6",
+			border = {0, 0, 0, 225, 2},
+			background = {39, 41, 3, 240}
 		},
 		
 		--													                                        ARROWS and BOLTS
@@ -517,6 +569,12 @@ allowOverrides = true,
 			filter_levels = "3,4",
             hide = true
         },
+		{ -- Display the max socket amount on items in their description
+			codes="allitems",
+			location={"onground", "onplayer", "atvendor", "equipped"},
+			itype={45,50,10,12},
+			prefix_desc="ÿcOMax Sockets: {maxsock}\n"
+		},
 		{ -- Hide gold drops under 400 for clvl above 80 Lite
 			code = "gld",
             stat = {index = 14, op = "<=", value=399}, 
@@ -579,16 +637,6 @@ allowOverrides = true,
             background_style = "SapphireSonnet",
             border = { 220, 120, 255, 230, 2 }
         },
-		{ -- Style for Magic Jewels
-			code = "jew",
-			quality = "4",
-			background = {34, 34, 76, 170}
-		},
-		{ -- Style for Gold
-			code = "jew",
-			quality = "6",
-			background = {117, 129, 0, 180}
-		},
 		{ -- ID/TP Tomes, Cube and Key notify and style
 			codes = {"tbk", "ibk", "key", "box","y34","y35","y36","y37","y38","y39","y40"},
 			notify = "{red}Are you sure you want to leave it?",
@@ -604,10 +652,25 @@ allowOverrides = true,
 			name_override = "{red}Is that a... bacon?",
 			notify = "{red}Important Item: {name}"
 		},
-		{ -- Border for Superior Bases
+		{ -- Border for Superior 0os non-eth Bases
 			codes = "allitems",
 			quality = "3",
-			border = {236, 236, 237, 230, 1}
+			sockets = "0",
+			ethereal = false,
+			border = {236, 236, 237, 210, 1}
+		},
+		{ -- Border for Superior 1+os non-eth Bases
+			codes = "allitems",
+			quality = "3",
+			sockets = "1+",
+			border = {114, 114, 114, 255, 1}
+		},
+		{ -- Border for Superior eth Bases
+			codes = "allitems",
+			quality = "3",
+			ethereal = true,
+			sockets = "0",
+			border = {81, 164, 227, 220, 1}
 		},
 		{ -- Scroll of Torment border
 			codes = {"K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
@@ -640,11 +703,6 @@ allowOverrides = true,
 			difficulty = "Hell",
 			pstat = {index = 12, op = ">=", value = 80},
 			hide = true
-		},
-		{ -- Magic Small/Large/Grand Charm style
-			codes = {"cm1", "cm2", "cm3"},
-			quality = "4",
-			background = {53, 0, 76, 170}
 		},
 		{ -- Display socket number of all socketed, identified items
 			codes = "allitems",
@@ -743,14 +801,14 @@ allowOverrides = true,
 			
 					--                                                                           Display very good superior rolls
 		
-		{codes="allitems",quality="3",runeword=false,stat=OR{{index={0,1,2,3},op="==",value=15},{index={0,1,2,3},op="==",value=14},{index={0,1,2,3},op="==",value=13}},suffix="ÿcR+{stat=(3)} att"}, -- All Attributes
-		{codes="allitems",quality="3",runeword=false,stat=OR{{index={39,41,43,45},op="==",value=10},{index={39,41,43,45},op="==",value=9}},suffix="ÿcR+{stat=(39)}%% all res"}, -- All Resistances
-		{codes="allitems",quality="3",runeword=false,stat={index={40,42,44,46},op="==",value=5},suffix="ÿcR+5%% max res"}, -- Max All Resistance
+		{codes="allitems",quality="3",runeword=false,stat=OR{{index={0,1,2,3},op="==",value=15},{index={0,1,2,3},op="==",value=14},{index={0,1,2,3},op="==",value=13}},suffix="ÿcR{stat=(3)} att"}, -- All Attributes
+		{codes="allitems",quality="3",runeword=false,stat=OR{{index={39,41,43,45},op="==",value=10},{index={39,41,43,45},op="==",value=9}},suffix="ÿcR{stat=(39)}%% all res"}, -- All Resistances
+		{codes="allitems",quality="3",runeword=false,stat={index={40,42,44,46},op="==",value=5},suffix="ÿcR5%% max res"}, -- Max All Resistance
 		{codes="allitems",quality="3",runeword=false,stat=OR{{index={333,334,335,336},op=">=",value=9},{index={187,189,190,191},op=">=",value=9}},suffix="ÿcR-{stat=(333)}%%res|-{stat=(187)}%%im"}, -- Resistance/Immunity pierce
 		{codes="allitems",quality="3",runeword=false,stat={index=136,op=">=",value=9},suffix="ÿcR{stat=(136)}%% Crushing"}, -- Crushing Blow
 		{codes={"7fl","9fl"},quality="3",runeword=false,stat={index=427,op=">=",value=16},suffix="ÿcR{stat=(427)}%% Buff Dura"}, -- Buff Duration, Knout/Scourge only
-		{codes=NOT{"Vg1","Vg2","Vg3","Vg4","Vg5","Vg6"},quality="3",runeword=false,stat={index=105,op=">=",value=14},suffix="ÿcR{stat=(105)}%% FCR"}, -- FCR
-		{codes="allitems",quality="3",runeword=false,stat={index=93,op=">=",value=14},suffix="ÿcR{stat=(93)}%% IAS"}, -- IAS
+		{codes=NOT{"Vg1","Vg2","Vg3","Vg4","Vg5","Vg6"},quality="3",runeword=false,stat={index=105,op=">=",value=14},suffix="ÿcR{stat=(105)}%%FCR"}, -- FCR
+		{codes="allitems",quality="3",runeword=false,stat={index=93,op=">=",value=14},suffix=" ÿcR{stat=(93)}%%IAS"}, -- IAS
 		
 		
 			
@@ -769,8 +827,9 @@ allowOverrides = true,
 		{codes="allitems",quality="7",rarity="1",identified=true,index={143,281,286,347,366,369,379,386,483},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, Exceptional bases
 		{codes="allitems",quality="7",rarity="2",identified=true,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, Elite bases
 		{codes="allitems",quality="7",identified=true,index={525,527,529,532,543,556},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, misc items
+		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{yellow}[SR]"}, -- Sacret Relics for Demon Tempering - HUNTER
 		{code="y67",location={"onplayer","atvendor"},prefix="{gray}Cube it with a ÿcRSacred Relic{gray} and then with a ÿcRBody Part{gray} to Temper it\nÿcRIngredient{gray} for {red}Demon Tempering\n"}, -- Scroll of Belial
-		{code="S01",location={"onplayer","atvendor"},prefix="{grey}Gives 1-3 Soul Shards when bagged\n"}, -- Soul Shard
+		{code="S01",location={"onplayer","atvendor"},prefix="{grey}Gives 1-3 Soul Shards when cubed with Beacon\n"}, -- Soul Shard
 		{code="b64",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube a stack of 10 to create Premium Socket Remover\n"}, -- Socket Remover
 		{code="b65",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube alone to turn back into 10 Socket Removers\n"}, -- Premium Socket Remover
 		{code="cm3",identified=true,index=590,location={"onplayer","atvendor"},prefix="{grey}Cube alone to change amount summoned (5 max)\nÿc4"}, -- Unholy Commander
@@ -786,10 +845,10 @@ allowOverrides = true,
 		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube tips
 		{code="hdm",location={"onplayer","atvendor"},prefix="{gray}More about it on our Discord server\ndrop specific item/s on specific difficulty called 'Flavor Drops'\nGameplay tip: Some Unique Monsters have increased chance to\n"},-- Horadric Malus gameplay tip
 		{code="hdm",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, -- Horadric Malus tip notify
-		{code="mss",location={"onplayer","atvendor"},prefix="{gray}Entrance to levels full of Torment (Hell only)\nGameplay Tip: The {red}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soul Stone gameplay tip
+		{code="mss",location={"onplayer","atvendor"},prefix="{gray}Entrance to levels full of Torment (Hell only)\nGameplay Tip: The {orange}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soulstone gameplay tip
 		{code="mss",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, --  Mephisto's Soul Stone tip notify
 		{code="y66",location={"onplayer","atvendor"},prefix="{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"},-- Starter Pack
-		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Magic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
+		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
 		{code="tr2",location={"onplayer","atvendor"},prefix="{gray}'LB' icon in item name means 'Limit Breaking Base'/n'EB' icon in item name means 'Elite Base'\n"},-- Scroll of Resistance gameplay tip
 		{code="tr2",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, --  Scroll of Resistance tip notify
 		{code="bks",location={"onplayer","atvendor"},prefix="{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose 'Jeweled Runewords' can be made by filling excess sockets with Jewels (not gems!) BEFORE Runes\nGameplay Tip: You can make Runewords in items that have more sockets that those RWs need runes.\n"}, -- Scroll of Inifuss gameplay tip
@@ -1043,7 +1102,9 @@ allowOverrides = true,
 		{code="hfh",notify="{red}Edyrem: {white}We have a bad feeling about this -_-"}, -- Hellforge Hammer
 		{code="vps",notify="{red}Edyrem: {white} o7"}, -- Energy Drink notify
 		
-		--                                                                          EVENTS
+		
+		
+		--                                                                                  EVENTS
 		{ -- Event Boxes notification and style
             code = "Ev0",
             notify = "ÿc;Event Box!",
@@ -1065,6 +1126,39 @@ allowOverrides = true,
 		
 		
 		
+		--                                                                                Color Dyes
+		
+		
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=1},prefix_desc="{lilac}Color Dyed: {white}White\n"}, --Color Dyed: White
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=2},prefix_desc="{lilac}Color Dyed: {grey}Light Grey\n"}, --Color Dyed: Light Grey
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=3},prefix_desc="{lilac}Color Dyed: {grey}Dark Grey\n"}, --Color Dyed: Dark Grey
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=4},prefix_desc="{lilac}Color Dyed: {grey}Black\n"}, --Color Dyed: Black
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=5},prefix_desc="{lilac}Color Dyed: {blue}Bright White\n"}, --Color Dyed: Light Blue
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=6},prefix_desc="{lilac}Color Dyed: {blue}Dark Blue\n"}, --Color Dyed: Dark Blue
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=7},prefix_desc="{lilac}Color Dyed: {blue}Crystal Blue\n"}, --Color Dyed: Crystal Blue
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=8},prefix_desc="{lilac}Color Dyed: {red}Light Red\n"}, --Color Dyed: Light Red
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=9},prefix_desc="{lilac}Color Dyed: {red}Dark Red\n"}, --Color Dyed: Dark Red
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=10},prefix_desc="{lilac}Color Dyed: {red}Crystal Red\n"}, --Color Dyed: Crystal Red
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=11},prefix_desc="{lilac}Color Dyed: {green}Light Green\n"}, --Color Dyed: Light Green
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=12},prefix_desc="{lilac}Color Dyed: {green}Dark Green\n"}, --Color Dyed: Dark Green
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=13},prefix_desc="{lilac}Color Dyed: {green}Crystal Green\n"}, --Color Dyed: Crystal Green
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=14},prefix_desc="{lilac}Color Dyed: {yellow}Light Yellow\n"}, --Color Dyed: Light Yellow
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=15},prefix_desc="{lilac}Color Dyed: {yellow}Dark Yellow\n"}, --Color Dyed: Dark Yellow
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=16},prefix_desc="{lilac}Color Dyed: {gold}Light Gold\n"}, --Color Dyed: Light Gold
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=17},prefix_desc="{lilac}Color Dyed: {gold}Dark Gold\n"}, --Color Dyed: Dark Gold
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=18},prefix_desc="{lilac}Color Dyed: {purple}Light Purple\n"}, --Color Dyed: Light Purple
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=19},prefix_desc="{lilac}Color Dyed: {purple}Dark Purple\n"}, --Color Dyed: Dark Purple
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=20},prefix_desc="{lilac}Color Dyed: {orange}Orange\n"}, --Color Dyed: Orange
+		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=22},prefix_desc="{lilac}Color Dyed: {white}Bright White\n"}, --Color Dyed: Bright White
+		{ -- Dye Bottles notification and style
+			codes = {"Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73"},
+			notify = "{yellow}Dye Bottle!",
+			border = {10, 14, 92, 255, 2},
+			name_style = "RainbowStatic"
+		},
+		
+			
+			
 			
 	--                                                                      Soon To Be Deleted Items
         { 
@@ -1282,132 +1376,6 @@ allowOverrides = true,
             location = { "onplayer", "equipped", "onground" },
             name_override = "{red}Cube This Item with Token of Evil To Fix",
 			notify = "{orange}WARNING!!! {red}If you do not cube this item with Token of Evil in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
-        },
-		        { --Color Dyed: Bright White
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 22 },
-            prefix_desc = "{lilac}Color Dyed: {white}Bright White\n"
-        },
-        { --Color Dyed: Black
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 4 },
-            prefix_desc = "{lilac}Color Dyed: {grey}Black\n"
-        },
-        { --Color Dyed: Crystal Blue
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 7 },
-            prefix_desc = "{lilac}Color Dyed: {blue}Crystal Blue\n"
-        },
-        { --Color Dyed: Crystal Red
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 10 },
-            prefix_desc = "{lilac}Color Dyed: {red}Crystal Red\n"
-        },
-        { --Color Dyed: Crystal Green
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 13 },
-            prefix_desc = "{lilac}Color Dyed: {green}Crystal Green\n"
-        },
-        { --Color Dyed: Light Yellow
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 14 },
-            prefix_desc = "{lilac}Color Dyed: {yellow}Light Yellow\n"
-        },
-        { --Color Dyed: Light Purple
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 18 },
-            prefix_desc = "{lilac}Color Dyed: {purple}Light Purple\n"
-        },
-        { --Color Dyed: White
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 1 },
-            prefix_desc = "{lilac}Color Dyed: {white}White\n"
-        },
-        { --Color Dyed: Light Grey
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 2 },
-            prefix_desc = "{lilac}Color Dyed: {grey}Light Grey\n"
-        },
-        { --Color Dyed: Dark Grey
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 3 },
-            prefix_desc = "{lilac}Color Dyed: {grey}Dark Grey\n"
-        },
-        { --Color Dyed: Light Blue
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 5 },
-            prefix_desc = "{lilac}Color Dyed: {blue}Bright White\n"
-        },
-        { --Color Dyed: Dark Blue
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 6 },
-            prefix_desc = "{lilac}Color Dyed: {blue}Dark Blue\n"
-        },
-        { --Color Dyed: Light Red
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 8 },
-            prefix_desc = "{lilac}Color Dyed: {red}Light Red\n"
-        },
-        { --Color Dyed: Dark Red
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 9 },
-            prefix_desc = "{lilac}Color Dyed: {red}Dark Red\n"
-        },
-        { --Color Dyed: Light Green
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 11 },
-            prefix_desc = "{lilac}Color Dyed: {green}Light Green\n"
-        },
-        { --Color Dyed: Dark Green
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 12 },
-            prefix_desc = "{lilac}Color Dyed: {green}Dark Green\n"
-        },
-        { --Color Dyed: Dark Yellow
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 15 },
-            prefix_desc = "{lilac}Color Dyed: {yellow}Dark Yellow\n"
-        },
-        { --Color Dyed: Dark Purple
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 19 },
-            prefix_desc = "{lilac}Color Dyed: {purple}Dark Purple\n"
-        },
-        { --Color Dyed: Orange
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 20 },
-            prefix_desc = "{lilac}Color Dyed: {orange}Orange\n"
-        },
-        { --Color Dyed: Light Gold
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 16 },
-            prefix_desc = "{lilac}Color Dyed: {gold}Light Gold\n"
-        },
-        { --Color Dyed: Dark Gold
-            codes = "allitems",
-            location = { "onplayer", "equipped", "atvendor" },
-            stat = { index = 433, op = "==", value = 17 },
-            prefix_desc = "{lilac}Color Dyed: {gold}Dark Gold\n"
         }
     }
 }
