@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.38
+--- Filter Title: WolfieeifloW's Filter v1.39
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,7 +17,7 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.38: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.39: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
@@ -2146,15 +2146,93 @@ return {
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "ⅲ ³"
         },
-        { -- Rule 324: Adding superscript "LB 3" in front of Elite tier Limit Break items names
+        { -- Rule 324: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior Ethereal Limit Break items names
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            ethereal = true,
             rarity = 2,
+            quality = "3-",
             itype = { 45, 50 },
             location = { "onground", "onplayer", "equipped", "atvendor" },
-            prefix = "ⅳ ³",
+            prefix = "{red}ⅳ ³ÿcI",
             -- prefix = "⁴"
         },
-        { -- Rule 325: Notify for Elite tier Limit Break items
+        { -- Rule 325: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior non-Ethereal socketed Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            ethereal = false,
+            sockets = "1+",
+            rarity = 2,
+            quality = "3-",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{gray}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 326: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior non-Ethereal non-socketed Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            ethereal = false,
+            sockets = "0",
+            rarity = 2,
+            quality = "3-",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{white}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 327: Adding colored superscript "LB 3" in front of Elite tier Magic Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            quality = "4",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{blue}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 328: Adding colored superscript "LB 3" in front of Elite tier Set Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            quality = "5",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{green}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 329: Adding colored superscript "LB 3" in front of Elite tier Rare Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            quality = "6",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{yellow}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 330: Adding colored superscript "LB 3" in front of Elite tier Unique Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            quality = "7",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{gold}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 331: Adding colored superscript "LB 3" in front of Elite tier Crafted Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            quality = "8",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{orange}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 332: Adding colored superscript "LB 3" in front of Elite tier Demon Tempered Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
+            rarity = 2,
+            quality = "9",
+            itype = { 45, 50 },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            prefix = "{red}ⅳ ³{dark green}",
+            -- prefix = "⁴"
+        },
+        { -- Rule 333: Notify for Elite tier Limit Break items
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17" },
             rarity = 2,
             itype = { 45, 50 },
@@ -2163,7 +2241,7 @@ return {
         -- +-------------------------+
         -- | TESTING                 |
         -- +-------------------------+
-        -- { -- Rule 326: For testing, adds a bunch of info to item
+        -- { -- Rule 334: For testing, adds a bunch of info to item
         --     codes = "allitems",
         --     location = { "onplayer", "equipped", "onground", "dropping", "atvendor" },
         --     suffix = " \n{gray}[Code: {orange}{code}{gray}]\n[Quality: {orange}{quality}{gray}]\n[Rarity: {orange}{rarity}{gray}]\n[Index: {orange}{index}{gray}]"
