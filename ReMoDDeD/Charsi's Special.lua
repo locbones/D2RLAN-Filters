@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.5) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.6) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      				BASES
@@ -467,6 +467,36 @@ allowOverrides = true,
 			filter_levels = "3,4",
 			hide = true
 		},
+		{ -- Hides all 1 socket bases (does not include LB bases) in Normal and Nightmare when clvl is below 80
+			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			quality = "3-",
+			sockets = "1",
+			runeword=false,
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			difficulties = {"Normal", "Nightmare"},
+			pstat = {index = 12, op = "<", value = 80},
+			hide = true
+		},
+		{ -- Hides all 0 socket not superior bases (does not include LB bases) in Normal and Nightmare when clvl is below 80 - aggressive only
+			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			quality = "2",
+			sockets = "0",
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			difficulties = {"Normal", "Nightmare"},
+			runeword = false,
+			pstat = {index = 12, op = "<", value = 80},
+			filter_levels = "3,4",
+			hide = true
+		},
+		{ -- Suffix for potentially great bases while leveling
+			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			quality = "3",
+			sockets = "2+",
+			difficulties = {"Normal", "Nightmare"},
+			runeword = false,
+			pstat = {index = 12, op = "<", value = 80},
+			suffix = "{yellow}[Good?]"
+		},
 
 		
 		--                                                                                    "Limit Broken" Bases
@@ -584,6 +614,19 @@ allowOverrides = true,
 			filter_levels = "1,2",
             hide = true
         },
+		{ -- Hide omega low gold while leveling
+			code = "gld",
+            stat = {index = 14, op = "<", value=10}, 
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			pstat = {index = 12, op = "between", value = { 10, 79 }},
+            hide = true
+        },
+		{ -- Notify for LB Uniques
+            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
+			quality = 7,
+            itype = {45, 50},
+            notify = "Unique LB item dropped!"
+        },
         { -- Hides id/tp scroll drops
             codes = {"tsc", "isc"},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
@@ -642,6 +685,7 @@ allowOverrides = true,
 			notify = "{red}Are you sure you want to leave it?",
 			prefix = "{pink}"
 		},
+		
 		{ -- ID/TP Tomes Style
 			codes = {"tbk", "ibk"},
 			location = {"onplayer", "atvendor"},
@@ -671,6 +715,11 @@ allowOverrides = true,
 			ethereal = true,
 			sockets = "0",
 			border = {81, 164, 227, 220, 1}
+		},
+		{ -- Upconverter 2 and 3 tooltip fix
+			codes = {"u01", "u02"},
+			location = {"onplayer", "atvendor"},
+			prefix = "{white} For Rare and Unique items only\n"
 		},
 		{ -- Scroll of Torment border
 			codes = {"K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
@@ -704,11 +753,10 @@ allowOverrides = true,
 			pstat = {index = 12, op = ">=", value = 80},
 			hide = true
 		},
-		{ -- Display socket number of all socketed, identified items
+		{ -- Display socket count number of all socketed, identified items. onground only
 			codes = "allitems",
 			sockets = "1+",
 			identified = true,
-			location = {"onground", "onplayer", "atvendor", "equipped"},
 			suffix = "{turquoise}[{sockets}]"
         },
 		{ -- Style for Demon Tempered Items
@@ -755,11 +803,45 @@ allowOverrides = true,
             itype = {45, 50},
             prefix = "ÿc:"
         },
-        { --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name
+        { --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - normal bases
             codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
             location = {"onground", "onplayer", "equipped", "atvendor"},
+			sockets = "0",
+			quality = "3-",
+			ethereal = false,
             itype = {45, 50},
-            prefix = "ⅳ "
+            prefix = "{red}ⅳ{white} "
+        },
+		{ --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - eth bases
+            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
+            location = {"onground", "onplayer", "equipped", "atvendor"},
+			quality = "3-",
+			sockets = "0",
+			ethereal = true,
+            itype = {45, 50},
+            prefix = "{red}ⅳ{turquoise} "
+        },
+		{ --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - socketed bases
+            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
+            location = {"onground", "onplayer", "equipped", "atvendor"},
+			sockets = "1+",
+			quality = "3-",
+            itype = {45, 50},
+            prefix = "{red}ⅳ{gray} "
+        },
+		{ --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - magic
+            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
+            location = {"onground", "onplayer", "equipped", "atvendor"},
+			quality = 4,
+            itype = {45, 50},
+            prefix = "{red}ⅳ{blue} "
+        },
+		{ -- Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - unique
+            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
+            location = {"onground", "onplayer", "equipped", "atvendor"},
+			quality = 7,
+            itype = {45, 50},
+            prefix = "{red}ⅳ{gold} "
         },
 		{ --Rename for Ultra Enhancement Crystals
 			codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
@@ -815,13 +897,14 @@ allowOverrides = true,
 		
 		--																Additional/missing prefixes or gameplay tips for various items
 		
+		-- Additional information:
 		{code="tes",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 4-7 Gems\n{orange}"},-- Twisted Essence of Suffering
 		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 HR Points\n{orange}"},-- Charged Essense of Hatred
 		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n{orange}"},-- Burning Essence of Terror
 		{code="fed",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Unique Cores\n{orange}"},-- Festering Essence of Destruction
-		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff gameplay tip (credits to Wolfie, mine now hehe)
-		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}Bag(10x{blue}Jewels{gray})+Converter=Bag(+1{yellow}Jewel{gray}){blue}\n"}, --Magic Jewel gameplay tip
-		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}When in Bag, used to reroll Unique/Set items{yellow}\n"}, --Rare Jewel gameplay tip
+		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff (credits to Wolfie, mine now hehe)
+		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}Bag(10x{blue}Jewels{gray})+Converter=Bag(+1{yellow}Jewel{gray}){blue}\n"}, --Magic Jewel
+		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}When in Bag, used to reroll Unique/Set items{yellow}\n"}, --Rare Jewel
 		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the ÿcRBody Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
 		{codes="allitems",quality="7",rarity="0",identified=true,index={6,45,55,71,299,330,335},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, Normal bases
 		{codes="allitems",quality="7",rarity="1",identified=true,index={143,281,286,347,366,369,379,386,483},location={"onplayer","atvendor","equipped"},prefix="ÿcROne of the Sacred Relicsÿc4\n"}, -- Sacret Relics for Demon Tempering, Exceptional bases
@@ -842,26 +925,36 @@ allowOverrides = true,
 		{code="leg",location={"onplayer","atvendor"},prefix="{grey}Cube alone for MooMoo Farm\n{white}"}, -- Wirt's Leg
 		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Torch/Anni to reroll them\nÿc4"}, -- Standard of Heroes
 		{code="Y21",location={"onplayer","atvendor"},prefix_desc="{white}1 Gold Bar + item = added Ethereal\n{red}or\n"}, -- Gold Bar
-		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube tips
-		{code="hdm",location={"onplayer","atvendor"},prefix="{gray}More about it on our Discord server\ndrop specific item/s on specific difficulty called 'Flavor Drops'\nGameplay tip: Some Unique Monsters have increased chance to\n"},-- Horadric Malus gameplay tip
-		{code="hdm",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, -- Horadric Malus tip notify
-		{code="mss",location={"onplayer","atvendor"},prefix="{gray}Entrance to levels full of Torment (Hell only)\nGameplay Tip: The {orange}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soulstone gameplay tip
-		{code="mss",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, --  Mephisto's Soul Stone tip notify
 		{code="y66",location={"onplayer","atvendor"},prefix="{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"},-- Starter Pack
 		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
-		{code="tr2",location={"onplayer","atvendor"},prefix="{gray}'LB' icon in item name means 'Limit Breaking Base'/n'EB' icon in item name means 'Elite Base'\n"},-- Scroll of Resistance gameplay tip
-		{code="tr2",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, --  Scroll of Resistance tip notify
-		{code="bks",location={"onplayer","atvendor"},prefix="{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose 'Jeweled Runewords' can be made by filling excess sockets with Jewels (not gems!) BEFORE Runes\nGameplay Tip: You can make Runewords in items that have more sockets that those RWs need runes.\n"}, -- Scroll of Inifuss gameplay tip
-		{code="bks",difficulties={"Normal", "Nightmare"},notify="{yellow}Gameplay tip available! Look at description of {name}"}, --  Scroll of Inifuss tip notify
-		{code="pk1",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Hate\nConversion:\n{orange}"}, --  Key of Terror gameplay tip
-		{code="pk2",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Destruction\nConversion:\n{orange}"}, --  Key of Hate gameplay tip
-		{code="pk3",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Terror\nConversion:\n{orange}"}, --  Key of Destruction gameplay tip
-		{code="Z42",location={"onplayer","atvendor"},prefix="{gold}The Countess {white}(A1: Black Marsh->Forgotten Tower)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Terror Remover gameplay tip
-		{code="Z43",location={"onplayer","atvendor"},prefix="{gold}The Summoner {white}(A2: Arcane Sanctuary)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Hate Remover gameplay tip
-		{code="Z44",location={"onplayer","atvendor"},prefix="{gold}Nihlathak {white}(A5: Halls of Vaught)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Destruction Remover gameplay tip
-		{code="Z45",location={"onplayer","atvendor"},prefix="{gold}Lilith {white}(A5: Matron's Den)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Diablo's Horn Remover gameplay tip
-		{code="Z46",location={"onplayer","atvendor"},prefix="{gold}Uber Duriel {white}(A5: Forgotten Sands)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Baal's Eye Remover gameplay tip
-		{code="Z47",location={"onplayer","atvendor"},prefix="{gold}Uber Izual {white}(A5: Furnace of Pain)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Mephisto's Brain Remover gameplay tip
+		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube
+		{code="pk1",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Hate\nConversion:\n{orange}"}, --  Key of Terror
+		{code="pk2",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Destruction\nConversion:\n{orange}"}, --  Key of Hate
+		{code="pk3",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Terror\nConversion:\n{orange}"}, --  Key of Destruction
+		{code="Z42",location={"onplayer","atvendor"},prefix="{gold}The Countess {white}(A1: Black Marsh->Forgotten Tower)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Terror Remover
+		{code="Z43",location={"onplayer","atvendor"},prefix="{gold}The Summoner {white}(A2: Arcane Sanctuary)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Hate Remover
+		{code="Z44",location={"onplayer","atvendor"},prefix="{gold}Nihlathak {white}(A5: Halls of Vaught)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Destruction Remover
+		{code="Z45",location={"onplayer","atvendor"},prefix="{gold}Lilith {white}(A5: Matron's Den)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Diablo's Horn Remover
+		{code="Z46",location={"onplayer","atvendor"},prefix="{gold}Uber Duriel {white}(A5: Forgotten Sands)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Baal's Eye Remover
+		{code="Z47",location={"onplayer","atvendor"},prefix="{gold}Uber Izual {white}(A5: Furnace of Pain)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Mephisto's Brain Remover
+		
+		-- Gameplay Tips:
+		{code="hdm",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Doing so will enhance said Runeword. Max upgrade Tier is {white}5{gray}\nTo do it, cube Runeword with the same runes you used to make it\n{orange}Gameplay tip:{gray} Runewords with a {white}Hammer{gray} icon can be {white}Runic Forged{gray}\n"},-- Horadric Malus - Normal
+		{code="hdm",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}More about it on our Discord server!\ndrop specific item/s on specific difficulty called {white}'Flavor Drops'\n{orange}Gameplay tip:{gray} Some Unique Monsters have increased chance to\n"},-- Horadric Malus - Nightmare
+		{code="hdm",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}You will still want less MF to farm bases of course, but overall it's the best place for farming bases!\n{orange}Gameplay tip:{white} Cow Level{gray} is specifically tailored in ReMoDDeD to drop as many {white}bases{gray} as possible\n"},-- Horadric Malus - Hell
+		{code="hdm",notify="ÿcJNew gameplay tip available! Look at description of {name}"}, -- Horadric Malus - notify
+		{code="mss",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}or by holding ALT and clicking on any stat '+' in character stats window\nYou respec by clicking recpec button in your skills window\n\ncheck the checkbox 'respec' in Launchers main window, inside 'Launch Options'\n{orange}Gameplay Tip:{gray} You can {white}infinitely respec{gray} your stats/skills if you\n"},-- Mephisto's Soulstone - Normal
+		{code="mss",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}Running Doesn't consume stamina in ReMoDDeD and doesn't reduce your Defense to 0\n{orange}Gameplay Tip:{gray} Make sure you are {white}running!\n"},-- Mephisto's Soulstone - Nightmare
+		{code="mss",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}Entrance to levels full of Torment (Hell only)\n{orange}Gameplay Tip:{gray} The {white}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soulstone - Hell
+		{code="mss",notify="ÿcJNew gameplay tip available! Look at description of {name}"}, --  Mephisto's Soul Stone - notify
+		{code="tr2",location={"onplayer","atvendor"},difficulty="Normal",prefix="{orange}Gameplay Tip:{gray} QoL Options in Launcher have many useful things. Recommend to check it out!\n"},-- Scroll of Resistance - Normal
+		{code="tr2",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}However, your '- x resistance' stats do not update those numbers!\nYour '- x immunity' stats, Curses and Conviction Auras affect those numbers\n\nLauncher - Options - QoL Options - Monster HP Bar - choose any 'Advanced' option\n{orange}Gameplay Tip:{gray} You can see all enemy {white}Resistance Values{gray} if you set it in:\n"},-- Scroll of Resistance - Nightmare
+		{code="tr2",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}'LB' icon in item name means 'Limit Broken Base'\n'EB' icon in item name means 'Elite Base'\n"},-- Scroll of Resistance - Hell
+		{code="tr2",notify="ÿcJNew gameplay tip available! Look at description of {name}"}, --  Scroll of Resistance - notify
+		{code="bks",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose {white}'Jeweled Runewords'{gray} can be made by filling excess sockets with Jewels (not gems!) {red}BEFORE{gray} Runes\n{orange}Gameplay Tip:{gray} You can make Runewords in items that have more sockets that those RWs need runes.\n"}, -- Scroll of Inifuss - Normal
+		{code="bks",difficulty="Normal",notify="ÿcJNew gameplay tip available! Look at description of {name}"}, --  Scroll of Inifuss - notify
+		
+		
 		
 		
 		--                                                             SET HUNTER: Show what set x item belongs to, before identifying it. "Hunter" levels only!
@@ -1079,6 +1172,10 @@ allowOverrides = true,
 		{codes="allitems",quality="7",identified=false,index=541,filter_levels="2,4",suffix="|Constr",notify="Valuable Ring nearby!"}, --Constricting Ring
 		{codes="allitems",quality="7",identified=false,index=587,filter_levels="2,4",suffix="|Quintessence",notify="Rare amulet nearby!"}, --Quintessence Amulet
 		{codes="allitems",quality="7",identified=false,index=532,filter_levels="2,4",suffix="|Mara's",notify="Valuable Amulet nearby!"}, --Mara's Kaleidoscope Amulet
+		
+		
+		
+		
 
 
 		--                                                                             Quest item notifies
@@ -1095,7 +1192,7 @@ allowOverrides = true,
 		{code="ass",notify="{red}Edyrem: {white}My precious~~"}, -- Book of Skill
 		{code="hst",notify="{red}Edyrem: {white}Why would you do that?"}, -- Horadric Staff
 		{code="j34",notify="{red}Edyrem: {white}Is that an Anime Figurine?"}, -- A Jade Figurine
-		{code="g34",location="onplayer",notify="{red}Edyrem: {white}Pfff, a waste of Gold. Could have been made into a Gold Bar..."}, -- Golden Bird
+		{code="g34",location="onplayer",notify="{red}Edyrem: {white}Pfff, what a waste of Gold. Could have been made into a Gold Bar..."}, -- Golden Bird
 		{code="g33",notify="{red}Edyrem: {white}Don't even dare pointing that at me!"}, -- The Gidbinn
 		{code="bbb",notify="{red}Edyrem: {white}MY TACO RECIPE! So that's where I put it..."}, -- Lam Esen's Tome
 		{code="xyz",location="onplayer",notify="{red}Edyrem: {white}If only we could mass produce that D:"}, -- Potion of life
