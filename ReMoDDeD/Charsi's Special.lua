@@ -6,10 +6,10 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.6) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.7) {Green}Reloaded",
 allowOverrides = true,
     rules = {
-		--																	      				BASES
+		--																	      			         	BASES
 
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {orange}-{code}"},  -- DEBUG - Show item code
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {blue}-{index}"}, -- DEBUG - Show item index
@@ -508,7 +508,7 @@ allowOverrides = true,
 		},
 
 		
-		--                                                                                    "Limit Broken" Bases
+		--                                                                                           "Limit Broken" Bases
 		
 		{ -- Notify about LB bases
 			codes = {"l01","l02","l03","l04","l05","l06","l07","l08","l09","l10","l11","l12","l13","l14","l15","l16","l17"},
@@ -532,7 +532,7 @@ allowOverrides = true,
 
 		
 		
-		--													                                       MAGIC
+		--													                                               MAGIC
 		
 		{ -- Hides all magic items (does not include LB bases, jewels and S/L/G charms) from clvl 30 above Normal
 			codes = {"rin", "amu", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
@@ -563,7 +563,7 @@ allowOverrides = true,
 			background = {29, 2, 46, 230}
 		},
 		
-				--													                                     RARE
+				--													                                         RARE
 		{ -- Hides all rare items, besides Jewels
 			codes = {"rin", "amu", "cm2", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
 			quality = "6",
@@ -580,7 +580,7 @@ allowOverrides = true,
 			background = {39, 41, 3, 240}
 		},
 		
-		--													                                        ARROWS and BOLTS
+		--													                                                ARROWS and BOLTS
 		{ -- Hides all magic and rare arrows/bolts
 			codes = {"aqv", "cqv"},
 			qualities = "4,6",
@@ -597,7 +597,7 @@ allowOverrides = true,
 			hide=true
 		},
 		
-		--													                                      MISC and STYLES
+		--													                                                 MISC and STYLES
 
 		{ -- Hide gold drops under 800 for clvl above 80 Aggressive
 			code = "gld",
@@ -890,7 +890,7 @@ allowOverrides = true,
 		{code="cm2",index=556,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Large Charm",name_override="{gold}Large Charm ({ilvl})"}, --Hellfire Torch name color fix, not identified
 		
 			
-					--                                                                           Display very good superior rolls
+					--                                                                             Display very good superior rolls
 		
 		{codes="allitems",quality="3",runeword=false,stat=OR{{index={0,1,2,3},op="==",value=15},{index={0,1,2,3},op="==",value=14},{index={0,1,2,3},op="==",value=13}},suffix="ÿcR{stat=(3)} att"}, -- All Attributes
 		{codes="allitems",quality="3",runeword=false,stat=OR{{index={39,41,43,45},op="==",value=10},{index={39,41,43,45},op="==",value=9}},suffix="ÿcR{stat=(39)}%% all res"}, -- All Resistances
@@ -904,9 +904,10 @@ allowOverrides = true,
 		
 			
 		
-		--																Additional/missing prefixes or gameplay tips for various items
+		--																             Additional/missing prefixes or gameplay tips for various items
 		
 		-- Additional information:
+		{code="rin",index=527,location={"onplayer","atvendor","equipped"},prefix="{gray}Can be sold to any vendor in Hell to spawn Dclone{gold}\n"}, -- SoJ Dclone note
 		{code="tes",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 4-7 Gems\n{orange}"},-- Twisted Essence of Suffering
 		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 HR Points\n{orange}"},-- Charged Essense of Hatred
 		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n{orange}"},-- Burning Essence of Terror
@@ -1078,10 +1079,10 @@ allowOverrides = true,
 		{codes="allitems",quality="5",identified=false,index=93,filter_levels="2,4",suffix="|M'avina's"}, --M'avina's Belt
 		{codes="allitems",quality="5",identified=false,index=94,filter_levels="2,4",suffix="|M'avina's"}, --M'avina's Weapon
 		
-		{codes="allitems",quality="5",identified=false,index=123,filter_levels="2,4",suffix="|Sander/McAuley's"}, --McAuley's Helmet
-		{codes="allitems",quality="5",identified=false,index=124,filter_levels="2,4",suffix="|Sander/McAuley's"}, --McAuley's Boots
-		{codes="allitems",quality="5",identified=false,index=125,filter_levels="2,4",suffix="|Sander/McAuley's"}, --McAuley's Gloves
-		{codes="allitems",quality="5",identified=false,index=126,filter_levels="2,4",suffix="|Sander/McAuley's"}, --McAuley's Weapon
+		{codes="allitems",quality="5",identified=false,index=123,filter_levels="2,4",suffix="|Sander's"}, --Sander's Helmet
+		{codes="allitems",quality="5",identified=false,index=124,filter_levels="2,4",suffix="|Sander's"}, --Sander's Boots
+		{codes="allitems",quality="5",identified=false,index=125,filter_levels="2,4",suffix="|Sander's"}, --Sander's Gloves
+		{codes="allitems",quality="5",identified=false,index=126,filter_levels="2,4",suffix="|Sander's"}, --Sander's Weapon
 		
 		{codes="allitems",quality="5",identified=false,index=21,filter_levels="2,4",suffix="|Milabrega's"}, --Milabrega's Shield
 		{codes="allitems",quality="5",identified=false,index=22,filter_levels="2,4",suffix="|Milabrega's"}, --Milabrega's Weapon
@@ -1181,13 +1182,11 @@ allowOverrides = true,
 		{codes="allitems",quality="7",identified=false,index=541,filter_levels="2,4",suffix="|Constr",notify="Valuable Ring nearby!"}, --Constricting Ring
 		{codes="allitems",quality="7",identified=false,index=587,filter_levels="2,4",suffix="|Quintessence",notify="Rare amulet nearby!"}, --Quintessence Amulet
 		{codes="allitems",quality="7",identified=false,index=532,filter_levels="2,4",suffix="|Mara's",notify="Valuable Amulet nearby!"}, --Mara's Kaleidoscope Amulet
-		
-		
-		
+				
 		
 
 
-		--                                                                             Quest item notifies
+		--                                                                                     Quest item notifies
 		
 		{code="qey",notify="{red}???: {white}A group of aspiring heroes, I see. I hope you know what you are getting yourself into.\n{red}Edyrem: {white}Who was that?"}, -- Khalim's Eye
 		{code="qbr",notify="{red}???: {white}You proved yourself determined enough... Fine, I will aid you. Find my heart, I can feel it deep beneath Kurast."}, -- Khalim's Brain
@@ -1210,7 +1209,7 @@ allowOverrides = true,
 		
 		
 		
-		--                                                                                  EVENTS
+		--                                                                                           EVENTS
 		{ -- Event Boxes notification and style
             code = "Ev0",
             notify = "ÿc;Event Box!",
@@ -1232,7 +1231,7 @@ allowOverrides = true,
 		
 		
 		
-		--                                                                                Color Dyes
+		--                                                                                            Color Dyes
 		
 		
 		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=1},prefix_desc="{lilac}Color Dyed: {white}White\n"}, --Color Dyed: White
@@ -1263,10 +1262,118 @@ allowOverrides = true,
 			name_style = "RainbowStatic"
 		},
 		
+		
+		
+		--                                                                                  Show Rune Points on Runes
+		
+		
+		{code="r01",location={"onplayer","atvendor"},prefix="{gray}+1 Low Point when bagged{orange}\n"}, --El Rune
+		{code="r02",location={"onplayer","atvendor"},prefix="{gray}+2 Low Points when bagged{orange}\n"}, --Eld Rune
+		{code="r03",location={"onplayer","atvendor"},prefix="{gray}+4 Low Points when bagged{orange}\n"}, --Tir Rune
+		{code="r04",location={"onplayer","atvendor"},prefix="{gray}+8 Low Points when bagged{orange}\n"}, --Nef Rune
+		{code="r05",location={"onplayer","atvendor"},prefix="{gray}+16 Low Points when bagged{orange}\n"}, --Eth Rune
+		{code="r06",location={"onplayer","atvendor"},prefix="{gray}+32 Low Points when bagged{orange}\n"}, --Ith Rune
+		{code="r07",location={"onplayer","atvendor"},prefix="{gray}+64 Low Points when bagged{orange}\n"}, --Tal Rune
+		{code="r08",location={"onplayer","atvendor"},prefix="{gray}+128 Low Points when bagged{orange}\n"}, --Ral Rune
+		{code="r09",location={"onplayer","atvendor"},prefix="{gray}+256 Low Points when bagged{orange}\n"}, --Ort Rune
+		{code="r10",location={"onplayer","atvendor"},prefix="{gray}+512 Low Points when bagged{orange}\n"}, --Thul Rune
+		{code="r11",location={"onplayer","atvendor"},prefix="{gray}+1024 Low Points when bagged{orange}\n"}, --Amn Rune
+		{code="r12",location={"onplayer","atvendor"},prefix="{gray}+1 Mid Point when bagged{orange}\n"}, --Sol Rune
+		{code="r13",location={"onplayer","atvendor"},prefix="{gray}+2 Mid Points when bagged{orange}\n"}, --Shael Rune
+		{code="r14",location={"onplayer","atvendor"},prefix="{gray}+4 Mid Points when bagged{orange}\n"}, --Dol Rune
+		{code="r15",location={"onplayer","atvendor"},prefix="{gray}+8 Mid Points when bagged{orange}\n"}, --Hel Rune
+		{code="r16",location={"onplayer","atvendor"},prefix="{gray}+16 Mid Points when bagged{orange}\n"}, --Io Rune
+		{code="r17",location={"onplayer","atvendor"},prefix="{gray}+32 Mid Points when bagged{orange}\n"}, --Lum Rune
+		{code="r18",location={"onplayer","atvendor"},prefix="{gray}+64 Mid Points when bagged{orange}\n"}, --Ko Rune
+		{code="r19",location={"onplayer","atvendor"},prefix="{gray}+128 Mid Points when bagged{orange}\n"}, --Fal Rune
+		{code="r20",location={"onplayer","atvendor"},prefix="{gray}+256 Mid Points when bagged{orange}\n"}, --Lem Rune
+		{code="r21",location={"onplayer","atvendor"},prefix="{gray}+512 Mid Points when bagged{orange}\n"}, --Pul Rune
+		{code="r22",location={"onplayer","atvendor"},prefix="{gray}+1024 Mid Points when bagged{orange}\n"}, --Um Rune
+		{code="r23",location={"onplayer","atvendor"},prefix="{gray}+1 High Point when bagged{orange}\n"}, --Mal Rune
+		{code="r24",location={"onplayer","atvendor"},prefix="{gray}+2 High Points when bagged{orange}\n"}, --Ist Rune
+		{code="r25",location={"onplayer","atvendor"},prefix="{gray}+4 High Points when bagged{orange}\n"}, --Gul Rune
+		{code="r26",location={"onplayer","atvendor"},prefix="{gray}+8 High Points when bagged{orange}\n"}, --Vex Rune
+		{code="r27",location={"onplayer","atvendor"},prefix="{gray}+16 High Points when bagged{orange}\n"}, --Ohm Rune
+		{code="r28",location={"onplayer","atvendor"},prefix="{gray}+32 High Points when bagged{orange}\n"}, --Lo Rune
+		{code="r29",location={"onplayer","atvendor"},prefix="{gray}+64 High Points when bagged{orange}\n"}, --Sur Rune
+		{code="r30",location={"onplayer","atvendor"},prefix="{gray}+128 High Points when bagged{orange}\n"}, --Ber Rune
+		{code="r31",location={"onplayer","atvendor"},prefix="{gray}+256 High Points when bagged{orange}\n"}, --Jah Rune
+		{code="r32",location={"onplayer","atvendor"},prefix="{gray}+512 High Points when bagged{orange}\n"}, --Cham Rune
+		{code="r33",location={"onplayer","atvendor"},prefix="{gray}+1024 High Points when bagged{orange}\n"}, --Zod Rune
+		{code="r34",location={"onplayer","atvendor"},prefix="{gray}+1 Ultra Point when bagged{orange}\n"}, --Di Rune
+		{code="r35",location={"onplayer","atvendor"},prefix="{gray}+2 Ultra Points when bagged{orange}\n"}, --Ab Rune
+		{code="r36",location={"onplayer","atvendor"},prefix="{gray}+4 Ultra Points when bagged{orange}\n"}, --Er Rune
+		
+		
+		
+		--                                                                                 Forsaken Pacts usage
+		
+        {code="L00",location={"onplayer","atvendor"},prefix_desc="{green}Mirrored Flames {white}- {gray}Civerb's + Aldur's\n{white}Used for:\n\n"}, --Civerb's Forsaken Pact
+		{code="L01",location={"onplayer","atvendor"},prefix_desc="{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Hsaru's Forsaken Pact
+		{code="L02",location={"onplayer","atvendor"},prefix_desc="{green}Mikael's Toxicity {white}- {gray}Cleglaw's + Rathma's\n{white}Used for:\n\n"}, --Cleglaw's Forsaken Pact
+		{code="L03",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Iratha's Forsaken Pact
+		{code="L04",location={"onplayer","atvendor"},prefix_desc="{green}Plates Of Protection {white}- {gray}Isenhart's + Sazabi's + Wonder Wear\n{white}Used for:\n\n"}, --Isenhart's Forsaken Pact
+		{code="L05",location={"onplayer","atvendor"},prefix_desc="{green}Blessings of Artemis {white}- {gray}Vidala's + M'avina's + Bul Kathos'\n{white}Used for:\n\n"}, --Vidala's Forsaken Pact
+		{code="L06",location={"onplayer","atvendor"},prefix_desc="{green}Raijin's Rebellion {white}- {gray}Milabrega's + Cathan's + Heaven's\n{white}Used for:\n\n"}, --Milabrega's Forsaken Pact
+		{code="L07",location={"onplayer","atvendor"},prefix_desc="{green}Raijin's Rebellion {white}- {gray}Milabrega's + Cathan's + Heaven's\n{white}Used for:\n\n"}, --Cathan's Forsaken Pact
+		{code="L08",location={"onplayer","atvendor"},prefix_desc="{green}Underworld's Unrest {white}- {gray}Tancred's + Trang-Oul's\n{white}Used for:\n\n"}, --Tancred's Forsaken Pact
+		{code="L09",location={"onplayer","atvendor"},prefix_desc="{green}Justitia's Divinity {white}- {gray}Sigon's + Orphan's\n{green}Pulsing Presence {white}- {gray}Sigon's + Angelic's + Heaven's\n{green}Blacklight {white}- {gray}Sigon's + Immortal King's {red}-Paladin and Barbarian only\n{white}Used for:\n\n"}, --Sigon's Forsaken Pact
+		{code="L10",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal + Aldur's + Immortal King's\n{white}Used for:\n\n"}, --Infernal Forsaken Pact
+		{code="L11",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{green}Artio's Calling {white}- {gray}Berserker's + Cow King's\n{white}Used for:\n\n"}, --Berserker's Forsaken Pact
+		{code="L12",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{green}Memento Mori {white}- {gray}Rathma's + Artio's Calling + Death's\n{white}Used for:\n\n"}, --Death's Forsaken Pact
+		{code="L13",location={"onplayer","atvendor"},prefix_desc="{green}Pulsing Presence {white}- {gray}Sigon's + Angelic's + Heaven's\n{green}Celestial Caress {white}- {gray}Angelic's + The Disciple's + Vessel's\n{white}Used for:\n\n"}, --Angelic Forsaken Pact
+		{code="L14",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Arctic Forsaken Pact
+		{code="L15",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Arcanna's Forsaken Pact
+		{code="L16",location={"onplayer","atvendor"},prefix_desc="{green}Path of the Vortex {white}- {gray}Unstoppable Force + Natalya's {red}-Barbarian and Assassin only\n{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Natalya's Forsaken Pact
+		{code="L17",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal's + Aldur's + Immortal King's\n{green}Mirrored Flames {white}- {gray}Civerb's + Aldur's\n{white}Used for:\n\n"}, --Aldur's Forsaken Pact
+		{code="L18",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal's + Aldur's + Immortal King's\n{green}Blacklight {white}- {gray}Sigon's + Immortal King's {red}-Paladin and Barbarian only\n{white}Used for:\n\n"}, --Immortal King's Forsaken Pact
+		{code="L19",location={"onplayer","atvendor"},prefix_desc="{green}Sacrificial Tribute {white}- {gray}Tal Rasha's + Griswold's + Mirrored Flames\n{white}Used for:\n\n"}, --Tal Rasha's Forsaken Pact
+		{code="L20",location={"onplayer","atvendor"},prefix_desc="{green}Sacrificial Tribute {white}- {gray}Tal Rasha's + Griswold's + Mirrored Flames\n{white}Used for:\n\n"}, --Griswold's Forsaken Pact
+		{code="L21",location={"onplayer","atvendor"},prefix_desc="{green}Underworld's Unrest {white}- {gray}Tancred's + Trang-Oul's\n{white}Used for:\n\n"}, --Trang-Oul's Forsaken Pact
+		{code="L22",location={"onplayer","atvendor"},prefix_desc="{green}Blessings of Artemis {white}- {gray}Vidala's + M'avina's + Bul Kathos'\n{white}Used for:\n\n"}, --M'avina's Forsaken Pact
+		{code="L23",location={"onplayer","atvendor"},prefix_desc="{green}Celestial Caress {white}- {gray}Angelic's + The Disciple's + Vessel's\n{white}Used for:\n\n"}, --The Disciple's Forsaken Pact
+		{code="L24",location={"onplayer","atvendor"},prefix_desc="{green}Raijin's Rebellion {white}- {gray}Milabrega's + Cathan's + Heaven's\n{green}Pulsing Presence {white}- {gray}Sigon's + Angelic's + Heaven's\n{white}Used for:\n\n"}, --Heaven's Forsaken Pact
+		{code="L25",location={"onplayer","atvendor"},prefix_desc="{green}Justitia's Divinity {white}- {gray}Sigon's + Orphan's\n{white}Used for:\n\n"}, --Orphan's Forsaken Pact
+		{code="L26",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Hwanin's Forsaken Pact
+		{code="L27",location={"onplayer","atvendor"},prefix_desc="{green}Plates Of Protection {white}- {gray}Isenhart's + Sazabi's + Wonder Wear\n{white}Used for:\n\n"}, --Sazabi's Forsaken Pact
+		{code="L28",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{white}Used for:\n\n"}, --Bul-Kathos' Forsaken Pact
+		{code="L29",location={"onplayer","atvendor"},prefix_desc="{green}Artio's Calling {white}- {gray}Berserker's + Cow King's\n{white}Used for:\n\n"}, --Cow King's Forsaken Pact
+		{code="L30",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Naj's Forsaken Pact
+		{code="L31",location={"onplayer","atvendor"},name_override="{green}Sander's Forsaken Pact",prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sander's Forsaken Pact
+		{code="L32",location={"onplayer","atvendor"},prefix_desc="{green}Celestial Caress {white}- {gray}Angelic's + Disciple's + Vessel's\n{green}Breaker of Chains {white}- {gray}Vessel's + Majestic\n{white}Used for:\n\n"}, --Vessel's Forsaken Pact
+		{code="L33",location={"onplayer","atvendor"},prefix_desc="{green}Breaker of Chains {white}- {gray}Vessel's + Majestic\n{white}Used for:\n\n"}, --Majestic Forsaken Pact
+		{code="L34",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Skovos Forsaken Pact
+		{code="L35",location={"onplayer","atvendor"},name_override="{green}Wonder Wear Forsaken Pact",prefix_desc="{green}Plates Of Protection {white}- {gray}Isenhart's + Sazabi's + Wonder Wear\n{white}Used for:\n\n"}, --Wonder Wear Forsaken Pact
+		{code="L36",location={"onplayer","atvendor"},prefix_desc="{green}Cascading Caldera {white}- {gray}Vizjerei's + Elemental Blueprints + Battlemage's\n{white}Used for:\n\n"}, --Vizjerei's Forsaken Pact
+		{code="L37",location={"onplayer","atvendor"},prefix_desc="{green}Cascading Caldera {white}- {gray}Vizjerei's + Elemental Blueprints + Battlemage's\n{white}Used for:\n\n"}, --Battlemage's Forsaken Pact
+		{code="L38",location={"onplayer","atvendor"},prefix_desc="{green}Black Tempest {white}- {gray}Glacial + Blessings of Artemis\n{white}Used for:\n\n"}, --Glacial Forsaken Pact
+		{code="L39",location={"onplayer","atvendor"},prefix_desc="{green}Mikael's Toxicity {white}- {gray}Cleglaw's + Rathma's\n{green}Memento Mori {white}- {gray}Rathma's + Artio's Calling + Death's\n{white}Used for:\n\n"}, --Rathma's Forsaken Pact
+		{code="L40",location={"onplayer","atvendor"},prefix_desc="{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Stacatomamba's Forsaken Pact
+		{code="L41",location={"onplayer","atvendor"},prefix_desc="{green}Silhouette of Silence {white}- {gray}Natalya's + Kreigur's\n{white}Used for:\n\n"}, --Kreigur's Forsaken Pact
+		{code="L42",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sukami Forsaken Pact
+		{code="L43",location={"onplayer","atvendor"},prefix_desc="{green}Sacrificial Tribute {white}- {gray}Tal Rasha's + Griswold's + Mirrored Flames\n{white}Used for:\n\n"}, --Mirrored Flames Forsaken Pact
+		{code="L44",location={"onplayer","atvendor"},prefix_desc="{green}Path of the Vortex {white}- {gray}Unstoppable Force + Natalya's {red}-Barbarian and Assassin only\n{white}Used for:\n\n"}, --Unstoppable Force Forsaken Pact
+		{code="L45",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Underworld's Unrest Forsaken Pact
+		{code="L46",location={"onplayer","atvendor"},prefix_desc="{green}Cascading Caldera {white}- {gray}Vizjerei's + Elemental Blueprints + Battlemage's\n{white}Used for:\n\n"}, --Elemental Blueprints Forsaken Pact
+		{code="L47",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Raijin's Rebellion Forsaken Pact
+		{code="L48",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Mikael's Toxicity Forsaken Pact
+		{code="L49",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Warrior's Wrath Forsaken Pact
+		{code="L50",location={"onplayer","atvendor"},prefix_desc="{green}Black Tempest {white}- {gray}Glacial + Blessings of Artemis\n{white}Used for:\n\n"}, --Blessings of Artemis Forsaken Pact
+		{code="L51",location={"onplayer","atvendor"},prefix_desc="{green}Memento Mori {white}- {gray}Rathma's + Artio's Calling + Death's\n{white}Used for:\n\n"}, --Artio's Calling Forsaken Pact
+		{code="L52",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Justitia's Divinity Forsaken Pact
+		{code="L53",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Pulsing Presence Forsaken Pact
+		{code="L54",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Celestial Caress Forsaken Pact
+		{code="L55",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Breaker of Chains Forsaken Pact
+		{code="L56",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Silhouette of Silence Forsaken Pact
+		{code="L57",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Mangala's Teachings Forsaken Pact
+		{code="L58",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sacrificial Trinity Forsaken Pact
+		{code="L59",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Plates of Protection Forsaken Pact
+		{code="L60",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Black Tempest Forsaken Pact
+		
 			
 			
-			
-	--                                                                      Soon To Be Deleted Items
+		
+	--                                                                                       Soon To Be Deleted Items
         { 
             codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
             quality = "3-",
