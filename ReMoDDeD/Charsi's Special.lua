@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.7) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.7B) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      			         	BASES
@@ -1186,6 +1186,7 @@ allowOverrides = true,
 		
 
 
+
 		--                                                                                     Quest item notifies
 		
 		{code="qey",notify="{red}???: {white}A group of aspiring heroes, I see. I hope you know what you are getting yourself into.\n{red}Edyrem: {white}Who was that?"}, -- Khalim's Eye
@@ -1324,7 +1325,7 @@ allowOverrides = true,
 		{code="L13",location={"onplayer","atvendor"},prefix_desc="{green}Pulsing Presence {white}- {gray}Sigon's + Angelic's + Heaven's\n{green}Celestial Caress {white}- {gray}Angelic's + The Disciple's + Vessel's\n{white}Used for:\n\n"}, --Angelic Forsaken Pact
 		{code="L14",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Arctic Forsaken Pact
 		{code="L15",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Arcanna's Forsaken Pact
-		{code="L16",location={"onplayer","atvendor"},prefix_desc="{green}Path of the Vortex {white}- {gray}Unstoppable Force + Natalya's {red}-Barbarian and Assassin only\n{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Natalya's Forsaken Pact
+		{code="L16",location={"onplayer","atvendor"},prefix_desc="{green}Silhouette of Silence {white}- {gray}Natalya's + Kreigur's\n{green}Path of the Vortex {white}- {gray}Unstoppable Force + Natalya's {red}-Barbarian and Assassin only\n{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Natalya's Forsaken Pact
 		{code="L17",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal's + Aldur's + Immortal King's\n{green}Mirrored Flames {white}- {gray}Civerb's + Aldur's\n{white}Used for:\n\n"}, --Aldur's Forsaken Pact
 		{code="L18",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal's + Aldur's + Immortal King's\n{green}Blacklight {white}- {gray}Sigon's + Immortal King's {red}-Paladin and Barbarian only\n{white}Used for:\n\n"}, --Immortal King's Forsaken Pact
 		{code="L19",location={"onplayer","atvendor"},prefix_desc="{green}Sacrificial Tribute {white}- {gray}Tal Rasha's + Griswold's + Mirrored Flames\n{white}Used for:\n\n"}, --Tal Rasha's Forsaken Pact
@@ -1336,7 +1337,7 @@ allowOverrides = true,
 		{code="L25",location={"onplayer","atvendor"},prefix_desc="{green}Justitia's Divinity {white}- {gray}Sigon's + Orphan's\n{white}Used for:\n\n"}, --Orphan's Forsaken Pact
 		{code="L26",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Hwanin's Forsaken Pact
 		{code="L27",location={"onplayer","atvendor"},prefix_desc="{green}Plates Of Protection {white}- {gray}Isenhart's + Sazabi's + Wonder Wear\n{white}Used for:\n\n"}, --Sazabi's Forsaken Pact
-		{code="L28",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{white}Used for:\n\n"}, --Bul-Kathos' Forsaken Pact
+		{code="L28",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{green}Blessings of Artemis {white}- {gray}Vidala's + M'avina's + Bul Kathos'\n{white}Used for:\n\n"}, --Bul-Kathos' Forsaken Pact
 		{code="L29",location={"onplayer","atvendor"},prefix_desc="{green}Artio's Calling {white}- {gray}Berserker's + Cow King's\n{white}Used for:\n\n"}, --Cow King's Forsaken Pact
 		{code="L30",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Naj's Forsaken Pact
 		{code="L31",location={"onplayer","atvendor"},name_override="{green}Sander's Forsaken Pact",prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sander's Forsaken Pact
