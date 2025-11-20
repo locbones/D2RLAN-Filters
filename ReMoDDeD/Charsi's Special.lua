@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.8B) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.8C) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      			         	BASES
@@ -556,7 +556,7 @@ allowOverrides = true,
 			codes = {"rin", "amu"},
 			quality = "4",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			difficulties = {"Hell"},
+			difficulty = "Hell",
 			filter_levels = "3,4",
 			hide = true
 		},
