@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.8) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.8B) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      			         	BASES
@@ -893,19 +893,25 @@ allowOverrides = true,
         {code="Z07",name_override="{white}Diamond {gold}Remover"}, --Onground display for Diamond Remover
         {code="Z08",name_override="{gray}Skull {gold}Remover"}, --Onground display for Skull Remover
 		{code="cm3",index=590,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Unholy Commander ({ilvl})"}, --Unholy Commander name color fix, identified
-		{code="cm3",index=590,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Unholy Commander name color fix, not identified
+		{code="cm3",index=590,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Unholy Commander name color fix, not identified and onground
+		{code="cm3",index=590,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Unholy Commander name color fix, not identified, other locations
 		{code="cm3",index=611,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Blank Talent ({ilvl})"}, --Blank Talent name color fix, identified
-		{code="cm3",index=611,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Blank Talent name color fix, not identified
+		{code="cm3",index=611,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Blank Talent name color fix, not identified and onground
+		{code="cm3",index=611,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Blank Talent name color fix, not identified, other locations
 		{code="cm3",index=542,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Gheed's Fortune ({ilvl})"}, --Gheed's Fortune name color fix, identified
-		{code="cm3",index=542,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Gheed's Fortune name color finotify = "{gold}Unique: Grand Charm",x, not identified
+		{code="cm3",index=542,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Gheed's Fortune name color fix, not identified and onground
+		{code="cm3",index=542,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Gheed's Fortune name color fix, not identified other locations
 		{code="cm1",index=543,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Small Charm\n{gold}Annihilus ({ilvl})"}, --Annihilus name color fix, identified
-		{code="cm1",index=543,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Annihilus name color fix, not identified
+		{code="cm1",index=543,identified=false,location="onground",notify="{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Annihilus name color fix, not identified and onground
+		{code="cm1",index=543,identified=false,location={"onplayer","atvendor"},name_override="{gold}Small Charm ({ilvl})"}, --Annihilus name color fix, not identified other locations
 		{code="cm1",index=606,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Small Charm\n{gold}Cola Cube ({ilvl})"}, --Cola Cube name color fix, identified
-		{code="cm1",index=606,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Cola Cube name color fix, not identified
+		{code="cm1",index=606,identified=false,location="onground",notify="{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Cola Cube name color fix, not identified and onground
+		{code="cm1",index=606,identified=false,location={"onplayer","atvendor"},name_override="{gold}Small Charm ({ilvl})"}, --Cola Cube name color fix, not identified other locations
 		{code="cm3",index=654,identified=true,location={"onplayer","atvendor","onground"},name_override="ÿc;Grand Charm\n{gold}Kuroneko no Himitsu ({ilvl})"}, --Kuroneko no Himitsu name color fix, identified
-		{code="cm3",index=654,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Kuroneko no Himitsu name color fix, not identified
-		{code="cm1",index=598,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Healthy Breakfast name color fix, not identified
-		{code="cm2",index=556,identified=false,location={"onplayer","atvendor","onground"},notify = "{gold}Unique: Large Charm",name_override="{gold}Large Charm ({ilvl})"}, --Hellfire Torch name color fix, not identified
+		{code="cm3",index=654,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Kuroneko no Himitsu name color fix, not identified and onground
+		{code="cm3",index=654,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Kuroneko no Himitsu name color fix, not identified other locations
+		{code="cm1",index=598,identified=false,location="onground",notify="{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Healthy Breakfast notify, not identified and onground
+		{code="cm2",index=556,identified=false,location="onground",notify="{gold}Unique: Large Charm",name_override="{gold}Large Charm ({ilvl})"}, --Hellfire Torch notify, not identified and onground
 		
 			
 					--                                                                             Display very good superior rolls
@@ -1247,6 +1253,209 @@ allowOverrides = true,
 			code = "Ev8",
 			notify = "{red}Edyrem: {white}You don't want that? I can take it."
 		},
+		
+		
+		
+		
+		--                                                                                          Runic Forging
+
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=5},suffix_desc="{gold}Maximum Runic Forge Level Reached{blue}\n"}, -- Tier 5, all items
+
+		--Amity
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+90 Def, +100%% EDef, +7 MDR, +10 PDR\nÿcU4:{gray}+2 Summoning Power\nÿcU3:{gray}+35%% Summon Speed/HP/Damage\nÿcU2:{gray}+5%% FCR, +10 Vitality\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+90 Def, +100%% EDef, +7 MDR, +10 PDR\nÿcU4:{gray}+2 Summoning Power\nÿcU3:{gray}+35%% Summon Speed/HP/Damage\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+90 Def, +100%% EDef, +7 MDR, +10 PDR\nÿcU4:{gray}+2 Summoning Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+90 Def, +100%% EDef, +7 MDR, +10 PDR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Lust
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}Life/Mana after kill removed\nÿcU5:{gray}Lvl 5 Redemption Aura, +15%% FRW\nÿcU4:{gray}+10%% Lightning Res\nÿcU3:{gray}+10%% Cold Res\nÿcU2:{gray}+5%% FCR, +10%% Fire Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}Life/Mana after kill removed\nÿcU5:{gray}Lvl 5 Redemption Aura, +15%% FRW\nÿcU4:{gray}+10%% Lightning Res\nÿcU3:{gray}+10%% Cold Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}Life/Mana after kill removed\nÿcU5:{gray}Lvl 5 Redemption Aura, +15%% FRW\nÿcU4:{gray}+10%% Lightning Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}Life/Mana after kill removed\nÿcU5:{gray}Lvl 5 Redemption Aura, +15%% FRW\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Daylight
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}+10%% FRW, +90 Def\nÿcU5:{gray}+5 Life per Kill, +3 Mana per kill\nÿcU4:{gray}+60 Mana\nÿcU3:{gray}+15%% Fire Res, +15%% Lightning Res\nÿcU2:{gray}+10%% FRW\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}+10%% FRW, +90 Def\nÿcU5:{gray}+5 Life per Kill, +3 Mana per kill\nÿcU4:{gray}+60 Mana\nÿcU3:{gray}+15%% Fire Res, +15%% Lightning Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}+10%% FRW, +90 Def\nÿcU5:{gray}+5 Life per Kill, +3 Mana per kill\nÿcU4:{gray}+60 Mana\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}+10%% FRW, +90 Def\nÿcU5:{gray}+5 Life per Kill, +3 Mana per kill\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Lightning
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}Attacker Takes Lightning Damage of 10\nÿcU5:{gray}+10 Lightning Absorb, +10%% FRW\n+60 Lightning Damage\nÿcU4:{gray}4%% CtC Llv 25 Rolling Thunder on Striking\nÿcU3:{gray}+90 Def, +40%% Lightning Res\n+10%% Mana Regen\nÿcU2:{gray}Attacker Takes Lightning Damage of 16\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}Attacker Takes Lightning Damage of 10\nÿcU5:{gray}+10 Lightning Absorb, +10%% FRW\n+60 Lightning Damage\nÿcU4:{gray}4%% CtC Llv 25 Rolling Thunder on Striking\nÿcU3:{gray}+90 Def, +40%% Lightning Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}Attacker Takes Lightning Damage of 10\nÿcU5:{gray}+10 Lightning Absorb, +10%% FRW\n+60 Lightning Damage\nÿcU4:{gray}4%% CtC Llv 25 Rolling Thunder on Striking\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}Attacker Takes Lightning Damage of 10\nÿcU5:{gray}+10 Lightning Absorb, +10%% FRW\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Mystery
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}+7 to a Random Skill (of your class)\nÿcU5:{gray}+1 to Light Radius, +20%% FRW\nÿcU4:{gray}+1 to Light Radius\nÿcU3:{gray}+1 to Light Radius\nÿcU2:{gray}+1 to Light Radius\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}+7 to a Random Skill (of your class)\nÿcU5:{gray}+1 to Light Radius, +20%% FRW\nÿcU4:{gray}+1 to Light Radius\nÿcU3:{gray}+1 to Light Radius\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}+7 to a Random Skill (of your class)\nÿcU5:{gray}+1 to Light Radius, +20%% FRW\nÿcU4:{gray}+1 to Light Radius\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}+7 to a Random Skill (of your class)\nÿcU5:{gray}+1 to Light Radius, +20%% FRW\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Broken Promise
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+10%% IAS, +20%% EDmg\nÿcU4:{gray}+120 Attack Rating, +7%% Crushing Blow\nÿcU3:{gray}+15 Life/Mana, +20%% EDef\nÿcU2:{gray}+10%% IAS, +10%% EDmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+10%% IAS, +20%% EDmg\nÿcU4:{gray}+120 Attack Rating, +7%% Crushing Blow\nÿcU3:{gray}+15 Life/Mana, +20%% EDef\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+10%% IAS, +20%% EDmg\nÿcU4:{gray}+120 Attack Rating, +7%% Crushing Blow\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+10%% IAS, +20%% EDmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Envy
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+5%% Max Life/Mana, +5%% Life/Mana Leech\nÿcU4:{gray}+15%% Deadly Strike, -25%% Target Def\nÿcU3:{gray}+5%% Max Life/Mana\nÿcU2:{gray}+15%% IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+5%% Max Life/Mana, +5%% Life/Mana Leech\nÿcU4:{gray}+15%% Deadly Strike, -25%% Target Def\nÿcU3:{gray}+5%% Max Life/Mana\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+5%% Max Life/Mana, +5%% Life/Mana Leech\nÿcU4:{gray}+15%% Deadly Strike, -25%% Target Def\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+5%% Max Life/Mana, +5%% Life/Mana Leech\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Obsession
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+10%% Max Life, +1 Spell/Combat/Summoning Power\nÿcU4:{gray}+5%% to Max Life\nÿcU3:{gray}+5%% to Max Life/Mana\nÿcU2:{gray}+5%% to Max Life\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+10%% Max Life, +1 Spell/Combat/Summoning Power\nÿcU4:{gray}+5%% to Max Life\nÿcU3:{gray}+5%% to Max Life/Mana\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+10%% Max Life, +1 Spell/Combat/Summoning Power\nÿcU4:{gray}+5%% to Max Life\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+10%% Max Life, +1 Spell/Combat/Summoning Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Radiance
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+1 All Skills, +6 PDR, +7 MDR\nÿcU4:{gray}+27 Mana, 10%% Dmg Taken to Mana\nÿcU3:{gray}+15 Vitality/Energy\nÿcU2:{gray}+75%% EDef, +70 Def vs Missiles\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+1 All Skills, +6 PDR, +7 MDR\nÿcU4:{gray}+27 Mana, 10%% Dmg Taken to Mana\nÿcU3:{gray}+15 Vitality/Energy\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+1 All Skills, +6 PDR, +7 MDR\nÿcU4:{gray}+27 Mana, 10%% Dmg Taken to Mana\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+1 All Skills, +6 PDR, +7 MDR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Ancient's Pledge
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+5%% to All Max Res\nÿcU4:{gray}+1 All Skills\nÿcU3:{gray}+15 All Attributes\nÿcU2:{gray}+20%% FCR, +10 MDR/PDR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+5%% to All Max Res\nÿcU4:{gray}+1 All Skills\nÿcU3:{gray}+15 All Attributes\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+5%% to All Max Res\nÿcU4:{gray}+1 All Skills\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+5%% to All Max Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Humility
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}-5 to +2 All Skills\nÿcU4:{gray}-10%% to +15%% Fire/Light/Cold skill Dmg\nÿcU3:{gray}-10%% to +20%% All Res\nÿcU2:{gray}-10%% to +10%% Block Chance, +45 Def\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}-5 to +2 All Skills\nÿcU4:{gray}-10%% to +15%% Fire/Light/Cold skill Dmg\nÿcU3:{gray}-10%% to +20%% All Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}-5 to +2 All Skills\nÿcU4:{gray}-10%% to +15%% Fire/Light/Cold skill Dmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}-5 to +2 All Skills\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Rhyme
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}+1 All Skills\nÿcU4:{gray}+135%% Mana Regen\nÿcU3:{gray}+5%% Max Life\nÿcU2:{gray}+15 Dexterity\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}+1 All Skills\nÿcU4:{gray}+135%% Mana Regen\nÿcU3:{gray}+5%% Max Life\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}+1 All Skills\nÿcU4:{gray}+135%% Mana Regen\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}+1 All Skills\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+
+		--Bone
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% All Res\nÿcU4:{gray}+2 Spell Power\nÿcU3:{gray}+20%% Bone Skill Dmg\nÿcU2:{gray}15%% CtC Lvl 10 Bone Spear on hit\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% All Res\nÿcU4:{gray}+2 Spell Power\nÿcU3:{gray}+20%% Bone Skill Dmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% All Res\nÿcU4:{gray}+2 Spell Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% All Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Fortitude
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+1 All Skills, +3 Life/Level\nÿcU4:{gray}+25%% IAS, +1 Combat Power\nÿcU3:{gray}+7 Replenish Life, +6 PDR, +7 MDR\nÿcU2:{gray}+50%% EDef, +90 Def\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+1 All Skills, +3 Life/Level\nÿcU4:{gray}+25%% IAS, +1 Combat Power\nÿcU3:{gray}+7 Replenish Life, +6 PDR, +7 MDR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+1 All Skills, +3 Life/Level\nÿcU4:{gray}+25%% IAS, +1 Combat Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+1 All Skills, +3 Life/Level\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Gloom
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% FRW\nÿcU4:{gray}+20 Strength, +15 Vitality\nÿcU3:{gray}+3 Light Radius, 5%% Dmg Taken to Mana\nÿcU2:{gray}+10%% FHR, +30%% EDef\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% FRW\nÿcU4:{gray}+20 Strength, +15 Vitality\nÿcU3:{gray}+3 Light Radius, 5%% Dmg Taken to Mana\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% FRW\nÿcU4:{gray}+20 Strength, +15 Vitality\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+1 All Skills, +20%% FRW\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Myth
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+20%% FRW/IAS\nÿcU4:{gray}+20 Vitality, +10 Life when hit\nÿcU3:{gray}Attacker Takes Damage of 16, +70 Def vs Missiles\nÿcU2:{gray}+2 Combat Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+20%% FRW/IAS\nÿcU4:{gray}+20 Vitality, +10 Life when hit\nÿcU3:{gray}Attacker Takes Damage of 16, +70 Def vs Missiles\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+20%% FRW/IAS\nÿcU4:{gray}+20 Vitality, +10 Life when hit\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+20%% FRW/IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Rain
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+3 to Thunderstorm\nÿcU4:{gray}+25%% Lightning skill Dmg\nÿcU3:{gray}+7 MDR, +10 PDR\nÿcU2:{gray}+40%% Lightning Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+3 to Thunderstorm\nÿcU4:{gray}+25%% Lightning skill Dmg\nÿcU3:{gray}+7 MDR, +10 PDR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+3 to Thunderstorm\nÿcU4:{gray}+25%% Lightning skill Dmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+3 to Thunderstorm\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Breath of The Dying
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}+200%% Dmg vs Demons\nÿcU5:{gray}+270 AR, +450 AR vs Undead/Demons\nÿcU4:{gray}+33%% Open Wounds\nÿcU3:{gray}+20 to All Attributes, +10%% Mana Leech\nÿcU2:{gray}+100%% EDmg, -25%% Target Def\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}+200%% Dmg vs Demons\nÿcU5:{gray}+270 AR, +450 AR vs Undead/Demons\nÿcU4:{gray}+33%% Open Wounds\nÿcU3:{gray}+20 to All Attributes, +10%% Mana Leech\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}+200%% Dmg vs Demons\nÿcU5:{gray}+270 AR, +450 AR vs Undead/Demons\nÿcU4:{gray}+33%% Open Wounds\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}+200%% Dmg vs Demons\nÿcU5:{gray}+270 AR, +450 AR vs Undead/Demons\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Passion
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+1 to Heart of Wolverine, +25%% GF\nÿcU4:{gray}+100%% EDmg, +225 Max Lightning Dmg\nÿcU3:{gray}+15%% IAS\nÿcU2:{gray}+100%% EDmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+1 to Heart of Wolverine, +25%% GF\nÿcU4:{gray}+100%% EDmg, +225 Max Lightning Dmg\nÿcU3:{gray}+15%% IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+1 to Heart of Wolverine, +25%% GF\nÿcU4:{gray}+100%% EDmg, +225 Max Lightning Dmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+1 to Heart of Wolverine, +25%% GF\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Famine
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Lvl 20 Famine Aura\nÿcU4:{gray}+20 Strength, +451 Poison Dmg (12s)\nÿcU3:{gray}+100 Cold/Fire Dmg, +200 Max Lightning Dmg\nÿcU2:{gray}+20%% IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}Lvl 20 Famine Aura\nÿcU4:{gray}+20 Strength, +451 Poison Dmg (12s)\nÿcU3:{gray}+100 Cold/Fire Dmg, +200 Max Lightning Dmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}Lvl 20 Famine Aura\nÿcU4:{gray}+20 Strength, +451 Poison Dmg (12s)\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}Lvl 20 Famine Aura\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Oath
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Lvl 20 Magic Conviction Aura\nÿcU4:{gray}+30 Energy, +450 AR vs Demons\nÿcU3:{gray}+15%% Magic Res, +5%% Max Magic Res\nÿcU2:{gray}+1 to Heart of Wolverine, +25%% Magic Skill Dmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}Lvl 20 Magic Conviction Aura\nÿcU4:{gray}+30 Energy, +450 AR vs Demons\nÿcU3:{gray}+15%% Magic Res, +5%% Max Magic Res\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}Lvl 20 Magic Conviction Aura\nÿcU4:{gray}+30 Energy, +450 AR vs Demons\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}Lvl 20 Magic Conviction Aura\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Steel
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Lvl 20 Thorns Aura, +80%% EDmg\nÿcU4:{gray}+4 Life per Kill\nÿcU3:{gray}+2 Mana per Kill\nÿcU2:{gray}+15%% IAS, Attacker Takes Damage of 50\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{white}V:{gray}Lvl 20 Thorns Aura, +80%% EDmg\n{white}IV:{gray}+4 Life per Kill\n{white}III:{gray}+2 Mana per Kill\nÿc?Next Runic Forging tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{white}V:{gray}Lvl 20 Thorns Aura, +80%% EDmg\n{white}IV:{gray}+4 Life per Kill\nÿc?Next Runic Forging tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{white}V:{gray}Lvl 20 Thorns Aura, +80%% EDmg\nÿc?Next Runic Forging tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Edge
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+33%% Deadly Strike, +33%% Piercing Attack\nÿcU4:{gray}+15 All Attributes\nÿcU3:{gray}+5%% Life Leech, +2 Mana per Kill\nÿcU2:{gray}+451 Poison Dmg (12s), +50%% EDmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+33%% Deadly Strike, +33%% Piercing Attack\nÿcU4:{gray}+15 All Attributes\nÿcU3:{gray}+5%% Life Leech, +2 Mana per Kill\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+33%% Deadly Strike, +33%% Piercing Attack\nÿcU4:{gray}+15 All Attributes\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+33%% Deadly Strike, +33%% Piercing Attack\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Pestilence
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Lvl 20 Poison Conviction Aura\nÿcU4:{gray}+15 All Attributes\nÿcU3:{gray}5%% CtC Level 15 Venom on hit\nÿcU2:{gray}+451 Poison Dmg (12s)\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}Lvl 20 Poison Conviction Aura\nÿcU4:{gray}+15 All Attributes\nÿcU3:{gray}5%% CtC Level 15 Venom on hit\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}Lvl 20 Poison Conviction Aura\nÿcU4:{gray}+15 All Attributes\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}Lvl 20 Poison Conviction Aura\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		--Zephyr
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}+1-3%% Lightning/Fire/Cold Absorb\nÿcU4:{gray}+100 Fire/Cold Dmg\nÿcU3:{gray}+225 Max Lightning Dmg, +184 AR\nÿcU2:{gray}6%% CtC Level 17 Tornado on Striking, +20%% FCR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}+1-3%% Lightning/Fire/Cold Absorb\nÿcU4:{gray}+100 Fire/Cold Dmg\nÿcU3:{gray}+225 Max Lightning Dmg, +184 AR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}+1-3%% Lightning/Fire/Cold Absorb\nÿcU4:{gray}+100 Fire/Cold Dmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}+1-3%% Lightning/Fire/Cold Absorb\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+	
+		--Voice of Reason
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}Half Freeze Duration\nÿcU5:{gray}6%% CtC Level 18 Glacial Spike on hit\nÿcU4:{gray}-24%% Enemy Cold Immunity\nÿcU3:{gray}+35%% IAS\nÿcU2:{gray}+275 AR, +250 AR vs Demons\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}Half Freeze Duration\nÿcU5:{gray}6%% CtC Level 18 Glacial Spike on hit\nÿcU4:{gray}-24%% Enemy Cold Immunity\nÿcU3:{gray}+35%% IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}Half Freeze Duration\nÿcU5:{gray}6%% CtC Level 18 Glacial Spike on hit\nÿcU4:{gray}-24%% Enemy Cold Immunity\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}Half Freeze Duration\nÿcU5:{gray}6%% CtC Level 18 Glacial Spike on hit\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4	
+	
+		--Deception
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Ethereal, +40 Life\nÿcU4:{gray}+130%% EDmg, +5%% Life Leech\nÿcU3:{gray}+140 AR, +1 Combat Power\nÿcU2:{gray}+20%% IAS, Knockback\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}Ethereal, +40 Life\nÿcU4:{gray}+130%% EDmg, +5%% Life Leech\nÿcU3:{gray}+140 AR, +1 Combat Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}Ethereal, +40 Life\nÿcU4:{gray}+130%% EDmg, +5%% Life Leech\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}Ethereal, +40 Life\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+			
+		--Eternity
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}Hit Blinds Target +5, +40%% IAS\nÿcU4:{gray}+21 Min Dmg, +100%% EDmg\nÿcU3:{gray}+10%% Crushing Blow, +1 Spell Power\nÿcU2:{gray}+2 Combat Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}Hit Blinds Target +5, +40%% IAS\nÿcU4:{gray}+21 Min Dmg, +100%% EDmg\nÿcU3:{gray}+10%% Crushing Blow, +1 Spell Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}Hit Blinds Target +5, +40%% IAS\nÿcU4:{gray}+21 Min Dmg, +100%% EDmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}HalfFreezeDura becomes CannotBeFrozen\nÿcU5:{gray}Hit Blinds Target +5, +40%% IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+	
+		--Destruction
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="{gray}+0.125%% Open Wounds per Clvl\nÿcU5:{gray}Lvl 20 Fire Conviction Aura\nÿcU4:{gray}+15%% Crushing Blow, +15%% Deadly Strike\nÿcU3:{gray}10%% CtC Level 10 Firestorm on Kill\nÿcU2:{gray}3%% CtC Level 33 Volcano on Striking, +30 Dexterity\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="{gray}+0.125%% Open Wounds per Clvl\nÿcU5:{gray}Lvl 20 Fire Conviction Aura\nÿcU4:{gray}+15%% Crushing Blow, +15%% Deadly Strike\nÿcU3:{gray}10%% CtC Level 10 Firestorm on Kill\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="{gray}+0.125%% Open Wounds per Clvl\nÿcU5:{gray}Lvl 20 Fire Conviction Aura\nÿcU4:{gray}+15%% Crushing Blow, +15%% Deadly Strike\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="{gray}+0.125%% Open Wounds per Clvl\nÿcU5:{gray}Lvl 20 Fire Conviction Aura\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4	
+	
+		--Rift
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Lvl 20 Cold Conviction Aura, +1 Spell Power\nÿcU4:{gray}+30%% IAS\nÿcU3:{gray}+60%% AR\nÿcU2:{gray}+10 Strength/Vitality/Energy\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}Lvl 20 Cold Conviction Aura, +1 Spell Power\nÿcU4:{gray}+30%% IAS\nÿcU3:{gray}+60%% AR\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}Lvl 20 Cold Conviction Aura, +1 Spell Power\nÿcU4:{gray}+30%% IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}Lvl 20 Cold Conviction Aura, +1 Spell Power\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+	
+		--King's Grace
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Lvl 20 Physical Conviction Aura, +10%% IAS\nÿcU4:{gray}+10%% IAS, +100%% EDmg\nÿcU3:{gray}+10%% IAS, +50 AR vs Demons/Undead\nÿcU2:{gray}+10%% IAS, +50%% Dmg vs Demons/Undead\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}Lvl 20 Physical Conviction Aura, +10%% IAS\nÿcU4:{gray}+10%% IAS, +100%% EDmg\nÿcU3:{gray}+10%% IAS, +50 AR vs Demons/Undead\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}Lvl 20 Physical Conviction Aura, +10%% IAS\nÿcU4:{gray}+10%% IAS, +100%% EDmg\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}Lvl 20 Physical Conviction Aura, +10%% IAS\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+	
+		--Alacrity
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=1},suffix_desc="ÿcU5:{gray}Lvl 20 Lightning Conviction Aura\nÿcU4:{gray}+10 Energy, +10%% MF\nÿcU3:{gray}+3-5 Mana/Health on Kill\nÿcU2:{gray}+10 Energy\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 1
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=2},suffix_desc="ÿcU5:{gray}Lvl 20 Lightning Conviction Aura\nÿcU4:{gray}+10 Energy, +10%% MF\nÿcU3:{gray}+3-5 Mana/Health on Kill\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 2
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=3},suffix_desc="ÿcU5:{gray}Lvl 20 Lightning Conviction Aura\nÿcU4:{gray}+10 Energy, +10%% MF\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 3
+		--{codes="allitems",location={"onplayer","equipped","atvendor"},runeword=true,stat={index=475,op="==",value=4},suffix_desc="ÿcU5:{gray}Lvl 20 Lightning Conviction Aura\n{gold}Next Runic Forge tier bonuses:{blue}\n"}, -- Tier 4
+		
+		
+		
+		
 		
 		
 		
