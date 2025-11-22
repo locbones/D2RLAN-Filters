@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.8C) {Green}Reloaded",
+reload = "ÿc4Charsi's Special (v1.8D) {Green}Reloaded",
 allowOverrides = true,
     rules = {
 		--																	      			         	BASES
@@ -221,7 +221,7 @@ allowOverrides = true,
             hide = true
         },
 		{ -- Hides all unwanted bases with max 4os
-			codes = {"pad", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "uml", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "tow", "Wp3", "Gg3", "Oa3", "Oa2", "Oa1", "Bp2", "Bp1", "upl", "uhn", "ung", "uui", "urs", "ult", "uld", "uth", "ucl", "uar", "ula", "uul", "utu", "uea", "xul", "xrs", "xth", "xng", "xtp", "xhn", "xar", "xpl", "xld", "xlt", "xcl", "xtu", "aar", "fld", "ful", "gth", "plt", "spl", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8ls", "8cs", "8bs", "bst", "cst", "lst", "bsw", "Bf4", "k03", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp"},
+			codes = {"pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "uml", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "tow", "Wp3", "Gg3", "Oa3", "Oa2", "Oa1", "Bp2", "Bp1", "upl", "uhn", "ung", "uui", "urs", "ult", "uld", "uth", "ucl", "uar", "ula", "uul", "utu", "uea", "xul", "xrs", "xth", "xng", "xtp", "xhn", "xar", "xpl", "xld", "xlt", "xcl", "xtu", "aar", "fld", "ful", "gth", "plt", "spl", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8ls", "8cs", "8bs", "bst", "cst", "lst", "bsw", "Bf4", "k03", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp"},
             quality = "3-",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
@@ -264,8 +264,8 @@ allowOverrides = true,
 			stat = {index = 188, op = "==", value = 3, param = 18},
 			suffix = "ÿcR[+3 Summoning]"
 		},
-		{ -- Hide badly rolled Pally Shield Superior bases (max 4os)
-			codes = {"pac", "pab"},
+		{ -- Hide badly rolled Pala Shield bases (max 4os)
+			codes = {"pac", "pab", "pad", "pae", "paf"},
 			quality = "3-",
             stat = {index = 43, op = "<", value = 35},
             stat = {index = 45, op = "<", value = 35},
@@ -277,7 +277,7 @@ allowOverrides = true,
 			hide = true
 		},
 		{ -- Display decently rolled Pally Shield Superior bases (max 4os)
-			codes = {"pac", "pab"},
+			codes = {"pac", "pab", "pad", "pae", "paf"},
 			quality = "3-",
             stat = {index = 43, op = ">=", value = 35},
             stat = {index = 45, op = ">=", value = 35},
@@ -601,7 +601,7 @@ allowOverrides = true,
 		--													                                                ARROWS and BOLTS
 		{ -- Hides all magic and rare arrows/bolts
 			codes = {"aqv", "cqv"},
-			qualities = "4,6",
+			quality = "4,6",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",	
 			pstat = {index = 12, op = ">=", value = 80},
