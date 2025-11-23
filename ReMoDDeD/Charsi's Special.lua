@@ -1,13 +1,13 @@
 --- Filter Title:Charsi's Special
 --- Filter Type: 4 levels, cosmetic styles for loot, tips on various items
---- Filter Description:Filter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher ('Cycle Filter Level' option).\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 400 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher or you will see double ilvl numbers.\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
+--- Filter Description:Filter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher ('Cycle Filter Level' option).\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 400 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher or you will see double ilvl numbers.\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
-filter_level = 1,
-filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"},
-reload = "ÿc4Charsi's Special (v1.8D) {Green}Reloaded",
-allowOverrides = true,
+filter_level = 1, -- Current active filter level
+filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"}, -- Titles for filter levels
+reload = "ÿc4Charsi's Special (v1.8E) {Green}Reloaded", -- Filter reload message
+allowOverrides = true, -- Necessary, do not turn off.
     rules = {
 		--																	      			         	BASES
 
@@ -20,7 +20,6 @@ allowOverrides = true,
 			location = {"onground", "onplayer", "atvendor", "equipped"},
 			suffix = " ({ilvl})"
 		},
-		{code="7cr",stat = {index = 198, op = ">=", value = 1},suffix = " {stat=(198)} aa"},
 		{ -- Hides all unwanted bases with max 2os
 			codes = {"Bb3", "cap", "uhc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "mbl", "tbl", "vbl", "hbl", "lbl", "xlb", "lbt", "mbt", "vbt", "Ag1", "Ag3", "xlg", "mgl", "vgl", "lgl", "xap", "hlm", "skp", "xuc", "xml", "buc", "sml", "Wp2", "Gg2", "Gg1", "Wp1", "Na1", "Sa1", "Sa2", "hla", "lea", "qui", "stu", "ces", "ktr", "jav", "pil", "7dg", "7di", "9dg", "9di", "dgr", "dir", "obd", "obc", "obb", "obe", "ob8", "ob7", "ob6", "ob9", "ob4", "ob1", "ob2", "ob3", "7ta", "9ta", "tax", "7	tk", "9tk", "9bk", "bkf", "tkf", "7yw", "7bw", "7wn", "7gw", "9wn", "9gw", "9yw", "9bw", "bwn", "gwn", "wnd", "ywn"},
             quality = "3-",
@@ -661,10 +660,24 @@ allowOverrides = true,
 			pstat = {index = 12, op = ">=", value = 80},
             hide = true
         },
-        { -- Hides all potion drops besides full rejuvs from clvl 80
+        { -- Hides all potion drops besides full rejuvs from clvl 80 in Hell - Lite
             codes = {"hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs"},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
+			filter_levels = "1,2",
+			pstat = {index = 12, op = ">=", value = 80},
+            hide = true
+        },
+        { -- Hides all potion drops besides any rejuvs at all times- Aggressive
+            codes = {"hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5"},
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			filter_levels = "3,4",
+            hide = true
+        },
+        { -- Hides small rejuv drops after clvl 80 - Aggressive
+            code = "rvs",
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			filter_levels = "3,4",
 			pstat = {index = 12, op = ">=", value = 80},
             hide = true
         },
