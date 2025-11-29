@@ -1,12 +1,12 @@
 --- Filter Title:Charsi's Special
 --- Filter Type: 4 levels, cosmetic styles for loot, tips on various items
---- Filter Description:Filter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher ('Cycle Filter Level' option).\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 400 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher or you will see double ilvl numbers.\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
+--- Filter Description:ReMoDDeD Only! Not recommended to use it in other mods as it contains RMD only information.\nFilter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher ('Cycle Filter Level' option).\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 400 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nDisplays ilvl of all items as suffix.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nQuest item notifies (some cringey comments to confuse players a bit lol)\nDon't use with ilvl display from qol settings in Launcher or you will see double ilvl numbers.\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
-filter_level = 1, -- Current active filter level
-filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"}, -- Titles for filter levels
-reload = "ÿc4Charsi's Special (v1.8E) {Green}Reloaded", -- Filter reload message
+filter_level = 1,
+filter_titles = {"ÿc4Lite","ÿc4Lite + Hunter","ÿc4Aggressive","ÿc4Aggressive + Hunter"}, -- Titles for filter levels.
+reload = "ÿc4Charsi's Special (v1.8F) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
     rules = {
 		--																	      			         	BASES
@@ -600,7 +600,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		--													                                                ARROWS and BOLTS
 		{ -- Hides all magic and rare arrows/bolts
 			codes = {"aqv", "cqv"},
-			quality = "4,6",
+			quality = { "4", "6" },
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",	
 			pstat = {index = 12, op = ">=", value = 80},
@@ -609,9 +609,9 @@ allowOverrides = true, -- Necessary, do not turn off.
 		},
 		{ -- Hide white arrows/bolts at all times
 			codes = {"aqv", "cqv"},
-			quality="2",
+			quality = "2",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			hide=true
+			hide = true
 		},
 		
 		--													                                                 MISC and STYLES
@@ -653,11 +653,9 @@ allowOverrides = true, -- Necessary, do not turn off.
             itype = {45, 50},
             notify = "Unique LB item dropped!"
         },
-        { -- Hides id/tp scroll drops
+        { -- Hides id/tp scroll drops at all times
             codes = {"tsc", "isc"},
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			difficulty = "Hell",
-			pstat = {index = 12, op = ">=", value = 80},
             hide = true
         },
         { -- Hides all potion drops besides full rejuvs from clvl 80 in Hell - Lite
@@ -716,7 +714,7 @@ allowOverrides = true, -- Necessary, do not turn off.
         },
         { -- Style for Treasure Chests
             codes = {"y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32"},
-            notify = "ÿc:Tÿc=rÿcOeÿcUaÿcJsÿc;uÿc2rÿc5eÿcR! ÿc;ヽ({red}♡ÿc;‿{red}♡ÿc;)ノ",
+            notify = "{purple}Treasure! ÿc;ヽ({red}♡ÿc;‿{red}♡ÿc;)ノ",
             background_style = "SapphireSonnet",
             border = { 220, 120, 255, 230, 2 }
         },
@@ -756,11 +754,6 @@ allowOverrides = true, -- Necessary, do not turn off.
 			sockets = "0",
 			border = {81, 164, 227, 220, 1}
 		},
-		{ -- Upconverter 2 and 3 tooltip fix
-			codes = {"u01", "u02"},
-			location = {"onplayer", "atvendor"},
-			prefix = "{white} For Rare and Unique items only\n"
-		},
 		{ -- Scroll of Torment border
 			codes = {"K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
 			border = {0, 130, 0, 230, 2}
@@ -783,7 +776,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		},
 		{ -- Style for Gold
 			code = "gld",
-			background = {180, 199, 0, 110},
+			background = {180, 199, 0, 140},
 			name_override = "{name} G"
 		},
 		{ -- Hide all Low Runes
@@ -824,7 +817,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 			codes = {"pk1", "pk2", "pk3", "dhn", "bey", "mbr"},
 			border = {255,165,0,255,1}
 		},
-		{ -- Style for DT Body Parts
+		{ -- Style for Demon Tempering Body Parts
 			codes = {"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},
 			background_style = "TamarilloGlow"
 		},
@@ -888,11 +881,6 @@ allowOverrides = true, -- Necessary, do not turn off.
 			location = {"onground", "onplayer", "atvendor"},
 			name_override = "{gold}Ultra Enhancement Crystal"
 		},
-		{ --Warning for Ultra Enhancement Crystals
-			codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
-			location = {"onplayer", "atvendor"},
-			prefix = "{gold}({red}1 Use Per Item{gold})\n"
-		},
 		{ --onground Style and notify for Ultra Enhancement Crystals
 			codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
 			notify = "Valuable Item: {red}Ultra Enhancement",
@@ -945,14 +933,15 @@ allowOverrides = true, -- Necessary, do not turn off.
 		
 		-- Additional information:
 		{code="rin",index=527,location={"onplayer","atvendor","equipped"},prefix="{gray}Can be sold to any vendor in Hell to spawn Dclone{gold}\n"}, -- SoJ Dclone note
-		{code="tes",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 4-7 Gems\n{orange}"},-- Twisted Essence of Suffering
-		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 HR Points\n{orange}"},-- Charged Essense of Hatred
+		{code="tes",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 4-7 Gem Points\n{orange}"},-- Twisted Essence of Suffering
+		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 High Rune Points\n{orange}"},-- Charged Essense of Hatred
 		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n{orange}"},-- Burning Essence of Terror
 		{code="fed",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Unique Cores\n{orange}"},-- Festering Essence of Destruction
 		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff (credits to Wolfie, mine now hehe)
 		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}See description of Jewel Converter for recipes{blue}\n"}, --Magic Jewel
 		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}See description of Jewel Converter for recipes{yellow}\n"}, --Rare Jewel
-		{codes={"z75","z74"},location={"onplayer","atvendor"},prefix_desc="{gray}{gold}Storage Bag {gray}(30 {yellow}Jewels{gray}) + Item UpConverter (Advanced) = {gold}Rainbow Facet{gray} (random)\n{gold}Storage Bag{gray} (5 {yellow}Jewels{gray}) + {gold}Unique{gray}/{green}Set{gray} Item + Identify Scroll = Re-Rolled Stats\n{gold}Storage Bag{gray} (10 {blue}Jewels{gray}) + Item UpConverter (basic) + Token of Evil = {yellow}Jewel{gray} (random)\n{white}Jewel Recipes:\n\n"},
+		{codes={"u01","u02"},location={"onplayer","atvendor"},prefix="{white} For Rare and Unique items only\n"}, -- Upconverter 2 and 3
+		{codes={"z75","z74"},location={"onplayer","atvendor"},prefix_desc="{gray}{gold}Storage Bag {gray}(30 {yellow}Jewels{gray}) + Item UpConverter (Advanced) = {gold}Rainbow Facet{gray} (random)\n{gold}Storage Bag{gray} (5 {yellow}Jewels{gray}) + {gold}Unique{gray}/{green}Set{gray} Item + Identify Scroll = Re-Rolled Stats\n{gold}Storage Bag{gray} (10 {blue}Jewels{gray}) + Item UpConverter (basic) + Token of Evil = {yellow}Jewel{gray} (random)\n{white}Jewel Recipes:\n\n"}, -- Jewel Converter
 		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the ÿcRBody Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
 		{codes="allitems",quality="7",rarity="0",identified=true,index={6,45,55,71,299,330,335},location={"onplayer","atvendor","equipped"},prefix="ÿcRCan be Demon Temperedÿc4\n"}, -- Sacret Relics for Demon Tempering, Normal bases
 		{codes="allitems",quality="7",rarity="1",identified=true,index={143,281,286,347,366,369,379,386,483},location={"onplayer","atvendor","equipped"},prefix="ÿcRCan be Demon Temperedÿc4\n"}, -- Sacret Relics for Demon Tempering, Exceptional bases
@@ -960,7 +949,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{codes="allitems",quality="7",identified=true,index={525,527,529,532,543,556},location={"onplayer","atvendor","equipped"},prefix="ÿcRCan be Demon Temperedÿc4\n"}, -- Sacret Relics for Demon Tempering, misc items
 		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{yellow}[SR]"}, -- Sacret Relics for Demon Tempering - HUNTER
 		{code="y67",location={"onplayer","atvendor"},prefix="{gray}Cube it with a ÿcRDemon Temper{gray}-able item and then with a ÿcRBody Part{gray} to Temper it\nÿcRIngredient{gray} for {red}Demon Tempering\n"}, -- Scroll of Belial
-		{code="S01",location={"onplayer","atvendor"},prefix="{grey}Gives 1-3 Soul Shards when cubed with Beacon\n"}, -- Soul Shard
+		{code="S01",location={"onplayer","atvendor"},prefix="{white}+1-3 Soul Shards\n"}, -- Soul Shard
 		{code="b64",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube a stack of 10 to create Premium Socket Remover\n"}, -- Socket Remover
 		{code="b65",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube alone to turn back into 10 Socket Removers\n"}, -- Premium Socket Remover
 		{code="cm3",identified=true,index=590,location={"onplayer","atvendor"},prefix="{grey}Cube alone to change amount summoned (5 max)\nÿc4"}, -- Unholy Commander
@@ -971,20 +960,21 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="GBd",location={"onplayer","atvendor"},prefix="{grey}Used for splitting stacked {yellow}Gold Bars{white}\n"}, -- Gold Bar Splitter
 		{code="TK8",location={"onplayer","atvendor"},name_override="{grey}Beacon of Hope + X (Summon lvl +1) Class Tokens = Upgraded Summon\nClass Token + Beacon of Hope = Added Soul Summon\nToken Forger + Beacon of Hope (100 Soul Shards) = Class Token{white}\nToken Forger"}, -- Token Forger
 		{code="leg",location={"onplayer","atvendor"},prefix="{grey}Cube alone for MooMoo Farm\n{white}"}, -- Wirt's Leg
-		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Torch/Anni to reroll them\nÿc4"}, -- Standard of Heroes
-		{code="Y21",location={"onplayer","atvendor"},prefix_desc="{white}1 Gold Bar + item = added Ethereal\n{red}or\n"}, -- Gold Bar
+		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Hellfire Torch or Annihilus to reroll them\nÿc4"}, -- Standard of Heroes
+		{code="Y21",location={"onplayer","atvendor"},prefix_desc="{white}1 Gold Bar + item = added Ethereal\nÿcUor\n"}, -- Gold Bar
 		{code="y66",location={"onplayer","atvendor"},prefix="{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"},-- Starter Pack
 		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
-		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress 'H' to show a list of RWs\nPress Scroll icon inside cube to show recipes\n"},-- Horadric Cube
+		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress Scroll icon inside cube to show recipes and Runewords\n"},-- Horadric Cube
 		{code="pk1",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Hate\nConversion:\n{orange}"}, --  Key of Terror
 		{code="pk2",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Destruction\nConversion:\n{orange}"}, --  Key of Hate
 		{code="pk3",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Terror\nConversion:\n{orange}"}, --  Key of Destruction
-		{code="Z42",location={"onplayer","atvendor"},prefix="{gold}The Countess {white}(A1: Black Marsh->Forgotten Tower)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Terror Remover
-		{code="Z43",location={"onplayer","atvendor"},prefix="{gold}The Summoner {white}(A2: Arcane Sanctuary)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Hate Remover
-		{code="Z44",location={"onplayer","atvendor"},prefix="{gold}Nihlathak {white}(A5: Halls of Vaught)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Key of Destruction Remover
-		{code="Z45",location={"onplayer","atvendor"},prefix="{gold}Lilith {white}(A5: Matron's Den)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Diablo's Horn Remover
-		{code="Z46",location={"onplayer","atvendor"},prefix="{gold}Uber Duriel {white}(A5: Forgotten Sands)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Baal's Eye Remover
-		{code="Z47",location={"onplayer","atvendor"},prefix="{gold}Uber Izual {white}(A5: Furnace of Pain)\n{gray}Item obtained in {orange}Hell{gray} from:\n"}, --  Mephisto's Brain Remover
+		{code="Z42",location={"onplayer","atvendor"},prefix="{gold}The Countess {white}(A1: Black Marsh->Forgotten Tower)\n{gray}Key is obtained in {orange}Hell{gray} from:\n"}, --  Key of Terror Remover
+		{code="Z43",location={"onplayer","atvendor"},prefix="{gold}The Summoner {white}(A2: Arcane Sanctuary)\n{gray}Key is obtained in {orange}Hell{gray} from:\n"}, --  Key of Hate Remover
+		{code="Z44",location={"onplayer","atvendor"},prefix="{gold}Nihlathak {white}(A5: Halls of Vaught)\n{gray}Key is obtained in {orange}Hell{gray} from:\n"}, --  Key of Destruction Remover
+		{code="Z45",location={"onplayer","atvendor"},prefix="{gold}Lilith {white}(A5: Matron's Den)\n{gray}Organ is obtained in {orange}Hell{gray} from:\n"}, --  Diablo's Horn Remover
+		{code="Z46",location={"onplayer","atvendor"},prefix="{gold}Uber Duriel {white}(A5: Forgotten Sands)\n{gray}Organ is obtained in {orange}Hell{gray} from:\n"}, --  Baal's Eye Remover
+		{code="Z47",location={"onplayer","atvendor"},prefix="{gold}Uber Izual {white}(A5: Furnace of Pain)\n{gray}Organ is obtained in {orange}Hell{gray} from:\n"}, --  Mephisto's Brain Remover
+		{codes={"z19","z20","z21","z22","z23","z24","z25","z26","z27"},location={"onplayer","atvendor"},suffix=" {gold}(ÿcU1 Use Per Item{gold})"}, -- Ultra Enhancement Crystals
 		
 		-- Gameplay Tips:
 		{code="hdm",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Doing so will enhance said Runeword. Max upgrade Tier is {white}5{gray}\nTo do it, cube Runeword with the same runes you used to make it\n{orange}Gameplay tip:{gray} Runewords with a {white}Hammer{gray} icon can be {white}Runic Forged\n"},-- Horadric Malus - Normal
@@ -1220,7 +1210,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{codes="allitems",quality="7",identified=false,index=541,filter_levels="2,4",suffix="|Constr",notify="Valuable Ring nearby!"}, --Constricting Ring
 		{codes="allitems",quality="7",identified=false,index=587,filter_levels="2,4",suffix="|Quintessence",notify="Rare amulet nearby!"}, --Quintessence Amulet
 		{codes="allitems",quality="7",identified=false,index=532,filter_levels="2,4",suffix="|Mara's",notify="Valuable Amulet nearby!"}, --Mara's Kaleidoscope Amulet
-				
+		
 		
 
 
@@ -1299,6 +1289,9 @@ allowOverrides = true, -- Necessary, do not turn off.
 			border = {10, 14, 92, 255, 2},
 			name_style = "RainbowStatic"
 		},
+		
+
+
 		
 		
 		
@@ -1410,226 +1403,5 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="L58",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sacrificial Trinity Forsaken Pact
 		{code="L59",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Plates of Protection Forsaken Pact
 		{code="L60",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Black Tempest Forsaken Pact
-		
-			
-			
-		
-	--                                                                                       Soon To Be Deleted Items
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = false,
-            sockets = "0",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{white}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = false,
-            sockets = "0",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currrently equipped. {red}Item{white}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = false,
-            sockets = "0",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{white}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = true,
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gray}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = true,
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{gray}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = true,
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = false,
-            sockets = "1+",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gray}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = false,
-            sockets = "1+",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{gray}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "3-",
-            ethereal = false,
-            sockets = "1+",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gray}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "4",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{blue}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "4",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{blue}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "4",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{blue}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "5",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{green}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "5",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{green}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "5",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Merc's equipment . {red}Item{green}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "6",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{yellow}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "6",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{yellow}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "6",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{yellow}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "7",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "7",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{gold}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "7",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{gold}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "8",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{orange}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "8",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently equipped. {red}Item{orange}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "8",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{orange}{link}"
-        },
-        { 
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "9",
-            location = "onplayer",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{dark green}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6", "Zc4", "Zc5", "Zc6" },
-            quality = "9",
-            location = "equipped",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} Currently eqiopped. {red}Item{dark green}{link}"
-        },
-        {
-            codes = { "Ds4", "Ds5", "Ds6", "Ab4", "Ab5", "Ab6", "Bp4", "Bp5", "Bp6", "Vg4", "Vg5", "Vg6", "Bb4", "Bb5", "Bb6", "Pc4", "Pc5", "Pc6", "Ag4", "Ag5", "Ag6", "Na4", "Na5", "Na6", "Sa4", "Sa5", "Ca4", "Ca5", "Ca6", "Sa6" },
-            quality = "9",
-            location = "atvendor",
-			name_override = "{red}Cube This Item Alone To Fix",
-            notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. If you are sure this is not on merc, ignore this message as it's likely at vendor. Item location:{orange} Merc's equipment. {red}Item{dark green}{link}"
-        },
-		{
-            codes = { "m32", "m34", "m36" },
-            location = { "onplayer", "equipped", "onground" },
-            name_override = "{red}Cube This Item Alone To Fix",
-			notify = "{orange}WARNING!!! {red}If you do not cube this item alone in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
-        },
-		{
-            code = "m35",
-            location = { "onplayer", "equipped", "onground" },
-            name_override = "{red}Cube This Item with Token of Evil To Fix",
-			notify = "{orange}WARNING!!! {red}If you do not cube this item with Token of Evil in cube, it will cause your ENTIRE save file to stop working from the next mod update!\nItems affected have changed name so you can locate them easier. Item location:{orange} stash and/or inventory. {red}Item{gold}{link}"
-        }
     }
 }
