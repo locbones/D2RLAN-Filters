@@ -1,9 +1,9 @@
---- Filter Title: Sheep's Filter v1.13
+--- Filter Title: Sheep's Filter v1.14
 --- Filter Type: (General Filter)
 --- Filter Description: \nRule 0: Runewords beg you to keep them. \nRule 0b: Shows number of sockets. \nRule 0c: Hides scrolls on the ground. \nRule 0d: Hides scrolls on the ground. \nRule 0e: Hides all non-rare or lower arrows above level 60. \nRule 0f: Hides all white arrows. \nRule 2: Good bases — shows 3-skill scepters in red. \nRule 3: Adds border and notifies when uniques drop. \nRule 4: Adds border and notifies when sets drop. \nRule 5: Rune notification with special border and colors. \nRule 6: Unique Archons (color swap). \nRule 7: Potential high-quality uniques (e.g., Hydra Master) (color swap). \nRule 8: Unique charms (color swap). \nRule 9: Facet charms (color swap). \nRule 10: Treasure chests/gem veins. \nRule 11: Valuable uniques. \nRule 12: Hides zero-skill Paladin weapons. \nRule 13: Hides non-superior/non-class items by level (still shows 3-socket ones). \nRule 14: Hides non-class base magic items by level. \nRule 15: Hides low gold piles by level. \nRule 16: Codex tome. \nRule 17: Quest item notification. \nRule e1: Sorting of weapon bases by socket amount (hides 2 sockets or fewer on bases that cap at 3 sockets at level 80). \nRule e2: Added symbol for new bases.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
 return {
-    reload = "{pink}Sheep's Base Filter v1.13 {grey} updated 12/5/25 {Green}Reloaded",
+    reload = "{pink}Sheep's Base Filter v1.14 {grey} updated 12/7/25 {Green}Reloaded",
     allowOverrides = true,
     rules = {
         --hides 1 socket items while under 60
@@ -12,6 +12,21 @@ return {
             sockets = "1",
             quality = "3-",
             pstat = { index = 12, op = "<=", value = 60 }, -- Char Level is >= 25
+        },
+         --Reminder to pick up Storage Bag so it doesn't get left behind
+         {
+            code = "Z01",
+            name_override = "{red}Quality of Life Bag Don't leave me!!!" ,
+            location = "onground",
+            notify = "{red}You left your bag!!!",
+            background = { 255, 255, 255, 255 },
+            border = { 240, 0, 0, 230, 2 } 
+        },
+         --Fixing Storage Bag helper info
+         {
+            code = "Z01",
+            location = { "onplayer", "onground", "atvendor" },
+            prefix_desc = "{purple}------------------\n{pink}(Cube with an item to store it)\n",
         },
                 --highlight 2 socket items while under 20
         {
@@ -23,6 +38,13 @@ return {
             pstat = { index = 12, op = "<=", value = 20 }, -- Char Level is >= 25
             border = {150,100,200,230,2}
         },
+        ---Rule 0a: ilvl on all items that matter
+        ---{
+		---	codes = {"aqv","cqv", "rin", "amu", "cm2", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Ca4", "Ca5", "Ca6", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Ab4", "Ab5", "Ab6", "Bp1", "Bp2", "Bp3", "Bp4", "Bp5", "Bp6", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Ag4", "Ag5", "Ag6", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "g33", "leg", "hdm", "hfh", "hst", "msf", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "qf1", "qf2", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18", "jew", "m32", "m33", "m34", "m35", "cm1", "cm2", "cm3"},
+		---	location = {"onground", "onplayer", "atvendor", "equipped"},
+		---	suffix = " ({ilvl})"
+		---},
+        ---Rule 0b elite base icon fix
         { 
             codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
             rarity = 2,
@@ -97,7 +119,7 @@ return {
         {
             codes = { "scp", "wsp", "gsc", "7sc", "7ws", "7qs", "9sc", "9ws", "9qs" },
             quality = "3-",
-            suffix = "ÿcE[3 Skill]",
+            suffix = "{red}[3 Skill]",
             stat = { index = 83, op = "==", value = 3, param = 3 }, -- Value = How many +skills, Param = 3 for Paladin
             border = { 255, 255, 255, 230, 2 }
         },
@@ -109,7 +131,7 @@ return {
             stat = { index = 41, op = ">=", value = 40 },
             stat = { index = 43, op = ">=", value = 40 },
             stat = { index = 45, op = ">=", value = 40 },
-            suffix = "ÿcE[High Resist]",
+            suffix = "{red}[High Resist]",
             border = { 255, 255, 255, 230, 2 } 
             --sockets = "0,4", -- add if you want socket sorting
         },
@@ -158,7 +180,7 @@ return {
         },
         ---Rule 3: Border and notifies when uniques drop (typed out cause it hits quest items zzz)
         {
-            codes = NOT {"cqv","BoH","l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","bks", "bkd", "leg", "hdm", "ass", "tr1", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2","utp","6ls", "ci1", "xld","aqv","cm1", "cm2", "cm3", "m32", "m33", "m34", "m35","m36","j00", "jew","amb", "8hx", "6cb", "6lw", "7ja", "7kr", "7bw", "7yw", "7gw", "obf", "oba", "ob7", "7gd", "upl", "ult", "uar", "uth", "ula", "ulc", "uhc", "utb", "xtb", "ci3", "umg", "nef", "pab", "pa9", "paa", "uit", "urg", "uuc", "vg3" },
+            codes = NOT {"cqv","BoH","l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50","bks", "bkd", "leg", "hdm", "ass", "tr1", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2","utp","6ls", "ci1", "xld","aqv","cm1", "cm2", "cm3", "m32", "m33", "m34", "m35","m36","j00", "jew","amb", "8hx", "6cb", "6lw", "7ja", "7kr", "7bw", "7yw", "7gw", "obf", "oba", "ob7", "7gd", "upl", "ult", "uar", "uth", "ula", "ulc", "uhc", "utb", "xtb", "ci3", "umg", "nef", "pab", "pa9", "paa", "uit", "urg", "uuc", "vg3" },
             quality = "7",
             notify = "A Legend Appears: {name}",
             border = { 255, 128, 0, 230, 2 } 
@@ -167,30 +189,30 @@ return {
         {
             codes = "allitems",
             quality = "5",
-            notify = "ÿc2Piece of a Legacy: {name}",
+            notify = "{green}Piece of a Legacy: {name}",
             border = { 27, 209, 3, 230, 2 } 
         },
        ---Rule 5: High Runes notification and ultra rune border and colors  
         {
             codes = { "r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33" },
-            notify = "ÿc@High Rune Nearby: {name}"
+            notify = "{orange}High Rune Nearby: {name}"
         },
         ---Rule 5b: Ultra Runes   
         {
             codes = {"r34","r35"},
             background = { 255, 255, 255, 255 },
-            prefix = "ÿcS|X|",
-            suffix = "ÿcS|X|",
-            notify = "ÿc@Ultra Rune Nearby: {name}",
+            prefix = "{red}|X|",
+            suffix = "{red}|X|",
+            notify = "{orange}Ultra Rune Nearby: {name}",
             border = { 240, 0, 0, 230, 2 } 
         },
         ---Rule 5c: Ultra Runes Er 
         {
             code = "r36",
             background = { 255, 255, 255, 255 },
-            prefix = "ÿcS|X|",
-            suffix = "ÿcS|X|",
-            notify = "ÿc@You Won The Lottery!!!ÿcS: {name}",
+            prefix = "{red}|X|",
+            suffix = "{red}|X|",
+            notify = "{orange}You Won The Lottery!!!{red}: {name}",
             border = { 240, 0, 0, 230, 2 } 
         },
         ---Rule 6: Unique Archons (Color swap?)  
@@ -198,8 +220,8 @@ return {
             code = "utp",
             quality = 7,
             background = { 255, 255, 255, 255 },
-            prefix = "ÿcE",
-            notify = "ÿcEA Spiritual Archon: {name}",
+            prefix = "{red}",
+            notify = "{red}A Spiritual Archon: {name}",
             border = { 240, 0, 0, 230, 2 } 
         }, 
         ---Rule 7: Potential high quality uniques (ie hydra master)(color swap?) 
@@ -207,7 +229,7 @@ return {
             codes = { "6ls", "ci1", "xld","aqv","6sw", "cqv" },
             quality = 7,
             --name_style = "Open Flames", -- will be reenabled with EB symbol fix
-            notify = "ÿcOSome Legends Vary: {name}",
+            notify = "{Pink}Some Legends Vary: {name}",
             border = { 230, 30, 200, 230, 2 },
             
         },
@@ -215,7 +237,7 @@ return {
         {
             codes = { "cm1", "cm2", "cm3", "m32", "m33", "m34", "m35","m36" },
             quality = 7,
-            notify = "ÿc;A Legend Appears: {name}",
+            notify = "{purple}A Legend Appears: {name}",
             name_style = "Open Flames",
             border = { 255, 128, 0, 230, 2 } 
         },
@@ -231,14 +253,14 @@ return {
             codes = { "j00", "jew" },
             quality = 7,
             name_override = "Rainbow Facet!!!",
-            notify = "ÿcEA Fragment of the Rainbow!",
+            notify = "{red}A Fragment of the Rainbow!",
             name_style = "Rainbow",
             border = { 255, 0, 0, 230, 2 } 
         },
         ---Rule 10: Treasure Chest/gem vein  
         {
             codes = { "S01","b64","b65","Rgx","Ev0", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33" },
-            notify = "ÿc;An Extraordinary Find: {name}",
+            notify = "{purple}An Extraordinary Find: {name}",
             name_style = "Cotton Candy",
             border = { 220, 120, 255, 230, 2 }
         },
@@ -246,7 +268,7 @@ return {
         {
             codes = { "amb", "8hx", "6cb", "6lw", "7ja", "7kr", "7bw", "7yw", "7gw", "obf", "oba", "ob7", "7gd", "upl", "ult", "uar", "uth", "ula", "ulc", "uhc", "utb", "xtb", "ci3", "umg", "nef", "pab", "pa9", "paa", "uit", "urg", "uuc", "vg3" },
             quality = 7,
-            notify = "ÿcSA True Legend Appears: {name}",
+            notify = "{red}A True Legend Appears: {name}",
             border = { 255, 128, 0, 230, 2 } 
         },
         --- Rule 12: Hides zero skill paladin weapons.  
@@ -659,7 +681,7 @@ return {
         },
         ---rule 20? added notify for unique limit break bases (notify subject to change)
         { 
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50"},
             quality = "7",
             notify = "A Legend Beyond Limits: {name}",
             border = { 255, 128, 0, 230, 2 } ,
@@ -678,7 +700,7 @@ return {
         {
             codes = {"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},
             name_style = "Toxic Fog",
-            notify = "ÿcADemonic Body Part: {name}",
+            notify = "{dark green}Demonic Body Part: {name}",
             border = { 30, 100, 30, 230, 2 }
 
         },
@@ -686,9 +708,7 @@ return {
         {
             codes = {"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},
             name_style = "Toxic Fog",
-            --notify = "ÿcADemonic Body Part: {name}",
             prefix_desc = "{red}Used in demon tempering\n",
-           -- border = { 30, 100, 30, 230, 2 }
            location = {"onground","onplayer"}
 
         },
@@ -714,13 +734,13 @@ return {
         { 
             codes = "allitems",
             itype = 115,
-            notify = "ÿcTA Path Forward: {name}"
+            notify = "{lilac}A Path Forward: {name}"
         },  
         ---Ultra Crystals
         {
             codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
             notify = "{red}A Powerful Enhancement Appears?",
-            name_override = "ÿcEUltra Enhancement Crystal",
+            name_override = "{red}Ultra Enhancement Crystal",
             background = { 255, 255, 255, 230 },
             border = { 240, 0, 0, 230, 2 } 
 
