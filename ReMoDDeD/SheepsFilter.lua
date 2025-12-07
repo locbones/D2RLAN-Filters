@@ -6,6 +6,12 @@ return {
     reload = "{pink}Sheep's Base Filter v1.14 {grey} updated 12/7/25 {Green}Reloaded",
     allowOverrides = true,
     rules = {
+        { --Display item levels for weapons, armors, charms, jewels, rings and amulets in white, to the right of item name, (x)
+            codes = "allitems",
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            itype = { 10, 12, 45, 50, 58, 82, 83, 84 },
+            suffix = " ({ilvl})",
+        },
         --hides 1 socket items while under 60
         {
             codes = "allitems",
@@ -46,7 +52,7 @@ return {
 		---},
         ---Rule 0b elite base icon fix
         { 
-            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50"},
             rarity = 2,
             location = { "onground", "onplayer", "equipped"},
             itype = { 45, 50 },
@@ -54,7 +60,7 @@ return {
         },
                 ---Rule 0b elite base icon hidden at gambler
         { 
-            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50"},
             rarity = 2,
             location = "atvendor",
             itype = { 45, 50 },
@@ -63,7 +69,7 @@ return {
         },
         --- notify for limit break bases
         {
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50"},
             notify = "{turquoise}Breaking The Limits: {white}{name}",
             quality = "3-",
         },
@@ -111,7 +117,7 @@ return {
         },
         --rule 0h Display RMD "Limit Broken Bases" with a special LB icon in RMD Red, to the right of item name
         { 
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50"},
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "ⅳ "
         },
@@ -683,18 +689,17 @@ return {
         { 
             codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50"},
             quality = "7",
-            notify = "A Legend Beyond Limits: {name}",
+            notify = "{red}A Legend Beyond Limits: {name}",
             border = { 255, 128, 0, 230, 2 } ,
-           location = {"onground","onplayer"}
 
         },
              ---rule 20? added border for magic lb items
         { 
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50"},
             quality = "4",
             border = { 0, 75, 200, 230, 2 },
             prefix_desc = "{pink}Highlighted for crafting\n",
-            location = {"onground","onplayer"}
+
         },
         ---rule 21: added notify and colors for demon temper items
         {
