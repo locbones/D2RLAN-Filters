@@ -2062,7 +2062,7 @@ return {
         { -- Rule 317: On Ramaladni's Gift display the limits it has on Weapons
             code = "Rgx",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}*NOTE: {green}Set{grey}/{gold}Unique {grey}Weapons cannot go over their natural maximum sockets\n\n{dark green}Demon Tempered{grey}: cannot use Gifts (unless LB2: Path of the Blacksmith)\n{green}Set {grey}& {gold}Unique {grey}Armor & Jewellery: up to item's maximum sockets\n{green}Set {grey}& {gold}Unique Weapons{grey}*: 1-hand: 4, 2-hand: 6\n{blue}Magic{grey}, {yellow}Rare{grey}, & {orange}Crafted{grey}: up to item's maximum sockets\n{white}Inferior{grey}, {white}Normal{grey}, & Superior: up to item's maximum sockets\n{gold}Ramaladni's Gift {grey}Socket Limits:\n"
+            prefix_desc = "{grey}*NOTE: {green}Set{grey}/{gold}Unique {grey}Weapons cannot go over their natural maximum sockets\n\n{dark green}Demon Tempered{grey}: cannot use Gifts (unless LB2: Path of the Blacksmith)\n{green}Set {grey}& {gold}Unique {grey}Armor & Jewellery: up to item's maximum sockets\n{green}Set {grey}& {gold}Unique {grey}Weapons*: 1-hand: 4, 2-hand: 6\n{blue}Magic{grey}, {yellow}Rare{grey}, & {orange}Crafted{grey}: up to item's maximum sockets\n{white}Inferior{grey}, {white}Normal{grey}, & Superior: up to item's maximum sockets\n{gold}Ramaladni's Gift {grey}Socket Limits:\n"
         },
         { -- Rule 318: Helper text for 0 socket items to use Ramaladni's Gift to add sockets
             codes = "allitems",
