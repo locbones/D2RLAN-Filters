@@ -419,15 +419,15 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{orange}Diablo's Horn {grey}drops from Lilth (Matron's Den)\n"
         },
-        { -- Rule 68: Add helper text to Mephisto's Brain Remover to show where the key drops
+        { -- Rule 68: Add helper text to Baal's Eye Remover to show where the key drops
             code = "Z46",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Mephisto's Brain {grey}drops from Über Duriel (Forgotten Sands)\n"
+            prefix_desc = "{orange}Baal's Eye {grey}drops from Über Izual (Furnace of Pain)\n"
         },
-        { -- Rule 69: Add helper text to Baal's Eye Remover to show where the key drops
+        { -- Rule 69: Add helper text to Mephisto's Brain Remover to show where the key drops
             code = "Z47",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Baal's Eye {grey}drops from Über Izual (Furnace of Pain)\n"
+            prefix_desc = "{orange}Mephisto's Brain {grey}drops from Über Duriel (Forgotten Sands)\n"
         },
         { -- Rule 70: UpConverter's are only for Rare and Unique items
             codes = { "u01", "u02" },
