@@ -17,6 +17,7 @@ local configEnv = {
 
 setmetatable(configEnv, { __index = _G })
 
+-- Define LUA Environment
 local function loadConfig(filename)
     local chunk, err
     if _VERSION == "Lua 5.1" then
@@ -30,14 +31,45 @@ local function loadConfig(filename)
     return chunk()
 end
 
+-- Open TTS Pipe w/ D2RLAN
+local function speak(text)
+    if not text or text == "" then return end
+
+    local pipeName = "\\\\.\\pipe\\D2RLAN_TTS"
+    local f = io.open(pipeName, "w")
+    if f then
+        f:write(text .. "\n")
+        f:flush()
+        f:close()
+    else
+        print("Failed to write to TTS pipe. Is D2RLAN running?")
+    end
+end
+
+-- Tell the TTS service to reload the audioVoice from lootfilter_config.lua
+local function reloadTTSVoice()
+    local pipeName = "\\\\.\\pipe\\D2RLAN_TTS"
+    local f = io.open(pipeName, "w")
+    if f then
+        f:write("VOICE_RELOAD\n")
+        f:flush()
+        f:close()
+    else
+        print("Failed to send VOICE_RELOAD. Is D2RLAN running?")
+    end
+end
+
+reloadTTSVoice()
+
 --#endregion Not Exclusion Variable
 
 -- Clear cache and load config
 package.loaded["lootfilter_config"] = nil
 local config = loadConfig("lootfilter_config.lua")
-local version = "1.3.5"
+local version = "1.3.8"
 local mod = "RMD"
 local userLanguage = config.language or "enUS"
+
 
 --#region Mapping Tables
 
@@ -254,6 +286,26 @@ local function SplitItemName(Name)
 end
 
 -- Preset Name Styles
+local function utf8_chars(str)
+    local chars = {}
+    local i = 1
+    local len = #str
+    while i <= len do
+        local byte = string.byte(str, i)
+        local char_len = 1
+        if byte >= 0xF0 then
+            char_len = 4
+        elseif byte >= 0xE0 then
+            char_len = 3
+        elseif byte >= 0xC0 then
+            char_len = 2
+        end
+        table.insert(chars, string.sub(str, i, i + char_len - 1))
+        i = i + char_len
+    end
+    return chars
+end
+
 local nameStyles = {
     Rainbow = function(Item, Name, Tick)
         local itemType, itemName = SplitItemName(Name)
@@ -262,7 +314,9 @@ local nameStyles = {
         local colorCount = #ColorsOfTheRainbow
         local offset = ((Item.ID * 2654435761) % 2^32) % colorCount
 
-        for i = 1, #itemName do
+        local chars = utf8_chars(itemName)
+
+        for i = 1, #chars do
             local index = (math.floor(Tick / slowFactor) + i - 1 + offset) % colorCount + 1
             table.insert(result, ColorsOfTheRainbow[index] .. itemName:sub(i, i))
         end
@@ -279,7 +333,9 @@ local nameStyles = {
         local index = (math.floor(Tick / slowFactor) + offset) % colorCount + 1
         local color = ColorsOfTheRainbow[index]
 
-        for i = 1, #itemName do
+        local chars = utf8_chars(itemName)
+
+        for i = 1, #chars do
             table.insert(result, color .. itemName:sub(i, i))
         end
 
@@ -291,7 +347,9 @@ local nameStyles = {
         local result = { itemType }
         local speed = 500
 
-        for i = 1, #itemName do
+        local chars = utf8_chars(itemName)
+
+        for i = 1, #chars do
             local index = (math.floor((Tick / speed) + i) % #CandyColors) + 1
             table.insert(result, CandyColors[index] .. itemName:sub(i, i))
         end
@@ -304,7 +362,9 @@ local nameStyles = {
         local result = { itemType }
         local speed = 500
 
-        for i = 1, #itemName do
+        local chars = utf8_chars(itemName)
+
+        for i = 1, #chars do
             local index = (math.floor((Tick / speed) + i) % #OceanColors) + 1
             table.insert(result, OceanColors[index] .. itemName:sub(i, i))
         end
@@ -317,7 +377,9 @@ local nameStyles = {
         local result = { itemType }
         local speed = 500
 
-        for i = 1, #itemName do
+        local chars = utf8_chars(itemName)
+
+        for i = 1, #chars do
             local index = (math.floor((Tick / speed) + i) % #ToxicColors) + 1
             table.insert(result, ToxicColors[index] .. itemName:sub(i, i))
         end
@@ -330,9 +392,11 @@ local nameStyles = {
         local result = { itemType }
         local speed = 500
 
-        for i = 1, #itemName do
+        local chars = utf8_chars(itemName)
+
+        for i = 1, #chars do
             local index = (math.floor((Tick / speed) + i) % #FlameColors) + 1
-            table.insert(result, FlameColors[index] .. itemName:sub(i, i))
+            table.insert(result, FlameColors[index] .. chars[i])
         end
 
         return table.concat(result)
@@ -403,6 +467,9 @@ local nameStyles = {
 --#endregion Style Controls
 
 --#region Helper Functions
+
+-- UTF-8 helper: safely extract each character (works in Lua 5.1)
+
 
 -- Treat 3 (onground) and 5 (dropping) as equivalent
 local function normalize_location(loc)
@@ -481,18 +548,39 @@ end
 
 -- Check ItemType
 local function checkItemType(Item, idList)
-    -- Normalize single number to table
-    if type(idList) == "number" then
+    -- Detect NOT table
+    local mt = type(idList) == "table" and getmetatable(idList)
+    local isNot = mt and mt.__not or false
+
+    -- For NOT, the actual list is idList itself (not idList.list)
+    -- Normalize single values
+    if type(idList) == "number" or type(idList) == "string" then
         idList = { idList }
     end
 
+    -- Validate it's table
+    if type(idList) ~= "table" then
+        return nil
+    end
+
+    -- Search for a match
+    local found = nil
     for _, id in ipairs(idList) do
         if Item:IsType(id) then
-            return id   -- return the matching id instead of true
+            found = id
+            break
         end
     end
-    return nil  -- no match
+
+    if isNot then
+        -- NOT mode: return true only if NOTHING matched
+        return (found == nil) and true or nil
+    end
+
+    -- Normal mode: return the matched id or nil
+    return found
 end
+
 
 -- Data Output Helper
 local function replace_placeholders(template, Item, Me, rule)
@@ -759,7 +847,6 @@ if config.allowOverrides then
     end
 end
 
-
 --#endregion Operand Checkers
 
 --#region Apply Filter Logic
@@ -808,6 +895,8 @@ function ApplyFilter(Me, Item, Result, level)
             table.insert(rules, rule)
         end
     end
+
+
 
     -- load overrides
     if config.allowOverrides then
@@ -859,6 +948,7 @@ end
     end
     HideAllItems = HideAllItems or SSet()
 
+
     local matched = false
     local baseName = Result.Name
     local baseDesc = Result.Description
@@ -867,6 +957,20 @@ end
         actualLoc = "atvendor"
     else
         actualLoc = normalize_location(location)
+    end
+
+    -- Check identification state
+    local isID = IsIdentified(Item.Data.Flags)
+
+    -- Apply placeholder values if item is at vendor AND not identified
+    local restrictData = (actualLoc == "atvendor" and not isID)
+    if restrictData then
+        code = "???"
+        quality = -1
+        rarity = -1
+        index = -1
+        maxsock = -1
+        ilvl = -1
     end
 
     for ruleIndex, rule in ipairs(rules or {}) do
@@ -883,6 +987,13 @@ end
         if code_matches(rule, code) then
             local allConditionsMet = true
             local failedReasons = {}
+
+            -- When unidentified vendor item, immediately skip rule-based checks
+            if restrictData then
+                allConditionsMet = false
+                table.insert(failedReasons, "Unidentified vendor item — skipping detailed match checks")
+                return false
+            end
 
             if rule.location and not contains(locs, actualLoc) then
                 allConditionsMet = false
@@ -920,6 +1031,8 @@ end
                 table.insert(failedReasons, string.format("MaxSock mismatch (got %s, expected %s)", tostring(socketVal), tostring(rule.maxsock)))
                 end
             end
+
+            
 
             if rule.rarity and not check_op(rarity, rule.rarity) then
                 allConditionsMet = false
@@ -1038,6 +1151,20 @@ end
                 end
 
                 if contains(locs, actualLoc) then
+
+                    -- Apply TTS or audio file based on rule value
+                    if config.audioPlayback == true and rule.audio ~= nil then
+                        local text = rule.audio:match("^%s*(.-)%s*$")
+                        text = text or ""
+                        local lower = text:lower()
+
+                        if lower:match("%.mp3$") or lower:match("%.flac$") or lower:match("%.wav$") then
+                            speak("PLAY:" .. text)
+                        else
+                            speak("SAY:" .. text)
+                        end
+                    end
+
                     if config.debug then
                         print("ÿcNRule #" .. ruleIndex .. " ÿc0matched for: ÿc2" .. (Item.Name or "Unnamed item"))
                     end
