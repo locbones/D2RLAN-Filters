@@ -6,9 +6,17 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Aggressive","Aggressive + Hunter"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.8G{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v1.8H{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
     rules = {
+        { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
+            codes = "allitems",
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            itype = { 5, 6, 10, 12, 45, 50, 58, 82, 83, 84 },
+            suffix = " ({ilvl})",
+        },
+
+
 		--																	      			         	BASES
 
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {orange}-{code}"},  -- DEBUG - Show item code
@@ -593,9 +601,25 @@ allowOverrides = true, -- Necessary, do not turn off.
 		},
 		
 		--													                                                ARROWS and BOLTS
-		{ -- Hides all magic and rare arrows/bolts
+		{ -- Hides all magic and rare arrows/bolts - Lite
 			codes = {"aqv", "cqv"},
 			quality = { "4", "6" },
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			difficulty = "Hell",	
+			pstat = {index = 12, op = ">=", value = 80},
+			filter_levels = "1,2",
+			hide = true
+		},
+		{ -- Hides all magic arrows/bolts at all times - Aggressive
+			codes = {"aqv", "cqv"},
+			quality = "4",
+			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			filter_levels = "3,4",
+			hide = true
+		},
+		{ -- Hides all rare arrows/bolts - Aggressive
+			codes = {"aqv", "cqv"},
+			quality = "6",
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",	
 			pstat = {index = 12, op = ">=", value = 80},
@@ -771,7 +795,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		},
 		{ -- Style for Gold
 			code = "gld",
-			background = {180, 199, 0, 140},
+			background = {132, 145, 12, 170},
 			name_override = "{name} G"
 		},
 		{ -- Hide all Low Runes
@@ -935,7 +959,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff (credits to Wolfie, mine now hehe)
 		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}See description of Jewel Converter for recipes{blue}\n"}, --Magic Jewel
 		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}See description of Jewel Converter for recipes{yellow}\n"}, --Rare Jewel
-		{codes={"u01","u02"},location={"onplayer","atvendor"},prefix="{white} For Rare and Unique items only\n"}, -- Upconverter 2 and 3
+		{codes={"u01","u02"},location={"onplayer","atvendor"},prefix="{red} !!!{white} For {yellow}Rare{white} and {gold}Unique{white} items only{red} !!!\n"}, -- Upconverter 2 and 3
 		{codes={"z75","z74"},location={"onplayer","atvendor"},prefix_desc="{gray}{gold}Storage Bag {gray}(30 {yellow}Jewels{gray}) + Item UpConverter (Advanced) = {gold}Rainbow Facet{gray} (random)\n{gold}Storage Bag{gray} (5 {yellow}Jewels{gray}) + {gold}Unique{gray}/{green}Set{gray} Item + Identify Scroll = Re-Rolled Stats\n{gold}Storage Bag{gray} (10 {blue}Jewels{gray}) + Item UpConverter (basic) + Token of Evil = {yellow}Jewel{gray} (random)\n{white}Jewel Recipes:\n\n"}, -- Jewel Converter
 		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the {yellow}Body Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
 		{codes="allitems",quality="7",rarity="0",identified=true,index={6,45,55,71,299,330,335},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Normal bases
@@ -1223,7 +1247,8 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="leg",notify="{red}Edyrem: {white}Ooooh Who lives in a pineapple under the sea..."}, -- Wirt's Leg
 		{code="ass",notify="{red}Edyrem: {white}My precious~~"}, -- Book of Skill
 		{code="hst",notify="{red}Edyrem: {white}Why would you do that?"}, -- Horadric Staff
-		{code="j34",notify="{red}Edyrem: {white}Is that an Anime Figurine?"}, -- A Jade Figurine
+		{code="j34",notify="{red}Edyrem: {white}Is that an Anime Figurine?"}, -- A Jade Figurine onground
+		{code="j34",location="onplayer",prefix="{gray}It is in fact, not an Anime Figurine :v\n"}, -- A Jade Figurine onground
 		{code="g34",location="onplayer",notify="{red}Edyrem: {white}Pfff, what a waste of Gold. Could have been made into a Gold Bar..."}, -- Golden Bird
 		{code="g33",notify="{red}Edyrem: {white}Don't even dare pointing that at me!"}, -- The Gidbinn
 		{code="bbb",notify="{red}Edyrem: {white}MY TACO RECIPE! So that's where I put it..."}, -- Lam Esen's Tome
@@ -1235,7 +1260,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		
 		--                                                                                           EVENTS
 		{ -- Event Boxes notification and style
-            code = "Ev0",
+            code = "Ev03",
             notify = "{purple}Event Box!",
 			name_override = "Gamba Box!",
 			background = {46, 47, 67, 230},
@@ -1243,15 +1268,13 @@ allowOverrides = true, -- Necessary, do not turn off.
 			notify = "{red}Edyrem: {white}Is for me?",
             name_style = "Rainbow"
         },
-		{ -- Candy Corn
-			code = "Ev1",
-			notify = "{orange}A slice of Heaven (￣▽￣)"
-		},
-		{ -- Cornucopia
-				code = "Ev8",
-				notify = "{red}Edyrem: {white}You don't want that? I can take it."
+		{ -- Stocking Stuffer
+			code = "Ev04",
+			notify = "{orange}Stocking Stuffer (￣▽￣)"
 		},
 
+
+		
 		
 		
 		--                                                                                            Color Dyes
