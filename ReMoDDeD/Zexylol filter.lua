@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.08
+--- Filter Title: Zexylol's Hardfilter v1.09
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nIf you like seeing loot alot of loot, DO NOT USE THIS FILTER. \nYou will see Set, Unique, rare(amu/ring/jewels), Magic (Charms). \nAs for bases..... ONLY PERFECT ROLLED SUPERIORS.... \nMight be some items ive missed to hide or add to notify.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -24,14 +24,31 @@ return {
 			--filter_levels = "1,2,3"
 		},
 	
-		{ --Thanksgiving Items
+		{ --Snowballs
+ 			codes = { "Ev00", "Ev01", "Ev02" },
+ 			location = { "onground" },
+            notify = "ÿc;Throwing time!!",
+			filter_levels = "1,2,3"
+		},
+		{ --Cube items
+ 			codes = { "Ev03", "Ev04"},
+ 			location = { "onground" },
+            notify = "ÿc;Cube?",
+			filter_levels = "1,2,3"
+		},
+        { --Potions
+ 			codes = { "Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10"},
+ 			location = { "onground" },
+            notify = "ÿc;Drink me!",
+			filter_levels = "1,2,3"
+		},
+--[[		{ --Thanksgiving Items
  			codes = { "Ev1", "Ev2", "Ev3", "Ev4", "Ev5", "Ev6", "Ev7", "Ev8", "elx" },
  			location = { "onground" },
             notify = "ÿc;YUMMY PIE!",
 			filter_levels = "1,2,3"
 		},
-
-
+]]--
 
 --[[				Rule 1-9 shows sockets, runewords, tempered, crafted, low/mid/hi/ultra runes, tempering souls.
 ]]--	
@@ -3775,6 +3792,1692 @@ return {
     suffix = "\n {red} MAXED STATS",
     filter_levels = "1,2,3"
 },
-	
+{
+  codes = "allitems",
+  quality = "7",
+  index = 141, -- Hone Sundan
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 194, op = "==", value = 3 },    -- Socketed (3)
+    --{ index = 22,  op = "==", value = 40 },   -- Adds 20–40 Damage
+    { index = 136, op = "==", value = 15 },   -- 5–15% Chance of Crushing Blow
+    --{ index = 252, op = "==", value = 10 },   -- Repairs 10 durability per second
+    --{ index = 25,  op = "==", value = 200 },  -- +160–200% Enhanced Damage
+    { index = 34,  op = "==", value = 8 },    -- Damage Reduced by 4–8
+    { index = 35,  op = "==", value = 8 },    -- Magic Damage Reduced by 4–8
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 142, -- Spire of Honor
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 119, op = "==", value = 25 },           -- 25% Bonus to Attack Rating
+    --{ index = 89,  op = "==", value = 3 },            -- +3 to Light Radius
+    --{ index = 74,  op = "==", value = 20 },           -- Replenish Life +20
+    --{ index = 99,  op = "==", value = 20 },           -- +20% Faster Hit Recovery
+    --{ index = 22,  op = "==", value = 40 },           -- Adds 20–40 Damage
+    { index = 243, op = "==", value = 12 },            -- +1.5% Damage to Demons (Based on Character Level)
+    --{ index = 25,  op = "==", value = 200 },          -- +150–200% Enhanced Damage
+    --{ index = 188,  op = "==", param = 24, value = 3 }, -- +3 to Combat Skills (Paladin Only)
+    --{ index = 31,  op = "==", value = 125 },          -- +125 Defense
+    { index = 34,  op = "==", value = 10 },           -- Damage Reduced by 6–10
+    { index = 35,  op = "==", value = 10 },           -- Magic Damage Reduced by 6–10
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 143, -- The Meat Scraper
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 200 },          -- +150–200% Enhanced Damage
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 60,  op = "==", value = 10 },           -- 10% Life stolen per hit
+    { index = 135, op = "==", value = 40 },           -- 15–40% Chance of Open Wounds
+    --{ index = 80,  op = "==", value = 25 },           -- 25% Better Chance of Getting Magic Items
+    --{ index = 188, op = "==", param = 33, value = 3 }, -- +3 to War Masteries (Barbarian Only)
+    { index = 34,  op = "==", value = 10 },           -- Damage Reduced by 5–10
+    { index = 35,  op = "==", value = 10 },           -- Magic Damage Reduced by 5–10
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 144, -- Blackleach Blade
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 91,  op = "==", value = -25 },          -- Requirements -25%
+    --{ index = 198, op = "==", param = 455, value = 5 },            -- 5% Chance to cast level 5 Weaken on striking
+    --{ index = 89,  op = "==", value = -2 },           -- -2 to Light Radius
+    --{ index = 60,  op = "==", value = 8 },            -- 8% Life stolen per hit
+    --{ index = 218, op = "==", value = 8*1.25 },            -- +1.25 to Maximum Damage (Based on Character Level)
+    --{ index = 25,  op = "==", value = 140 },          -- +100–140% Enhanced Damage
+    { index = 34,  op = "==", value = 7 },            -- Damage Reduced by 3–7
+    { index = 35,  op = "==", value = 7 },            -- Magic Damage Reduced by 3–7
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 145, -- Athena's Wrath
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 83,  op = "==", param = 2, value = 3 }, -- +1–3 to Necromancer Skill Levels
+    --{ index = 2,   op = "==", value = 15 },           -- +15 to Dexterity
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 216, op = "==", value = 2048*1.0 },            -- +1.0 to Life (Based on Character Level)
+    --{ index = 218, op = "==", value = 8*1.0 },            -- +1.0 to Maximum Damage (Based on Character Level)
+    --{ index = 25,  op = "==", value = 180 },          -- +150–180% Enhanced Damage
+    { index = 332, op = "==", value = 15 },           -- +8–15% to Poison Skill Damage
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 146, -- Pierre Tombale Couant
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 141, op = "==", value = 40 },           -- 15–40% Deadly Strike
+    --{ index = 225, op = "==", value = 2*0.5 },            -- 0.5% Bonus to Attack Rating (Based on Character Level)
+    --{ index = 99,  op = "==", value = 30 },           -- +30% Faster Hit Recovery
+    --{ index = 60,  op = "==", value = 6 },            -- 6% Life stolen per hit
+    --{ index = 22,  op = "==", value = 20 },           -- Adds 12–20 Damage
+    --{ index = 25,  op = "==", value = 220 },          -- +160–220% Enhanced Damage
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    { index = 34,  op = "==", value = 8 },            -- Damage Reduced by 2–8
+    { index = 35,  op = "==", value = 8 },            -- Magic Damage Reduced by 2–8
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 147, -- Husoldal Evo
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 74,  op = "==", value = 20 },           -- Replenish Life +20
+    { index = 19,  op = "==", value = 250 },          -- +200–250 to Attack Rating
+    --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
+    --{ index = 22,  op = "==", value = 32 },           -- Adds 20–32 Damage
+    --{ index = 25,  op = "==", value = 200 },          -- +160–200% Enhanced Damage
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    { index = 34,  op = "==", value = 8 },            -- Damage Reduced by 5–8
+    { index = 35,  op = "==", value = 8 },            -- Magic Damage Reduced by 5–8
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 148, -- Grim's Burning Dead
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 48,  op = "==", value = 232 },          -- Adds 131–232 Fire Damage
+    --{ index = 39,  op = "==", value = 45 },           -- Fire Resist +45%
+    --{ index = 25,  op = "==", value = 180 },          -- +140–180% Enhanced Damage
+    --{ index = 78,  op = "==", value = 8 },            -- Attacker Takes Damage of 8
+    --{ index = 91,  op = "==", value = -50 },          -- Requirements -50%
+    --{ index = 83,  op = "==", param = 2, value = 3 }, -- +3 to Necromancer Skill Levels
+    --{ index = 116, op = "==", value = -50 },          -- -50% Target Defense
+    --{ index = 31,  op = "==", value = 160 },          -- +160 Defense
+    { index = 19,  op = "==", value = 250 },          -- +200–250 to Attack Rating
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 149, -- Razorswitch
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 105, op = "==", value = 30 },           -- +30% Faster Cast Rate
+    --{ index = 78,  op = "==", value = 15 },           -- Attacker Takes Damage of 15
+    --{ index = 9,   op = "==", value = 256*175 },          -- +175 to Mana
+    --{ index = 7,   op = "==", value = 256*80 },           -- +80 to Life
+    --{ index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 15
+    --{ index = 39,  op = "==", value = 50 },           -- All Resistances +50
+    { index = 127, op = "==", value = 2 },            -- +1–2 to All Skills
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 150, -- Ribcracker
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 22,  op = "==", value = 65 },           -- Adds 30–65 Damage
+    --{ index = 25,  op = "==", value = 300 },          -- +200–300% Enhanced Damage
+    { index = 136, op = "==", value = 30 },           -- 15–30% Chance of Crushing Blow
+    --{ index = 2,   op = "==", value = 15 },           -- +15 to Dexterity
+    --{ index = 31,  op = "==", value = 100 },          -- +100 Defense
+    --{ index = 16,  op = "==", value = 100 },          -- +100% Enhanced Defense
+    --{ index = 99,  op = "==", value = 50 },           -- +50% Faster Hit Recovery
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    --{ index = 75,  op = "==", value = 100 },          -- Improves Durability by 100
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 151, -- Chromatic Ire
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 83,  op = "==", param = 1, value = 3 }, -- +3 to Sorceress Skill Levels
+    { index = 39,  op = "==", value = 40 },           -- All Resistances +20–40
+    --{ index = 105, op = "==", value = 30 },           -- +30% Faster Cast Rate
+    --{ index = 128, op = "==", value = 20 },           -- Attacker Takes Lightning Damage of 20
+    { index = 76,  op = "==", value = 25 },           -- Increase Maximum Life by 20–25%
+    { index = 107, op = "==", param = 61, value = 3 },-- +1–3 to Fire Mastery (Sorceress only)
+    { index = 107, op = "==", param = 63, value = 3 },-- +1–3 to Lightning Mastery (Sorceress only)
+    { index = 107, op = "==", param = 65, value = 3 },-- +1–3 to Cold Mastery (Sorceress only)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 152, -- Warpspear
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 83,  op = "==", param = 1, value = 2 }, -- +2 to Sorceress Skill Levels
+    --{ index = 115, op = "==", value = 1 },            -- Ignore Target's Defense
+    --{ index = 107, op = "==", param = 54, value = 3 },-- +3 to Discharge (Sorceress only)
+    --{ index = 107, op = "==", param = 42, value = 3 },-- +3 to Static Field (Sorceress only)
+    --{ index = 107, op = "==", param = 58, value = 3 },-- +3 to Energy Shield (Sorceress only)
+    --{ index = 32,  op = "==", value = 250 },          -- +250 Defense vs. Missile
+    --{ index = 25,  op = "==", value = 225 },          -- +175–225% Enhanced Damage
+    { index = 93,  op = "==", value = 60 },           -- +40–60% Increased Attack Speed
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 153, -- Skull Collector
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 77,  op = "==", value = 20 },           -- Increase Maximum Mana by 20%
+    --{ index = 138, op = "==", value = 20 },           -- +20 to Mana after each Kill
+    --{ index = 127, op = "==", value = 2 },            -- +2 to All Skills
+    --{ index = 240, op = "==", value = 8*1.0 },            -- 1.0% Better Chance of Getting Magic Items (Based on Character Level)
+    --{ index = 105, op = "==", value = 60 },           -- +60% Faster Cast Rate
+    --{ index = 198, op = "==", value = 15 },           -- 5% Chance to cast level 15 Bone Spirit on attack
+    --{ index = 201, op = "==", value = 10 },           -- 2% Chance to cast level 10 Bone Prison when struck
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 154, -- Skystrike
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 50,  op = "==", value = 250 },          -- Adds 1–250 Lightning Damage
+    --{ index = 19,  op = "==", value = 100 },          -- +100 to Attack Rating
+    --{ index = 1,   op = "==", value = 10 },           -- +10 to Energy
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 25,  op = "==", value = 200 },          -- +150–200% Enhanced Damage
+    --{ index = 198, op = "==", value = 6 },            -- 2% Chance to cast level 6 Meteor on striking
+    --{ index = 83,  op = "==", param = 1, value = 1 }, -- +1 to Amazon Skill Levels
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 155, -- Riphook
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 135, op = "==", value = 30 },           -- 15–30% Chance of Open Wounds
+    --{ index = 25,  op = "==", value = 220 },          -- +180–220% Enhanced Damage
+    --{ index = 150, op = "==", value = 30 },           -- Slows Target by 30%
+    --{ index = 9,   op = "==", value = 256*35 },           -- +35 to Mana
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    { index = 60,  op = "==", value = 10 },           -- 7–10% Life stolen per hit
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 156, -- Kuko Shakaku
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 107, op = "==", param = 27, value = 3 }, -- +3 to Curtain of Fire (Amazon only)
+    --{ index = 107, op = "==", param = 16, value = 5 }, -- +5 to Exploding Arrow (Amazon only)
+    --{ index = 25,  op = "==", value = 180 },           -- +150–180% Enhanced Damage
+    --{ index = 156, op = "==", value = 50 },            -- +50% Piercing Attack
+    --{ index = 48,  op = "==", value = 180 },           -- Adds 40–180 Fire Damage
+    --{ index = 188, op = "==", param = 0, value = 3 },  -- +3 to Bow and Crossbow Skills (Amazon only)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 157, -- Endlesshail
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 43,  op = "==", value = 35 },            -- Cold Resist +35%
+    --{ index = 9,   op = "==", value = 256*40 },            -- +40 to Mana
+    --{ index = 32,  op = "==", value = 150 },           -- +150 Defense vs. Missile
+    { index = 107, op = "==", param = 21, value = 4 }, -- +1–4 to Hail of Arrows (Amazon only)
+    --{ index = 25,  op = "==", value = 220 },           -- +180–220% Enhanced Damage
+    --{ index = 54,  op = "==", value = 30 },            -- Adds 15–30 Cold Damage
+    { index = 335, op = "==", value = 20 },            -- -10–20% to Enemy Cold Resistance
+    { index = 187, op = "==", value = 10 },            -- Enemy cold immunity reduced by 5–10%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 158, -- Witchwild String
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 198, op = "==", value = 5 },            -- 2% Chance to cast level 5 Amplify Damage on striking
+    --{ index = 39,  op = "==", value = 40 },           -- All Resistances +40
+    --{ index = 250, op = "==", value = 8*1.0 },            -- 1.0% Deadly Strike (Based on Character Level)
+    --{ index = 25,  op = "==", value = 170 },          -- +150–170% Enhanced Damage
+    { index = 107, op = "==", param = 7, value = 7 }, -- +3–7 to Prismatic Arrow (Amazon only)
+    --{ index = 194, op = "==", value = 2 },            -- Socketed (2)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 159, -- Cliffkiller
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 83,  op = "==", param = 1, value = 2 }, -- +2 to Amazon Skill Levels
+    --{ index = 25,  op = "==", value = 230 },          -- +190–230% Enhanced Damage
+    { index = 32,  op = "==", value = 280 },          -- +180–280 Defense vs. Missile
+    --{ index = 7,   op = "==", value = 256*50 },           -- +50 to Life
+    --{ index = 22,  op = "==", value = 30 },           -- Adds 5/10–20/30 Damage
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 160, -- Magewrath
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 62,  op = "==", value = 15 },           -- 15% Mana stolen per hit
+    { index = 35,  op = "==", value = 13 },           -- Magic Damage Reduced by 9–13
+    --{ index = 107, op = "==", param = 22, value = 3 },-- +3 to Guided Arrow (Amazon only)
+    { index = 19,  op = "==", value = 250 },          -- +200–250 to Attack Rating
+    --{ index = 2,   op = "==", value = 10 },           -- +10 to Dexterity
+    --{ index = 113, op = "==", value = 1 },            -- Hit Blinds Target +1
+    --{ index = 22,  op = "==", value = 50 },           -- Adds 25–50 Damage
+    --{ index = 25,  op = "==", value = 150 },          -- +120–150% Enhanced Damage
+    --{ index = 83,  op = "==", param = 1, value = 1 }, -- +1 to Amazon Skill Levels
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 161, -- Goldstrike Arch
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 250 },          -- +200–250% Enhanced Damage
+    { index = 119, op = "==", value = 150 },          -- 100–150% Bonus to Attack Rating
+    { index = 122, op = "==", value = 200 },          -- +100–200% Damage to Undead
+    { index = 121, op = "==", value = 200 },          -- +100–200% Damage to Demons
+    --{ index = 198, op = "==", value = 7 },            -- 5% Chance to cast level 7 Fist of the Heavens on striking
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    --{ index = 74,  op = "==", value = 12 },           -- Replenish Life +12
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 162, -- Langer Briser
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 200 },          -- +170–200% Enhanced Damage
+    { index = 80,  op = "==", value = 60 },           -- 30–60% Better Chance of Getting Magic Items
+    --{ index = 7,   op = "==", value = 256*80 },           -- +30 to Life
+    --{ index = 22,  op = "==", value = 30 },           -- +10–30 to Maximum Damage
+    --{ index = 135, op = "==", value = 20 },           -- 20% Chance of Open Wounds
+    --{ index = 50,  op = "==", value = 1 },            -- Adds 1 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 212 },          -- Adds 212 Lightning Damage (max)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 163, -- Pus Spitter
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 57,  op = "==", value = 150 },          -- +150 Poison Damage (min) over 8s
+    --{ index = 58,  op = "==", value = 150 },          -- +150 Poison Damage (max) over 8s
+    --{ index = 59,  op = "==", value = 8 },            -- Poison length 8 seconds
+    --{ index = 198, op = "==", value = 1 },            -- 4% Chance to cast level 1 Lower Resist on striking
+    --{ index = 127, op = "==", value = 2 },            -- +2 to All Skills
+    --{ index = 91,  op = "==", value = -60 },          -- Requirements -60%
+    --{ index = 198, op = "==", value = 6 },            -- 9% Chance to cast level 6 Poison Nova when struck
+    --{ index = 93,  op = "==", value = 10 },           -- +10% Increased Attack Speed
+    --{ index = 224, op = "==", value = 5 },            -- +5 Attack Rating (per level)
+    --{ index = 25,  op = "==", value = 220 },          -- +150–220% Enhanced Damage
+    { index = 107, op = "==", param = 278, value = 4}   -- +1-4 to Venom (Assassin only)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 164, -- Buriza-Da Kyanon
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 156, op = "==", value = 100 },          -- +100% Piercing Attack
+    --{ index = 2,   op = "==", value = 35 },           -- +35 to Dexterity
+    { index = 31,  op = "==", value = 150 },          -- +75–150 Defense
+    --{ index = 218, op = "==", value = 2 },            -- +2.5 to Maximum Damage (per level)
+    --{ index = 93,  op = "==", value = 80 },           -- +80% Increased Attack Speed
+    --{ index = 25,  op = "==", value = 200 },          -- +150–200% Enhanced Damage
+    --{ index = 134, op = "==", value = 1 },            -- Freezes target
+    --{ index = 54,  op = "==", value = 32 },           -- Adds 32 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 196 },          -- Adds 196 Cold Damage (max)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 165, -- Demon Machine
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index =  , op = "==", value =  },               -- 100% Chance to Cast Level 12 Fire Blast on Striking
+    --{ index = 156, op = "==", value = 66 },           -- +66% Piercing Attack
+    --{ index = 22,  op = "==", value = 80 },           -- ? +50-80 to Maximum Damage
+    --{ index = 25,  op = "==", value = 150 },          -- ? +100-150% Enhanced Damage
+    --{ index = 19,  op = "==", value = 600 },          -- +600 to Attack Rating
+    { index = 121, op = "==", value = 200 },          -- ? +100-200% Damage to Demons
+    { index = 278, op = "==", value = 2 },            -- +1-2 Combat Power
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 166, -- Untrained Eye
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 50 },           -- +50% Enhanced Damage
+    --{ index = 22,  op = "==", value = 6 },            -- +3–6 to Maximum Damage
+    --{ index = 19,  op = "==", value = 40 },           -- +40 to Attack Rating
+    --{ index = 113, op = "==", value = 2 },            -- Hit Blinds Target +2
+    --{ index = 93,  op = "==", value = 10 },           -- +10% Increased Attack Speed
+    { index = 96,  op = "==", value = 20 },           -- +10–20% Faster Run/Walk
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 167, -- Redemption
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 22,  op = "==", value = 10 },           -- Adds 5–10 Damage
+    { index = 62,  op = "==", value = 8 },            -- 5–8% Mana stolen per hit
+    --{ index = 96,  op = "==", value = 10 },           -- +10% Faster Run/Walk
+    --{ index = 116, op = "==", value = -33 },          -- -33% Target Defense
+    --{ index = 188, op = "==", param = 50, value = 1 },-- +1 to Deadly Arts (Assassin Only)
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    --{ index = 151, op = "==", param = 381, value = 2 },            -- Level 2 Redemption Aura When Equipped
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 168, -- Ancient Hand
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 21,  op = "==", value = 9 },            -- +9 to Minimum Damage
+    --{ index = 138, op = "==", value = 2 },            -- +2 to Mana after each Kill
+    --{ index = 194, op = "==", value = 2 },            -- Socketed (2)
+    --{ index = 37,  op = "==", value = 10 },           -- Magic Resist +10%
+    --{ index = 52,  op = "==", value = 6 },            -- Adds 6 Magic Damage (min)
+    --{ index = 53,  op = "==", value = 8 },            -- Adds 8 Magic Damage (max)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 169, -- Willbreaker
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 112, op = "==", value = 25 },           -- Hit Causes Monster to Flee 25%
+    --{ index = 25,  op = "==", value = 85 },           -- +55–85% Enhanced Damage
+    --{ index = 96,  op = "==", value = 20 },           -- +20% Faster Run/Walk
+    --{ index = 50,  op = "==", value = 1 },            -- Adds 1 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 25 },           -- Adds 25 Lightning Damage (max)
+    --{ index = 48,  op = "==", value = 6 },            -- Adds 6 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 9 },            -- Adds 9 Fire Damage (max)
+    --{ index = 136, op = "==", value = 15 },           -- 15% Chance of Crushing Blow
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 170, -- Skyfall Grip
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 198, op = "==", value = 3 },            -- 4% Chance to cast level 3 Meteor on striking
+    --{ index = 198, op = "==", value = 4 },            -- 2% Chance to cast level 4 Fist of the Heavens on striking
+    --{ index = 25,  op = "==", value = 85 },           -- +85% Enhanced Damage
+    --{ index = 31,  op = "==", value = 40 },           -- +40 Defense
+    --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
+    --{ index = 150, op = "==", value = 20 },           -- Slows Target by 20%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 171, -- Oathbinder
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 83,  op = "==", param = 6, value = 1 }, -- +1 to Assassin Skill Levels
+    --{ index = 225, op = "==", value = 2*2 },            -- 2.0% Bonus to Attack Rating (per level)
+    --{ index = 121, op = "==", value = 100 },          -- +100% Damage to Demons
+    --{ index = 22,  op = "==", value = 15 },           -- Adds 10–15 Damage
+    --{ index = 25,  op = "==", value = 80 },           -- +80% Enhanced Damage
+    --{ index = 152, op = "==", value = 1 },            -- Ethereal / Indestructible
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 172, -- Pride's Fan
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 90 },           -- +90% Enhanced Damage
+    { index = 97, op = "==", param = 280, value = 3 },-- +1–3 to Phoenix Strike
+    { index = 139, op = "==", value = 10 },           -- +6–10 Life after each Demon Kill
+    { index = 396, op = "==", value = 2 },            -- 1–2 Mana restored per hit
+    --{ index = 93,  op = "==", value = 10 },           -- +10% Increased Attack Speed
+    { index = 150, op = "==", value = 40 },           -- Slows Target by 20–40%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 173, -- Burning Sun
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 150 },          -- +110–150% Enhanced Damage
+    { index = 97, op = "==", param = 259, value = 3 },-- +2–3 to Fists of Fire
+    { index = 333, op = "==", value = 25 },           -- -10–25% to Enemy Fire Resistance
+    { index = 0,   op = "==", value = 15 },           -- +6–15 to all Attributes
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    { index = 135, op = "==", value = 25 },           -- 10–25% Chance of Open Wounds
+    --{ index = 48,  op = "==", value = 60 },           -- Adds 60 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 123 },          -- Adds 123 Fire Damage (max)
+    { index = 60,  op = "==", value = 5 },            -- 3–5% Life stolen per hit
+    { index = 62,  op = "==", value = 5 },            -- 3–5% Mana stolen per hit
+    { index = 189, op = "==", value = 10 },           -- Enemy fire immunity reduced by 5–10%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 174, -- Severance
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 100 },          -- +100% Enhanced Damage
+    --{ index = 22,  op = "==", value = 35 },           -- Adds 20–35 Damage
+    { index = 33,  op = "==", value = 175 },          -- +100–175 Defense vs. Melee
+    --{ index = 102, op = "==", value = 20 },           -- +20% Faster Block Rate
+    --{ index = 188, op = "==", param = 49, value = 2 },-- +2 to Shadow Disciplines (Assassin Only)
+    { index = 396, op = "==", value = 5 },            -- 3–5 Mana restored per hit
+    --{ index = 91,  op = "==", value = -20 },          -- Requirements -20%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 175, -- Hand of Madness
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 210 },          -- +140–210% Enhanced Damage
+    --{ index = 198, op = "==", value = 5 },            -- 5% Chance to cast level 5 Mind Blast on striking
+    --{ index = 198, op = "==", value = 3 },            -- 2% Chance to cast level 3 Confuse on striking
+    --{ index = 155, op = "==", value = 10 },           -- 10% Reanimate As: (monster type)
+    { index = 93,  op = "==", value = 50 },           -- +40–50% Increased Attack Speed
+    --{ index = 21,  op = "==", value = 15 },           -- +8–15 to Minimum Damage
+    { index = 107, op = "==", param = 278, value = 6 },-- +3–6 to Venom (Assassin only)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 176, -- Vanquisher
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 152, op = "==", value = 1 },            -- Ethereal / Indestructible
+    { index = 188, op = "==", param = 48, value = 3 },-- +1–3 to Traps (Assassin Only)
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 97, op = "==", param = 267, value = 3 },-- +3 to Fade
+    { index = 97, op = "==", param = 262, value = 2 },-- +1–2 to Wake of Fire
+    { index = 329, op = "==", value = 20 },           -- +5–20% to Fire Skill Damage
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 177, -- Wind-Forged Blade
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 120 },          -- +100–120% Enhanced Damage
+    --{ index = 198, op = "==", value = 10 },           -- 5% Chance to cast level 10 Twister on attack
+    --{ index = 198, op = "==", value = 10 },           -- 1% Chance to cast level 10 Tornado on striking
+    --{ index = 97, op = "==", param = 151, value = 2 },-- +2 to Whirlwind
+    { index = 97, op = "==", param = 269, value = 3 },-- +2–3 to Claws of Thunder
+    { index = 97, op = "==", param = 235, value = 4 },-- +0–4 to Cyclone Armor
+    --{ index = 96,  op = "==", value = 20 },           -- +20% Faster Run/Walk
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 178, -- Bartuc's Cut-Throat
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 83,  op = "==", param = 6, value = 2 }, -- +2 to Assassin Skill Levels
+    --{ index = 188, op = "==", param = 50, value = 1 },-- +1 to Deadly Arts (Assassin Only)
+    --{ index = 25,  op = "==", value = 200 },          -- +150–200% Enhanced Damage
+    --{ index = 99,  op = "==", value = 30 },           -- +30% Faster Hit Recovery
+    --{ index = 119, op = "==", value = 20 },           -- 20% Bonus to Attack Rating
+    --{ index = 0,   op = "==", value = 20 },           -- +20 to Strength
+    --{ index = 2,   op = "==", value = 20 },           -- +20 to Dexterity
+    { index = 60,  op = "==", value = 9 },            -- 5–9% Life stolen per hit
+    --{ index = 22,  op = "==", value = 50 },           -- Adds 25–50 Damage
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 179, -- Void Ripper
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 198, op = "==", value = 498 },          -- 25% Chance to cast level 5 Void Release on Kill
+    --{ index = 113, op = "==", value = 3 },            -- Hit Blinds Target +3
+    --{ index = 150, op = "==", value = 15 },           -- Slows Target by 15%
+    --{ index = 25,  op = "==", value = 260 },          -- +260% Enhanced Damage
+    { index = 119, op = "==", value = 40 },           -- 15–40% Bonus to Attack Rating
+    --{ index = 97, op = "==", param = 277, value = 3 },-- +3 to Blade Shield
+    { index = 0,   op = "==", value = 15 },           -- +5–15 to all Attributes
+    --{ index = 62,  op = "==", value = 6 },            -- 6% Mana stolen per hit
+    --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 180, -- Soul-Forged Grip
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +200–240% Enhanced Damage
+    { index = 151, op = "==", param = 381, value = 10 },           -- Level 6–10 Redemption Aura When Equipped
+    --{ index = 396, op = "==", value = 5 },            -- Mana gained per hit
+    --{ index = 397, op = "==", value = 5 },            -- Life gained per hit
+    --{ index = 135, op = "==", value = 15 },           -- 15% Chance of Open Wounds
+    { index = 19,  op = "==", value = 475 },          -- +200–475 to Attack Rating
+    { index = 83,  op = "==", param = 6, value = 3 }, -- +1–3 to Assassin Skill Levels
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 181, -- Jade Talon
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +190–240% Enhanced Damage
+    { index = 62,  op = "==", value = 15 },           -- 10–15% Mana stolen per hit
+    { index = 39,  op = "==", value = 50 },           -- All Resistances +40–50
+    --{ index = 99,  op = "==", value = 30 },           -- +30% Faster Hit Recovery
+    { index = 188, op = "==", param = 49, value = 2 },-- +1–2 to Shadow Disciplines (Assassin Only)
+    { index = 188, op = "==", param = 50, value = 2 },-- +1–2 to Deadly Arts (Assassin Only)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 182, -- Malignant Touch
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 260 },          -- +260% Enhanced Damage
+    --{ index = 82,  op = "==", value = 1 },            -- Area Effect
+    --{ index = 97, op = "==", param = 259, value = 3 },-- +3 to Fists of Fire
+    { index = 97, op = "==", param = 280, value = 3 },-- +1–3 to Phoenix Strike
+    --{ index = 97, op = "==", param = 265, value = 3 },-- +3 to Tiger Strike
+    --{ index = 134, op = "==", value = 1 },            -- Freezes target
+    { index = 74,  op = "==", value = 15 },           -- Replenish Life +10–15
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 183, -- Shadow Killer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 220 },          -- +170–220% Enhanced Damage
+    --{ index = 116, op = "==", value = -25 },          -- -25% Target Defense
+    --{ index = 134, op = "==", value = 1 },            -- Freezes target
+    { index = 138, op = "==", value = 15 },           -- +10–15 Mana after each Kill
+    --{ index = 198, op = "==", value = 8 },            -- 33% Chance to cast level 8 Frost Nova on striking
+    --{ index = 152, op = "==", value = 1 },            -- Ethereal / Indestructible
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 184, -- Firelizard's Talons
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 270 },          -- +200–270% Enhanced Damage
+    --{ index = 93,  op = "==", value = 15 },           -- +15% Increased Attack Speed
+    { index = 188, op = "==", param = 50, value = 3 },-- +1–3 to Deadly Arts (Assassin Only)
+    --{ index = 48,  op = "==", value = 236 },          -- Adds 236 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 480 },          -- Adds 480 Fire Damage (max)
+    { index = 39,  op = "==", value = 70 },           -- Fire Resist +40–70%
+    { index = 107, op = "==", param = 262, value = 2 },-- +1–2 to Wake of Fire (Assassin only)
+    { index = 107, op = "==", param = 251, value = 2 },-- +1–2 to Fire Blast (Assassin only)
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 185, -- Viz-Jaq'taar Order
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 91,  op = "==", value = -50 },          -- Requirements -50%
+    { index = 107, op = "==", param = 264, value = 6 },-- +4–6 to Cloak of Shadows (Assassin only)
+    { index = 188, op = "==", param = 48, value = 4 },-- +2–4 to Traps (Assassin Only)
+    { index = 39,  op = "==", value = 25 },           -- All Resistances +5–25
+    --{ index = 99,  op = "==", value = 24 },           -- +24% Faster Hit Recovery
+    --{ index = 31,  op = "==", value = 100 },          -- +100 Defense
+    { index = 0,   op = "==", value = 35 },           -- +20–35 to Strength
+    { index = 93,  op = "==", value = 50 },           -- +20–50% Increased Attack Speed
+    { index = 86,  op = "==", value = 25 },           -- +5–25 Life after each Kill
+    { index = 329, op = "==", value = 25 },           -- +10–25% to Fire Skill Damage
+    { index = 331, op = "==", value = 25 },           -- +10–25% to Cold Skill Damage
+    { index = 330, op = "==", value = 25 },           -- +10–25% to Lightning Skill Damage
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 186, -- Mage Crusher
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +210–240% Enhanced Damage
+    --{ index = 93,  op = "==", value = 40 },           -- +40% Increased Attack Speed
+    --{ index = 96,  op = "==", value = 40 },           -- +40% Faster Run/Walk
+    { index = 39,  op = "==", value = 30 },           -- All Resistances +10–30
+    { index = 119, op = "==", value = 120 },          -- 90–120% Bonus to Attack Rating
+    { index = 127, op = "==", value = 3 },            -- +1–3 to All Skills
+    { index = 138, op = "==", value = 20 },           -- +10–20 to Mana after each Kill
+    { index = 397, op = "==", value = 6 },            -- 3–6 Life restored per hit
+    { index = 121, op = "==", value = 200 },          -- +100–200% Damage to Demons
+    { index = 123, op = "==", value = 200 },          -- +180–200 to Attack Rating against Demons
+    --{ index = 198, op = "==", value = 1 },            -- 5% Chance to cast level 1 Mage Crush on attack
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 187, -- Razor's Edge
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 175 },          -- +175–225% Enhanced Damage
+    --{ index = 93,  op = "==", value = 40 },           -- +40% Increased Attack Speed
+    --{ index = 116, op = "==", value = -33 },          -- -33% Target Defense
+    --{ index = 141, op = "==", value = 10 },           -- 10% Deadly Strike
+    { index = 135, op = "==", value = 15 },           -- 5–15% Chance of Open Wounds
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 188, -- Glittering Crescent
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 52,  op = "==", value = 45 },           -- +38/45 Magic Damage (min)
+    --{ index = 53,  op = "==", value = 67 },           -- +60/67 Magic Damage (max)
+    --{ index = 48,  op = "==", value = 45 },           -- +38/45 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 67 },           -- +60/67 Fire Damage (max)
+    { index = 141, op = "==", value = 10 },           -- 5–10% Deadly Strike
+    { index = 19,  op = "==", value = 250 },          -- +200–250 to Attack Rating
+    --{ index = 222,   op = "==", value = 8*0.375 },            -- +0.375 to Energy (per level)
+    --{ index = 25,  op = "==", value = 280 },          -- +215–280% Enhanced Damage
+    { index = 35,  op = "==", value = 12 },           -- Magic Damage Reduced by 8–12
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 189, -- Rune Master
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 270 },          -- +220–270% Enhanced Damage
+    --{ index = 194, op = "==", value = 5 },            -- Socketed (3–5)
+    --{ index = 44,  op = "==", value = 5 },            -- +5% to Maximum Cold Resist
+    --{ index = 153, op = "==", value = 1 },            -- Cannot Be Frozen
+    { index = 34,  op = "==", value = 12 },           -- Damage Reduced by 8–12
+    --{ index = 97, op = "==", param = 65, value = 1}     --+X to Cold Mastery 
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 190, -- Cranebeak
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 300 },          -- +240–300% Enhanced Damage
+    --{ index = 93,  op = "==", value = 40 },           -- +40% Increased Attack Speed
+    --{ index = 116, op = "==", value = -25 },          -- -25% Target Defense
+    { index = 80,  op = "==", value = 50 },           -- 20–50% Better Chance of Getting Magic Items
+    { index = 410, op = "==", value = 2 },             --+1-2 to Poison Skills
+    { index = 83,  op = "==", param = 2, value = 2 }, -- +1–2 to Necromancer Skill Levels
+    { index = 151, op = "==", param = 495, value = 25 },    --Level 17-25 Poison Conviction Aura When Equipped
+
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 191, -- Death Cleaver
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 280 },          -- +230–280% Enhanced Damage
+    --{ index = 141, op = "==", value = 33 },           -- 33% Deadly Strike
+    --{ index = 116, op = "==", value = -33 },          -- -33% Target Defense
+    --{ index = 93,  op = "==", value = 40 },           -- +40% Increased Attack Speed
+    { index = 86,  op = "==", value = 9 },            -- +6–9 Life after each Kill
+    { index = 34,  op = "==", value = 15 },           -- Damage Reduced by 10–15
+    { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 10–15
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 192, -- Blessed Beheader
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 21,  op = "==", value = 35 },           -- +25–35 to Minimum Damage
+    --{ index = 25,  op = "==", value = 270 },          -- +220–270% Enhanced Damage
+    { index = 141, op = "==", value = 20 },           -- 5–20% Deadly Strike
+    { index = 135, op = "==", value = 15 },           -- 5–15% Chance of Open Wounds
+    { index = 121, op = "==", value = 110 },          -- +100–110% Damage to Demons
+    { index = 122, op = "==", value = 110 },          -- +100–110% Damage to Undead
+    { index = 60,  op = "==", value = 7 },            -- 4–7% Life stolen per hit
+    { index = 123, op = "==", value = 200 },          -- +180–200 Attack Rating vs Demons
+    { index = 124, op = "==", value = 200 },          -- +180–200 Attack Rating vs Undead
+    { index = 34,  op = "==", value = 15 },           -- Damage Reduced by 10–15
+    { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 10–15
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 193, -- Ethereal Edge
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 280 },          -- +250–280% Enhanced Damage
+    --{ index = 93,  op = "==", value = 45 },           -- +45% Increased Attack Speed
+    { index = 143, op = "==", value = 12 },           -- +10–12 Fire Absorb
+    { index = 121, op = "==", value = 200 },          -- +150–200% Damage to Demons
+    { index = 139, op = "==", value = 10 },           -- +5–10 Life after each Demon Kill
+    { index = 19,  op = "==", value = 350 },          -- +270–350 Attack Rating
+    --{ index = 152, op = "==", value = 1 },            -- Indestructible
+    --{ index = 127, op = "==", value = 1 },            -- +1 to All Skills
+    { index = 34,  op = "==", value = 15 },           -- Damage Reduced by 10–15
+    { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 10–15
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 194, -- Hellslayer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 220, op = "==", value = 8*0.5 },            -- +0.5 Strength per level
+    --{ index = 223, op = "==", value = 8*0.5 },            -- +0.5 Vitality per level
+    --{ index = 219, op = "==", value = 8*3 },            -- +3% Enhanced Max Damage per level
+    --{ index = 48,  op = "==", value = 150 },          -- Adds 150 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 250 },          -- Adds 250 Fire Damage (max)
+    --{ index = 7,   op = "==", value = 256*25 },           -- +25 Life
+    --{ index = 25,  op = "==", value = 100 },          -- +100% Enhanced Damage
+    --{ index = 198, op = "==", value = 20 },           -- 10% Chance to cast Glacial Spike (lvl 18–20)
+    { index = 34,  op = "==", value = 16 },           -- Damage Reduced by 12–16
+    { index = 35,  op = "==", value = 16 },           -- Magic Damage Reduced by 12–16
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 195, -- Messerschmidt's Reaver
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 219, op = "==", value = 8*2.5 },            -- +2.5% Enhanced Max Damage per level
+    --{ index = 25,  op = "==", value = 200 },          -- +200% Enhanced Damage
+    --{ index = 0,   op = "==", value = 15 },           -- +15 to all Attributes
+    --{ index = 48,  op = "==", value = 20 },           -- Adds 20 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 240 },          -- Adds 240 Fire Damage (max)
+    --{ index = 252, op = "==", value = 25 },           -- Improves Durability by 25
+    --{ index = 119, op = "==", value = 100 },          -- 100% Bonus to Attack Rating
+    { index = 34,  op = "==", value = 16 },           -- Damage Reduced by 12–16
+    { index = 35,  op = "==", value = 16 },           -- Magic Damage Reduced by 12–16
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 196, -- Executioner's Justice
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 290 },          -- +240–290% Enhanced Damage
+    { index = 136, op = "==", value = 20 },           -- 10–20% Chance of Crushing Blow
+    --{ index = 116, op = "==", value = -33 },          -- -33% Target Defense
+    --{ index = 196, op = "==", value = 6 },            -- 50% Chance to cast level 6 Decrepify on Kill
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 197, -- Bane Glow
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 83,  op = "==", param = 2, value = 2 }, -- +1–2 to Necromancer Skill Levels
+    { index = 97, op = "==", param = 0, value = 3 },-- +1–3 to Attack
+    { index = 97, op = "==", param = 92, value = 3 },-- +1–3 to Poison Nova
+    --{ index = 97, op = "==", param = 91, value = 3 },-- +3 to Lower Resist
+    { index = 105, op = "==", value = 30 },           -- +25–30% Faster Cast Rate
+    { index = 332, op = "==", value = 30 },           -- +10–30% to Poison Skill Damage
+    { index = 336, op = "==", value = 15 },           -- -10–15% to Enemy Poison Resistance
+    { index = 191, op = "==", value = 15 },           -- Enemy poison immunity reduced by 5–15%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 198, -- Malthael Touch
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 83,  op = "==", param = 2, value = 2 }, -- +2 to Necromancer Skill Levels
+    --{ index = 283, op = "==", value = 1 },            -- +1 Summoning Power
+    { index = 284, op = "==", value = 40 },           -- Summon Max HP +25–40%
+    { index = 285, op = "==", value = 40 },           -- Summon Combat Rating +25–40%
+    { index = 281, op = "==", value = 40 },           -- Summon Damage +25-40%
+    --{ index = 97, op = "==", param = 69, value = 3 },-- +3 to Summon Mastery
+    { index = 188, op = "==", param = 18, value = 4 },-- +1–4 to Summoning Skills (Necromancer Only)
+    { index = 77,  op = "==", value = 35 },           -- Increase Maximum Mana by 25–35%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 199, -- Boneshade
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 83,  op = "==", param = 2, value = 2 }, -- +1–2 to Necromancer Skill Levels
+    --{ index = 105, op = "==", value = 25 },           -- +25% Faster Cast Rate
+    { index = 107, op = "==", param = 67, value = 5 },-- +4–5 to Teeth
+    { index = 107, op = "==", param = 68, value = 3 },-- +2–3 to Bone Armor
+    { index = 107, op = "==", param = 84, value = 3 },-- +2–3 to Bone Spear
+    { index = 107, op = "==", param = 93, value = 2 },-- +1–2 to Bone Spirit
+    { index = 97, op = "==", param = 161, value = 5 },-- +0–5 to Feeble Frame
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 200, -- Death's Web
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 127, op = "==", value = 2 },            -- +1–2 to All Skills
+    { index = 336, op = "==", value = 50 },           -- -40–50% to Enemy Poison Resistance
+    { index = 86,  op = "==", value = 12 },           -- +7–12 Life after each Kill
+    { index = 138, op = "==", value = 12 },           -- +7–12 Mana after each Kill
+    { index = 188, op = "==", param = 17, value = 2 },-- +1–2 to Poison and Bone Skills (Necromancer Only)
+    { index = 191, op = "==", value = 25 },           -- Enemy poison immunity reduced by 20–25%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 201, -- Nord's Tenderizer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = , op = "==", value = 5 },            -- 1% Chance to cast level 20 Blizzard on Striking
+    --{ index = 25,  op = "==", value = 250 },          -- +270–330%? Enhanced Damage
+    --{ index = 93,  op = "==", value = 45 },           -- +45% Increased Attack Speed
+    --{ index = 54,  op = "==", value = 205 },            -- Adds 205 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 455 },          -- Adds 455 Cold Damage (max)
+    { index = 148,  op = "==", value = 15 },          -- Cold Absorb 5-15%
+    { index = 119,  op = "==", value = 180 },         -- 150-180% Bonus to Attack Rating
+    --{ index = 83,  op = "==", param = 5, value = 1 },  -- +1 To Druid Skill Levels
+    { index = 151, op = "==", param = 103, value = 20 },-- Level 15-20 Thorns Aura When Equipped
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 202, -- Heaven's Light
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 300 },          -- +250–300% Enhanced Damage
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    --{ index = 116, op = "==", value = -33 },          -- -33% Target Defense
+    --{ index = 89,  op = "==", value = 3 },            -- +3 to Light Radius
+    { index = 139, op = "==", value = 20 },           -- +15–20 Life after each Demon Kill
+    --{ index = 136, op = "==", value = 5 },            -- 5% Chance of Crushing Blow
+    --{ index = 194, op = "==", value = 3 },            -- Socketed (1–3)
+    { index = 83,  op = "==", param = 3, value = 3 }, -- +2–3 to Paladin Skill Levels
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 203, -- The Redeemer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 300 },          -- +250–300% Enhanced Damage
+    { index = 121, op = "==", value = 250 },          -- +200–250% Damage to Demons
+    --{ index = 83,  op = "==", param = 3, value = 2 }, -- +2 to Paladin Skill Levels
+    --{ index = 91,  op = "==", value = -60 },          -- Requirements -60%
+    { index = 107, op = "==", param = 118, value = 4 },-- +2–4 to Holy Shock (Paladin only)
+    { index = 107, op = "==", param = 101, value = 4 },-- +2–4 to Holy Bolt (Paladin only)
+    --{ index = 89,  op = "==", value = 3 },            -- +3 to Light Radius
+    --{ index = 116, op = "==", value = -33 },          -- -33% Target Defense
+    { index = 111,  op = "==", value = 120 },          -- Damage +60–120
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 204, -- Astreon's Iron Ward
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 290 },          -- +240–290% Enhanced Damage
+    --{ index = 150, op = "==", value = 25 },           -- Slows Target by 25%
+    { index = 119, op = "==", value = 200 },          -- +150–200% Bonus to Attack Rating
+    --{ index = 93,  op = "==", value = 10 },           -- +10% Increased Attack Speed
+    --{ index = 52,  op = "==", value = 80 },           -- Adds 80 Magic Damage (min)
+    --{ index = 53,  op = "==", value = 240 },          -- Adds 240 Magic Damage (max)
+    { index = 34,  op = "==", value = 7 },            -- Damage Reduced by 4–7
+    { index = 111,  op = "==", value = 85 },           -- Damage +40–85
+    { index = 188, op = "==", param = 24, value = 4 },-- +2–4 to Combat Skills (Paladin Only)
+    --{ index = 136, op = "==", value = 10 },           -- 10% Chance of Crushing Blow
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 205, -- Demon Limb
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 230 },          -- +180–230% Enhanced Damage
+    --{ index = 48,  op = "==", value = 222 },          -- Adds 222 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 333 },          -- Adds 333 Fire Damage (max)
+    { index = 60,  op = "==", value = 13 },           -- 7–13% Life stolen per hit
+    --{ index = , op = "==", value = 23 },           -- 1% Chance to Cast Level 25 Enchant on Striking
+    --{ index = 121, op = "==", value = 123 },          -- +123% Damage to Demons
+    { index = 39,  op = "==", value = 25 },           -- Fire Resist +15–25%
+    { index = 83,  op = "==", param = 5, value = 2 },  -- +1-2 To Druid Skill Levels
+    { index = 189, op = "==", value = 25},               -- Enemy Fire Immunity Reduced By 15-25%
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 206, -- Stormlash
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 300 },          -- +240–300% Enhanced Damage
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 198, op = "==", value = 10 },           -- 15% Chance to cast level 10 Static Field on striking
+    --{ index = 198, op = "==", value = 18 },           -- 20% Chance to cast level 18 Tornado on striking
+    --{ index = 50,  op = "==", value = 1 },            -- Adds 1 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 473 },          -- Adds 473 Lightning Damage (max)
+    --{ index = 128, op = "==", value = 30 },           -- Attacker Takes Lightning Damage of 30
+    --{ index = 136, op = "==", value = 5 },            -- 5% Chance of Crushing Blow
+    { index = 145, op = "==", value = 9 },            -- +3–9 Lightning Absorb
+    --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 207, -- Baranar's Star
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 119, op = "==", value = 200 },          -- 200% Bonus to Attack Rating
+    --{ index = 25,  op = "==", value = 200 },          -- +200% Enhanced Damage
+    --{ index = 2,   op = "==", value = 15 },           -- +15 to Dexterity
+    --{ index = 0,   op = "==", value = 15 },           -- +15 to Strength
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    --{ index = 252, op = "==", value = 100 },          -- Improves Durability by 100
+    --{ index = 50,  op = "==", value = 1 },            -- Adds 1 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 200 },          -- Adds 200 Lightning Damage (max)
+    --{ index = 48,  op = "==", value = 1 },            -- Adds 1 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 200 },          -- Adds 200 Fire Damage (max)
+    --{ index = 54,  op = "==", value = 1 },            -- Adds 1 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 200 },          -- Adds 200 Cold Damage (max)
+    { index = 34,  op = "==", value = 12 },           -- Damage Reduced by 8–12
+    --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 208, -- Horizon's Tornado
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 280 },          -- +230–280% Enhanced Damage
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    --{ index = 150, op = "==", value = 20 },           -- Slows Target by 20%
+    --{ index = 198, op = "==", value = 15 },           -- 20% Chance to cast level 15 Tornado on striking
+    --{ index = 91,  op = "==", value = -20 },          -- Requirements -20%
+    { index = 35,  op = "==", value = 12 },           -- Magic Damage Reduced by 8–12
+    --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 209, -- Schaefer's Hammer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 198, op = "==", value = 10 },           -- 20% Chance to cast level 10 Static Field on striking
+    --{ index = 7,   op = "==", value = 256*50 },           -- +50 to Life
+    --{ index = 224, op = "==", value = 8 },            -- +8 Attack Rating per level
+    --{ index = 41,  op = "==", value = 75 },           -- Lightning Resist +75%
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    --{ index = 218, op = "==", value = 2 },            -- +2 Maximum Damage per level
+    --{ index = 25,  op = "==", value = 130 },          -- +100–130% Enhanced Damage
+    --{ index = 89,  op = "==", value = 1 },            -- +1 to Light Radius
+    --{ index = 50,  op = "==", value = 50 },           -- Adds 50 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 200 },          -- Adds 200 Lightning Damage (max)
+    --{ index = 34,  op = "==", value = 20 },           -- Damage Reduced by 20
+    --{ index = 35,  op = "==", value = 20 },           -- Magic Damage Reduced by 20
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 210, -- Windhammer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 230 },          -- +180–230% Enhanced Damage
+    { index = 136, op = "==", value = 25 },           -- 10–25% Chance of Crushing Blow
+    --{ index = 93,  op = "==", value = 60 },           -- +60% Increased Attack Speed
+    --{ index = 198, op = "==", value = 22 },           -- 33% Chance to cast level 22 Twister on striking
+    { index = 34,  op = "==", value = 12 },           -- Damage Reduced by 8–12
+    { index = 35,  op = "==", value = 12 },           -- Magic Damage Reduced by 8–12
+    --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 211, -- The Cranium Basher
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    --{ index = 0,   op = "==", value = 25 },           -- +25 to Strength
+    --{ index = 39,  op = "==", value = 25 },           -- All Resistances +25
+    --{ index = 136, op = "==", value = 30 },           -- 30% Chance of Crushing Blow
+    --{ index = 22,  op = "==", value = 20 },           -- Adds 20 Damage
+    --{ index = 25,  op = "==", value = 240 },          -- +200–240% Enhanced Damage
+    --{ index = 198, op = "==", value = 5 },            -- 4% Chance to cast level 5 Amplify Damage on striking
+    { index = 34,  op = "==", value = 20 },           -- Damage Reduced by 14–20
+    { index = 35,  op = "==", value = 20 },           -- Magic Damage Reduced by 14–20
+    --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 212, -- Vows of Promise
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 250 },          -- +150–250% Enhanced Damage
+    { index = 93,  op = "==", value = 45 },           -- +30–45% Increased Attack Speed
+    --{ index = 49,  op = "==", value = 88 },           -- Adds 45–88 Fire Damage
+    --{ index = 51,  op = "==", value = 160 },          -- Adds 1–160 Lightning Damage
+    --{ index = 55,  op = "==", value = 60 },           -- Adds 30–60 Cold Damage
+    { index = 138, op = "==", value = 7 },            -- +5–7 Mana after each Kill
+    { index = 86,  op = "==", value = 12 },           -- +5–12 Life after each Kill
+    { index = 34,  op = "==", value = 14 },           -- Damage Reduced by 11–14
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 213, -- Djinn Slayer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +190–240% Enhanced Damage
+    --{ index = 48,  op = "==", value = 250 },          -- Adds 250 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 500 },          -- Adds 500 Fire Damage (max)
+    { index = 121, op = "==", value = 150 },          -- +100–150% Damage to Demons
+    { index = 123, op = "==", value = 300 },          -- +200–300 Attack Rating vs Demons
+    { index = 145, op = "==", value = 7 },            -- +3–7 Lightning Absorb
+    { index = 62,  op = "==", value = 6 },            -- 3–6% Mana stolen per hit
+    --{ index = 194, op = "==", value = 2 },            -- Socketed (1–2)
+    { index = 34,  op = "==", value = 12 },           -- Damage Reduced by 8–12
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 214, -- Bloodmoon
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 260 },          -- +210–260% Enhanced Damage
+    { index = 60,  op = "==", value = 15 },           -- 10–15% Life stolen per hit
+    --{ index = 204, op = "==", value = 15 },           -- Level 15 Blood Golem (9 Charges)
+    { index = 86,  op = "==", value = 13 },           -- +7–13 Life after each Kill
+    { index = 135, op = "==", value = 15 },           -- 10–15% Chance of Open Wounds
+    { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 12–15
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 215, -- Starward Fencer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    --{ index = 22,  op = "==", value = 70 },           -- +30–70 to Maximum Damage
+    --{ index = 25,  op = "==", value = 290 },          -- +230–290% Enhanced Damage
+    --{ index = 250, op = "==", value = 1 },            -- 0.25% Deadly Strike per level
+    --{ index = 248, op = "==", value = 1 },            -- 0.25% Open Wounds per level
+    --{ index = 52,  op = "==", value = 155 },          -- Adds 25–155 Magic Damage
+    --{ index = 48,  op = "==", value = 350 },          -- Adds 50–350 Fire Damage
+    { index = 60,  op = "==", value = 10 },           -- 3–10% Life stolen per hit
+    { index = 34,  op = "==", value = 13 },           -- Damage Reduced by 9–13
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 216, -- Lightsabre
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 89,  op = "==", value = 7 },            -- +7 to Light Radius
+    --{ index = 198, op = "==", value = 20 },           -- 5% Chance to cast level 20 Chain Lightning on attack
+    --{ index = 116, op = "==", value = 0 },            -- Ignore Target's Defense
+    --{ index = 145, op = "==", value = 25 },           -- Lightning Absorb 25%
+    --{ index = 93,  op = "==", value = 20 },           -- +20% Increased Attack Speed
+    --{ index = 52,  op = "==", value = 60 },           -- Adds 60 Magic Damage (min)
+    --{ index = 53,  op = "==", value = 120 },          -- Adds 120 Magic Damage (max)
+    --{ index = 50,  op = "==", value = 1 },            -- Adds 1 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 200 },          -- Adds 200 Lightning Damage (max)
+    { index = 62,  op = "==", value = 7 },            -- 5–7% Mana stolen per hit
+    --{ index = 25,  op = "==", value = 150 },          -- +150–200% Enhanced Damage
+    --{ index = 22,  op = "==", value = 30 },           -- Adds 10–30 Damage
+    { index = 35,  op = "==", value = 25 },           -- Magic Damage Reduced by 15–25
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 217, -- Azurewrath
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 52,  op = "==", value = 250 },          -- Adds 250 Magic Damage (min)
+    --{ index = 53,  op = "==", value = 500 },          -- Adds 500 Magic Damage (max)
+    --{ index = 25,  op = "==", value = 270 },          -- +230–270% Enhanced Damage
+    { index = 151, op = "==", param = 380, value = 13 },           -- Level 10–13 Sanctuary Aura When Equipped
+    --{ index = 54,  op = "==", value = 250 },          -- Adds 250 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 500 },          -- Adds 500 Cold Damage (max)
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    { index = 0,   op = "==", value = 10 },           -- +5–10 to all Attributes
+    --{ index = 89,  op = "==", value = 3 },            -- +3 to Light Radius
+    --{ index = 127, op = "==", value = 1 },            -- +1 to All Skills
+    { index = 35,  op = "==", value = 18 },           -- Magic Damage Reduced by 15–18
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 218, -- Frostwind
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 230 },          -- +180–230% Enhanced Damage
+    --{ index = 134, op = "==", value = 1 },            -- Freezes target
+    --{ index = 135, op = "==", value = 1 },            -- Half Freeze Duration
+    --{ index = 54,  op = "==", value = 237 },          -- Adds 237 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 486 },          -- Adds 486 Cold Damage (max)
+    --{ index = 93,  op = "==", value = 25 },           -- +25% Increased Attack Speed
+    { index = 148, op = "==", value = 15 },           -- Cold Absorb 7–15%
+    { index = 97, op = "==", param = 156, value = 14 },-- +7–14 to Arctic Blast
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 219, -- Last Legend
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 220, op = "==", value = 1 },            -- +0.5 Strength per level
+    { index = 107, op = "==", param = 119, value = 3 },-- +1–3 to Faithful Follower (Paladin only)
+    --{ index = 25,  op = "==", value = 325 },          -- +250–325% Enhanced Damage
+    { index = 97, op = "==", param = 175, value = 3 },-- +2–3 to Chance For Glory
+    --{ index = 194, op = "==", value = 2 },            -- Socketed (2)
+    --{ index = 284, op = "==", value = 150 },          -- Summon Damage +150%
+    --{ index = 74,  op = "==", value = 20 },           -- Replenish Life +20
+    { index = 27,  op = "==", value = 200 },          -- Regenerate Mana 80–200%
+    { index = 83,  op = "==", param = 3, value = 3 }, -- +2–3 to Paladin Skill Levels
+    { index = 138, op = "==", value = 10 },           -- +3–10 Mana after each Kill
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 220, -- Oashi
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 250 },          -- +250% Enhanced Damage
+    --{ index = 22,  op = "==", value = 100 },          -- +50–100 to Maximum Damage
+    --{ index = 93,  op = "==", value = 60 },           -- +60% Increased Attack Speed
+    --{ index = 96,  op = "==", value = 30 },           -- +30% Faster Run/Walk
+    --{ index = 107, op = "==", param = 277, value = 5 },-- +5 to Weapon Block (Assassin only)
+    --{ index = 198, op = "==", value = 8 },            -- 5% Chance to cast level 8 Static Field on striking
+    { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 12–15
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} MAXED STATS",
+  filter_levels = "1,2,3"
+},	
 },
 }
