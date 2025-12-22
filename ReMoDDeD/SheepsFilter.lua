@@ -1,9 +1,9 @@
---- Filter Title: Sheep's Filter v1.16
+--- Filter Title: Sheep's Filter v1.17
 --- Filter Type: (General Filter)
 --- Filter Description: \nRule 0: Runewords beg you to keep them. \nRule 0b: Shows number of sockets. \nRule 0c: Hides scrolls on the ground. \nRule 0d: Hides scrolls on the ground. \nRule 0e: Hides all non-rare or lower arrows above level 60. \nRule 0f: Hides all white arrows. \nRule 2: Good bases — shows 3-skill scepters in red. \nRule 3: Adds border and notifies when uniques drop. \nRule 4: Adds border and notifies when sets drop. \nRule 5: Rune notification with special border and colors. \nRule 6: Unique Archons (color swap). \nRule 7: Potential high-quality uniques (e.g., Hydra Master) (color swap). \nRule 8: Unique charms (color swap). \nRule 9: Facet charms (color swap). \nRule 10: Treasure chests/gem veins. \nRule 11: Valuable uniques. \nRule 12: Hides zero-skill Paladin weapons. \nRule 13: Hides non-superior/non-class items by level (still shows 3-socket ones). \nRule 14: Hides non-class base magic items by level. \nRule 15: Hides low gold piles by level. \nRule 16: Codex tome. \nRule 17: Quest item notification. \nRule e1: Sorting of weapon bases by socket amount (hides 2 sockets or fewer on bases that cap at 3 sockets at level 80). \nRule e2: Added symbol for new bases.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
 return {
-    reload = "{pink}Sheep's Base Filter v1.16 {grey} updated 12/18/25 {Green}Reloaded",
+    reload = "{pink}Sheep's Base Filter v1.17 {grey} Xmas Edition {Green}Reloaded",
     allowOverrides = true,
     rules = {
         { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
@@ -198,7 +198,7 @@ return {
         },
         ---Rule 3: Border and notifies when uniques drop (typed out cause it hits quest items zzz)
         {
-            codes = NOT {"cqv","BoH","l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50","bks", "bkd", "leg", "hdm", "ass", "tr1", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2","utp","6ls", "ci1", "xld","aqv","cm1", "cm2", "cm3", "m32", "m33", "m34", "m35","m36","j00", "jew","amb", "8hx", "6cb", "6lw", "7ja", "7kr", "7bw", "7yw", "7gw", "obf", "oba", "ob7", "7gd", "upl", "ult", "uar", "uth", "ula", "ulc", "uhc", "utb", "xtb", "ci3", "umg", "nef", "pab", "pa9", "paa", "uit", "urg", "uuc", "vg3" },
+            codes = NOT { "Ev00","Ev01","Ev02","cqv","BoH","l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50","bks", "bkd", "leg", "hdm", "ass", "tr1", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2","utp","6ls", "ci1", "xld","aqv","cm1", "cm2", "cm3", "m32", "m33", "m34", "m35","m36","j00", "jew","amb", "8hx", "6cb", "6lw", "7ja", "7kr", "7bw", "7yw", "7gw", "obf", "oba", "ob7", "7gd", "upl", "ult", "uar", "uth", "ula", "ulc", "uhc", "utb", "xtb", "ci3", "umg", "nef", "pab", "pa9", "paa", "uit", "urg", "uuc", "vg3" },
             quality = "7",
             notify = "A Legend Appears: {name}",
             border = { 255, 128, 0, 230, 2 } 
@@ -772,8 +772,16 @@ return {
         },
             ---- Event Notficiations 
         {
-            codes = {"Ev1", "Ev2", "Ev3", "Ev4", "Ev5", "Ev6", "Ev7", "Ev8","elx"},
-            notify = "{orange}Event Item Detected!: {name}",
+            codes = {"Ev03", "Ev04", "Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10"},
+            notify = "{orange}Happy Holidays!: {name}",
+            name_style = "Christmas",
+            border = { 30, 100, 30, 230, 2 }
+        },
+        {
+            codes = {"Ev00","Ev01","Ev02"},
+            notify = "{orange}That Poor Snowman...",
+            --name_style = "Christmas",
+
         },
            ---                                                           Soon To Be Deleted Items
         { 
