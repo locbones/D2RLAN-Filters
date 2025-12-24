@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.43
+--- Filter Title: WolfieeifloW's Filter v1.44
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,7 +17,7 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.43: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.44: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
@@ -187,7 +187,7 @@ return {
         },
         { -- Rule 31: Christmas event items
             codes = { "Ev00", "Ev01", "Ev02", "Ev03", "Ev04", "Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10" },
-            notify = "Christmas item {link}",
+            notify = "{red}C{green}h{dark green}r{tan}i{red}s{green}t{dark green}m{tan}a{red}s {green}i{dark green}t{tan}e{red}m {gold}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
         { -- Rule 32: Add helper text to Gold Bar Splitter
@@ -489,6 +489,7 @@ return {
         },
         { -- Rule 87: Let player know LB items can be good for crafting
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+            quality = "4",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Craft with {red}ⅳ {grey}items as you can 6os them after\n"
         },
@@ -1297,10 +1298,25 @@ return {
         -- +-------------------------+
         -- | UNIQUE ITEMS            |
         -- +-------------------------+
-        { -- Rule 195: Notify and small border for all Unique items
-            codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std" },
+        { -- Rule 195: Notify and small border for all Normal Unique items
+            codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std", "Ev01", "Ev02" },
             quality = "7",
-            notify = "Unique Drop {link}",
+            rarity = "0",
+            notify = "Unique Drop ¹{link}",
+            border = { 199, 179, 119, 255, 1 }
+        },
+        { -- Rule 195: Notify and small border for all Exceptional Unique items
+            codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std", "Ev01", "Ev02" },
+            quality = "7",
+            rarity = "1",
+            notify = "Unique Drop ²{link}",
+            border = { 199, 179, 119, 255, 1 }
+        },
+        { -- Rule 195: Notify and small border for all Elite Unique items
+            codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std", "Ev01", "Ev02" },
+            quality = "7",
+            rarity = "2",
+            notify = "Unique Drop ³{link}",
             border = { 199, 179, 119, 255, 1 }
         },
         { -- Rule 196: Correcting Unique Small Charm color on ground
@@ -2205,6 +2221,6 @@ return {
         --     codes = "allitems",
         --     location = { "onplayer", "equipped", "onground", "dropping", "atvendor" },
         --     suffix = " \n{grey}[Code: {orange}{code}{grey}]\n[Quality: {orange}{quality}{grey}]\n[Rarity: {orange}{rarity}{grey}]\n[Index: {orange}{index}{grey}]"
-        -- },
+        -- }
     }
 }
