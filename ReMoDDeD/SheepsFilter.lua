@@ -1,23 +1,39 @@
---- Filter Title: Sheep's Filter v1.17
+--- Filter Title: Sheep's Filter v1.18
 --- Filter Type: (General Filter)
 --- Filter Description: \nRule 0: Runewords beg you to keep them. \nRule 0b: Shows number of sockets. \nRule 0c: Hides scrolls on the ground. \nRule 0d: Hides scrolls on the ground. \nRule 0e: Hides all non-rare or lower arrows above level 60. \nRule 0f: Hides all white arrows. \nRule 2: Good bases — shows 3-skill scepters in red. \nRule 3: Adds border and notifies when uniques drop. \nRule 4: Adds border and notifies when sets drop. \nRule 5: Rune notification with special border and colors. \nRule 6: Unique Archons (color swap). \nRule 7: Potential high-quality uniques (e.g., Hydra Master) (color swap). \nRule 8: Unique charms (color swap). \nRule 9: Facet charms (color swap). \nRule 10: Treasure chests/gem veins. \nRule 11: Valuable uniques. \nRule 12: Hides zero-skill Paladin weapons. \nRule 13: Hides non-superior/non-class items by level (still shows 3-socket ones). \nRule 14: Hides non-class base magic items by level. \nRule 15: Hides low gold piles by level. \nRule 16: Codex tome. \nRule 17: Quest item notification. \nRule e1: Sorting of weapon bases by socket amount (hides 2 sockets or fewer on bases that cap at 3 sockets at level 80). \nRule e2: Added symbol for new bases.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
 return {
-    reload = "{pink}Sheep's Base Filter v1.17 {grey} Xmas Edition {Green}Reloaded",
+    reload = "{pink}Sheep's Base Filter v1.18 {grey} Xmas Edition {Green}Reloaded",
     allowOverrides = true,
     rules = {
+       ---Rule event rare jewel only in tundra
+        {
+            codes = NOT {"jew"},
+            quality = "6",
+            hide = true,
+            difficulty = "Hell",
+            area = "Frozen Tundra"
+        },
+        --add color to superior at vendor
+        {
+             codes = "allitems",
+             quality = "3",
+             location = "atvendor",
+             prefix = "{purple}",
+             prefix_desc = "{purple}Superiors at vendor are purple \n"
+        },
         { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
             codes = "allitems",
             location = { "onground", "onplayer", "equipped", "atvendor" },
             itype = { 5, 6, 10, 12, 45, 50, 58, 82, 83, 84 },
             suffix = " ({ilvl})",
         },
-         -- Display the max socket amount on items in their description (stolen from vivasen ofc)
+         -- Display the socket amount on items in their description (stolen from vivasen ofc)
         {
 			codes="allitems",
 			location={"onground", "onplayer", "atvendor", "equipped"},
 			itype={45,50,10,12},
-			suffix_desc="{blue}Max Sockets: {maxsock}\n"
+			prefix_desc="{grey}Max Sockets: {maxsock}\n"
 		},
         --hides 1 socket items while under 60
         {
@@ -58,7 +74,7 @@ return {
             prefix_desc = "{pink}Highlighted for early runewords\n",
             sockets = "2,3",
             quality = "3-",
-            location = {"onplayer","onground"},
+            location = {"onplayer","onground","atvendor"},
             pstat = { index = 12, op = "<=", value = 20 }, -- Char Level is >= 20
             border = {150,100,200,230,2}
         },
@@ -202,6 +218,24 @@ return {
             quality = "7",
             notify = "A Legend Appears: {name}",
             border = { 255, 128, 0, 230, 2 } 
+        },
+        ---randomly instered rule 3.5
+        {
+            codes = {"pk1","pk2","pk3"},
+            notify = "{red}A Key But To Where...?",
+            border = { 240, 0, 0, 230, 2 } 
+        },
+        ---randomly instered rule 3.5.1
+        {
+            codes = {"tes","ceh","bet","fed"},
+            notify = "{red}The Demons Essence Has Crystalized",
+            border = { 240, 0, 0, 230, 2 } 
+        },
+        ---randomly instered rule 3.5.2
+        {
+            codes = {"dhn","bey","mbr"},
+            notify = "{red}You Feel An Evil Presence Watching You",
+            border = { 240, 0, 0, 230, 2 } 
         },
         ---Rule 4: Border and notify sets  
         {
@@ -594,7 +628,8 @@ return {
             codes = {"Ss2","7fb", "7s8", "Ab4", "Ab5", "Ab6", "Bp5", "Bp6", "Ca1", "Ca2", "Ca3", "Ss1", "Ss3", "Ss4", "dr1", "dr9","amu","Bp2", "rin", "Gg1", "Gg2", "hla", "lea", "qui", "stu", "Wp1", "Wp2", "brs", "chn", "ltp", "rng", "scl", "xea", "xla", "xui", "Ca4", "Ca5", "Ca6", "aar", "Bp1", "Bp2", "Bp3", "Bp4", "fld", "ful", "gth", "Gg3", "Na1", "Na2", "Na3", "Na4", "Na5", "Na6", "Oa1", "Oa2", "Oa3", "plt", "Sa1", "Sa2", "Sa3", "Sa4", "Sa5", "Sa6", "spl", "ult", "uld", "uar", "ucl", "uea", "uhn", "ula", "ulg", "ung", "uui", "urs", "utp", "uth", "utu", "upl", "uul", "Wp3", "xar", "xcl", "xhn", "xld", "xlt", "xng", "xpl", "xrs", "xth", "xtp", "xtu", "xul", "7bk", "7bw", "7dg", "7di", "7gw", "7ta", "7tk", "7wn", "7yw", "9bk", "9bw", "9dg", "9di", "9gw", "9ta", "9tk", "9wn", "9yw", "bkf", "bwn", "ces", "dir", "dgr", "gwn", "jav", "ktr", "ob1", "ob2", "ob3", "ob4", "ob6", "ob7", "ob8", "ob9", "obc", "obd", "obe", "obb", "pil", "tkf", "tax", "wnd", "ywn", "9cl", "7cl", "clb", "7ha", "9ha", "hax", "sbw", "7sp", "9sp", "spc", "7cs", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "amf", "ama", "am5", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "6ss", "8ss", "sst", "k01", "k02", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9ss", "9sm", "9sb", "9fc", "flc", "sbr", "ssd", "scm", "wsd", "Bf4", "cbw", "hbw", "8lx", "mxb", "6cs", "6bs", "6ls", "8cs", "8bs", "8ls", "bst", "cst", "lst", "bsw", "k03", "72h", "92h", "7gs", "7b7", "7cm", "9cm", "9b9", "9gs", "bsd", "clm", "gis", "lsd", "bal", "7gl", "7ts", "9ts", "9gl", "glv", "tsp", "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "6lx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8", "9mp", "7mp", "mpi", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf5", "Bf6", "7wa", "7ga", "7bt", "72a", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "amc", "amb", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "6hx", "8hx", "hxb", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "9fl", "7vo", "7pa", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "7p7", "9h9", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "7ws", "9ws", "7mp", "7wc", "9wc", "9s8", "mpi", "wsc", "amd", "ame", "am8", "am9", "am3", "am4", "Ds4", "Ds5", "Ds6", "6ws", "8ws", "wst", "7gd", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "7cr", "9cr", "crs", "7b8", "xuc", "xml", "buc", "sml", "ne6", "ne7", "ne1", "ne2", "uuc", "xsh", "bsh", "lrg", "spk", "nef", "neg", "neb", "ned", "nee", "ne9", "nea", "ne8", "ne5", "ne4", "ne3", "pad", "pac", "pab", "paf", "pae", "pa7", "pa6", "pa9", "pa8", "paa", "pa4", "pa5", "pa3", "pa2", "pa1", "uow", "upk", "urg", "uml", "uit", "ush", "uts", "xts", "xpk", "xit", "xow", "xrg", "gts", "kit", "tow", "xap", "cap", "hlm", "skp", "bab", "bae", "bad", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba1", "ba2", "ba3", "drb", "drf", "drd", "dre", "drc", "dr6", "dr7", "dr8", "dra", "dr3", "dr4", "dr2", "dr5", "ulm", "uh9", "urn", "usk", "uhl", "ukp", "uap", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1", "Zc1", "Zc2", "Zc3", "Zc4", "Zc5", "Zc6", "ci0", "ci1", "ci2", "ci3", "xlb", "lbt", "vbt", "mbt", "ulb", "uvb", "umb", "utb", "uhb", "xvb", "xmb", "xtb", "xhb", "hbt", "tbt", "Ab1", "Ab2", "Ab3", "Ag3", "Ag1", "xlg", "lgl", "vgl", "mgl", "Ag2", "Ag4", "Ag5", "Ag6", "uvg", "xvg", "Vg1", "Vg2", "Vg3", "Vg4", "Vg5", "Vg6", "ulg", "utg", "uhg", "umg", "xmg", "xtg", "xhg", "tgl", "hgl", "Bb1", "Bb2", "Bb3", "Bb4", "Bb5", "Bb6", "uhc", "umc", "ulc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "lbl", "vbl", "mbl", "tbl", "hbl"},
             quality = "4",
             pstat = { index = 12, op = ">=", value = 80 },
-            hide = true
+            hide = true,
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
         },
         ---Rule 15: hide low gold piles by level 
         {
@@ -746,7 +781,8 @@ return {
             quality = 7,
             background = { 255, 255, 255, 255 },
             prefix = "{red}",
-            location = {"onground","onplayer"}
+            location = {"onground","onplayer"},
+            prefix_desc = "{Gold} Can Store Soul Shards \n"
         },
         ---torment scrolls
         { 
