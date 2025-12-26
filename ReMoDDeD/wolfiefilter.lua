@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.44
+--- Filter Title: WolfieeifloW's Filter v1.45
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,7 +17,7 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.44: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.45: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     rules = {
@@ -488,7 +488,7 @@ return {
             hide = true
         },
         { -- Rule 87: Let player know LB items can be good for crafting
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             quality = "4",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Craft with {red}ⅳ {grey}items as you can 6os them after\n"
@@ -1282,15 +1282,15 @@ return {
         -- +-------------------------+
         -- | RARE ITEMS              |
         -- +-------------------------+
-        { -- Rule 193: Small border on Rare Amulets, Rings, and Jewels
-            codes = { "amu", "rin", "jew" },
+        { -- Rule 193: Small border on Rare Jewels
+            code = "jew",
             quality = "6",
             border = { 255, 255, 100, 255, 1 }
         },
-        { -- Rule 194: Hide all non-LB Rare Weapons and Armor items at Character Level 75+ (they are relatively useless)
-            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 194: Hide all non-LB Rare Weapons, Armor, Jewelry, and Quiver items at Character Level 75+ (they are relatively useless)
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             quality = "6",
-            itype = { 45, 50 },
+            itype = { 5, 6, 10, 12, 45, 50 },
             pstat = { index = 12, op = ">=", value = 75 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
@@ -1305,21 +1305,21 @@ return {
             notify = "Unique Drop ¹{link}",
             border = { 199, 179, 119, 255, 1 }
         },
-        { -- Rule 195: Notify and small border for all Exceptional Unique items
+        { -- Rule 196: Notify and small border for all Exceptional Unique items
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std", "Ev01", "Ev02" },
             quality = "7",
             rarity = "1",
             notify = "Unique Drop ²{link}",
             border = { 199, 179, 119, 255, 1 }
         },
-        { -- Rule 195: Notify and small border for all Elite Unique items
+        { -- Rule 197: Notify and small border for all Elite Unique items
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std", "Ev01", "Ev02" },
             quality = "7",
             rarity = "2",
             notify = "Unique Drop ³{link}",
             border = { 199, 179, 119, 255, 1 }
         },
-        { -- Rule 196: Correcting Unique Small Charm color on ground
+        { -- Rule 198: Correcting Unique Small Charm color on ground
             codes = "allitems",
             quality = "7",
             identified = false,
@@ -1327,7 +1327,7 @@ return {
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{gold}Small Charm"
         },
-        { -- Rule 197: Correcting Unique Medium Charm color on ground
+        { -- Rule 199: Correcting Unique Medium Charm color on ground
             codes = "allitems",
             quality = "7",
             identified = false,
@@ -1335,7 +1335,7 @@ return {
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{gold}Medium Charm"
         },
-        { -- Rule 198: Correcting Unique Grand Carm color on ground
+        { -- Rule 200: Correcting Unique Grand Carm color on ground
             codes = "allitems",
             quality = "7",
             identified = false,
@@ -1343,7 +1343,7 @@ return {
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{gold}Grand Charm"
         },
-        { -- Rule 199: Correcting Annihilus name color
+        { -- Rule 201: Correcting Annihilus name color
             code = "cm1",
             quality = "7",
             index = 543,
@@ -1352,7 +1352,7 @@ return {
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{purple}Small Charm\n{gold}Annihilus"
         },
-        { -- Rule 200: Correcting Cola Cube name color
+        { -- Rule 202: Correcting Cola Cube name color
             code = "cm1",
             quality = "7",
             index = 606,
@@ -1361,7 +1361,7 @@ return {
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{purple}Small Charm\n{gold}Cola Cube"
         },
-        { -- Rule 201: Correcting Gheed's Fortune name color
+        { -- Rule 203: Correcting Gheed's Fortune name color
             code = "cm3",
             quality = "7",
             index = 542,
@@ -1370,7 +1370,7 @@ return {
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{purple}Grand Charm\n{gold}Gheed's Fortune"
         },
-        { -- Rule 202: Correcting Unholy Commander name color
+        { -- Rule 204: Correcting Unholy Commander name color
             code = "cm3",
             quality = "7",
             index = 590,
@@ -1380,7 +1380,7 @@ return {
             name_override = "{purple}Grand Charm\n{gold}Unholy Commander",
             prefix_desc = "{grey}Cube alone to change number of {blue}Leoric's Chosen {grey}(max 5)\n"
         },
-        { -- Rule 203: Correcting Kuroneko no Himitsu name color
+        { -- Rule 205: Correcting Kuroneko no Himitsu name color
             code = "cm3",
             quality = "7",
             index = 654,
@@ -1389,7 +1389,7 @@ return {
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{purple}Grand Charm\n{gold}Kuroneko no Himitsu"
         },
-        { -- Rule 204: Correcting Blank Talent name color
+        { -- Rule 206: Correcting Blank Talent name color
             code = "cm3",
             quality = "7",
             index = 611,
@@ -1402,7 +1402,7 @@ return {
         -- +-------------------------+
         -- | CRAFTED ITEMS           |
         -- +-------------------------+
-        { -- Rule 205: Reminder to pick up Crafted items so they don't get left behind
+        { -- Rule 207: Reminder to pick up Crafted items so they don't get left behind
             codes = "allitems",
             quality = "8",
             notify = "{orange}DON'T FORGET ME! {link}"
@@ -1410,12 +1410,12 @@ return {
         -- +-------------------------+
         -- | TEMPERED ITEMS          |
         -- +-------------------------+
-        { -- Rule 206: Reminder to pick up Tempered items so they don't get left behind
+        { -- Rule 208: Reminder to pick up Tempered items so they don't get left behind
             codes = "allitems",
             quality = "9",
             notify = "{green}DON'T FORGET ME! {link}"
         },
-        { -- Rule 207: Normal Uniques that can be Demon-Tempered
+        { -- Rule 209: Normal Uniques that can be Demon-Tempered
             codes = "allitems",
             quality = "7",
             rarity = "0",
@@ -1424,7 +1424,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
         },
-        { -- Rule 208: Exceptional Uniques that can be Demon-Tempered
+        { -- Rule 210: Exceptional Uniques that can be Demon-Tempered
             codes = "allitems",
             quality = "7",
             rarity = "1",
@@ -1433,7 +1433,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
         },
-        { -- Rule 209: Elite Uniques that can be Demon-Tempered
+        { -- Rule 211: Elite Uniques that can be Demon-Tempered
             codes = "allitems",
             quality = "7",
             rarity = "2",
@@ -1442,7 +1442,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
         },
-        { -- Rule 210: Misc Uniques that can be Demon-Tempered
+        { -- Rule 212: Misc Uniques that can be Demon-Tempered
             codes = "allitems",
             quality = "7",
             stat = { index = 402, op = "==", value = 0 },
@@ -1450,7 +1450,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
         },
-        {-- Rule 211: Parts for Demon-Tempering
+        {-- Rule 213: Parts for Demon-Tempering
             codes = { "y67", "C00", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34", "C35", "C36", "C37" },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Used in {dark green}Demon-Tempering\n"
@@ -1458,23 +1458,23 @@ return {
         -- +-------------------------+
         -- | POTIONS & SCROLLS       |
         -- +-------------------------+
-        { -- Rule 212: Hides all non-large Potions & Scrolls after Normal Difficulty
+        { -- Rule 214: Hides all non-large Potions & Scrolls after Normal Difficulty
             codes = { "mp1", "mp2", "mp3", "hp1", "hp2", "hp3", "isc", "tsc", "rvs"},
             difficulty = "1+",
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 213: Add helper text to Antidote Potion that it's used in Blood Contracts
+        { -- Rule 215: Add helper text to Antidote Potion that it's used in Blood Contracts
             code = "yps",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Used for {green}Set {gray}Blood Contracts\n"
         },
-        { -- Rule 214: Add helper text to Thawing Potion that it's used in Blood Contracts
+        { -- Rule 216: Add helper text to Thawing Potion that it's used in Blood Contracts
             code = "wms",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Used for {gold}Unique {gray}Blood Contracts\n"
         },
-        { -- Rule 215: Add helper text to Scroll of Identify for some cube recipes it's in
+        { -- Rule 217: Add helper text to Scroll of Identify for some cube recipes it's in
             code = "isc",
             location = { "onplayer", "atvendor" },
             prefix = "{red}ID Scroll {grey}+ {red}HP Potion {grey}in Nightmare or Hell = new {gold}Beacon of Hope\n{grey}Used for re-rolling {gold}Unique{grey}/{green}Set {grey}items\n"
@@ -1482,13 +1482,13 @@ return {
         -- +-------------------------+
         -- | BASE ITEMS              |
         -- +-------------------------+
-        { -- Rule 216: Reminder to pick up Runeword items so they don't get left behind
+        { -- Rule 218: Reminder to pick up Runeword items so they don't get left behind
             codes = "allitems",
             runeword = true,
             notify = "{grey}DON'T FORGET ME! {gold}{link}",
             border = { 199, 179, 119, 255, 3 }
         },
-        { -- Rule 217: Hiding Inferior items at Character Level 10+
+        { -- Rule 219: Hiding Inferior items at Character Level 10+
             codes = NOT { "leg" },
             quality = "1",
             itype = { 45, 50 },
@@ -1497,7 +1497,7 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 218: Hiding Normal items at Character Level 50+
+        { -- Rule 220: Hiding Normal items at Character Level 50+
             codes = NOT { "leg" },
             quality = "2",
             itype = { 45, 50 },
@@ -1506,14 +1506,14 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 219: Hiding Normal quivers at Character Level 10+
+        { -- Rule 221: Hiding Normal quivers at Character Level 10+
             codes = { "aqv", "cqv" },
             quality = "3-",
             pstat = { index = 12, op = ">=", value = 10 },
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Rule 220: Hides all +0 to Paladin Skill Levels Scepters at Character Level 50+
+        { -- Rule 222: Hides all +0 to Paladin Skill Levels Scepters at Character Level 50+
             codes = { "scp", "gsc", "wsp", "7sc", "7qs", "7ws", "9sc", "9qs", "9ws" },
             quality = "4-",
             runeword = false,
@@ -1525,247 +1525,247 @@ return {
         -- +-------------------------+
         -- | ITEM HELPER TEXT        |
         -- +-------------------------+
-        { -- Rule 221: Scroll of Inifuss
+        { -- Rule 223: Scroll of Inifuss
             code = "bks",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Talk to {white}Akara {grey}in Act 1\n\n"
         },
-        { -- Rule 222: Scroll of Inifuss, deciphered
+        { -- Rule 224: Scroll of Inifuss, deciphered
             code = "bkd",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Go to Act 1: Stony Field\n\n"
         },
-        { -- Rule 223: Wirt's Leg
+        { -- Rule 225: Wirt's Leg
             code = "leg",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with {blue}Book of Safe Return {grey}in Act 1 to open Cow Level\n"
         },
-        { -- Rule 224: Horadric Malus
+        { -- Rule 226: Horadric Malus
             code = "hdm",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Give to {white}Charsi {grey}in Act 1\n"
         },
-        { -- Rule 225: Book of Skill
+        { -- Rule 227: Book of Skill
             code = "ass",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use for +1 Skill Point\n"
         },
-        { -- Rule 226: Horadric Staff
+        { -- Rule 228: Horadric Staff
             code = "hst",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{red}0   )   []   +   >>   /\\   0)\nTal Rasha's Tombs order:\n{grey}Place in {white}Orifice {grey}in Act 2: Tal Rashas Tomb\n"
         },
-        { -- Rule 227: Amulet of the Viper
+        { -- Rule 229: Amulet of the Viper
             code = "vip",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with {gold}Staff of Kings {grey}(Act 2: Maggot Lair)\n"
         },
-        { -- Rule 228: Staff of Kings
+        { -- Rule 230: Staff of Kings
             code = "msf",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with {gold}Amulet of the Viper {grey}(Act 2: Claw Viper Temple)\n"
         },
-        { -- Rule 229: A Jade Figurine
+        { -- Rule 231: A Jade Figurine
             code = "j34",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Give to {white}Meshif {grey}in Act 3\n"
         },
-        { -- Rule 230: The Golden Bird
+        { -- Rule 232: The Golden Bird
             code = "g34",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Give to {white}Alkor {grey}in Act 3\n"
         },
-        { -- Rule 231: Potion of Life
+        { -- Rule 233: Potion of Life
             code = "xyz",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use for a permanent {blue}+20 to Life\n"
         },
-        { -- Rule 232: Gidbinn
+        { -- Rule 234: Gidbinn
             code = "g33",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Give to {white}Ormus {grey}in Act 3\n"
         },
-        { -- Rule 233: Khalim's Eye
+        { -- Rule 235: Khalim's Eye
             code = "qey",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{gold}Khalim's Flail {grey}(Act 3: Travincal)\n{gold}Khalim's Heart {grey}(Act 3: Kurast Sewers)\n{gold}Khalim's Brain {grey}(Act 3: Flayer Dungeon)\nCube with:\n\nDrops in Act 3: Spider Cavern\n"
         },
-        { -- Rule 234: Khalim's Brain
+        { -- Rule 236: Khalim's Brain
             code = "qbr",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{gold}Khalim's Flail {grey}(Act 3: Travincal)\n{gold}Khalim's Heart {grey}(Act 3: Kurast Sewers)\n{gold}Khalim's Eye {grey}(Act 3: Spider Cavern)\nCube with:\n\nDrops in Act 3: Flayer Dungeon\n"
         },
-        { -- Rule 235: Khalim's Heart
+        { -- Rule 237: Khalim's Heart
             code = "qhr",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{gold}Khalim's Flail {grey}(Act 3: Travincal)\n{gold}Khalim's Brain {grey}(Act 3: Flayer Dungeon)\n{gold}Khalim's Eye {grey}(Act 3: Spider Cavern)\nCube with:\n\nDrops in Act 3: Kurast Sewers\n"
         },
-        { -- Rule 236: Khalim's Flail
+        { -- Rule 238: Khalim's Flail
             code = "qf1",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{gold}Khalim's Heart {grey}(Act 3: Kurast Sewers)\n{gold}Khalim's Brain {grey}(Act 3: Flayer Dungeon)\n{gold}Khalim's Eye {grey}(Act 3: Spider Cavern)\nCube with:\n\nDrops in Act 3: Travincal\n"
         },
-        { -- Rule 237: Khalim's Will
+        { -- Rule 239: Khalim's Will
             code = "qf2",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Attack {white}Compelling Orb {grey}in Act 3: Travincal\n"
         },
-        { -- Rule 238: Lam Esen's Tome
+        { -- Rule 240: Lam Esen's Tome
             code = "bbb",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Give to {white}Alkor {grey}for +5 Stat Points\n"
         },
-        { -- Rule 239: Mephisto's Soulstone
+        { -- Rule 241: Mephisto's Soulstone
             code = "mss",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Take to the {white}Hellforge {grey}in Act 4: River of Flame\n"
         },
-        { -- Rule 240: Hellforge Hammer
+        { -- Rule 242: Hellforge Hammer
             code = "hfh",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Attack {white}Hellforge {grey}in Act 4: River of Flame\n"
         },
-        { -- Rule 241: Malah's Potion
+        { -- Rule 243: Malah's Potion
             code = "ice",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use on {white}Anya {grey}in Act 5: Frozen River\n\n"
         },
-        { -- Rule 242: Scroll of Resistance
+        { -- Rule 244: Scroll of Resistance
             code = "tr2",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use for a permanent {blue}All Resistances +10%%\n"
         },
-        { -- Rule 243: Twisted Essence of Suffering
+        { -- Rule 245: Twisted Essence of Suffering
             code = "tes",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(4-7) Gems {red}or\n\n{grey}Drops from Hell Andariel & Hell Duriel\n{orange}",
         },
-        { -- Rule 244: Charged Essence of Hatred
+        { -- Rule 246: Charged Essence of Hatred
             code = "ceh",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(1-3) High Rune Points {red}or\n\n{grey}Drops from Hell Mephisto\n{orange}",
         },
-        { -- Rule 245: Burning Essence of Terror
+        { -- Rule 247: Burning Essence of Terror
             code = "bet",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(3-6) Set Cores {red}or\n\n{grey}Drops from Hell Diablo\n{orange}",
         },
-        { -- Rule 246: Festering Essence of Destruction
+        { -- Rule 248: Festering Essence of Destruction
             code = "fed",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(3-6) Unique Cores {red}or\n\n{grey}Drops from Hell Baal\n{orange}",
         },
-        { -- Rule 247: Key of Terror
+        { -- Rule 249: Key of Terror
             code = "pk1",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube 2x {orange}Key of Terror {grey}to get 1x {orange}Key of Hate\n{red}or\n{orange}Key of Destruction {grey}(Hell Nihlathak)\n{orange}Key of Hate {grey}(Hell Summoner)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Countess\n{orange}"
         },
-        { -- Rule 248: Key of Hate
+        { -- Rule 250: Key of Hate
             code = "pk2",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube 2x {orange}Key of Hate {grey}to get 1x {orange}Key of Destruction\n{red}or\n{orange}Key of Destruction {grey}(Hell Nihlathak)\n{orange}Key of Terror {grey}(Hell Countess)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Summoner\n{orange}"
         },
-        { -- Rule 249: Key of Destruction
+        { -- Rule 251: Key of Destruction
             code = "pk3",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube 2x {orange}Key of Destruction {grey}to get 1x {orange}Key of Terror\n{red}or\n{orange}Key of Hate {grey}(Hell Summoner)\n{orange}Key of Terror {grey}(Hell Countess)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Nihlathak\n{orange}"
         },
-        { -- Rule 250: Mephisto's Brain
+        { -- Rule 252: Mephisto's Brain
             code = "mbr",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{orange}Baal's Eye {grey}(Forgotten Sands: Über Duriel)\n{orange}Diablo's Horn {grey}(Matron's Den: Lilith)\nOpen Über Tristram portal by cubing in Act 5 with:\n\nDrops from Furance of Pain: Über Izual\n{orange}"
         },
-        { -- Rule 251: Diablo's Horn
+        { -- Rule 253: Diablo's Horn
             code = "dhn",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{orange}Baal's Eye {grey}(Forgotten Sands: Über Duriel)\n{orange}Mephisto's Brain {grey}(Furance of Pain: Über Izual)\nOpen Über Tristram portal by cubing in Act 5 with:\n\nDrops from Matron's Den: Lilith\n{orange}"
         },
-        { -- Rule 252: Baal's Eye
+        { -- Rule 254: Baal's Eye
             code = "bey",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{orange}Diablo's Horn {grey}(Matron's Den: Lilith)\n{orange}Mephisto's Brain {grey}(Furance of Pain: Über Izual)\nOpen Über Tristram portal by cubing in Act 5 with:\n\nDrops from Forgotten Sands: Über Duriel\n{orange}"
         },
-        { -- Rule 253: Standard of Heroes
+        { -- Rule 255: Standard of Heroes
             code = "std",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube with {gold}Hellfire Torch {grey}to re-roll the {gold}Hellfire Torch {grey}(any class)\nCube with {gold}Annihilus {grey}to re-roll the {gold}Annihilus {red}or\n{grey}Can be sold to {white}vendors {grey}to spawn Über Diablo {red}or\n\n{grey}Drops from Über Tristram\n"
         },
-        { -- Rule 254: Amethyst gems
+        { -- Rule 256: Amethyst gems
             codes = "allitems",
             itype = 96,
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {purple}Caster {grey}crafting\n"
         },
-        { -- Rule 255: Diamond gems
+        { -- Rule 257: Diamond gems
             codes = "allitems",
             itype = 97,
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {white}Legion {grey}crafting\n{white}"
         },
-        { -- Rule 256: Emerald gems
+        { -- Rule 258: Emerald gems
             codes = "allitems",
             itype = 98,
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {green}Safety {grey}crafting\n"
         },
-        { -- Rule 257: Ruby gems
+        { -- Rule 259: Ruby gems
             codes = "allitems",
             itype = 99,
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {red}Blood {grey}crafting\n"
         },
-        { -- Rule 258: Sapphire gems
+        { -- Rule 260: Sapphire gems
             codes = "allitems",
             itype = 100,
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {blue}Hit Power {grey}crafting\n"
         },
-        { -- Rule 259: Topaz gems
+        { -- Rule 261: Topaz gems
             codes = "allitems",
             itype = 101,
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {yellow}Disarm {grey}crafting\n"
         },
-        { -- Rule 260: Amethyst Remover
+        { -- Rule 262: Amethyst Remover
             code = "Z02",
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {purple}Caster {grey}crafting\n"
         },
-        { -- Rule 261: Topaz Remover
+        { -- Rule 263: Topaz Remover
             code = "Z03",
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {yellow}Disarm {grey}crafting\n"
         },
-        { -- Rule 262: Sapphire Remover
+        { -- Rule 264: Sapphire Remover
             code = "Z04",
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {blue}Hit Power {grey}crafting\n"
         },
-        { -- Rule 263: Emerald Remover
+        { -- Rule 265: Emerald Remover
             code = "Z05",
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {green}Safety {grey}crafting\n"
         },
-        { -- Rule 264: Ruby Remover
+        { -- Rule 266: Ruby Remover
             code = "Z06",
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {red}Blood {grey}crafting\n"
         },
-        { -- Rule 265: Diamond Remover
+        { -- Rule 267: Diamond Remover
             code = "Z07",
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {white}Legion {grey}crafting\n{white}"
         },
-        { -- Rule 266: Skull Remover
+        { -- Rule 268: Skull Remover
             code = "Z08",
             location = { "onplayer", "atvendor" },
         },
-        { -- Rule 267: Adding Soul Shards helper text
+        { -- Rule 269: Adding Soul Shards helper text
             code = "S01",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{tan}1-3 Soul Shards (used for Soul Summons)\n",
         },
-        { -- Rule 268: Normal Unique Armor & Weapon upgrade recipe
+        { -- Rule 270: Normal Unique Armor & Weapon upgrade recipe
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std" },
             itype = { 45, 50 },
             quality = "7",
@@ -1773,7 +1773,7 @@ return {
             location = "onplayer",
             prefix_desc = "{grey}Upgrade Recipe: cube with {gold}Item UpConverter {white}(Advanced)\n{gold}"
         },
-        { -- Rule 269: Normal Rare Armor & Weapon upgrade recipe
+        { -- Rule 271: Normal Rare Armor & Weapon upgrade recipe
             codes = "allitems",
             itype = { 45, 50 },
             quality = "6",
@@ -1781,7 +1781,7 @@ return {
             location = "onplayer",
             prefix_desc = "{grey}Upgrade Recipe: cube with {gold}Item UpConverter {white}(Advanced)\n{gold}"
         },
-        { -- Rule 270: Exceptional Unique Armor & Weapon upgrade recipe
+        { -- Rule 272: Exceptional Unique Armor & Weapon upgrade recipe
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std" },
             itype = { 45, 50 },
             quality = "7",
@@ -1789,7 +1789,7 @@ return {
             location = "onplayer",
             prefix_desc = "{grey}Upgrade Recipe: cube with {gold}Item UpConverter {white}(Elite)\n{gold}"
         },
-        { -- Rule 271: Exceptional Rare Armor & Weapon upgrade recipe
+        { -- Rule 273: Exceptional Rare Armor & Weapon upgrade recipe
             codes = "allitems",
             itype = { 45, 50 },
             quality = "6",
@@ -1797,86 +1797,86 @@ return {
             location = "onplayer",
             prefix_desc = "{grey}Upgrade Recipe: cube with {gold}Item UpConverter {white}(Elite)\n{gold}"
         },
-        { -- Rule 272: Socket Remover
+        { -- Rule 274: Socket Remover
             code = "b64",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Cube a stack of 10x for a {gold}Premium Socket Remover\n{grey}Cube alone to remove 1x from the stack {pink}or\n",
             suffix_desc = "{tan}Cube alone to remove 1 quantity before using\n"
         },
-        { -- Rule 273: Premium Socket Remover
+        { -- Rule 275: Premium Socket Remover
             code = "b65",
             location = { "onplayer", "atvendor" },
             name_override = "{gold}Premium Socket Remover",
             prefix_desc = "{grey}Cube 1x alone for 10x {gold}Socket Remover\n{grey}Cube alone to remove 1x from the stack {pink}or\n",
             suffix_desc = "{tan}Cube alone to remove 1 quantity before using\n"
         },
-        { -- Rule 274: Infinite Socket Remover
+        { -- Rule 276: Infinite Socket Remover
             code = "b66",
             location = { "onplayer", "atvendor" },
             name_override = "{gold}Infinite Socket Remover",
         },
-        { -- Rule 275: Rainbow Facets
+        { -- Rule 277: Rainbow Facets
             code = "jew",
             quality = "7",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{purple}------------------\n{grey}(30 total; 5x {red}Fire{grey}, 5x {yellow}Lightning{grey}, 5x {blue}Cold{grey}, 5x {green}Poison{grey}, 5x Physical, 5x {orange}Magic{grey})\nCube 5x of each Element for a {yellow}P{blue}r{red}i{green}s{gold}m{yellow}a{blue}t{red}i{green}c {yellow}F{blue}a{red}c{green}e{gold}t\n"
         },
-        { -- Rule 276: Color all class tokens
+        { -- Rule 278: Color all class tokens
             codes = { "TK1", "TK2", "TK3", "TK4", "TK5", "TK6", "TK7" },
             location = { "onplayer", "atvendor", "onground" },
             prefix = "{purple}",
         },
-        { -- Rule 277: Add info to Amazon Class Token
+        { -- Rule 279: Add info to Amazon Class Token
             code = "TK1",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Tokens required = Soul Tier (Tier 2 requires 2 tokens, Tier 3 requires 3, etc)\n{grey}Cube with {gold}Beacon of Hope {grey}to add {purple}Amazon Soul Summon\n{grey}Cube {purple}Class Token {grey}alone to change the class {red}or\n"
         },
-        { -- Rule 278: Add info to Sorceress Class Token
+        { -- Rule 280: Add info to Sorceress Class Token
             code = "TK2",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Tokens required = Soul Tier (Tier 2 requires 2 tokens, Tier 3 requires 3, etc)\n{grey}Cube with {gold}Beacon of Hope {grey}to add {purple}Sorceress Soul Summon\n{grey}Cube {purple}Class Token {grey}alone to change the class {red}or\n"
         },
-        { -- Rule 279: Add info to Necromancer Class Token
+        { -- Rule 281: Add info to Necromancer Class Token
             code = "TK3",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Tokens required = Soul Tier (Tier 2 requires 2 tokens, Tier 3 requires 3, etc)\n{grey}Cube with {gold}Beacon of Hope {grey}to add {purple}Necromancer Soul Summon\n{grey}Cube {purple}Class Token {grey}alone to change the class {red}or\n"
         },
-        { -- Rule 280: Add info to Paladin Class Token
+        { -- Rule 282: Add info to Paladin Class Token
             code = "TK4",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Tokens required = Soul Tier (Tier 2 requires 2 tokens, Tier 3 requires 3, etc)\n{grey}Cube with {gold}Beacon of Hope {grey}to add {purple}Paladin Soul Summon\n{grey}Cube {purple}Class Token {grey}alone to change the class {red}or\n"
         },
-        { -- Rule 281: Add info to Barbarian Class Token
+        { -- Rule 283: Add info to Barbarian Class Token
             code = "TK5",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Tokens required = Soul Tier (Tier 2 requires 2 tokens, Tier 3 requires 3, etc)\n{grey}Cube with {gold}Beacon of Hope {grey}to add {purple}Barbarian Soul Summon\n{grey}Cube {purple}Class Token {grey}alone to change the class {red}or\n"
         },
-        { -- Rule 282: Add info to Druid Class Token
+        { -- Rule 284: Add info to Druid Class Token
             code = "TK6",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Tokens required = Soul Tier (Tier 2 requires 2 tokens, Tier 3 requires 3, etc)\n{grey}Cube with {gold}Beacon of Hope {grey}to add {purple}Druid Soul Summon\n{grey}Cube {purple}Class Token {grey}alone to change the class {red}or\n"
         },
-        { -- Rule 283: Add info to Assassin Class Token
+        { -- Rule 285: Add info to Assassin Class Token
             code = "TK7",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Tokens required = Soul Tier (Tier 2 requires 2 tokens, Tier 3 requires 3, etc)\n{grey}Cube with {gold}Beacon of Hope {grey}to add {purple}Assassin Soul Summon\n{grey}Cube {purple}Class Token {grey}alone to change the class {red}or\n"
         },
-        { -- Rule 284: Enhancement Crystals warning their only usable on Weapons/Armors
+        { -- Rule 286: Enhancement Crystals warning their only usable on Weapons/Armors
             codes = { "z00", "z01", "z02", "z03", "z04", "z05", "z06", "z07", "z08", "z09", "z10", "z11", "z12", "z13", "z14", "z15", "z16", "z17", "z18", "Z60", "Z61", "Z62", "Z63", "Z64", "Z65", "Z66", "Z67", "Z68", "Z69", "Z70", "Z71", "Z72", "Z73", "Z74", "Z75", "Z76", "Z77", "Z78", "Z79", "Z80", "Z81", "Z82", "Z83", "Z84", "Z85", "Z86", "Z87", "Z88", "Z89", "Z90", "Z91", "Z92", "Z93", "Z94", "Z95", "Z96", "Z97", "Z98", "Z99" },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Only usable on Weapons & Armors\n\n",
         },
-        { -- Rule 285: Display cube recipes on Gold Bar that relate to it
+        { -- Rule 287: Display cube recipes on Gold Bar that relate to it
             code = "Y21",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{pink}Demon-Temper recipe only works if you are LB2: Path of the Blacksmith\n{dark green}Demon-Tempered Unique {grey}+ 1x {gold}Gold Bar {grey}= Dismantle (Generate Original Unique)\n{pink}Gold Bar Cost - {white}Normal{pink}/{grey}Socketed{pink}: 2, {blue}Magic{pink}/{grey}Superior{pink}: 3, {yellow}Rare{pink}: 4, {gold}Unique{pink}/{green}Set{pink}: 5\n{grey}Any Item + {gold}Gold Bars {grey}(Separated) = Add Ethereal to Item\n\n"
         },
-        { -- Rule 286: On Ramaladni's Gift display the limits it has on Weapons
+        { -- Rule 288: On Ramaladni's Gift display the limits it has on Weapons
             code = "Rgx",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}*NOTE: {green}Set{grey}/{gold}Unique {grey}Weapons cannot go over their natural maximum sockets\n\n{dark green}Demon Tempered{grey}: cannot use Gifts (unless LB2: Path of the Blacksmith)\n{green}Set {grey}& {gold}Unique {grey}Armor & Jewellery: up to item's maximum sockets\n{green}Set {grey}& {gold}Unique {grey}Weapons*: 1-hand: 4, 2-hand: 6\n{blue}Magic{grey}, {yellow}Rare{grey}, & {orange}Crafted{grey}: up to item's maximum sockets\n{white}Inferior{grey}, {white}Normal{grey}, & Superior: up to item's maximum sockets\n{gold}Ramaladni's Gift {grey}Socket Limits:\n"
         },
-        { -- Rule 287: Helper text for 0 socket items to use Ramaladni's Gift to add sockets
+        { -- Rule 289: Helper text for 0 socket items to use Ramaladni's Gift to add sockets
             codes = "allitems",
             quality = "8-",
             maxsock = false,
@@ -1884,7 +1884,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use a {gold}Ramaladni's Gift {grey}to add a socket\n"
         },
-        { -- Rule 288: Helper text for Magic/Rare/Crafted 0 socket Weapons to use Ramaladni's Gift to add sockets
+        { -- Rule 290: Helper text for Magic/Rare/Crafted 0 socket Weapons to use Ramaladni's Gift to add sockets
             codes = "allitems",
             quality = { "4", "6", "8" },
             maxsock = false,
@@ -1892,7 +1892,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use a {gold}Ramaladni's Gift {grey}to add a socket\n"
         },
-        { -- Rule 289: Helper text for Set/Unique 1-Hand 0 socket Weapons to use Ramaladni's Gift to add sockets
+        { -- Rule 291: Helper text for Set/Unique 1-Hand 0 socket Weapons to use Ramaladni's Gift to add sockets
             codes = { "hax", "axe", "2ax", "mpi", "wax", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "9ha", "9ax", "92a", "9mp", "9wa", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "ob1", "ob2", "ob3", "ob4", "ob5", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "ama", "obb", "obc", "obd", "obe", "obf", "amf", "k01", "k02", "k03", "Pm1", "Pm2", "Pm3", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "Ss1", "Ss2", "Ss3", "Ss4", "l13", "l16", "l18" },
             quality = { "5", "7" },
             maxsock = false,
@@ -1900,28 +1900,28 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use a {gold}Ramaladni's Gift {grey}to add a socket\n"
         },
-        { -- Rule 290: Helper text for Set/Unique 2-Hand 0 socket Weapons to use Ramaladni's Gift to add sockets
-            codes = { "lax", "bax", "btx", "gax", "gix", "mau", "gma", "clm", "gis", "bsw", "flb", "gsd", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "9la", "9ba", "9bt", "9ga", "9gi", "9m9", "9gm", "9cm", "9gs", "9b9", "9fb", "9gd", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "7la", "7ba", "7bt", "7ga", "7gi", "7m7", "7gm", "7cm", "7gs", "7b7", "7fb", "7gd", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "am1", "am2", "am3", "am4", "am6", "am7", "am8", "am9", "amb", "amc", "amd", "ame", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "l14", "l15", "l17" },
+        { -- Rule 292: Helper text for Set/Unique 2-Hand 0 socket Weapons to use Ramaladni's Gift to add sockets
+            codes = { "lax", "bax", "btx", "gax", "gix", "mau", "gma", "clm", "gis", "bsw", "flb", "gsd", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "9la", "9ba", "9bt", "9ga", "9gi", "9m9", "9gm", "9cm", "9gs", "9b9", "9fb", "9gd", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "7la", "7ba", "7bt", "7ga", "7gi", "7m7", "7gm", "7cm", "7gs", "7b7", "7fb", "7gd", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "am1", "am2", "am3", "am4", "am6", "am7", "am8", "am9", "amb", "amc", "amd", "ame", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "l14", "l15", "l17", "l18" },
             quality = { "5", "7" },
             maxsock = false,
             itype = 45,
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use a {gold}Ramaladni's Gift {grey}to add a socket\n"
         },
-        { -- Rule 291: Shows maximum sockets a non-Weapon item can get
+        { -- Rule 293: Shows maximum sockets a non-Weapon item can get
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2" },
             itype = { 10, 12, 50 },
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 292: Shows maximum sockets an Inferior/Normal/Magic/Rare/Crafted Weapon can get
+        { -- Rule 294: Shows maximum sockets an Inferior/Normal/Magic/Rare/Crafted Weapon can get
             codes = "allitems",
             quality = { "1", "2", "3", "4", "6", "8" },
             itype = 45,
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 293: Add helper text for Set/Unique Weapons that have a maximum of 2, 3, & 4 sockets
+        { -- Rule 295: Add helper text for Set/Unique Weapons that have a maximum of 2, 3, & 4 sockets
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2" },
             quality = { "5", "7" },
             maxsock = "4-",
@@ -1929,7 +1929,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 294: Add helper text for 1-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
+        { -- Rule 296: Add helper text for 1-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
             codes = { "hax", "axe", "2ax", "mpi", "wax", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "9ha", "9ax", "92a", "9mp", "9wa", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "7mp", "7wa", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "ob1", "ob2", "ob3", "ob4", "ob5", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "ama", "obb", "obc", "obd", "obe", "obf", "amf", "k01", "k02", "k03", "Pm1", "Pm2", "Pm3", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "Ss1", "Ss2", "Ss3", "Ss4", "l13", "l16", "l18" },
             quality = { "5", "7" },
             maxsock = "5+",
@@ -1937,15 +1937,15 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: 4\n"
         },
-        { -- Rule 295: Add helper text for 2-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
-            codes = { "lax", "bax", "btx", "gax", "gix", "mau", "gma", "clm", "gis", "bsw", "flb", "gsd", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "9la", "9ba", "9bt", "9ga", "9gi", "9m9", "9gm", "9cm", "9gs", "9b9", "9fb", "9gd", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "7la", "7ba", "7bt", "7ga", "7gi", "7m7", "7gm", "7cm", "7gs", "7b7", "7fb", "7gd", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "am1", "am2", "am3", "am4", "am6", "am7", "am8", "am9", "amb", "amc", "amd", "ame", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "l14", "l15", "l17" },
+        { -- Rule 297: Add helper text for 2-Hand Set/Unique Weapons that have a maximum of 5 & 6 sockets
+            codes = { "lax", "bax", "btx", "gax", "gix", "mau", "gma", "clm", "gis", "bsw", "flb", "gsd", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "9la", "9ba", "9bt", "9ga", "9gi", "9m9", "9gm", "9cm", "9gs", "9b9", "9fb", "9gd", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "7la", "7ba", "7bt", "7ga", "7gi", "7m7", "7gm", "7cm", "7gs", "7b7", "7fb", "7gd", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "am1", "am2", "am3", "am4", "am6", "am7", "am8", "am9", "amb", "amc", "amd", "ame", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "l14", "l15", "l17", "l18" },
             quality = { "5", "7" },
             maxsock = "5+",
             itype = 45,
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: {maxsock}\n"
         },
-        { -- Rule 296: Special use-case for Rune Master (since it can get 5 sockets)
+        { -- Rule 298: Special use-case for Rune Master (since it can get 5 sockets)
             code = "72a",
             quality = "7",
             index = 189,
@@ -1953,7 +1953,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{white}Maximum Sockets: 4\n"
         },
-        { -- Rule 297: Special use-case for Rune Master (since it can get 5 sockets)
+        { -- Rule 299: Special use-case for Rune Master (since it can get 5 sockets)
             code = "72a",
             quality = "7",
             index = 189,
@@ -1964,7 +1964,7 @@ return {
         -- +-------------------------+
         -- | TAGS & GENERIC RULES    |
         -- +-------------------------+
-        { -- Rule 298: Adding item level to non-Ethereal non-socketed items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
+        { -- Rule 300: Adding item level to non-Ethereal non-socketed items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
             codes = "allitems",
             itype = { 10, 12, 45, 50, 58, 82, 83, 84 },
             ethereal = false,
@@ -1972,14 +1972,14 @@ return {
             location = { "onplayer", "equipped" , "onground", "dropping", "atvendor" },
             suffix = " ({ilvl})"
         },
-        { -- Rule 299: Adding item level to Ethereal items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
+        { -- Rule 301: Adding item level to Ethereal items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
             codes = "allitems",
             itype = { 10, 12, 45, 50, 58, 82, 83, 84 },
             ethereal = true,
             location = { "onplayer", "equipped" , "onground", "dropping", "atvendor" },
             suffix = " ({ilvl}) ",
         },
-        { -- Rule 300: Adding item level to Non-Ethereal socketed items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
+        { -- Rule 302: Adding item level to Non-Ethereal socketed items (Rings, Amulets, Weapons, Armors, Jewels, and Small/Large/Grand Charms)
             codes = "allitems",
             itype = { 10, 12, 45, 50, 58, 82, 83, 84 },
             ethereal = false,
@@ -1987,143 +1987,143 @@ return {
             location = { "onplayer", "equipped" , "onground", "dropping", "atvendor" },
             suffix = " ({ilvl}) "
         },
-        { -- Rule 301: Color item name and add [Eth] tag to Inferior, Normal, and Superior items
+        { -- Rule 303: Color item name and add [Eth] tag to Inferior, Normal, and Superior items
             codes = "allitems",
             quality = "3-",
             ethereal = true,
             prefix = "ÿcI",
             suffix = "{grey}[Eth]"
         },
-        { -- Rule 302: Do NOT color item name but still add [Eth] tag to Magic+ items
+        { -- Rule 304: Do NOT color item name but still add [Eth] tag to Magic+ items
             codes = "allitems",
             quality = "4+",
             ethereal = true,
             suffix = "{grey}[Eth]"
         },
-        { -- Rule 303: Adding socket number tag to 1 socket items
+        { -- Rule 305: Adding socket number tag to 1 socket items
             codes = "allitems",
             sockets = "1",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 304: Adding socket number tag to 2 socket non-max sockets items
+        { -- Rule 306: Adding socket number tag to 2 socket non-max sockets items
             codes = "allitems",
             sockets = "2",
             maxsock = "3+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 305: Adding socket number tag to 2 socket max sockets items
+        { -- Rule 307: Adding socket number tag to 2 socket max sockets items
             codes = "allitems",
             sockets = "2",
             maxsock = "2",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 306: Adding socket number tag to 3 socket non-max sockets items
+        { -- Rule 308: Adding socket number tag to 3 socket non-max sockets items
             codes = "allitems",
             sockets = "3",
             maxsock = "4+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 307: Adding socket number tag to 3 socket max sockets items
+        { -- Rule 309: Adding socket number tag to 3 socket max sockets items
             codes = "allitems",
             sockets = "3",
             maxsock = "3",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 308: Adding socket number tag to 4 socket non-max sockets items
+        { -- Rule 310: Adding socket number tag to 4 socket non-max sockets items
             codes = "allitems",
             sockets = "4",
             maxsock = "5+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 309: Adding socket number tag to 4 socket max sockets items
+        { -- Rule 311: Adding socket number tag to 4 socket max sockets items
             codes = "allitems",
             sockets = "4",
             maxsock = "4",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 310: Adding socket number tag to 5 socket non-max sockets items
+        { -- Rule 312: Adding socket number tag to 5 socket non-max sockets items
             codes = "allitems",
             sockets = "5",
             maxsock = "6+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 311: Adding socket number tag to 5 socket max sockets items
+        { -- Rule 313: Adding socket number tag to 5 socket max sockets items
             codes = "allitems",
             sockets = "5",
             maxsock = "5",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 312: Adding socket number tag to 6 socket non-max sockets items
+        { -- Rule 314: Adding socket number tag to 6 socket non-max sockets items
             codes = "allitems",
             sockets = "6",
             maxsock = "7+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 313: Adding socket number tag to 6 socket max sockets items
+        { -- Rule 315: Adding socket number tag to 6 socket max sockets items
             codes = "allitems",
             sockets = "6",
             maxsock = "6",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 314: Adding socket number tag to 7 socket non-max sockets items
+        { -- Rule 316: Adding socket number tag to 7 socket non-max sockets items
             codes = "allitems",
             sockets = "7",
             maxsock = "8+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 315: Adding socket number tag to 7 socket max sockets items
+        { -- Rule 317: Adding socket number tag to 7 socket max sockets items
             codes = "allitems",
             sockets = "7",
             maxsock = "7",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 316: Adding socket number tag to 8 socket non-max sockets items
+        { -- Rule 318: Adding socket number tag to 8 socket non-max sockets items
             codes = "allitems",
             sockets = "8",
             maxsock = "9+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 317: Adding socket number tag to 8 socket max sockets items
+        { -- Rule 319: Adding socket number tag to 8 socket max sockets items
             codes = "allitems",
             sockets = "8",
             maxsock = "8",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 318: Adding socket number tag to 9 socket non-max sockets items
+        { -- Rule 320: Adding socket number tag to 9 socket non-max sockets items
             codes = "allitems",
             sockets = "9",
             maxsock = "10+",
             suffix = "{grey}[{sockets}]"
         },
-        { -- Rule 319: Adding socket number tag to 9 socket max sockets items
+        { -- Rule 321: Adding socket number tag to 9 socket max sockets items
             codes = "allitems",
             sockets = "9",
             maxsock = "9",
             suffix = "{grey}[{green}{sockets}{grey}]"
         },
-        { -- Rule 320: Adding superscript "1" in front of Normal tier items names
+        { -- Rule 322: Adding superscript "1" in front of Normal tier items names
             codes = "allitems",
             rarity = "0",
             itype = { 45, 50 },
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "¹"
         },
-        { -- Rule 321: Adding superscript "2" in front of Exceptional tier items names
+        { -- Rule 323: Adding superscript "2" in front of Exceptional tier items names
             codes = "allitems",
             rarity = "1",
             itype = { 45, 50 },
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "²"
         },
-        { -- Rule 322: Adding superscript "EB 3" in front of Elite tier items names
-            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 324: Adding superscript "EB 3" in front of Elite tier items names
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             itype = { 45, 50 },
             location = { "onground", "onplayer", "equipped", "atvendor" },
             prefix = "ⅲ ³"
         },
-        { -- Rule 323: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior Ethereal Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 325: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior Ethereal Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             ethereal = true,
             rarity = "2",
             quality = "3-",
@@ -2132,8 +2132,8 @@ return {
             prefix = "{red}ⅳ ³ÿcI",
             -- prefix = "⁴"
         },
-        { -- Rule 324: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior non-Ethereal socketed Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 326: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior non-Ethereal socketed Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             ethereal = false,
             sockets = "1+",
             rarity = "2",
@@ -2143,8 +2143,8 @@ return {
             prefix = "{red}ⅳ ³{grey}",
             -- prefix = "⁴"
         },
-        { -- Rule 325: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior non-Ethereal non-socketed Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 327: Adding colored superscript "LB 3" in front of Elite tier Inferior/Normal/Superior non-Ethereal non-socketed Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             ethereal = false,
             sockets = "0",
             rarity = "2",
@@ -2154,8 +2154,8 @@ return {
             prefix = "{red}ⅳ ³{white}",
             -- prefix = "⁴"
         },
-        { -- Rule 326: Adding colored superscript "LB 3" in front of Elite tier Magic Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 328: Adding colored superscript "LB 3" in front of Elite tier Magic Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             quality = "4",
             itype = { 45, 50 },
@@ -2163,8 +2163,8 @@ return {
             prefix = "{red}ⅳ ³{blue}",
             -- prefix = "⁴"
         },
-        { -- Rule 327: Adding colored superscript "LB 3" in front of Elite tier Set Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 329: Adding colored superscript "LB 3" in front of Elite tier Set Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             quality = "5",
             itype = { 45, 50 },
@@ -2172,8 +2172,8 @@ return {
             prefix = "{red}ⅳ ³{green}",
             -- prefix = "⁴"
         },
-        { -- Rule 328: Adding colored superscript "LB 3" in front of Elite tier Rare Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 330: Adding colored superscript "LB 3" in front of Elite tier Rare Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             quality = "6",
             itype = { 45, 50 },
@@ -2181,8 +2181,8 @@ return {
             prefix = "{red}ⅳ ³{yellow}",
             -- prefix = "⁴"
         },
-        { -- Rule 329: Adding colored superscript "LB 3" in front of Elite tier Unique Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 331: Adding colored superscript "LB 3" in front of Elite tier Unique Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             quality = "7",
             itype = { 45, 50 },
@@ -2190,8 +2190,8 @@ return {
             prefix = "{red}ⅳ ³{gold}",
             -- prefix = "⁴"
         },
-        { -- Rule 330: Adding colored superscript "LB 3" in front of Elite tier Crafted Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 332: Adding colored superscript "LB 3" in front of Elite tier Crafted Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             quality = "8",
             itype = { 45, 50 },
@@ -2199,8 +2199,8 @@ return {
             prefix = "{red}ⅳ ³{orange}",
             -- prefix = "⁴"
         },
-        { -- Rule 331: Adding colored superscript "LB 3" in front of Elite tier Demon Tempered Limit Break items names
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 333: Adding colored superscript "LB 3" in front of Elite tier Demon Tempered Limit Break items names
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             quality = "9",
             itype = { 45, 50 },
@@ -2208,8 +2208,8 @@ return {
             prefix = "{red}ⅳ ³{dark green}",
             -- prefix = "⁴"
         },
-        { -- Rule 332: Notify for Elite tier Limit Break items
-            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17" },
+        { -- Rule 334: Notify for Elite tier Limit Break items
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             itype = { 45, 50 },
             notify = "{red}LB Item {link}"
@@ -2217,7 +2217,7 @@ return {
         -- +-------------------------+
         -- | TESTING                 |
         -- +-------------------------+
-        -- { -- Rule 333: For testing, adds a bunch of info to item
+        -- { -- Rule 335: For testing, adds a bunch of info to item
         --     codes = "allitems",
         --     location = { "onplayer", "equipped", "onground", "dropping", "atvendor" },
         --     suffix = " \n{grey}[Code: {orange}{code}{grey}]\n[Quality: {orange}{quality}{grey}]\n[Rarity: {orange}{rarity}{grey}]\n[Index: {orange}{index}{grey}]"
