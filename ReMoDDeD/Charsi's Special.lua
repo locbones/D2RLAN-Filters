@@ -1,12 +1,12 @@
 --- Filter Title:Charsi's Special
 --- Filter Type: 4 levels, cosmetic styles for loot, tips on various items
---- Filter Description:ReMoDDeD Only! Not recommended to use it in other mods as it contains RMD only information.\nFilter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, setup a hotkey in 'Hotkeys' inside your launcher ('Cycle Filter Level' option).\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 400 (Lite) and 800 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden in Hell on clvl 80+.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nQuest item notifies (some cringey comments to confuse players a bit lol)\nIf you have any suggestions, or found a bug, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
+--- Filter Description:ReMoDDeD Only! Not recommended to use it in other mods as it contains RMD only information.\nFilter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, press F12 while in-game, go to 'Hotkey Controls' and setup a hotkey for 'Cycle Filter Level', you will likely need to restart the game once after setting this.\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 500 (Lite) and 900 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden at all times.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nQuest item notifies (some cringey comments to confuse players a bit lol)\nIf you have any suggestions, or found a bug or unintended behavior, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Aggressive","Aggressive + Hunter"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.8H{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v1.8I{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
     rules = {
         { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
@@ -288,173 +288,173 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{ -- Hide badly rolled Enlightened Plate Superior bases (max 4os)
 			code = "Bp3",	
 			quality = "3-",
-            stat = {index = 43, op = "<", value = 13},
-            stat = {index = 45, op = "<", value = 13},
+            stat = { index = 43, op = "<", value = 13 },
+            stat = { index = 45, op = "<", value = 13 },
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
 		{ -- Display almost perf rolled Enlightened Plate Superior bases (max 4os)
 			code = "Bp3",	
 			quality = "3-",
-            stat = {index = 43, op = ">=", value = 13},
-            stat = {index = 45, op = ">=", value = 13},
+            stat = { index = 43, op = ">=", value = 13 },
+            stat = { index = 45, op = ">=", value = 13 },
 			suffix = "{yellow}[{stat=(45)}%% All Res]"
 		},
 		{ -- Hide badly rolled Cloak/Mantle Superior bases (max 4os)
-			codes = {"Ca1", "Ca2", "Ca3"},
+			codes = { "Ca1", "Ca2", "Ca3" },
 			quality = "3-",
-			stat = {index = 188, op = "<=", value = 2, param = 49},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			stat = { index = 188, op = "<=", value = 2, param = 49 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
 		{ -- Display good rolled Cload/Mantle Superior bases (max 4os)
-			codes = {"Ca1", "Ca2", "Ca3"},
+			codes = { "Ca1", "Ca2", "Ca3" },
 			quality = "3-",
-			stat = {index = 188, op = "==", value = 3, param = 49},
+			stat = { index = 188, op = "==", value = 3, param = 49 },
 			suffix = "{yellow}[+3 Shadow Disciplines]"
 		},
 		{ -- Display perf rolled Cload/Mantle Superior bases (max 4os)
-			codes = {"Ca1", "Ca2", "Ca3"},
+			codes = { "Ca1", "Ca2", "Ca3" },
 			quality = "3-",
-			stat = {index = 188, op = "==", value = 4, param = 49},
+			stat = { index = 188, op = "==", value = 4, param = 49 },
 			suffix = "{yellow}[+4 Shadow Disciplines]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 4os)
-			codes = {"urg", "uit", "kit", "utp"},
+			codes = { "urg", "uit", "kit", "utp" },
             quality = "2",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 5os
-			codes = {"axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8"},
+			codes = { "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8" },
             quality = "3-",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
             hide = true
         },
 		{ -- Hides leftover (non-superior) bases (max 5os)
 			code = "6lx",
             quality = "2",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 6os
-			codes = {"Bm1", "8ws", "wst", "Bm2", "Bm3", "Bf2", "Bf1", "7ga", "7bt", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "8hx", "hxb", "Bm7", "Bm8", "Bm9", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "7vo", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "6ws", "7p7", "9h9", "7wc", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "9wc", "9s8", "wsc", "7s8", "ame", "amd", "am9", "am8", "am4", "am3", "Ds1", "Ds2", "Ds3", "Bf5", "Bm4", "Bm5", "Bm6", "7gd", "7fb", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "9cr", "crs"},
+			codes = { "Bm1", "8ws", "wst", "Bm2", "Bm3", "Bf2", "Bf1", "7ga", "7bt", "7la", "7gi", "7ba", "7ax", "9gi", "9ba", "9ax", "9ga", "9la", "9wa", "9bt", "92a", "btx", "gix", "gax", "wax", "am6", "am7", "6l7", "6s7", "6lw", "6lb", "6sw", "8lb", "8lw", "8l8", "8sw", "8s8", "lbb", "lwb", "sbb", "swb", "8hx", "hxb", "Bm7", "Bm8", "Bm9", "7wh", "7m7", "7gm", "9wh", "9gm", "9m9", "gma", "mau", "whm", "7fl", "7vo", "7st", "7h7", "7sr", "7br", "7o7", "7tr", "6ws", "7p7", "9h9", "7wc", "9vo", "9tr", "9p9", "9b7", "9pa", "9br", "9sr", "9st", "hal", "pik", "spt", "9wc", "9s8", "wsc", "7s8", "ame", "amd", "am9", "am8", "am4", "am3", "Ds1", "Ds2", "Ds3", "Bf5", "Bm4", "Bm5", "Bm6", "7gd", "7fb", "7bs", "7ls", "9bs", "9gd", "9ls", "9fb", "flb", "gsd", "9cr", "crs" },
             quality = "3-",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
             hide = true
         },
 		{ -- Hide NOT 1/2 bow skills Grand Matron Bow or Matrialchal Bow Superior bases (max 6os)
-			codes = {"amc", "amb"},
+			codes = { "amc", "amb" },
 			quality = "3-",
-			stat = {index = 188, op = "<", value = 1, param = 0},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			stat = { index = 188, op = "<", value = 1, param = 0 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
 		{ -- Display 1 bow skills Grand Matron Bow Superior bases (max 6os) - aggressive only
-			codes = {"amc", "amb"},
+			codes = { "amc", "amb" },
 			quality = "3-",
 			filter_levels = "3,4",
-			stat = {index = 188, op = "==", value = 1, param = 0},
+			stat = { index = 188, op = "==", value = 1, param = 0 },
 			suffix = "{yellow} [+1 Bow skills]"
 		},
 		{ -- Display 2 bow skills Grand Matron Bow Superior bases (max 6os)
-			codes = {"amc", "amb"},
+			codes = { "amc", "amb" },
 			quality = "3-",
-			stat = {index = 188, op = "==", value = 2, param = 0},
+			stat = { index = 188, op = "==", value = 2, param = 0 },
 			suffix = "{yellow} [+2 Bow skills]"
 		},
 		{ -- Hide NOT 2/3 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = {"7ws", "9ws"},
+			codes = { "7ws", "9ws" },
 			quality = "3-",
-			stat = {index = 83, op = "<", value = 2, param = 3},
+			stat = { index = 83, op = "<", value = 2, param = 3 },
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
 		{ -- Display 2 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = {"7ws", "9ws"},
+			codes = { "7ws", "9ws" },
 			quality = "3-",
-			stat = {index = 83, op = "==", value = 2, param = 3},
+			stat = { index = 83, op = "==", value = 2, param = 3 },
 			suffix = "{yellow} [+2 Paladin skills]"
 		},
 		{ -- Display 3 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = {"7ws", "9ws"},
+			codes = { "7ws", "9ws" },
 			quality = "3-",
-			stat = {index = 83, op = "==", value = 3, param = 3},
+			stat = { index = 83, op = "==", value = 3, param = 3 },
 			suffix = "{yellow} [+3 Paladin skills]"
 		},
 		{ -- Hide <120% Summon Damage Necro Sickle bases (max 6os)
-			codes = {"7mp", "9mp", "mpi"},
+			codes = { "7mp", "9mp", "mpi" },
 			quality = "3-",
-			stat = {index = 281, op = "<", value = 120},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			stat = { index = 281, op = "<", value = 120 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
-		{ -- Display >=120% Summon Damage Superior Necro Sickle bases (max 6os)
-			codes = {"7mp", "9mp", "mpi"},
+		{ -- Display >=120% Summon Damage Necro Sickle bases (max 6os)
+			codes = { "7mp", "9mp", "mpi" },
 			quality = "3-",
-			stat = {index = 281, op = ">=", value = 120},
+			stat = { index = 281, op = ">=", value = 120 },
 			suffix = "{yellow} [{stat=(281)}%% Summon Damage]"
 		},
-		{ -- Hide <5% Life Leech Bloodletting Sword Superior base (max 6os)
+		{ -- Hide <5% Life Leech Bloodletting Sword base (max 6os)
 			code = "Bf6",
 			quality = "3-",
-			stat = {index = 60, op = "<", value = 5},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			stat = { index = 60, op = "<", value = 4 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
-		{ -- Display >=4% Life Leech Bloodletting Sword Superior base (max 6os)
+		{ -- Display >=4% Life Leech Bloodletting Sword base (max 6os)
 			code = "Bf6",
 			quality = "3-",
-			stat = {index = 60, op = ">=", value = 4},
+			stat = { index = 60, op = ">=", value = 4 },
 			suffix = "{yellow} [{stat=(60)}%% LL]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 6os)
-			codes = {"Bf3", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8"},
+			codes = { "Bf3", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8" },
             quality = "2",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			runeword=false,
-			pstat = {index = 12, op = ">=", value = 80},
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
             hide = true
         },
@@ -471,42 +471,42 @@ allowOverrides = true, -- Necessary, do not turn off.
 			hide = true
 		},
 		{ -- Hides all 1 socket bases (does not include LB bases) in Normal and Nightmare when clvl is below 80
-			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "3-",
 			sockets = "1",
-			runeword=false,
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			difficulties = {"Normal", "Nightmare"},
-			pstat = {index = 12, op = "<", value = 80},
+			runeword = false,
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulties = { "Normal", "Nightmare" },
+			pstat = { index = 12, op = "<", value = 80 },
 			hide = true
 		},
 		{ -- Hides all 0 socket not superior bases (does not include LB bases) in Normal and Nightmare when clvl is below 80 - aggressive only
-			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "2",
 			sockets = "0",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			difficulties = {"Normal", "Nightmare"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulties = { "Normal", "Nightmare" },
 			runeword = false,
-			pstat = {index = 12, op = "<", value = 80},
+			pstat = { index = 12, op = "<", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
 		{ -- Suffix for potentially great bases while leveling - Normal
-			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "3",
 			sockets = "2+",
 			difficulty = "Normal",
 			runeword = false,
-			pstat = {index = 12, op = "<", value = 80},
+			pstat = { index = 12, op = "<", value = 80 },
 			suffix = "{yellow}[Good?]"
 		},
 		{ -- Suffix for potentially great bases while leveling - Nightmare
-			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "3",
 			sockets = "3+",
 			difficulty = "Nightmare",
 			runeword = false,
-			pstat = {index = 12, op = "<", value = 80},
+			pstat = { index = 12, op = "<", value = 80 },
 			suffix = "{yellow}[Good?]"
 		},
 
@@ -514,20 +514,20 @@ allowOverrides = true, -- Necessary, do not turn off.
 		--                                                                                           "Limit Broken" Bases
 		
 		{ -- Notify about LB bases
-			codes = {"l01","l02","l03","l04","l05","l06","l07","l08","l09","l10","l11","l12","l13","l14","l15","l16","l17"},
+			codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
 			quality = "3-",
 			notify = "LB Base{link}"
 		},
 		{ -- Magic LB items - for crafting - description
-			codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+			codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
 			quality = "4",
-			location = {"onplayer", "atvendor", "equipped"},
+			location = { "onplayer", "atvendor", "equipped" },
 			prefix_desc = "{red}Trash, but nice for crafting\n"
 		},
 		{ -- Magic LB items - for crafting - notify
-			codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+			codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
 			quality = "4",
-			border = {99,99,230,230,1},
+			border = { 99, 99, 230, 230, 1 },
 			notify = "Craft beyond limits{blue}{link}"
 		},
 		
@@ -538,26 +538,26 @@ allowOverrides = true, -- Necessary, do not turn off.
 		--													                                               MAGIC
 		
 		{ -- Hides all magic items (does not include LB bases, jewels and S/L/G charms) from clvl 30 above Normal
-			codes = {"cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9"},
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "4",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			difficulties = {"Nightmare", "Hell"},
-			pstat = {index = 12, op = ">=", value = 30},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulties = { "Nightmare", "Hell" },
+			pstat = { index = 12, op = ">=", value = 30 },
 			hide = true
 		},
 		{ -- Hide Magic Ring/Amulet at clvl 100+ in Hell (shown earlier for crafting reasons) - lite
-			codes = {"rin", "amu"},
+			codes = { "rin", "amu" },
 			quality = "4",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = {index = 12, op = ">=", value = 100},
+			pstat = { index = 12, op = ">=", value = 100 },
 			filter_levels = "1,2",
 			hide = true
 		},
 		{ -- Hide Magic Ring/Amulet in Hell (shown earlier for crafting reasons) - aggressive
-			codes = {"rin", "amu"},
+			codes = { "rin", "amu" },
 			quality = "4",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			filter_levels = "3,4",
 			hide = true
@@ -565,160 +565,172 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{ -- Hides magic Large Charms, Aggressive
 			codes = "cm2",
 			quality = "4",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			difficulties = {"Nightmare", "Hell"},
-			pstat = {index = 12, op = ">=", value = 30},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulties = { "Nightmare", "Hell" },
+			pstat = { index = 12, op = ">=", value = 30 },
 			filter_levels = "3,4",
 			hide = true
 		},
-		{ -- Style for Magic Jewels
-			code = "jew",
-			quality = "4",
-			border = {0, 0, 0, 225, 2},
-			background = {3, 3, 41, 240}
-		},
-		{ -- Magic Small/Large/Grand Charm style
-			codes = {"cm1", "cm2", "cm3"},
-			quality = "4",
-			background = {29, 2, 46, 230}
-		},
+		
+		
+		
+		
 		
 				--													                                         RARE
 		{ -- Hides all rare items, besides Jewels
-			codes = {"rin", "amu", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17"},
+			codes = { "rin", "amu", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
 			quality = "6",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
-		{ -- Style for Rare Jewels
-			code = "jew",
-			quality = "6",
-			border = {0, 0, 0, 225, 2},
-			background = {39, 41, 3, 240}
-		},
+		
+		
+		
+		
 		
 		--													                                                ARROWS and BOLTS
 		{ -- Hides all magic and rare arrows/bolts - Lite
-			codes = {"aqv", "cqv"},
+			codes = { "aqv", "cqv" },
 			quality = { "4", "6" },
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",	
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "1,2",
 			hide = true
 		},
 		{ -- Hides all magic arrows/bolts at all times - Aggressive
-			codes = {"aqv", "cqv"},
+			codes = { "aqv", "cqv" },
 			quality = "4",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			filter_levels = "3,4",
 			hide = true
 		},
 		{ -- Hides all rare arrows/bolts - Aggressive
-			codes = {"aqv", "cqv"},
+			codes = { "aqv", "cqv" },
 			quality = "6",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",	
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
 			hide = true
 		},
 		{ -- Hide white arrows/bolts at all times
-			codes = {"aqv", "cqv"},
+			codes = { "aqv", "cqv" },
 			quality = "2",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			hide = true
 		},
 		
+		
+		
+		
+		
 		--													                                                 MISC and STYLES
 
-		{ -- Hide gold drops under 800 for clvl above 80 Aggressive
+		{ -- Hide gold drops under 900 for clvl above 80 Aggressive
 			code = "gld",
-            stat = {index = 14, op = "<=", value=799}, 
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+            stat = { index = 14, op = "<=", value=899 }, 
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "3,4",
             hide = true
         },
-		{ -- Display the max socket amount on items in their description
-			codes="allitems",
-			location={"onground", "onplayer", "atvendor", "equipped"},
-			itype={45,50,10,12},
-			suffix_desc="{blue}Max Sockets: {maxsock}\n"
+		{ -- Style for Magic Jewels
+			code = "jew",
+			quality = "4",
+			border = { 115, 115, 255, 170, 1 },
+			background = { 1, 1, 17, 255 }
 		},
-		{ -- Hide gold drops under 400 for clvl above 80 Lite
+		{ -- Style for Rare Jewels
+			code = "jew",
+			quality = "6",
+			border = { 255, 255, 105, 190, 1 }
+		},
+		{ -- Style for Magic Small/Large/Grand Charms
+			codes = {"cm1", "cm2", "cm3"},
+			quality = "4",
+			border = { 178, 0, 255, 160, 1 },
+			background = { 7, 0, 12, 230 }
+		},
+		{ -- Display the max socket amount on items in their description
+			codes = "allitems",
+			location = { "onground", "onplayer", "atvendor", "equipped" },
+			itype = { 45, 50, 10, 12 },
+			suffix_desc = "{blue}Max Sockets: {maxsock}\n"
+		},
+		{ -- Hide gold drops under 500 for clvl above 80 Lite
 			code = "gld",
-            stat = {index = 14, op = "<=", value=399}, 
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+            stat = { index = 14, op = "<=", value=499 }, 
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "1,2",
             hide = true
         },
 		{ -- Hide omega low gold while leveling
 			code = "gld",
-            stat = {index = 14, op = "<", value=10}, 
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-			pstat = {index = 12, op = "between", value = { 10, 79 }},
+            stat = { index = 14, op = "<", value=10 }, 
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			pstat = { index = 12, op = "between", value = { 10, 79 } },
             hide = true
         },
 		{ -- Notify for LB Uniques
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
 			quality = 7,
-            itype = {45, 50},
+            itype = { 45, 50 },
             notify = "Unique LB item dropped!"
         },
         { -- Hides id/tp scroll drops at all times
-            codes = {"tsc", "isc"},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+            codes = { "tsc", "isc" },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
         { -- Hides all potion drops besides full rejuvs from clvl 80 in Hell - Lite
-            codes = {"hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs"},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+            codes = { "hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs" },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			filter_levels = "1,2",
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
             hide = true
         },
         { -- Hides all potion drops besides any rejuvs at all times- Aggressive
-            codes = {"hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5"},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+            codes = { "hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5" },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			filter_levels = "3,4",
             hide = true
         },
         { -- Hides small rejuv drops after clvl 80 - Aggressive
             code = "rvs",
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			filter_levels = "3,4",
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
             hide = true
         },
 		{ -- Style for Unique items
             codes = "allitems",
             quality = "7",
-            border = {165, 146, 99, 230, 1} 
+            border = { 165, 146, 99, 220, 1 } 
         },
 		{ -- Style for Set items
             codes = "allitems",
             quality = "5",
-            border = {0, 255, 0, 230, 1} 
+            border = { 0, 255, 0, 190, 1 } 
         },
 		{ -- High Runes notification and border
-            codes = {"r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33"},
+            codes = { "r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33" },
             notify = "{orange}High Rune Nearby: {name}",
-			border = {255, 170, 0, 230, 1} 
+			border = { 255, 170, 0, 230, 1 } 
         },
 		{ -- Style for Item UpConverters
-			codes = {"u00", "u01", "u02"},
-			background_style="VerdantBloom"
+			codes = { "u00", "u01", "u02" },
+			background_style = "VerdantBloom"
 		},
 		{ -- Style for Codex
-            codes = {"a10", "a11", "a12", "a13", "a14", "a15", "a16", "a17", "a18", "a19", "a20", "a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a30", "a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a40", "a41", "a42", "a43", "a44", "a45", "a46", "a47", "a48", "a49", "a50", "a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a60", "a61", "a62", "a63", "a64", "a65"},
+            codes = { "a10", "a11", "a12", "a13", "a14", "a15", "a16", "a17", "a18", "a19", "a20", "a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a30", "a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a40", "a41", "a42", "a43", "a44", "a45", "a46", "a47", "a48", "a49", "a50", "a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a60", "a61", "a62", "a63", "a64", "a65" },
             notify = "Seven Sins: {name}",
             background_style = "SapphireSonnet"
         },
@@ -726,26 +738,25 @@ allowOverrides = true, -- Necessary, do not turn off.
 			code = "a66",
 			notify = "{red}Very {gold}important item on ground!"
 		},
-		{ -- Ultra Runes notification and border
-            codes = { "r34", "r35", "r36"},
+		{ -- Ultra Runes notification and style
+            codes = { "r34", "r35", "r36" },
             background_style = "OceanDrift",
             notify = "{orange}Ultra Rune Nearby: {name}",
         },
         { -- Style for Treasure Chests
-            codes = {"y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32"},
+            codes = { "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32" },
             notify = "{purple}Treasure! {purple}ヽ({red}♡{purple}‿{red}♡{purple})ノ",
-            background_style = "SapphireSonnet",
-            border = { 220, 120, 255, 230, 2 }
+            background_style = "SapphireSonnet"
         },
 		{ -- ID/TP Tomes, Cube and Key notify and style
 			codes = {"tbk", "ibk", "key", "box","y34","y35","y36","y37","y38","y39","y40"},
 			notify = "{red}Are you sure you want to leave it?",
+			border = { 255, 133, 255, 190, 1 },
 			prefix = "{pink}"
 		},
-		
 		{ -- ID/TP Tomes Style
-			codes = {"tbk", "ibk"},
-			location = {"onplayer", "atvendor"},
+			codes = { "tbk", "ibk" },
+			location = { "onplayer", "atvendor" },
 			prefix = "{pink}"
 		},
 		{ -- Style for Beacon of Hope
@@ -758,51 +769,47 @@ allowOverrides = true, -- Necessary, do not turn off.
 			quality = "3",
 			sockets = "0",
 			ethereal = false,
-			border = {236, 236, 237, 210, 1}
+			border = { 236, 236, 237, 180, 1 }
 		},
 		{ -- Border for Superior 1+os non-eth Bases
 			codes = "allitems",
 			quality = "3",
 			sockets = "1+",
-			border = {114, 114, 114, 255, 1}
+			border = { 114, 114, 114, 230, 1 }
 		},
 		{ -- Border for Superior eth Bases
 			codes = "allitems",
 			quality = "3",
 			ethereal = true,
 			sockets = "0",
-			border = {81, 164, 227, 220, 1}
+			border = { 81, 164, 227, 180, 1 }
 		},
 		{ -- Scroll of Torment border
-			codes = {"K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
-			border = {0, 130, 0, 230, 2}
+			codes = { "K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80" },
+			border = { 0, 130, 0, 220, 2 }
 		},
 		{ -- Ramaladni's Gift, Socket Remover, Soul Shards and Gem Vein style
-			codes = {"Rgx", "b64","S01", "y33"},
-			border = {7, 167, 222, 230, 1},
+			codes = { "Rgx", "b64","S01", "y33" },
+			border = { 7, 167, 222, 230, 1 },
 			name_style = "Cotton Candy"
 		},
-		{ -- Treasure Chests style
-			codes = {"y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32"},
-            border = {165, 146, 99, 230, 1}
-		},
 		{ -- Style for Scroll of Triumph
-			code="a06",
-			name_override="Are ya winning son?",
-			notify="{red}Edyrem: {white}Yes, dad.",
-			background = {165, 146, 99, 200},
-			border={0,0,0,255,2}
+			code = "a06",
+			name_override = "Are ya winning son?",
+			notify = "{red}Edyrem: {white}Yes, dad.",
+			background = { 165, 146, 99, 150 },
+			border = { 0, 0, 0, 215, 3 }
 		},
 		{ -- Style for Gold
 			code = "gld",
-			background = {132, 145, 12, 170},
-			name_override = "{name} G"
+			border = { 230, 255, 0, 165, 1 },
+			name_override = "{name}{yellow}g"
 		},
 		{ -- Hide all Low Runes
-			codes = {"r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11"},
-			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+			codes = { "r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11" },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = {index = 12, op = ">=", value = 80},
+			pstat = { index = 12, op = ">=", value = 80 },
 			hide = true
 		},
 		{ -- Display socket count number of all socketed, identified items. onground only
@@ -814,8 +821,8 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{ -- Style for Demon Tempered Items
 			codes = "allitems",
 			quality = "9",
-			border = {0,0,0,255,2},
-			background = {14, 14, 123, 90},
+			border = { 0, 35, 255, 70, 3 },
+			background = { 178, 255, 212, 190 },
 			notify = "{red}Demon Tempered item on ground!"
 		},
 		{ -- Style for Facets
@@ -823,127 +830,321 @@ allowOverrides = true, -- Necessary, do not turn off.
             quality = 7,
             notify = "{red}Rainbow Facet Nearby!",
             name_style = "Rainbow",
-            border = {255,0,0,230,1} 
+            border = { 255, 0, 0, 230, 1 } 
         },
 		{ -- Style for Premium Socket Remover
 			code = "b65",
 			notify = "{red}Are you sure?",
 			name_override = "Premium socket remover",
-			border = {7, 167, 222, 230, 1},
+			border = { 7, 167, 222, 170, 1 },
 			name_style = "Cotton Candy"
 		},
 		{ -- Style for Uber Keys/Organs
-			codes = {"pk1", "pk2", "pk3", "dhn", "bey", "mbr"},
-			border = {255,165,0,255,1}
+			codes = { "pk1", "pk2", "pk3", "dhn", "bey", "mbr" },
+			border = { 236, 121, 115, 215, 2 }
 		},
 		{ -- Style for Demon Tempering Body Parts
-			codes = {"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},
+			codes = { "C00", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26"," C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34", "C35", "C36", "C37" },
 			background_style = "TamarilloGlow"
 		},
-		{ --Display RMD "Elite Bases" with a special EB icon, to the left of item name
+		{ -- Display RMD "Elite Bases" with a special EB icon, to the left of item name
             codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
             rarity = 2,
             location = { "onground", "onplayer", "equipped", "atvendor" },
             itype = { 45, 50 },
             prefix = "ⅲ "
         },
-		{ --Change EB sign on DTs to match color of item name
-            codes = NOT {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
+		{ -- Change EB sign on DTs to match color of item name
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
             rarity = 2,
 			quality = 9,
-            location = {"onground", "onplayer", "equipped", "atvendor"},
-            itype = {45, 50},
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            itype = { 45, 50 },
             prefix = "{dark green}"
         },
-        { --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - normal bases
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
-            location = {"onground", "onplayer", "equipped", "atvendor"},
+        { -- Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - normal bases
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
 			sockets = "0",
 			quality = "3-",
 			ethereal = false,
-            itype = {45, 50},
+            itype = { 45, 50 },
+			border = { 237, 76, 76, 190, 1 },
             prefix = "{red}ⅳ{white} "
         },
-		{ --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - eth bases
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
-            location = {"onground", "onplayer", "equipped", "atvendor"},
+		{ -- Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - eth bases
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
 			quality = "3-",
 			sockets = "0",
 			ethereal = true,
-            itype = {45, 50},
+            itype = { 45, 50 },
             prefix = "{red}ⅳ{turquoise} "
         },
-		{ --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - socketed bases
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
-            location = {"onground", "onplayer", "equipped", "atvendor"},
+		{ -- Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - socketed bases
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
 			sockets = "1+",
 			quality = "3-",
-            itype = {45, 50},
+            itype = { 45, 50 },
             prefix = "{red}ⅳ{gray} "
         },
-		{ --Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - magic
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
-            location = {"onground", "onplayer", "equipped", "atvendor"},
+		{ -- Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - magic
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
 			quality = 4,
-            itype = {45, 50},
+            itype = { 45, 50 },
             prefix = "{red}ⅳ{blue} "
         },
 		{ -- Display RMD "Limit Broken Bases" with a special LB icon, to the left of item name - unique
-            codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
-            location = {"onground", "onplayer", "equipped", "atvendor"},
+            codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
+            location = { "onground", "onplayer", "equipped", "atvendor" },
 			quality = 7,
-            itype = {45, 50},
+            itype = { 45, 50 },
             prefix = "{red}ⅳ{gold} "
         },
-		{ --Rename for Ultra Enhancement Crystals
-			codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
-			location = {"onground", "onplayer", "atvendor"},
+		{ -- Rename for Ultra Enhancement Crystals
+			codes = { "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27" },
+			location = { "onground", "onplayer", "atvendor" },
 			name_override = "{gold}Ultra Enhancement Crystal"
 		},
-		{ --onground Style and notify for Ultra Enhancement Crystals
-			codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
+		{ -- Onground Style and notify for Ultra Enhancement Crystals
+			codes = { "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27" },
 			notify = "Valuable Item: {red}Ultra Enhancement",
 			background_style = "TamarilloGlow"
 		},
-		{code="Z02",name_override="{purple}Amethyst {gold}Remover"}, --Onground display for Amethyst Remover
-        {code="Z03",name_override="{yellow}Topaz {gold}Remover"}, --Onground display for Topaz Remover
-        {code="Z04",name_override="{blue}Sapphire {gold}Remover"}, --Onground display for Sapphire Remover
-        {code="Z05",name_override="{green}Emerald {gold}Remover"}, --Onground display for Emerald Remover
-        {code="Z06",name_override="{red}Ruby {gold}Remover"}, --Onground display for Ruby Remover
-        {code="Z07",name_override="{white}Diamond {gold}Remover"}, --Onground display for Diamond Remover
-        {code="Z08",name_override="{gray}Skull {gold}Remover"}, --Onground display for Skull Remover
-		{code="cm3",index=590,identified=true,location={"onplayer","atvendor","onground"},name_override="{purple}Grand Charm\n{gold}Unholy Commander ({ilvl})"}, --Unholy Commander name color fix, identified
-		{code="cm3",index=590,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Unholy Commander name color fix, not identified and onground
-		{code="cm3",index=590,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Unholy Commander name color fix, not identified, other locations
-		{code="cm3",index=611,identified=true,location={"onplayer","atvendor","onground"},name_override="{purple}Grand Charm\n{gold}Blank Talent ({ilvl})"}, --Blank Talent name color fix, identified
-		{code="cm3",index=611,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Blank Talent name color fix, not identified and onground
-		{code="cm3",index=611,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Blank Talent name color fix, not identified, other locations
-		{code="cm3",index=542,identified=true,location={"onplayer","atvendor","onground"},name_override="{purple}Grand Charm\n{gold}Gheed's Fortune ({ilvl})"}, --Gheed's Fortune name color fix, identified
-		{code="cm3",index=542,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Gheed's Fortune name color fix, not identified and onground
-		{code="cm3",index=542,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Gheed's Fortune name color fix, not identified other locations
-		{code="cm1",index=543,identified=true,location={"onplayer","atvendor","onground"},name_override="{purple}Small Charm\n{gold}Annihilus ({ilvl})"}, --Annihilus name color fix, identified
-		{code="cm1",index=543,identified=false,location="onground",notify="{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Annihilus name color fix, not identified and onground
-		{code="cm1",index=543,identified=false,location={"onplayer","atvendor"},name_override="{gold}Small Charm ({ilvl})"}, --Annihilus name color fix, not identified other locations
-		{code="cm1",index=606,identified=true,location={"onplayer","atvendor","onground"},name_override="{purple}Small Charm\n{gold}Cola Cube ({ilvl})"}, --Cola Cube name color fix, identified
-		{code="cm1",index=606,identified=false,location="onground",notify="{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Cola Cube name color fix, not identified and onground
-		{code="cm1",index=606,identified=false,location={"onplayer","atvendor"},name_override="{gold}Small Charm ({ilvl})"}, --Cola Cube name color fix, not identified other locations
-		{code="cm3",index=654,identified=true,location={"onplayer","atvendor","onground"},name_override="{purple}Grand Charm\n{gold}Kuroneko no Himitsu ({ilvl})"}, --Kuroneko no Himitsu name color fix, identified
-		{code="cm3",index=654,identified=false,location="onground",notify="{gold}Unique: Grand Charm",name_override="{gold}Grand Charm ({ilvl})"}, --Kuroneko no Himitsu name color fix, not identified and onground
-		{code="cm3",index=654,identified=false,location={"onplayer","atvendor"},name_override="{gold}Grand Charm ({ilvl})"}, --Kuroneko no Himitsu name color fix, not identified other locations
-		{code="cm1",index=598,identified=false,location="onground",notify="{gold}Unique: Small Charm",name_override="{gold}Small Charm ({ilvl})"}, --Healthy Breakfast notify, not identified and onground
-		{code="cm2",index=556,identified=false,location="onground",notify="{gold}Unique: Large Charm",name_override="{gold}Large Charm ({ilvl})"}, --Hellfire Torch notify, not identified and onground
-		
-			
+		{ -- Onground display for Amethyst Remover
+			code = "Z02",
+			name_override = "{purple}Amethyst {gold}Remover"
+		},
+        { -- Onground display for Topaz Remover
+			code = "Z03",
+			name_override = "{yellow}Topaz {gold}Remover"
+		},
+        { -- Onground display for Sapphire Remover
+			code = "Z04",
+			name_override = "{blue}Sapphire {gold}Remover"
+		},
+        { -- Onground display for Emerald Remover
+			code = "Z05",
+			name_override = "{green}Emerald {gold}Remover"
+		},
+        { -- Onground display for Ruby Remover
+			code = "Z06",
+			name_override = "{red}Ruby {gold}Remover"
+		},
+        { -- Onground display for Diamond Remover
+			code = "Z07",
+			name_override = "{white}Diamond {gold}Remover"
+		},
+        { -- Onground display for Skull Remover
+			code = "Z08",
+			name_override = "{gray}Skull {gold}Remover"
+		},
+		{ -- Unholy Commander name color fix, identified
+			code = "cm3",
+			index = 590,
+			identified = true,
+			location = { "onplayer", "atvendor", "onground" },
+			name_override = "{purple}Grand Charm\n{gold}Unholy Commander ({ilvl})"
+		},
+		{ -- Unholy Commander name color fix, not identified and onground
+			code = "cm3",
+			index = 590,
+			identified = false,
+			notify = "{gold}Unique: Grand Charm",
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Unholy Commander name color fix, not identified, other locations
+			code = "cm3",
+			index = 590,
+			identified = false,
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Blank Talent name color fix, identified
+			code = "cm3",
+			index = 611,
+			identified = true,
+			location = { "onplayer", "atvendor", "onground" },
+			name_override = "{purple}Grand Charm\n{gold}Blank Talent ({ilvl})"
+		},
+		{ -- Blank Talent name color fix, not identified and onground
+			code = "cm3",
+			index = 611,
+			identified = false,
+			notify = "{gold}Unique: Grand Charm",
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Blank Talent name color fix, not identified, other locations
+			code = "cm3",
+			index = 611,
+			identified = false,
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Gheed's Fortune name color fix, identified
+			code = "cm3",
+			index = 542,
+			identified = true,
+			location = { "onplayer", "atvendor", "onground" },
+			name_override = "{purple}Grand Charm\n{gold}Gheed's Fortune ({ilvl})"
+		},
+		{ -- Gheed's Fortune name color fix, not identified and onground
+			code = "cm3",
+			index = 542,
+			identified = false,
+			notify = "{gold}Unique: Grand Charm",
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Gheed's Fortune name color fix, not identified other locations
+			code = "cm3",
+			index = 542,
+			identified = false,
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Annihilus name color fix, identified
+			code = "cm1",
+			index = 543,
+			identified = true,
+			location = { "onplayer", "atvendor", "onground" },
+			name_override = "{purple}Small Charm\n{gold}Annihilus ({ilvl})"
+		},
+		{ -- Annihilus name color fix, not identified and onground
+			code = "cm1",
+			index = 543,
+			identified = false,
+			notify = "{gold}Unique: Small Charm",
+			name_override = "{gold}Small Charm ({ilvl})"
+		},
+		{ -- Annihilus name color fix, not identified other locations
+			code = "cm1",
+			index = 543,
+			identified = false,
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Small Charm ({ilvl})"
+		},
+		{ --Cola Cube name color fix, identified
+			code = "cm1",
+			index = 606,
+			identified = true,
+			location = { "onplayer", "atvendor", "onground" },
+			name_override = "{purple}Small Charm\n{gold}Cola Cube ({ilvl})"
+		},
+		{ -- Cola Cube name color fix, not identified and onground
+			code = "cm1",
+			index = 606,
+			identified = false,
+			notify = "{gold}Unique: Small Charm",
+			name_override = "{gold}Small Charm ({ilvl})"
+		},
+		{ -- Cola Cube name color fix, not identified other locations
+			code = "cm1",
+			index = 606,
+			identified = false,
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Small Charm ({ilvl})"
+		},
+		{ -- Kuroneko no Himitsu name color fix, identified
+			code = "cm3",
+			index = 654,
+			identified = true,
+			location = { "onplayer", "atvendor", "onground" },
+			name_override = "{purple}Grand Charm\n{gold}Kuroneko no Himitsu ({ilvl})"
+		},
+		{ -- Kuroneko no Himitsu name color fix, not identified and onground
+			code = "cm3",
+			index = 654,
+			identified = false,
+			notify = "{gold}Unique: Grand Charm",
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Kuroneko no Himitsu name color fix, not identified other locations
+			code = "cm3",
+			index = 654,
+			identified = false,
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Grand Charm ({ilvl})"
+		},
+		{ -- Healthy Breakfast notify, not identified and onground
+			code = "cm1",
+			index = 598,
+			identified = false,
+			notify = "{gold}Unique: Small Charm",
+			name_override = "{gold}Small Charm ({ilvl})"
+		},
+		{ -- Hellfire Torch notify, not identified and onground
+			code = "cm2",
+			index = 556,
+			identified = false,
+			location = "onground",
+			notify = "{gold}Unique: Large Charm",
+			name_override = "{gold}Large Charm ({ilvl})"
+		},
+
+
+
+
+
 					--                                                                             Display very good superior rolls
 		
-		{codes="allitems",quality="3",runeword=false,stat=OR{{index={0,1,2,3},op="==",value=15},{index={0,1,2,3},op="==",value=14},{index={0,1,2,3},op="==",value=13}},suffix="{yellow}{stat=(3)} att"}, -- All Attributes
-		{codes="allitems",quality="3",runeword=false,stat=OR{{index={39,41,43,45},op="==",value=10},{index={39,41,43,45},op="==",value=9}},suffix="{yellow}{stat=(39)}%% all res"}, -- All Resistances
-		{codes="allitems",quality="3",runeword=false,stat={index={40,42,44,46},op="==",value=5},suffix="{yellow}5%% max res"}, -- Max All Resistance
-		{codes="allitems",quality="3",runeword=false,stat=OR{{index={333,334,335,336},op=">=",value=9},{index={187,189,190,191},op=">=",value=9}},suffix="{yellow}-{stat=(333)}%%res|-{stat=(187)}%%im"}, -- Resistance/Immunity pierce
-		{codes="allitems",quality="3",runeword=false,stat={index=136,op=">=",value=9},suffix="{yellow}{stat=(136)}%% Crushing"}, -- Crushing Blow
-		{codes={"7fl","9fl"},quality="3",runeword=false,stat={index=427,op=">=",value=16},suffix="{yellow}{stat=(427)}%% Buff Dura"}, -- Buff Duration, Knout/Scourge only
-		{codes=NOT{"Vg1","Vg2","Vg3"},quality="3",runeword=false,stat={index=105,op=">=",value=14},suffix="{yellow}{stat=(105)}%%FCR"}, -- FCR
-		{codes="allitems",quality="3",runeword=false,stat={index=93,op=">=",value=14},suffix=" {yellow}{stat=(93)}%%IAS"}, -- IAS
+		{ -- All Attributes
+			codes = "allitems",
+			quality = "3",
+			runeword = false,
+			stat = OR { { index = { 0, 1, 2, 3 }, op = "==", value = 15 }, { index = { 0, 1, 2, 3 }, op = "==", value = 14 }, { index = { 0, 1, 2, 3 }, op = "==", value = 13 } },
+			suffix = " {yellow}{stat=(3)} att"
+		},
+		{ -- All Resistances
+			codes = "allitems",
+			quality = "3",
+			runeword = false,
+			stat = OR { { index = { 39, 41, 43, 45 }, op = "==", value = 10 }, { index = { 39, 41, 43, 45 }, op = "==", value = 9 } },
+			suffix = " {yellow}{stat=(39)}%% all res"
+		},
+		{ -- Max All Resistance
+			codes = "allitems",
+			quality = "3",
+			runeword = false,
+			stat = { index = { 40, 42, 44, 46 }, op = "==", value = 5 },
+			suffix = " {yellow}5%% max res"
+		},
+		{ -- Resistance/Immunity pierce
+			codes = "allitems",
+			quality = "3",
+			runeword = false,
+			stat = OR { { index = { 333, 334, 335, 336 }, op = ">=", value = 9 }, { index = { 187, 189, 190, 191 }, op = ">=", value = 9 } },
+			suffix = " {yellow}-{stat=(333)}%%res|-{stat=(187)}%%im"
+		},
+		{ -- Crushing Blow
+			codes = "allitems",
+			quality = "3",
+			runeword = false,
+			stat = { index = 136, op = ">=", value = 9 },
+			suffix = " {yellow}{stat=(136)}%% Crushing"
+		},
+		{ -- Buff Duration, Knout/Scourge only
+			codes = { "7fl", "9fl" },
+			quality = "3",
+			runeword = false,
+			stat = { index = 427, op = ">=", value = 16 },
+			suffix = " {yellow}{stat=(427)}%% Buff Dura"
+		},
+		{ -- FCR
+			codes = NOT { "Vg1", "Vg2", "Vg3" },
+			quality = "3",
+			runeword = false,
+			stat = { index = 105, op = ">=", value = 14 },
+			suffix = " {yellow}{stat=(105)}%%FCR"
+		},
+		{ -- IAS
+			codes = "allitems",
+			quality = "3",
+			runeword = false,
+			stat = { index = 93, op = ">=", value = 14 },
+			suffix = " {yellow}{stat=(93)}%%IAS"
+		},
 		
 		
 			
@@ -957,8 +1158,6 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n{orange}"},-- Burning Essence of Terror
 		{code="fed",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Unique Cores\n{orange}"},-- Festering Essence of Destruction
 		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff (credits to Wolfie, mine now hehe)
-		{code="jew",location={"onplayer","atvendor"},quality="4",prefix="{gray}See description of Jewel Converter for recipes{blue}\n"}, --Magic Jewel
-		{code="jew",location={"onplayer","atvendor"},quality="6",prefix="{gray}See description of Jewel Converter for recipes{yellow}\n"}, --Rare Jewel
 		{codes={"u01","u02"},location={"onplayer","atvendor"},prefix="{red} !!!{white} For {yellow}Rare{white} and {gold}Unique{white} items only{red} !!!\n"}, -- Upconverter 2 and 3
 		{codes={"z75","z74"},location={"onplayer","atvendor"},prefix_desc="{gray}{gold}Storage Bag {gray}(30 {yellow}Jewels{gray}) + Item UpConverter (Advanced) = {gold}Rainbow Facet{gray} (random)\n{gold}Storage Bag{gray} (5 {yellow}Jewels{gray}) + {gold}Unique{gray}/{green}Set{gray} Item + Identify Scroll = Re-Rolled Stats\n{gold}Storage Bag{gray} (10 {blue}Jewels{gray}) + Item UpConverter (basic) + Token of Evil = {yellow}Jewel{gray} (random)\n{white}Jewel Recipes:\n\n"}, -- Jewel Converter
 		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the {yellow}Body Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
@@ -966,8 +1165,8 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{codes="allitems",quality="7",rarity="1",identified=true,index={143,281,286,347,366,369,379,386,483},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Exceptional bases
 		{codes="allitems",quality="7",rarity="2",identified=true,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Elite bases
 		{codes="allitems",quality="7",identified=true,index={525,527,529,532,543,556},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, misc items
-		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{yellow}[SR]"}, -- Sacret Relics for Demon Tempering - HUNTER
-		{code="y67",location={"onplayer","atvendor"},prefix="{gray}Cube it with a {yellow}Demon Temper{gray}-able item and then with a {yellow}Body Part{gray} to Temper it\n{yellow}Ingredient{gray} for {red}Demon Tempering\n"}, -- Scroll of Belial
+		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{dark green}[DT]"}, -- Sacret Relics for Demon Tempering - HUNTER
+		{code="y67",location={"onplayer","atvendor"},prefix="{gray}Cube it with a {dark green}Demon Temper-able{gray} item and then with a {yellow}Body Part{gray} to Temper it\n{yellow}Ingredient{gray} for {red}Demon Tempering\n"}, -- Scroll of Belial
 		{code="S01",location={"onplayer","atvendor"},prefix="{white}+1-3 Soul Shards\n"}, -- Soul Shard
 		{code="b64",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube a stack of 10 to create Premium Socket Remover\n"}, -- Socket Remover
 		{code="b65",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube alone to turn back into 10 Socket Removers\n"}, -- Premium Socket Remover
@@ -980,7 +1179,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="TK8",location={"onplayer","atvendor"},name_override="{grey}Beacon of Hope + X (Summon lvl +1) Class Tokens = Upgraded Summon\nClass Token + Beacon of Hope = Added Soul Summon\nToken Forger + Beacon of Hope (100 Soul Shards) = Class Token{white}\nToken Forger"}, -- Token Forger
 		{code="leg",location={"onplayer","atvendor"},prefix="{grey}Cube alone for MooMoo Farm\n{white}"}, -- Wirt's Leg
 		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Hellfire Torch or Annihilus to reroll them\n{gold}"}, -- Standard of Heroes
-		{code="Y21",location={"onplayer","atvendor"},prefix_desc="{white}1 Gold Bar + item + Token of Evil = added Ethereal\n{red}or\n"}, -- Gold Bar
+		{code="Y21",location={"onplayer","atvendor"},prefix_desc="{white}1 Gold Bar + item = added Ethereal\n{red}or\n"}, -- Gold Bar
 		{code="y66",location={"onplayer","atvendor"},prefix="{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"},-- Starter Pack
 		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
 		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress Scroll icon inside cube to show recipes and Runewords\n"},-- Horadric Cube
@@ -1234,6 +1433,8 @@ allowOverrides = true, -- Necessary, do not turn off.
 
 
 
+
+
 		--                                                                                     Quest item notifies
 		
 		{code="qey",notify="{red}???: {white}A group of aspiring heroes, I see. I hope you know what you are getting yourself into.\n{red}Edyrem: {white}Who was that?"}, -- Khalim's Eye
@@ -1258,6 +1459,9 @@ allowOverrides = true, -- Necessary, do not turn off.
 		
 		
 		
+		
+		
+		
 		--                                                                                           EVENTS
 		{ -- Event Boxes notification and style
             code = "Ev03",
@@ -1270,8 +1474,10 @@ allowOverrides = true, -- Necessary, do not turn off.
         },
 		{ -- Stocking Stuffer
 			code = "Ev04",
-			notify = "{orange}Stocking Stuffer (￣▽￣)"
+			notify = "{orange}Stocking Stuffer  (o_O) !"
 		},
+
+
 
 
 		
@@ -1420,6 +1626,6 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="L57",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Mangala's Teachings Forsaken Pact
 		{code="L58",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sacrificial Trinity Forsaken Pact
 		{code="L59",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Plates of Protection Forsaken Pact
-		{code="L60",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Black Tempest Forsaken Pact
+		{code="L60",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"} --Black Tempest Forsaken Pact
     }
 }
