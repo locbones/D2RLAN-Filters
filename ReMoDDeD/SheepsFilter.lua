@@ -1,9 +1,9 @@
---- Filter Title: Sheep's Filter v1.19
+--- Filter Title: Sheep's Filter v1.20
 --- Filter Type: (General Filter)
 --- Filter Description: \nRule 0: Runewords beg you to keep them. \nRule 0b: Shows number of sockets. \nRule 0c: Hides scrolls on the ground. \nRule 0d: Hides scrolls on the ground. \nRule 0e: Hides all non-rare or lower arrows above level 60. \nRule 0f: Hides all white arrows. \nRule 2: Good bases — shows 3-skill scepters in red. \nRule 3: Adds border and notifies when uniques drop. \nRule 4: Adds border and notifies when sets drop. \nRule 5: Rune notification with special border and colors. \nRule 6: Unique Archons (color swap). \nRule 7: Potential high-quality uniques (e.g., Hydra Master) (color swap). \nRule 8: Unique charms (color swap). \nRule 9: Facet charms (color swap). \nRule 10: Treasure chests/gem veins. \nRule 11: Valuable uniques. \nRule 12: Hides zero-skill Paladin weapons. \nRule 13: Hides non-superior/non-class items by level (still shows 3-socket ones). \nRule 14: Hides non-class base magic items by level. \nRule 15: Hides low gold piles by level. \nRule 16: Codex tome. \nRule 17: Quest item notification. \nRule e1: Sorting of weapon bases by socket amount (hides 2 sockets or fewer on bases that cap at 3 sockets at level 80). \nRule e2: Added symbol for new bases.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
 return {
-    reload = "{pink}Sheep's Base Filter v1.19 {grey} New Years Edition {Green}Reloaded",
+    reload = "{pink}Sheep's Base Filter v1.20 {grey} New Year Same Filter {Green}Reloaded",
     allowOverrides = true,
     rules = {
        ---Rule event rare jewel only in tundra
@@ -11,7 +11,7 @@ return {
             codes = NOT {"jew"},
             quality = "6",
             hide = true,
-            difficulty = "Hell",
+            difficulty = "1+",
             area = "Frozen Tundra"
         },
         --add color to superior at vendor
@@ -218,7 +218,8 @@ return {
             codes = NOT { "Ev00","Ev01","Ev02","cqv","BoH","l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17","l18","l19","l20","l21","l22","l23","l24","l25","l26","l27","l28","l29","l30","l31","l32","l33","l34","l35","l36","l37","l38","l39","l40","l41","l42","l43","l44","l45","l46","l47","l48","l49","l50","bks", "bkd", "leg", "hdm", "ass", "tr1", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2","utp","6ls", "ci1", "xld","aqv","cm1", "cm2", "cm3", "m32", "m33", "m34", "m35","m36","j00", "jew","amb", "8hx", "6cb", "6lw", "7ja", "7kr", "7bw", "7yw", "7gw", "obf", "oba", "ob7", "7gd", "upl", "ult", "uar", "uth", "ula", "ulc", "uhc", "utb", "xtb", "ci3", "umg", "nef", "pab", "pa9", "paa", "uit", "urg", "uuc", "vg3" },
             quality = "7",
             notify = "A Legend Appears: {name}",
-            border = { 255, 128, 0, 230, 2 } 
+            border = { 255, 128, 0, 230, 2 }, 
+            area = NOT {"Frozen Tundra"}
         },
         ---randomly instered rule 3.5
         {
@@ -243,7 +244,8 @@ return {
             codes = "allitems",
             quality = "5",
             notify = "{green}Piece of a Legacy: {name}",
-            border = { 27, 209, 3, 230, 2 } 
+            border = { 27, 209, 3, 230, 2 },
+            area = NOT {"Frozen Tundra"}
         },
        ---Rule 5: High Runes notification and ultra rune border and colors  
         {
@@ -397,6 +399,70 @@ return {
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
 
         },
+        ---Rule b13: hiding non-superior/non-class bases by level (helms) still shows 3 socket ones 
+        {
+            codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "bhm" },
+            sockets = "2-",
+            quality = "2-",
+            pstat = { index = 12, op = ">=", value = 40 }, -- Char Level is >= 40
+            hide = true, 
+            runeword = false,
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
+        },
+        ---Rule b13b: hiding non-superior/non-class bases by level (Body Armors) still shows 3 socket ones 
+        {
+            codes = { "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp" },
+            sockets = "3-",
+            quality = "2-",
+            pstat = { index = 12, op = ">=", value = 40 }, -- Char Level is >= 40
+            hide = true, 
+            runeword = false,
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
+
+        },
+        ---Rule b13c: hiding non-superior/non-class bases by level (Shields) still shows 2 socket ones (higher level will force 4os)  
+        {
+            codes = { "buc", "sml", "lrg", "kit", "tow", "gts", "bsh", "spk" },
+            sockets = "2-",
+            quality = "2-",
+            pstat = { index = 12, op = ">=", value = 40 }, -- Char Level is >= 40
+            hide = true, 
+            runeword = false,
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
+        },
+         ---Rule b13d: hiding non-superior/non-class bases by level (gloves) still shows 2 socket ones 
+        {
+            codes = { "lgl", "vgl", "hgl", "mgl", "tgl" },
+            sockets = "2-",
+            quality = "2-",
+            pstat = { index = 12, op = ">=", value = 40 }, -- Char Level is >= 40
+            hide = true, 
+            runeword = false,
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
+
+        },
+         ---Rule b13e: hiding non-superior/non-class bases by level (boots) still shows 2 socket ones  
+        {
+            codes = { "lbt", "vbt", "mbt", "tbt", "hbt" },
+            sockets = "2-",
+            quality = "2-",
+            pstat = { index = 12, op = ">=", value = 40 }, -- Char Level is >= 40
+            hide = true, 
+            runeword = false,
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
+
+        },
+         ---Rule b13f: hiding non-superior/non-class bases by level (belts) still shows 2 socket ones 
+        {
+            codes = { "lbl", "vbl", "mbl", "tbl", "hbl" },
+            sockets = "1-",
+            quality = "2-",
+            pstat = { index = 12, op = ">=", value = 40 }, -- Char Level is >= 40
+            hide = true, 
+            runeword = false,
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
+
+        },
         ---Rule 13g: hiding non-superior/non-class bases by level (helms) still shows 3 socket ones  
         {
             codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "bhm", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xsh", "xpk" },
@@ -483,6 +549,13 @@ return {
             hide = true, 
             runeword = false,
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" }
+        },
+                ---Rule b13n: borders on superior spell blades and flails
+        {
+            codes = { "crs","9cr","fla" },
+            quality = "3",
+            border = { 255, 250, 250, 230, 1 },
+            
         },
         ---Rule 13o: hiding non-class bases by level (weapons leaving runeword bases ie flails,crystal swords/ also skips bases that can roll skills) 
         {
