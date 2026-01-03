@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Aggressive","Aggressive + Hunter"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.8I{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v1.8J{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
     rules = {
         { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
@@ -1124,11 +1124,13 @@ allowOverrides = true, -- Necessary, do not turn off.
 			stat = { index = 136, op = ">=", value = 9 },
 			suffix = " {yellow}{stat=(136)}%% Crushing"
 		},
-		{ -- Buff Duration, Knout/Scourge only
-			codes = { "7fl", "9fl" },
+		{ -- Buff Duration, any weapon with max 5/6 os
+			codes = "allitems",
+			itype = 45,
+			maxsock = "5+",
 			quality = "3",
 			runeword = false,
-			stat = { index = 427, op = ">=", value = 16 },
+			stat = { index = 427, op = ">=", value = 19 },
 			suffix = " {yellow}{stat=(427)}%% Buff Dura"
 		},
 		{ -- FCR
@@ -1165,7 +1167,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{codes="allitems",quality="7",rarity="1",identified=true,index={143,281,286,347,366,369,379,386,483},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Exceptional bases
 		{codes="allitems",quality="7",rarity="2",identified=true,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Elite bases
 		{codes="allitems",quality="7",identified=true,index={525,527,529,532,543,556},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, misc items
-		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{dark green}[DT]"}, -- Sacret Relics for Demon Tempering - HUNTER
+		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{yellow}[DT]"}, -- Sacret Relics for Demon Tempering - HUNTER
 		{code="y67",location={"onplayer","atvendor"},prefix="{gray}Cube it with a {dark green}Demon Temper-able{gray} item and then with a {yellow}Body Part{gray} to Temper it\n{yellow}Ingredient{gray} for {red}Demon Tempering\n"}, -- Scroll of Belial
 		{code="S01",location={"onplayer","atvendor"},prefix="{white}+1-3 Soul Shards\n"}, -- Soul Shard
 		{code="b64",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube a stack of 10 to create Premium Socket Remover\n"}, -- Socket Remover
@@ -1200,12 +1202,12 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="hdm",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}You will still want less MF to farm bases of course, but overall it's the best place for farming bases!\n{orange}Gameplay tip:{white} Cow Level{gray} is specifically tailored in ReMoDDeD to drop as many {white}bases{gray} as possible\n"},-- Horadric Malus - Hell
 		{code="hdm",notify="{orange}New gameplay tip available! Look at description of {name}"}, -- Horadric Malus - notify
 		{code="mss",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}or by holding ALT and clicking on any attribute '+' in character stats window\nYou respec by clicking recpec button in your skills window\n\ncheck the checkbox 'respec' in Launchers main window, inside 'Launch Options'\n{orange}Gameplay Tip:{gray} You can {white}infinitely respec{gray} your stats/skills if you\n"},-- Mephisto's Soulstone - Normal
-		{code="mss",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}Running Doesn't consume stamina in ReMoDDeD and doesn't reduce your Defense to 0\n{orange}Gameplay Tip:{gray} Make sure you are {white}running!\n"},-- Mephisto's Soulstone - Nightmare
+		{code="mss",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="You might need to refresh a few times for it to appear (next to jewelry)\nsockets to items, can be gold gambled from {red}Edyrem\n{orange}Gameplay Tip:{gold} Ramaladni's Gift{gay} which adds\n"},-- Mephisto's Soulstone - Nightmare
 		{code="mss",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}Entrance to levels full of Torment (Hell only)\n{orange}Gameplay Tip:{gray} The {white}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soulstone - Hell
 		{code="mss",notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Mephisto's Soul Stone - notify
 		{code="tr2",location={"onplayer","atvendor"},difficulty="Normal",prefix="{orange}Gameplay Tip:{gray} QoL Options in Launcher have many useful things. Recommend to check it out!\n{red}On use, permanently adds 10%% to All Resistances\n"},-- Scroll of Resistance - Normal
 		{code="tr2",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}However, your '- x resistance' stats do not update those numbers!\nYour '- x immunity' stats, Curses and Conviction Auras affect those numbers\n\nLauncher - Options - QoL Options - Monster HP Bar - choose any 'Advanced' option\n{orange}Gameplay Tip:{gray} You can see all enemy {white}Resistance Values{gray} if you set it in:\n{red}On use, permanently adds 10%% to All Resistances\n"},-- Scroll of Resistance - Nightmare
-		{code="tr2",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}'LB' icon in item name means 'Limit Broken Base'\n'EB' icon in item name means 'Elite Base'\n{red}On use, permanently adds 10%% to All Resistances\n"},-- Scroll of Resistance - Hell
+		{code="tr2",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}'LB' icon in item name means 'Limit Broken Base' (ilvl 103+)\n'EB' icon in item name means 'Elite Base'\n{red}On use, permanently adds 10%% to All Resistances\n"},-- Scroll of Resistance - Hell
 		{code="tr2",location={"onplayer","atvendor"},notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Scroll of Resistance - notify
 		{code="bks",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose {white}'Jeweled Runewords'{gray} can be made by filling excess sockets with Jewels (not gems!) {red}BEFORE{gray} Runes\n{orange}Gameplay Tip:{gray} You can make Runewords in items that have more sockets that those RWs need runes.\n"}, -- Scroll of Inifuss - Normal
 		{code="bks",difficulty="Normal",notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Scroll of Inifuss - notify
