@@ -32,41 +32,56 @@ local function loadConfig(filename)
 end
 
 -- Open TTS Pipe w/ D2RLAN
+local pipeName = "\\\\.\\pipe\\D2RLAN_TTS"
+local pipe
+
+-- Open the pipe once
+local function openPipe()
+    if not pipe then
+        pipe = io.open(pipeName, "w")
+        if not pipe then
+            print("Failed to open TTS pipe.")
+        end
+    end
+end
+
+-- Write a line to the pipe
 local function speak(text)
     if not text or text == "" then return end
-
-    local pipeName = "\\\\.\\pipe\\D2RLAN_TTS"
-    local f = io.open(pipeName, "w")
-    if f then
-        f:write(text .. "\n")
-        f:flush()
-        f:close()
-    else
-        print("Failed to write to TTS pipe. Is D2RLAN running?")
+    openPipe()
+    if pipe then
+        pipe:write(text .. "\n")
+        pipe:flush()
     end
 end
 
--- Tell the TTS service to reload the audioVoice from lootfilter_config.lua
+-- Reload TTS voice
 local function reloadTTSVoice()
-    local pipeName = "\\\\.\\pipe\\D2RLAN_TTS"
-    local f = io.open(pipeName, "w")
-    if f then
-        f:write("VOICE_RELOAD\n")
-        f:flush()
-        f:close()
-    else
-        print("Failed to send VOICE_RELOAD. Is D2RLAN running?")
+    openPipe()
+    if pipe then
+        pipe:write("VOICE_RELOAD\n")
+        pipe:flush()
     end
 end
+
+-- Optional: close pipe on shutdown
+local function closePipe()
+    if pipe then
+        pipe:close()
+        pipe = nil
+    end
+end
+
 
 reloadTTSVoice()
+closePipe()
 
 --#endregion Not Exclusion Variable
 
 -- Clear cache and load config
 package.loaded["lootfilter_config"] = nil
 local config = loadConfig("lootfilter_config.lua")
-local version = "1.3.8"
+local version = "1.4.0"
 local mod = "RMD"
 local userLanguage = config.language or "enUS"
 
@@ -84,6 +99,7 @@ local ColorsOfTheRainbow = { "ÿc1", "ÿc2", "ÿc3", "ÿc4", "ÿc5", "ÿc7", "ÿ
 local FlameColors = { "ÿc1", "ÿc8", "ÿc5", "ÿcU" }
 local CandyColors = { "ÿcN", "ÿc3", "ÿc;", "ÿcO" }
 local OceanColors = { "ÿcN", "ÿc3", "ÿcT", "ÿcP" }
+local ChristmasColors = { "ÿc1", "ÿc2", "ÿcA", "ÿc7" }
 local ToxicColors = { "ÿc2", "ÿcA", "ÿc0" }
 
 RMDAreaIDs = {
@@ -401,6 +417,22 @@ local nameStyles = {
 
         return table.concat(result)
     end,
+
+    Christmas = function(Item, Name, Tick)
+        local itemType, itemName = SplitItemName(Name)
+        local result = { itemType }
+        local speed = 500
+
+        local chars = utf8_chars(itemName)
+
+        for i = 1, #chars do
+            local index = (math.floor((Tick / speed) + i) % #ChristmasColors) + 1
+            table.insert(result, ChristmasColors[index] .. itemName:sub(i, i))
+        end
+
+        return table.concat(result)
+    end,
+
     RainbowStatic = function(Item, Name)
         local ColorsOfTheRainbowSize = #ColorsOfTheRainbow
         local cleanName = Name:gsub("ÿc.", "")
@@ -552,34 +584,35 @@ local function checkItemType(Item, idList)
     local mt = type(idList) == "table" and getmetatable(idList)
     local isNot = mt and mt.__not or false
 
-    -- For NOT, the actual list is idList itself (not idList.list)
     -- Normalize single values
     if type(idList) == "number" or type(idList) == "string" then
         idList = { idList }
     end
 
-    -- Validate it's table
+    -- Validate
     if type(idList) ~= "table" then
         return nil
     end
 
-    -- Search for a match
-    local found = nil
+    local matches = {}
+
+    -- Collect ALL matches
     for _, id in ipairs(idList) do
         if Item:IsType(id) then
-            found = id
-            break
+            table.insert(matches, id)
         end
     end
 
     if isNot then
-        -- NOT mode: return true only if NOTHING matched
-        return (found == nil) and true or nil
+        -- NOT mode: valid only if NOTHING matched
+        return (#matches == 0) and true or nil
     end
 
-    -- Normal mode: return the matched id or nil
-    return found
+    -- Normal mode:
+    -- return table of matches or nil if none
+    return (#matches > 0) and matches or nil
 end
+
 
 
 -- Data Output Helper
@@ -595,11 +628,8 @@ local function replace_placeholders(template, Item, Me, rule)
         :gsub("{sockets}", tostring(Item:Stat(194) or ""))
         :gsub("{index}", Item.Data.FileIndex or "")
         :gsub("{maxsock}", function()
-            local currentSockets = Item:Stat(194) or 0
             local maxPossible = Item:MaxSockets() or 0
-            local hasMaxSockets = (currentSockets == maxPossible)
-
-            return string.format("%s (%d/%d)", tostring(hasMaxSockets), currentSockets, maxPossible)
+            return tostring(maxPossible)
         end)
         :gsub("{name}", function()
             if Item:IsType(4) and not Item:IsType(45) and not Item:IsType(50) then
@@ -609,11 +639,15 @@ local function replace_placeholders(template, Item, Me, rule)
             end
         end)
         :gsub("{itype}", function()
-            if rule and rule.itype then
-                return checkItemType(Item, rule.itype) and "true" or "false"
-            end
-            return ""
-        end)
+    if rule and rule.itype then
+        local matches = checkItemType(Item, rule.itype)
+        if type(matches) == "table" then
+            return table.concat(matches, ", ")
+        end
+        return ""
+    end
+    return ""
+end)
         :gsub("{stat=%((%d+),?(%d*)%)%}", function(i, p)
             local val = p ~= "" and Item:Stat(tonumber(i), tonumber(p)) or Item:Stat(tonumber(i))
             return tostring(val or "")
@@ -794,10 +828,11 @@ end
 local function check_quality(itemQuality, ruleQuality)
     local itemStr, itemNum = norm_quality(itemQuality)
 
-    if type(ruleQuality) == "string" then
-        local r = ruleQuality:match("^%s*(.-)%s*$")
+    -- helper that evaluates a single quality rule fragment
+    local function eval_single_rule(r)
+        r = r:match("^%s*(.-)%s*$")  -- trim
 
-        -- numeric comparisons like "3-", "5+", or "4"
+        -- numeric comparisons "3-", "5+", or exact "4"
         local num = tonumber(r:match("^(%d+)"))
         if num then
             if r:sub(-1) == "-" then
@@ -809,20 +844,41 @@ local function check_quality(itemQuality, ruleQuality)
             end
         end
 
-        -- string match with qualityMap (case-insensitive)
+        -- string comparison, case-insensitive
         local _, ruleNum = norm_quality(r)
         return itemStr and r and itemStr:lower() == r:lower()
+    end
+
+    if type(ruleQuality) == "string" then
+        local cleaned = ruleQuality:match("^%s*(.-)%s*$")
+
+        -- detect comma list
+        if cleaned:find(",") then
+            for part in cleaned:gmatch("[^,]+") do
+                if eval_single_rule(part) then
+                    return true
+                end
+            end
+            return false
+        end
+        
+        return eval_single_rule(cleaned)
+
     elseif type(ruleQuality) == "number" then
         return itemNum and itemNum == ruleQuality
+
     elseif type(ruleQuality) == "table" then
         for _, qr in ipairs(ruleQuality) do
-            if check_quality(itemQuality, qr) then return true end
+            if check_quality(itemQuality, qr) then
+                return true
+            end
         end
         return false
     end
 
     return false
 end
+
 
 -- helper to check if value is in a list
 local function contains(list, value)
