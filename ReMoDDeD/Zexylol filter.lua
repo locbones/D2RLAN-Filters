@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.09
+--- Filter Title: Zexylol's Hardfilter v1.2
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nIf you like seeing loot alot of loot, DO NOT USE THIS FILTER. \nYou will see Set, Unique, rare(amu/ring/jewels), Magic (Charms). \nAs for bases..... ONLY PERFECT ROLLED SUPERIORS.... \nMight be some items ive missed to hide or add to notify.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -9,6 +9,7 @@ return {
 	filter_titles = {"Hard", "Medium", "Leveling",},
 	allowOverrides = true,
 	rules = {
+
 		--Rule Debugg.
 		{
 			--codes = "allitems",
@@ -24,6 +25,7 @@ return {
 			--filter_levels = "1,2,3"
 		},
 	
+
 		{ --Snowballs
  			codes = { "Ev00", "Ev01", "Ev02" },
  			location = { "onground" },
@@ -33,7 +35,7 @@ return {
 		{ --Cube items
  			codes = { "Ev03", "Ev04"},
  			location = { "onground" },
-            notify = "ÿc;Cube?",
+            notify = "ÿc;Cubing!",
 			filter_levels = "1,2,3"
 		},
         { --Potions
@@ -50,24 +52,25 @@ return {
 		},
 ]]--
 
+
 --[[				Rule 1-9 shows sockets, runewords, tempered, crafted, low/mid/hi/ultra runes, tempering souls.
 ]]--	
 
 		--Rule 1, Shows Sockets.
-        { --Display socket count in gray to the right of item name, [x]
+        { --Display socket count in green if maxed [x]
             codes = "allitems",
             location = { "onground", "onplayer", "equipped", "atvendor" },
 			maxsock = true,
 			itype = { 10, 12, 45, 50 },
-            prefix_desc = " {green} [Sockets:{maxsock}] \n",
+            prefix_desc = " {green} [Sockets: {sockets}/{maxsock}] \n",
 			filter_levels = "1,2,3"
         },
-		{ --Display socket count in gray to the right of item name, [x]
+		{ --Display socket count in grey if not maxed [x]
             codes = "allitems",
             location = { "onground", "onplayer", "equipped", "atvendor" },
 			maxsock = false,
 			itype = { 10, 12, 45, 50 },
-            prefix_desc = " {gray} [Sockets:{maxsock}] \n",
+            prefix_desc = " {gray} [Sockets: {sockets}/{maxsock}] \n",
 			filter_levels = "1,2,3"
         },
 		--Rule 2, Shows Runewords tag.
@@ -101,7 +104,7 @@ return {
 		{
 			codes = { "r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11"},
 			suffix = "\n{gray} Low Points Rune",
-			--notify = "{gray} Low Rune Points!{orange}{link}", --Disabled, remove -- in fron of notify to activate.				
+			--notify = "{gray} Low Rune Points!", --Disabled, remove -- in fron of notify to activate.				
 			hide = false,
 			filter_levels = "1,2,3"
 		},
@@ -109,7 +112,7 @@ return {
 		{
 			codes = { "r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22"},
 			suffix = "\n{green} Mid Points Rune",
-			--notify = "{green} Mid Rune Points!{orange}{link}", --Disabled, remove -- in fron of notify to activate.		
+			--notify = "{green} Mid Rune Points!", --Disabled, remove -- in fron of notify to activate.		
 			hide = false,
 			filter_levels = "1,2,3"
 		},
@@ -117,7 +120,7 @@ return {
 		{
 			codes = { "r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33"},
 			suffix = "\n{red} High Points Rune",
-			notify = "{red} High Rune Points!{orange}{link}",
+			notify = "{red} High Rune Points!",
 			hide = false,
 			filter_levels = "1,2,3"
 		},		
@@ -126,7 +129,7 @@ return {
 			codes = { "r34", "r35", "r36"},
 			name_style = "Rainbow",
 			suffix = "\n Ultra Points Rune",
-			notify = "{pink} Ultra Rune Points!{orange}{link}",
+			notify = "{pink} Ultra Rune Points!",
 			hide = false,
 			filter_levels = "1,2,3"
 		},
@@ -137,7 +140,7 @@ return {
 			"C34", "C35", "C36", "C37"},
 			name_style = "Toxic Fog",
 			suffix = "\n Temepered Mats!",
-			notify = "{pink} Tempered Material!{red}{link}",
+			notify = "{pink} Tempered Material!",
 			filter_levels = "1,2,3"
 		},
 		
@@ -931,7 +934,7 @@ return {
 			"K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
 			name_style = "Frost Wave",
 			suffix = "\n Trial Portal",
-			notify = "{pink} Trial Portal!{red}{link}",
+			notify = "{pink} Trial Portal!",
 			filter_levels = "1,2,3"
 		},
 		--Rule 58, Hide Magic Jewels, if you want to get Magic Jewels, change: hide = true, to: false, .
@@ -969,7 +972,7 @@ return {
 			filter_levels = "1,2"
 		},
 
-		
+		--[[
         { --Display item levels for weapons, armors, charms, jewels, rings and amulets in white, to the right of item name, (x)
             codes = "allitems",
             location = { "onground", "onplayer", "equipped", "atvendor" },
@@ -977,7 +980,7 @@ return {
 			runeword = false,
             suffix = " {white}({ilvl})",
 			filter_levels = "1,2,3"
-        },
+        }, ]]--
 
         { --Display RMD "Elite Bases" with a special EB icon in RMD Red, to the right of item name
             codes = "allitems",
@@ -1017,7 +1020,7 @@ return {
     quality = "7",
     index = 6, -- The Gnasher
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
        	--{ index = 0, op = "==", value = 8 },     -- strength
        	--{ index = 135, op = "==", value = 25 },  -- item_openwounds
@@ -1028,17 +1031,18 @@ return {
         { index = 34, op = "==", value = 5 },    --2-5 normal_damage_reduction
         { index = 35, op = "==", value = 5 },     --2-5 magic_damage_reduction
         },
-    border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",       
-    filter_levels = "1,2,3"
+    --border = { 255, 128, 0, 230 },
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",     
+    filter_levels = "1,2,3",
+
 },
 {
     codes = "allitems",
     quality = "7",
     index = 7, -- Deathspade
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         -- Hit Blinds Target: ingen direkt match -> 113
         --{ index = 21, op = "==", value = 8 },    -- mindamage 21-> ?
@@ -1049,8 +1053,8 @@ return {
         { index = 35, op = "==", value = 5 },     --2-5 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1058,7 +1062,7 @@ return {
     quality = "7",
     index = 8, -- Bladebone
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 122, op = "==", value = 100 }, -- item_undeaddamage_percent
         --{ index = 124, op = "==", value = 40 },  -- item_undead_tohit
@@ -1071,8 +1075,8 @@ return {
         { index = 35, op = "==", value = 8 },     --4-8 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1080,7 +1084,7 @@ return {
     quality = "7",
     index = 9, -- Skull Splitter
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         -- Hit Blinds Target: ingen direkt match
         --{ index = 27, op = "==", value = 20 },   -- manarecoverybonus
@@ -1092,8 +1096,8 @@ return {
         { index = 35, op = "==", value = 7 },     --3-7 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1101,7 +1105,7 @@ return {
     quality = "7",
     index = 10, -- Rakescar
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 57, op = "==", value = 38 },   -- poisonmindam -> didnt work
         --{ index = 19, op = "==", value = 50 },   -- tohit
@@ -1113,8 +1117,8 @@ return {
         { index = 35, op = "==", value = 8 },     --4-8 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1122,7 +1126,7 @@ return {
     quality = "7",
     index = 11, -- Axe of Fechmar
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         -- { index = 25, op = "==", value = 90 },   --70-90% damagepercent (kommenterad enligt instruktion)
         -- Freeze Target: ingen direkt match
@@ -1132,8 +1136,8 @@ return {
         { index = 35, op = "==", value = 5 },     --3-5 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1141,7 +1145,7 @@ return {
     quality = "7",
     index = 12, -- Goreshovel
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 93, op = "==", value = 30 },   -- item_fasterattackrate
         --{ index = 0, op = "==", value = 25 },    -- strength
@@ -1152,8 +1156,8 @@ return {
         { index = 35, op = "==", value = 6 },     --2-6 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1161,7 +1165,7 @@ return {
     quality = "7",
     index = 13, -- The Cheiftain
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         -- { index = 25, op = "==", value = 100 },  -- damagepercent (kommenterad enligt instruktion)
         { index = 39, op = "==", value = 20 },    --10-20% Fireresist (All Resistances)
@@ -1172,8 +1176,8 @@ return {
         { index = 35, op = "==", value = 7 },      --3-7 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1181,7 +1185,7 @@ return {
     quality = "7",
     index = 14, -- Brainhew
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 21, op = "==", value = 14 },   -- mindamage
         --{ index = 9, op = "==", value = 25 },    -- mana
@@ -1193,8 +1197,8 @@ return {
         { index = 35, op = "==", value = 9 },     --6-9 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1202,7 +1206,7 @@ return {
     quality = "7",
     index = 15, -- Humongous
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
     	{ index = 0, op = "==", value = 30 },    --20-30 strength
         --{ index = 22, op = "==", value = 25 },   --8-15/25 maxdamage (not working)
@@ -1213,8 +1217,8 @@ return {
         { index = 35, op = "==", value = 10 },    --8-10 magic_damage_reduction
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1222,7 +1226,7 @@ return {
     quality = "7",
     index = 16, -- Torch of Iro
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 83, op = "==", value = 1, param = 2},   -- item_addclassskills (Necromancer Skill Levels)
         { index = 281, op = "==", value = 20 },  -- item_damage_vs_monster (Summon Damage) 
@@ -1233,8 +1237,8 @@ return {
         --{index = 97, op = "==", param = 77, value = 3}, -- Terror
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1242,7 +1246,7 @@ return {
     quality = "7",
     index = 17, -- Maelstrom
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 357, op = "==", value = 10 },   --5-10% passive_mag_mastery (Magic Skill Damage)
         --{index = 267, op = "==", param = 458, value = 5}, -- Static Field proc:
@@ -1254,8 +1258,8 @@ return {
         {index = 97, op = "==", param = 74, value = 3}, --1-3 Corpse Explosion
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1263,7 +1267,7 @@ return {
     quality = "7",
     index = 18, -- Gravespine
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 0, op = "==", value = 10 },     -- strength
         --{ index = 2, op = "==", value = 10 },     -- dexterity
@@ -1276,8 +1280,8 @@ return {
         { index = 97, op = "==", param = 87, value = 2}, --1-2 Decrepify
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1285,7 +1289,7 @@ return {
     quality = "7",
     index = 19, -- Ume's Lament
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 127, op = "==", value = 2 },    -- item_allskills (Necromancer)
         --{ index = 8, op = "==", value = 40 },     -- mana
@@ -1296,8 +1300,8 @@ return {
         { index = 85, op = "==", value = 5 }      --2-5% item_addexperience
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1305,7 +1309,7 @@ return {
     quality = "7",
     index = 20, -- Felloak
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 44, op = "==", value = 60 },    -- lightningresist
         { index = 43, op = "==", value = 20 },    -- fireresist (coldresist)
@@ -1314,8 +1318,8 @@ return {
         { index = 85, op = "==", value = 5 },      --2-5% item_addexperience
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1323,7 +1327,7 @@ return {
     quality = "7",
     index = 21, -- Kneel Striker
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 136, op = "==", value = 25 },  -- item_crushingblow
         --{ index = 39, op = "==", value = 20 },    -- fireresist
@@ -1333,8 +1337,8 @@ return {
         --{ index = 19, op = "==", value = 35 },   -- tohit
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
   },
   {
@@ -1342,7 +1346,7 @@ return {
     quality = "7",
     index = 22, -- Rusthandle
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 127, op = "==", value = 2 },    -- item_allskills (Paladin)
         --{ index = ?, "op = "==", value = 7 },   -- 3-7 damage.
@@ -1354,8 +1358,8 @@ return {
         { index = 107, op = "==", param = 111, value = 3}, --1-3 Vengeance
 	},
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1363,7 +1367,7 @@ return {
     quality = "7",
     index = 23, -- Stormeye
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 51, op = "==", value = 6 },   -- lightmaxdam
         --{ index = 50, op = "==", value = 5 },   -- coldmaxdam
@@ -1375,8 +1379,8 @@ return {
         --{ index = 107, op = "==", param = 121, value = 1}, -- Fist of the Heavens
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
 },
 {
@@ -1384,7 +1388,7 @@ return {
     quality = "7",
     index = 24, -- Stoutnail
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 93, op = "==", value = 20 },    -- item_fasterattackrate
         --{ index = 25, op = "==", value = 100 },   -- damagepercent -> ?
@@ -1392,8 +1396,8 @@ return {
         --{ index = 97, op = "==", param = ?, value = 1}, -- Blaze Wolf
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
   },
 {
@@ -1401,7 +1405,7 @@ return {
     quality = "7",
     index = 25, -- Crushflange
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 0, op = "==", value = 15 },     -- strength
         --{ index = 89, op = "==", value = 2 },    -- item_lightradius
@@ -1412,8 +1416,8 @@ return {
         --{ index = 122, op = "==", value = 50 },   --50% item_undeaddamage_percent
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",        
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",        
     filter_levels = "1,2,3"
   },
 {
@@ -1421,7 +1425,7 @@ return {
     quality = "7",
     index = 26, -- Bloodrise
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 25, op = "==", value = 120 },     -- Enhanced Damage (120%)
         --{ index = 119, op = "==", value = 50 },     -- Bonus to Attack Rating (50%)
@@ -1435,8 +1439,8 @@ return {
         --{ index = 122, op = "==", value = 50 }      -- Damage to Undead (+50%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1444,7 +1448,7 @@ return {
     quality = "7",
     index = 27, -- The General's Tan Do Li Ga
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 21, op = "==", value = 20 },      -- Minimum Damage (Adds 1–20)
         --{ index = 150, op = "==", value = 50 },      -- Slows Target (50%)
@@ -1456,8 +1460,8 @@ return {
         --{ index = 122, op = "==", value = 50 }      -- Damage to Undead (+50%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1465,7 +1469,7 @@ return {
     quality = "7",
     index = 28, -- Ironstone
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 19, op = "==", value = 150 },     -- Attack Rating (+100–150)
         --{ index = 25, op = "==", value = 150 },     -- Enhanced Damage (+100–150%)
@@ -1476,8 +1480,8 @@ return {
         --{ index = 122, op = "==", value = 50 }      -- Damage to Undead (+50%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1485,7 +1489,7 @@ return {
     quality = "7",
     index = 29, -- Bonesnap
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 25, op = "==", value = 300 },     -- Enhanced Damage (200–300%)
         --{ index = 136, op = "==", value = 20 },     -- Crushing Blow (20%)
@@ -1497,8 +1501,8 @@ return {
         { index = 35, op = "==", value = 6 }        -- Magic Damage Reduced (4–6)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1506,7 +1510,7 @@ return {
     quality = "7",
     index = 30, -- Steeldriver
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 91, op = "==", value = -50 },     -- Requirements (-50%)
         --{ index = 93, op = "==", value = 40 },      -- Increased Attack Speed (+40%)
@@ -1517,8 +1521,8 @@ return {
         --{ index = 122, op = "==", value = 50 }      -- Damage to Undead (+50%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1526,7 +1530,7 @@ return {
     quality = "7",
     index = 31, -- Rixot's Keen
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 21, op = "==", value = 5 },       -- Minimum Damage (+5)
         --{ index = 119, op = "==", value = 20 },     -- Bonus to Attack Rating (20%)
@@ -1538,8 +1542,8 @@ return {
         { index = 34, op = "==", value = 3 }        -- Damage Reduced (1–3)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1547,7 +1551,7 @@ return {
     quality = "7",
     index = 32, -- Blood Crescent
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 39, op = "==", value = 15 },      -- All Resistances (+15)
         --{ index = 25, op = "==", value = 80 },      -- Enhanced Damage (60–80%)
@@ -1560,8 +1564,8 @@ return {
         { index = 34, op = "==", value = 4 }        -- Damage Reduced (2–4)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1569,7 +1573,7 @@ return {
     quality = "7",
     index = 33, -- Krintiz's Skewer
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 115, op = "==", value = 1 },      -- Ignore Target's Defense
         --{ index = 0, op = "==", value = 10 },       -- Strength (+10)
@@ -1581,8 +1585,8 @@ return {
         { index = 34, op = "==", value = 6 }        -- Damage Reduced (2–6)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1590,7 +1594,7 @@ return {
     quality = "7",
     index = 34, -- Gleamscythe
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 89, op = "==", value = 3 },       -- Light Radius (+3)
         --{ index = 9, op = "==", value = 30 * 256 }, -- Mana (+30)
@@ -1601,8 +1605,8 @@ return {
         { index = 34, op = "==", value = 6 }        -- Damage Reduced (3–6)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1610,7 +1614,7 @@ return {
     quality = "7",
     index = 35, -- Light's Beacon
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 141, op = "==", value = 50 },     -- Deadly Strike (50%)
         { index = 329, op = "==", value = 10 },     -- Fire Skill Damage (+5–10%)
@@ -1622,8 +1626,8 @@ return {
         { index = 35, op = "==", value = 12 }       -- Magic Damage Reduced (7–12)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1631,7 +1635,7 @@ return {
     quality = "7",
     index = 36, -- Griswold's Edge
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 48, op = "==", value = 12 },       -- Fire Damage (Adds 10-25)
         { index = 49, op = "==", value = 25 },      -- Fire Damage (Adds 10–25)
@@ -1643,8 +1647,8 @@ return {
         --{ index = 35, op = "==", value = 5 }        -- Magic Damage Reduced (5)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1652,7 +1656,7 @@ return {
     quality = "7",
     index = 37, -- Hellplague
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 60, op = "==", value = 5 },       -- Life stolen per hit (5%)
         --{ index = 62, op = "==", value = 5 },       -- Mana stolen per hit (5%)
@@ -1663,8 +1667,8 @@ return {
         { index = 35, op = "==", value = 6 }        -- Magic Damage Reduced (4–6)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1672,7 +1676,7 @@ return {
     quality = "7",
     index = 38, -- Culwen's Point
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 127, op = "==", value = 1 },      -- All Skills (+1)
         --{ index = 110, op = "==", value = 50 },     -- Poison Length Reduced (50%)
@@ -1683,8 +1687,8 @@ return {
         { index = 34, op = "==", value = 7 }        -- Damage Reduced (4–7)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1692,7 +1696,7 @@ return {
     quality = "7",
     index = 39, -- Shadowfang
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 60, op = "==", value = 9 },       -- Life stolen per hit (9%)
         --{ index = 62, op = "==", value = 9 },       -- Mana stolen per hit (9%)
@@ -1705,8 +1709,8 @@ return {
         --{ index = 427, op = "==", value = 15 },       -- Increase Buff Durations By (15%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1714,7 +1718,7 @@ return {
     quality = "7",
     index = 40, -- Soulflay
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 62, op = "==", value = 10 },      -- Mana stolen per hit (4–10%)
         --{ index = 60, op = "==", value = 4 },       -- Life stolen per hit (4%)
@@ -1725,8 +1729,8 @@ return {
         { index = 34, op = "==", value = 5 }        -- Damage Reduced (2–5)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1734,7 +1738,7 @@ return {
     quality = "7",
     index = 41, -- Kinemil's Awl
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 19, op = "==", value = 150 },     -- Attack Rating (+100–150)
         --{ index = 9, op = "==", value = 20 * 256 }, -- Mana (+20)
@@ -1744,8 +1748,8 @@ return {
         { index = 34, op = "==", value = 8 }        -- Damage Reduced (6–8)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1753,7 +1757,7 @@ return {
     quality = "7",
     index = 42, -- Blacktongue
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 58, op = "==", value = 112 },     -- Poison Damage Over Time (Adds 112 over 6s)
         --{ index = 117, op = "==", value = 1 },      -- Prevent Monster Heal
@@ -1764,8 +1768,8 @@ return {
         { index = 35, op = "==", value = 8 },        -- Magic Damage Reduced (6–8)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1773,7 +1777,7 @@ return {
     quality = "7",
     index = 43, -- Ripsaw
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 135, op = "==", value = 35 },     -- Open Wounds (15–35%)
         --{ index = 22, op = "==", value = 15 },      -- Max Damage (+15)
@@ -1783,8 +1787,8 @@ return {
         { index = 35, op = "==", value = 8 }        -- Magic Damage Reduced (6–8)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1792,7 +1796,7 @@ return {
     quality = "7",
     index = 44, -- The Patriarch
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 34, op = "==", value = 3 },       -- Damage Reduced (3)
         --{ index = 35, op = "==", value = 3 },       -- Magic Damage Reduced (3)
@@ -1803,8 +1807,8 @@ return {
         { index = 85, op = "==", value = 5 }        -- Experience Gained (2–5%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1812,7 +1816,7 @@ return {
     quality = "7",
     index = 45, -- Gull
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 21, op = "==", value = 15 },      -- Minimum Damage (Adds 1–15)
         { index = 80, op = "==", value = 100 },     -- Magic Find (50–100%)
@@ -1820,8 +1824,8 @@ return {
         --{ index = 93, op = "==", value = 45 }       -- Increased Attack Speed (+45%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1829,7 +1833,7 @@ return {
     quality = "7",
     index = 46, -- The Diggler
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 2, op = "==", value = 10 },       -- Dexterity (+10)
         --{ index = 25, op = "==", value = 50 },      -- Enhanced Damage (+50%)
@@ -1840,8 +1844,8 @@ return {
         { index = 85, op = "==", value = 5 }        -- Experience Gained (2–5%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1849,7 +1853,7 @@ return {
     quality = "7",
     index = 47, -- The Jade Tan Do
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 19, op = "==", value = 150 },     -- Attack Rating (+100–150)
         --{ index = 111, op = "==", value = 1 },      -- Half Freeze Duration
@@ -1862,8 +1866,8 @@ return {
         { index = 401, op = "==", value = 3 },      --Increase Curse Radius by (3)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1871,7 +1875,7 @@ return {
     quality = "7",
     index = 48, -- Spectral Shard
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 105, op = "==", value = 50 },      -- Faster Cast Rate (+50%)
         --{ index = 9, op = "==", value = 50 * 256 }, -- Mana (+50)
@@ -1883,8 +1887,8 @@ return {
         { index = 401, op = "==", value = 3 },      --Increase Curse Radius by (3)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1892,7 +1896,7 @@ return {
     quality = "7",
     index = 49, -- Shadow Strike
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 113, op = "==", value = 1 },      -- Hit Blinds Target (+1)
         { index = 150, op = "==", value = 15 },     -- Slows Target (5–15%)
@@ -1904,8 +1908,8 @@ return {
         -- Replenish Quantity 
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1913,7 +1917,7 @@ return {
     quality = "7",
     index = 50, -- Madawc's First
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 117, op = "==", value = 1 },      -- Prevent Monster Heal
         { index = 93, op = "==", value = 15 },      -- Increased Attack Speed (+10–15%)
@@ -1923,8 +1927,8 @@ return {
         -- Replenish Quantity
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1932,7 +1936,7 @@ return {
     quality = "7",
     index = 51, -- Carefully
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 93, op = "==", value = 15 },     -- Increased Attack Speed (15%)
         { index = 116, op = "==", value = 20 },    -- Target Defense (-15–20%)
@@ -1943,8 +1947,8 @@ return {
         -- Replenish Quantity
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1952,7 +1956,7 @@ return {
     quality = "7",
     index = 52, -- Ancient's Assault
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 19, op = "==", value = 45 },      -- Attack Rating (+35–45)
         --{ index = 25, op = "==", value = 75 },      -- Enhanced Damage (+65–75%)
@@ -1962,8 +1966,8 @@ return {
         -- Replenish Quantity 
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1971,7 +1975,7 @@ return {
     quality = "7",
     index = 53, -- Harpoonist's Training
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 107, op = "==", param = 10, value = 3 }, -- +2–3 to Jab (Amazon only)
         --{ index = 25, op = "==", value = 35 },      -- Enhanced Damage (+20–35%)
@@ -1982,8 +1986,8 @@ return {
         -- Replenish Quantity
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -1991,7 +1995,7 @@ return {
     quality = "7",
     index = 54, -- Glorious Point
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 107, op = "==", param = 15, value = 3 }, -- +3 to Poison Point (Amazon only)
         { index = 107, op = "==", param = 25, value = 2 }, -- +1–2 to Plague Javelin (Amazon only)
@@ -2001,8 +2005,8 @@ return {
         -- Replenish Quantity
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2010,7 +2014,7 @@ return {
     quality = "7",
     index = 55, -- Not So
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 107, op = "==", param = 14, value = 3 }, -- +1–3 to Recharge (Amazon only)
         { index = 107, op = "==", param = 24, value = 3 }, -- +1–3 to Charged Strike (Amazon only)
@@ -2021,8 +2025,8 @@ return {
         --{ index = 25, op = "==", value = 75 }       -- Enhanced Damage (+60–75%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2030,7 +2034,7 @@ return {
     quality = "7",
     index = 56, -- Double Trouble
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 107, op = "==", param = 135, value = 2 }, -- +1–2 to Throwing Mastery (Barbarian only)
         --{ index = 51, op = "==", value = 35 },      -- Lightning Damage (Adds 1–35)
@@ -2040,8 +2044,8 @@ return {
         --{ index = 21, op = "==", value = 12 }       -- Minimum Damage (Adds 8–12)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2049,7 +2053,7 @@ return {
     quality = "7",
     index = 57, -- Straight Shot
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 107, op = "==", param = 134, value = 2 }, -- +1–2 to Homing Harpoon (Barbarian only)
         { index = 107, op = "==", param = 137, value = 3 }, -- +1–3 to Icy Trail (Barbarian only)
@@ -2061,8 +2065,8 @@ return {
         --{ index = 25, op = "==", value = 85 }       -- Enhanced Damage (+85%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2070,7 +2074,7 @@ return {
     quality = "7",
     index = 58, -- The Dragon Chang
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 19, op = "==", value = 35 },      -- Attack Rating (+35)
         --{ index = 21, op = "==", value = 10 },      -- Minimum Damage (+10)
@@ -2080,8 +2084,8 @@ return {
         { index = 85, op = "==", value = 5 }        -- Experience Gained (2–5%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2089,7 +2093,7 @@ return {
     quality = "7",
     index = 59, -- Razortine
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 150, op = "==", value = 25 },     -- Slows Target (25%)
         --{ index = 116, op = "==", value = 50 },    -- Target Defense (-50%)
@@ -2099,8 +2103,8 @@ return {
         --{ index = 25, op = "==", value = 50 }       -- Enhanced Damage (+30–50%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2108,7 +2112,7 @@ return {
     quality = "7",
     index = 60, -- Bloodthief
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 135, op = "==", value = 30 },     -- Open Wounds (20–30%)
         --{ index = 0, op = "==", value = 10 },       -- Strength (+10)
@@ -2120,8 +2124,8 @@ return {
         { index = 35, op = "==", value = 4 }        -- Magic Damage Reduced (2–4)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2129,7 +2133,7 @@ return {
     quality = "7",
     index = 61, -- Lance of Yaggai
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 114, op = "==", value = 8 },       -- Attacker Takes Damage (+8)
         --{ index = 51, op = "==", value = 60 },       -- Lightning Damage (Adds 1–60)
@@ -2140,8 +2144,8 @@ return {
         { index = 35, op = "==", value = 8 }         -- Magic Damage Reduced (4–8)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2149,7 +2153,7 @@ return {
     quality = "7",
     index = 62, -- The Tannr Gorerod
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 48, op = "==", value = 54 },       -- Fire Damage (Adds 23–54)
         --{ index = 40, op = "==", value = 15 },       -- Max Fire Resist (+15%)
@@ -2162,8 +2166,8 @@ return {
         { index = 35, op = "==", value = 8 }         -- Magic Damage Reduced (4–8)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2171,7 +2175,7 @@ return {
     quality = "7",
     index = 63, -- Dimoak's Hew
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 2, op = "==", value = 15 },        -- Dexterity (+15)
         --{ index = 25, op = "==", value = 100 },      -- Enhanced Damage (+100%)
@@ -2183,8 +2187,8 @@ return {
         { index = 35, op = "==", value = 5 }         -- Magic Damage Reduced (2–5)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2192,7 +2196,7 @@ return {
     quality = "7",
     index = 64, -- Steelgoad
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 112, op = "==", value = 75 },      -- Hit Causes Monster to Flee (75%)
         --{ index = 141, op = "==", value = 30 },      -- Deadly Strike (30%)
@@ -2204,8 +2208,8 @@ return {
         { index = 35, op = "==", value = 5 }         -- Magic Damage Reduced (3–5)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2213,7 +2217,7 @@ return {
     quality = "7",
     index = 65, -- Soul Harvest
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 135, op = "==", value = 30 },      -- Open Wounds (10–30%)
         --{ index = 19, op = "==", value = 45 },       -- Attack Rating (+45)
@@ -2225,8 +2229,8 @@ return {
         --{ index = 198, op = "==", param = 455, value = 5 }        -- Chance to cast Weaken on striking (5%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2234,7 +2238,7 @@ return {
     quality = "7",
     index = 66, -- The Battlebranch
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 93, op = "==", value = 30 },       -- Increased Attack Speed (+30%)
         --{ index = 2, op = "==", value = 10 },        -- Dexterity (+10)
@@ -2245,8 +2249,8 @@ return {
         { index = 35, op = "==", value = 7 }         -- Magic Damage Reduced (5–7)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2254,7 +2258,7 @@ return {
     quality = "7",
     index = 67, -- Woestave
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 150, op = "==", value = 50 },      -- Slows Target (50%)
         --{ index = 135, op = "==", value = 50 },      -- Open Wounds (50%)
@@ -2268,8 +2272,8 @@ return {
         { index = 35, op = "==", value = 7 }         -- Magic Damage Reduced (5–7)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2277,7 +2281,7 @@ return {
     quality = "7",
     index = 68, -- The Grim Reaper
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 141, op = "==", value = 50 },      -- Deadly Strike (25–50%)
         --{ index = 117, op = "==", value = 1 },       -- Prevent Monster Heal
@@ -2290,8 +2294,8 @@ return {
         --{ index = ?, op = "==", param = 444, value = 3 }        -- Chance to cast Decrepify on striking (3%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2299,7 +2303,7 @@ return {
     quality = "7",
     index = 69, -- Bane Ash
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 48, op = "==", value = 6 },        -- Fire Damage (Adds 4–6)
         --{ index = 39, op = "==", value = 50 },       -- Fire Resist (+50%)
@@ -2311,8 +2315,8 @@ return {
         { index = 85, op = "==", value = 5 }         -- Experience Gained (2–5%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2320,7 +2324,7 @@ return {
     quality = "7",
     index = 70, -- Serpent Lord
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 57, op = "==", value = 12 },       -- Poison Damage Over Time (Adds 12 over 3s)
         --{ index = 45, op = "==", value = 50 },       -- Poison Resist (+50%)
@@ -2330,8 +2334,8 @@ return {
         --{ index = 116, op = "==", value = 50 }      -- Target Defense (-50%)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2339,7 +2343,7 @@ return {
     quality = "7",
     index = 71, -- Spire of Lazarus
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 41, op = "==", value = 75 },       -- Lightning Resist +75%
         --{ index = 34, op = "==", value = 5 },        -- Damage Reduced by 5
@@ -2352,8 +2356,8 @@ return {
         --{ index = 83, op = "==", param = 1, value = 1 },  -- +1 to Sorceress Skill Levels
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2361,7 +2365,7 @@ return {
     quality = "7",
     index = 72, -- The Salamander
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 48, op = "==", value = 32 },       -- Adds 15–32 Fire Damage
         --{ index = 39, op = "==", value = 30 },       -- Fire Resist +30%
@@ -2372,8 +2376,8 @@ return {
         { index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2381,7 +2385,7 @@ return {
     quality = "7",
     index = 73, -- The Iron Jang Bong
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 31, op = "==", value = 30 },       -- +30 Defense
         --{ index = 105, op = "==", value = 20 },      -- +20% Faster Cast Rate
@@ -2393,8 +2397,8 @@ return {
         { index = 83, op = "==", param = 1, value = 2 },  -- +2 to Sorceress Skill Levels
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2402,7 +2406,7 @@ return {
     quality = "7",
     index = 74, -- Pluckeye
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 19, op = "==", value = 28 },       -- +28 to Attack Rating
         --{ index = 25, op = "==", value = 100 },      -- +100% Enhanced Damage
@@ -2413,8 +2417,8 @@ return {
         { index = 85, op = "==", value = 10 },       -- +7–10% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2422,7 +2426,7 @@ return {
     quality = "7",
     index = 75, -- Witherstring
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 93, op = "==", value = 30 },       -- +30% Increased Attack Speed
         --{ index = 21, op = "==", value = 3 },        -- Adds 1–3 Damage
@@ -2432,8 +2436,8 @@ return {
         { index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2441,7 +2445,7 @@ return {
     quality = "7",
     index = 76, -- Raven Claw
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 119, op = "==", value = 50 },      -- 50% Bonus to Attack Rating
         --{ index = 2, op = "==", value = 3 },         -- +3 to Dexterity
@@ -2451,8 +2455,8 @@ return {
         { index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2460,7 +2464,7 @@ return {
     quality = "7",
     index = 77, -- Rogue's Bow
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 39, op = "==", value = 10 },       -- All Resistances +10
         --{ index = 141, op = "==", value = 20 },      -- 20% Deadly Strike
@@ -2471,8 +2475,8 @@ return {
         { index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2480,7 +2484,7 @@ return {
     quality = "7",
     index = 78, -- Stormstrike
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 51, op = "==", value = 30 },       -- Adds 1–30 Lightning Damage
         --{ index = 0, op = "==", value = 8 },         -- +8 to Strength
@@ -2490,8 +2494,8 @@ return {
         --{ index = 25, op = "==", value = 90 },       -- +70–90% Enhanced Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2499,7 +2503,7 @@ return {
     quality = "7",
     index = 79, -- Wizendraw
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 97, op = "==", param = 6, value = 5 }, -- +5 to Magic Arrow
         --{ index = 9, op = "==", value = 30 * 256 },  -- +30 to Mana
@@ -2512,8 +2516,8 @@ return {
         { index = 187, op = "==", value = 15 },         -- Enemy cold immunity reduced by 10–15%
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2521,7 +2525,7 @@ return {
     quality = "7",
     index = 80, -- Hellclap
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 93, op = "==", value = 10 },       -- +10% Increased Attack Speed
         { index = 49, op = "==", value = 50 },       -- Adds 15–30/50 Fire Damage
@@ -2533,8 +2537,8 @@ return {
         { index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2542,7 +2546,7 @@ return {
     quality = "7",
     index = 81, -- Blastbark
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 25, op = "==", value = 130 },       -- +70–130% Enhanced Damage
         --{ index = 0, op = "==", value = 5 },          -- +5 to Strength
@@ -2552,8 +2556,8 @@ return {
         { index = 85, op = "==", value = 5 },         -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2561,7 +2565,7 @@ return {
     quality = "7",
     index = 82, -- Leadcrow
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 2, op = "==", value = 10 },         -- +10 to Dexterity
         --{ index = 7, op = "==", value = 10 * 256 },   -- +10 to Life
@@ -2571,8 +2575,8 @@ return {
         --{ index = 19, op = "==", value = 40 },        -- +40 to Attack Rating
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2580,7 +2584,7 @@ return {
     quality = "7",
     index = 83, -- Ichorsting
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 57, op = "==", value = 30 },        -- +30 Poison Damage Over 3 Seconds
         --{ index = 2, op = "==", value = 20 },         -- +20 to Dexterity
@@ -2591,8 +2595,8 @@ return {
         { index = 85, op = "==", value = 5 },         -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2600,7 +2604,7 @@ return {
     quality = "7",
     index = 84, -- Hellcast
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", param = , value = 100 }, -- 100% Chance to cast level 5 Fire Blast on Striking
         --{ index = 40, op = "==", value = 15 },        -- +15% to Maximum Fire Resist
@@ -2611,8 +2615,8 @@ return {
         --{ index = 48, op = "==", value = 35 },        -- Adds 15–35 Fire Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2620,7 +2624,7 @@ return {
     quality = "7",
     index = 85, -- Doomslinger
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 83, op = "==", param = 6, value = 1 }, -- +1 to Assassin Skill Levels
         --{ index = 156, op = "==", value = 35 },          -- +35% Piercing Attack
@@ -2629,8 +2633,8 @@ return {
         --{ index = 25, op = "==", value = 100 },       -- +60–100% Enhanced Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2638,7 +2642,7 @@ return {
     quality = "7",
     index = 86, -- Coldkill
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 55, op = "==", value = 40 },       -- Adds 40 Cold Damage
         --{ index = 43, op = "==", value = 15 },       -- Cold Resist +15%
@@ -2650,8 +2654,8 @@ return {
         { index = 34, op = "==", value = 10 },       -- Damage Reduced by 5–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2659,7 +2663,7 @@ return {
     quality = "7",
     index = 87, -- Butcher's Pupil
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 141, op = "==", value = 15 },      -- 5–15% Deadly Strike
         { index = 135, op = "==", value = 20 },      -- 5–20% Chance of Open Wounds
@@ -2669,8 +2673,8 @@ return {
         { index = 34, op = "==", value = 10 },       -- Damage Reduced by 5–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2678,7 +2682,7 @@ return {
     quality = "7",
     index = 88, -- Islestrike
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 83, op = "==", param = 5, value = 2 }, -- +2 to Druid Skill Levels
         --{ index = 0, op = "==", value = 10 },         -- +10 to All Attributes
@@ -2691,8 +2695,8 @@ return {
         { index = 35, op = "==", value = 10 },        -- Magic Damage Reduced by 5–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2700,7 +2704,7 @@ return {
     quality = "7",
     index = 89, -- Pompeii's Wrath
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 4 },           -- 4% Chance to cast level 8 Volcano on striking
         --{ index = , op = "==", value = 2 },           -- 2% Chance to cast level 20 Flare Armor when Struck
@@ -2710,8 +2714,8 @@ return {
         --{ index = 85, op = "==", value = 5 },         -- +5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2719,7 +2723,7 @@ return {
     quality = "7",
     index = 90, -- Guardian Naga
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 5 },           -- 5% Chance to cast level 8 Poison Nova on striking
         --{ index = 78, op = "==", value = 15 },        -- Attacker Takes Damage of 15
@@ -2731,8 +2735,8 @@ return {
         { index = 35, op = "==", value = 12 },        -- Magic Damage Reduced by 7–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2740,7 +2744,7 @@ return {
     quality = "7",
     index = 91, -- Warlord's Trust
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 75 },         -- +75 Defense
         --{ index = 74, op = "==", value = 20 },       -- Replenish Life +20
@@ -2753,8 +2757,8 @@ return {
         { index = 35, op = "==", value = 10 },       -- Magic Damage Reduced by 6–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2762,7 +2766,7 @@ return {
     quality = "7",
     index = 92, -- Spellsteel
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 91, op = "==", value = -60 },      -- Requirements -60%
         --{ index = 9, op = "==", value = 100 * 256 }, -- +100 to Mana
@@ -2775,8 +2779,8 @@ return {
         --{ index = , op = "==", value = 12 },         -- Level 12 Firestorm (60 Charges)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2784,22 +2788,28 @@ return {
     quality = "7",
     index = 93, -- Stromrider
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 10 },         -- 5% Chance to cast level 10 Chain Lightning on striking
-        --{ index = , op = "==", value = 20 },         -- 10% Chance to cast level 13–20 Charged Bolt on striking
+        --{index = 198, op = "==", param = 416, Value = 10, Value = 20},         -- 10% Chance to cast level 13–20 Charged Bolt on striking
+
+ --[[       im confused now then, cuz it would be:
+
+```lua
+{index = 198(item_skillonhit), op = "==", param = 416(CTC_ChargedBolt), value = 10,20}
+```]]--
         --{ index = 51, op = "==", value = 200 },      -- Adds 1–200 Lightning Damage
         --{ index = 22, op = "==", value = 75 },       -- Adds 35–75 Damage
         --{ index = 25, op = "==", value = 100 },      -- +100% Enhanced Damage
         --{ index = , op = "==", value = 50 },         -- Improves Durability by 50
         --{ index = 128, op = "==", value = 15 },         -- Attacker Takes Lightning Damage of 15
         --{ index = , op = "==", value = 5 },          -- 15% Chance to cast level 5 Charged Bolt when struck
-        { index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
-        { index = 35, op = "==", value = 12 },       -- Magic Damage Reduced by 9–12
+        --{ index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
+        --{ index = 35, op = "==", value = 12 },       -- Magic Damage Reduced by 9–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2807,7 +2817,7 @@ return {
     quality = "7",
     index = 94, -- Boneslayer Blade
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 246, op = "==", value = 10 },        -- +5.0 to Attack Rating against Undead (Based on Character Level)
         --{ index = 244, op = "==", value = 20 },        -- +2.5% Damage to Undead (Based on Character Level)
@@ -2822,8 +2832,8 @@ return {
         { index = 35, op = "==", value = 12 },       -- Magic Damage Reduced by 9–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2831,7 +2841,7 @@ return {
     quality = "7",
     index = 95, -- The Minotaur
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 113, op = "==", value = 2 },       -- Hit Blinds Target +2
         --{ index = 118, op = "==", value = 1 },       -- Half Freeze Duration
@@ -2845,8 +2855,8 @@ return {
         { index = 35, op = "==", value = 12 },       -- Magic Damage Reduced by 9–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2854,7 +2864,7 @@ return {
     quality = "7",
     index = 96, -- Suicide Branch
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 78, op = "==", value = 25 },        -- Attacker Takes Damage of 25
         --{ index = 105, op = "==", value = 50 },       -- +50% Faster Cast Rate
@@ -2865,8 +2875,8 @@ return {
         { index = 85, op = "==", value = 5 },         -- +3–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2874,7 +2884,7 @@ return {
     quality = "7",
     index = 97, -- Carin Shard
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 216, op = "==", value = 2560 },        -- +1.25 to Life (Based on Character Level)
         --{ index = 105, op = "==", value = 10 },       -- +10% Faster Cast Rate
@@ -2886,8 +2896,8 @@ return {
         { index = 85, op = "==", value = 5 },         -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2895,7 +2905,7 @@ return {
     quality = "7",
     index = 98, -- Arm of King Leoric
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 400, op = "==", value = 5 },        -- Increase Curse Duration by 3–5 seconds
         { index = 97, op = "==", param = 68, value = 3 }, -- +2–3 to Bone Armor
@@ -2909,8 +2919,8 @@ return {
         --{ index = 97, op = "==", param = 70, value = 3 }, -- +3 to Raise Skeleton
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2918,7 +2928,7 @@ return {
     quality = "7",
     index = 99, -- Blackhand Key
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 188, op = "==", param = 16, value = 1 },           -- +1 to Curses (Necromancer Only)
         --{ index = 114, op = "==", value = 20 },          -- 20% Damage Taken Goes To Mana
@@ -2930,8 +2940,8 @@ return {
         --{ index = , op = "==", value = 5 },           -- Level 5 Grim Ward (30 Charges)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2939,7 +2949,7 @@ return {
     quality = "7",
     index = 100, -- Dark Clan Crusher
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 83, op = "==", param = 5, value = 2 }, -- +2 to Druid Skill Levels
         --{ index = 121, op = "==", value = 200 },     -- +200% Damage to Demons
@@ -2950,8 +2960,8 @@ return {
         { index = 85, op = "==", value = 5 },        -- +2–5% to Experience Gained
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2959,7 +2969,7 @@ return {
     quality = "7",
     index = 101, -- Zakarum's Hand
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 62, op = "==", value = 8 },         -- 8% Mana stolen per hit
         --{ index = 115, op = "==", value = 1 },        -- Ignore Target's Defense
@@ -2972,8 +2982,8 @@ return {
         --{ index = 97, op = "==", param = 118, value = 2 }, -- +2 to Holy Shock
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -2981,7 +2991,7 @@ return {
     quality = "7",
     index = 102, -- The Fetid Sprinkler
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 83, op = "==", param = 3, value = 2 }, -- +2 to Paladin Skill Levels
         --{ index = , op = "==", value = 1 },           -- 5% Chance to cast level 1 Decrepify on striking
@@ -2992,8 +3002,8 @@ return {
         --{ index = 22, op = "==", value = 25 },        -- Adds 15–25 Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3001,7 +3011,7 @@ return {
     quality = "7",
     index = 103, -- Hand of Blessed Light
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 83, op = "==", param = 3, value = 2 }, -- +2 to Paladin Skill Levels
         --{ index = 25, op = "==", value = 160 },       -- +130–160% Enhanced Damage
@@ -3015,8 +3025,8 @@ return {
         --{ index = , op = "==", value = 4 },           -- 5% Chance to cast level 4 Fist of the Heavens on striking
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3024,7 +3034,7 @@ return {
     quality = "7",
     index = 104, -- Fleshrender
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 135, op = "==", value = 15 },       -- 5–15% Chance of Open Wounds
         --{ index = 117, op = "==", value = 1 },        -- Prevent Monster Heal
@@ -3037,8 +3047,8 @@ return {
         --{ index = , op = "==", value = 20 },          -- Improves Durability by 20
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3046,7 +3056,7 @@ return {
     quality = "7",
     index = 105, -- Sureshrill Frost
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 55, op = "==", value = 112 },       -- Adds 63–112 Cold Damage
         --{ index = 118, op = "==", value = 1 },        -- Half Freeze Duration
@@ -3059,8 +3069,8 @@ return {
         --{ index = 122, op = "==", value = 50 },       -- +50% Damage To Undead
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3068,7 +3078,7 @@ return {
     quality = "7",
     index = 106, -- Moonfall
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 6 },           -- 5% Chance to cast level 6 Meteor on striking
         --{ index = 48, op = "==", value = 115 },       -- Adds 55–115 Fire Damage
@@ -3080,8 +3090,8 @@ return {
         --{ index = 122, op = "==", value = 50 },       -- +50% Damage To Undead
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3089,7 +3099,7 @@ return {
     quality = "7",
     index = 107, -- Baezil's Vortex
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 5 },           -- 10% Chance to cast level 5 Nova on striking
         --{ index = 51, op = "==", value = 150 },       -- Adds 1–150 Lightning Damage
@@ -3102,8 +3112,8 @@ return {
         --{ index = 122, op = "==", value = 50 },       -- +50% Damage To Undead
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3111,7 +3121,7 @@ return {
     quality = "7",
     index = 108, -- Earthshaker
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 7 },           -- 5% Chance to cast level 7 Fissure on striking
         --{ index = 93, op = "==", value = 30 },        -- +30% Increased Attack Speed
@@ -3124,8 +3134,8 @@ return {
         --{ index = 122, op = "==", value = 50 },       -- +50% Damage To Undead
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3133,7 +3143,7 @@ return {
     quality = "7",
     index = 109, -- Bloodtree Stump
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 136, op = "==", value = 20 },       -- 20% Chance of Crushing Blow
         --{ index = 25, op = "==", value = 220 },       -- +180–220% Enhanced Damage
@@ -3147,8 +3157,8 @@ return {
         --{ index = 122, op = "==", value = 50 },       -- +50% Damage To Undead
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3156,7 +3166,7 @@ return {
     quality = "7",
     index = 110, -- The Gavel of Pain
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 5 },           -- 5% Chance to cast level 5 Amplify Damage on striking
         --{ index = , op = "==", value = 5 },           -- 5% Chance to cast level 5 Iron Maiden when struck
@@ -3168,8 +3178,8 @@ return {
         --{ index = 122, op = "==", value = 50 },       -- +50% Damage To Undead
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3177,7 +3187,7 @@ return {
     quality = "7",
     index = 111, -- Bloodletter
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 22, op = "==", value = 45 },        -- Adds 12–45 Damage
         --{ index = 19, op = "==", value = 90 },        -- +90 to Attack Rating
@@ -3191,8 +3201,8 @@ return {
         { index = 34, op = "==", value = 8 },         -- Damage Reduced by 5–8
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3200,7 +3210,7 @@ return {
     quality = "7",
     index = 112, -- Coldsteel Eye
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 113, op = "==", value = 1 },        -- Hit Blinds Target +1
         { index = 150, op = "==", value = 30 },       -- Slows Target by 15–30%
@@ -3212,8 +3222,8 @@ return {
         { index = 34, op = "==", value = 9 },         -- Damage Reduced by 6–9
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3221,7 +3231,7 @@ return {
     quality = "7",
     index = 113, -- Hexfire
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 1 },          -- +1 Fire Mastery
         --{ index = 115, op = "==", value = 1 },        -- Ignore Target's Defense
@@ -3233,8 +3243,8 @@ return {
         { index = 35, op = "==", value = 12 },        -- Magic Damage Reduced by 7–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3242,7 +3252,7 @@ return {
     quality = "7",
     index = 114, -- Blade of Ali Baba
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 2 },           -- Socketed (2)
         --{ index = 239, op = "==", value = 5 },       -- 0.625% Extra Gold from Monsters (Based on Character Level)
@@ -3253,8 +3263,8 @@ return {
         { index = 34, op = "==", value = 12 },        -- Damage Reduced by 7–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3262,7 +3272,7 @@ return {
     quality = "7",
     index = 115, -- Ginther's Rift
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 35, op = "==", value = 12 },        -- Magic Damage Reduced by 7–12
         --{ index = 93, op = "==", value = 30 },        -- +30% Increased Attack Speed
@@ -3272,8 +3282,8 @@ return {
         --{ index = 25, op = "==", value = 150 },       -- +100–150% Enhanced Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3281,7 +3291,7 @@ return {
     quality = "7",
     index = 116, -- Headstriker
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 117, op = "==", value = 1 },        -- Prevent Monster Heal
         --{ index = 0, op = "==", value = 15 },         -- +15 to Strength
@@ -3291,8 +3301,8 @@ return {
         { index = 34, op = "==", value = 9 },         -- Damage Reduced by 6–9
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3300,7 +3310,7 @@ return {
     quality = "7",
     index = 117, -- Plague Bearer
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 4 },           -- 5% Chance to cast level 4 Poison Nova on striking
         --{ index = 57, op = "==", value = 300 },       -- +300 Poison Damage Over 8 Seconds
@@ -3311,8 +3321,8 @@ return {
         { index = 34, op = "==", value = 9 },         -- Damage Reduced by 6–9
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3320,7 +3330,7 @@ return {
     quality = "7",
     index = 118, -- The Atlantean
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 100 },         -- Improves Durability by 100
         --{ index = , op = "==", value = 75 },          -- +75 Defense
@@ -3333,8 +3343,8 @@ return {
         { index = 34, op = "==", value = 9 },         -- Damage Reduced by 6–9
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3342,7 +3352,7 @@ return {
     quality = "7",
     index = 119, -- Crainte Vomir
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 150, op = "==", value = 35 },       -- Slows Target by 35%
         --{ index = , op = "==", value = 70 },          -- -70 to Monster Defense Per Hit
@@ -3354,8 +3364,8 @@ return {
         { index = 35, op = "==", value = 10 },        -- Magic Damage Reduced by 7–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3363,7 +3373,7 @@ return {
     quality = "7",
     index = 120, -- Bing Sz Wang
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 91, op = "==", value = -30 },       -- Requirements -30%
         --{ index = 55, op = "==", value = 140 },       -- Adds 50–140 Cold Damage
@@ -3374,8 +3384,8 @@ return {
         { index = 35, op = "==", value = 10 },        -- Magic Damage Reduced by 7–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3383,7 +3393,7 @@ return {
     quality = "7",
     index = 121, -- The Vile Husk
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 5 },           -- 6% Chance to cast level 5 Amplify Damage on striking
         --{ index = 244, op = "==", value = 60 },         -- +7.5% Damage to Undead (Based on Character Level)
@@ -3394,8 +3404,8 @@ return {
         { index = 34, op = "==", value = 10 },        -- Damage Reduced by 7–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3403,7 +3413,7 @@ return {
     quality = "7",
     index = 122, -- Cloudcrack
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 7 },           -- 6% Chance to cast level 7 Fist of the Heavens on striking
         --{ index = 51, op = "==", value = 240 },       -- Adds 1–240 Lightning Damage
@@ -3417,8 +3427,8 @@ return {
         { index = 34, op = "==", value = 12 },        -- Damage Reduced by 8–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3426,7 +3436,7 @@ return {
     quality = "7",
     index = 123, -- Todesfaelle Flamme
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 48, op = "==", value = 200 },       -- Adds 50–200 Fire Damage
         --{ index = 39, op = "==", value = 40 },        -- Fire Resist +40%
@@ -3438,8 +3448,8 @@ return {
         { index = 35, op = "==", value = 12 },        -- Magic Damage Reduced by 8–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3447,7 +3457,7 @@ return {
     quality = "7",
     index = 124, -- Swordguard
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 91, op = "==", value = -50 },       -- Requirements -50%
         --{ index = 214, op = "==", value = 40 },           -- +5.0 Defense (Based on Character Level)
@@ -3461,8 +3471,8 @@ return {
         { index = 35, op = "==", value = 12 },        -- Magic Damage Reduced by 8–12
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3470,7 +3480,7 @@ return {
     quality = "7",
     index = 125, -- Spineripper
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 115, op = "==", value = 1 },        -- Ignore Target's Defense
         --{ index = 60, op = "==", value = 8 },         -- 8% Life stolen per hit
@@ -3482,8 +3492,8 @@ return {
         --{ index = 107, op = "==", param = 2, value = 1 }, -- +1 to Necromancer Skill Levels
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3491,7 +3501,7 @@ return {
     quality = "7",
     index = 126, -- Heart Carver
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 141, op = "==", value = 20 },       -- 20% Deadly Strike
         --{ index = 115, op = "==", value = 1 },        -- Ignore Target's Defense
@@ -3502,8 +3512,8 @@ return {
         --{ index = 107, op = "==", param = 69, value = 4 }, -- +4 to Summon Mastery (Necromancer only)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3511,7 +3521,7 @@ return {
     quality = "7",
     index = 127, -- Blackbog's Sharp
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 150, op = "==", value = 50 },       -- Slows Target by 50%
         --{ index = , op = "==", value = 50 },          -- +50 Defense
@@ -3523,8 +3533,8 @@ return {
         --{ index = 107, op = "==", param = 92, value = 4 }, -- +4 to Poison Nova (Necromancer only)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3532,7 +3542,7 @@ return {
     quality = "7",
     index = 128, -- Stormspike
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 51, op = "==", value = 120 },       -- Adds 1–120 Lightning Damage
         --{ index = 128, op = "==", value = 20 },       -- Attacker Takes Lightning Damage of 20
@@ -3541,8 +3551,8 @@ return {
         --{ index = 232, op = "==", value = 8 },         -- Lightning Resist +1.0% (Based on Character Level)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3550,7 +3560,7 @@ return {
     quality = "7",
     index = 129, -- Deathbit
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 141, op = "==", value = 20 },       -- 20% Deadly Strike
         --{ index = 25, op = "==", value = 180 },       -- +130–180% Enhanced Damage
@@ -3560,8 +3570,8 @@ return {
         --{ index = , op = "==", value = 1 },           -- Replenish 1 Quantity every 1 seconds
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3569,7 +3579,7 @@ return {
     quality = "7",
     index = 130, -- The Scalper
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = , op = "==", value = 1 },           -- Replenish 1 Quantity every 1 seconds
         --{ index = 25, op = "==", value = 200 },       -- +150–200% Enhanced Damage
@@ -3581,8 +3591,8 @@ return {
         --{ index = 107, op = "==", param = 130, value = 3 }, -- +3 to Razor Sharp
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3590,7 +3600,7 @@ return {
     quality = "7",
     index = 131, -- Constantly Waging
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 25, op = "==", value = 220 },       -- +110–220% Enhanced Damage
         { index = 107, op = "==", param = 266, value = 5 }, -- +2–5 to Blade Fury (Assassin only)
@@ -3600,8 +3610,8 @@ return {
         --{ index = , op = "==", value = 1 },           -- Replenish 1 Quantity every 1 seconds
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3609,7 +3619,7 @@ return {
     quality = "7",
     index = 132, -- Realm Crusher
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 107, op = "==", param = 129, value = 2 }, -- +1–2 to Fan Out (Barbarian only)
         { index = 276, op = "==", value = 2 },           -- +1–2 Spell Power
@@ -3620,8 +3630,8 @@ return {
         --{ index = 25, op = "==", value = 125 },       -- +100–125% Enhanced Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3629,7 +3639,7 @@ return {
     quality = "7",
     index = 133, -- Quickening Strikes
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 93, op = "==", value = 40 },        -- +10–40% Increased Attack Speed
         { index = 335, op = "==", value = 15 },       -- -5–15% to Enemy Cold Resistance
@@ -3641,8 +3651,8 @@ return {
         { index = 187, op = "==", value = 8 },        -- Enemy cold immunity reduced by 3–8%
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3650,7 +3660,7 @@ return {
     quality = "7",
     index = 134, -- Sharpnel Impact
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 97, op = "==", param = 135, value = 3 }, -- +3 to Throwing Mastery 
         --{ index = 97, op = "==", param = 35, value = 3 },  -- +3 to Lightning Fury
@@ -3661,8 +3671,8 @@ return {
         { index = 276, op = "==", value = 2 },           -- +1–2 Spell Power
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3670,7 +3680,7 @@ return {
     quality = "7",
     index = 135, -- Tempest Flash
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 96, op = "==", value = 25 },          -- +10–25% Faster Run/Walk
         --{ index = 93, op = "==", value = 30 },        -- +30% Increased Attack Speed
@@ -3682,8 +3692,8 @@ return {
         { index = 9, op = "==", value = 35 * 256 },   -- +25–35 to Mana
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3691,7 +3701,7 @@ return {
     quality = "7",
     index = 136, -- Untethered
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         { index = 188, op = "==", param = 34, value = 4 }, -- +2–4 to Destructive Range (Barbarian Only)
         --{ index = 97, op = "==", param = 146, value = 3 }, -- +3 to Battle Cry
@@ -3703,8 +3713,8 @@ return {
         --{ index = , op = "==", value = 30 },          -- +30 to Throwing Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3712,7 +3722,7 @@ return {
     quality = "7",
     index = 137, -- Unrelenting Will
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 21, op = "==", value = 44 },        -- +35–44 to Minimum Damage
         --{ index = 25, op = "==", value = 130 },       -- +120–130% Enhanced Damage
@@ -3724,8 +3734,8 @@ return {
         --{ index = 22, op = "==", value = 55 },        -- +46–55 to Maximum Damage
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3733,7 +3743,7 @@ return {
     quality = "7",
     index = 138, -- The Impaler
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 115, op = "==", value = 1 },        -- Ignore Target's Defense
         --{ index = 19, op = "==", value = 150 },       -- +150 to Attack Rating
@@ -3745,8 +3755,8 @@ return {
         --{ index = 219, op = "==", value = 16 },           -- +2.0% Enhanced Maximum Damage (Based on Character Level)
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3754,7 +3764,7 @@ return {
     quality = "7",
     index = 139, -- Kelpie Snare
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 150, op = "==", value = 75 },       -- Slows Target by 75%
         --{ index = 39, op = "==", value = 50 },        -- Fire Resist +50%
@@ -3766,8 +3776,8 @@ return {
         { index = 35, op = "==", value = 10 },        -- Magic Damage Reduced by 5–10
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3775,7 +3785,7 @@ return {
     quality = "7",
     index = 140, -- Soulfeast Tine
     runeword = false,
-    location = { "onground"},
+    location = { "onground", "onplayer"},
     stat = {
         --{ index = 91, op = "==", value = -20 },       -- Requirements -20%
         --{ index = 60, op = "==", value = 7 },         -- 7% Life stolen per hit
@@ -3788,8 +3798,8 @@ return {
         { index = 35, op = "==", value = 9 },         -- Magic Damage Reduced by 3–9
     },
     border = { 255, 128, 0, 230 },
-    notify = "Max Unique!",
-    suffix = "\n {red} MAXED STATS",
+    --notify = "Max Unique!",
+    suffix = "\n {red} Maxed Stats",
     filter_levels = "1,2,3"
 },
 {
@@ -3808,8 +3818,8 @@ return {
     { index = 35,  op = "==", value = 8 },    -- Magic Damage Reduced by 4–8
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3832,8 +3842,8 @@ return {
     { index = 35,  op = "==", value = 10 },           -- Magic Damage Reduced by 6–10
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3853,8 +3863,8 @@ return {
     { index = 35,  op = "==", value = 10 },           -- Magic Damage Reduced by 5–10
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3874,8 +3884,8 @@ return {
     { index = 35,  op = "==", value = 7 },            -- Magic Damage Reduced by 3–7
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3894,8 +3904,8 @@ return {
     { index = 332, op = "==", value = 15 },           -- +8–15% to Poison Skill Damage
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3916,8 +3926,8 @@ return {
     { index = 35,  op = "==", value = 8 },            -- Magic Damage Reduced by 2–8
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3937,8 +3947,8 @@ return {
     { index = 35,  op = "==", value = 8 },            -- Magic Damage Reduced by 5–8
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3959,8 +3969,8 @@ return {
     { index = 19,  op = "==", value = 250 },          -- +200–250 to Attack Rating
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -3979,8 +3989,8 @@ return {
     { index = 127, op = "==", value = 2 },            -- +1–2 to All Skills
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4001,8 +4011,8 @@ return {
     --{ index = 75,  op = "==", value = 100 },          -- Improves Durability by 100
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4022,8 +4032,8 @@ return {
     { index = 107, op = "==", param = 65, value = 3 },-- +1–3 to Cold Mastery (Sorceress only)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4043,8 +4053,8 @@ return {
     { index = 93,  op = "==", value = 60 },           -- +40–60% Increased Attack Speed
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4063,8 +4073,8 @@ return {
     --{ index = 201, op = "==", value = 10 },           -- 2% Chance to cast level 10 Bone Prison when struck
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4083,8 +4093,8 @@ return {
     --{ index = 83,  op = "==", param = 1, value = 1 }, -- +1 to Amazon Skill Levels
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4102,8 +4112,8 @@ return {
     { index = 60,  op = "==", value = 10 },           -- 7–10% Life stolen per hit
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4121,8 +4131,8 @@ return {
     --{ index = 188, op = "==", param = 0, value = 3 },  -- +3 to Bow and Crossbow Skills (Amazon only)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4142,8 +4152,8 @@ return {
     { index = 187, op = "==", value = 10 },            -- Enemy cold immunity reduced by 5–10%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4161,8 +4171,8 @@ return {
     --{ index = 194, op = "==", value = 2 },            -- Socketed (2)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4179,8 +4189,8 @@ return {
     --{ index = 22,  op = "==", value = 30 },           -- Adds 5/10–20/30 Damage
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4201,8 +4211,8 @@ return {
     --{ index = 83,  op = "==", param = 1, value = 1 }, -- +1 to Amazon Skill Levels
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4221,8 +4231,8 @@ return {
     --{ index = 74,  op = "==", value = 12 },           -- Replenish Life +12
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4241,8 +4251,8 @@ return {
     --{ index = 51,  op = "==", value = 212 },          -- Adds 212 Lightning Damage (max)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4265,8 +4275,8 @@ return {
     { index = 107, op = "==", param = 278, value = 4}   -- +1-4 to Venom (Assassin only)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4287,8 +4297,8 @@ return {
     --{ index = 55,  op = "==", value = 196 },          -- Adds 196 Cold Damage (max)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4307,8 +4317,8 @@ return {
     { index = 278, op = "==", value = 2 },            -- +1-2 Combat Power
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4326,8 +4336,8 @@ return {
     { index = 96,  op = "==", value = 20 },           -- +10–20% Faster Run/Walk
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4346,8 +4356,8 @@ return {
     --{ index = 151, op = "==", param = 381, value = 2 },            -- Level 2 Redemption Aura When Equipped
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4365,8 +4375,8 @@ return {
     --{ index = 53,  op = "==", value = 8 },            -- Adds 8 Magic Damage (max)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4386,8 +4396,8 @@ return {
     --{ index = 136, op = "==", value = 15 },           -- 15% Chance of Crushing Blow
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4405,8 +4415,8 @@ return {
     --{ index = 150, op = "==", value = 20 },           -- Slows Target by 20%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4424,8 +4434,8 @@ return {
     --{ index = 152, op = "==", value = 1 },            -- Ethereal / Indestructible
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4443,8 +4453,8 @@ return {
     { index = 150, op = "==", value = 40 },           -- Slows Target by 20–40%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4467,8 +4477,8 @@ return {
     { index = 189, op = "==", value = 10 },           -- Enemy fire immunity reduced by 5–10%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4487,8 +4497,8 @@ return {
     --{ index = 91,  op = "==", value = -20 },          -- Requirements -20%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4507,8 +4517,8 @@ return {
     { index = 107, op = "==", param = 278, value = 6 },-- +3–6 to Venom (Assassin only)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4526,8 +4536,8 @@ return {
     { index = 329, op = "==", value = 20 },           -- +5–20% to Fire Skill Damage
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4546,8 +4556,8 @@ return {
     --{ index = 96,  op = "==", value = 20 },           -- +20% Faster Run/Walk
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4568,8 +4578,8 @@ return {
     --{ index = 22,  op = "==", value = 50 },           -- Adds 25–50 Damage
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4590,8 +4600,8 @@ return {
     --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4610,8 +4620,8 @@ return {
     { index = 83,  op = "==", param = 6, value = 3 }, -- +1–3 to Assassin Skill Levels
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4629,8 +4639,8 @@ return {
     { index = 188, op = "==", param = 50, value = 2 },-- +1–2 to Deadly Arts (Assassin Only)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4649,8 +4659,8 @@ return {
     { index = 74,  op = "==", value = 15 },           -- Replenish Life +10–15
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4668,8 +4678,8 @@ return {
     --{ index = 152, op = "==", value = 1 },            -- Ethereal / Indestructible
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4689,8 +4699,8 @@ return {
     { index = 107, op = "==", param = 251, value = 2 },-- +1–2 to Fire Blast (Assassin only)
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4714,8 +4724,8 @@ return {
     { index = 330, op = "==", value = 25 },           -- +10–25% to Lightning Skill Damage
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4738,8 +4748,8 @@ return {
     --{ index = 198, op = "==", value = 1 },            -- 5% Chance to cast level 1 Mage Crush on attack
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4756,8 +4766,8 @@ return {
     { index = 135, op = "==", value = 15 },           -- 5–15% Chance of Open Wounds
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4778,8 +4788,8 @@ return {
     { index = 35,  op = "==", value = 12 },           -- Magic Damage Reduced by 8–12
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4797,8 +4807,8 @@ return {
     --{ index = 97, op = "==", param = 65, value = 1}     --+X to Cold Mastery 
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4818,8 +4828,8 @@ return {
 
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4838,8 +4848,8 @@ return {
     { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 10–15
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4862,8 +4872,8 @@ return {
     { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 10–15
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4885,8 +4895,8 @@ return {
     { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 10–15
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4908,8 +4918,8 @@ return {
     { index = 35,  op = "==", value = 16 },           -- Magic Damage Reduced by 12–16
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4930,8 +4940,8 @@ return {
     { index = 35,  op = "==", value = 16 },           -- Magic Damage Reduced by 12–16
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4948,8 +4958,8 @@ return {
     --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4969,8 +4979,8 @@ return {
     { index = 191, op = "==", value = 15 },           -- Enemy poison immunity reduced by 5–15%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -4990,8 +5000,8 @@ return {
     { index = 77,  op = "==", value = 35 },           -- Increase Maximum Mana by 25–35%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5010,8 +5020,8 @@ return {
     { index = 97, op = "==", param = 161, value = 5 },-- +0–5 to Feeble Frame
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5029,8 +5039,8 @@ return {
     { index = 191, op = "==", value = 25 },           -- Enemy poison immunity reduced by 20–25%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5051,8 +5061,8 @@ return {
     { index = 151, op = "==", param = 103, value = 20 },-- Level 15-20 Thorns Aura When Equipped
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5072,8 +5082,8 @@ return {
     { index = 83,  op = "==", param = 3, value = 3 }, -- +2–3 to Paladin Skill Levels
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5094,8 +5104,8 @@ return {
     { index = 111,  op = "==", value = 120 },          -- Damage +60–120
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5117,8 +5127,8 @@ return {
     --{ index = 136, op = "==", value = 10 },           -- 10% Chance of Crushing Blow
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5139,8 +5149,8 @@ return {
     { index = 189, op = "==", value = 25},               -- Enemy Fire Immunity Reduced By 15-25%
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5162,8 +5172,8 @@ return {
     --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5189,8 +5199,8 @@ return {
     --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5209,8 +5219,8 @@ return {
     --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5234,8 +5244,8 @@ return {
     --{ index = 35,  op = "==", value = 20 },           -- Magic Damage Reduced by 20
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5254,8 +5264,8 @@ return {
     --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5277,8 +5287,8 @@ return {
     --{ index = 122, op = "==", value = 50 },           -- +50% Damage to Undead
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5298,8 +5308,8 @@ return {
     { index = 34,  op = "==", value = 14 },           -- Damage Reduced by 11–14
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5320,8 +5330,8 @@ return {
     { index = 34,  op = "==", value = 12 },           -- Damage Reduced by 8–12
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5339,8 +5349,8 @@ return {
     { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 12–15
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5361,8 +5371,8 @@ return {
     { index = 34,  op = "==", value = 13 },           -- Damage Reduced by 9–13
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5387,8 +5397,8 @@ return {
     { index = 35,  op = "==", value = 25 },           -- Magic Damage Reduced by 15–25
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5411,8 +5421,8 @@ return {
     { index = 35,  op = "==", value = 18 },           -- Magic Damage Reduced by 15–18
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5432,8 +5442,8 @@ return {
     { index = 97, op = "==", param = 156, value = 14 },-- +7–14 to Arctic Blast
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5455,8 +5465,8 @@ return {
     { index = 138, op = "==", value = 10 },           -- +3–10 Mana after each Kill
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
 },
 {
@@ -5475,9 +5485,652 @@ return {
     { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 12–15
   },
   border = {255,128,0,230},
-  notify = "Max Unique!",
-  suffix = "\n {red} MAXED STATS",
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
   filter_levels = "1,2,3"
-},	
 },
-}
+{
+  codes = "allitems",
+  quality = "7",
+  index = 221, -- Gleam Rod
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 82,  op = "==", value = 1 },            -- Area Effect
+    { index = 151, op = "==", param = 389, value = 20 },           -- Level 15–20 Magic Conviction Aura When Equipped
+    --{ index = 52,  op = "==", value = 200 },          -- Adds 200 Magic Damage (min)
+    --{ index = 53,  op = "==", value = 425 },          -- Adds 425 Magic Damage (max)
+    --{ index = 25,  op = "==", value = 200 },          -- +200% Enhanced Damage
+    --{ index = 93,  op = "==", value = 40 },           -- +40% Increased Attack Speed
+    --{ index = 136, op = "==", value = 20 },           -- 20% Chance of Crushing Blow
+    --{ index = 60,  op = "==", value = 6 },            -- 6% Life stolen per hit
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 222, -- Flamebellow
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +170–240% Enhanced Damage
+    --{ index = 48,  op = "==", value = 233 },          -- Adds 233 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 482 },          -- Adds 482 Fire Damage (max)
+    --{ index = 407,  op = "==", value = 3 }, -- +3 to Fire Skills
+    { index = 142, op = "==", value = 30 },           -- Fire Absorb 20–30%
+    --{ index = 198, op = "==", value = 12 },           -- 4% Chance to cast level 12 Firestorm on striking
+    { index = 0,   op = "==", value = 20 },           -- +10–20 to Strength
+    { index = 3,   op = "==", value = 10 },           -- +5–10 to Vitality
+    { index = 97, op = "==", param = 173, value = 18 },-- +12–18 to Inferno
+    { index = 34,  op = "==", value = 15 },           -- Damage Reduced by 12–15
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 223, -- Doombringer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 76,  op = "==", value = 20 },           -- Increase Maximum Life by 20%
+    --{ index = 25,  op = "==", value = 250 },          -- +180–250% Enhanced Damage
+    --{ index = 119, op = "==", value = 40 },           -- 40% Bonus to Attack Rating
+    --{ index = 22,  op = "==", value = 100 },          -- Adds 30–100 Damage
+    --{ index = 198, op = "==", value = 3 },            -- 8% Chance to cast level 3 Weaken on striking
+    { index = 60,  op = "==", value = 7 },            -- 5–7% Life stolen per hit
+    { index = 34,  op = "==", value = 30 },           -- Damage Reduced by 20–30
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 224, -- Burning Bane
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 151, op = "==", param = 387, value = 20 },           -- Level 15–20 Fire Conviction Aura When Equipped
+    --{ index = 48,  op = "==", value = 250 },          -- Adds 250 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 400 },          -- Adds 400 Fire Damage (max)
+    --{ index = 25,  op = "==", value = 300 },          -- +300% Enhanced Damage
+    --{ index = 198, op = "==", value = 10 },           -- 10% Chance to cast level 10 Flare Armor when struck
+    --{ index = 83,  op = "==", param = 255, value = 1 },-- (Mercenary Only)
+    --{ index = 141, op = "==", value = 15 },           -- 15% Deadly Strike
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    --{ index = 96,  op = "==", value = 20 },           -- +20% Faster Run/Walk
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 225, -- The Grandfather
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 0,   op = "==", value = 20 },           -- +20 to all Attributes
+    --{ index = 119, op = "==", value = 50 },           -- 50% Bonus to Attack Rating
+    --{ index = 7,   op = "==", value = 80 },           -- +80 to Life
+    --{ index = 218, op = "==", value = 3 },            -- +2.5 Maximum Damage per level
+    --{ index = 25,  op = "==", value = 350 },          -- +250–350% Enhanced Damage
+    { index = 151, op = "==", param = 503, value = 20 },           -- Level 10–20 Physical Conviction Aura When Equipped
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    { index = 34,  op = "==", value = 25 },           -- Damage Reduced by 20–25
+    { index = 35,  op = "==", value = 25 },           -- Magic Damage Reduced by 20–25
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 226, -- Wizardspike
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 217, op = "==", value = 2048*2 },            -- +2.0 to Mana (Based on Character Level)
+    --{ index = 77,  op = "==", value = 15 },           -- Regenerate Mana 15%
+    { index = 77,  op = "==", value = 30 },           -- Increase Maximum Mana by 15%-30%
+    { index = 39,  op = "==", value = 95 },           -- All Resistances +75-95?
+    --{ index = 105, op = "==", value = 50 },           -- +50% Faster Cast Rate
+    --{ index = 91,  op = "==", value = -50 },          -- Requirements -50%
+    --{ index = 34,  op = "==", value = 15 },           -- Damage Reduced by 15
+    --{ index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 15
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 227, -- Rapid Strike
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 333 },          -- +333% Enhanced Damage
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    --{ index = 96,  op = "==", value = 40 },           -- +40% Faster Run/Walk
+    --{ index = 22,  op = "==", value = 60 },           -- Damage +60
+    --{ index = 141, op = "==", value = 25 },           -- 25% Deadly Strike
+    --{ index = 397, op = "==", value = 9 },            -- 9 life restored per hit
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 228, -- Fleshripper
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 300 },          -- +200–300% Enhanced Damage
+    --{ index = 116, op = "==", value = -50 },          -- -50% Target Defense
+    --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
+    --{ index = 136, op = "==", value = 10 },           -- 10% Chance of Crushing Blow
+    { index = 135, op = "==", value = 20 },           -- 5–20% Chance of Open Wounds
+    --{ index = 141, op = "==", value = 10 },           -- 10% Deadly Strike
+    --{ index = 150, op = "==", value = 20 },           -- Slows Target by 20%
+    { index = 97, op = "==", param = 180, value = 10 },-- +6–10 to Patient Zero
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 229, -- Ghostflame
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +190–240% Enhanced Damage
+    --{ index = 116, op = "==", value = 0 },            -- Ignore Target's Defense
+    --{ index = 52,  op = "==", value = 108 },          -- Adds 108 Magic Damage
+    { index = 62,  op = "==", value = 15 },           -- 10–15% Mana stolen per hit
+    --{ index = 152, op = "==", value = 1 },            -- Ethereal
+    --{ index = 89,  op = "==", value = 2 },            -- +2 to Light Radius
+    --{ index = 152, op = "==", value = 1 },            -- Indestructible
+    { index = 93,  op = "==", value = 40 },           -- +25–40% Increased Attack Speed
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 230, -- Sentinel's Call
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 22,  op = "==", value = 85 },           -- Adds 60–85 Damage
+    --{ index = 25,  op = "==", value = 275 },          -- +200–275% Enhanced Damage
+    { index = 107, op = "==", param = 266, value = 5 },-- +3–5 to Blade Fury (Assassin only)
+    { index = 107, op = "==", param = 257, value = 4 },-- +2–4 to Blade Sentinel (Assassin only)
+    { index = 107, op = "==", param = 277, value = 4 },-- +2–4 to Blade Shield (Assassin only)
+    { index = 93,  op = "==", value = 50 },           -- +30–50% Increased Attack Speed
+    --{ index = 397, op = "==", value = 4 },            -- 4 life restored per hit
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 231, -- Gimmershred
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 210 },          -- +160–210% Enhanced Damage
+    --{ index = 48,  op = "==", value = 218 },          -- Adds 218 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 483 },          -- Adds 483 Fire Damage (max)
+    --{ index = 54,  op = "==", value = 176 },          -- Adds 176 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 397 },          -- Adds 397 Cold Damage (max)
+    --{ index = 50,  op = "==", value = 29 },           -- Adds 29 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 501 },          -- Adds 501 Lightning Damage (max)
+    --{ index = 96,  op = "==", value = 20 },           -- +20% Faster Run/Walk
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 232, -- Warshrike
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 250 },          -- +200–250% Enhanced Damage
+    --{ index = 66,  op = "==", value = 50 },           -- +50% Piercing Attack
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 141, op = "==", value = 25 },           -- 25% Deadly Strike
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+    --{ index = 198, op = "==", value = 9 },            -- 25% Chance to cast level 9 Nova on striking
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 233, -- Lacerator
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 210 },          -- +150–210% Enhanced Damage
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
+    { index = 135, op = "==", value = 30 },           -- 20–30% Chance of Open Wounds
+    --{ index = 112, op = "==", value = 50 },           -- Hit Causes Monster to Flee 50%
+    --{ index = 198, op = "==", value = 3 },            -- 33% Chance to cast level 3 Amplify Damage on striking
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 234, -- Contemplation
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 350 },          -- +290–350% Enhanced Damage
+    { index = 127, op = "==", value = 3 },            -- +2–3 to All Skills
+    --{ index = 50,  op = "==", value = 170 },          -- Adds 1–170 Lightning Damage
+    --{ index = 54,  op = "==", value = 90 },           -- Adds 90 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 350 },          -- Adds 350 Cold Damage (max)
+    --{ index = 52,  op = "==", value = 150 },          -- Adds 150 Magic Damage (min)
+    --{ index = 53,  op = "==", value = 160 },          -- Adds 160 Magic Damage (max)
+    --{ index = 102, op = "==", value = 20 },           -- +20% Faster Block Rate
+    --{ index = 119, op = "==", value = 60 },           -- 60% Bonus to Attack Rating
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    { index = 0,   op = "==", value = 60 },           -- +40–60 to Strength
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 235, -- Main Hand
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 350 },          -- +260–350% Enhanced Damage
+    --{ index = 116, op = "==", value = 0 },            -- Ignore Target's Defense
+    { index = 135, op = "==", value = 30 },           -- 10–30% Chance of Open Wounds
+    --{ index = 22,  op = "==", value = 60 },           -- +50–60 to Throwing Damage
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+    --{ index = 136, op = "==", value = 10 },           -- 10% Chance of Crushing Blow
+    --{ index = 93,  op = "==", value = 40 },           -- +40% Increased Attack Speed
+    --{ index = 83,  op = "==", param = 1, value = 2 }, -- +2 to Barbarian Skill Levels
+    --{ index = 96,  op = "==", value = 20 },           -- +20% Faster Run/Walk
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 236, -- Demon's Arch
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 210 },          -- +160–210% Enhanced Damage
+    --{ index = 48,  op = "==", value = 232 },          -- Adds 232 Fire Damage (min)
+    --{ index = 49,  op = "==", value = 323 },          -- Adds 323 Fire Damage (max)
+    { index = 60,  op = "==", value = 12 },           -- 6–12% Life stolen per hit
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 50,  op = "==", value = 23 },           -- Adds 23 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 333 },          -- Adds 333 Lightning Damage (max)
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 237, -- Wraith Flight
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 440 },          -- +350–440% Enhanced Damage
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+    { index = 60,  op = "==", value = 13 },           -- 9–13% Life stolen per hit
+    --{ index = 138, op = "==", value = 15 },           -- +15 Mana after each Kill
+    --{ index = 152, op = "==", value = 1 },            -- Ethereal
+    --{ index = 152, op = "==", value = 1 },            -- Indestructible
+    --{ index = 22,  op = "==", value = 250 },          -- Damage +200–250
+    { index = 83,  op = "==", param = 4, value = 3 }, -- +2–3 to Barbarian Skill Levels
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 238, -- Gargoyle's Bite
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 230 },          -- +180–230% Enhanced Damage
+    --{ index = 253, op = "==", value = 1 },            -- Replenish 1 Quantity every 1 seconds
+    --{ index = 59,  op = "==", value = 293 },          -- +293 Poison Damage over 10 seconds
+    { index = 60,  op = "==", value = 15 },           -- 9–15% Life stolen per hit
+    --{ index = 93,  op = "==", value = 40 },           -- +40% Increased Attack Speed
+    --{ index = 22,  op = "==", value = 55 },           -- Adds 20–55 Damage
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 239, -- Arioc's Needle
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 230 },          -- +180–230% Enhanced Damage
+    --{ index = 59,  op = "==", value = 394 },          -- +394 Poison Damage over 10 seconds
+    { index = 141, op = "==", value = 50 },           -- 30–50% Deadly Strike
+    --{ index = 116, op = "==", value = 0 },            -- Ignore Target's Defense
+    { index = 127, op = "==", value = 4 },            -- +2–4 to All Skills
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    { index = 34,  op = "==", value = 15 },           -- Damage Reduced by 12–15
+    { index = 35,  op = "==", value = 15 },           -- Magic Damage Reduced by 12–15
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 240, -- Rock Piercer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 357, op = "==", value = 60 },           -- +40–60% to Magic Skill Damage
+    --{ index = 25,  op = "==", value = 320 },          -- +320% Enhanced Damage
+    { index = 107, op = ">=", param = 30, value = 7 },-- +3–7 to Fend (Amazon only)
+    { index = 107, op = "==", param = 19, value = 7 },-- +5–7 to Impale (Amazon only)
+    { index = 135, op = "==", value = 70 },           -- 30–70% Chance of Open Wounds
+    --{ index = 188, op = "==", param = 2, value = 3 }, -- +3 to Javelin and Spear Skills (Amazon Only)
+    --{ index = 39,  op = "==", value = 30 },           -- All Resistances +30
+    { index = 32,  op = "==", value = 400 },          -- +200–400 Defense vs. Missile
+    { index = 34,  op = "==", value = 12 },           -- Damage Reduced by 10–12
+    { index = 35,  op = "==", value = 12 },           -- Magic Damage Reduced by 10–12
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 241, -- Viperfork
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +190–240% Enhanced Damage
+    --{ index = 59,  op = "==", value = 325 },          -- +325 Poison Damage over 10 seconds
+    --{ index = 93,  op = "==", value = 50 },           -- +50% Increased Attack Speed
+    { index = 19,  op = "==", value = 250 },          -- +200–250 Attack Rating
+    --{ index = 198, op = "==", value = 9 },            -- 15% Chance to cast level 9 Poison Explosion on striking
+    { index = 45,  op = "==", value = 50 },           -- Poison Resist +30–50%
+    --{ index = 34,  op = "==", value = 13 },           -- Damage Reduced by 13
+    --{ index = 35,  op = "==", value = 13 },           -- Magic Damage Reduced by 13
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 242, -- Flash Forward
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 111, op = "==", value = 3 },            -- Hit Blinds Target +3
+    { index = 151, op = "==", param = 390, value = 20 },           -- Level 15–20 Lightning Conviction Aura When Equipped
+    --{ index = 50,  op = "==", value = 60 },           -- Adds 60 Lightning Damage (min)
+    --{ index = 51,  op = "==", value = 650 },          -- Adds 650 Lightning Damage (max)
+    --{ index = 25,  op = "==", value = 170 },          -- +170% Enhanced Damage
+    --{ index = 83,  op = "==", param = 255, value = 1 },-- (Mercenary Only)
+    --{ index = 22,  op = "==", value = 110 },          -- Adds 60–110 Damage
+    --{ index = 93,  op = "==", value = 60 },           -- +60% Increased Attack Speed
+    --{ index = 194, op = "==", value = 1 },            -- Socketed (1)
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 243, -- Steel Pillar
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 260 },          -- +210–260% Enhanced Damage
+    --{ index = 93,  op = "==", value = 25 },           -- +25% Increased Attack Speed
+    --{ index = 116, op = "==", value = -20 },          -- -20% Target Defense
+    --{ index = 26,  op = "==", value = 80 },           -- +50–80% Enhanced Defense
+    { index = 136, op = "==", value = 30 },           -- 10–30% Chance of Crushing Blow
+    { index = 34,  op = "==", value = 17 },           -- Damage Reduced by 13–17
+    { index = 35,  op = "==", value = 17 },           -- Magic Damage Reduced by 13–17
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 244, -- Bonehew
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 320 },          -- +270–320% Enhanced Damage
+    --{ index = 93,  op = "==", value = 30 },           -- +30% Increased Attack Speed
+    --{ index = 198, op = "==", value = 15 },           -- 5% Chance to cast level 15 Corpse Explosion on Kill
+    --{ index = 198, op = "==", value = 16 },           -- 50% Chance to cast level 16 Bone Spear on striking
+    --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
+    --{ index = 194, op = "==", value = 2 },            -- Socketed (2)
+    { index = 34,  op = "==", value = 17 },           -- Damage Reduced by 13–17
+    { index = 35,  op = "==", value = 17 },           -- Magic Damage Reduced by 13–17
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 245, -- Tundra Tamer
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 150, op = "==", value = 50 },           -- Slows Target by 50%
+    { index = 151, op = "==", param = 388, value = 20 },           -- Level 15–20 Cold Conviction Aura When Equipped
+    --{ index = 54,  op = "==", value = 250 },          -- Adds 250 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 350 },          -- Adds 350 Cold Damage (max)
+    --{ index = 25,  op = "==", value = 275 },          -- +200–275% Enhanced Damage
+    --{ index = 83,  op = "==", param = 255, value = 1 },-- (Mercenary Only)
+    --{ index = 135, op = "==", value = 40 },           -- 40% Chance of Open Wounds
+    --{ index = 198, op = "==", value = 10 },           -- 3% Chance to cast level 10 Shiver Armor when struck
+    --{ index = 31,  op = "==", value = 100 },          -- +100 Defense
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 246, -- The Reaper's Toll
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 25,  op = "==", value = 240 },          -- +190–240% Enhanced Damage
+    --{ index = 198, op = "==", value = 5 },            -- 33% Chance to cast level 5 Decrepify on striking
+    --{ index = 116, op = "==", value = 0 },            -- Ignore Target's Defense
+    { index = 60,  op = "==", value = 15 },           -- 11–15% Life stolen per hit
+    --{ index = 91,  op = "==", value = -25 },          -- Requirements -25%
+    --{ index = 141, op = "==", value = 33 },           -- 33% Deadly Strike
+    --{ index = 54,  op = "==", value = 14 },           -- Adds 14 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 144 },          -- Adds 144 Cold Damage (max)
+    { index = 97, op = "==", param = 179, value = 5 },-- +1–5 to Calcified Carve
+    { index = 97, op = "==", param = 178, value = 5 },-- +3–5 to Bone Spikes
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 247, -- Tomb Reaver
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 93,  op = "==", value = 60 },           -- +60% Increased Attack Speed
+    --{ index = 89,  op = "==", value = 4 },            -- +4 to Light Radius
+    --{ index = 25,  op = "==", value = 280 },          -- +200–280% Enhanced Damage
+    { index = 122, op = "==", value = 230 },          -- +150–230% Damage to Undead
+    { index = 80,  op = "==", value = 80 },           -- 50–80% Better Chance of Getting Magic Items
+    { index = 39,  op = "==", value = 50 },           -- All Resistances +30–50
+    { index = 124, op = "==", value = 350 },          -- +250–350 Attack Rating vs Undead
+    --{ index = 199, op = "==", value = 10 },           -- 10% Reanimate As: Returned
+    { index = 86,  op = "==", value = 14 },           -- +10–14 Life after each Kill
+    --{ index = 194, op = "==", value = 3 },            -- Socketed (1–3)
+    { index = 34,  op = "==", value = 20 },           -- Damage Reduced by 15–20
+    { index = 35,  op = "==", value = 20 },           -- Magic Damage Reduced by 15–20
+  },
+  border = {255,128,0,230},
+  notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 248, -- Wind Shatter
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 107, op = "==", param = 151, value = 6 },-- +3–6 to Whirlwind (Barbarian only)
+    --{ index = 134, op = "==", value = 1 },            -- Freezes target
+    --{ index = 117, op = "==", value = 1 },            -- Prevent Monster Heal
+    --{ index = 25,  op = "==", value = 300 },          -- +200–300% Enhanced Damage
+    --{ index = 54,  op = "==", value = 250 },          -- Adds 250 Cold Damage (min)
+    --{ index = 55,  op = "==", value = 500 },          -- Adds 500 Cold Damage (max)
+    --{ index = 198, op = "==", value = 5 },            -- 3% Chance to cast level 5 Decrepify on striking
+    --{ index = 198, op = "==", value = 10 },           -- 2% Chance to cast level 10 Amplify Damage on striking
+    { index = 150, op = "==", value = 60 },           -- Slows Target by 40–60%
+    --{ index = 151, op = "==", value = 7 },            -- Level 7 Holy Freeze Aura When Equipped
+    { index = 34,  op = "==", value = 18 },           -- Damage Reduced by 12–18
+    { index = 35,  op = "==", value = 18 },           -- Magic Damage Reduced by 12–18
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 249, -- Bonespire
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    { index = 97, op = ">=", param = 178, value = 5 },-- +3–5 to Bone Spikes
+  },
+  border = {255,128,0,230},
+  --notify = "",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+{
+  codes = "allitems",
+  quality = "7",
+  index = 250, -- Nature's Intention
+  runeword = false,
+  location = { "onground","onplayer","equipped","atvendor" },
+  stat = {
+    --{ index = 107, op = "==", param = 999, value = 2 },-- +2 to Murder Calling
+    --{ index = 107, op = "==", param = 999, value = 3 },-- +3 to Poison Creeper
+    { index = 332, op = "==", value = 50 },           -- +25–50% to Poison Skill Damage
+    { index = 357, op = "==", value = 50 },           -- +25–50% to Magic Skill Damage
+    { index = 188, op = "==", param = 40, value = 4 },-- +2–4 to Nature's Teachings (Druid Only)
+    --{ index = 25,  op = "==", value = 200 },          -- +200% Enhanced Damage
+    { index = 77,  op = "==", value = 20 },           -- Increase Maximum Mana by 10–20%
+    --{ index = 31,  op = "==", value = 300 },          -- +100–300 Defense
+    --{ index = 58,  op = "==", value = 50 },           -- Poison Length Reduced by 50%
+    { index = 45,  op = "==", value = 50 },           -- Poison Resist +35–50%
+    { index = 97, op = "==", param = 183, value = 3 },-- +1–3 to Arachnophobia
+    --{ index = 83,  op = "==", param = 5, value = 2 }, -- +2 to Druid Skill Levels
+  },
+  border = {255,128,0,230},
+  --notify = "Max Unique!",
+  suffix = "\n {red} Maxed Stats",
+  filter_levels = "1,2,3"
+},
+},
+},
