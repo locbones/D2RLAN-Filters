@@ -8,6 +8,8 @@ return {
     allowOverrides = true,
     filter_level = 2,
     filter_titles = { "1", "2" },
+    audioPlayback = true,
+    audioVoice = 0,
     rules = {
         { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows, in white, to the right of item name, (x)
             codes = "allitems",
