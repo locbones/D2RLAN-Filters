@@ -20,6 +20,7 @@ return {
     reload = "WolfieeifloW's Filter v1.49: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
+    audioVoice = 1,
     audioPlayback = true,
     rules = {
         { -- Rule 1: Items for upcoming anniversary event
