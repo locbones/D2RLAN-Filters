@@ -5,17 +5,17 @@
 return {
     reload = "{turquoise}RMD Barebones Filter {gray}(v1.0) {green}Reloaded",
     language = "enUS",
+    audioVoice = 1, -- Chooses a voice, available from ones installed on OS
+    audioPlayback = true, -- Enable or Disable audio playback support, including TTS
     allowOverrides = true,
-    filter_level = 2,
+    filter_level = 1,
     filter_titles = { "1", "2" },
-    audioPlayback = true,
-    audioVoice = 0,
     rules = {
-        { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows, in white, to the right of item name, (x)
+        { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
             codes = "allitems",
             location = { "onground", "onplayer", "equipped", "atvendor" },
-            itype = { 5, 10, 12, 45, 50, 58, 82, 83, 84 },
-            suffix = " {white}({ilvl})",
+            itype = { 5, 6, 10, 12, 45, 50, 58, 82, 83, 84 },
+            suffix = " ({ilvl})",
         },
         { --Display socket count in gray, to the right of item name, [x]
             codes = "allitems",
@@ -25,17 +25,15 @@ return {
             suffix = " {gray}[{sockets}]"
         },
         { --Display RMD "Elite Bases" with a special EB icon in RMD Red, to the right of item name
-            codes = "allitems",
+            codes = NOT { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
             rarity = 2,
             location = { "onground", "onplayer", "equipped", "atvendor" },
-            ilvl = "102-",
             itype = { 45, 50 },
             suffix = " {tan}ⅲ"
         },
         { --Display RMD "Limit Broken Bases" with a special LB icon in RMD Red, to the right of item name
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
             location = { "onground", "onplayer", "equipped", "atvendor" },
-            ilvl = "103+",
             itype = { 45, 50 },
             suffix = " {tan}ⅳ"
         },
