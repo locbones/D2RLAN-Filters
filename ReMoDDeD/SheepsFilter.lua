@@ -5,6 +5,8 @@
 return {
     reload = "{pink}Sheep's Base Filter v1.20 {grey} New Year Same Filter {Green}Reloaded",
     allowOverrides = true,
+    audioVoice = 1,
+    audioPlayback = true,
     rules = {
        ---Rule event rare jewel only in tundra
         {
