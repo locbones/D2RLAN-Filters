@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.48
+--- Filter Title: WolfieeifloW's Filter v1.49
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,9 +17,10 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.48: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.49: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
+    audioPlayback = true,
     rules = {
         { -- Rule 1: Items for upcoming anniversary event
             codes = "allitems",
@@ -1935,11 +1936,13 @@ return {
         { -- Rule 299: Ultra Enhancement Crystal renaming
             codes = { "z19", "z20", "z21", "z23", "z24", "z25", "z26", "z27", }, -- z22
             name_override = "{tan}Ultra Enhancement Crystal (1 Use Per Item{tan})",
-            location = { "onground", "onplayer", "atvendor" }
+            location = { "onground", "onplayer", "atvendor" },
+            border = { 255, 0, 0, 255, 3 }
         },
         { -- Rule 300: Ultra Enhancement Crystal notify
             codes = { "z19", "z20", "z21", "z23", "z24", "z25", "z26", "z27", }, -- z22
-            notify = "{purple}Crystal:{tan} Ultra Enhancement Crystal"
+            notify = "{purple}Crystal:{tan} Ultra Enhancement Crystal",
+            border = { 255, 0, 0, 255, 3 }
         },
         { -- Rule 301: Display cube recipes on Gold Bar that relate to it
             code = "Y21",
@@ -1951,7 +1954,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}*NOTE: {green}Set{grey}/{gold}Unique {grey}Weapons cannot go over their natural maximum sockets\n\n{dark green}Demon Tempered{grey}: cannot use Gifts (unless LB2: Path of the Blacksmith)\n{green}Set {grey}& {gold}Unique {grey}Armor & Jewellery: up to item's maximum sockets\n{green}Set {grey}& {gold}Unique {grey}Weapons*: 1-hand: 4, 2-hand: 6\n{blue}Magic{grey}, {yellow}Rare{grey}, & {orange}Crafted{grey}: up to item's maximum sockets\n{white}Inferior{grey}, {white}Normal{grey}, & Superior: up to item's maximum sockets\n{gold}Ramaladni's Gift {grey}Socket Limits:\n"
         },
-        { -- Rule 303: Helper text for 0 socket items to use Ramaladni's Gift to add sockets
+        { -- Rule 303: Helper text for Ring, Amulet, and Armor items to use Ramaladni's Gift to add sockets if they aren't already at maximum sockets
             codes = "allitems",
             quality = "8-",
             maxsock = false,
@@ -1959,7 +1962,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use a {gold}Ramaladni's Gift {grey}to add a socket\n"
         },
-        { -- Rule 304: Helper text for Magic/Rare/Crafted 0 socket Weapons to use Ramaladni's Gift to add sockets
+        { -- Rule 304: Helper text for Magic/Rare/Crafted Weapons to use Ramaladni's Gift to add sockets if they aren't already at maximum sockets
             codes = "allitems",
             quality = { "4", "6", "8" },
             maxsock = false,
@@ -1967,7 +1970,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use a {gold}Ramaladni's Gift {grey}to add a socket\n"
         },
-        { -- Rule 305: Helper text for Set/Unique 1-Hand 0 socket Weapons to use Ramaladni's Gift to add sockets
+        { -- Rule 305: Helper text for Set/Unique 1-Hand Weapons to use Ramaladni's Gift to add sockets
             codes = { "hax", "axe", "2ax", "mpi", "wax", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "9ha", "9ax", "92a", "9mp", "9wa", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "ob1", "ob2", "ob3", "ob4", "ob5", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "ama", "obb", "obc", "obd", "obe", "obf", "amf", "k01", "k02", "k03", "Pm1", "Pm2", "Pm3", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "Ss1", "Ss2", "Ss3", "Ss4", "l13", "l16", "l18" },
             quality = { "5", "7" },
             maxsock = false,
@@ -1975,7 +1978,7 @@ return {
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Use a {gold}Ramaladni's Gift {grey}to add a socket\n"
         },
-        { -- Rule 306: Helper text for Set/Unique 2-Hand 0 socket Weapons to use Ramaladni's Gift to add sockets
+        { -- Rule 306: Helper text for Set/Unique 2-Hand Weapons to use Ramaladni's Gift to add sockets
             codes = { "lax", "bax", "btx", "gax", "gix", "mau", "gma", "clm", "gis", "bsw", "flb", "gsd", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "9la", "9ba", "9bt", "9ga", "9gi", "9m9", "9gm", "9cm", "9gs", "9b9", "9fb", "9gd", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "7la", "7ba", "7bt", "7ga", "7gi", "7m7", "7gm", "7cm", "7gs", "7b7", "7fb", "7gd", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "am1", "am2", "am3", "am4", "am6", "am7", "am8", "am9", "amb", "amc", "amd", "ame", "Ds1", "Ds2", "Ds3", "Ds4", "Ds5", "Ds6", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "l14", "l15", "l17", "l18" },
             quality = { "5", "7" },
             maxsock = false,
@@ -2287,7 +2290,8 @@ return {
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
             rarity = "2",
             itype = { 45, 50 },
-            notify = "{red}LB Item {link}"
+            notify = "{red}LB Item {link}",
+            border = { 255, 0, 0, 255, 2 }
         },
         -- +-------------------------+
         -- | TESTING                 |
