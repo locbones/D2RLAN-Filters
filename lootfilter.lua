@@ -81,7 +81,7 @@ closePipe()
 -- Clear cache and load config
 package.loaded["lootfilter_config"] = nil
 local config = loadConfig("lootfilter_config.lua")
-local version = "1.4.0"
+local version = "1.4.1"
 local mod = "RMD"
 local userLanguage = config.language or "enUS"
 
@@ -1009,7 +1009,7 @@ end
     local baseName = Result.Name
     local baseDesc = Result.Description
     local actualLoc
-    if Me and Item.Data and Me.ID ~= Item.Data.Owner and location ~= 3  and location ~= 5 and Item.Data.Owner >= 450 then
+    if Me and Item.Data and Me.ID ~= Item.Data.Owner and location ~= 3 and location ~= 4 and location ~= 5 and Item.Data.Owner >= 450 then
         actualLoc = "atvendor"
     else
         actualLoc = normalize_location(location)
@@ -1076,7 +1076,7 @@ end
             if rule.maxsock ~= nil then
                 local hasMaxSock = false
             if rule.maxsock == true then
-                hasMaxSock = (socketVal == maxsock)
+                hasMaxSock = (socketVal >= maxsock)
             elseif rule.maxsock == false then
                 hasMaxSock = (socketVal ~= maxsock)
             else
