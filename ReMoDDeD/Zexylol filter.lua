@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.22
+--- Filter Title: Zexylol's Hardfilter v1.23
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nWorking on filtering out perfect Uniques(1-400 done), but non perfects are not hidden YET!
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
