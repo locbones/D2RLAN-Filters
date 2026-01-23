@@ -1,20 +1,19 @@
---- Filter Title: Zexylol's Hardfilter v1.25
+--- Filter Title: Zexylol's Hardfilter v1.26
 --- Filter Type: (Hardconfig filter)
---- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques is done, but non perfects are not hidden YET!
+--- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques is done, Uniques 1-100 all stats <70% is hidden(WIP).
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
 return {
   reload = "{pink} Zexylol's Hardconfig Filter {pink}Reloaded",
   --debug = true,
   filter_level = 1,
-  filter_titles = {"Hard", "Medium", "Leveling",},
+  filter_titles = {"Endgame", "Gearing", "Leveling",},
   allowOverrides = true,
   rules = {
-
   --Rules Debugg.
     {
       --codes = "allitems",
-      --location = {"onground", "onplayer"},
-      --prefix = "{stat=(31)}",
+      --location = {"onground", "onplayer","equipped"},
+      --prefix = "S122={stat=(122)}|S22={stat=(22)}|S23={stat=(23)}|S24={stat=(24)}|",
       --prefix = "[{index}]",
       --prefix = "[{code}]",
       --prefix = "[{code}] [{rarity}] [{index}] [{itype}]",
@@ -125,6 +124,17 @@ return {
       notify = "{pink} Ultra Rune Points!",
       hide = false,
       filter_levels = "1,2,3"
+    },
+    {--Display Ultra Enhancment crystals
+      codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
+      notify = "{red} Ultra Enhancement Crystal",
+      name_override = "{red} Ultra Enhancement Crystal",
+      border = {255,0,0},
+      filter_levels = "1,2,3",
+    },
+    {--Color Dyes
+      codes = {"z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69","z70", "z71", "z72", "z73"},
+      border = { 255, 255, 255},
     },
     {--Display DemonTempering name with notify.
       codes = {"C00", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", 
@@ -948,19 +958,15 @@ return {
       prefix_desc = "{dark green}Can be Demon-Tempered\n",
       filter_levels = "1,2,3",
     },
-  --ALL UNIQUES MAX STATS Index 1-50
+  --ALL UNIQUES MAX STATS Index 1-20
     {
       codes = "allitems",
       quality = "7",
       index = 6, --The Gnasher
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 0, op = "==", value = 8 }, --strength
-      --{index = 135, op = "==", value = 25 }, -- 25% Chance of Open Wounds
-      --{index = 136, op = "==", value = 20 }, -- +20% Chance of Crushing Blow
-      --{index = 25, op = "==", param = value = 66 }, --60-70% damagepercent -> ?
-      {index = 85, op = "==", value = 5 }, -- 2-5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       {index = 34, op = "==", value = 5 }, -- Damage Reduced by 2-5
       {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 2-5
       },
@@ -974,13 +980,9 @@ return {
       quality = "7",
       index = 7, --Deathspade
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 21, op = "==", value = 8 }, --mindamage 21-> ?
-      --{index = 119, op = "==", value = 15 }, --tohit (bonus to attack rating) 19-> 119
-      --{index = 138, op = "==", value = 4 }, --item_manaafterkill
-      --{index = 25, op = "==", value = 70 }, --60-70% damagepercent -> ?
-      {index = 85, op = "==", value = 5 }, --2-5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 2-5
       },
       border = {165, 146, 099, 230},
@@ -993,15 +995,9 @@ return {
       quality = "7",
       index = 8, --Bladebone
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 122, op = "==", value = 100 }, --item_undeaddamage_percent
-      --{index = 124, op = "==", value = 40 }, --item_undead_tohit
-      --{index = 93, op = "==", value = 20 }, --item_fasterattackrate
-      --{index = 31, op = "==", value = 20 }, --armorclass
-      --{index = 49, op = "==", value = 12 }, --firemaxdam -> didnt work
-      --{index = 25, op = "==", value = 50 }, --30-50% damagepercent -> ?
-      {index = 85, op = "==", value = 5 }, --2-5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       {index = 34, op = "==", value = 8 }, -- Damage Reduced by 4-8
       {index = 35, op = "==", value = 8 }, -- Magic Damage Reduced by 4-8
       },
@@ -1015,15 +1011,11 @@ return {
       quality = "7",
       index = 9, --Skull Splitter
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --Hit Blinds Target: ingen direkt match
-      --{index = 27, op = "==", value = 20 }, --Regenerate Mana 20%
-      {index = 51, op = "==", value = 15 }, --1-12/15 lightmaxdam
-      {index = 19, op = ">=", value = 100 }, --50-100 tohit 
-      --{index = 25, op = "==", value = 100 }, --60-100% damagepercent -> ?
-      --{index = 135, op = "==", value = 15 }, -- 15 Chance of Open Wounds
-      {index = 85, op = "==", value = 5 }, --2-5% to Experience Gained
+      {index = 51, op = "==", value = 15 }, -- Adds 1-12/15 Lighting Damage
+      {index = 19, op = "==", value = 100 }, -- +50-100 to Attack Rating
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       {index = 35, op = "==", value = 7 }, -- Magic Damage Reduced by 3-7
       },
       border = {165, 146, 099, 230},
@@ -1036,14 +1028,9 @@ return {
       quality = "7",
       index = 10, --Rakescar
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 57, op = "==", value = 38 }, --poisonmindam -> didnt work
-      --{index = 19, op = "==", value = 50 }, --tohit
-      --{index = 45, op = "==", value = 50 }, --poisonresist
-      --{index = 25, op = "==", value = 150 }, --75-150% damagepercent -> ?
-      --{index = 93, op = "==", value = 30 }, --item_fasterattackrate
-      {index = 85, op = "==", value = 5 }, --2-5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       {index = 34, op = "==", value = 8 }, -- Damage Reduced by 4-8
       {index = 35, op = "==", value = 8 }, -- Magic Damage Reduced by 4-8
       },
@@ -1057,12 +1044,8 @@ return {
       quality = "7",
       index = 11, --Axe of Fechmar
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 25, op = "==", value = 90 }, --70-90% damagepercent (kommenterad enligt instruktion)
-      --{index = 134, op = "==", value = 1 }, --Freezes Target
-      --{index = 43, op = "==", value = 50 }, --coldresist
-      {index = 89, op = "==", value = 2 }, --item_lightradius
       {index = 34, op = "==", value = 5 }, -- Damage Reduced by 3-5
       {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 3-5
       },
@@ -1076,13 +1059,8 @@ return {
       quality = "7",
       index = 12, --Goreshovel
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 93, op = "==", value = 30 }, --item_fasterattackrate
-      --{index = 0, op = "==", value = 25 }, --strength
-      --{index = 135, op = "==", value = 40 }, -- 40% Chance of Open Wounds
-      --{index = 25, op = "==", value = 50 }, --40-50% damagepercent (kommenterad enligt instruktion)
-      --{index = 22, op = "==", value = 9 }, --maxdamage
       {index = 34, op = "==", value = 6 }, -- Damage Reduced by 2-6
       {index = 35, op = "==", value = 6 }, -- Magic Damage Reduced by 2-6
       },
@@ -1096,13 +1074,9 @@ return {
       quality = "7",
       index = 13, --The Cheiftain
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 25, op = "==", value = 100 }, --damagepercent (kommenterad enligt instruktion)
-      {index = 39, op = "==", value = 20 }, --10-20% Fireresist (All Resistances)
-      --{index = 138, op = "==", value = 6 }, --item_manaafterkill
-      --{index = 93, op = "==", value = 20 }, --item_fasterattackrate
-      --{index = 51, op = "==", value = 40 }, --lightmaxdam
+      {index = 39, op = "==", value = 20 }, -- All Resistances +10-20%
       {index = 34, op = "==", value = 7 }, -- Damage Reduced by 3-7
       {index = 35, op = "==", value = 7 }, -- Magic Damage Reduced by 3-7
       },
@@ -1116,14 +1090,9 @@ return {
       quality = "7",
       index = 14, --Brainhew
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 21, op = "==", value = 14 }, --mindamage
-      --{index = 9, op = "==", value = 25 }, --mana
-      --{index = 89, op = "==", value = 4 }, --item_lightradius
-      {index = 62, op = "==", value = 13 }, --10-13% manadrainmindam (Mana stolen per hit)
-      --{index = 25, op = "==", value = 80 }, --50-80% damagepercent (kommenterad enligt instruktion)
-      --{index = 49, op = "==", value = 35 }, --firemaxdam
+      {index = 62, op = "==", value = 13 }, -- +10-13% Mana stolen per hit
       {index = 34, op = "==", value = 9 }, -- Damage Reduced by 6-9
       {index = 35, op = "==", value = 9 }, -- Magic Damage Reduced by 6-9
       },
@@ -1137,13 +1106,9 @@ return {
       quality = "7",
       index = 15, --Humongous
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 0, op = "==", value = 30 }, --20-30 strength
-      --{index = 22, op = "==", value = 25 }, --8-15/25 maxdamage (not working)
-      --{index = 136, op = "==", value = 25 }, -- +25% Chance of Crushing Blow
-      --{index = 91, op = "==", value = 20 }, --item_req_percent
-      --{index = 25, op = "==", value = 120 }, --80-120% damagepercent (kommenterad enligt instruktion)
+      {index = 0, op = "==", value = 30 }, -- +20-30 Strength
       {index = 34, op = "==", value = 10 }, -- Damage Reduced by 8-10
       {index = 35, op = "==", value = 10 }, -- Magic Damage Reduced by 8-10
       },
@@ -1157,15 +1122,9 @@ return {
       quality = "7",
       index = 16, --Torch of Iro
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 83, op = "==", value = 1, param = 2}, --item_addclassskills (Necromancer Skill Levels)
-      {index = 281, op = "==", value = 20 }, --item_damage_vs_monster (Summon Damage) 
-      {index = 39, op = "==", value = 10 }, --5-10% fireresist
-      --{index = 89, op = "==", value = 3 }, --item_lightradius
-      --{index = 1, op = "==", value = 10 }, --energy
-      --{index = 27, op = "==", value = 5 }, --Regenerate Mana 5%
-      --{index = 97, op = "==", param = 77, value = 3}, --Terror
+      {index = 39, op = "==", value = 10 }, -- Fire Resist +5-10%
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1177,16 +1136,12 @@ return {
       quality = "7",
       index = 17, --Maelstrom
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 357, op = "==", value = 10 }, -- +5-10% to Magic Skill Damage
-      --{index = ?, op = "==", param = 458, value = 5}, --Static Field proc:
-      --{index = 41, op = "==", value = 40 }, --lightningresist
-      --{index = 9, op = "==", value = 3328 }, --mana 256*13=3328
-      --{index = 105, op = "==", value = 30 }, --item_fastercast
-      {index = 97, op = "==", param = 77, value = 3}, --1-3 Terror
-      {index = 97, op = "==", param = 71, value = 3}, --1-3 Dim Vision
-      {index = 97, op = "==", param = 74, value = 3}, --1-3 Corpse Explosion
+      {index = 97, op = "==", param = 77, value = 3}, -- +1-3 to Terror
+      {index = 97, op = "==", param = 71, value = 3}, -- +1-3 to Dim Vision
+      {index = 97, op = "==", param = 74, value = 3}, -- +1-3 to Corpse Explosion
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1196,19 +1151,13 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 18, --Gravespine
+      index = 18, --Gravenspine
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 0, op = "==", value = 10 }, --strength
-      --{index = 2, op = "==", value = 10 }, --dexterity
-      --{index = 43, op = "==", value = 15 }, --coldresist
-      {index = 284, op = "==", value = 20 }, --10-20% Summon Max Life
-      --{index = 7, op = "==", value = 15 }, --life
-      --{index = 107, op = "==", value = 15 }, --item_fastercast
-      --{index = 127, op = "==", value = 2 }, --item_allskills (Necromancer)
-      {index = 9, op = "==", value = 12800 }, --256*(value) 25-50 mana
-      {index = 97, op = "==", param = 87, value = 2}, --1-2 Decrepify
+      {index = 284, op = "==", value = 20 }, -- Summon Max HP: +10-20%
+      {index = 9, op = "==", value = 256*50 }, -- +25-50 to Mana (value*256)
+      {index = 97, op = "==", param = 87, value = 2}, -- +1-2 to Decrepify
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1220,15 +1169,10 @@ return {
       quality = "7",
       index = 19, --Ume's Lament
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 127, op = "==", value = 2 }, --item_allskills (Necromancer)
-      --{index = 8, op = "==", value = 40 }, --mana
-      --{index = 97, op = "==", value = 20 }, --item_fastercast
-      --Hit Causes Monster to Flee: ingen direkt match
-      --{index = 97, op = "==", param = 77, value = 3}, --Terror
-      {index = 97, op = "==", param = 87, value = 2}, --1-2 Decrepify
-      {index = 85, op = "==", value = 5 } --2-5% to Experience Gained
+      {index = 97, op = "==", param = 87, value = 2}, -- +1-2 to Decrepify
+      {index = 85, op = "==", value = 5 } -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1240,32 +1184,228 @@ return {
       quality = "7",
       index = 20, --Felloak
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 44, op = "==", value = 60 }, --lightningresist
-      {index = 43, op = "==", value = 20 }, --fireresist (coldresist)
-      --{index = 49, op = "==", value = 8 }, --firemaxdam (Cold damage.)
-      --{index = 25, op = "==", value = 80 }, --70-80% damagepercent (kommenterad enligt instruktion)
-      {index = 85, op = "==", value = 5 }, --2-5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
       filter_levels = "1,2,3"
     },
+  --Hide <70% Unique Index 1-20
     {
       codes = "allitems",
       quality = "7",
-      index = 21, --Kneel Striker
+      index = 6, --The Gnasher, hide <70%
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground"},
       stat = {
-      --{index = 136, op = "==", value = 25 }, -- +25% Chance of Crushing Blow
-      --{index = 39, op = "==", value = 20 }, --fireresist
-      --{index = 45, op = "==", value = 20 }, --poisonresist
-      --{index = 9, op = "==", value = 3840 }, --256*(value) 15 mana
-      --{index = 25, op = "==", value = 70 }, --60-70% damagepercent -> ?
-      --{index = 19, op = "==", value = 35 }, --tohit
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (2 + (5-2)*0.7)}, -- Damage Reduced by 2-5
+      {index = 35, op = "<=", value = (2 + (5-2)*0.7)}, -- Magic Damage Reduced by 2-5
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 7, --Deathspade, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (2 + (5-2)*0.7)}, -- Magic Damage Reduced by 2-5
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 8, --Bladebone, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
+      {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 9, --Skull Splitter, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 51, op = "<=", value = (1 + (15-1)*0.7)}, -- Adds 1-12/15 Lightning Damage
+      {index = 19, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100 to Attack Rating
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (3 + (7-3)*0.7)}, -- Magic Damage Reduced by 3-7
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 10, --Rakescar, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
+      {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 11, --Axe of Fechmar, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (3 + (5-3)*0.7)}, -- Damage Reduced by 3-5
+      {index = 35, op = "<=", value = (3 + (5-3)*0.7)}, -- Magic Damage Reduced by 3-5
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 12, --Goreshovel, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (2 + (6-2)*0.7)}, -- Damage Reduced by 2-6
+      {index = 35, op = "<=", value = (2 + (6-2)*0.7)}, -- Magic Damage Reduced by 2-6
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 13, --The Cheiftain, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 39, op = "<=", value = (10 + (20-10)*0.7)}, -- All Resistances +10-20%
+      {index = 34, op = "<=", value = (3 + (7-3)*0.7)}, -- Damage Reduced by 3-7
+      {index = 35, op = "<=", value = (3 + (7-3)*0.7)}, -- Magic Damage Reduced by 3-7
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 14, --Brainhew, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 62, op = "<=", value = (10 + (13-10)*0.7)}, -- +10-13% Mana stolen per hit
+      {index = 34, op = "<=", value = (6 + (9-6)*0.7)}, -- Damage Reduced by 6-9
+      {index = 35, op = "<=", value = (6 + (9-6)*0.7)}, -- Magic Damage Reduced by 6-9
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 15, --Humongous, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 0, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30 Strength
+      {index = 34, op = "<=", value = (8 + (10-8)*0.7)}, -- Damage Reduced by 8-10
+      {index = 35, op = "<=", value = (8 + (10-8)*0.7)}, -- Magic Damage Reduced by 8-10
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 16, --Torch of Iro, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 39, op = "<=", value = (5 + (10-5)*0.7)}, -- Fire Resist +5-10%
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 17, --Maelstrom, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 357, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Magic Skill Damage
+      {index = 97, op = "<=", param = 77, value = (1 + (3-1)*0.7)}, -- +1-3 to Terror
+      {index = 97, op = "<=", param = 71, value = (1 + (3-1)*0.7)}, -- +1-3 to Dim Vision
+      {index = 97, op = "<=", param = 74, value = (1 + (3-1)*0.7)}, -- +1-3 to Corpse Explosion
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 18, --Gravenspine, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 284, op = "<=", value = (10 + (20-10)*0.7)}, -- Summon Max HP: +10-20%
+      {index = 9, op = "<=", value = (25 + (50-25)*0.7)*256}, -- +25-50 to Mana (value*256)
+      {index = 97, op = "<=", param = 87, value = (1 + (2-1)*0.7)}, -- +1-2 to Decrepify
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 19, --Ume's Lament, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 97, op = "<=", param = 87, value = (1 + (2-1)*0.7)}, -- +1-2 to Decrepify
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 20, --Felloak, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+  --ALL UNIQUES MAX STATS Index 21-40
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 21, --Knell Striker
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1277,16 +1417,10 @@ return {
       quality = "7",
       index = 22, --Rusthandle
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 127, op = "==", value = 2 }, --item_allskills (Paladin)
-      --{index = ?, "op = "==", value = 7 }, --3-7 damage.
-      --{index = 35, op = "==", value = 1 }, -- Magic Damage Reduced by 
-      --{index = 60, op = "==", value = 8 }, --lifedrainmindam
-      --{index = 25, op = "==", value = 60 }, --50-60% damagepercent -> ?
-      {index = 122, op = "==", value = 60 }, --50-60%+(base 50%) item_undeaddamage_percent
-      --{index = 107, op = "==", param = 103, value = 3}, --Thorns
-      {index = 107, op = "==", param = 111, value = 3}, --1-3 Vengeance
+      {index = 122, op = "==", value = 60 }, -- +50-60% Damage to Undead
+      {index = 107, op = "==", param = 111, value = 3}, -- +1-3 to Vengeance (Paladin only)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1298,16 +1432,10 @@ return {
       quality = "7",
       index = 23, --Stormeye
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 51, op = "==", value = 6 }, --lightmaxdam
-      --{index = 50, op = "==", value = 5 }, --coldmaxdam
-      --{index = 74, op = "==", value = 10 }, --hpregen
-      --{index = 25, op = "==", value = 120 }, --80-120% damagepercent -> ?
-      {index = 85, op = "==", value = 5 }, --2-5% to Experience Gained
-      {index = 107, op = "==", param = 112, value = 5}, --3-5 Blessed Hammer
-      --{index = 107, op = "==", param = 118, value = 3}, --Holy Shock
-      --{index = 107, op = "==", param = 121, value = 1}, --Fist of the Heavens
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 107, op = "==", param = 112, value = 5}, -- +3-5 to Blessed Hammer (Paladin only)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1319,12 +1447,9 @@ return {
       quality = "7",
       index = 24, --Stoutnail
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 93, op = "==", value = 20 }, --item_fasterattackrate
-      --{index = 25, op = "==", value = 100 }, --damagepercent -> ?
-      {index = 78, op = "==", value = 10 }, --3-10 item_attackertakesdamage
-      --{index = 97, op = "==", param = ?, value = 1}, --Blaze Wolf
+      {index = 78, op = "==", value = 10 }, -- Attacker Takes Damage of 3-10
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1336,15 +1461,9 @@ return {
       quality = "7",
       index = 25, --Crushflange
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 0, op = "==", value = 15 }, --strength
-      --{index = 89, op = "==", value = 2 }, --item_lightradius
-      --{index = 39, op = "==", value = 50 }, --fireresist
-      --{index = 25, op = "==", value = 60 }, --50-60% damagepercent -> ?
-      --{index = 136, op = "==", value = 20 }, -- +20% Chance of Crushing Blow
       {index = 34, op = "==", value = 4 }, -- Damage Reduced by 2-4
-      --{index = 122, op = "==", value = 50 }, --50% item_undeaddamage_percent
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1356,18 +1475,10 @@ return {
       quality = "7",
       index = 26, --Bloodrise
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 25, op = "==", value = 120 }, --Enhanced Damage (120%)
-      --{index = 119, op = "==", value = 50 }, --Bonus to Attack Rating (50%)
-      --{index = 135, op = "==", value = 20 }, -- 20% Chance of Open Wounds
-      --{index = 89, op = "==", value = 2 }, --Light Radius (+2)
-      --{index = 93, op = "==", value = 10 }, --Increased Attack Speed (+10%)
-      --{index = 97, op = "==", param = 96, value = 3 }, --+3 to Sacrifice (Paladin only)
-      --{index = 60, op = "==", value = 5 }, --Life stolen per hit (5%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 34, op = "==", value = 6 }, --Damage Reduced (4–6)
-      --{index = 122, op = "==", value = 50 } --Damage to Undead (+50%)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 6 }, -- Damage Reduced by 4-6
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1379,16 +1490,9 @@ return {
       quality = "7",
       index = 27, --The General's Tan Do Li Ga
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 21, op = "==", value = 20 }, --Minimum Damage (Adds 1–20)
-      --{index = 150, op = "==", value = 50 }, --Slows Target (50%)
-      --{index = 31, op = "==", value = 25 }, --Defense (+25)
-      --{index = 62, op = "==", value = 5 }, --Mana stolen per hit (5%)
-      --{index = 25, op = "==", value = 60 }, --Enhanced Damage (50–60%)
-      --{index = 93, op = "==", value = 20 }, --Increased Attack Speed (+20%)
-      {index = 34, op = "==", value = 6 }, --Damage Reduced (4–6)
-      --{index = 122, op = "==", value = 50 } --Damage to Undead (+50%)
+      {index = 34, op = "==", value = 6 }, -- Damage Reduced by 4-6
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1400,15 +1504,10 @@ return {
       quality = "7",
       index = 28, --Ironstone
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 19, op = "==", value = 150 }, --Attack Rating (+100–150)
-      --{index = 25, op = "==", value = 150 }, --Enhanced Damage (+100–150%)
-      --{index = 51, op = "==", value = 10 }, --Lightning Damage (Adds 1–10)
-      --{index = 0, op = "==", value = 10 }, --Strength (+10)
-      --{index = 1, op = "==", value = -5 }, --Energy (-5)
-      {index = 34, op = "==", value = 10 }, --Damage Reduced (7–10)
-      --{index = 122, op = "==", value = 50 } --Damage to Undead (+50%)
+      {index = 19, op = "==", value = 150 }, -- +100-150 to Attack Rating
+      {index = 34, op = "==", value = 10 }, -- Damage Reduced by 7-10
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1420,16 +1519,11 @@ return {
       quality = "7",
       index = 29, --Bonesnap
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 25, op = "==", value = 300 }, --Enhanced Damage (200–300%)
-      --{index = 136, op = "==", value = 20 }, -- +20% Chance of Crushing Blow
-      --{index = 39, op = "==", value = 30 }, --Fire Resist (+30%)
-      --{index = 43, op = "==", value = 30 }, --Cold Resist (+30%)
-      --{index = 122, op = "==", value = 50 }, --Damage to Undead (+50%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 34, op = "==", value = 6 }, --Damage Reduced (4–6)
-      {index = 35, op = "==", value = 6 } --Magic Damage Reduced (4–6)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 6 }, -- Damage Reduced by 4-6
+      {index = 35, op = "==", value = 6 } -- Magic Damage Reduced by 4-6
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1441,15 +1535,10 @@ return {
       quality = "7",
       index = 30, --Steeldriver
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 91, op = "==", value = -50 }, --Requirements (-50%)
-      --{index = 93, op = "==", value = 40 }, --Increased Attack Speed (+40%)
-      --{index = 136, op = "==", value = 20 }, -- +20% Chance of Crushing Blow
-      --{index = 25, op = "==", value = 250 }, --Enhanced Damage (150–250%)
-      {index = 34, op = "==", value = 9 }, --Damage Reduced (7–9)
-      {index = 35, op = "==", value = 9 }, --Magic Damage Reduced (7–9)
-      --{index = 122, op = "==", value = 50 } --Damage to Undead (+50%)
+      {index = 34, op = "==", value = 9 }, -- Damage Reduced by 7-9
+      {index = 35, op = "==", value = 9 }, -- Magic Damage Reduced by 7-9
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1461,16 +1550,9 @@ return {
       quality = "7",
       index = 31, --Rixot's Keen
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 21, op = "==", value = 5 }, --Minimum Damage (+5)
-      --{index = 119, op = "==", value = 20 }, --Bonus to Attack Rating (20%)
-      --{index = 89, op = "==", value = 2 }, --Light Radius (+2)
-      --{index = 136, op = "==", value = 20 }, -- +20% Chance of Crushing Blow
-      --{index = 31, op = "==", value = 25 }, --Defense (+25)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (+100%)
-      --{index = 85, op = "==", value = 5 }, --Experience Gained (5%)
-      {index = 34, op = "==", value = 3 } --Damage Reduced (1–3)
+      {index = 34, op = "==", value = 3 } -- Damage Reduced by 1-3
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1482,17 +1564,10 @@ return {
       quality = "7",
       index = 32, --Blood Crescent
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 39, op = "==", value = 15 }, --All Resistances (+15)
-      --{index = 25, op = "==", value = 80 }, --Enhanced Damage (60–80%)
-      --{index = 7, op = "==", value = 3840 }, --Life (+15)*256=3840
-      --{index = 89, op = "==", value = 4 }, --Light Radius (+4)
-      --{index = 135, op = "==", value = 20 }, -- 20% Chance of Open Wounds
-      --{index = 93, op = "==", value = 15 }, --Increased Attack Speed (15%)
-      --{index = 60, op = "==", value = 15 }, --Life stolen per hit (15%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 34, op = "==", value = 4 } --Damage Reduced (2–4)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 4 } -- Damage Reduced by 2-4
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1504,16 +1579,10 @@ return {
       quality = "7",
       index = 33, --Krintiz's Skewer
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
-      --{index = 0, op = "==", value = 10 }, --Strength (+10)
-      --{index = 2, op = "==", value = 10 }, --Dexterity (+10)
-      --{index = 62, op = "==", value = 7 }, --Mana stolen per hit (7%)
-      --{index = 25, op = "==", value = 50 }, --Enhanced Damage (+50%)
-      --{index = 22, op = "==", value = 7 }, --Max Damage (Adds 3–7)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 34, op = "==", value = 6 } --Damage Reduced (2–6)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 6 } -- Damage Reduced by 2-6
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1525,15 +1594,9 @@ return {
       quality = "7",
       index = 34, --Gleamscythe
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 89, op = "==", value = 3 }, --Light Radius (+3)
-      --{index = 9, op = "==", value = 30 * 256 }, --Mana (+30)
-      --{index = 31, op = "==", value = 20 }, --Defense (+20)
-      --{index = 93, op = "==", value = 20 }, --Increased Attack Speed (+20%)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (60–100%)
-      --{index = 55, op = "==", value = 5 }, --Cold Damage (Adds 3–5)
-      {index = 34, op = "==", value = 6 } --Damage Reduced (3–6)
+      {index = 34, op = "==", value = 6 } -- Damage Reduced by 3-6
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1545,16 +1608,12 @@ return {
       quality = "7",
       index = 35, --Light's Beacon
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 141, op = "==", value = 50 }, --Deadly Strike (50%)
-      {index = 329, op = "==", value = 10 }, --Fire Skill Damage (+5–10%)
-      {index = 331, op = "==", value = 10 }, --Cold Skill Damage (+5–10%)
-      {index = 330, op = "==", value = 10 }, --Lightning Skill Damage (+5–10%)
-      --{index = 54, op = "==", value = 6 }, --Cold Damage (Adds 3–6)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (+100%)
-      --{index = 53, op = "==", value = 10 }, --Magic Damage (Adds 5–10)
-      {index = 35, op = "==", value = 12 }, --Magic Damage Reduced (7–12)
+      {index = 329, op = "==", value = 10 }, -- +5-10% to Fire Skill Damage
+      {index = 331, op = "==", value = 10 }, -- +5-10% to Cold Skill Damage
+      {index = 330, op = "==", value = 10 }, -- +5-10% to Lightning Skill Damage
+      {index = 35, op = "==", value = 12 }, -- Magic Damage Reduced by 7-12
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1566,16 +1625,11 @@ return {
       quality = "7",
       index = 36, --Griswold's Edge
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 48, op = "==", value = 12 }, --Fire Damage (Adds 10-25)
-      {index = 49, op = "==", value = 25 }, --Fire Damage (Adds 10–25)
-      --{index = 19, op = "==", value = 100 }, --Attack Rating (+100)
-      --{index = 93, op = "==", value = 10 }, --Increased Attack Speed (+10%)
-      --{index = 25, op = "==", value = 120 }, --Enhanced Damage (80–120%)
-      --{index = 0, op = "==", value = 12 }, --Strength (+12)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      --{index = 35, op = "==", value = 5 } --Magic Damage Reduced (5)
+      {index = 48, op = "==", value = 12 }, -- +10-12 to Minimum Fire Damage
+      {index = 49, op = "==", value = 25 }, -- +15-25 to Maximum Fire Damage
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1587,15 +1641,10 @@ return {
       quality = "7",
       index = 37, --Hellplague
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 60, op = "==", value = 5 }, --Life stolen per hit (5%)
-      --{index = 62, op = "==", value = 5 }, --Mana stolen per hit (5%)
-      --{index = 57, op = "==", value = 56 }, --Poison Damage Over Time (28–56 over 6s)
-      --{index = 48, op = "==", value = 75 }, --Fire Damage (Adds 25–75)
-      --{index = 407, op = "==", value = 2 }, --Fire Skills (+2)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 35, op = "==", value = 6 } --Magic Damage Reduced (4–6)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 6 } -- Magic Damage Reduced by 4-6
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1607,15 +1656,9 @@ return {
       quality = "7",
       index = 38, --Culwen's Point
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 127, op = "==", value = 1 }, --All Skills (+1)
-      --{index = 110, op = "==", value = 50 }, --Poison Length Reduced (50%)
-      --{index = 99, op = "==", value = 20 }, --Faster Hit Recovery (+20%)
-      --{index = 93, op = "==", value = 20 }, --Increased Attack Speed (+20%)
-      --{index = 19, op = "==", value = 60 }, --Attack Rating (+60)
-      --{index = 25, op = "==", value = 80 }, --Enhanced Damage (70–80%)
-      {index = 34, op = "==", value = 7 } --Damage Reduced (4–7)
+      {index = 34, op = "==", value = 7 } -- Damage Reduced by 4-7
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1627,17 +1670,10 @@ return {
       quality = "7",
       index = 39, --Shadowfang
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 60, op = "==", value = 9 }, --Life stolen per hit (9%)
-      --{index = 62, op = "==", value = 9 }, --Mana stolen per hit (9%)
-      --{index = 43, op = "==", value = 20 }, --Cold Resist (+20%)
-      --{index = 89, op = "==", value = -2 }, --Light Radius (-2)
-      --{index = 55, op = "==", value = 30 }, --Cold Damage (Adds 10–30)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (+100%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 35, op = "==", value = 5 }, --Magic Damage Reduced (3–5)
-      --{index = 427, op = "==", value = 15 }, --Increase Buff Durations by 15%
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 3-5
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1649,34 +1685,286 @@ return {
       quality = "7",
       index = 40, --Soulflay
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 62, op = "==", value = 10 }, --Mana stolen per hit (4–10%)
-      --{index = 60, op = "==", value = 4 }, --Life stolen per hit (4%)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (70–100%)
-      {index = 39, op = "==", value = 5 }, --All Resistances (+5)
-      --{index = 93, op = "==", value = 10 }, --Increased Attack Speed (+10%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 34, op = "==", value = 5 } --Damage Reduced (2–5)
+      {index = 62, op = "==", value = 10 }, -- 4-10% Mana stolen per hit
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 5 } -- Damage Reduced by 2-5
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
       filter_levels = "1,2,3"
     },
+  --Hide <70% Unique Index 21-40
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 21, --Knell Striker, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 22, --Rusthandle, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 122, op = "<=", value = (50 + (60-50)*0.7)}, -- +50-60% Damage to Undead
+      {index = 107, op = "<=", param = 111, value = (1 + (3-1)*0.7)}, -- +1-3 to Vengeance (Paladin only)
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 23, --Stormeye, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 107, op = "<=", param = 112, value = (3 + (5-3)*0.7)}, -- +3-5 to Blessed Hammer (Paladin only)
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 24, --Stoutnail, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 78, op = "<=", value = (3 + (10-3)*0.7)}, -- Attacker Takes Damage of 3-10
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 25, --Crushflange, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (2 + (4-2)*0.7)}, -- Damage Reduced by 2-4
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 26, --Bloodrise, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (4 + (6-4)*0.7)}, -- Damage Reduced by 4-6
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 27, --The General's Tan Do Li Ga, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (4 + (6-4)*0.7)}, -- Damage Reduced by 4-6
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 28, --Ironstone, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 19, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150 to Attack Rating
+      {index = 34, op = "<=", value = (7 + (10-7)*0.7)}, -- Damage Reduced by 7-10
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 29, --Bonesnap, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (4 + (6-4)*0.7)}, -- Damage Reduced by 4-6
+      {index = 35, op = "<=", value = (4 + (6-4)*0.7)}, -- Magic Damage Reduced by 4-6
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 30, --Steeldriver, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (7 + (9-7)*0.7)}, -- Damage Reduced by 7-9
+      {index = 35, op = "<=", value = (7 + (9-7)*0.7)}, -- Magic Damage Reduced by 7-9
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 31, --Rixot's Keen, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (1 + (3-1)*0.7)}, -- Damage Reduced by 1-3
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 32, --Blood Crescent, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (2 + (4-2)*0.7)}, -- Damage Reduced by 2-4
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 33, --Krintiz's Skewer, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (2 + (6-2)*0.7)}, -- Damage Reduced by 2-6
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 34, --Gleamscythe, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (3 + (6-3)*0.7)}, -- Damage Reduced by 3-6
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 35, --Light's Beacon, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 329, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Fire Skill Damage
+      {index = 331, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Cold Skill Damage
+      {index = 330, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Lightning Skill Damage
+      {index = 35, op = "<=", value = (7 + (12-7)*0.7)}, -- Magic Damage Reduced by 7-12
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 36, --Griswold's Edge, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 48, op = "<=", value = (10 + (12-10)*0.7)}, -- +10-12 to Minimum Fire Damage
+      {index = 49, op = "<=", value = (15 + (25-15)*0.7)}, -- +15-25 to Maximum Fire Damage
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 37, --Hellplague, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (4 + (6-4)*0.7)}, -- Magic Damage Reduced by 4-6
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 38, --Culwen's Point, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (4 + (7-4)*0.7)}, -- Damage Reduced by 4-7
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 39, --Shadowfang, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (3 + (5-3)*0.7)}, -- Magic Damage Reduced by 3-5
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 40, --Soulflay, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 62, op = "<=", value = (4 + (10-4)*0.7)}, -- 4-10% Mana stolen per hit
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (2 + (5-2)*0.7)}, -- Damage Reduced by 2-5
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+  --ALL UNIQUES MAX STATS Index 41-60
     {
       codes = "allitems",
       quality = "7",
       index = 41, --Kinemil's Awl
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 19, op = "==", value = 150 }, --Attack Rating (+100–150)
-      --{index = 9, op = "==", value = 20 * 256 }, --Mana (+20)
-      {index = 49, op = "==", value = 40 }, --Fire Damage (Adds 6–20/40)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (+80–100%)
-      --{index = 97, op = "==", param = 102, value = 6 }, --+6 to Holy Fire (Paladin only)
-      {index = 34, op = "==", value = 8 } --Damage Reduced (6–8)
+      {index = 19, op = "==", value = 150 }, -- +100-150 to Attack Rating
+      {index = 49, op = "==", value = 40 }, -- +20-40 to Maximum Fire Damage
+      {index = 34, op = "==", value = 8 } -- Damage Reduced by 6-8
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1688,15 +1976,9 @@ return {
       quality = "7",
       index = 42, --Blacktongue
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 58, op = "==", value = 112 }, --Poison Damage Over Time (Adds 112 over 6s)
-      --{index = 117, op = "==", value = 1 }, --Prevent Monster Heal
-      --{index = 19, op = "==", value = 50 }, --Attack Rating (+50)
-      --{index = 45, op = "==", value = 50 }, --Poison Resist (+50%)
-      --{index = 25, op = "==", value = 60 }, --Enhanced Damage (+50–60%)
-      --{index = 7, op = "==", value = -10 * 256 }, --Life (-10)
-      {index = 35, op = "==", value = 8 }, --Magic Damage Reduced (6–8)
+      {index = 35, op = "==", value = 8 }, -- Magic Damage Reduced by 6-8
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1708,14 +1990,11 @@ return {
       quality = "7",
       index = 43, --Ripsaw
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 135, op = "==", value = 35 }, -- +15–35% Chance of Open Wounds
-      --{index = 22, op = "==", value = 15 }, --Max Damage (+15)
-      --{index = 62, op = "==", value = 6 }, --Mana stolen per hit (6%)
-      --{index = 25, op = "==", value = 125 }, --Enhanced Damage (+100–125%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 35, op = "==", value = 8 } --Magic Damage Reduced (6–8)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 8 } -- Magic Damage Reduced by 6-8
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1727,15 +2006,9 @@ return {
       quality = "7",
       index = 44, --The Patriarch
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 34, op = "==", value = 3 }, --Damage Reduced (3)
-      --{index = 35, op = "==", value = 3 }, --Magic Damage Reduced (3)
-      --{index = 113, op = "==", value = 1 }, --Hit Blinds Target (+1)
-      --{index = 79, op = "==", value = 25 }, --Extra Gold from Monsters (+25%)
-      --{index = 25, op = "==", value = 120 }, --Enhanced Damage (+100–120%)
-      --{index = 0, op = "==", value = 10 }, --Strength (+10)
-      {index = 85, op = "==", value = 5 } --Experience Gained (2–5%)
+      {index = 85, op = "==", value = 5 } -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1747,12 +2020,9 @@ return {
       quality = "7",
       index = 45, --Gull
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 21, op = "==", value = 15 }, --Minimum Damage (Adds 1–15)
-      {index = 80, op = "==", value = 100 }, --Magic Find (50–100%)
-      --{index = 9, op = "==", value = -5 * 256 }, --Mana (-5)
-      --{index = 93, op = "==", value = 45 }, --Increased Attack Speed (+45%)
+      {index = 80, op = "==", value = 100 }, -- +50-100% Chance of Higher Quality Items
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1764,15 +2034,9 @@ return {
       quality = "7",
       index = 46, --The Diggler
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 2, op = "==", value = 10 }, --Dexterity (+10)
-      --{index = 25, op = "==", value = 50 }, --Enhanced Damage (+50%)
-      --{index = 93, op = "==", value = 30 }, --Increased Attack Speed (+30%)
-      --{index = 43, op = "==", value = 25 }, --Cold Resist (+25%)
-      --{index = 39, op = "==", value = 25 }, --Fire Resist (+25%)
-      --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
-      {index = 85, op = "==", value = 5 } --Experience Gained (2–5%)
+      {index = 85, op = "==", value = 5 } -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1784,17 +2048,12 @@ return {
       quality = "7",
       index = 47, --The Jade Tan Do
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 19, op = "==", value = 150 }, --Attack Rating (+100–150)
-      --{index = 111, op = "==", value = 1 }, --Half Freeze Duration
-      --{index = 57, op = "==", value = 180 }, --Poison Damage Over Time (Adds 180 over 4s)
-      --{index = 45, op = "==", value = 95 }, --Poison Resist (+95%)
-      --{index = 46, op = "==", value = 15 }, --Max Poison Resist (+15%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      --{index = 25, op = "==", value = 66 }, --Enhanced Damage (+66%)
-      {index = 400, op = "==", value = 3 }, --Increase Curse Duration by 3 seconds
-      {index = 401, op = "==", value = 3 }, --Increase Curse Radius by (3)
+      {index = 19, op = "==", value = 150 }, -- +100-150 to Attack Rating
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 400, op = "==", value = 3 }, -- Increase Curse Duration by 1-3 seconds
+      {index = 401, op = "==", value = 3 }, -- Increase Curse Radius by 1-3 units
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1806,16 +2065,11 @@ return {
       quality = "7",
       index = 48, --Spectral Shard
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 105, op = "==", value = 50 }, --Faster Cast Rate (+50%)
-      --{index = 9, op = "==", value = 50 * 256 }, --Mana (+50)
-      --{index = 19, op = "==", value = 55 }, --Attack Rating (+55)
-      --{index = 39, op = "==", value = 10 }, --All Resistances (+10)
-      --{ index = 83, op = "==", param = 4, value = 1 }, -- +1 to Necromancer Skill Levels
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 400, op = "==", value = 3 }, --Increase Curse Duration by 3 seconds
-      {index = 401, op = "==", value = 3 }, --Increase Curse Radius by (3)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 400, op = "==", value = 3 }, -- Increase Curse Duration by 1-3 seconds
+      {index = 401, op = "==", value = 3 }, -- Increase Curse Radius by 1-3 units
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1827,16 +2081,11 @@ return {
       quality = "7",
       index = 49, --Shadow Strike
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 113, op = "==", value = 1 }, --Hit Blinds Target (+1)
-      {index = 150, op = "==", value = 15 }, --Slows Target (5–15%)
-      {index = 19, op = "==", value = 30 }, --Attack Rating (+15–30)
-      {index = 119, op = "==", value = 15 }, --Bonus to Attack Rating (10–15%)
-      --{index = 22, op = "==", value = 7 }, --Max Damage (Adds 3–7)
-      --{index = 135, op = "==", value = 35 }, -- 35% Chance of Open Wounds
-      --{index = 138, op = "==", value = 1 }, --Mana after each Kill (+1)
-      --Replenish Quantity 
+      {index = 150, op = "==", value = 15 }, -- Slows Target by 5-15%
+      {index = 19, op = "==", value = 30 }, -- +15-30 to Attack Rating
+      {index = 119, op = "==", value = 15 }, -- 10-15% Bonus to Attack Rating
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1848,35 +2097,29 @@ return {
       quality = "7",
       index = 50, --Madawc's First
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 117, op = "==", value = 1 }, --Prevent Monster Heal
-      {index = 93, op = "==", value = 15 }, --Increased Attack Speed (+10–15%)
-      --{index = 48, op = "==", value = 4 }, --Fire Damage (Adds 3–4)
-      --{index = 51, op = "==", value = 7 }, --Lightning Damage (Adds 1–7)
-      --{index = 86, op = "==", value = 1 }, --Life after each Kill (+1)
-      --Replenish Quantity
+      {index = 93, op = "==", value = 15 }, -- +10-15% Increased Attack Speed
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
       filter_levels = "1,2,3"
     },
-  --ALL UNIQUES MAX STATS Index 51-100
+
+
+    
     {
       codes = "allitems",
       quality = "7",
       index = 51, --Carefully
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 93, op = "==", value = 15 }, --Increased Attack Speed (15%)
-      {index = 116, op = "==", value = 20 }, --Target Defense (-15–20%)
-      --{index = 21, op = "==", value = 25 }, --Minimum Damage (Adds 15–25)
-      {index = 136, op = "==", value = 15 }, -- +5-15% Chance of Crushing Blow
-      {index = 141, op = "==", value = 20 }, --Deadly Strike (15–20%)
-      {index = 119, op = "==", value = 25 }, --Bonus to Attack Rating (15–25%)
-      --Replenish Quantity
+      {index = 116, op = "==", value = 20 }, -- -15-20% Target Defense
+      {index = 136, op = "==", value = 15 }, -- 5-15% Chance of Crushing Blow
+      {index = 141, op = "==", value = 20 }, -- 15-20% Deadly Strike
+      {index = 119, op = "==", value = 25 }, -- 15-25% Bonus to Attack Rating
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1888,14 +2131,11 @@ return {
       quality = "7",
       index = 52, --Ancient's Assault
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 19, op = "==", value = 45 }, --Attack Rating (+35–45)
-      --{index = 25, op = "==", value = 75 }, --Enhanced Damage (+65–75%)
-      --{index = 52, op = "==", value = 8 }, --Magic Damage (Adds 5–8)
-      {index = 7, op = "==", value = 20 * 256 }, --Life (+15–20)
-      {index = 39, op = "==", value = 10 }, --All Resistances (+5–10)
-      --Replenish Quantity 
+      {index = 19, op = "==", value = 45 }, -- +35-45 to Attack Rating
+      {index = 7, op = "==", value = 256*20 }, -- +15-20 to Life
+      {index = 39, op = "==", value = 10 }, -- All Resistances +5-10%
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1907,15 +2147,9 @@ return {
       quality = "7",
       index = 53, --Harpoonist's Training
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 107, op = "==", param = 10, value = 3 }, --+2–3 to Jab (Amazon only)
-      --{index = 25, op = "==", value = 35 }, --Enhanced Damage (+20–35%)
-      --{index = 57, op = "==", value = 36 }, --Poison Damage Over Time (Adds 36 over 3s)
-      --{index = 93, op = "==", value = 20 }, --Increased Attack Speed (+20%)
-      --{index = 19, op = "==", value = 25 }, --Attack Rating (+25)
-      --{index = 62, op = "==", value = 3 }, --Mana stolen per hit (3%)
-      --Replenish Quantity
+      {index = 107, op = "==", param = 10, value = 3 }, -- +2-3 to Jab (Amazon only)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1927,14 +2161,11 @@ return {
       quality = "7",
       index = 54, --Glorious Point
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 107, op = "==", param = 15, value = 3 }, --+3 to Poison Point (Amazon only)
-      {index = 107, op = "==", param = 25, value = 2 }, --+1–2 to Plague Javelin (Amazon only)
-      --{index = 57, op = "==", value = 48 }, --Poison Damage Over Time (Adds 48 over 2s)
-      {index = 119, op = "==", value = 15 }, --Bonus to Attack Rating (10–15%)
-      {index = 60, op = "==", value = 6 }, --Life stolen per hit (4–6%)
-      --Replenish Quantity
+      {index = 107, op = "==", param = 25, value = 2 }, -- +1-2 to Plague Javelin (Amazon only)
+      {index = 119, op = "==", value = 15 }, -- 10-15% Bonus to Attack Rating
+      {index = 60, op = "==", value = 6 }, -- 4-6% Life stolen per hit
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1946,15 +2177,11 @@ return {
       quality = "7",
       index = 55, --Not So
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 107, op = "==", param = 14, value = 3 }, --+1–3 to Recharge (Amazon only)
-      {index = 107, op = "==", param = 24, value = 3 }, --+1–3 to Charged Strike (Amazon only)
-      --{index = 51, op = "==", value = 20 }, --Lightning Damage (Adds 1–20)
-      {index = 41, op = "==", value = 15 }, --Lightning Resist (+10–15%)
-      --{index = 86, op = "==", value = 2 }, --Life after each Kill (+2)
-      --Replenish Quantity
-      --{index = 25, op = "==", value = 75 }, --Enhanced Damage (+60–75%)
+      {index = 107, op = "==", param = 14, value = 3 }, -- +1-3 to Recharge (Amazon only)
+      {index = 107, op = "==", param = 24, value = 3 }, -- +1-3 to Charged Strike (Amazon only)
+      {index = 41, op = "==", value = 15 }, -- Lightning Resist +10-15%
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1966,14 +2193,10 @@ return {
       quality = "7",
       index = 56, --Double Trouble
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 107, op = "==", param = 135, value = 2 }, --+1–2 to Throwing Mastery (Barbarian only)
-      --{index = 51, op = "==", value = 35 }, --Lightning Damage (Adds 1–35)
-      --{index = 55, op = "==", value = 22 }, --Cold Damage (Adds 18–22)
-      --Replenish Quantity 
-      {index = 136, op = "==", value = 15 }, -- +10-15% Chance of Crushing Blow
-      --{index = 21, op = "==", value = 12 }, --Minimum Damage (Adds 8–12)
+      {index = 107, op = "==", param = 135, value = 2 }, -- +1-2 to Throwing Mastery (Barbarian only)
+      {index = 136, op = "==", value = 15 }, -- 10-15% Chance of Crushing Blow
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -1985,16 +2208,14 @@ return {
       quality = "7",
       index = 57, --Straight Shot
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 107, op = "==", param = 134, value = 2 }, --+1–2 to Homing Harpoon (Barbarian only)
-      {index = 107, op = "==", param = 137, value = 3 }, --+1–3 to Icy Trail (Barbarian only)
-      {index = 107, op = "==", param = 138, value = 3 }, --+1–3 to Shout (Barbarian only)
-      {index = 9, op = "==", value = 25 * 256 }, --Mana (+20–25)
-      {index = 119, op = "==", value = 15 }, --Bonus to Attack Rating (10–15%)
-      --Replenish Quantity
-      {index = 62, op = "==", value = 5 }, --Mana stolen per hit (1–5%)
-      --{index = 25, op = "==", value = 85 }, --Enhanced Damage (+85%)
+      {index = 107, op = "==", param = 134, value = 2 }, -- +1-2 to Homing Harpoon (Barbarian only)
+      {index = 107, op = "==", param = 137, value = 3 }, -- +1-3 to Icy Trail (Barbarian only)
+      {index = 107, op = "==", param = 138, value = 3 }, -- +1-3 to Shout (Barbarian only)
+      {index = 9, op = "==", value = 25 * 256 }, -- +20-25 to Mana
+      {index = 119, op = "==", value = 15 }, -- 10-15% Bonus to Attack Rating
+      {index = 62, op = "==", value = 5 }, -- 1-5% Mana stolen per hit
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2006,14 +2227,9 @@ return {
       quality = "7",
       index = 58, --The Dragon Chang
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 19, op = "==", value = 35 }, --Attack Rating (+35)
-      --{index = 21, op = "==", value = 10 }, --Minimum Damage (+10)
-      --{index = 89, op = "==", value = 2 }, --Light Radius (+2)
-      --{index = 121, op = "==", value = 100 }, --Damage to Undead (+100%)
-      --{index = 48, op = "==", value = 6 }, --Fire Damage (Adds 3–6)
-      {index = 85, op = "==", value = 5 } --Experience Gained (2–5%)
+      {index = 85, op = "==", value = 5 } -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2025,14 +2241,8 @@ return {
       quality = "7",
       index = 59, --Razortine
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 150, op = "==", value = 25 }, --Slows Target (25%)
-      --{index = 116, op = "==", value = 50 }, --Target Defense (-50%)
-      --{index = 0, op = "==", value = 15 }, --Strength (+15)
-      --{index = 2, op = "==", value = 8 }, --Dexterity (+8)
-      --{index = 93, op = "==", value = 30 }, --Increased Attack Speed (+30%)
-      --{index = 25, op = "==", value = 50 }, --Enhanced Damage (+30–50%)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2044,36 +2254,299 @@ return {
       quality = "7",
       index = 60, --Bloodthief
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 135, op = "==", value = 30 }, -- +20–30% Chance of Open Wounds
-      --{index = 0, op = "==", value = 10 }, --Strength (+10)
-      {index = 60, op = "==", value = 12 }, --Life stolen per hit (8–12%)
-      {index = 7, op = "==", value = 26 * 256 }, --Life (+26)
-      --{index = 25, op = "==", value = 70 }, --Enhanced Damage (+50–70%)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      {index = 34, op = "==", value = 4 }, --Damage Reduced (2–4)
-      {index = 35, op = "==", value = 4 } --Magic Damage Reduced (2–4)
+      {index = 135, op = "==", value = 30 }, -- 20-30% Chance of Open Wounds
+      {index = 60, op = "==", value = 12 }, -- 8-12% Life stolen per hit
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 4 }, -- Damage Reduced by 2-4
+      {index = 35, op = "==", value = 4 } -- Magic Damage Reduced by 2-4
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
       filter_levels = "1,2,3"
     },
+  --Hide <70% Unique Index 41-60
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 41, --Kinemil's Awl, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 19, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150 to Attack Rating
+      {index = 49, op = "<=", value = (20 + (40-20)*0.7)}, -- +20-40 to Maximum Fire Damage
+      {index = 34, op = "<=", value = (6 + (8-6)*0.7)}, -- Damage Reduced by 6-8
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 42, --Blacktongue, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 35, op = "<=", value = (6 + (8-6)*0.7)}, -- Magic Damage Reduced by 6-8
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 43, --Ripsaw, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 135, op = "<=", value = (15 + (35-15)*0.7)}, -- +15–35% Chance of Open Wounds
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (6 + (8-6)*0.7)}, -- Magic Damage Reduced by 6-8
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 44, --The Patriarch, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 45, --Gull, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 80, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100% Chance of Higher Quality Items
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 46, --The Diggler, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 47, --The Jade Tan Do, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 19, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150 to Attack Rating
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 400, op = "<=", value = (1 + (3-1)*0.7)}, -- Increase Curse Duration by 1-3 seconds
+      {index = 401, op = "<=", value = (1 + (3-1)*0.7)}, -- Increase Curse Radius by 1-3 units
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 48, --Spectral Shard, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 400, op = "<=", value = (1 + (3-1)*0.7)}, -- Increase Curse Duration by 1-3 seconds
+      {index = 401, op = "<=", value = (1 + (3-1)*0.7)}, -- Increase Curse Radius by 1-3 units
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 49, --Shadow Strike, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 150, op = "<=", value = (5 + (15-5)*0.7)}, -- Slows Target by 5-15%
+      {index = 19, op = "<=", value = (15 + (30-15)*0.7)}, -- +15-30 to Attack Rating
+      {index = 119, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Bonus to Attack Rating
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 50, --Madawc's First, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 93, op = "<=", value = (10 + (15-10)*0.7)}, -- +10-15% Increased Attack Speed
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 51, --Carefully, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 116, op = "<=", value = (15 + (20-15)*0.7)}, -- -15-20% Target Defense
+      {index = 136, op = "<=", value = (5 + (15-5)*0.7)}, -- 5-15% Chance of Crushing Blow
+      {index = 141, op = "<=", value = (15 + (20-15)*0.7)}, -- 15-20% Deadly Strike
+      {index = 119, op = "<=", value = (15 + (25-15)*0.7)}, -- 15-25% Bonus to Attack Rating
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 52, --Ancient's Assault, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 19, op = "<=", value = (35 + (45-35)*0.7)}, -- +35-45 to Attack Rating
+      {index = 7, op = "<=", value = (15 + (20-15)*0.7)*256}, -- +15-20 to Life
+      {index = 39, op = "<=", value = (5 + (10-5)*0.7)}, -- All Resistances +5-10%
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 53, --Harpoonist's Training, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 107, op = "<=", param = 10, value = (2 + (3-2)*0.7)}, -- +2-3 to Jab (Amazon only)
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 54, --Glorious Point, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 107, op = "<=", param = 25, value = (1 + (2-1)*0.7)}, -- +1-2 to Plague Javelin (Amazon only)
+      {index = 119, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Bonus to Attack Rating
+      {index = 60, op = "<=", value = (4 + (6-4)*0.7)}, -- 4-6% Life stolen per hit
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 55, --Not So, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 107, op = "<=", param = 14, value = (1 + (3-1)*0.7)}, -- +1-3 to Recharge (Amazon only)
+      {index = 107, op = "<=", param = 24, value = (1 + (3-1)*0.7)}, -- +1-3 to Charged Strike (Amazon only)
+      {index = 41, op = "<=", value = (10 + (15-10)*0.7)}, -- Lightning Resist +10-15%
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 56, --Double Trouble, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 107, op = "<=", param = 135, value = (1 + (2-1)*0.7)}, -- +1-2 to Throwing Mastery (Barbarian only)
+      {index = 136, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Chance of Crushing Blow
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 57, --Straight Shot, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 107, op = "<=", param = 134, value = (1 + (2-1)*0.7)}, -- +1-2 to Homing Harpoon (Barbarian only)
+      {index = 107, op = "<=", param = 137, value = (1 + (3-1)*0.7)}, -- +1-3 to Icy Trail (Barbarian only)
+      {index = 107, op = "<=", param = 138, value = (1 + (3-1)*0.7)}, -- +1-3 to Shout (Barbarian only)
+      {index = 9, op = "<=", value = (20 + (25-20)*0.7)*256}, -- +20-25 to Mana
+      {index = 119, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Bonus to Attack Rating
+      {index = 62, op = "<=", value = (1 + (5-1)*0.7)}, -- 1-5% Mana stolen per hit
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 58, --The Dragon Chang, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 59, --Razortine, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 60, --Bloodthief, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 135, op = "<=", value = (20 + (30-20)*0.7)}, -- 20-30% Chance of Open Wounds
+      {index = 60, op = "<=", value = (8 + (12-8)*0.7)}, -- 8-12% Life stolen per hit
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (2 + (4-2)*0.7)}, -- Damage Reduced by 2-4
+      {index = 35, op = "<=", value = (2 + (4-2)*0.7)}, -- Magic Damage Reduced by 2-4
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+  --ALL UNIQUES MAX STATS Index 61-80
     {
       codes = "allitems",
       quality = "7",
       index = 61, --Lance of Yaggai
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 114, op = "==", value = 8 }, --Attacker Takes Damage (+8)
-      --{index = 51, op = "==", value = 60 }, --Lightning Damage (Adds 1–60)
-      --{index = 145, op = "==", value = 3 }, --Lightning Absorb (+3)
-      --{index = 39, op = "==", value = 15 }, --All Resistances (+15)
-      --{index = 93, op = "==", value = 40 }, --Increased Attack Speed (+40%)
-      {index = 34, op = "==", value = 8 }, --Damage Reduced (4–8)
-      {index = 35, op = "==", value = 8 }, --Magic Damage Reduced (4–8)
+      {index = 34, op = "==", value = 8 }, -- Damage Reduced by 4-8
+      {index = 35, op = "==", value = 8 }, -- Magic Damage Reduced by 4-8
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2085,17 +2558,10 @@ return {
       quality = "7",
       index = 62, --The Tannr Gorerod
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 48, op = "==", value = 54 }, --Fire Damage (Adds 23–54)
-      --{index = 40, op = "==", value = 15 }, --Max Fire Resist (+15%)
-      --{index = 7, op = "==", value = 30 * 256 }, --Life (+30)
-      --{index = 19, op = "==", value = 60 }, --Attack Rating (+60)
-      --{index = 89, op = "==", value = 3 }, --Light Radius (+3)
-      --{index = 39, op = "==", value = 15 }, --Fire Resist (+15%)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (+80–100%)
-      {index = 34, op = "==", value = 8 }, --Damage Reduced (4–8)
-      {index = 35, op = "==", value = 8 }, --Magic Damage Reduced (4–8)
+      {index = 34, op = "==", value = 8 }, -- Damage Reduced by 4-8
+      {index = 35, op = "==", value = 8 }, -- Magic Damage Reduced by 4-8
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2107,16 +2573,11 @@ return {
       quality = "7",
       index = 63, --Dimoak's Hew
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 2, op = "==", value = 15 }, --Dexterity (+15)
-      --{index = 25, op = "==", value = 100 }, --Enhanced Damage (+100%)
-      --{index = 93, op = "==", value = 20 }, --Increased Attack Speed (+20%)
-      --{index = 31, op = "==", value = -8 }, --Defense (-8)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
-      --{index = 141, op = "==", value = 10 }, --Deadly Strike (10%)
-      {index = 34, op = "==", value = 5 }, --Damage Reduced (2–5)
-      {index = 35, op = "==", value = 5 }, --Magic Damage Reduced (2–5)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 5 }, -- Damage Reduced by 2-5
+      {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 2-5
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2128,15 +2589,10 @@ return {
       quality = "7",
       index = 64, --Steelgoad
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 112, op = "==", value = 75 }, --Hit Causes Monster to Flee (75%)
-      --{index = 141, op = "==", value = 30 }, --Deadly Strike (30%)
-      --{index = 19, op = "==", value = 30 }, --Attack Rating (+30)
-      --{index = 39, op = "==", value = 5 }, --All Resistances (+5)
-      --{index = 25, op = "==", value = 80 }, --Enhanced Damage (+60–80%)
-      {index = 34, op = "==", value = 5 }, --Damage Reduced (3–5)
-      {index = 35, op = "==", value = 5 }, --Magic Damage Reduced (3–5)
+      {index = 34, op = "==", value = 5 }, -- Damage Reduced by 3-5
+      {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 3-5
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2148,16 +2604,10 @@ return {
       quality = "7",
       index = 65, --Soul Harvest
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 135, op = "==", value = 30 }, -- +10–30% Chance of Open Wounds
-      --{index = 19, op = "==", value = 45 }, --Attack Rating (+45)
-      --{index = 39, op = "==", value = 20 }, --All Resistances (+20)
-      --{index = 25, op = "==", value = 90 }, --Enhanced Damage (+50–90%)
-      --{index = 62, op = "==", value = 10 }, --Mana stolen per hit (10%)
-      --{index = 1, op = "==", value = 5 }, --Energy (+5)
-      {index = 107, op = "==", param = 73, value = 4 }, --+1–4 to Blight Strike (Necromancer only)
-      --{index = ?, op = "==", param = 455, value = 5 } --Chance to cast Weaken on striking (5%)
+      {index = 135, op = "==", value = 30 }, -- 10-30% Chance of Open Wounds
+      {index = 107, op = "==", param = 73, value = 4 }, -- +1-4 to Blight Strike (Necromancer only)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2169,15 +2619,11 @@ return {
       quality = "7",
       index = 66, --The Battlebranch
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 93, op = "==", value = 30 }, --Increased Attack Speed (+30%)
-      --{index = 2, op = "==", value = 10 }, --Dexterity (+10)
-      --{index = 25, op = "==", value = 70 }, --Enhanced Damage (+50–70%)
-      {index = 19, op = "==", value = 100 }, --Attack Rating (+50–100)
-      --{index = 60, op = "==", value = 7 }, --Life stolen per hit (7%)
-      {index = 34, op = "==", value = 7 }, --Damage Reduced (5–7)
-      {index = 35, op = "==", value = 7 }, --Magic Damage Reduced (5–7)
+      {index = 19, op = "==", value = 100 }, -- +50-100 to Attack Rating
+      {index = 34, op = "==", value = 7 }, -- Damage Reduced by 5-7
+      {index = 35, op = "==", value = 7 }, -- Magic Damage Reduced by 5-7
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2189,18 +2635,10 @@ return {
       quality = "7",
       index = 67, --Woestave
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 150, op = "==", value = 50 }, --Slows Target (50%)
-      --{index = 135, op = "==", value = 50 }, -- 50% Chance of Open Wounds
-      --{index = 113, op = "==", value = 3 }, --Hit Blinds Target (+3)
-      --{index = 116, op = "==", value = 50 }, --Monster Defense Per Hit (-50)
-      --{index = 134, op = "==", value = 1 }, --Freezes Target
-      --{index = 89, op = "==", value = -2 }, --Light Radius (-2)
-      --{index = 117, op = "==", value = 1 }, --Prevent Monster Heal
-      --{index = 25, op = "==", value = 80 }, --Enhanced Damage (+40–80%)
-      {index = 34, op = "==", value = 7 }, --Damage Reduced (5–7)
-      {index = 35, op = "==", value = 7 }, --Magic Damage Reduced (5–7)
+      {index = 34, op = "==", value = 7 }, -- Damage Reduced by 5-7
+      {index = 35, op = "==", value = 7 }, -- Magic Damage Reduced by 5-7
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2212,17 +2650,11 @@ return {
       quality = "7",
       index = 68, --The Grim Reaper
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 141, op = "==", value = 50 }, --Deadly Strike (25–50%)
-      --{index = 117, op = "==", value = 1 }, --Prevent Monster Heal
-      --{index = 62, op = "==", value = 5 }, --Mana stolen per hit (5%)
-      --{index = 25, op = "==", value = 140 }, --Enhanced Damage (+80–140%)
-      --{index = 21, op = "==", value = 15 }, --Minimum Damage (+15)
-      --{index = 7, op = "==", value = -20 * 256 }, --Life (-20)
-      {index = 107, op = "==", param = 73, value = 5 }, --+3–5 to Blight Strike (Necromancer only)
-      {index = 332, op = "==", value = 15 }, --Poison Skill Damage (+10–15%)
-      --{index = ?, op = "==", param = 444, value = 3 } --Chance to cast Decrepify on striking (3%)
+      {index = 141, op = "==", value = 50 }, -- 25-50% Deadly Strike
+      {index = 107, op = "==", param = 73, value = 5 }, -- +3-5 to Blight Strike (Necromancer only)
+      {index = 332, op = "==", value = 15 }, -- +10-15% to Poison Skill Damage
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2234,16 +2666,9 @@ return {
       quality = "7",
       index = 69, --Bane Ash
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 48, op = "==", value = 6 }, --Fire Damage (Adds 4–6)
-      --{index = 39, op = "==", value = 50 }, --Fire Resist (+50%)
-      --{index = 9, op = "==", value = 30 * 256 }, --Mana (+30)
-      --{index = 93, op = "==", value = 20 }, --Increased Attack Speed (+20%)
-      --{index = 25, op = "==", value = 60 }, --Enhanced Damage (+50–60%)
-      {index = 107, op = "==", param = 36, value = 5 }, --+5 to Firestorm (Sorceress only)
-      {index = 107, op = "==", param = 37, value = 2 }, --+2 to Warmth (Sorceress only)
-      {index = 85, op = "==", value = 5 }, --Experience Gained (2–5%)
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2255,14 +2680,8 @@ return {
       quality = "7",
       index = 70, --Serpent Lord
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 57, op = "==", value = 12 }, --Poison Damage Over Time (Adds 12 over 3s)
-      --{index = 45, op = "==", value = 50 }, --Poison Resist (+50%)
-      --{index = 89, op = "==", value = -1 }, --Light Radius (-1)
-      --{index = 9, op = "==", value = 10 * 256 }, --Mana (+10)
-      --{index = 62, op = "==", value = 100 }, --Mana stolen per hit (100%)
-      --{index = 116, op = "==", value = 50 } --Target Defense (-50%)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2274,17 +2693,8 @@ return {
       quality = "7",
       index = 71, --Spire of Lazarus
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 41, op = "==", value = 75 }, --Lightning Resist +75%
-      --{index = 34, op = "==", value = 5 }, --Damage Reduced by 5
-      --{index = 1, op = "==", value = 15 }, --+15 to Energy
-      --{index = 107, op = "==", param = 53, value = 1 }, --+1 to Chain Lightning (Sorceress only)
-      --{index = 107, op = "==", param = 54, value = 2 }, --+2 to Discharge (Sorceress only)
-      --{index = 107, op = "==", param = 42, value = 3 }, --+3 to Static Field (Sorceress only)
-      --{index = 27, op = "==", value = 43 }, --Regenerate Mana 43%
-      --{index = 51, op = "==", value = 28 }, --Adds 1–28 Lightning Damage
-      --{index = 83, op = "==", param = 1, value = 1 }, --+1 to Sorceress Skill Levels
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2296,15 +2706,9 @@ return {
       quality = "7",
       index = 72, --The Salamander
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 48, op = "==", value = 32 }, --Adds 15–32 Fire Damage
-      --{index = 39, op = "==", value = 30 }, --Fire Resist +30%
-      --{index = 107, op = "==", param = 51, value = 1 }, --+1 to Fire Wall (Sorceress only)
-      --{index = 107, op = "==", param = 41, value = 2 }, --+2 to Fire Ball (Sorceress only)
-      --{index = 107, op = "==", param = 37, value = 3 }, --+3 to Warmth (Sorceress only)
-      --{index = 407, op = "==", value = 2 }, --+2 to Fire Skills
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2316,16 +2720,9 @@ return {
       quality = "7",
       index = 73, --The Iron Jang Bong
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 31, op = "==", value = 30 }, --+30 Defense
-      --{index = 105, op = "==", value = 20 }, --+20% Faster Cast Rate
-      --{index = 25, op = "==", value = 100 }, --+100% Enhanced Damage
-      --{index = 119, op = "==", value = 50 }, --50% Bonus to Attack Rating
-      {index = 107, op = "==", param = 52, value = 2 }, --+2 to Enchant (Sorceress only)
-      {index = 107, op = "==", param = 46, value = 4 }, --+2-4 to Fatal Flare (Sorceress only)
-      {index = 107, op = "==", param = 44, value = 3 }, --+3 to Frost Nova (Sorceress only)
-      {index = 83, op = "==", param = 1, value = 2 }, --+2 to Sorceress Skill Levels
+      {index = 107, op = "==", param = 46, value = 4 }, -- +2-4 to Fatal Flare (Sorceress only)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2337,15 +2734,9 @@ return {
       quality = "7",
       index = 74, --Pluckeye
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 19, op = "==", value = 28 }, --+28 to Attack Rating
-      --{index = 25, op = "==", value = 100 }, --+100% Enhanced Damage
-      --{index = 7, op = "==", value = 10 * 256 }, --+10 to Life
-      --{index = 89, op = "==", value = 2 }, --+2 to Light Radius
-      --{index = 62, op = "==", value = 3 }, --3% Mana stolen per hit
-      --{index = 138, op = "==", value = 2 }, --+2 to Mana after each Kill
-      {index = 85, op = "==", value = 10 }, --+7–10% to Experience Gained
+      {index = 85, op = "==", value = 10 }, -- +7-10% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2357,14 +2748,9 @@ return {
       quality = "7",
       index = 75, --Witherstring
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
-      --{index = 21, op = "==", value = 3 }, --Adds 1–3 Damage
-      --{index = 19, op = "==", value = 50 }, --+50 to Attack Rating
-      --{index = 97, op = "==", param = 6, value = 3 }, --+3 to Magic Arrow
-      --{index = 25, op = "==", value = 50 }, --+40–50% Enhanced Damage
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2376,14 +2762,9 @@ return {
       quality = "7",
       index = 76, --Raven Claw
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 119, op = "==", value = 50 }, --50% Bonus to Attack Rating
-      --{index = 2, op = "==", value = 3 }, --+3 to Dexterity
-      --{index = 97, op = "==", param = 16, value = 3 }, --+3 to Exploding Arrow
-      --{index = 0, op = "==", value = 3 }, --+3 to Strength
-      --{index = 25, op = "==", value = 70 }, --+60–70% Enhanced Damage
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2395,15 +2776,9 @@ return {
       quality = "7",
       index = 77, --Rogue's Bow
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 39, op = "==", value = 10 }, --All Resistances +10
-      --{index = 141, op = "==", value = 20 }, --20% Deadly Strike
-      --{index = 19, op = "==", value = 60 }, --+60 to Attack Rating
-      --{index = 122, op = "==", value = 100 }, --+100% Damage to Undead
-      --{index = 25, op = "==", value = 60 }, --+40–60% Enhanced Damage
-      --{index = 93, op = "==", value = 50 }, --+50% Increased Attack Speed
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2415,14 +2790,8 @@ return {
       quality = "7",
       index = 78, --Stormstrike
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 51, op = "==", value = 30 }, --Adds 1–30 Lightning Damage
-      --{index = 0, op = "==", value = 8 }, --+8 to Strength
-      --{index = 19, op = "==", value = 28 }, --+28 to Attack Rating
-      --{index = , op = "==", value = 25 }, --+25% Piercing Attack
-      --{index = 41, op = "==", value = 25 }, --Lightning Resist +25%
-      --{index = 25, op = "==", value = 90 }, --+70–90% Enhanced Damage
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2434,17 +2803,11 @@ return {
       quality = "7",
       index = 79, --Wizendraw
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 97, op = "==", param = 6, value = 5 }, --+5 to Magic Arrow
-      --{index = 9, op = "==", value = 30 * 256 }, --+30 to Mana
-      --{index = 93, op = "==", value = 20 }, --+20% Increased Attack Speed
-      --{index = 43, op = "==", value = 26 }, --Cold Resist +26%
-      {index = 19, op = "==", value = 100 }, --+50–100 to Attack Rating
-      --{index = 25, op = "==", value = 80 }, --+70–80% Enhanced Damage
-      --{index = 1, op = "==", value = 15 }, --+15 to Energy
-      {index = 335, op = "==", value = 35 }, ---20–35% to Enemy Cold Resistance
-      {index = 187, op = "==", value = 15 }, --Enemy cold immunity reduced by 10–15%
+      {index = 19, op = "==", value = 100 }, -- +50-100 to Attack Rating
+      {index = 335, op = "==", value = 35 }, -- -20-35% to Enemy Cold Resistance
+      {index = 187, op = "==", value = 15 }, -- Enemy cold immunity reduced by 10-15%
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2456,35 +2819,279 @@ return {
       quality = "7",
       index = 80, --Hellclap
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 93, op = "==", value = 10 }, --+10% Increased Attack Speed
-      {index = 49, op = "==", value = 50 }, --Adds 15–30/50 Fire Damage
-      {index = 19, op = "==", value = 75 }, --+50–75 to Attack Rating
-      --{index = 39, op = "==", value = 40 }, --Fire Resist +40%
-      --{index = 2, op = "==", value = 12 }, --+12 to Dexterity
-      --{index = 25, op = "==", value = 90 }, --+70–90% Enhanced Damage
-      --{index = 407, op = "==", value = 1 }, --+1 to Fire Skills
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 49, op = "==", value = 50 }, -- +30-50 to Maximum Fire Damage
+      {index = 19, op = "==", value = 75 }, -- +50-75 to Attack Rating
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
       filter_levels = "1,2,3"
     },
+  --Hide <70% Unique Index 61-80
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 61, --Lance of Yaggai, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
+      {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 62, --The Tannr Gorerod, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
+      {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 63, --Dimoak's Hew, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (2 + (5-2)*0.7)}, -- Damage Reduced by 2-5
+      {index = 35, op = "<=", value = (2 + (5-2)*0.7)}, -- Magic Damage Reduced by 2-5
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 64, --Steelgoad, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (3 + (5-3)*0.7)}, -- Damage Reduced by 3-5
+      {index = 35, op = "<=", value = (3 + (5-3)*0.7)}, -- Magic Damage Reduced by 3-5
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 65, --Soul Harvest, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 135, op = "<=", value = (10 + (30-10)*0.7)}, -- 10-30% Chance of Open Wounds
+      {index = 107, op = "<=", param = 73, value = (1 + (4-1)*0.7)}, -- +1-4 to Blight Strike (Necromancer only)
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 66, --The Battlebranch, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 19, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100 to Attack Rating
+      {index = 34, op = "<=", value = (5 + (7-5)*0.7)}, -- Damage Reduced by 5-7
+      {index = 35, op = "<=", value = (5 + (7-5)*0.7)}, -- Magic Damage Reduced by 5-7
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 67, --Woestave, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (5 + (7-5)*0.7)}, -- Damage Reduced by 5-7
+      {index = 35, op = "<=", value = (5 + (7-5)*0.7)}, -- Magic Damage Reduced by 5-7
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 68, --The Grim Reaper, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 141, op = "<=", value = (25 + (50-25)*0.7)}, -- 25-50% Deadly Strike
+      {index = 107, op = "<=", param = 73, value = (3 + (5-3)*0.7)}, -- +3-5 to Blight Strike (Necromancer only)
+      {index = 332, op = "<=", value = (10 + (15-10)*0.7)}, -- +10-15% to Poison Skill Damage
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 69, --Bane Ash, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 70, --Serpent Lord, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 71, --Spire of Lazarus, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 72, --The Salamander, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 73, --The Iron Jang Bong, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 107, op = "<=", param = 46, value = (2 + (4-2)*0.7)}, -- +2-4 to Fatal Flare (Sorceress only)
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 74, --Pluckeye, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (7 + (10-7)*0.7)}, -- +7-10% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 75, --Witherstring, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 76, --Raven Claw, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 77, --Rogue's Bow, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 78, --Stormstrike, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 79, --Wizendraw, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 19, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100 to Attack Rating
+      {index = 335, op = "<=", value = (20 + (35-20)*0.7)}, -- -20-35% to Enemy Cold Resistance
+      {index = 187, op = "<=", value = (10 + (15-10)*0.7)}, -- Enemy cold immunity reduced by 10-15%
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 80, --Hellclap, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 49, op = "<=", value = (30 + (50-30)*0.7)}, -- +30-50 to Maximum Fire Damage
+      {index = 19, op = "<=", value = (50 + (75-50)*0.7)}, -- +50-75 to Attack Rating
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+  --ALL UNIQUES MAX STATS Index 81-100
     {
       codes = "allitems",
       quality = "7",
       index = 81, --Blastbark
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 25, op = "==", value = 130 }, --+70–130% Enhanced Damage
-      --{index = 0, op = "==", value = 5 }, --+5 to Strength
-      --{index = 83, op = "==", param = 0, value = 1 }, --+1 to Amazon Skill Levels
-      --{index = 62, op = "==", value = 3 }, --3% Mana stolen per hit
-      --{index = 107, op = "==", param = 16, value = 2 }, --+2 to Exploding Arrow (Amazon only)
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2496,14 +3103,8 @@ return {
       quality = "7",
       index = 82, --Leadcrow
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 2, op = "==", value = 10 }, --+10 to Dexterity
-      --{index = 7, op = "==", value = 10 * 256 }, --+10 to Life
-      --{index = 25, op = "==", value = 70 }, --+70% Enhanced Damage
-      --{index = 45, op = "==", value = 30 }, --Poison Resist +30%
-      --{index = 141, op = "==", value = 20 }, --20% Deadly Strike
-      --{index = 19, op = "==", value = 40 }, --+40 to Attack Rating
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2515,15 +3116,9 @@ return {
       quality = "7",
       index = 83, --Ichorsting
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 57, op = "==", value = 30 }, --+30 Poison Damage Over 3 Seconds
-      --{index = 2, op = "==", value = 20 }, --+20 to Dexterity
-      --{index = 156, op = "==", value = 50 }, --+50% Piercing Attack
-      --{index = 19, op = "==", value = 50 }, --+50 to Attack Rating
-      --{index = 25, op = "==", value = 50 }, --+50% Enhanced Damage
-      --{index = 93, op = "==", value = 20 }, --+20% Increased Attack Speed
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2535,15 +3130,8 @@ return {
       quality = "7",
       index = 84, --Hellcast
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = , op = "==", param = , value = 100 }, --100% Chance to cast level 5 Fire Blast on Striking
-      --{index = 40, op = "==", value = 15 }, --+15% to Maximum Fire Resist
-      --{index = 39, op = "==", value = 15 }, --Fire Resist +15%
-      --{index = 19, op = "==", value = 70 }, --+70 to Attack Rating
-      --{index = 93, op = "==", value = 20 }, --+20% Increased Attack Speed
-      --{index = 25, op = "==", value = 80 }, --+70–80% Enhanced Damage
-      --{index = 48, op = "==", value = 35 }, --Adds 15–35 Fire Damage
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2555,13 +3143,8 @@ return {
       quality = "7",
       index = 85, --Doomslinger
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 83, op = "==", param = 6, value = 1 }, --+1 to Assassin Skill Levels
-      --{index = 156, op = "==", value = 35 }, --+35% Piercing Attack
-      --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
-      --{index = 7, op = "==", value = 15 * 256 }, --+15 to Life
-      --{index = 25, op = "==", value = 100 }, --+60–100% Enhanced Damage
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2573,16 +3156,9 @@ return {
       quality = "7",
       index = 86, --Coldkill
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 55, op = "==", value = 40 }, --Adds 40 Cold Damage
-      --{index = 43, op = "==", value = 15 }, --Cold Resist +15%
-      --{index = 44, op = "==", value = 15 }, --+15% to Maximum Cold Resist
-      --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
-      --{index = , op = "==", value = 10 }, --10% Chance to cast level 10 Ice Blast on striking
-      --{index = , op = "==", value = 5 }, --10% Chance to cast level 5 Frost Nova when struck
-      --{index = 25, op = "==", value = 190 }, --+150–190% Enhanced Damage
-      {index = 34, op = "==", value = 10 }, --Damage Reduced by 5–10
+      {index = 34, op = "==", value = 10 }, -- Damage Reduced by 5-10
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2594,14 +3170,11 @@ return {
       quality = "7",
       index = 87, --Butcher's Pupil
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 141, op = "==", value = 15 }, --5–15% Deadly Strike
-      {index = 135, op = "==", value = 20 }, --5–20% Chance of Open Wounds
-      --{index = 25, op = "==", value = 200 }, --+150–200% Enhanced Damage
-      --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
-      --{index = 22, op = "==", value = 50 }, --Adds 30–50 Damage
-      {index = 34, op = "==", value = 10 }, --Damage Reduced by 5–10
+      {index = 141, op = "==", value = 15 }, -- 5-15% Deadly Strike
+      {index = 135, op = "==", value = 20 }, -- 5-20% Chance of Open Wounds
+      {index = 34, op = "==", value = 10 }, -- Damage Reduced by 5-10
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2613,17 +3186,11 @@ return {
       quality = "7",
       index = 88, --Islestrike
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 83, op = "==", param = 5, value = 2 }, --+2 to Druid Skill Levels
-      --{index = 0, op = "==", value = 10 }, --+10 to All Attributes
-      --{index = 32, op = "==", value = 50 }, --+50 Defense vs. Missile
-      --{index = 136, op = "==", value = 10 }, --10% Chance of Crushing Blow
-      --{index = 25, op = "==", value = 190 }, --+170–190% Enhanced Damage
-      {index = 107, op = "==", param = 233, value = 3 }, --+1–3 to Maul (Druid only)
-      {index = 107, op = "==", param = 232, value = 3 }, --+1–3 to Feral Rage (Druid only)
-      --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
-      {index = 35, op = "==", value = 10 }, --Magic Damage Reduced by 5–10
+      {index = 107, op = "==", param = 233, value = 3 }, -- +1-3 to Maul (Druid only)
+      {index = 107, op = "==", param = 232, value = 3 }, -- +1-3 to Feral Rage (Druid only)
+      {index = 35, op = "==", value = 10 }, -- Magic Damage Reduced by 5-10
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2635,14 +3202,8 @@ return {
       quality = "7",
       index = 89, --Pompeii's Wrath
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = , op = "==", value = 4 }, --4% Chance to cast level 8 Volcano on striking
-      --{index = , op = "==", value = 2 }, --2% Chance to cast level 20 Flare Armor when Struck
-      --{index = 150, op = "==", value = 50 }, --Slows Target by 50%
-      --{index = 48, op = "==", value = 150 }, --Adds 35–150 Fire Damage
-      --{index = 25, op = "==", value = 170 }, --+140–170% Enhanced Damage
-      --{index = 85, op = "==", value = 5 }, --+5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2654,16 +3215,10 @@ return {
       quality = "7",
       index = 90, --Guardian Naga
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = , op = "==", value = 5 }, --5% Chance to cast level 8 Poison Nova on striking
-      --{index = 78, op = "==", value = 15 }, --Attacker Takes Damage of 15
-      --{index = 45, op = "==", value = 30 }, --Poison Resist +30%
-      --{index = 57, op = "==", value = 250 }, --+250 Poison Damage Over 10 Seconds
-      --{index = 25, op = "==", value = 180 }, --+150–180% Enhanced Damage
-      --{index = 22, op = "==", value = 20 }, --+20 to Maximum Damage
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
-      {index = 35, op = "==", value = 12 }, --Magic Damage Reduced by 7–12
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 12 }, -- Magic Damage Reduced by 7-12
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2675,16 +3230,11 @@ return {
       quality = "7",
       index = 91, --Warlord's Trust
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = , op = "==", value = 75 }, --+75 Defense
-      --{index = 74, op = "==", value = 20 }, --Replenish Life +20
-      --{index = 223, op = "==", value = 4 }, --+0.5 to Vitality (Based on Character Level)
-      --{index = 39, op = "==", value = 10 }, --All Resistances +10
-      --{index = 25, op = "==", value = 175 }, --+175% Enhanced Damage
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
-      {index = 34, op = "==", value = 10 }, --Damage Reduced by 6–10
-      {index = 35, op = "==", value = 10 }, --Magic Damage Reduced by 6–10
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 10 }, -- Damage Reduced by 6-10
+      {index = 35, op = "==", value = 10 }, -- Magic Damage Reduced by 6-10
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2696,17 +3246,9 @@ return {
       quality = "7",
       index = 92, --Spellsteel
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 91, op = "==", value = -60 }, --Requirements -60%
-      --{index = 9, op = "==", value = 100 * 256 }, --+100 to Mana
-      {index = 35, op = "==", value = 15 }, --Magic Damage Reduced by 12–15
-      --{index = 105, op = "==", value = 10 }, --+10% Faster Cast Rate
-      --{index = 25, op = "==", value = 165 }, --+165% Enhanced Damage
-      --{index = 27, op = "==", value = 25 }, --Regenerate Mana 25%
-      --{index = ?, op = "==", param = 54, value = 15 }, --Level 5 Discharge (20 Charges)
-      --{index = , op = "==", value = 10 }, --Level 10 Holy Bolt (100 Charges)
-      --{index = , op = "==", value = 12 }, --Level 12 Firestorm (60 Charges)
+      {index = 35, op = "==", value = 15 }, -- Magic Damage Reduced by 12-15
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2716,19 +3258,12 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 93, --Stromrider
+      index = 93, --Stormrider
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = , op = "==", value = 10 }, --5% Chance to cast level 10 Chain Lightning on striking
-      --{index = ?, op = "==", param = 416, Value = 10, Value = 20}, --10% Chance to cast level 13–20 Charged Bolt on striking
-      --{index = 51, op = "==", value = 200 }, --Adds 1–200 Lightning Damage
-      --{index = 22, op = "==", value = 75 }, --Adds 35–75 Damage
-      --{index = 25, op = "==", value = 100 }, --+100% Enhanced Damage
-      --{index = 128, op = "==", value = 15 }, --Attacker Takes Lightning Damage of 15
-      --{index = , op = "==", value = 5 }, --15% Chance to cast level 5 Charged Bolt when struck
-      --{index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
-      --{index = 35, op = "==", value = 12 }, --Magic Damage Reduced by 9–12
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 12 }, -- Magic Damage Reduced by 9-12
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2740,19 +3275,11 @@ return {
       quality = "7",
       index = 94, --Boneslayer Blade
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 246, op = "==", value = 2*5 }, --+5.0 to Attack Rating against Undead (Based on Character Level)
-      --{index = 244, op = "==", value = 20 }, --+2.5% Damage to Undead (Based on Character Level)
-      --{index = 0, op = "==", value = 8 }, --+8 to Strength
-      --{index = 93, op = "==", value = 20 }, --+20% Increased Attack Speed
-      --{index = 119, op = "==", value = 35 }, --35% Bonus to Attack Rating
-      --{index = 25, op = "==", value = 220 }, --+180–220% Enhanced Damage
-      --{index = , op = "==", value = 20 }, --Level 20 Holy Bolt (200 Charges)
-      --{index = , op = "==", value = 50 }, --50% Chance to cast level 13–20 Holy Bolt when struck
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
-      {index = 34, op = "==", value = 12 }, --Damage Reduced by 9–12
-      {index = 35, op = "==", value = 12 }, --Magic Damage Reduced by 9–12
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 12 }, -- Damage Reduced by 9-12
+      {index = 35, op = "==", value = 12 }, -- Magic Damage Reduced by 9-12
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2764,18 +3291,12 @@ return {
       quality = "7",
       index = 95, --The Minotaur
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 113, op = "==", value = 2 }, --Hit Blinds Target +2
-      --{index = 118, op = "==", value = 1 }, --Half Freeze Duration
-      {index = 0, op = "==", value = 20 }, --+15–20 to Strength
-      --{index = 150, op = "==", value = 30 }, --Slows Target by 30%
-      --{index = 136, op = "==", value = 20 }, --20% Chance of Crushing Blow
-      --{index = 22, op = "==", value = 30 }, --Adds 20–30 Damage
-      --{index = 25, op = "==", value = 200 }, --+140–200% Enhanced Damage
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
-      {index = 34, op = "==", value = 12 }, --Damage Reduced by 9–12
-      {index = 35, op = "==", value = 12 }, --Magic Damage Reduced by 9–12
+      {index = 0, op = "==", value = 20 }, -- +15-20 to Strength
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 12 }, -- Damage Reduced by 9-12
+      {index = 35, op = "==", value = 12 }, -- Magic Damage Reduced by 9-12
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2787,15 +3308,9 @@ return {
       quality = "7",
       index = 96, --Suicide Branch
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 78, op = "==", value = 25 }, --Attacker Takes Damage of 25
-      --{index = 105, op = "==", value = 50 }, --+50% Faster Cast Rate
-      --{index = 39, op = "==", value = 10 }, --All Resistances +10
-      --{index = 77, op = "==", value = 10 }, --Increase Maximum Mana by 10%
-      --{index = 7, op = "==", value = 40 * 256 }, --+40 to Life
-      --{index = 127, op = "==", value = 1 }, --+1 to All Skills
-      {index = 85, op = "==", value = 5 }, --+3–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +3-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2807,16 +3322,9 @@ return {
       quality = "7",
       index = 97, --Carin Shard
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 216, op = "==", value = 2560 }, --+1.25 to Life (Based on Character Level)
-      --{index = 105, op = "==", value = 10 }, --+10% Faster Cast Rate
-      --{index = 217, op = "==", value = 2560 }, --+1.25 to Mana (Based on Character Level)
-      --{index = 99, op = "==", value = 30 }, --+30% Faster Hit Recovery
-      --{index = 74, op = "==", value = 5 }, --Replenish Life +5
-      --{index = 83, op = "==", param = 2, value = 1 }, --+1 to Necromancer Skill Levels
-      --{index = 188, op = "==", param = 18, value = 2 }, --+2 to Summoning Skills (Necromancer Only)
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2828,18 +3336,11 @@ return {
       quality = "7",
       index = 98, --Arm of King Leoric
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      {index = 400, op = "==", value = 5 }, --Increase Curse Duration by 3–5 seconds
-      {index = 97, op = "==", param = 68, value = 3 }, --+2–3 to Bone Armor
-      --{index = 217, op = "==", value = 2560 }, --+1.25 to Mana (Based on Character Level)
-      --{index = , op = "==", value = 2 }, --10% Chance to cast level 2 Bone Prison when struck
-      --{index = 105, op = "==", value = 10 }, --+10% Faster Cast Rate
-      {index = 284, op = "==", value = 60 }, --Summon Maximum Life +40–60%
-      --{index = 97, op = "==", param = 81, value = 2 }, --+2 to Confuse
-      --{index = 97, op = "==", param = 80, value = 2 }, --+2 to Raise Skeletal Mage
-      --{index = 97, op = "==", param = 69, value = 3 }, --+3 to Summon Mastery
-      --{index = 97, op = "==", param = 70, value = 3 }, --+3 to Raise Skeleton
+      {index = 400, op = "==", value = 5 }, -- Increase Curse Duration by 3-5 
+      {index = 97, op = "==", param = 68, value = 3 }, -- +2-3 to Bone Armor
+      {index = 284, op = "==", value = 60 }, -- Summon Max HP: +40-60%
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2851,16 +3352,8 @@ return {
       quality = "7",
       index = 99, --Blackhand Key
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 188, op = "==", param = 16, value = 1 }, --+1 to Curses (Necromancer Only)
-      --{index = 114, op = "==", value = 20 }, --20% Damage Taken Goes To Mana
-      --{index = 7, op = "==", value = 50 * 256 }, --+50 to Life
-      --{index = 89, op = "==", value = -2 }, ---2 to Light Radius
-      --{index = 105, op = "==", value = 30 }, --+30% Faster Cast Rate
-      --{index = 39, op = "==", value = 37 }, --Fire Resist +37%
-      --{index = 83, op = "==", param = 2, value = 2 }, --+2 to Necromancer Skill Levels
-      --{index = , op = "==", value = 5 }, --Level 5 Grim Ward (30 Charges)
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
@@ -2872,19 +3365,266 @@ return {
       quality = "7",
       index = 100, --Dark Clan Crusher
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
-      --{index = 83, op = "==", param = 5, value = 2 }, --+2 to Druid Skill Levels
-      --{index = 121, op = "==", value = 200 }, --+200% Damage to Demons
-      --{index = 123, op = "==", value = 200 }, --+200 to Attack Rating against Demons
-      --{index = 25, op = "==", value = 195 }, --+195% Enhanced Damage
-      {index = 119, op = "==", value = 25 }, --20–25% Bonus to Attack Rating
-      --{index = 139, op = "==", value = 15 }, --+15 Life after each Demon Kill
-      {index = 85, op = "==", value = 5 }, --+2–5% to Experience Gained
+      {index = 119, op = "==", value = 25 }, -- 20-25% Bonus to Attack Rating
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
+    },
+  --Hide <70% Unique Index 81-100
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 81, --Blastbark, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 82, --Leadcrow, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 83, --Ichorsting, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 84, --Hellcast, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 85, --Doomslinger, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 86, --Coldkill, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- Damage Reduced by 5-10
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 87, --Butcher's Pupil, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 141, op = "<=", value = (5 + (15-5)*0.7)}, -- 5-15% Deadly Strike
+      {index = 135, op = "<=", value = (5 + (20-5)*0.7)}, -- 5-20% Chance of Open Wounds
+      {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- Damage Reduced by 5-10
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 88, --Islestrike, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 107, op = "<=", param = 233, value = (1 + (3-1)*0.7)}, -- +1-3 to Maul (Druid only)
+      {index = 107, op = "<=", param = 232, value = (1 + (3-1)*0.7)}, -- +1-3 to Feral Rage (Druid only)
+      {index = 35, op = "<=", value = (5 + (10-5)*0.7)}, -- Magic Damage Reduced by 5-10
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 89, --Pompeii's Wrath, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 90, --Guardian Naga, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (7 + (12-7)*0.7)}, -- Magic Damage Reduced by 7-12
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 91, --Warlord's Trust, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (6 + (10-6)*0.7)}, -- Damage Reduced by 6-10
+      {index = 35, op = "<=", value = (6 + (10-6)*0.7)}, -- Magic Damage Reduced by 6-10
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 92, --Spellsteel, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 35, op = "<=", value = (12 + (15-12)*0.7)}, -- Magic Damage Reduced by 12-15
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 93, --Stormrider, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (9 + (12-9)*0.7)}, -- Magic Damage Reduced by 9-12
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 94, --Boneslayer Blade, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (9 + (12-9)*0.7)}, -- Damage Reduced by 9-12
+      {index = 35, op = "<=", value = (9 + (12-9)*0.7)}, -- Magic Damage Reduced by 9-12
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 95, --The Minotaur, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 0, op = "<=", value = (15 + (20-15)*0.7)}, -- +15-20 Strength
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (9 + (12-9)*0.7)}, -- Damage Reduced by 9-12
+      {index = 35, op = "<=", value = (9 + (12-9)*0.7)}, -- Magic Damage Reduced by 9-12
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 96, --Suicide Branch, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (3 + (5-3)*0.7)}, -- +3-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 97, --Carin Shard, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 98, --Arm of King Leoric, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 400, op = "<=", value = (3 + (5-3)*0.7)}, -- Increase Curse Duration by 3-5
+      {index = 97, op = "<=", param = 68, value = (2 + (3-2)*0.7)}, -- +2-3 to Bone Armor
+      {index = 284, op = "<=", value = (40 + (60-40)*0.7)}, -- Summon Max HP: +40-60%
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 99, --Blackhand Key, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      },
+      hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 100, --Dark Clan Crusher, hide <70%
+      runeword = false,
+      location = {"onground"},
+      stat = {
+      {index = 119, op = "<=", value = (20 + (25-20)*0.7)}, -- 20-25% Bonus to Attack Rating
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
+      hide = true,
       filter_levels = "1,2,3"
     },
   --ALL UNIQUES MAX STATS Index 101-150
@@ -2893,7 +3633,7 @@ return {
       quality = "7",
       index = 101, --Zakarum's Hand
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 62, op = "==", value = 8 }, --8% Mana stolen per hit
       --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
@@ -2915,7 +3655,7 @@ return {
       quality = "7",
       index = 102, --The Fetid Sprinkler
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 3, value = 2 }, --+2 to Paladin Skill Levels
       --{index = , op = "==", value = 1 }, --5% Chance to cast level 1 Decrepify on striking
@@ -2935,7 +3675,7 @@ return {
       quality = "7",
       index = 103, --Hand of Blessed Light
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 3, value = 2 }, --+2 to Paladin Skill Levels
       --{index = 25, op = "==", value = 160 }, --+130–160% Enhanced Damage
@@ -2958,7 +3698,7 @@ return {
       quality = "7",
       index = 104, --Fleshrender
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 135, op = "==", value = 15 }, --5–15% Chance of Open Wounds
       --{index = 117, op = "==", value = 1 }, --Prevent Monster Heal
@@ -2979,7 +3719,7 @@ return {
       quality = "7",
       index = 105, --Sureshrill Frost
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 55, op = "==", value = 112 }, --Adds 63–112 Cold Damage
       --{index = 118, op = "==", value = 1 }, --Half Freeze Duration
@@ -3001,7 +3741,7 @@ return {
       quality = "7",
       index = 106, --Moonfall
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 6 }, --5% Chance to cast level 6 Meteor on striking
       --{index = 48, op = "==", value = 115 }, --Adds 55–115 Fire Damage
@@ -3022,7 +3762,7 @@ return {
       quality = "7",
       index = 107, --Baezil's Vortex
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 5 }, --10% Chance to cast level 5 Nova on striking
       --{index = 51, op = "==", value = 150 }, --Adds 1–150 Lightning Damage
@@ -3044,7 +3784,7 @@ return {
       quality = "7",
       index = 108, --Earthshaker
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 7 }, --5% Chance to cast level 7 Fissure on striking
       --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
@@ -3065,7 +3805,7 @@ return {
       quality = "7",
       index = 109, --Bloodtree Stump
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 136, op = "==", value = 20 }, --20% Chance of Crushing Blow
       --{index = 25, op = "==", value = 220 }, --+180–220% Enhanced Damage
@@ -3087,7 +3827,7 @@ return {
       quality = "7",
       index = 110, --The Gavel of Pain
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 5 }, --5% Chance to cast level 5 Amplify Damage on striking
       --{index = , op = "==", value = 5 }, --5% Chance to cast level 5 Iron Maiden when struck
@@ -3108,7 +3848,7 @@ return {
       quality = "7",
       index = 111, --Bloodletter
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 22, op = "==", value = 45 }, --Adds 12–45 Damage
       --{index = 19, op = "==", value = 90 }, --+90 to Attack Rating
@@ -3130,7 +3870,7 @@ return {
       quality = "7",
       index = 112, --Coldsteel Eye
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 113, op = "==", value = 1 }, --Hit Blinds Target +1
       {index = 150, op = "==", value = 30 }, --Slows Target by 15–30%
@@ -3150,7 +3890,7 @@ return {
       quality = "7",
       index = 113, --Hexfire
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 1 }, --+1 Fire Mastery
       --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
@@ -3171,7 +3911,7 @@ return {
       quality = "7",
       index = 114, --Blade of Ali Baba
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 239, op = "==", value = 5 }, --0.625% Extra Gold from Monsters (Based on Character Level)
       --{index = 240, op = "==", value = 8 }, --1.0% Better Chance of Getting Magic Items (Based on Character Level)
@@ -3190,7 +3930,7 @@ return {
       quality = "7",
       index = 115, --Ginther's Rift
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 35, op = "==", value = 12 }, --Magic Damage Reduced by 7–12
       --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
@@ -3207,7 +3947,7 @@ return {
       quality = "7",
       index = 116, --Headstriker
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 117, op = "==", value = 1 }, --Prevent Monster Heal
       --{index = 0, op = "==", value = 15 }, --+15 to Strength
@@ -3226,7 +3966,7 @@ return {
       quality = "7",
       index = 117, --Plague Bearer
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 4 }, --5% Chance to cast level 4 Poison Nova on striking
       --{index = 57, op = "==", value = 300 }, --+300 Poison Damage Over 8 Seconds
@@ -3246,7 +3986,7 @@ return {
       quality = "7",
       index = 118, --The Atlantean
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 75 }, --+75 Defense
       --{index = 0, op = "==", value = 16 }, --+16 to Strength
@@ -3267,7 +4007,7 @@ return {
       quality = "7",
       index = 119, --Crainte Vomir
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 150, op = "==", value = 35 }, --Slows Target by 35%
       --{index = , op = "==", value = 70 }, ---70 to Monster Defense Per Hit
@@ -3288,7 +4028,7 @@ return {
       quality = "7",
       index = 120, --Bing Sz Wang
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 91, op = "==", value = -30 }, --Requirements -30%
       --{index = 55, op = "==", value = 140 }, --Adds 50–140 Cold Damage
@@ -3308,7 +4048,7 @@ return {
       quality = "7",
       index = 121, --The Vile Husk
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 5 }, --6% Chance to cast level 5 Amplify Damage on striking
       --{index = 244, op = "==", value = 60 }, --+7.5% Damage to Undead (Based on Character Level)
@@ -3328,7 +4068,7 @@ return {
       quality = "7",
       index = 122, --Cloudcrack
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 7 }, --6% Chance to cast level 7 Fist of the Heavens on striking
       --{index = 51, op = "==", value = 240 }, --Adds 1–240 Lightning Damage
@@ -3351,7 +4091,7 @@ return {
       quality = "7",
       index = 123, --Todesfaelle Flamme
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 48, op = "==", value = 200 }, --Adds 50–200 Fire Damage
       --{index = 39, op = "==", value = 40 }, --Fire Resist +40%
@@ -3372,7 +4112,7 @@ return {
       quality = "7",
       index = 124, --Swordguard
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 91, op = "==", value = -50 }, --Requirements -50%
       --{index = 214, op = "==", value = 8*5.0 }, --+5.0 Defense (Based on Character Level)
@@ -3395,7 +4135,7 @@ return {
       quality = "7",
       index = 125, --Spineripper
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
       --{index = 60, op = "==", value = 8 }, --8% Life stolen per hit
@@ -3416,7 +4156,7 @@ return {
       quality = "7",
       index = 126, --Heart Carver
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 141, op = "==", value = 20 }, --20% Deadly Strike
       --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
@@ -3436,7 +4176,7 @@ return {
       quality = "7",
       index = 127, --Blackbog's Sharp
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 150, op = "==", value = 50 }, --Slows Target by 50%
       --{index = , op = "==", value = 50 }, --+50 Defense
@@ -3457,7 +4197,7 @@ return {
       quality = "7",
       index = 128, --Stormspike
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 51, op = "==", value = 120 }, --Adds 1–120 Lightning Damage
       --{index = 128, op = "==", value = 20 }, --Attacker Takes Lightning Damage of 20
@@ -3475,7 +4215,7 @@ return {
       quality = "7",
       index = 129, --Deathbit
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 141, op = "==", value = 20 }, --20% Deadly Strike
       --{index = 25, op = "==", value = 180 }, --+130–180% Enhanced Damage
@@ -3494,7 +4234,7 @@ return {
       quality = "7",
       index = 130, --The Scalper
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 1 }, --Replenish 1 Quantity every 1 seconds
       --{index = 25, op = "==", value = 200 }, --+150–200% Enhanced Damage
@@ -3515,7 +4255,7 @@ return {
       quality = "7",
       index = 131, --Constantly Waging
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 220 }, --+110–220% Enhanced Damage
       {index = 107, op = "==", param = 266, value = 5 }, --+2–5 to Blade Fury (Assassin only)
@@ -3534,7 +4274,7 @@ return {
       quality = "7",
       index = 132, --Realm Crusher
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 107, op = "==", param = 129, value = 2 }, --+1–2 to Fan Out (Barbarian only)
       {index = 276, op = "==", value = 2 }, --+1–2 Spell Power
@@ -3554,7 +4294,7 @@ return {
       quality = "7",
       index = 133, --Quickening Strikes
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 93, op = "==", value = 40 }, --+10–40% Increased Attack Speed
       {index = 335, op = "==", value = 15 }, ---5–15% to Enemy Cold Resistance
@@ -3575,7 +4315,7 @@ return {
       quality = "7",
       index = 134, --Sharpnel Impact
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 97, op = "==", param = 135, value = 3 }, --+3 to Throwing Mastery 
       --{index = 97, op = "==", param = 35, value = 3 }, --+3 to Lightning Fury
@@ -3595,7 +4335,7 @@ return {
       quality = "7",
       index = 135, --Tempest Flash
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 96, op = "==", value = 25 }, --+10–25% Faster Run/Walk
       --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
@@ -3616,7 +4356,7 @@ return {
       quality = "7",
       index = 136, --Untethered
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 188, op = "==", param = 34, value = 4 }, --+2–4 to Destructive Range (Barbarian Only)
       --{index = 97, op = "==", param = 146, value = 3 }, --+3 to Battle Cry
@@ -3637,7 +4377,7 @@ return {
       quality = "7",
       index = 137, --Unrelenting Will
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 21, op = "==", value = 44 }, --+35–44 to Minimum Damage
       --{index = 25, op = "==", value = 130 }, --+120–130% Enhanced Damage
@@ -3658,7 +4398,7 @@ return {
       quality = "7",
       index = 138, --The Impaler
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
       --{index = 19, op = "==", value = 150 }, --+150 to Attack Rating
@@ -3679,7 +4419,7 @@ return {
       quality = "7",
       index = 139, --Kelpie Snare
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 150, op = "==", value = 75 }, --Slows Target by 75%
       --{index = 39, op = "==", value = 50 }, --Fire Resist +50%
@@ -3700,7 +4440,7 @@ return {
       quality = "7",
       index = 140, --Soulfeast Tine
       runeword = false,
-      location = {"onground", "onplayer"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 91, op = "==", value = -20 }, --Requirements -20%
       --{index = 60, op = "==", value = 7 }, --7% Life stolen per hit
@@ -3721,7 +4461,7 @@ return {
       quality = "7",
       index = 141, --Hone Sundan
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 22, op = "==", value = 40 }, --Adds 20–40 Damage
       {index = 136, op = "==", value = 15 }, --5–15% Chance of Crushing Blow
@@ -3739,7 +4479,7 @@ return {
       quality = "7",
       index = 142, --Spire of Honor
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 119, op = "==", value = 25 }, --25% Bonus to Attack Rating
       --{index = 89, op = "==", value = 3 }, --+3 to Light Radius
@@ -3763,7 +4503,7 @@ return {
       quality = "7",
       index = 143, --The Meat Scraper
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 200 }, --+150–200% Enhanced Damage
       --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
@@ -3784,7 +4524,7 @@ return {
       quality = "7",
       index = 144, --Blackleach Blade
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 91, op = "==", value = -25 }, --Requirements -25%
       --{index = ?, op = "==", param = 455, value = 5 }, --5% Chance to cast level 5 Weaken on striking
@@ -3805,7 +4545,7 @@ return {
       quality = "7",
       index = 145, --Athena's Wrath
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 83, op = "==", param = 2, value = 3 }, --+1–3 to Necromancer Skill Levels
       --{index = 2, op = "==", value = 15 }, --+15 to Dexterity
@@ -3825,7 +4565,7 @@ return {
       quality = "7",
       index = 146, --Pierre Tombale Couant
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 141, op = "==", value = 40 }, --15–40% Deadly Strike
       --{index = 225, op = "==", value = 2*0.5 }, --0.5% Bonus to Attack Rating (Based on Character Level)
@@ -3847,7 +4587,7 @@ return {
       quality = "7",
       index = 147, --Husoldal Evo
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 74, op = "==", value = 20 }, --Replenish Life +20
       {index = 19, op = "==", value = 250 }, --+200–250 to Attack Rating
@@ -3868,7 +4608,7 @@ return {
       quality = "7",
       index = 148, --Grim's Burning Dead
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 48, op = "==", value = 232 }, --Adds 131–232 Fire Damage
       --{index = 39, op = "==", value = 45 }, --Fire Resist +45%
@@ -3890,7 +4630,7 @@ return {
       quality = "7",
       index = 149, --Razorswitch
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 105, op = "==", value = 30 }, --+30% Faster Cast Rate
       --{index = 78, op = "==", value = 15 }, --Attacker Takes Damage of 15
@@ -3910,7 +4650,7 @@ return {
       quality = "7",
       index = 150, --Ribcracker
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 22, op = "==", value = 65 }, --Adds 30–65 Damage
       --{index = 25, op = "==", value = 300 }, --+200–300% Enhanced Damage
@@ -3932,7 +4672,7 @@ return {
       quality = "7",
       index = 151, --Chromatic Ire
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 1, value = 3 }, --+3 to Sorceress Skill Levels
       {index = 39, op = "==", value = 40 }, --All Resistances +20–40
@@ -3953,7 +4693,7 @@ return {
       quality = "7",
       index = 152, --Warpspear
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 1, value = 2 }, --+2 to Sorceress Skill Levels
       --{index = 115, op = "==", value = 1 }, --Ignore Target's Defense
@@ -3974,7 +4714,7 @@ return {
       quality = "7",
       index = 153, --Skull Collector
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 77, op = "==", value = 20 }, --Increase Maximum Mana by 20%
       --{index = 138, op = "==", value = 20 }, --+20 to Mana after each Kill
@@ -3994,7 +4734,7 @@ return {
       quality = "7",
       index = 154, --Skystrike
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 50, op = "==", value = 250 }, --Adds 1–250 Lightning Damage
       --{index = 19, op = "==", value = 100 }, --+100 to Attack Rating
@@ -4014,7 +4754,7 @@ return {
       quality = "7",
       index = 155, --Riphook
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 135, op = "==", value = 30 }, --15–30% Chance of Open Wounds
       --{index = 25, op = "==", value = 220 }, --+180–220% Enhanced Damage
@@ -4033,7 +4773,7 @@ return {
       quality = "7",
       index = 156, --Kuko Shakaku
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 107, op = "==", param = 27, value = 3 }, --+3 to Curtain of Fire (Amazon only)
       --{index = 107, op = "==", param = 16, value = 5 }, --+5 to Exploding Arrow (Amazon only)
@@ -4052,7 +4792,7 @@ return {
       quality = "7",
       index = 157, --Endlesshail
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 43, op = "==", value = 35 }, --Cold Resist +35%
       --{index = 9, op = "==", value = 256*40 }, --+40 to Mana
@@ -4073,7 +4813,7 @@ return {
       quality = "7",
       index = 158, --Witchwild String
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = ?, op = "==", value = 5 }, --2% Chance to cast level 5 Amplify Damage on striking
       --{index = 39, op = "==", value = 40 }, --All Resistances +40
@@ -4091,7 +4831,7 @@ return {
       quality = "7",
       index = 159, --Cliffkiller
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 1, value = 2 }, --+2 to Amazon Skill Levels
       --{index = 25, op = "==", value = 230 }, --+190–230% Enhanced Damage
@@ -4109,7 +4849,7 @@ return {
       quality = "7",
       index = 160, --Magewrath
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 62, op = "==", value = 15 }, --15% Mana stolen per hit
       {index = 35, op = "==", value = 13 }, --Magic Damage Reduced by 9–13
@@ -4131,7 +4871,7 @@ return {
       quality = "7",
       index = 161, --Goldstrike Arch
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 250 }, --+200–250% Enhanced Damage
       {index = 119, op = "==", value = 150 }, --100–150% Bonus to Attack Rating
@@ -4151,7 +4891,7 @@ return {
       quality = "7",
       index = 162, --Langer Briser
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 200 }, --+170–200% Enhanced Damage
       {index = 80, op = "==", value = 60 }, --30–60% Better Chance of Getting Magic Items
@@ -4171,7 +4911,7 @@ return {
       quality = "7",
       index = 163, --Pus Spitter
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 57, op = "==", value = 150 }, --+150 Poison Damage (min) over 8s
       --{index = 58, op = "==", value = 150 }, --+150 Poison Damage (max) over 8s
@@ -4195,7 +4935,7 @@ return {
       quality = "7",
       index = 164, --Buriza-Da Kyanon
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 156, op = "==", value = 100 }, --+100% Piercing Attack
       --{index = 2, op = "==", value = 35 }, --+35 to Dexterity
@@ -4217,7 +4957,7 @@ return {
       quality = "7",
       index = 165, --Demon Machine
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value =  }, --100% Chance to Cast Level 12 Fire Blast on Striking
       --{index = 156, op = "==", value = 66 }, --+66% Piercing Attack
@@ -4237,7 +4977,7 @@ return {
       quality = "7",
       index = 166, --Untrained Eye
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 50 }, --+50% Enhanced Damage
       --{index = 22, op = "==", value = 6 }, --+3–6 to Maximum Damage
@@ -4256,7 +4996,7 @@ return {
       quality = "7",
       index = 167, --Redemption
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 22, op = "==", value = 10 }, --Adds 5–10 Damage
       {index = 62, op = "==", value = 8 }, --5–8% Mana stolen per hit
@@ -4276,7 +5016,7 @@ return {
       quality = "7",
       index = 168, --Ancient Hand
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 21, op = "==", value = 9 }, --+9 to Minimum Damage
       --{index = 138, op = "==", value = 2 }, --+2 to Mana after each Kill
@@ -4294,7 +5034,7 @@ return {
       quality = "7",
       index = 169, --Willbreaker
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 112, op = "==", value = 25 }, --Hit Causes Monster to Flee 25%
       --{index = 25, op = "==", value = 85 }, --+55–85% Enhanced Damage
@@ -4315,7 +5055,7 @@ return {
       quality = "7",
       index = 170, --Skyfall Grip
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = ?, op = "==", value = 3 }, --4% Chance to cast level 3 Meteor on striking
       --{index = ?, op = "==", value = 4 }, --2% Chance to cast level 4 Fist of the Heavens on striking
@@ -4334,7 +5074,7 @@ return {
       quality = "7",
       index = 171, --Oathbinder
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 6, value = 1 }, --+1 to Assassin Skill Levels
       --{index = 225, op = "==", value = 2*2 }, --2.0% Bonus to Attack Rating (per level)
@@ -4353,7 +5093,7 @@ return {
       quality = "7",
       index = 172, --Pride's Fan
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 90 }, --+90% Enhanced Damage
       {index = 97, op = "==", param = 280, value = 3 }, --+1–3 to Phoenix Strike
@@ -4372,7 +5112,7 @@ return {
       quality = "7",
       index = 173, --Burning Sun
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 150 }, --+110–150% Enhanced Damage
       {index = 97, op = "==", param = 259, value = 3 }, --+2–3 to Fists of Fire
@@ -4396,7 +5136,7 @@ return {
       quality = "7",
       index = 174, --Severance
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 100 }, --+100% Enhanced Damage
       --{index = 22, op = "==", value = 35 }, --Adds 20–35 Damage
@@ -4416,7 +5156,7 @@ return {
       quality = "7",
       index = 175, --Hand of Madness
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 210 }, --+140–210% Enhanced Damage
       --{index = ?, op = "==", value = 5 }, --5% Chance to cast level 5 Mind Blast on striking
@@ -4436,7 +5176,7 @@ return {
       quality = "7",
       index = 176, --Vanquisher
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 152, op = "==", value = 1 }, --Ethereal / Indestructible
       {index = 188, op = "==", param = 48, value = 3 }, --+1–3 to Traps (Assassin Only)
@@ -4455,7 +5195,7 @@ return {
       quality = "7",
       index = 177, --Wind-Forged Blade
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 120 }, --+100–120% Enhanced Damage
       --{index = ?, op = "==", value = 10 }, --5% Chance to cast level 10 Twister on attack
@@ -4475,7 +5215,7 @@ return {
       quality = "7",
       index = 178, --Bartuc's Cut-Throat
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 6, value = 2 }, --+2 to Assassin Skill Levels
       --{index = 188, op = "==", param = 50, value = 1 }, --+1 to Deadly Arts (Assassin Only)
@@ -4497,7 +5237,7 @@ return {
       quality = "7",
       index = 179, --Void Ripper
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = ?, op = "==", value = 498 }, --25% Chance to cast level 5 Void Release on Kill
       --{index = 113, op = "==", value = 3 }, --Hit Blinds Target +3
@@ -4519,7 +5259,7 @@ return {
       quality = "7",
       index = 180, --Soul-Forged Grip
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+200–240% Enhanced Damage
       {index = 151, op = "==", param = 381, value = 10 }, --Level 6–10 Redemption Aura When Equipped
@@ -4539,7 +5279,7 @@ return {
       quality = "7",
       index = 181, --Jade Talon
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+190–240% Enhanced Damage
       {index = 62, op = "==", value = 15 }, --10–15% Mana stolen per hit
@@ -4558,7 +5298,7 @@ return {
       quality = "7",
       index = 182, --Malignant Touch
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 260 }, --+260% Enhanced Damage
       --{index = 97, op = "==", param = 259, value = 3 }, --+3 to Fists of Fire
@@ -4577,7 +5317,7 @@ return {
       quality = "7",
       index = 183, --Shadow Killer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 220 }, --+170–220% Enhanced Damage
       --{index = 116, op = "==", value = -25 }, ---25% Target Defense
@@ -4596,7 +5336,7 @@ return {
       quality = "7",
       index = 184, --Firelizard's Talons
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 270 }, --+200–270% Enhanced Damage
       --{index = 93, op = "==", value = 15 }, --+15% Increased Attack Speed
@@ -4617,7 +5357,7 @@ return {
       quality = "7",
       index = 185, --Viz-Jaq'taar Order
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 91, op = "==", value = -50 }, --Requirements -50%
       {index = 107, op = "==", param = 264, value = 6 }, --+4–6 to Cloak of Shadows (Assassin only)
@@ -4642,7 +5382,7 @@ return {
       quality = "7",
       index = 186, --Mage Crusher
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+210–240% Enhanced Damage
       --{index = 93, op = "==", value = 40 }, --+40% Increased Attack Speed
@@ -4666,7 +5406,7 @@ return {
       quality = "7",
       index = 187, --Razor's Edge
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 175 }, --+175–225% Enhanced Damage
       --{index = 93, op = "==", value = 40 }, --+40% Increased Attack Speed
@@ -4684,7 +5424,7 @@ return {
       quality = "7",
       index = 188, --Glittering Crescent
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 52, op = "==", value = 45 }, --+38/45 Magic Damage (min)
       --{index = 53, op = "==", value = 67 }, --+60/67 Magic Damage (max)
@@ -4706,7 +5446,7 @@ return {
       quality = "7",
       index = 189, --Rune Master
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 270 }, --+220–270% Enhanced Damage
       --{index = 44, op = "==", value = 5 }, --+5% to Maximum Cold Resist
@@ -4724,7 +5464,7 @@ return {
       quality = "7",
       index = 190, --Cranebeak
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 300 }, --+240–300% Enhanced Damage
       --{index = 93, op = "==", value = 40 }, --+40% Increased Attack Speed
@@ -4744,7 +5484,7 @@ return {
       quality = "7",
       index = 191, --Death Cleaver
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 280 }, --+230–280% Enhanced Damage
       --{index = 141, op = "==", value = 33 }, --33% Deadly Strike
@@ -4764,7 +5504,7 @@ return {
       quality = "7",
       index = 192, --Blessed Beheader
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 21, op = "==", value = 35 }, --+25–35 to Minimum Damage
       --{index = 25, op = "==", value = 270 }, --+220–270% Enhanced Damage
@@ -4788,7 +5528,7 @@ return {
       quality = "7",
       index = 193, --Ethereal Edge
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 280 }, --+250–280% Enhanced Damage
       --{index = 93, op = "==", value = 45 }, --+45% Increased Attack Speed
@@ -4811,7 +5551,7 @@ return {
       quality = "7",
       index = 194, --Hellslayer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 220, op = "==", value = 8*0.5 }, --+0.5 Strength per level
       --{index = 223, op = "==", value = 8*0.5 }, --+0.5 Vitality per level
@@ -4834,7 +5574,7 @@ return {
       quality = "7",
       index = 195, --Messerschmidt's Reaver
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 219, op = "==", value = 8*2.5 }, --+2.5% Enhanced Max Damage per level
       --{index = 25, op = "==", value = 200 }, --+200% Enhanced Damage
@@ -4855,7 +5595,7 @@ return {
       quality = "7",
       index = 196, --Executioner's Justice
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 290 }, --+240–290% Enhanced Damage
       {index = 136, op = "==", value = 20 }, --10–20% Chance of Crushing Blow
@@ -4873,7 +5613,7 @@ return {
       quality = "7",
       index = 197, --Bane Glow
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 83, op = "==", param = 2, value = 2 }, --+1–2 to Necromancer Skill Levels
       {index = 97, op = "==", param = 0, value = 3 }, --+1–3 to Attack
@@ -4894,7 +5634,7 @@ return {
       quality = "7",
       index = 198, --Malthael Touch
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 2, value = 2 }, --+2 to Necromancer Skill Levels
       --{index = 283, op = "==", value = 1 }, --+1 Summoning Power
@@ -4915,7 +5655,7 @@ return {
       quality = "7",
       index = 199, --Boneshade
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 2, value = 2 }, --+1–2 to Necromancer Skill Levels
       --{index = 105, op = "==", value = 25 }, --+25% Faster Cast Rate
@@ -4935,7 +5675,7 @@ return {
       quality = "7",
       index = 200, --Death's Web
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 127, op = "==", value = 2 }, --+1–2 to All Skills
       {index = 336, op = "==", value = 50 }, ---40–50% to Enemy Poison Resistance
@@ -4955,7 +5695,7 @@ return {
       quality = "7",
       index = 201, --Nord's Tenderizer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = , op = "==", value = 5 }, --1% Chance to cast level 20 Blizzard on Striking
       --{index = 25, op = "==", value = 250 }, --+270–330%? Enhanced Damage
@@ -4977,7 +5717,7 @@ return {
       quality = "7",
       index = 202, --Heaven's Light
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 300 }, --+250–300% Enhanced Damage
       --{index = 93, op = "==", value = 20 }, --+20% Increased Attack Speed
@@ -4997,7 +5737,7 @@ return {
       quality = "7",
       index = 203, --The Redeemer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 300 }, --+250–300% Enhanced Damage
       {index = 121, op = "==", value = 250 }, --+200–250% Damage to Demons
@@ -5019,7 +5759,7 @@ return {
       quality = "7",
       index = 204, --Astreon's Iron Ward
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 290 }, --+240–290% Enhanced Damage
       --{index = 150, op = "==", value = 25 }, --Slows Target by 25%
@@ -5042,7 +5782,7 @@ return {
       quality = "7",
       index = 205, --Demon Limb
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 230 }, --+180–230% Enhanced Damage
       --{index = 48, op = "==", value = 222 }, --Adds 222 Fire Damage (min)
@@ -5064,7 +5804,7 @@ return {
       quality = "7",
       index = 206, --Stormlash
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 300 }, --+240–300% Enhanced Damage
       --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
@@ -5087,7 +5827,7 @@ return {
       quality = "7",
       index = 207, --Baranar's Star
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 119, op = "==", value = 200 }, --200% Bonus to Attack Rating
       --{index = 25, op = "==", value = 200 }, --+200% Enhanced Damage
@@ -5113,7 +5853,7 @@ return {
       quality = "7",
       index = 208, --Horizon's Tornado
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 280 }, --+230–280% Enhanced Damage
       --{index = 93, op = "==", value = 50 }, --+50% Increased Attack Speed
@@ -5133,7 +5873,7 @@ return {
       quality = "7",
       index = 209, --Schaefer's Hammer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = ?, op = "==", value = 10 }, --20% Chance to cast level 10 Static Field on striking
       --{index = 7, op = "==", value = 256*50 }, --+50 to Life
@@ -5158,7 +5898,7 @@ return {
       quality = "7",
       index = 210, --Windhammer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 230 }, --+180–230% Enhanced Damage
       {index = 136, op = "==", value = 25 }, --10–25% Chance of Crushing Blow
@@ -5178,7 +5918,7 @@ return {
       quality = "7",
       index = 211, --The Cranium Basher
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 93, op = "==", value = 20 }, --+20% Increased Attack Speed
       --{index = 0, op = "==", value = 25 }, --+25 to Strength
@@ -5201,7 +5941,7 @@ return {
       quality = "7",
       index = 212, --Vows of Promise
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 250 }, --+150–250% Enhanced Damage
       {index = 93, op = "==", value = 45 }, --+30–45% Increased Attack Speed
@@ -5222,7 +5962,7 @@ return {
       quality = "7",
       index = 213, --Djinn Slayer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+190–240% Enhanced Damage
       --{index = 48, op = "==", value = 250 }, --Adds 250 Fire Damage (min)
@@ -5243,7 +5983,7 @@ return {
       quality = "7",
       index = 214, --Bloodmoon
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 260 }, --+210–260% Enhanced Damage
       {index = 60, op = "==", value = 15 }, --10–15% Life stolen per hit
@@ -5262,7 +6002,7 @@ return {
       quality = "7",
       index = 215, --Starward Fencer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 93, op = "==", value = 50 }, --+50% Increased Attack Speed
       --{index = 22, op = "==", value = 70 }, --+30–70 to Maximum Damage
@@ -5284,7 +6024,7 @@ return {
       quality = "7",
       index = 216, --Lightsabre
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 89, op = "==", value = 7 }, --+7 to Light Radius
       --{index = ?, op = "==", value = 20 }, --5% Chance to cast level 20 Chain Lightning on attack
@@ -5310,7 +6050,7 @@ return {
       quality = "7",
       index = 217, --Azurewrath
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 52, op = "==", value = 250 }, --Adds 250 Magic Damage (min)
       --{index = 53, op = "==", value = 500 }, --Adds 500 Magic Damage (max)
@@ -5334,7 +6074,7 @@ return {
       quality = "7",
       index = 218, --Frostwind
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 230 }, --+180–230% Enhanced Damage
       --{index = 134, op = "==", value = 1 }, --Freezes target
@@ -5355,7 +6095,7 @@ return {
       quality = "7",
       index = 219, --Last Legend
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 220, op = "==", value = 1 }, --+0.5 Strength per level
       {index = 107, op = "==", param = 119, value = 3 }, --+1–3 to Faithful Follower (Paladin only)
@@ -5377,7 +6117,7 @@ return {
       quality = "7",
       index = 220, --Oashi
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 250 }, --+250% Enhanced Damage
       --{index = 22, op = "==", value = 100 }, --+50–100 to Maximum Damage
@@ -5397,7 +6137,7 @@ return {
       quality = "7",
       index = 221, --Gleam Rod
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 151, op = "==", param = 389, value = 20 }, --Level 15–20 Magic Conviction Aura When Equipped
       --{index = 52, op = "==", value = 200 }, --Adds 200 Magic Damage (min)
@@ -5417,7 +6157,7 @@ return {
       quality = "7",
       index = 222, --Flamebellow
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+170–240% Enhanced Damage
       --{index = 48, op = "==", value = 233 }, --Adds 233 Fire Damage (min)
@@ -5440,7 +6180,7 @@ return {
       quality = "7",
       index = 223, --Doombringer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 76, op = "==", value = 20 }, --Increase Maximum Life by 20%
       --{index = 25, op = "==", value = 250 }, --+180–250% Enhanced Damage
@@ -5460,7 +6200,7 @@ return {
       quality = "7",
       index = 224, --Burning Bane
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 151, op = "==", param = 387, value = 20 }, --Level 15–20 Fire Conviction Aura When Equipped
       --{index = 48, op = "==", value = 250 }, --Adds 250 Fire Damage (min)
@@ -5482,7 +6222,7 @@ return {
       quality = "7",
       index = 225, --The Grandfather
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 0, op = "==", value = 20 }, --+20 to all Attributes
       --{index = 119, op = "==", value = 50 }, --50% Bonus to Attack Rating
@@ -5504,7 +6244,7 @@ return {
       quality = "7",
       index = 226, --Wizardspike
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 217, op = "==", value = 2048*2 }, --+2.0 to Mana (Based on Character Level)
       --{index = 77, op = "==", value = 15 }, --Regenerate Mana 15%
@@ -5525,7 +6265,7 @@ return {
       quality = "7",
       index = 227, --Rapid Strike
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 333 }, --+333% Enhanced Damage
       --{index = 93, op = "==", value = 50 }, --+50% Increased Attack Speed
@@ -5544,7 +6284,7 @@ return {
       quality = "7",
       index = 228, --Fleshripper
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 300 }, --+200–300% Enhanced Damage
       --{index = 116, op = "==", value = -50 }, ---50% Target Defense
@@ -5565,7 +6305,7 @@ return {
       quality = "7",
       index = 229, --Ghostflame
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+190–240% Enhanced Damage
       --{index = 116, op = "==", value = 0 }, --Ignore Target's Defense
@@ -5586,7 +6326,7 @@ return {
       quality = "7",
       index = 230, --Sentinel's Call
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 22, op = "==", value = 85 }, --Adds 60–85 Damage
       --{index = 25, op = "==", value = 275 }, --+200–275% Enhanced Damage
@@ -5606,7 +6346,7 @@ return {
       quality = "7",
       index = 231, --Gimmershred
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 210 }, --+160–210% Enhanced Damage
       --{index = 48, op = "==", value = 218 }, --Adds 218 Fire Damage (min)
@@ -5628,7 +6368,7 @@ return {
       quality = "7",
       index = 232, --Warshrike
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 250 }, --+200–250% Enhanced Damage
       --{index = 156, op = "==", value = 50 }, --+50% Piercing Attack
@@ -5646,7 +6386,7 @@ return {
       quality = "7",
       index = 233, --Lacerator
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 210 }, --+150–210% Enhanced Damage
       --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
@@ -5665,7 +6405,7 @@ return {
       quality = "7",
       index = 234, --Contemplation
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 350 }, --+290–350% Enhanced Damage
       {index = 127, op = "==", value = 3 }, --+2–3 to All Skills
@@ -5689,7 +6429,7 @@ return {
       quality = "7",
       index = 235, --Main Hand
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 350 }, --+260–350% Enhanced Damage
       --{index = 116, op = "==", value = 0 }, --Ignore Target's Defense
@@ -5710,7 +6450,7 @@ return {
       quality = "7",
       index = 236, --Demon's Arch
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 210 }, --+160–210% Enhanced Damage
       --{index = 48, op = "==", value = 232 }, --Adds 232 Fire Damage (min)
@@ -5730,7 +6470,7 @@ return {
       quality = "7",
       index = 237, --Wraith Flight
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 440 }, --+350–440% Enhanced Damage
       {index = 60, op = "==", value = 13 }, --9–13% Life stolen per hit
@@ -5750,7 +6490,7 @@ return {
       quality = "7",
       index = 238, --Gargoyle's Bite
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 230 }, --+180–230% Enhanced Damage
       --{index = 59, op = "==", value = 293 }, --+293 Poison Damage over 10 seconds
@@ -5768,7 +6508,7 @@ return {
       quality = "7",
       index = 239, --Arioc's Needle
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 230 }, --+180–230% Enhanced Damage
       --{index = 59, op = "==", value = 394 }, --+394 Poison Damage over 10 seconds
@@ -5789,7 +6529,7 @@ return {
       quality = "7",
       index = 240, --Rock Piercer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 357, op = "==", value = 60 }, --+40–60% to Magic Skill Damage
       --{index = 25, op = "==", value = 320 }, --+320% Enhanced Damage
@@ -5812,7 +6552,7 @@ return {
       quality = "7",
       index = 241, --Viperfork
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+190–240% Enhanced Damage
       --{index = 59, op = "==", value = 325 }, --+325 Poison Damage over 10 seconds
@@ -5833,7 +6573,7 @@ return {
       quality = "7",
       index = 242, --Flash Forward
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 111, op = "==", value = 3 }, --Hit Blinds Target +3
       {index = 151, op = "==", param = 390, value = 20 }, --Level 15–20 Lightning Conviction Aura When Equipped
@@ -5854,7 +6594,7 @@ return {
       quality = "7",
       index = 243, --Steel Pillar
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 260 }, --+210–260% Enhanced Damage
       --{index = 93, op = "==", value = 25 }, --+25% Increased Attack Speed
@@ -5874,7 +6614,7 @@ return {
       quality = "7",
       index = 244, --Bonehew
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 320 }, --+270–320% Enhanced Damage
       --{index = 93, op = "==", value = 30 }, --+30% Increased Attack Speed
@@ -5894,7 +6634,7 @@ return {
       quality = "7",
       index = 245, --Tundra Tamer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 150, op = "==", value = 50 }, --Slows Target by 50%
       {index = 151, op = "==", param = 388, value = 20 }, --Level 15–20 Cold Conviction Aura When Equipped
@@ -5916,7 +6656,7 @@ return {
       quality = "7",
       index = 246, --The Reaper's Toll
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 240 }, --+190–240% Enhanced Damage
       --{index = ?, op = "==", value = 5 }, --33% Chance to cast level 5 Decrepify on striking
@@ -5939,7 +6679,7 @@ return {
       quality = "7",
       index = 247, --Tomb Reaver
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 93, op = "==", value = 60 }, --+60% Increased Attack Speed
       --{index = 89, op = "==", value = 4 }, --+4 to Light Radius
@@ -5963,7 +6703,7 @@ return {
       quality = "7",
       index = 248, --Wind Shatter
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 107, op = "==", param = 151, value = 6 }, --+3–6 to Whirlwind (Barbarian only)
       --{index = 134, op = "==", value = 1 }, --Freezes target
@@ -5988,7 +6728,7 @@ return {
       quality = "7",
       index = 249, --Bonespire
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 97, op = ">=", param = 178, value = 5 }, --+3–5 to Bone Spikes
       },
@@ -6002,7 +6742,7 @@ return {
       quality = "7",
       index = 250, --Nature's Intention
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 107, op = "==", param = 999, value = 2 }, --+2 to Murder Calling
       --{index = 107, op = "==", param = 999, value = 3 }, --+3 to Poison Creeper
@@ -6028,7 +6768,7 @@ return {
       quality = "7",
       index = 251, -- Thermite Quicksand
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 107, op = ">=", param = 61, value = 7 }, -- +7 to Fire Mastery (Sorceress only)
       --{index = ?, op = "==", value = 15 }, -- 15% Chance to cast level 15 Fire Ball on attack
@@ -6052,7 +6792,7 @@ return {
       quality = "7",
       index = 252, -- Ondal's Wisdom
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 105, op = "==", value = 45 }, -- +45% Faster Cast Rate
       {index = 1, op = "==", value = 50 }, -- +40–50 to Energy
@@ -6071,7 +6811,7 @@ return {
       quality = "7",
       index = 253, -- Stone Crusher
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 320 }, -- +280–320% Enhanced Damage
       {index = 0, op = "==", value = 30 }, -- +20–30 to Strength
@@ -6090,7 +6830,7 @@ return {
       quality = "7",
       index = 254, -- Mang Song's Lesson
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 127, op = "==", value = 5 }, -- +5 to All Skills
       {index = 333, op = "==", value = 15 }, -- -7–15% to Enemy Fire Resistance
@@ -6117,7 +6857,7 @@ return {
       quality = "7",
       index = 255, -- Cold Crow's Caw
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 93, op = "==", value = 40 }, -- +40% Increased Attack Speed
       --{index = 134, op = "==", value = 1 }, -- Freezes target
@@ -6139,7 +6879,7 @@ return {
       quality = "7",
       index = 256, -- Trembling Vortex
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 315 }, -- +220–315% Enhanced Damage
       --{index = 93, op = "==", value = 60 }, -- +60% Increased Attack Speed
@@ -6161,7 +6901,7 @@ return {
       quality = "7",
       index = 257, -- Corrupted String
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 76, op = "==", value = -5 }, -- Increase Maximum Life by -5– -10%
       --{index = 77, op = "==", value = 10 }, -- Increase Maximum Mana by 10%
@@ -6183,7 +6923,7 @@ return {
       quality = "7",
       index = 258, -- Gyro Blaster
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 97, op = "==", param = 182, value = 7 }, -- +5–7 to Electro Ball
       {index = 330, op = "==", value = 30 }, -- +20–30% to Lightning Skill Damage
@@ -6206,7 +6946,7 @@ return {
       quality = "7",
       index = 259, -- Underground
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = ?, op = "==", value = 15 }, -- 2% Chance to cast lvl 15 Fissure on attack
       --{index = 83, op = "==", param = 0, value = 2 }, -- +2 to Amazon Skill Levels
@@ -6228,7 +6968,7 @@ return {
       quality = "7",
       index = 260, -- Eaglehorn
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 115, op = "==", value = 1 }, -- Ignore Target's Defense
       --{index = 224, op = "==", value = 6 }, -- +6 Attack Rating per level
@@ -6247,7 +6987,7 @@ return {
       quality = "7",
       index = 261, -- Widowmaker
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 200 }, -- +150–200% Enhanced Damage
       --{index = 141, op = "==", value = 25 }, -- 25% Deadly Strike
@@ -6265,7 +7005,7 @@ return {
       quality = "7",
       index = 262, -- Windforce
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 2, op = "==", value = 5 }, -- +5 to Dexterity
       --{index = 218, op = "==", value = 3 }, -- +3.125 Max Damage per level
@@ -6286,7 +7026,7 @@ return {
       quality = "7",
       index = 263, -- Shadow Hunter
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 188, op = "==", param = 49, value = 4}, -- +2-4 to Shadow Disciplines (Assassin Only)
       {index = 192, op = ">=", value = 40 }, -- Enemy Physical Immunity Reduced by 30-40%?
@@ -6301,7 +7041,7 @@ return {
       quality = "7",
       index = 264, -- Amnesty's Glare
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- Level 20 Famine Aura When Equipped
       --{index = 50, op = "==", value = 60 }, -- Adds 60 Lightning Damage (min)
@@ -6324,7 +7064,7 @@ return {
       quality = "7",
       index = 265, -- Hellrack
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 230 }, -- +180–230% Enhanced Damage
       --{index = 48, op = "==", value = 63 }, -- Adds 63 Fire Damage (min)
@@ -6343,7 +7083,7 @@ return {
       quality = "7",
       index = 266, -- Gut Siphon
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 83, op = "==", param = 6, value = 3 }, --+2–3 to Assassin Skill Levels
       --{index = 25, op = "==", value = 220 }, -- +160–220% Enhanced Damage
@@ -6362,7 +7102,7 @@ return {
       quality = "7",
       index = 267, -- Enlightener
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 89, op = "==", value = 4 }, -- +4 to Light Radius
       --{index = 97, op = "==", param = 36, value = 3 }, -- +3 to Firestorm
@@ -6381,7 +7121,7 @@ return {
       quality = "7",
       index = 268, -- Endothermic Stone
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 27, op = "==", value = 30 }, -- Regenerate Mana 10–30%
       {index = 77, op = "==", value = 20 }, -- Increase Maximum Mana by 8–20%
@@ -6400,7 +7140,7 @@ return {
       quality = "7",
       index = 269, -- Sensor
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 89, op = "==", value = -1 }, -- -1 to Light Radius
       {index = 31, op = "==", value = 25 }, -- +10–25 Defense
@@ -6419,7 +7159,7 @@ return {
       quality = "7",
       index = 270, -- Lightning Rod
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 107, op = "==", param = 48, value = 3 }, -- +3 to Rolling Thunder
       --{index = 107, op = "==", param = 54, value = 2 }, -- +2 to Discharge
@@ -6439,7 +7179,7 @@ return {
       quality = "7",
       index = 271, -- Energizer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 107, op = "==", param = 53, value = 2 }, -- +2 to Chain Lightning
       --{index = 83, op = "==", param = 1, value = 1 }, -- +1 to Lightning Skills (Sorceress Only)
@@ -6457,7 +7197,7 @@ return {
       quality = "7",
       index = 272, -- The Artemis String
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 48, op = "==", value = 4 }, -- Adds 4 Fire Damage (min)
       --{index = 49, op = "==", value = 6 }, -- Adds 6 Fire Damage (max)
@@ -6481,7 +7221,7 @@ return {
       quality = "7",
       index = 273, -- Pinaka
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 115 }, -- +100–115% Enhanced Damage
       --{index = 188, op = "==", param = 0, value = 2 }, -- +2 to Bow & Crossbow Skills (Amazon Only)
@@ -6501,7 +7241,7 @@ return {
       quality = "7",
       index = 274, -- The Pain Producer
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 0, value = 1 }, -- +1 to Amazon Skill Levels
       --{index = 188, op = "==", param = 2, value = 1 }, -- +1 to Javelin & Spear Skills (Amazon Only)
@@ -6525,7 +7265,7 @@ return {
       quality = "7",
       index = 275, -- The Poking Pike
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 0, value = 1 }, -- +1 to Amazon Skill Levels
       --{index = 188, op = "==", param = 2, value = 1 }, -- +1 to Javelin & Spear Skills (Amazon Only)
@@ -6545,7 +7285,7 @@ return {
       quality = "7",
       index = 276, -- Skovos Striker
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 75 }, -- +75% Enhanced Damage
       --{index = 83, op = "==", param = 0, value = 1 }, -- +1 to Amazon Skill Levels
@@ -6565,7 +7305,7 @@ return {
       quality = "7",
       index = 277, -- Risen Phoenix
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 407, op = "==", value = 3 }, -- +1–3 to Fire Skills
       --{index = ?, op = "==", value = 10 }, -- 10% Chance to cast lvl 10 Flare Armor when struck
@@ -6584,7 +7324,7 @@ return {
       quality = "7",
       index = 278, -- Glacial Oasis
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 127, op = "==", value = 1 }, -- +1 to All Skills
       {index = 188, op = "==", param = 10, value = 3 }, -- +1–3 Cold Skills (Sorceress Only)
@@ -6606,7 +7346,7 @@ return {
       quality = "7",
       index = 279, -- Thunderous
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 31, op = "==", value = 175 }, -- +50–175 Defense
       --{index = 110, op = "==", value = 50 }, -- Poison Length Reduced by 50%
@@ -6628,7 +7368,7 @@ return {
       quality = "7",
       index = 280, -- Magic
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 80, op = "==", value = 60 }, -- 20–60% Better Chance of Getting Magic Items
       {index = 329, op = "==", value = 20 }, -- +10–20% to Fire Skill Damage
@@ -6651,7 +7391,7 @@ return {
       quality = "7",
       index = 281, -- The Oculus
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 1, value = 3 }, -- +3 to Sorceress Skill Levels
       --{index = ?, op = "==", value = 1 }, -- 25% Chance to cast level 1 Teleport when struck
@@ -6673,7 +7413,7 @@ return {
       quality = "7",
       index = 282, -- Windraven
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 275 }, -- +200–275% Enhanced Damage
       --{index = 52, op = "==", value = 50 }, -- Adds 50 Magic Damage (min)
@@ -6694,7 +7434,7 @@ return {
       quality = "7",
       index = 283, -- no item yet
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- NO STATS FOUND IN SOURCE FILE
       },
@@ -6708,7 +7448,7 @@ return {
       quality = "7",
       index = 284, -- no item yet
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- NO STATS FOUND IN SOURCE FILE
       },
@@ -6722,7 +7462,7 @@ return {
       quality = "7",
       index = 285, -- Lycander's Aim
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 0, value = 2 }, -- +2 to Amazon Skill Levels
       --{index = 188, op = "==", param = 0, value = 2 }, -- +2 to Bow & Crossbow Skills (Amazon Only)
@@ -6743,7 +7483,7 @@ return {
       quality = "7",
       index = 286, -- Titan's Revenge
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 0, value = 2 }, -- +2 to Amazon Skill Levels
       --{index = 188, op = "==", param = 2, value = 2 }, -- +2 to Javelin & Spear Skills (Amazon Only)
@@ -6764,7 +7504,7 @@ return {
       quality = "7",
       index = 287, -- Lycander's Flank
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 0, value = 2 }, -- +2 to Amazon Skill Levels
       --{index = 188, op = "==", param = 2, value = 2 }, -- +2 to Javelin & Spear Skills (Amazon Only)
@@ -6786,7 +7526,7 @@ return {
       quality = "7",
       index = 288, -- Above All
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 127, op = "==", value = 2 }, -- +2 to All Skills
       {index = 107, op = "==", param = 58, value = 7 }, -- +4–7 to Energy Shield (Sorceress only)
@@ -6808,7 +7548,7 @@ return {
       quality = "7",
       index = 289, -- Eschuta's Temper
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 83, op = "==", param = 1, value = 3 }, -- +1–3 to Sorceress Skill Levels
       --{index = 105, op = "==", value = 40 }, -- +40% Faster Cast Rate
@@ -6826,7 +7566,7 @@ return {
       quality = "7",
       index = 290, -- Belphegor's Beating
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 139, op = "==", value = 30 }, -- +20–30 Life after each Demon Kill
       --{index = 127, op = "==", value = 3 }, -- +3 to All Skills
@@ -6846,7 +7586,7 @@ return {
       quality = "7",
       index = 291, -- Tempest Fiery
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 127, op = "==", value = 2 }, -- +1–2 to All Skills
       --{index = 407, op = "==", value = 2 }, -- +2 to Fire Skills
@@ -6866,7 +7606,7 @@ return {
       quality = "7",
       index = 292, -- Death's Fathom
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 83, op = "==", param = 1, value = 3 }, -- +3 to Sorceress Skill Levels
       {index = 331, op = "==", value = 30 }, -- +15–30% to Cold Skill Damage
@@ -6884,7 +7624,7 @@ return {
       quality = "7",
       index = 293, -- Blood Raven's Charge
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 230 }, -- +180–230% Enhanced Damage
       {index = 119, op = "==", value = 300 }, -- 200–300% Bonus to Attack Rating
@@ -6905,7 +7645,7 @@ return {
       quality = "7",
       index = 294, -- Shredwind Hell
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 275 }, -- +175–275% Enhanced Damage
       {index = 119, op = "==", value = 200 }, -- 100–200% Bonus to Attack Rating
@@ -6924,7 +7664,7 @@ return {
       quality = "7",
       index = 295, -- Thunderstroke
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 200 }, -- +150–200% Enhanced Damage
       --{index = 50, op = "==", value = 1 }, -- Adds 1 Lightning Damage (min)
@@ -6947,7 +7687,7 @@ return {
       quality = "7",
       index = 296, -- Stoneraven
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 25, op = "==", value = 280 }, -- +230–280% Enhanced Damage
       --{index = 52, op = "==", value = 101 }, -- Adds 101 Magic Damage (min)
@@ -6966,7 +7706,7 @@ return {
       quality = "7",
       index = 297, -- Biggin's Bonnet
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 7, op = "==", value = 15*256 }, -- +15 Life
       --{index = 19, op = "==", value = 30 }, -- +30 Attack Rating
@@ -6986,7 +7726,7 @@ return {
       quality = "7",
       index = 298, -- Tarnhelm
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 79, op = "==", value = 20 }, -- 15–20% Extra Gold from Monsters
       {index = 80, op = "==", value = 50 }, -- 25–50% Better Chance of Getting Magic Items
@@ -7003,7 +7743,7 @@ return {
       quality = "7",
       index = 299, -- Coif of Glory
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 128, op = "==", value = 7 }, -- Attacker Takes Lightning Damage of 7
       --{index = 113, op = "==", value = 1 }, -- Hit Blinds Target +1
@@ -7021,7 +7761,7 @@ return {
       quality = "7",
       index = 300, -- Duskdeep
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{index = 89, op = "==", value = -2 }, -- -2 to Light Radius
       --{index = 39, op = "==", value = 15 }, -- All Resistances +15
@@ -7041,7 +7781,7 @@ return {
       quality = "7",
       index = 301, -- Howltusk
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 78, op = "==", value = 3 }, -- Attacker Takes Damage of 3
       --{ index = 16, op = "==", value = 80 }, -- +80% Enhanced Defense
@@ -7060,7 +7800,7 @@ return {
       quality = "7",
       index = 302, -- Undead Crown
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 3, value = 1 }, -- +1 to Paladin Skill Levels
       --{ index = 60, op = "==", value = 5 }, -- 5% Life stolen per hit
@@ -7078,7 +7818,7 @@ return {
       quality = "7",
       index = 303, -- The Face of Horror
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 112, op = "==", value = 50 }, -- Hit Causes Monster to Flee 50%
       --{ index = 0, op = "==", value = 20 }, -- +20 Strength
@@ -7097,7 +7837,7 @@ return {
       quality = "7",
       index = 304, -- Greyform
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 35, op = "==", value = 3 }, -- Magic Damage Reduced by 3
       --{ index = 43, op = "==", value = 20 }, -- Cold Resist +20%
@@ -7116,7 +7856,7 @@ return {
       quality = "7",
       index = 305, -- Blinkbat's Form
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 32, op = "==", value = 50 }, -- +50 Defense vs. Missile
       --{ index = 96, op = "==", value = 10 }, -- +10% Faster Run/Walk
@@ -7136,7 +7876,7 @@ return {
       quality = "7",
       index = 306, -- The Centurion
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 30 }, -- +30 Defense
       --{ index = 19, op = "==", value = 50 }, -- +50 Attack Rating
@@ -7157,7 +7897,7 @@ return {
       quality = "7",
       index = 307, -- Twitchthroe
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 93, op = "==", value = 20 }, -- +20% Increased Attack Speed
       --{ index = 2, op = "==", value = 10 }, -- +10 Dexterity
@@ -7177,7 +7917,7 @@ return {
       quality = "7",
       index = 308, -- Darkglow
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 19, op = "==", value = 20 }, -- +20 Attack Rating
       --{ index = 40, op = "==", value = 5 }, -- +5% to All Maximum Resistances
@@ -7198,7 +7938,7 @@ return {
       quality = "7",
       index = 309, -- Hawkmail
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 100 }, -- +80–100% Enhanced Defense
       --{ index = 44, op = "==", value = 15 }, -- +15% to Maximum Cold Resist
@@ -7217,7 +7957,7 @@ return {
       quality = "7",
       index = 310, -- Sparking Mail
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 85 }, -- +75–85% Enhanced Defense
       --{ index = 50, op = "==", value = 1 }, -- Adds 1 Lightning Damage (min)
@@ -7236,7 +7976,7 @@ return {
       quality = "7",
       index = 311, -- Venom Ward
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 46, op = "==", value = 15 }, -- +15% to Maximum Poison Resist
       --{ index = 110, op = "==", value = 50 }, -- Poison Length Reduced by 50%
@@ -7254,7 +7994,7 @@ return {
       quality = "7",
       index = 312, -- Iceblink
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 134, op = "==", value = 1 }, -- Freezes target
       --{ index = 43, op = "==", value = 30 }, -- Cold Resist +30%
@@ -7272,7 +8012,7 @@ return {
       quality = "7",
       index = 313, -- Boneflesh
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 60, op = "==", value = 5 }, -- 5% Life stolen per hit
       --{ index = 16, op = "==", value = 120 }, -- +100–120% Enhanced Defense
@@ -7289,7 +8029,7 @@ return {
       quality = "7",
       index = 314, -- Rockfleece
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 91, op = "==", value = -10 }, -- Requirements -10%
       --{ index = 16, op = "==", value = 130 }, -- +100–130% Enhanced Defense
@@ -7307,7 +8047,7 @@ return {
       quality = "7",
       index = 315, -- Rattlecage
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 112, op = "==", value = 40 }, -- Hit Causes Monster to Flee 40%
       --{ index = 19, op = "==", value = 45 }, -- +45 Attack Rating
@@ -7325,7 +8065,7 @@ return {
       quality = "7",
       index = 316, -- Goldskin
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 150 }, -- +120–150% Enhanced Defense
       --{ index = 39, op = "==", value = 35 }, -- All Resistances +35
@@ -7343,7 +8083,7 @@ return {
       quality = "7",
       index = 317, -- Silks of the Victor
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 62, op = "==", value = 5 }, -- 5% Mana stolen per hit
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -7362,7 +8102,7 @@ return {
       quality = "7",
       index = 318, -- Heavenly Garb
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 100 }, -- +100% Enhanced Defense
       --{ index = 39, op = "==", value = 10 }, -- All Resistances +10
@@ -7381,7 +8121,7 @@ return {
       quality = "7",
       index = 319, -- Pelta Lunata
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 30 }, -- +30 Defense
       --{ index = 3, op = "==", value = 10 }, -- +10 Vitality
@@ -7402,7 +8142,7 @@ return {
       quality = "7",
       index = 320, -- Umbral Disk
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 113, op = "==", value = 1 }, -- Hit Blinds Target +1
       --{ index = 2, op = "==", value = 10 }, -- +10 Dexterity
@@ -7423,7 +8163,7 @@ return {
       quality = "7",
       index = 321, -- Stormguild
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 35, op = "==", value = 1 }, -- Magic Damage Reduced by 1
       --{ index = 41, op = "==", value = 25 }, -- Lightning Resist +25%
@@ -7445,7 +8185,7 @@ return {
       quality = "7",
       index = 322, -- Steelclash
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 20, op = "==", value = 25 }, -- 25% Increased Chance of Blocking
       --{ index = 83, op = "==", param = 3, value = 1 }, -- +1 to Paladin Skill Levels
@@ -7467,7 +8207,7 @@ return {
       quality = "7",
       index = 323, -- Bverrit Keep
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 30 }, -- +30 Defense
       --{ index = 39, op = "==", value = 75 }, -- Fire Resist +75%
@@ -7487,7 +8227,7 @@ return {
       quality = "7",
       index = 324, -- The Ward
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 40 }, -- +40 Defense
       --{ index = 35, op = "==", value = 2 }, -- Magic Damage Reduced by 2
@@ -7507,7 +8247,7 @@ return {
       quality = "7",
       index = 325, -- The Hand of Broc
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 60, op = "==", value = 3 }, -- 3% Life stolen per hit
       --{ index = 62, op = "==", value = 3 }, -- 3% Mana stolen per hit
@@ -7527,7 +8267,7 @@ return {
       quality = "7",
       index = 326, -- Bloodfist
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 22, op = "==", value = 5 }, -- +5 to Minimum Damage
       --{ index = 7, op = "==", value = 40*256 }, -- +40 Life
@@ -7548,7 +8288,7 @@ return {
       quality = "7",
       index = 327, -- Chance Guards
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 79, op = "==", value = 50 }, -- 50% Extra Gold from Monsters
       { index = 80, op = "==", value = 40 }, -- 25–40% Better Chance of Getting Magic Items
@@ -7567,7 +8307,7 @@ return {
       quality = "7",
       index = 328, -- Magefist (fire)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 105, op = "==", value = 20 }, -- +20% Faster Cast Rate
       --{ index = 27, op = "==", value = 25 }, -- Regenerate Mana 25%
@@ -7587,7 +8327,7 @@ return {
       quality = "7",
       index = 329, -- Frostburn
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 30 }, -- +30 Defense
       --{ index = 25, op = "==", value = 5 }, -- +5% Enhanced Damage
@@ -7606,7 +8346,7 @@ return {
       quality = "7",
       index = 330, -- Hotspur
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 40, op = "==", value = 15 }, -- +15% to Maximum Fire Resist
       --{ index = 7, op = "==", value = 15*256 }, -- +15 Life
@@ -7627,7 +8367,7 @@ return {
       quality = "7",
       index = 331, -- Gorefoot
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 140, op = "==", value = 5 }, -- Open Wounds Blood Visual +3–5
       --{ index = 96, op = "==", value = 20 }, -- +20% Faster Run/Walk
@@ -7648,7 +8388,7 @@ return {
       quality = "7",
       index = 332, -- Treads of Cthon
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 96, op = "==", value = 30 }, -- +30% Faster Run/Walk
       --{ index = 32, op = "==", value = 50 }, -- +50 Defense vs. Missile
@@ -7668,7 +8408,7 @@ return {
       quality = "7",
       index = 333, -- Goblin Toe
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 136, op = "==", value = 10 }, -- 10% Chance of Crushing Blow
       --{ index = 34, op = "==", value = 1 }, -- Damage Reduced by 1
@@ -7687,7 +8427,7 @@ return {
       quality = "7",
       index = 334, -- Tearhaunch
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 35 }, -- +35 Defense
       --{ index = 0, op = "==", value = 5 }, -- +5 Strength
@@ -7707,7 +8447,7 @@ return {
       quality = "7",
       index = 335, -- Lenymo
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 9, op = "==", value = 15*256 }, -- +15 Mana
       --{ index = 27, op = "==", value = 30 }, -- Regenerate Mana 30%
@@ -7725,7 +8465,7 @@ return {
       quality = "7",
       index = 336, -- Snakecord
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 58, op = "==", value = 12 }, -- +12 Poison Damage over 3 seconds
       --{ index = 45, op = "==", value = 25 }, -- Poison Resist +25%
@@ -7745,7 +8485,7 @@ return {
       quality = "7",
       index = 337, -- Nightsmoke
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 39, op = "==", value = 10 }, -- All Resistances +10
       --{ index = 114, op = "==", value = 50 }, -- 50% Damage Taken Goes To Mana
@@ -7766,7 +8506,7 @@ return {
       quality = "7",
       index = 338, -- Goldwrap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 80, op = "==", value = 30 }, -- 30% Better Chance of Getting Magic Items
       --{ index = 89, op = "==", value = 2 }, -- +2 to Light Radius
@@ -7785,7 +8525,7 @@ return {
       quality = "7",
       index = 339, -- Bladebuckle
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 78, op = "==", value = 8 }, -- Attacker Takes Damage of 8
       --{ index = 31, op = "==", value = 30 }, -- +30 Defense
@@ -7805,7 +8545,7 @@ return {
       quality = "7",
       index = 340, -- Wormskull
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 4, value = 1 }, -- +1 to Necromancer Skill Levels
       --{ index = 60, op = "==", value = 5 }, -- 5% Life stolen per hit
@@ -7828,7 +8568,7 @@ return {
       quality = "7",
       index = 341, -- Wall of the Eyeless
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 138, op = "==", value = 5 }, -- +5 Mana after each Kill
       --{ index = 62, op = "==", value = 3 }, -- 3% Mana stolen per hit
@@ -7849,7 +8589,7 @@ return {
       quality = "7",
       index = 342, -- Swordback Hold
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 78, op = "==", value = 10 }, -- Attacker Takes Damage of 10
       --{ index = 20, op = "==", value = 20 }, -- 20% Increased Chance of Blocking
@@ -7869,7 +8609,7 @@ return {
       quality = "7",
       index = 343, -- Peasant Crown
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 1, op = "==", value = 20 }, -- +20 Energy
       --{ index = 3, op = "==", value = 20 }, -- +20 Vitality
@@ -7888,7 +8628,7 @@ return {
       quality = "7",
       index = 344, -- Rockstopper
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 41, op = "==", value = 40 }, -- Lightning Resist +20–40%
       --{ index = 36, op = "==", value = 10 }, -- Damage Reduced by 10%
@@ -7908,7 +8648,7 @@ return {
       quality = "7",
       index = 345, -- Stealskull
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 60, op = "==", value = 5 }, -- 5% Life stolen per hit
       --{ index = 62, op = "==", value = 5 }, -- 5% Mana stolen per hit
@@ -7927,7 +8667,7 @@ return {
       quality = "7",
       index = 346, -- Darksight Helm
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 89, op = "==", value = -2 }, -- -2 to Light Radius
       --{ index = 221, op = "==", value = 2 }, -- +2 Defense (per level)
@@ -7947,7 +8687,7 @@ return {
       quality = "7",
       index = 347, -- Valkyrie Wing
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +150–200% Enhanced Defense
       --{ index = 96, op = "==", value = 20 }, -- +20% Faster Run/Walk
@@ -7965,7 +8705,7 @@ return {
       quality = "7",
       index = 348, -- Crown of Thieves
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 2, op = "==", value = 25 }, -- +25 Dexterity
       { index = 60, op = "==", value = 12 }, -- 9–12% Life stolen per hit
@@ -7985,7 +8725,7 @@ return {
       quality = "7",
       index = 349, -- Blackhorn's Face
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 128, op = "==", value = 25 }, -- Attacker Takes Lightning Damage of 25
       --{ index = 150, op = "==", value = 20 }, -- Slows Target by 20%
@@ -8004,7 +8744,7 @@ return {
       quality = "7",
       index = 350, -- The Spirit Shroud
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 118, op = "==", value = 1 }, -- Half Freeze Duration
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -8023,7 +8763,7 @@ return {
       quality = "7",
       index = 351, -- Skin of the Vipermagi
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 120 }, -- +120% Enhanced Defense
       { index = 39, op = "==", value = 35 }, -- All Resistances +20–35
@@ -8041,7 +8781,7 @@ return {
       quality = "7",
       index = 352, -- Skin of the Flayed One
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 74, op = "==", value = 25 }, -- Replenish Life +15–25
       { index = 60, op = "==", value = 7 }, -- 5–7% Life stolen per hit
@@ -8058,7 +8798,7 @@ return {
       quality = "7",
       index = 353, -- Iron Pelt
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 7, op = "==", value = 25*256 }, -- +25 Life
       { index = 35, op = "==", value = 16 }, -- Magic Damage Reduced by 10–16
@@ -8076,7 +8816,7 @@ return {
       quality = "7",
       index = 354, -- Spirit Forge
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 89, op = "==", value = 4 }, -- +4 to Light Radius
       --{ index = 221, op = "==", value = 1 }, -- +1.25 Life per level
@@ -8096,7 +8836,7 @@ return {
       quality = "7",
       index = 355, -- Crow Caw
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 135, op = "==", value = 15 }, -- 15% Chance of Open Wounds
       --{ index = 16, op = "==", value = 180 }, -- +150–180% Enhanced Defense
@@ -8115,7 +8855,7 @@ return {
       quality = "7",
       index = 356, -- Shaftstop
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 32, op = "==", value = 250 }, -- +250 Defense vs. Missile
       --{ index = 36, op = "==", value = 30 }, -- Damage Reduced by 30%
@@ -8133,7 +8873,7 @@ return {
       quality = "7",
       index = 357, -- Duriel's Shell
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 0, op = "==", value = 15 }, -- +15 Strength
       --{ index = 214, op = "==", value = 8*1.25 }, -- +1.25 Defense per level
@@ -8157,7 +8897,7 @@ return {
       quality = "7",
       index = 358, -- Skullder's Ire
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
       --{ index = 79, op = "==", value = 1 }, -- 1.25% MF per level
@@ -8174,7 +8914,7 @@ return {
       quality = "7",
       index = 359, -- Guardian Angel
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 89, op = "==", value = 4 }, -- +4 to Light Radius
       --{ index = 83, op = "==", param = 3, value = 1 }, -- +1 to Paladin Skill Levels
@@ -8196,7 +8936,7 @@ return {
       quality = "7",
       index = 360, -- Toothrow
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 78, op = "==", value = 40 }, -- Attacker Takes Damage of 20–40
       --{ index = 31, op = "==", value = 60 }, -- +40–60 Defense
@@ -8216,7 +8956,7 @@ return {
       quality = "7",
       index = 361, -- Atma's Wail
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 2, op = "==", value = 15 }, -- +15 Dexterity
       --{ index = 74, op = "==", value = 10 }, -- Replenish Life +10
@@ -8236,7 +8976,7 @@ return {
       quality = "7",
       index = 362, -- Black Hades
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 89, op = "==", value = -2 }, -- -2 to Light Radius
       { index = 123, op = "==", value = 250 }, -- +200–250 AR vs Demons
@@ -8255,7 +8995,7 @@ return {
       quality = "7",
       index = 363, -- Corpsemourn
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 0, op = "==", value = 8 }, -- +8 Strength
       --{ index = 3, op = "==", value = 10 }, -- +10 Vitality
@@ -8276,7 +9016,7 @@ return {
       quality = "7",
       index = 364, -- Que-Hegan's Wisdom
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 105, op = "==", value = 20 }, -- +20% Faster Cast Rate
       --{ index = 138, op = "==", value = 3 }, -- +3 Mana after each Kill
@@ -8296,7 +9036,7 @@ return {
       quality = "7",
       index = 365, -- Visceratuant
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 1, value = 1 }, -- +1 to Sorceress Skill Levels
       --{ index = 20, op = "==", value = 30 }, -- 30% Increased Chance of Blocking
@@ -8315,7 +9055,7 @@ return {
       quality = "7",
       index = 366, -- Moser's Blessed Circle
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 39, op = "==", value = 25 }, -- All Resistances +25
       --{ index = 20, op = "==", value = 25 }, -- 25% Increased Chance of Blocking
@@ -8335,7 +9075,7 @@ return {
       quality = "7",
       index = 367, -- Stormchaser
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 50, op = "==", value = 1 }, -- Adds 1 Lightning Damage (min)
       --{ index = 51, op = "==", value = 60 }, -- Adds 60 Lightning Damage (max)
@@ -8359,7 +9099,7 @@ return {
       quality = "7",
       index = 368, -- Tiamat's Rebuke
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 54, op = "==", value = 27 }, -- Adds 27 Cold Damage (min)
       --{ index = 55, op = "==", value = 53 }, -- Adds 53 Cold Damage (max)
@@ -8384,7 +9124,7 @@ return {
       quality = "7",
       index = 369, -- Gerke's Sanctuary
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 34, op = "==", value = 20 }, -- Damage Reduced by 15–20
       { index = 35, op = "==", value = 23 }, -- Magic Damage Reduced by 18–23
@@ -8404,7 +9144,7 @@ return {
       quality = "7",
       index = 370, -- Radament's Sphere
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 58, op = "==", value = 80 }, -- +80 Poison Damage over 4 seconds
       --{ index = ?, op = "==", value = 5 }, -- 5% Chance to cast lvl 5 Poison Nova when struck
@@ -8425,7 +9165,7 @@ return {
       quality = "7",
       index = 371, -- Venom Grip
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 45, op = "==", value = 30 }, -- Poison Resist +30%
       --{ index = 46, op = "==", value = 5 }, -- +5% to Maximum Poison Resist
@@ -8445,7 +9185,7 @@ return {
       quality = "7",
       index = 372, -- Gravepalm
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 1, op = "==", value = 10 }, -- +10 Energy
       --{ index = 0, op = "==", value = 10 }, -- +10 Strength
@@ -8463,7 +9203,7 @@ return {
       quality = "7",
       index = 373, -- Ghoulhide
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 246, op = "==", value = 2*8 }, -- +8 AR vs Undead (per level)
       --{ index = 221, op = "==", value = 2 }, -- +2% Damage to Undead (per level)
@@ -8481,7 +9221,7 @@ return {
       quality = "7",
       index = 374, -- Lava Gout
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 39, op = "==", value = 24 }, -- Fire Resist +24%
       --{ index = 118, op = "==", value = 1 }, -- Half Freeze Duration
@@ -8501,7 +9241,7 @@ return {
       quality = "7",
       index = 375, -- Hellmouth
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 15 }, -- Adds 15 Fire Damage (min)
       --{ index = 49, op = "==", value = 72 }, -- Adds 72 Fire Damage (max)
@@ -8521,7 +9261,7 @@ return {
       quality = "7",
       index = 376, -- Infernostride
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 12 }, -- Adds 12 Fire Damage (min)
       --{ index = 49, op = "==", value = 33 }, -- Adds 33 Fire Damage (max)
@@ -8544,7 +9284,7 @@ return {
       quality = "7",
       index = 377, -- Waterwalk
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 32, op = "==", value = 100 }, -- +100 Defense vs. Missile
       --{ index = 96, op = "==", value = 20 }, -- +20% Faster Run/Walk
@@ -8565,7 +9305,7 @@ return {
       quality = "7",
       index = 378, -- Silkweave
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 190 }, -- +150–190% Enhanced Defense
       --{ index = 138, op = "==", value = 5 }, -- +5 Mana after each Kill
@@ -8583,7 +9323,7 @@ return {
       quality = "7",
       index = 379, -- War Traveler
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 3, op = "==", value = 10 }, -- +10 Vitality
       --{ index = 0, op = "==", value = 10 }, -- +10 Strength
@@ -8604,7 +9344,7 @@ return {
       quality = "7",
       index = 380, -- Gore Rider
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 91, op = "==", value = -25 }, -- Requirements -25%
       --{ index = 141, op = "==", value = 10 }, -- 10% Deadly Strike
@@ -8626,7 +9366,7 @@ return {
       quality = "7",
       index = 381, -- String of Ears
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 35, op = "==", value = 15 }, -- Magic Damage Reduced by 10–15
       { index = 36, op = "==", value = 15 }, -- Damage Reduced by 10–15%
@@ -8644,7 +9384,7 @@ return {
       quality = "7",
       index = 382, -- Razortail
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 78, op = "==", value = 1 }, -- Attacker Takes Damage (per level)
       --{ index = 2, op = "==", value = 15 }, -- +15 Dexterity
@@ -8663,7 +9403,7 @@ return {
       quality = "7",
       index = 383, -- Gloom's Trap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 89, op = "==", value = -2 }, -- -2 to Light Radius
       { index = 77, op = "==", value = 20 }, -- Increase Maximum Mana by 15–20%
@@ -8682,7 +9422,7 @@ return {
       quality = "7",
       index = 384, -- Snowclash
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = ?, op = "==", value = 20 }, -- 5% Chance to cast lvl 13–20 Blizzard when struck
       --{ index = 149, op = "==", value = 15 }, -- +15 Cold Absorb
@@ -8704,7 +9444,7 @@ return {
       quality = "7",
       index = 385, -- Thundergod's Vigor
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = ?, op = "==", value = 7 }, -- 5% Chance to cast lvl 7 Fist of the Heavens when struck
       --{ index = 50, op = "==", value = 1 }, -- Adds 1 Lightning Damage (min)
@@ -8727,7 +9467,7 @@ return {
       quality = "7",
       index = 386, -- Vampire Gaze
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 60, op = "==", value = 8 }, -- 6–8% Life stolen per hit
       { index = 62, op = "==", value = 8 }, -- 6–8% Mana stolen per hit
@@ -8748,7 +9488,7 @@ return {
       quality = "7",
       index = 387, -- Lidless Wall
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 89, op = "==", value = 1 }, -- +1 to Light Radius
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -8769,7 +9509,7 @@ return {
       quality = "7",
       index = 388, -- Lance Guard
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 7, op = "==", value = 50*256 }, -- +50 Life
       --{ index = 99, op = "==", value = 30 }, -- +30% Faster Hit Recovery
@@ -8789,7 +9529,7 @@ return {
       quality = "7",
       index = 389, -- Primal Power
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 0, op = "==", value = 10 }, -- +10 Strength
       --{ index = 286, op = "==", value = 10 }, -- Reduce Cooldowns by 10%
@@ -8805,7 +9545,7 @@ return {
       quality = "7",
       index = 390, -- Murder of Crows
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 283, op = "==", value = 2 }, -- +1–2 Summoning Power
       { index = 403, op = "==", value = 55 }, -- Increase Raven Damage by 45–55%
@@ -8822,7 +9562,7 @@ return {
       quality = "7",
       index = 391, -- Cheetah Stance
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 96, op = "==", value = 10 }, -- +5–10% Faster Run/Walk
       { index = 99, op = "==", value = 20 }, -- +10–20% Faster Hit Recovery
@@ -8840,7 +9580,7 @@ return {
       quality = "7",
       index = 392, -- Uproar
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 225, value = 5 }, -- +5 to Roar (Druid only)
       --{ index = 221, op = "==", value = 1 }, -- +1.5 Life per level
@@ -8857,7 +9597,7 @@ return {
       quality = "7",
       index = 393, -- Flame Spirit
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 93, op = "==", value = 20 }, -- +10–20% Increased Attack Speed
       --{ index = 107, op = "==", param = 195, value = 5 }, -- +5 to Fissure (Druid only)
@@ -8874,7 +9614,7 @@ return {
       quality = "7",
       index = 394, -- Toothless Maw
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 221, value = 2 }, -- +2 to Bash (Barbarian only)
       --{ index = 138, op = "==", value = 2 }, -- +2 Mana after each Kill
@@ -8891,7 +9631,7 @@ return {
       quality = "7",
       index = 395, -- Darkfear
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 156, op = "==", value = 10 }, -- +5–10% Piercing Attack
       --{ index = 93, op = "==", value = 20 }, -- +20% Increased Attack Speed
@@ -8908,7 +9648,7 @@ return {
       quality = "7",
       index = 396, -- Thermal Shock
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 335, op = "==", value = 10 }, -- -5–10% to Enemy Cold Resistance
       { index = 333, op = "==", value = 10 }, -- -5–10% to Enemy Fire Resistance
@@ -8927,7 +9667,7 @@ return {
       quality = "7",
       index = 397, -- Nature's Protector
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 226, value = 5 }, -- +5 to Natural Resistance (Barbarian only)
       { index = 39, op = "==", value = 15 }, -- All Resistances +10–15
@@ -8944,7 +9684,7 @@ return {
       quality = "7",
       index = 398, -- Reckless Fury
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 118, value = 2 }, -- Level 2 Might Aura When Equipped
       --{ index = 93, op = "==", value = -20 }, -- -20% Increased Attack Speed
@@ -8960,7 +9700,7 @@ return {
       quality = "7",
       index = 399, -- Siggard's Stealth
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 388, op = "==", value = 7 }, -- Smite: 6–7
       --{ index = 20, op = "==", value = 10 }, -- 10% Increased Chance of Blocking
@@ -8976,7 +9716,7 @@ return {
       quality = "7",
       index = 400, -- Caster's Courage
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 388, op = "==", value = 9 }, -- Smite: 8–9
       --{ index = 102, op = "==", value = 10 }, -- +10% Faster Block Rate
@@ -8994,7 +9734,7 @@ return {
       quality = "7",
       index = 401, -- Briar Patch
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 388, op = "==", value = 11 }, -- Smite: 10–11
       --{ index = 238, op = "==", value = 8*0.5 }, -- Attacker Takes Damage per level (0.5)
@@ -9011,7 +9751,7 @@ return {
       quality = "7",
       index = 402, -- Ricochet
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 388, op = "==", value = 13 }, -- Smite: 12–13
       --{ index = 107, op = "==", param = 107, value = 5 }, -- +5 to Shield Toss (Paladin only)
@@ -9028,7 +9768,7 @@ return {
       quality = "7",
       index = 403, -- Favored Path
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 388, op = "==", value = 17 }, -- Smite: 16–17
       --{ index = 107, op = "==", param = 124, value = 5 }, -- +5 to Pass Favour (Paladin only)
@@ -9047,7 +9787,7 @@ return {
       quality = "7",
       index = 404, -- Old Friend
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 97, op = "==", param = 70, value = 1 }, -- +1 Raise Skeleton
       --{ index = 97, op = "==", param = 69, value = 1 }, -- +1 Summon Mastery
@@ -9065,7 +9805,7 @@ return {
       quality = "7",
       index = 405, -- Decomposed
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 45, op = "==", value = 30 }, -- Poison Resist +20–30%
       --{ index = 110, op = "==", value = 25 }, -- Poison Length Reduced 25%
@@ -9084,7 +9824,7 @@ return {
       quality = "7",
       index = 406, -- Tangled Fellow
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 2, value = 2 }, -- +2 to Curses (Necro Only)
       { index = 9, op = "==", value = 25*256 }, -- +15–25 Mana
@@ -9102,7 +9842,7 @@ return {
       quality = "7",
       index = 407, -- Stubborn Stone
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 75, value = 3 }, -- +3 Tongolem (Necro only)
       --{ index = 107, op = "==", param = 69, value = 2 }, -- +2 Summon Mastery (Necro only)
@@ -9121,7 +9861,7 @@ return {
       quality = "7",
       index = 408, -- Spiked Dreamcatcher
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 17, value = 2 }, -- +2 Poison & Bone (Necro only)
       { index = 332, op = "==", value = 6 }, -- +4–6% Poison Skill Damage
@@ -9139,7 +9879,7 @@ return {
       quality = "7",
       index = 409, -- Journeyman's Band
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 415, op = "==", value = 5 }, -- Weight +3–5
       --{ index = 127, op = "==", value = 1 }, -- +1 All Skills
@@ -9158,7 +9898,7 @@ return {
       quality = "7",
       index = 410, -- Hygieia's Purity
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 415, op = "==", value = 5 }, -- Weight +3–5
       --{ index = 110, op = "==", value = 25 }, -- Poison Length Reduced 25%
@@ -9177,7 +9917,7 @@ return {
       quality = "7",
       index = 411, -- Kira's Guardian
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 120 }, -- +50–120 Defense
       { index = 39, op = "==", value = 70 }, -- All Resistances +50–70
@@ -9195,7 +9935,7 @@ return {
       quality = "7",
       index = 412, -- Griffon's Eye
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 200 }, -- +100–200 Defense
       --{ index = 105, op = "==", value = 25 }, -- +25% Faster Cast Rate
@@ -9215,7 +9955,7 @@ return {
       quality = "7",
       index = 413, -- Harlequin Crest
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 127, op = "==", value = 2 }, -- +2 All Skills
       --{ index = 216, op = "==", value = 2048*1.5 }, -- +1.5 Life per level
@@ -9234,7 +9974,7 @@ return {
       quality = "7",
       index = 414, -- Tarnhelm's Revenge
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 0, op = "==", value = 35 }, -- +20–35 Strength
       --{ index = 221, op = "==", value = 8*0.5 }, -- +0.5 Dex per level
@@ -9258,7 +9998,7 @@ return {
       quality = "7",
       index = 415, -- Steel Shade
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 130 }, -- +100–130% ED
       { index = 143, op = "==", value = 11 }, -- Fire Absorb 5–11
@@ -9275,7 +10015,7 @@ return {
       quality = "7",
       index = 416, -- Veil of Steel
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 39, op = "==", value = 50 }, -- All Res +50
       --{ index = 16, op = "==", value = 60 }, -- +60% ED
@@ -9294,7 +10034,7 @@ return {
       quality = "7",
       index = 417, -- Nightwing's Veil
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 120 }, -- +90–120% ED
       --{ index = 127, op = "==", value = 2 }, -- +2 All Skills
@@ -9314,7 +10054,7 @@ return {
       quality = "7",
       index = 418, -- Crown of Ages
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 99, op = "==", value = 30 }, -- +30% Faster Hit Recovery
       { index = 39, op = "==", value = 30 }, -- All Res +20–30
@@ -9333,7 +10073,7 @@ return {
       quality = "7",
       index = 419, -- Andariel's Visage
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 150 }, -- +100–150% ED
       --{ index = 45, op = "==", value = 70 }, -- Poison Resist +70%
@@ -9356,7 +10096,7 @@ return {
       quality = "7",
       index = 420, -- Ormus' Robes
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 31, op = "==", value = 20 }, -- +10–20 Defense
       --{ index = 105, op = "==", value = 20 }, -- +20% FCR
@@ -9376,7 +10116,7 @@ return {
       quality = "7",
       index = 421, -- Arcane Protector
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +140–180% Enhanced Defense
       { index = 39, op = "==", value = 20 }, -- All Resistances +15–20
@@ -9397,7 +10137,7 @@ return {
       quality = "7",
       index = 422, -- Spell Splitter
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +140–180% Enhanced Defense
       { index = 276, op = "==", value = 3 }, -- +1–3 Spell Power
@@ -9420,7 +10160,7 @@ return {
       quality = "7",
       index = 423, -- The Gladiator's Bane
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +150–200% Enhanced Defense
       { index = 34, op = "==", value = 20 }, -- Damage Reduced by 15–20
@@ -9441,7 +10181,7 @@ return {
       quality = "7",
       index = 424, -- Balled Lighting
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +175–200% Enhanced Defense
       { index = 39, op = "==", value = 25 }, -- All Resistances +15–25
@@ -9462,7 +10202,7 @@ return {
       quality = "7",
       index = 425, -- Giant Crusher
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +160–200% Enhanced Defense
       { index = 83, op = "==", param = 4, value = 2 }, -- +1–2 Barbarian Skills
@@ -9481,7 +10221,7 @@ return {
       quality = "7",
       index = 426, -- Chained Lighting
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 201, op = "==", value = 15 }, -- 25% ctc lvl 15 Charged Bolt
       --{ index = 144, op = "==", value = 5 }, -- Lightning Absorb 5%
@@ -9504,7 +10244,7 @@ return {
       quality = "7",
       index = 427, -- Savitr's Garb
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 210 }, -- +190–210% Enhanced Defense
       --{ index = 201, op = "==", value = 1 }, -- 15% ctc lvl 1 Adrenaline on kill
@@ -9525,7 +10265,7 @@ return {
       quality = "7",
       index = 428, -- Arkaine's Valor
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 280 }, -- +250–280% Enhanced Defense
       --{ index = 99, op = "==", value = 30 }, -- +30% Faster Hit Recovery
@@ -9547,7 +10287,7 @@ return {
       quality = "7",
       index = 429, -- Strength Unleashed
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 220 }, -- +180–220% Enhanced Defense
       --{ index = 201, op = "==", value = 5 }, -- 3% ctc lvl 5 Fade on kill
@@ -9570,7 +10310,7 @@ return {
       quality = "7",
       index = 430, -- Leviathan
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +170–200% Enhanced Defense
       --{ index = 31, op = "==", value = 150 }, -- +100–150 Defense
@@ -9588,7 +10328,7 @@ return {
       quality = "7",
       index = 431, -- Duality
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 240 }, -- +200–240% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -9613,7 +10353,7 @@ return {
       quality = "7",
       index = 432, -- Steel Carapace
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 220 }, -- +190–220% Enhanced Defense
       --{ index = 99, op = "==", value = 20 }, -- +20% Faster Hit Recovery
@@ -9632,7 +10372,7 @@ return {
       quality = "7",
       index = 433, -- Tyrael's Might
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 91, op = "==", value = -100 }, -- Requirements -100%
       --{ index = 16, op = "==", value = 150 }, -- +120–150% Enhanced Defense
@@ -9656,7 +10396,7 @@ return {
       quality = "7",
       index = 434, -- Spiritual Protector
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 221, value = 5 }, -- +5 Spirit's Embrace
       { index = 7, op = "==", value = 100*256 }, -- +50–100 Life
@@ -9675,7 +10415,7 @@ return {
       quality = "7",
       index = 435, -- Cleansing Ward
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 150 }, -- +120–150% Enhanced Defense
       { index = 262, op = "==", value = 5 }, -- +3–5% Strenght
@@ -9699,7 +10439,7 @@ return {
       quality = "7",
       index = 436, -- Blackoak Shield
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 221, op = "==", value = 8*0.5 }, -- +0.5 Dex per level
       --{ index = 16, op = "==", value = 200 }, -- +160–200% Enhanced Defense
@@ -9720,7 +10460,7 @@ return {
       quality = "7",
       index = 437, -- Astrogha's Web
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +140–180% Enhanced Defense
       --{ index = 214, op = "==", value = 8*2 }, -- +2 Defense per level
@@ -9742,7 +10482,7 @@ return {
       quality = "7",
       index = 438, -- Stormshield
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 214, op = "==", value = 8*3.75 }, -- +3.75 Defense per level
       --{ index = 36, op = "==", value = 35 }, -- Damage Reduced by 35%
@@ -9765,7 +10505,7 @@ return {
       quality = "7",
       index = 439, -- Medusa's Gaze
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +150–180% Enhanced Defense
       --{ index = 150, op = "==", value = 20 }, -- Slows Target by 20%
@@ -9785,7 +10525,7 @@ return {
       quality = "7",
       index = 440, -- Spirit Ward
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +130–180% Enhanced Defense
       { index = 149, op = "==", value = 11 }, -- Cold Absorb 6–11
@@ -9806,7 +10546,7 @@ return {
       quality = "7",
       index = 441, -- Indra's Mark
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 120 }, -- +90–120% Enhanced Defense
       --{ index = 408, op = "==", value = 1 }, -- +1 to Lightning Skills
@@ -9825,7 +10565,7 @@ return {
       quality = "7",
       index = 442, -- Dracul's Grasp
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 120 }, -- +90–120% Enhanced Defense
       { index = 60, op = "==", value = 10 }, -- 7–10% Life stolen per hit
@@ -9844,7 +10584,7 @@ return {
       quality = "7",
       index = 443, -- Soul Drainer
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 120 }, -- +90–120% Enhanced Defense
       { index = 60, op = "==", value = 7 }, -- 4–7% Life stolen per hit
@@ -9863,7 +10603,7 @@ return {
       quality = "7",
       index = 444, -- Carthas's Presence
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +120–180% Enhanced Defense
       --{ index = 83, op = "==", param = 25, value = 1 }, -- +1 Offensive Advantage (Paladin)
@@ -9885,7 +10625,7 @@ return {
       quality = "7",
       index = 445, -- Steelrend
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 210 }, -- +170–210% Enhanced Defense
       { index = 0, op = "==", value = 20 }, -- +15–20 Strength
@@ -9904,7 +10644,7 @@ return {
       quality = "7",
       index = 446, -- Mana Wyrm
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +120–180% Enhanced Defense
       { index = 96, op = "==", value = 20 }, -- +10–20% Faster Run/Walk
@@ -9924,7 +10664,7 @@ return {
       quality = "7",
       index = 447, -- Sandstorm Trek
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 170 }, -- +140–170% Enhanced Defense
       --{ index = 96, op = "==", value = 20 }, -- +20% Faster Run/Walk
@@ -9946,7 +10686,7 @@ return {
       quality = "7",
       index = 448, -- Marrowwalk
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +170–200% Enhanced Defense
       --{ index = 96, op = "==", value = 20 }, -- +20% Faster Run/Walk
@@ -9968,7 +10708,7 @@ return {
       quality = "7",
       index = 449, -- Crimson Shift
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 220 }, -- +180–220% Enhanced Defense
       --{ index = 97, op = "==", param = 163, value = 3 }, -- +3 Blink Strike
@@ -9989,7 +10729,7 @@ return {
       quality = "7",
       index = 450, -- Lelantus's Frenzy
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 220 }, -- +180–220% Enhanced Defense
       --{ index = 201, op = "==", value = 1 }, -- 20% ctc lvl 1 Adrenaline on kill
@@ -10011,7 +10751,7 @@ return {
       quality = "7",
       index = 451, -- Arachnid Mesh
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 120 }, -- +90–120% Enhanced Defense
       --{ index = 105, op = "==", value = 20 }, -- +20% Faster Cast Rate
@@ -10030,7 +10770,7 @@ return {
       quality = "7",
       index = 452, -- Nosferatu's Coil
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 0, op = "==", value = 15 }, -- +15 Strength
       --{ index = 138, op = "==", value = 4 }, -- +4 Mana after kill
@@ -10049,7 +10789,7 @@ return {
       quality = "7",
       index = 453, -- Verdungo's Hearty Cord
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 140 }, -- +90–140% Enhanced Defense
       { index = 3, op = "==", value = 40 }, -- +30–40 Vitality
@@ -10068,7 +10808,7 @@ return {
       quality = "7",
       index = 454, -- Magni's Warband
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 250 }, -- +200–250% Enhanced Defense
       { index = 0, op = "==", value = 45 }, -- +25–45 Strength
@@ -10088,7 +10828,7 @@ return {
       quality = "7",
       index = 455, -- Arcanist's Safeguard
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 250 }, -- +200–250% Enhanced Defense
       --{ index = 119, op = "==", value = 16 }, -- +16 AR (Energy)
@@ -10109,7 +10849,7 @@ return {
       quality = "7",
       index = 456, -- Giant Skull
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 320 }, -- +250–320% Enhanced Defense
       { index = 0, op = "==", value = 35 }, -- +25–35 Strength
@@ -10126,7 +10866,7 @@ return {
       quality = "7",
       index = 457, -- Head Hunter's Glory
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 420 }, -- +320–420% Enhanced Defense
       { index = 32, op = "==", value = 350 }, -- +300–350 Defense vs Missile
@@ -10145,7 +10885,7 @@ return {
       quality = "7",
       index = 458, -- Spike Thorn
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 150 }, -- +120–150% Enhanced Defense
       --{ index = 78, op = "==", value = 1.375 }, -- Attacker Takes Damage per level
@@ -10164,7 +10904,7 @@ return {
       quality = "7",
       index = 459, -- Flame of Combat
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 140 }, -- +100–140% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 All Skills
@@ -10182,7 +10922,7 @@ return {
       quality = "7",
       index = 460, -- Mystic Command
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 140 }, -- +100–140% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 All Skills
@@ -10200,7 +10940,7 @@ return {
       quality = "7",
       index = 461, -- Rama's Protector
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       { index = 83, op = "==", param = 5, value = 2 }, -- +1–2 to Druid Skill Levels
@@ -10221,7 +10961,7 @@ return {
       quality = "7",
       index = 462, -- Snow Spirit
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       --{ index = 83, op = "==", param = 5, value = 1 }, -- +1 to Druid Skill Levels
@@ -10240,7 +10980,7 @@ return {
       quality = "7",
       index = 463, -- Efreeti's Fury
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +140–180% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -10260,7 +11000,7 @@ return {
       quality = "7",
       index = 464, -- Combat Visor
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 140 }, -- +100–140% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -10279,7 +11019,7 @@ return {
       quality = "7",
       index = 465, -- Strength of Pride
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       { index = 83, op = "==", param = 4, value = 2 }, -- +1–2 to Barbarian Skill Levels
@@ -10297,7 +11037,7 @@ return {
       quality = "7",
       index = 466, -- Fighter's Stance
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       { index = 83, op = "==", param = 4, value = 2 }, -- +1–2 to Barbarian Skill Levels
@@ -10316,7 +11056,7 @@ return {
       quality = "7",
       index = 467, -- Piercing Cold
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +140–180% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -10336,7 +11076,7 @@ return {
       quality = "7",
       index = 468, -- Arreat's Face
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 4, value = 2 }, -- +2 to Barbarian Skill Levels
       --{ index = 107, op = "==", param = 149, value = 2 }, -- +2 to Close Quarters (Barb only)
@@ -10358,7 +11098,7 @@ return {
       quality = "7",
       index = 469, -- Fara's Defender
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       --{ index = 83, op = "==", param = 3, value = 1 }, -- +1 to Paladin Skill Levels
@@ -10378,7 +11118,7 @@ return {
       quality = "7",
       index = 470, -- Rakkis's Guard
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       { index = 193, op = "==", value = 15 }, -- Enemy magic immunity reduced by 5–15%
@@ -10398,7 +11138,7 @@ return {
       quality = "7",
       index = 471, -- Assaulter's Armament
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +140–160% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -10420,7 +11160,7 @@ return {
       quality = "7",
       index = 472, -- Herald of Zakarum
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 3, value = 2 }, -- +2 to Paladin Skill Levels
       --{ index = 188, op = "==", param = 24, value = 2 }, -- +2 to Combat Skills (Paladin Only)
@@ -10443,7 +11183,7 @@ return {
       quality = "7",
       index = 473, -- Blackheart's Barrage
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 3, value = 2 }, -- +2 to Paladin Skill Levels
       { index = 107, op = "==", param = 107, value = 7 }, -- +3–7 Shield Toss (Paladin only)
@@ -10468,7 +11208,7 @@ return {
       quality = "7",
       index = 474, -- Mehtan's Carrion
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 140 }, -- +100–140% Enhanced Defense
       --{ index = 83, op = "==", param = 2, value = 1 }, -- +1 to Necromancer Skill Levels
@@ -10487,7 +11227,7 @@ return {
       quality = "7",
       index = 475, -- Venom Storm
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       { index = 410, op = "==", value = 3 }, -- +1–3 to Poison Skills
@@ -10506,7 +11246,7 @@ return {
       quality = "7",
       index = 476, -- Bone Zone
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       { index = 188, op = "==", param = 18, value = 3 }, -- +1–3 Summoning Skills (Necro only)
@@ -10525,7 +11265,7 @@ return {
       quality = "7",
       index = 477, -- Contagion
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +140–180% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -10544,7 +11284,7 @@ return {
       quality = "7",
       index = 478, -- Homunculus
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 2, value = 2 }, -- +2 to Necromancer Skill Levels
       --{ index = 188, op = "==", param = 16, value = 2 }, -- +2 to Curses (Necro only)
@@ -10566,7 +11306,7 @@ return {
       quality = "7",
       index = 479, -- Cerebus' Bite
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 140 }, -- +130–140% Enhanced Defense
       { index = 188, op = "==", param = 41, value = 4 }, -- +2–4 Blaze Wolf Skills (Druid only)
@@ -10585,7 +11325,7 @@ return {
       quality = "7",
       index = 480, -- Pack Mentality
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 210 }, -- +170–210% Enhanced Defense
       { index = 188, op = "==", param = 40, value = 4 }, -- +2–4 Nature's Teachings (Druid only)
@@ -10608,7 +11348,7 @@ return {
       quality = "7",
       index = 481, -- Spirit Keeper
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 190 }, -- +170–190% Enhanced Defense
       --{ index = 99, op = "==", value = 20 }, -- +20% Faster Hit Recovery
@@ -10628,7 +11368,7 @@ return {
       quality = "7",
       index = 482, -- Ravenlore
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 150 }, -- +120–150% Enhanced Defense
       { index = 39, op = "==", value = 25 }, -- All Resistances +15–25
@@ -10648,7 +11388,7 @@ return {
       quality = "7",
       index = 483, -- Jalal's Mane
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 5, value = 2 }, -- +2 Druid Skill Levels
       --{ index = 107, op = "==", param = 41, value = 2 }, -- +2 Blaze Wolf Skills
@@ -10670,7 +11410,7 @@ return {
       quality = "7",
       index = 484, -- Berserker's Stance
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 190 }, -- +170–190% Enhanced Defense
       { index = 83, op = "==", param = 4, value = 2 }, -- +1–2 Barbarian Skill Levels
@@ -10690,7 +11430,7 @@ return {
       quality = "7",
       index = 485, -- Wolfhowl
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 150 }, -- +120–150% Enhanced Defense
       { index = 188, op = "==", param = 34, value = 3 }, -- +2–3 Destructive Range (Barb only)
@@ -10714,7 +11454,7 @@ return {
       quality = "7",
       index = 486, -- Demonhorn's Edge
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 160 }, -- +120–160% Enhanced Defense
       --{ index = 93, op = "==", value = 10 }, -- +10% IAS
@@ -10735,7 +11475,7 @@ return {
       quality = "7",
       index = 487, -- Halaberd's Reign
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 170 }, -- +140–170% Enhanced Defense
       --{ index = 107, op = "==", param = 33, value = 1 }, -- +1 War Masteries (Barb only)
@@ -10755,7 +11495,7 @@ return {
       quality = "7",
       index = 488, -- Warrior's Resolve
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 260 }, -- +220–260% Enhanced Defense
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -10781,7 +11521,7 @@ return {
       quality = "7",
       index = 489, -- Primordial Punisher
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 210 }, -- +180–210% Enhanced Defense
       { index = 83, op = "==", param = 3, value = 2 }, -- +1–2 Paladin Skill Levels
@@ -10805,7 +11545,7 @@ return {
       quality = "7",
       index = 490, -- Alma Negra
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 210 }, -- +180–210% Enhanced Defense
       --{ index = 102, op = "==", value = 30 }, -- +30% Faster Block Rate
@@ -10826,7 +11566,7 @@ return {
       quality = "7",
       index = 491, -- Faitful Guardian
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 210 }, -- +180–210% Enhanced Defense
       --{ index = 20, op = "==", value = 20 }, -- 20% Increased Chance of Blocking
@@ -10848,7 +11588,7 @@ return {
       quality = "7",
       index = 492, -- Dragonscale
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +170–200% Enhanced Defense
       { index = 142, op = "==", value = 20 }, -- Fire Absorb 10–20%
@@ -10870,7 +11610,7 @@ return {
       quality = "7",
       index = 493, -- Shield of Forsaken Light
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 97, op = "==", param = 221, value = 1 }, -- +1 Shield of Forsaken Light
       { index = 0, op = "==", value = 30 }, -- +20–30 all Attributes (Str)
@@ -10895,7 +11635,7 @@ return {
       quality = "7",
       index = 494, -- Onikuma
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 39, op = "==", value = 55 }, -- All Resistances +30–55
       --{ index = 283, op = "==", value = 2 }, -- +2 Summoning Power
@@ -10915,7 +11655,7 @@ return {
       quality = "7",
       index = 495, -- Bone Parade
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 175 }, -- +150–175% Enhanced Defense
       { index = 188, op = "==", param = 18, value = 2 }, -- +1–2 Summoning Skills (Necro)
@@ -10936,7 +11676,7 @@ return {
       quality = "7",
       index = 496, -- Elanuzuru
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 175 }, -- +150–175% Enhanced Defense
       { index = 188, op = "==", param = 18, value = 2 }, -- +1–2 Summoning Skills (Necro)
@@ -10956,7 +11696,7 @@ return {
       quality = "7",
       index = 497, -- Boneflame
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 150 }, -- +120–150% Enhanced Defense
       --{ index = 96, op = "==", value = 20 }, -- +20% Faster Run/Walk
@@ -10974,7 +11714,7 @@ return {
       quality = "7",
       index = 498, -- Darkforce Spawn
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 180 }, -- +140–180% Enhanced Defense
       --{ index = 105, op = "==", value = 30 }, -- +30% Faster Cast Rate
@@ -10994,7 +11734,7 @@ return {
       quality = "7",
       index = 499, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder item)
       },
@@ -11008,7 +11748,7 @@ return {
       quality = "7",
       index = 500, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder item)
       },
@@ -11023,7 +11763,7 @@ return {
       quality = "7",
       index = 501, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11037,7 +11777,7 @@ return {
       quality = "7",
       index = 502, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11051,7 +11791,7 @@ return {
       quality = "7",
       index = 503, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11065,7 +11805,7 @@ return {
       quality = "7",
       index = 504, -- Earth Shifter
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 300 }, -- +250–300% Enhanced Defense
       --{ index = 201, op = "==", value = 36 }, -- 5% ctc lvl 36 Fissure
@@ -11085,7 +11825,7 @@ return {
       quality = "7",
       index = 505, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11099,7 +11839,7 @@ return {
       quality = "7",
       index = 506, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11113,7 +11853,7 @@ return {
       quality = "7",
       index = 507, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11127,7 +11867,7 @@ return {
       quality = "7",
       index = 508, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11141,7 +11881,7 @@ return {
       quality = "7",
       index = 509, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11155,7 +11895,7 @@ return {
       quality = "7",
       index = 510, -- Shadow Dancer
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 100 }, -- +70–100% Enhanced Defense
       --{ index = 96, op = "==", value = 30 }, -- +30% Faster Run/Walk
@@ -11174,7 +11914,7 @@ return {
       quality = "7",
       index = 511, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11188,7 +11928,7 @@ return {
       quality = "7",
       index = 512, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11202,7 +11942,7 @@ return {
       quality = "7",
       index = 513, -- Templar's Might
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 270 }, -- +220–270% Enhanced Defense
       --{ index = 99, op = "==", value = 20 }, -- +20% Faster Hit Recovery
@@ -11222,7 +11962,7 @@ return {
       quality = "7",
       index = 514, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11236,7 +11976,7 @@ return {
       quality = "7",
       index = 515, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11250,7 +11990,7 @@ return {
       quality = "7",
       index = 516, -- Nature's Nurture
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 270 }, -- +220–270% Enhanced Defense
       { index = 83, op = "==", param = 5, value = 2 }, -- +1–2 Druid Skill Levels
@@ -11273,7 +12013,7 @@ return {
       quality = "7",
       index = 517, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11287,7 +12027,7 @@ return {
       quality = "7",
       index = 518, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11301,7 +12041,7 @@ return {
       quality = "7",
       index = 519, -- Firebelr
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 276, op = "==", value = 2 }, -- +1-2 Spell Power
       { index = 418, op = "==", value = 5 }, -- Increase Fireball explosion radius +3–5
@@ -11320,7 +12060,7 @@ return {
       quality = "7",
       index = 520, -- Flightless
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 2, op = ">=", value = 15 }, -- +5-15 Dextirity
       },
@@ -11334,7 +12074,7 @@ return {
       quality = "7",
       index = 521, -- Pinpoint
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 93, op = "==", value = 20 }, -- +20% Increased Attack Speed
       --{ index = 120, op = "==", value = 1 }, -- 100% Chance to not consume Quantity
@@ -11354,7 +12094,7 @@ return {
       quality = "7",
       index = 522, -- Nokozan Relic
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 3 }, -- Adds 3 Fire Damage
       --{ index = 49, op = "==", value = 6 }, -- Adds 6 Fire Damage
@@ -11373,7 +12113,7 @@ return {
       quality = "7",
       index = 523, -- The Eye of Etlich
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 32, op = "==", value = 40 }, -- +10–40 Defense vs Missile
       { index = 89, op = "==", value = 5 }, -- +1–5 Light Radius
@@ -11392,7 +12132,7 @@ return {
       quality = "7",
       index = 524, -- The Mahim-Oak Curio
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 0, op = "==", value = 10 }, -- +10 Strength (all attribute)
       --{ index = 89, op = "==", value = 10 }, -- +10 Light Radius
@@ -11411,7 +12151,7 @@ return {
       quality = "7",
       index = 525, -- Nagelring
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 35, op = "==", value = 3 }, -- Magic Damage Reduced by 3
       --{ index = 78, op = "==", value = 3 }, -- Attacker Takes Damage of 3
@@ -11429,7 +12169,7 @@ return {
       quality = "7",
       index = 526, -- Manald Heal
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 62, op = "==", value = 7 }, -- 4–7% Mana stolen per hit
       { index = 74, op = "==", value = 8 }, -- Replenish Life +5–8
@@ -11447,7 +12187,7 @@ return {
       quality = "7",
       index = 527, -- The Stone of Jordan
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 9, op = "==", value = 20*256 }, -- +20 Mana
       --{ index = 77, op = "==", value = 25 }, -- +25% Max Mana
@@ -11465,7 +12205,7 @@ return {
       quality = "7",
       index = 528, -- Bul-Kathos' Wedding Band
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 216, op = "==", value = 2048*0.5 }, -- +0.5 Life per level
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -11482,7 +12222,7 @@ return {
       quality = "7",
       index = 529, -- The Cat's Eye
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 96, op = "==", value = 30 }, -- +30% Faster Run/Walk
       --{ index = 93, op = "==", value = 20 }, -- +20% Increased Attack Speed
@@ -11500,7 +12240,7 @@ return {
       quality = "7",
       index = 530, -- The Rising Sun
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 143, op = "==", value = 8*0.75 }, -- Absorbs 0.75 Fire Damage per level
       --{ index = 89, op = "==", value = 4 }, -- +4 Light Radius
@@ -11520,7 +12260,7 @@ return {
       quality = "7",
       index = 531, -- Crescent Moon
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 62, op = "==", value = 15 }, -- 11–15% Mana stolen per hit
       --{ index = 35, op = "==", value = 10 }, -- Magic Damage Reduced by 10
@@ -11540,7 +12280,7 @@ return {
       quality = "7",
       index = 532, -- Mara's Kaleidoscope
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 127, op = "==", value = 2 }, -- +2 to All Skills
       { index = 39, op = "==", value = 30 }, -- All Resistances +20–30
@@ -11556,7 +12296,7 @@ return {
       quality = "7",
       index = 533, -- Atma's Scarab
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 40 }, -- +40 Poison Damage over time
       --{ index = 45, op = "==", value = 75 }, -- Poison Resist +75%
@@ -11575,7 +12315,7 @@ return {
       quality = "7",
       index = 534, -- Dwarf Star
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 79, op = "==", value = 25 }, -- 25% Extra Gold
       { index = 80, op = "==", value = 20 }, -- 10–20% Magic Find
@@ -11594,7 +12334,7 @@ return {
       quality = "7",
       index = 535, -- Raven Frost
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 153, op = "==", value = 1 }, -- Cannot Be Frozen
       --{ index = 48, op = "==", value = 15 }, -- Adds 15 Cold Damage
@@ -11614,7 +12354,7 @@ return {
       quality = "7",
       index = 536, -- Highlord's Wrath
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 41, op = "==", value = 35 }, -- Lightning Resist +35%
       --{ index = 48, op = "==", value = 1 }, -- Adds 1 Lightning Damage
@@ -11634,7 +12374,7 @@ return {
       quality = "7",
       index = 537, -- Saracen's Chance
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 39, op = "==", value = 25 }, -- All Resistances +15–25
       --{ index = 201, op = "==", value = 2 }, -- 10% ctc lvl 2 Iron Maiden
@@ -11650,7 +12390,7 @@ return {
       quality = "7",
       index = 538, -- Nature's Peace
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 117, op = "==", value = 1 }, -- Prevent Monster Heal
       --{ index = 108, op = "==", value = 1 }, -- Slain Monsters Rest in Peace
@@ -11668,7 +12408,7 @@ return {
       quality = "7",
       index = 539, -- Seraph's Hymn
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 127, op = "==", value = 2 }, -- +2 to All Skills
       { index = 188, op = "==", param = 26, value = 2 }, -- +1–2 Ascending Leadership (Paladin only)
@@ -11688,7 +12428,7 @@ return {
       quality = "7",
       index = 540, -- Wisp Projector
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 144, op = "==", value = 20 }, -- Lightning Absorb 10–20%
       --{ index = 201, op = "==", value = 16 }, -- 10% ctc lvl 16 Lightning
@@ -11707,7 +12447,7 @@ return {
       quality = "7",
       index = 541, -- Constricting Ring
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 39, op = ">=", value = 40 }, -- All Resistances +15–40
       --{ index = 74, op = "==", value = -25 }, -- Replenish Life -25
@@ -11727,7 +12467,7 @@ return {
       quality = "7",
       index = 542, -- Gheed's Fortune
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 80, op = "==", value = 40 }, -- 20–40% Magic Find
       { index = 79, op = "==", value = 40 }, -- 20–40% Extra Gold
@@ -11744,7 +12484,7 @@ return {
       quality = "7",
       index = 543, -- Annihilus
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
       { index = 0, op = "==", value = 20 }, -- +10–20 Strength (all attribute)
@@ -11762,7 +12502,7 @@ return {
       quality = "7",
       index = 544, -- Carrion Wind
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 32, op = "==", value = 160 }, -- +100–160 Defense vs Missile
       { index = 60, op = "==", value = 9 }, -- 6–9% Life stolen per hit
@@ -11783,7 +12523,7 @@ return {
       quality = "7",
       index = 545, -- Metalgrid
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 31, op = "==", value = 350 }, -- +300–350 Defense
       { index = 39, op = "==", value = 35 }, -- All Resistances +25–35
@@ -11802,7 +12542,7 @@ return {
       quality = "7",
       index = 546, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11816,7 +12556,7 @@ return {
       quality = "7",
       index = 547, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11830,7 +12570,7 @@ return {
       quality = "7",
       index = 548, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11844,7 +12584,7 @@ return {
       quality = "7",
       index = 549, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -11858,7 +12598,7 @@ return {
       quality = "7",
       index = 550, -- Lightning Facet
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 1 }, -- Adds 1 Lightning Damage
       --{ index = 49, op = "==", value = 74 }, -- Adds 74 Lightning Damage
@@ -11877,7 +12617,7 @@ return {
       quality = "7",
       index = 551, -- Cold Facet
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 24 }, -- Adds 24 Cold Damage (min)
       --{ index = 49, op = "==", value = 38 }, -- Adds 38 Cold Damage (max)
@@ -11895,7 +12635,7 @@ return {
       quality = "7",
       index = 552, -- Fire Facet
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 17 }, -- Adds 17 Fire Damage (min)
       --{ index = 49, op = "==", value = 45 }, -- Adds 45 Fire Damage (max)
@@ -11913,7 +12653,7 @@ return {
       quality = "7",
       index = 553, -- Poison Facet
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 48, op = "==", value = 37 }, -- +37 Poison Damage over 2 sec
       { index = 332, op = "==", value = 5 }, -- +3–5% Poison Skill Damage
@@ -11930,7 +12670,7 @@ return {
       quality = "7",
       index = 554, -- Physical Facet
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 111, op = "==", value = 5 }, -- Adds 5 Damage
       --{ index = 25, op = "==", value = 10 }, -- +5–10% Enhanced Damage
@@ -11946,7 +12686,7 @@ return {
       quality = "7",
       index = 555, -- Magic Facet (blank)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --
       },
@@ -11960,7 +12700,7 @@ return {
       quality = "7",
       index = 556, -- Hellfire Torch
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 0, value = 3 }, -- +3 to Random Class Skills
       { index = 0, op = "==", value = 20 }, -- +10–20 Strength (all attribute)
@@ -11980,7 +12720,7 @@ return {
       quality = "7",
       index = 557, -- Beacon of Hope (blank)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -11994,7 +12734,7 @@ return {
       quality = "7",
       index = 558, -- The Statue of Mythos (blank)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12008,7 +12748,7 @@ return {
       quality = "7",
       index = 559, -- Quality of Life Bag (blank)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12022,7 +12762,7 @@ return {
       quality = "7",
       index = 560, -- Magefist (Lightning)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 105, op = "==", value = 20 }, -- +20% Faster Cast Rate
       --{ index = 27, op = "==", value = 25 }, -- Regenerate Mana 25%
@@ -12042,7 +12782,7 @@ return {
       quality = "7",
       index = 561, -- Magefist (Cold)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 105, op = "==", value = 20 }, -- +20% Faster Cast Rate
       --{ index = 27, op = "==", value = 25 }, -- Regenerate Mana 25%
@@ -12062,7 +12802,7 @@ return {
       quality = "7",
       index = 562, -- Magefist (Poison)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 105, op = "==", value = 20 }, -- +20% Faster Cast Rate
       --{ index = 27, op = "==", value = 25 }, -- Regenerate Mana 25%
@@ -12082,7 +12822,7 @@ return {
       quality = "7",
       index = 563, -- Magefist (Magic)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 105, op = "==", value = 20 }, -- +20% Faster Cast Rate
       --{ index = 27, op = "==", value = 25 }, -- Regenerate Mana 25%
@@ -12102,7 +12842,7 @@ return {
       quality = "7",
       index = 564, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12116,7 +12856,7 @@ return {
       quality = "7",
       index = 565, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12130,7 +12870,7 @@ return {
       quality = "7",
       index = 566, -- Hydra Master
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 97, op = "==", param = 648, value = 15 }, -- +10–15 Tri-Hydra
       --{ index = 127, op = "==", value = 4 }, -- +4 to All Skills
@@ -12153,7 +12893,7 @@ return {
       quality = "7",
       index = 567, -- Spiritual Savior
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 221, value = 5 }, -- +5 Spirit's Retribution
       { index = 19, op = "==", value = 80 }, -- +50–80 Attack Rating
@@ -12175,7 +12915,7 @@ return {
       quality = "7",
       index = 568, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12189,7 +12929,7 @@ return {
       quality = "7",
       index = 569, -- Fletcher's Fury
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 188, op = "==", param = 0, value = 2 }, -- +1–2 Bow & Crossbow (Amazon)
       --{ index = 120, op = "==", value = 1 }, -- Ignore Target's Defense
@@ -12208,7 +12948,7 @@ return {
       quality = "7",
       index = 570, -- Indra's Guidance
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 1, value = 1 }, -- +1 Amazon Skill Levels
       --{ index = 107, op = "==", param = 183, value = 3 }, -- +3 random Amazon skill (Magic Arrow–Lightning Fury)
@@ -12228,7 +12968,7 @@ return {
       quality = "7",
       index = 571, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12242,7 +12982,7 @@ return {
       quality = "7",
       index = 572, -- Robbin's Temple
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 415, op = "==", value = 5 }, -- Increase charm max weight by 3–5
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -12262,7 +13002,7 @@ return {
       quality = "7",
       index = 573, -- Gula's Testament of Gluttony
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 0, op = "==", value = 20 }, -- +20 Strength (all attribute)
       --{ index = 415, op = "==", value = 2 }, -- Charm Weight: 2
@@ -12277,7 +13017,7 @@ return {
       quality = "7",
       index = 574, -- Luxuria's Testament of Lust
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 39, op = "==", value = 15 }, -- All Resistances +15
       --{ index = 415, op = "==", value = 2 }, -- Charm Weight: 2
@@ -12292,7 +13032,7 @@ return {
       quality = "7",
       index = 575, -- Avaritia's Testament of Greed
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 36, op = "==", value = 5 }, -- Damage Reduced by 5%
       --{ index = 415, op = "==", value = 2 }, -- Charm Weight: 2
@@ -12307,7 +13047,7 @@ return {
       quality = "7",
       index = 576, -- Ira's Testament of Wrath
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
       --{ index = 415, op = "==", value = 2 }, -- Charm Weight: 2
@@ -12322,7 +13062,7 @@ return {
       quality = "7",
       index = 577, -- Acedia's Testament of Sloth
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 262, op = "==", value = 3 }, -- Increases All Stats by 3%
       --{ index = 415, op = "==", value = 2 }, -- Charm Weight: 2
@@ -12337,7 +13077,7 @@ return {
       quality = "7",
       index = 578, -- Vanagloria's Testament of Vanity
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 333, op = "==", value = 10 }, -- -10% Enemy Fire Res (all ress)
       --{ index = 415, op = "==", value = 2 }, -- Charm Weight: 2
@@ -12352,7 +13092,7 @@ return {
       quality = "7",
       index = 579, -- Superbia's Testament of Hubris
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 192, op = "==", value = 10 }, -- All enemy immunities reduced by 10%
       --{ index = 415, op = "==", value = 2 }, -- Charm Weight: 2
@@ -12367,7 +13107,7 @@ return {
       quality = "7",
       index = 580, -- Seven Deadly Sins
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 0, op = "==", value = 25 }, -- +25 Strength (all attribute)
       --{ index = 39, op = "==", value = 25 }, -- All Resistances +25
@@ -12392,7 +13132,7 @@ return {
       quality = "7",
       index = 581, -- Spirit Striker
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 201, op = "==", value = 10 }, -- 20% ctc lvl 10 Bone Spirit
       --{ index = 120, op = "==", value = 1 }, -- 100% Chance to not consume Quantity
@@ -12410,7 +13150,7 @@ return {
       quality = "7",
       index = 582, -- Aim of Indra
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 201, op = "==", value = 15 }, -- 20% ctc lvl 15 Nova
       --{ index = 120, op = "==", value = 1 }, -- 100% Chance to not consume Quantity
@@ -12428,7 +13168,7 @@ return {
       quality = "7",
       index = 583, -- Enchanted Flame
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 201, op = "==", value = 20 }, -- 20% ctc lvl 20 Enchant on kill
       --{ index = 120, op = "==", value = 1 }, -- 100% Chance to not consume Quantity
@@ -12447,7 +13187,7 @@ return {
       quality = "7",
       index = 584, -- Mageflight
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 201, op = "==", value = 25 }, -- 20% ctc lvl 25 Bolt Nova
       --{ index = 120, op = "==", value = 1 }, -- 100% Chance to not consume Quantity
@@ -12467,7 +13207,7 @@ return {
       quality = "7",
       index = 585, -- Energy Manipulator
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 427, op = "==", value = 35 }, -- Increase Buff Durations 25–35%
       --{ index = 127, op = "==", value = 1 }, -- +1 to All Skills
@@ -12486,7 +13226,7 @@ return {
       quality = "7",
       index = 586, -- Trinity
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 201, op = "==", value = 10 }, -- 20% ctc lvl 10 Tri-Hydra
       { index = 329, op = "==", value = 25 }, -- +15–25% Fire Skill Damage
@@ -12506,7 +13246,7 @@ return {
       quality = "7",
       index = 587, -- Quintessence
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 105, op = "==", value = 1 }, -- +1% FCR (Energy)
       --{ index = 93, op = "==", value = 1 }, -- +1% IAS (Strength)
@@ -12529,7 +13269,7 @@ return {
       quality = "7",
       index = 588, -- Life Everlasting
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 151, op = "==", param = 99, value = 15 }, -- Level 10–15 Prayer Aura
       { index = 7, op = "==", value = 50*256 }, -- +25–50 Life
@@ -12550,7 +13290,7 @@ return {
       quality = "7",
       index = 589, -- Hunter's Mark
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 151, op = "==", param = 108, value = 10 }, -- Level 5–10 Blessed Aim Aura
       --{ index = 2, op = "==", value = 25 }, -- +25 Dexterity
@@ -12568,7 +13308,7 @@ return {
       quality = "7",
       index = 590, -- Unholy Commander
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 221, value = 1 }, -- +1 Raise Leoric's Chosen
       { index = 0, op = "==", value = 15 }, -- +10–15 Strength (all attribute)
@@ -12584,7 +13324,7 @@ return {
       quality = "7",
       index = 591, -- Tommy's Enlightener
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 25, op = "==", value = 300 }, -- +250–300% Enhanced Damage
       { index = 111, op = "==", value = 120 }, -- Damage +60–120
@@ -12604,7 +13344,7 @@ return {
       quality = "7",
       index = 592, -- Curtis's Fortifier
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 250 }, -- +200–250% Enhanced Defense
       { index = 0, op = "==", value = 20 }, -- +10–20 Strength (all attribute)
@@ -12625,7 +13365,7 @@ return {
       quality = "7",
       index = 593, -- Kurec's Pride
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 190 }, -- +170–190% Enhanced Defense
       --{ index = 99, op = "==", value = 20 }, -- +20% Faster Hit Recovery
@@ -12646,7 +13386,7 @@ return {
       quality = "7",
       index = 594, -- Spiritual Guardian
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 107, op = "==", param = 221, value = 5 }, -- +5 Spirit's Charge
       { index = 9, op = "==", value = 100*256 }, -- +50–100 Mana
@@ -12668,7 +13408,7 @@ return {
       quality = "7",
       index = 595, -- Blackmaw's Brutality
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 320 }, -- +260–320% Enhanced Defense
       { index = 151, op = "==", param = 503, value = 15 }, -- Level 10–15 Physical Conviction Aura
@@ -12686,7 +13426,7 @@ return {
       quality = "7",
       index = 596, -- Spencer's Dispenser
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 83, op = "==", param = 7, value = 2 }, -- +2 Sorceress Skill Levels
       { index = 107, op = "==", param = 48, value = 4 }, -- +2–4 Rolling Thunder
@@ -12708,7 +13448,7 @@ return {
       quality = "7",
       index = 597, -- Fletching of Frostbite
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 201, op = "==", value = 20 }, -- 20% ctc lvl 20 Blizzard
       --{ index = 120, op = "==", value = 1 }, -- 100% Chance to not consume Quantity
@@ -12728,7 +13468,7 @@ return {
       quality = "7",
       index = 598, -- A Healthy Breakfast
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- Display Aura (no stat index provided)
       },
@@ -12742,7 +13482,7 @@ return {
       quality = "7",
       index = 599, -- The Statue of Mythos (Amazon)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12756,7 +13496,7 @@ return {
       quality = "7",
       index = 600, -- The Statue of Mythos (Assassin)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12771,7 +13511,7 @@ return {
       quality = "7",
       index = 601, -- The Statue of Mythos (Barbarian)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12785,7 +13525,7 @@ return {
       quality = "7",
       index = 602, -- The Statue of Mythos (Druid)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12799,7 +13539,7 @@ return {
       quality = "7",
       index = 603, -- The Statue of Mythos (Necromancer)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12813,7 +13553,7 @@ return {
       quality = "7",
       index = 604, -- The Statue of Mythos (Paladin)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12827,7 +13567,7 @@ return {
       quality = "7",
       index = 605, -- The Statue of Mythos (Sorceress)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -12841,7 +13581,7 @@ return {
       quality = "7",
       index = 606, -- Cola Cube
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 331, op = "==", value = 1 }, -- +1 to Cold Skills
       --{ index = 110, op = "==", value = 50 }, -- Half Freeze Duration (50% reduction)
@@ -12857,7 +13597,7 @@ return {
       quality = "7",
       index = 607, -- Soul Stompers
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 200 }, -- +170–200% Enhanced Defense
       { index = 96, op = "==", value = 25 }, -- +15–25% Faster Run/Walk
@@ -12876,7 +13616,7 @@ return {
       quality = "7",
       index = 608, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12890,7 +13630,7 @@ return {
       quality = "7",
       index = 609, -- Kingdom's Heart
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 16, op = "==", value = 300 }, -- +260–300% Enhanced Defense
       { index = 34, op = "==", value = 25 }, -- Damage Reduced by 15–25
@@ -12913,7 +13653,7 @@ return {
       quality = "7",
       index = 610, -- Prismatic Facet
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       },
       border = {165, 146, 099, 230},
@@ -12926,7 +13666,7 @@ return {
       quality = "7",
       index = 611, -- Blank Talent
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       --{ index = 415, op = "==", value = 5 }, -- Charm Weight: 5
       },
@@ -12940,7 +13680,7 @@ return {
       quality = "7",
       index = 612, -- ------- bugged cap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12954,7 +13694,7 @@ return {
       quality = "7",
       index = 613, -- ------- Bugged cap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12968,7 +13708,7 @@ return {
       quality = "7",
       index = 614, -- ------- Bugged cap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12982,7 +13722,7 @@ return {
       quality = "7",
       index = 615, -- ------- Bugged cap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -12996,7 +13736,7 @@ return {
       quality = "7",
       index = 616, -- ------- Bugged cap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13010,7 +13750,7 @@ return {
       quality = "7",
       index = 617, -- ------- Bugged cap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13024,7 +13764,7 @@ return {
       quality = "7",
       index = 618, -- ------- Bugged cap
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13038,7 +13778,7 @@ return {
       quality = "7",
       index = 619, -- ------- Bugged wep
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13052,7 +13792,7 @@ return {
       quality = "7",
       index = 620, -- ------- Bugged wep
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13066,7 +13806,7 @@ return {
       quality = "7",
       index = 621, -- Crainte Vomir
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided in dataset
       },
@@ -13080,7 +13820,7 @@ return {
       quality = "7",
       index = 622, -- Crainte Vomir (duplicate entry)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided in dataset
       },
@@ -13094,7 +13834,7 @@ return {
       quality = "7",
       index = 623, -- Spiritual Sentinel
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 193, op = "==", value = 50 }, -- enemy Magic immunities reduced by 25–50%
       { index = 40, op = "==", value = 5}, -- Max ress
@@ -13111,7 +13851,7 @@ return {
       quality = "7",
       index = 624, -- Spiritual Warden
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 191, op = "==", value = 50 }, -- enemy Poison immunities reduced by 25–50%
       { index = 77, op = "==", value = 10}, -- Max Mana
@@ -13131,7 +13871,7 @@ return {
       quality = "7",
       index = 625, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13145,7 +13885,7 @@ return {
       quality = "7",
       index = 626, -- Harlequin Crest (1.08)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 127, op = "==", value = 2}, -- +1-2 All skills
       },
@@ -13159,7 +13899,7 @@ return {
       quality = "7",
       index = 627, -- The Cat's Eye (1.08)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 278, op = "==", value = 3 }, --+1-3 Combat Power
       },
@@ -13173,7 +13913,7 @@ return {
       quality = "7",
       index = 628, -- Arkaine's Valor (Bugged)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 127, op = "==", value = 2}, -- +1-2 All skills
       { index = 99, op = ">=", value = 30}, -- Faster Hit Recovery
@@ -13188,7 +13928,7 @@ return {
       quality = "7",
       index = 629, -- String of Ears (Bugged)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 93, op = ">=", value = 20}, -- Faster attackspeed
       { index = 39, op = ">=", value = 25}, -- All ress
@@ -13204,7 +13944,7 @@ return {
       quality = "7",
       index = 630, -- Wizardspike (Fused)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 105, op = ">=", value = 50}, -- Faster Cast Rate
       { index = 39, op = ">=", value = 75}, -- All ress
@@ -13219,7 +13959,7 @@ return {
       quality = "7",
       index = 631, -- Exsanguinate
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 60, op = ">=", value = 15}, -- % life stolen per hit
       { index = 0, op = ">=", value = 15}, -- Strength
@@ -13235,7 +13975,7 @@ return {
       quality = "7",
       index = 632, -- Monar's Gale
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 107, op = ">=", param = 250, value = 5}, -- Hurricane skill (druid only)
       { index = 331, op = ">=", value = 20}, -- Cold skill damage
@@ -13251,7 +13991,7 @@ return {
       quality = "7",
       index = 633, -- The Statue of Mythos (Amazon LB1)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13265,7 +14005,7 @@ return {
       quality = "7",
       index = 634, -- The Statue of Mythos (Assassin LB1)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13279,7 +14019,7 @@ return {
       quality = "7",
       index = 635, -- The Statue of Mythos (Barbarian LB1)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13293,7 +14033,7 @@ return {
       quality = "7",
       index = 636, -- The Statue of Mythos (Druid LB1)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13307,7 +14047,7 @@ return {
       quality = "7",
       index = 637, -- The Statue of Mythos (Necromancer LB1)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13321,7 +14061,7 @@ return {
       quality = "7",
       index = 638, -- The Statue of Mythos (Paladin LB1)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13335,7 +14075,7 @@ return {
       quality = "7",
       index = 639, -- The Statue of Mythos (Sorceress LB1)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13349,7 +14089,7 @@ return {
       quality = "7",
       index = 640, -- The Statue of Mythos (Amazon LB2)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13363,7 +14103,7 @@ return {
       quality = "7",
       index = 641, -- The Statue of Mythos (Assassin LB2)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13377,7 +14117,7 @@ return {
       quality = "7",
       index = 642, -- The Statue of Mythos (Barbarian LB2)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13391,7 +14131,7 @@ return {
       quality = "7",
       index = 643, -- The Statue of Mythos (Druid LB2)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13405,7 +14145,7 @@ return {
       quality = "7",
       index = 644, -- The Statue of Mythos (Necromancer LB2)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13419,7 +14159,7 @@ return {
       quality = "7",
       index = 645, -- The Statue of Mythos (Paladin LB2)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13433,7 +14173,7 @@ return {
       quality = "7",
       index = 646, -- The Statue of Mythos (Sorceress LB2)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13447,7 +14187,7 @@ return {
       quality = "7",
       index = 647, -- The Statue of Mythos (Amazon LB3)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13461,7 +14201,7 @@ return {
       quality = "7",
       index = 648, -- The Statue of Mythos (Assassin LB3)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13475,7 +14215,7 @@ return {
       quality = "7",
       index = 649, -- The Statue of Mythos (Barbarian LB3)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13489,7 +14229,7 @@ return {
       quality = "7",
       index = 650, -- The Statue of Mythos (Druid LB3)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13504,7 +14244,7 @@ return {
       quality = "7",
       index = 651, -- The Statue of Mythos (Necromancer LB3)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13518,7 +14258,7 @@ return {
       quality = "7",
       index = 652, -- The Statue of Mythos (Paladin LB3)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13532,7 +14272,7 @@ return {
       quality = "7",
       index = 653, -- The Statue of Mythos (Sorceress LB3)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats provided
       },
@@ -13546,7 +14286,7 @@ return {
       quality = "7",
       index = 654, -- Kuroneko no Himitsu
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 96, op = ">=", value = 20}, -- Faster Run/walk
       { index = 1, op = ">=", value = 50}, -- Energy
@@ -13562,7 +14302,7 @@ return {
       quality = "7",
       index = 655, -- Dustdevil
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 151, op = ">=", param = 381, value = 10 }, --Level 6-9 Redemption Aura When Equipped
       { index = 97, op = ">=", param = 151, value = 3}, -- +1-3 Whirlwind
@@ -13579,7 +14319,7 @@ return {
       quality = "7",
       index = 656, -- Improvise
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 99, op = ">=", value = 30}, -- Faster Hit Recovery
       { index = 136, op = ">=", value = 30}, -- Crushing Blow
@@ -13595,7 +14335,7 @@ return {
       quality = "7",
       index = 657, -- Ken'Juk's Blighted Visage
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 410, op = ">=", value = 2}, -- +1-2 Poision Skill
       { index = 336, op = ">=", value = 25}, -- -XX% to Enemy Poison Resistance
@@ -13612,7 +14352,7 @@ return {
       quality = "7",
       index = 658, -- Philios Prophecy
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 188, op = ">=", param = 1, value = 5}, -- +X to Passive and Magic Skills (Amazon Only)
       { index = 107, op = ">=", param = 7, value = 7}, -- +X to Prismatic Arrow (Amazon only)
@@ -13629,7 +14369,7 @@ return {
       quality = "7",
       index = 659, -- Whisper
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 2, op = ">=", value = 15}, -- +XX to Dexterity
       { index = 156, op = ">=", value = 20}, -- +XX% Piercing Attack
@@ -13644,7 +14384,7 @@ return {
       quality = "7",
       index = 660, -- Dragon's Cinder
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 93, op = ">=", value = 30}, -- +XX% Increased Attack Speed
       { index = 189, op = ">=", value = 30}, -- Enemy fire immunity reduced by XX%
@@ -13661,7 +14401,7 @@ return {
       quality = "7",
       index = 661, -- Serpent's Fangs
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 93, op = ">=", value = 30}, -- +XX% Increased Attack Speed
       { index = 191, op = ">=", value = 30}, -- Enemy poison immunity reduced by XX%
@@ -13679,7 +14419,7 @@ return {
       quality = "7",
       index = 662, -- Valkyrie Wing 1.08
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 276, op = ">=", value = 2}, -- +XX Spell Power
       { index = 278, op = ">=", value = 2}, -- +XX Combat Power
@@ -13694,7 +14434,7 @@ return {
       quality = "7",
       index = 663, -- War Traveler (Bugged)
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13708,7 +14448,7 @@ return {
       quality = "7",
       index = 664, -- Undead Crown Fused
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 283, op = ">=", value = 2}, -- +X Summoning Power
       { index = 124, op = ">=", value = 100}, -- +XX to Attack Rating against Undead
@@ -13723,7 +14463,7 @@ return {
       quality = "7",
       index = 665, -- Colossal Charm
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       {index = 276, op = ">=", value = 3 }, -- +XX Spell Power
       {index = 278, op = ">=", value = 3 }, -- +XX Combat Power
@@ -13743,7 +14483,7 @@ return {
       quality = "7",
       index = 666, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13757,7 +14497,7 @@ return {
       quality = "7",
       index = 667, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13771,7 +14511,7 @@ return {
       quality = "7",
       index = 668, -- Black Suede
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 96, op = ">=", value = 20}, -- +XX% Faster Run/Walk
       { index = 7, op = ">=", value = 256*40}, -- +XX to Life
@@ -13787,7 +14527,7 @@ return {
       quality = "7",
       index = 669, -- Allebasi
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 105, op = ">=", value = 15}, -- +XX% Faster Cast Rate
       { index = 9, op = ">=", value = 256*19}, -- +XX to Mana
@@ -13804,7 +14544,7 @@ return {
       quality = "7",
       index = 670, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13818,7 +14558,7 @@ return {
       quality = "7",
       index = 671, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13832,7 +14572,7 @@ return {
       quality = "7",
       index = 672, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13846,7 +14586,7 @@ return {
       quality = "7",
       index = 673, -- Bigfoot
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 151, op = ">=", param = 113, value = 5}, -- Level 5 Concentration Aura When Equipped
       { index = 93, op = ">=", value = 30}, -- +XX% Increased Attack Speed
@@ -13863,7 +14603,7 @@ return {
       quality = "7",
       index = 674, -- Static Calling
       runeword = false,
-      location = {"onground","onplayer","equipped","atvendor"},
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 83, op = ">=", param = 2, value = 2}, -- +X to Necromancer Skill Levels
       { index = 281, op = ">=", value = 147}, -- Summon Damage +XX%
@@ -13879,7 +14619,7 @@ return {
       quality = "7",
       index = 675, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13893,7 +14633,7 @@ return {
       quality = "7",
       index = 676, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13907,7 +14647,7 @@ return {
       quality = "7",
       index = 677, -- Akara's Blessing
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       { index = 143, op = ">=", value = 6}, -- +XX Fire Absorb
       },
@@ -13921,7 +14661,7 @@ return {
       quality = "7",
       index = 678, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13935,7 +14675,7 @@ return {
       quality = "7",
       index = 679, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13949,7 +14689,7 @@ return {
       quality = "7",
       index = 680, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13963,7 +14703,7 @@ return {
       quality = "7",
       index = 681, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13977,7 +14717,7 @@ return {
       quality = "7",
       index = 682, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -13991,7 +14731,7 @@ return {
       quality = "7",
       index = 683, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14005,7 +14745,7 @@ return {
       quality = "7",
       index = 684, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14019,7 +14759,7 @@ return {
       quality = "7",
       index = 685, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14033,7 +14773,7 @@ return {
       quality = "7",
       index = 686, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14047,7 +14787,7 @@ return {
       quality = "7",
       index = 687, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14061,7 +14801,7 @@ return {
       quality = "7",
       index = 688, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14075,7 +14815,7 @@ return {
       quality = "7",
       index = 689, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14089,7 +14829,7 @@ return {
       quality = "7",
       index = 690, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14103,7 +14843,7 @@ return {
       quality = "7",
       index = 691, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14117,7 +14857,7 @@ return {
       quality = "7",
       index = 692, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14131,7 +14871,7 @@ return {
       quality = "7",
       index = 693, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14145,7 +14885,7 @@ return {
       quality = "7",
       index = 694, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14159,7 +14899,7 @@ return {
       quality = "7",
       index = 695, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14173,7 +14913,7 @@ return {
       quality = "7",
       index = 696, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14187,7 +14927,7 @@ return {
       quality = "7",
       index = 697, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14201,7 +14941,7 @@ return {
       quality = "7",
       index = 698, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14215,7 +14955,7 @@ return {
       quality = "7",
       index = 699, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
@@ -14229,7 +14969,7 @@ return {
       quality = "7",
       index = 700, -- -------
       runeword = false,
-      location = { "onground","onplayer","equipped","atvendor" },
+      location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
