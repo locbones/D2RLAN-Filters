@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.26
+--- Filter Title: Zexylol's Hardfilter v1.27
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques is done, Uniques 1-100 all stats <70% is hidden(WIP).
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -168,6 +168,11 @@ return {
       itype = 84,
       location = { "onplayer", "onground", "atvendor" },
       prefix = "{gold}"
+    },
+    {--Display green set border
+      codes = "allitems",
+      quality = 5,
+      border = {000, 255, 000},
     },
   --Rules 10-11 Hide Gold.
 
@@ -880,8 +885,9 @@ return {
 
     {--Treasures Notify
       codes = {"Rgx", "Ev0", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", 
-      "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33"},
+      "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33","S01"},
       notify = "ÿc;Treasure Nearby",
+      border = {139, 99, 197},
       filter_levels = "1,2,3"
     },
     {--Hide Magic Rings/Amulet, if you want to get Magic rings/Amulet, change: hide = true, to: false, .
@@ -934,7 +940,7 @@ return {
       filter_levels = "1,2"
     },
     {--Display RMD "Elite Bases"with a special EB icon in RMD Red, to the right of item name
-      codes = "allitems",
+      codes = NOT {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
       rarity = 2,
       location = {"onground", "onplayer", "equipped", "atvendor"},
       itype = {45, 50 },
@@ -14617,29 +14623,29 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 675, -- -------
+      index = 675, --Prismatic Magefist
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      --notify = "Unique Placeholder",
+      suffix = "\n {red} Merged Event Gloves",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 676, -- -------
+      index = 676, --The Rising Wisp
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      --notify = "Unique Placeholder",
+      suffix = "\n {red} Merged Event Ring",
       filter_levels = "1,2,3"
     },
     {
