@@ -1,6 +1,6 @@
---- Filter Title: Zexylol's Hardfilter v1.4
+--- Filter Title: Zexylol's Hardfilter v1.41
 --- Filter Type: (Hardconfig filter)
---- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques Max stat is done, all stats <70% is hidden done!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
+--- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques Max stat is done, all stats <70% hidden (outside of towns)!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
 return {
   reload = "{pink} Zexylol's Hardconfig Filter {pink}Reloaded",
@@ -1208,6 +1208,7 @@ return {
       index = 6, --The Gnasher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (2 + (5-2)*0.7)}, -- Damage Reduced by 2-5
@@ -1222,6 +1223,7 @@ return {
       index = 7, --Deathspade, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 35, op = "<=", value = (2 + (5-2)*0.7)}, -- Magic Damage Reduced by 2-5
@@ -1235,6 +1237,7 @@ return {
       index = 8, --Bladebone, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
@@ -1249,6 +1252,7 @@ return {
       index = 9, --Skull Splitter, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 51, op = "<=", value = (1 + (15-1)*0.7)}, -- Adds 1-12/15 Lightning Damage
       {index = 19, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100 to Attack Rating
@@ -1264,6 +1268,7 @@ return {
       index = 10, --Rakescar, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
@@ -1278,6 +1283,7 @@ return {
       index = 11, --Axe of Fechmar, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (3 + (5-3)*0.7)}, -- Damage Reduced by 3-5
       {index = 35, op = "<=", value = (3 + (5-3)*0.7)}, -- Magic Damage Reduced by 3-5
@@ -1291,6 +1297,7 @@ return {
       index = 12, --Goreshovel, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (2 + (6-2)*0.7)}, -- Damage Reduced by 2-6
       {index = 35, op = "<=", value = (2 + (6-2)*0.7)}, -- Magic Damage Reduced by 2-6
@@ -1304,6 +1311,7 @@ return {
       index = 13, --The Cheiftain, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (10 + (20-10)*0.7)}, -- All Resistances +10-20%
       {index = 34, op = "<=", value = (3 + (7-3)*0.7)}, -- Damage Reduced by 3-7
@@ -1318,6 +1326,7 @@ return {
       index = 14, --Brainhew, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 62, op = "<=", value = (10 + (13-10)*0.7)}, -- +10-13% Mana stolen per hit
       {index = 34, op = "<=", value = (6 + (9-6)*0.7)}, -- Damage Reduced by 6-9
@@ -1332,6 +1341,7 @@ return {
       index = 15, --Humongous, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 0, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30 Strength
       {index = 34, op = "<=", value = (8 + (10-8)*0.7)}, -- Damage Reduced by 8-10
@@ -1346,6 +1356,7 @@ return {
       index = 16, --Torch of Iro, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (5 + (10-5)*0.7)}, -- Fire Resist +5-10%
       },
@@ -1358,6 +1369,7 @@ return {
       index = 17, --Maelstrom, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 357, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Magic Skill Damage
       {index = 97, op = "<=", param = 77, value = (1 + (3-1)*0.7)}, -- +1-3 to Terror
@@ -1373,6 +1385,7 @@ return {
       index = 18, --Gravenspine, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 284, op = "<=", value = (10 + (20-10)*0.7)}, -- Summon Max HP: +10-20%
       {index = 9, op = "<=", value = (25 + (50-25)*0.7)*256}, -- +25-50 to Mana (value*256)
@@ -1387,6 +1400,7 @@ return {
       index = 19, --Ume's Lament, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 97, op = "<=", param = 87, value = (1 + (2-1)*0.7)}, -- +1-2 to Decrepify
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
@@ -1400,6 +1414,7 @@ return {
       index = 20, --Felloak, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -1711,6 +1726,8 @@ return {
       index = 21, --Knell Striker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -1722,6 +1739,7 @@ return {
       index = 22, --Rusthandle, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 122, op = "<=", value = (50 + (60-50)*0.7)}, -- +50-60% Damage to Undead
       {index = 107, op = "<=", param = 111, value = (1 + (3-1)*0.7)}, -- +1-3 to Vengeance (Paladin only)
@@ -1735,6 +1753,7 @@ return {
       index = 23, --Stormeye, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 107, op = "<=", param = 112, value = (3 + (5-3)*0.7)}, -- +3-5 to Blessed Hammer (Paladin only)
@@ -1748,6 +1767,7 @@ return {
       index = 24, --Stoutnail, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 78, op = "<=", value = (3 + (10-3)*0.7)}, -- Attacker Takes Damage of 3-10
       },
@@ -1760,6 +1780,7 @@ return {
       index = 25, --Crushflange, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (2 + (4-2)*0.7)}, -- Damage Reduced by 2-4
       },
@@ -1772,6 +1793,7 @@ return {
       index = 26, --Bloodrise, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (4 + (6-4)*0.7)}, -- Damage Reduced by 4-6
@@ -1785,6 +1807,7 @@ return {
       index = 27, --The General's Tan Do Li Ga, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (4 + (6-4)*0.7)}, -- Damage Reduced by 4-6
       },
@@ -1797,6 +1820,7 @@ return {
       index = 28, --Ironstone, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150 to Attack Rating
       {index = 34, op = "<=", value = (7 + (10-7)*0.7)}, -- Damage Reduced by 7-10
@@ -1810,6 +1834,7 @@ return {
       index = 29, --Bonesnap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (4 + (6-4)*0.7)}, -- Damage Reduced by 4-6
@@ -1824,6 +1849,7 @@ return {
       index = 30, --Steeldriver, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (7 + (9-7)*0.7)}, -- Damage Reduced by 7-9
       {index = 35, op = "<=", value = (7 + (9-7)*0.7)}, -- Magic Damage Reduced by 7-9
@@ -1837,6 +1863,7 @@ return {
       index = 31, --Rixot's Keen, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (1 + (3-1)*0.7)}, -- Damage Reduced by 1-3
       },
@@ -1849,6 +1876,7 @@ return {
       index = 32, --Blood Crescent, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (2 + (4-2)*0.7)}, -- Damage Reduced by 2-4
@@ -1862,6 +1890,7 @@ return {
       index = 33, --Krintiz's Skewer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (2 + (6-2)*0.7)}, -- Damage Reduced by 2-6
@@ -1875,6 +1904,7 @@ return {
       index = 34, --Gleamscythe, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (3 + (6-3)*0.7)}, -- Damage Reduced by 3-6
       },
@@ -1887,6 +1917,7 @@ return {
       index = 35, --Light's Beacon, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 329, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Fire Skill Damage
       {index = 331, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Cold Skill Damage
@@ -1902,6 +1933,7 @@ return {
       index = 36, --Griswold's Edge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 48, op = "<=", value = (10 + (12-10)*0.7)}, -- +10-12 to Minimum Fire Damage
       {index = 49, op = "<=", value = (15 + (25-15)*0.7)}, -- +15-25 to Maximum Fire Damage
@@ -1916,6 +1948,7 @@ return {
       index = 37, --Hellplague, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 35, op = "<=", value = (4 + (6-4)*0.7)}, -- Magic Damage Reduced by 4-6
@@ -1929,6 +1962,7 @@ return {
       index = 38, --Culwen's Point, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (4 + (7-4)*0.7)}, -- Damage Reduced by 4-7
       },
@@ -1941,6 +1975,7 @@ return {
       index = 39, --Shadowfang, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 35, op = "<=", value = (3 + (5-3)*0.7)}, -- Magic Damage Reduced by 3-5
@@ -1954,6 +1989,7 @@ return {
       index = 40, --Soulflay, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 62, op = "<=", value = (4 + (10-4)*0.7)}, -- 4-10% Mana stolen per hit
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
@@ -2282,6 +2318,7 @@ return {
       index = 41, --Kinemil's Awl, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150 to Attack Rating
       {index = 49, op = "<=", value = (20 + (40-20)*0.7)}, -- +20-40 to Maximum Fire Damage
@@ -2296,6 +2333,7 @@ return {
       index = 42, --Blacktongue, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (6 + (8-6)*0.7)}, -- Magic Damage Reduced by 6-8
       },
@@ -2308,6 +2346,7 @@ return {
       index = 43, --Ripsaw, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (15 + (35-15)*0.7)}, -- +15-35% Chance of Open Wounds
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
@@ -2322,6 +2361,7 @@ return {
       index = 44, --The Patriarch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -2334,6 +2374,7 @@ return {
       index = 45, --Gull, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 80, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100% Chance of Higher Quality Items
       },
@@ -2346,6 +2387,7 @@ return {
       index = 46, --The Diggler, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -2358,6 +2400,7 @@ return {
       index = 47, --The Jade Tan Do, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150 to Attack Rating
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
@@ -2373,6 +2416,7 @@ return {
       index = 48, --Spectral Shard, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 400, op = "<=", value = (1 + (3-1)*0.7)}, -- Increase Curse Duration by 1-3 seconds
@@ -2387,6 +2431,7 @@ return {
       index = 49, --Shadow Strike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 150, op = "<=", value = (5 + (15-5)*0.7)}, -- Slows Target by 5-15%
       {index = 19, op = "<=", value = (15 + (30-15)*0.7)}, -- +15-30 to Attack Rating
@@ -2401,6 +2446,7 @@ return {
       index = 50, --Madawc's First, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (10 + (15-10)*0.7)}, -- +10-15% Increased Attack Speed
       },
@@ -2413,6 +2459,7 @@ return {
       index = 51, --Carefully, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 116, op = "<=", value = (15 + (20-15)*0.7)}, -- -15-20% Target Defense
       {index = 136, op = "<=", value = (5 + (15-5)*0.7)}, -- 5-15% Chance of Crushing Blow
@@ -2428,6 +2475,7 @@ return {
       index = 52, --Ancient's Assault, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (35 + (45-35)*0.7)}, -- +35-45 to Attack Rating
       {index = 7, op = "<=", value = (15 + (20-15)*0.7)*256}, -- +15-20 to Life
@@ -2442,6 +2490,7 @@ return {
       index = 53, --Harpoonist's Training, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 10, value = (2 + (3-2)*0.7)}, -- +2-3 to Jab (Amazon only)
       },
@@ -2454,6 +2503,7 @@ return {
       index = 54, --Glorious Point, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 25, value = (1 + (2-1)*0.7)}, -- +1-2 to Plague Javelin (Amazon only)
       {index = 119, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Bonus to Attack Rating
@@ -2468,6 +2518,7 @@ return {
       index = 55, --Not So, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 14, value = (1 + (3-1)*0.7)}, -- +1-3 to Recharge (Amazon only)
       {index = 107, op = "<=", param = 24, value = (1 + (3-1)*0.7)}, -- +1-3 to Charged Strike (Amazon only)
@@ -2482,6 +2533,7 @@ return {
       index = 56, --Double Trouble, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 135, value = (1 + (2-1)*0.7)}, -- +1-2 to Throwing Mastery (Barbarian only)
       {index = 136, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Chance of Crushing Blow
@@ -2495,6 +2547,7 @@ return {
       index = 57, --Straight Shot, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 134, value = (1 + (2-1)*0.7)}, -- +1-2 to Homing Harpoon (Barbarian only)
       {index = 107, op = "<=", param = 137, value = (1 + (3-1)*0.7)}, -- +1-3 to Icy Trail (Barbarian only)
@@ -2512,6 +2565,7 @@ return {
       index = 58, --The Dragon Chang, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -2524,6 +2578,7 @@ return {
       index = 59, --Razortine, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -2535,6 +2590,7 @@ return {
       index = 60, --Bloodthief, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (20 + (30-20)*0.7)}, -- 20-30% Chance of Open Wounds
       {index = 60, op = "<=", value = (8 + (12-8)*0.7)}, -- 8-12% Life stolen per hit
@@ -2845,6 +2901,7 @@ return {
       index = 61, --Lance of Yaggai, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
       {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
@@ -2858,6 +2915,7 @@ return {
       index = 62, --The Tannr Gorerod, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
       {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
@@ -2871,6 +2929,7 @@ return {
       index = 63, --Dimoak's Hew, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (2 + (5-2)*0.7)}, -- Damage Reduced by 2-5
@@ -2885,6 +2944,7 @@ return {
       index = 64, --Steelgoad, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (3 + (5-3)*0.7)}, -- Damage Reduced by 3-5
       {index = 35, op = "<=", value = (3 + (5-3)*0.7)}, -- Magic Damage Reduced by 3-5
@@ -2898,6 +2958,7 @@ return {
       index = 65, --Soul Harvest, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (10 + (30-10)*0.7)}, -- 10-30% Chance of Open Wounds
       {index = 107, op = "<=", param = 73, value = (1 + (4-1)*0.7)}, -- +1-4 to Blight Strike (Necromancer only)
@@ -2911,6 +2972,7 @@ return {
       index = 66, --The Battlebranch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100 to Attack Rating
       {index = 34, op = "<=", value = (5 + (7-5)*0.7)}, -- Damage Reduced by 5-7
@@ -2925,6 +2987,7 @@ return {
       index = 67, --Woestave, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (5 + (7-5)*0.7)}, -- Damage Reduced by 5-7
       {index = 35, op = "<=", value = (5 + (7-5)*0.7)}, -- Magic Damage Reduced by 5-7
@@ -2938,6 +3001,7 @@ return {
       index = 68, --The Grim Reaper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 141, op = "<=", value = (25 + (50-25)*0.7)}, -- 25-50% Deadly Strike
       {index = 107, op = "<=", param = 73, value = (3 + (5-3)*0.7)}, -- +3-5 to Blight Strike (Necromancer only)
@@ -2952,6 +3016,7 @@ return {
       index = 69, --Bane Ash, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -2964,6 +3029,7 @@ return {
       index = 70, --Serpent Lord, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -2975,6 +3041,7 @@ return {
       index = 71, --Spire of Lazarus, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -2986,6 +3053,7 @@ return {
       index = 72, --The Salamander, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -2998,6 +3066,7 @@ return {
       index = 73, --The Iron Jang Bong, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 46, value = (2 + (4-2)*0.7)}, -- +2-4 to Fatal Flare (Sorceress only)
       },
@@ -3010,6 +3079,7 @@ return {
       index = 74, --Pluckeye, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (7 + (10-7)*0.7)}, -- +7-10% to Experience Gained
       },
@@ -3022,6 +3092,7 @@ return {
       index = 75, --Witherstring, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -3034,6 +3105,7 @@ return {
       index = 76, --Raven Claw, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -3046,6 +3118,7 @@ return {
       index = 77, --Rogue's Bow, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -3058,6 +3131,7 @@ return {
       index = 78, --Stormstrike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -3069,6 +3143,7 @@ return {
       index = 79, --Wizendraw, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100 to Attack Rating
       {index = 335, op = "<=", value = (20 + (35-20)*0.7)}, -- -20-35% to Enemy Cold Resistance
@@ -3083,6 +3158,7 @@ return {
       index = 80, --Hellclap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 49, op = "<=", value = (30 + (50-30)*0.7)}, -- +30-50 to Maximum Fire Damage
       {index = 19, op = "<=", value = (50 + (75-50)*0.7)}, -- +50-75 to Attack Rating
@@ -3390,6 +3466,7 @@ return {
       index = 81, --Blastbark, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -3402,6 +3479,7 @@ return {
       index = 82, --Leadcrow, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -3413,6 +3491,7 @@ return {
       index = 83, --Ichorsting, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -3425,6 +3504,7 @@ return {
       index = 84, --Hellcast, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -3436,6 +3516,7 @@ return {
       index = 85, --Doomslinger, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -3447,6 +3528,7 @@ return {
       index = 86, --Coldkill, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- Damage Reduced by 5-10
       },
@@ -3459,6 +3541,7 @@ return {
       index = 87, --Butcher's Pupil, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 141, op = "<=", value = (5 + (15-5)*0.7)}, -- 5-15% Deadly Strike
       {index = 135, op = "<=", value = (5 + (20-5)*0.7)}, -- 5-20% Chance of Open Wounds
@@ -3473,6 +3556,7 @@ return {
       index = 88, --Islestrike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 233, value = (1 + (3-1)*0.7)}, -- +1-3 to Maul (Druid only)
       {index = 107, op = "<=", param = 232, value = (1 + (3-1)*0.7)}, -- +1-3 to Feral Rage (Druid only)
@@ -3487,6 +3571,7 @@ return {
       index = 89, --Pompeii's Wrath, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -3498,6 +3583,7 @@ return {
       index = 90, --Guardian Naga, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 35, op = "<=", value = (7 + (12-7)*0.7)}, -- Magic Damage Reduced by 7-12
@@ -3511,6 +3597,7 @@ return {
       index = 91, --Warlord's Trust, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (6 + (10-6)*0.7)}, -- Damage Reduced by 6-10
@@ -3525,6 +3612,7 @@ return {
       index = 92, --Spellsteel, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (12 + (15-12)*0.7)}, -- Magic Damage Reduced by 12-15
       },
@@ -3537,6 +3625,7 @@ return {
       index = 93, --Stormrider, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 35, op = "<=", value = (9 + (12-9)*0.7)}, -- Magic Damage Reduced by 9-12
@@ -3550,6 +3639,7 @@ return {
       index = 94, --Boneslayer Blade, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (9 + (12-9)*0.7)}, -- Damage Reduced by 9-12
@@ -3564,6 +3654,7 @@ return {
       index = 95, --The Minotaur, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 0, op = "<=", value = (15 + (20-15)*0.7)}, -- +15-20 Strength
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
@@ -3579,6 +3670,7 @@ return {
       index = 96, --Suicide Branch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (3 + (5-3)*0.7)}, -- +3-5% to Experience Gained
       },
@@ -3591,6 +3683,7 @@ return {
       index = 97, --Carin Shard, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       },
@@ -3603,6 +3696,7 @@ return {
       index = 98, --Arm of King Leoric, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 400, op = "<=", value = (3 + (5-3)*0.7)}, -- Increase Curse Duration by 3-5
       {index = 97, op = "<=", param = 68, value = (2 + (3-2)*0.7)}, -- +2-3 to Bone Armor
@@ -3617,6 +3711,7 @@ return {
       index = 99, --Blackhand Key, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -3628,6 +3723,7 @@ return {
       index = 100, --Dark Clan Crusher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 119, op = "<=", value = (20 + (25-20)*0.7)}, -- 20-25% Bonus to Attack Rating
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
@@ -3931,6 +4027,7 @@ return {
       index = 101, --Zakarum's Hand, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 27, op = "<=", value = (15 + (25-15)*0.7)}, -- Regenerate Mana 15-25%
       },
@@ -3943,6 +4040,7 @@ return {
       index = 102, --The Fetid Sprinkler, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (150 + (200-150)*0.7)}, -- +150-200 to Attack Rating
       },
@@ -3955,6 +4053,7 @@ return {
       index = 103, --Hand of Blessed Light, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -3966,6 +4065,7 @@ return {
       index = 104, --Fleshrender, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (5 + (15-5)*0.7)}, -- 5-15% Chance of Open Wounds
       {index = 141, op = "<=", value = (5 + (15-5)*0.7)}, -- 5-15% Deadly Strike
@@ -3979,6 +4079,7 @@ return {
       index = 105, --Sureshrill Frost, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- Damage Reduced by 5-10
@@ -3992,6 +4093,7 @@ return {
       index = 106, --Moonfall, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (9 + (12-9)*0.7)}, -- Magic Damage Reduced by 9-12
       },
@@ -4004,6 +4106,7 @@ return {
       index = 107, --Baezil's Vortex, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (7 + (10-7)*0.7)}, -- Damage Reduced by 7-10
       },
@@ -4016,6 +4119,7 @@ return {
       index = 108, --Earthshaker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
       {index = 35, op = "<=", value = (7 + (10-7)*0.7)}, -- Magic Damage Reduced by 7-10
@@ -4029,6 +4133,7 @@ return {
       index = 109, --Bloodtree Stump, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- Damage Reduced by 5-10
       {index = 35, op = "<=", value = (5 + (10-5)*0.7)}, -- Magic Damage Reduced by 5-10
@@ -4042,6 +4147,7 @@ return {
       index = 110, --The Gavel of Pain, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- Damage Reduced by 5-10
       {index = 35, op = "<=", value = (5 + (10-5)*0.7)}, -- Magic Damage Reduced by 5-10
@@ -4055,6 +4161,7 @@ return {
       index = 111, --Bloodletter, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 127, value = (2 + (4-2)*0.7)}, -- +2-4 to Master At Arms
       {index = 107, op = "<=", param = 151, value = (1 + (3-1)*0.7)}, -- +1-3 to Whirlwind
@@ -4069,6 +4176,7 @@ return {
       index = 112, --Coldsteel Eye, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 150, op = "<=", value = (15 + (30-15)*0.7)}, -- Slows Target by 15-30%
       {index = 34, op = "<=", value = (6 + (9-6)*0.7)}, -- Damage Reduced by 6-9
@@ -4082,6 +4190,7 @@ return {
       index = 113, --Hexfire, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (7 + (12-7)*0.7)}, -- Magic Damage Reduced by 7-12
       },
@@ -4094,6 +4203,7 @@ return {
       index = 114, --Blade of Ali Baba, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 2, op = "<=", value = (5 + (15-5)*0.7)}, -- +5-15 Dexterity
       {index = 34, op = "<=", value = (7 + (12-7)*0.7)}, -- Damage Reduced by 7-12
@@ -4107,6 +4217,7 @@ return {
       index = 115, --Ginther's Rift, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (7 + (12-7)*0.7)}, -- Magic Damage Reduced by 7-12
       },
@@ -4119,6 +4230,7 @@ return {
       index = 116, --Headstriker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (6 + (9-6)*0.7)}, -- Damage Reduced by 6-9
       },
@@ -4131,6 +4243,7 @@ return {
       index = 117, --Plague Bearer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (6 + (9-6)*0.7)}, -- Damage Reduced by 6-9
       },
@@ -4143,6 +4256,7 @@ return {
       index = 118, --The Atlantean, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (6 + (9-6)*0.7)}, -- Damage Reduced by 6-9
       },
@@ -4155,6 +4269,7 @@ return {
       index = 119, --Crainte Vomir, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (7 + (10-7)*0.7)}, -- Magic Damage Reduced by 7-10
       },
@@ -4167,6 +4282,7 @@ return {
       index = 120, --Bing Sz Wang, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (7 + (10-7)*0.7)}, -- Magic Damage Reduced by 7-10
       },
@@ -4477,6 +4593,7 @@ return {
       index = 121, --The Vile Husk, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (7 + (10-7)*0.7)}, -- Damage Reduced by 7-10
       },
@@ -4489,6 +4606,7 @@ return {
       index = 122, --Cloudcrack, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (8 + (12-8)*0.7)}, -- Damage Reduced by 8-12
       },
@@ -4501,6 +4619,7 @@ return {
       index = 123, --Todesfaelle Flamme, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (8 + (12-8)*0.7)}, -- Magic Damage Reduced by 8-12
       },
@@ -4513,6 +4632,7 @@ return {
       index = 124, --Swordguard, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (10 + (20-10)*0.7)}, -- All Resistances +10-20%
       {index = 35, op = "<=", value = (8 + (12-8)*0.7)}, -- Magic Damage Reduced by 8-12
@@ -4526,6 +4646,7 @@ return {
       index = 125, --Spineripper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -4537,6 +4658,7 @@ return {
       index = 126, --Heart Carver, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -4548,6 +4670,7 @@ return {
       index = 127, --Blackbog's Sharp, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -4559,6 +4682,7 @@ return {
       index = 128, --Stormspike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -4570,6 +4694,7 @@ return {
       index = 129, --Deathbit, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (200 + (450-200)*0.7)}, -- +200-450 to Attack Rating
       {index = 60, op = "<=", value = (7 + (9-7)*0.7)}, -- 7-9% Life stolen per hit
@@ -4584,6 +4709,7 @@ return {
       index = 130, --The Scalper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (5 + (25-5)*0.7)}, -- 5-25% Chance of Open Wounds
       {index = 60, op = "<=", value = (4 + (6-4)*0.7)}, -- 4-6% Life stolen per hit
@@ -4597,6 +4723,7 @@ return {
       index = 131, --Constantly Waging, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 266, value = (2 + (5-2)*0.7)}, -- +2-5 to Blade Fury
       },
@@ -4609,6 +4736,7 @@ return {
       index = 132, --Realm Crusher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 129, value = (1 + (2-1)*0.7)}, -- +1-2 to Fan Out
       {index = 276, op = "<=", value = (1 + (2-1)*0.7)}, -- +1-2 Spell Power
@@ -4623,6 +4751,7 @@ return {
       index = 133, --Quickening Strikes, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (10 + (40-10)*0.7)}, -- +10-40% IAS
       {index = 335, op = "<=", value = (5 + (15-5)*0.7)}, -- -5-15% Enemy Cold Res
@@ -4639,6 +4768,7 @@ return {
       index = 134, --Shrapnel Impact, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (80 + (95-80)*0.7)}, -- +80-95 AR
       {index = 276, op = "<=", value = (1 + (2-1)*0.7)}, -- +1-2 Spell Power
@@ -4652,6 +4782,7 @@ return {
       index = 135, --Tempest Flash, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 96, op = "<=", value = (10 + (25-10)*0.7)}, -- +10-25% FRW
       {index = 9, op = "<=", value = (25 + (35-25)*0.7) * 256}, -- +25-35 Mana
@@ -4665,6 +4796,7 @@ return {
       index = 136, --Untethered, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 188, op = "<=", param = 34, value = (2 + (4-2)*0.7)}, -- +2-4 Destructive Range
       {index = 19, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150 AR
@@ -4680,6 +4812,7 @@ return {
       index = 137, --Unrelenting Will, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 116, op = "<=", value = (15 + (25-15)*0.7)}, -- -15-25% Target Defense
       },
@@ -4692,6 +4825,7 @@ return {
       index = 138, --The Impaler, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (15 + (40-15)*0.7)}, -- 15-40% Open Wounds
       {index = 216, op = "<=", value = (1.0 + (2.0-1.0)*0.7) * 2048}, -- +1.0-2.0 Life/Level
@@ -4705,6 +4839,7 @@ return {
       index = 139, --Kelpie Snare, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- Damage Reduced by 5-10
       {index = 35, op = "<=", value = (5 + (10-5)*0.7)}, -- Magic Damage Reduced by 5-10
@@ -4718,6 +4853,7 @@ return {
       index = 140, --Soulfeast Tine, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 76, op = "<=", value = (6 + (10-6)*0.7)}, -- +6-10% Max Life
       {index = 19, op = "<=", value = (150 + (250-150)*0.7)}, -- +150-250 AR
@@ -5032,6 +5168,7 @@ return {
       index = 141, --Hone Sundan, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 136, op = "<=", value = (5 + (15-5)*0.7)}, -- Crushing Blow 5-15%
       {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- DR 4-8
@@ -5046,6 +5183,7 @@ return {
       index = 142, --Spire of Honor, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (6 + (10-6)*0.7)}, -- DR 6-10
       {index = 35, op = "<=", value = (6 + (10-6)*0.7)}, -- MDR 6-10
@@ -5059,6 +5197,7 @@ return {
       index = 143, --The Meat Scraper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (15 + (40-15)*0.7)}, -- Open Wounds 15-40%
       {index = 34, op = "<=", value = (5 + (10-5)*0.7)}, -- DR 5-10
@@ -5073,6 +5212,7 @@ return {
       index = 144, --Blackleach Blade, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (3 + (7-3)*0.7)}, -- DR 3-7
       {index = 35, op = "<=", value = (3 + (7-3)*0.7)}, -- MDR 3-7
@@ -5086,6 +5226,7 @@ return {
       index = 145, --Athena's Wrath, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 83, op = "<=", param = 2, value = (1 + (3-1)*0.7)}, -- +1-3 Necro Skills
       {index = 332, op = "<=", value = (8 + (15-8)*0.7)}, -- Poison Skill Damage 8-15%
@@ -5099,6 +5240,7 @@ return {
       index = 146, --Pierre Tombale Couant, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 141, op = "<=", value = (15 + (40-15)*0.7)}, -- Deadly Strike 15-40%
       {index = 34, op = "<=", value = (2 + (8-2)*0.7)}, -- DR 2-8
@@ -5113,6 +5255,7 @@ return {
       index = 147, --Husoldal Evo, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (200 + (250-200)*0.7)}, -- AR 200-250
       {index = 34, op = "<=", value = (5 + (8-5)*0.7)}, -- DR 5-8
@@ -5127,6 +5270,7 @@ return {
       index = 148, --Grim's Burning Dead, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (200 + (250-200)*0.7)}, -- AR 200-250
       },
@@ -5139,6 +5283,7 @@ return {
       index = 149, --Razorswitch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 127, op = "<=", value = (1 + (2-1)*0.7)}, -- +1-2 All Skills
       },
@@ -5151,6 +5296,7 @@ return {
       index = 150, --Ribcracker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 136, op = "<=", value = (15 + (30-15)*0.7)}, -- Crushing Blow 15-30%
       },
@@ -5163,6 +5309,7 @@ return {
       index = 151, --Chromatic Ire, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (20 + (40-20)*0.7)}, -- All Res 20-40%
       {index = 76, op = "<=", value = (20 + (25-20)*0.7)}, -- Max Life 20-25%
@@ -5179,6 +5326,7 @@ return {
       index = 152, --Warpspear, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (40 + (60-40)*0.7)}, -- IAS 40-60%
       },
@@ -5191,6 +5339,7 @@ return {
       index = 153, --Skull Collector, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -5202,6 +5351,7 @@ return {
       index = 154, --Skystrike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -5213,6 +5363,7 @@ return {
       index = 155, --Riphook, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (15 + (30-15)*0.7)}, -- Open Wounds 15-30%
       {index = 60, op = "<=", value = (7 + (10-7)*0.7)}, -- Life Leech 7-10%
@@ -5226,6 +5377,7 @@ return {
       index = 156, --Kuko Shakaku, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -5237,6 +5389,7 @@ return {
       index = 157, --Endlesshail, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 21, value = (1 + (4-1)*0.7)}, -- Hail of Arrows
       {index = 335, op = "<=", value = (10 + (20-10)*0.7)}, -- -Enemy Cold Res
@@ -5251,6 +5404,7 @@ return {
       index = 158, --Witchwild String, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 7, value = (3 + (7-3)*0.7)}, -- Prismatic Arrow
       },
@@ -5263,6 +5417,7 @@ return {
       index = 159, --Cliffkiller, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 32, op = "<=", value = (180 + (280-180)*0.7)}, -- Defense vs Missile
       },
@@ -5275,6 +5430,7 @@ return {
       index = 160, --Magewrath, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (9 + (13-9)*0.7)}, -- MDR 9-13
       {index = 19, op = "<=", value = (200 + (250-200)*0.7)}, -- AR 200-250
@@ -5586,6 +5742,7 @@ return {
       index = 161, --Goldstrike Arch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 119, op = "<=", value = (100 + (150-100)*0.7)}, -- AR%
       {index = 122, op = "<=", value = (100 + (200-100)*0.7)}, -- vs Undead%
@@ -5600,6 +5757,7 @@ return {
       index = 162, --Langer Briser, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 80, op = "<=", value = (30 + (60-30)*0.7)}, -- MF%
       },
@@ -5612,6 +5770,7 @@ return {
       index = 163, --Pus Spitter, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 278, value = (2 + (4-2)*0.7)}, -- Venom
       },
@@ -5624,6 +5783,7 @@ return {
       index = 164, --Buriza-Do Kyanon, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 31, op = "<=", value = (75 + (150-75)*0.7)}, -- Defense
       },
@@ -5636,6 +5796,7 @@ return {
       index = 165, --Demon Machine, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 121, op = "<=", value = (100 + (200-100)*0.7)}, -- vs Demons%
       {index = 278, op = "<=", value = (1 + (2-1)*0.7)}, -- Combat Power
@@ -5649,6 +5810,7 @@ return {
       index = 166, --Untrained Eye, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 96, op = "<=", value = (10 + (20-10)*0.7)}, -- FRW%
       },
@@ -5661,6 +5823,7 @@ return {
       index = 167, --Redemption, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 62, op = "<=", value = (5 + (8-5)*0.7)}, -- Mana Leech%
       },
@@ -5673,6 +5836,7 @@ return {
       index = 168, --Ancient Hand, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -5684,6 +5848,7 @@ return {
       index = 169, --Willbreaker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -5695,6 +5860,7 @@ return {
       index = 170, --Skyfall Grip, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -5706,6 +5872,7 @@ return {
       index = 171, --Oathbinder, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -5717,6 +5884,7 @@ return {
       index = 172, --Pride's Fan, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 97, op = "<=", param = 280, value = (1 + (3-1)*0.7)}, -- Phoenix Strike
       {index = 139, op = "<=", value = (6 + (10-6)*0.7)}, -- Life after Demon Kill
@@ -5732,6 +5900,7 @@ return {
       index = 173, --Burning Sun, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 97, op = "<=", param = 259, value = (2 + (3-2)*0.7)}, -- Fists of Fire
       {index = 333, op = "<=", value = (10 + (25-10)*0.7)}, -- -Enemy Fire Res
@@ -5750,6 +5919,7 @@ return {
       index = 174, --Severance, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 33, op = "<=", value = (100 + (175-100)*0.7)}, -- Def vs Melee
       {index = 396, op = "<=", value = (3 + (5-3)*0.7)}, -- Mana Leech
@@ -5763,6 +5933,7 @@ return {
       index = 175, --Hand of Madness, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (40 + (50-40)*0.7)}, -- IAS
       {index = 107, op = "<=", param = 278, value = (3 + (6-3)*0.7)}, -- Venom
@@ -5776,6 +5947,7 @@ return {
       index = 176, --Vanquisher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 188, op = "<=", param = 48, value = (1 + (3-1)*0.7)}, -- Traps
       {index = 97, op = "<=", param = 262, value = (1 + (2-1)*0.7)}, -- Wake of Fire
@@ -5790,6 +5962,7 @@ return {
       index = 177, --Wind-Forged Blade, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 97, op = "<=", param = 269, value = (2 + (3-2)*0.7)}, -- Claws of Thunder
       {index = 97, op = "<=", param = 235, value = (0 + (4-0)*0.7)}, -- Cyclone Armor
@@ -5803,6 +5976,7 @@ return {
       index = 178, --Bartuc's Cut-Throat, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (5 + (9-5)*0.7)}, -- Life Leech
       },
@@ -5815,6 +5989,7 @@ return {
       index = 179, --Void Ripper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 119, op = "<=", value = (15 + (40-15)*0.7)}, -- AR%
       {index = 0, op = "<=", value = (5 + (15-5)*0.7)}, -- Attributes
@@ -5828,6 +6003,7 @@ return {
       index = 180, --Soul-Forged Grip, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 151, op = "<=", param = 381, value = (6 + (10-6)*0.7)}, -- Redemption Aura
       {index = 19, op = "<=", value = (200 + (475-200)*0.7)}, -- AR
@@ -6192,6 +6368,7 @@ return {
       index = 181, --Jade Talon, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 62, op = "<=", value = (10 + (15-10)*0.7)}, -- Mana leech 10-15%
       {index = 39, op = "<=", value = (40 + (50-40)*0.7)}, -- All res 40-50%
@@ -6207,6 +6384,7 @@ return {
       index = 182, --Malignant Touch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 97, op = "<=", param = 280, value = (1 + (3-1)*0.7)}, -- Phoenix Strike
       {index = 74, op = "<=", value = (10 + (15-10)*0.7)}, -- Replenish Life
@@ -6220,6 +6398,7 @@ return {
       index = 183, --Shadow Killer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 138, op = "<=", value = (10 + (15-10)*0.7)}, -- Mana after kill
       },
@@ -6232,6 +6411,7 @@ return {
       index = 184, --Firelizard's Talons, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 188, op = "<=", param = 50, value = (1 + (3-1)*0.7)}, -- Deadly Arts
       {index = 39, op = "<=", value = (40 + (70-40)*0.7)}, -- Fire res
@@ -6247,6 +6427,7 @@ return {
       index = 185, --Viz-Jaq'taar Order, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 264, value = (4 + (6-4)*0.7)}, -- Cloak of Shadows
       {index = 188, op = "<=", param = 48, value = (2 + (4-2)*0.7)}, -- Traps
@@ -6267,6 +6448,7 @@ return {
       index = 186, --Mage Crusher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (10 + (30-10)*0.7)}, -- All res
       {index = 119, op = "<=", value = (90 + (120-90)*0.7)}, -- AR%
@@ -6285,6 +6467,7 @@ return {
       index = 187, --Razor's Edge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (5 + (15-5)*0.7)}, -- Open wounds
       },
@@ -6297,6 +6480,7 @@ return {
       index = 188, --Glittering Crescent, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 52, op = "<=", value = (38 + (45-38)*0.7)}, -- Magic dmg min
       {index = 53, op = "<=", value = (60 + (67-60)*0.7)}, -- Magic dmg max
@@ -6315,6 +6499,7 @@ return {
       index = 189, --Rune Master, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (8 + (12-8)*0.7)}, -- DR
       },
@@ -6327,6 +6512,7 @@ return {
       index = 190, --Cranebeak, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 80, op = "<=", value = (20 + (50-20)*0.7)}, -- MF
       {index = 410, op = "<=", value = (1 + (2-1)*0.7)}, -- Poison skills
@@ -6342,6 +6528,7 @@ return {
       index = 191, --Death Cleaver, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 86, op = "<=", value = (6 + (9-6)*0.7)}, -- Life after kill
       {index = 34, op = "<=", value = (10 + (15-10)*0.7)}, -- DR
@@ -6356,6 +6543,7 @@ return {
       index = 192, --Blessed Beheader, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 141, op = "<=", value = (5 + (20-5)*0.7)}, -- Deadly strike
       {index = 135, op = "<=", value = (5 + (15-5)*0.7)}, -- Open wounds
@@ -6376,6 +6564,7 @@ return {
       index = 193, --Ethereal Edge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 143, op = "<=", value = (10 + (12-10)*0.7)}, -- Fire absorb
       {index = 121, op = "<=", value = (150 + (200-150)*0.7)}, -- vs Demons%
@@ -6393,6 +6582,7 @@ return {
       index = 194, --Hellslayer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (12 + (16-12)*0.7)}, -- DR
       {index = 35, op = "<=", value = (12 + (16-12)*0.7)}, -- MDR
@@ -6406,6 +6596,7 @@ return {
       index = 195, --Messerschmidt's Reaver, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (12 + (16-12)*0.7)}, -- DR
       {index = 35, op = "<=", value = (12 + (16-12)*0.7)}, -- MDR
@@ -6419,6 +6610,7 @@ return {
       index = 196, --Executioner's Justice, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 136, op = "<=", value = (10 + (20-10)*0.7)}, -- Crushing blow
       },
@@ -6431,6 +6623,7 @@ return {
       index = 197, --Bane Glow, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 83, op = "<=", param = 2, value = (1 + (2-1)*0.7)}, -- Necro skills
       {index = 97, op = "<=", param = 0, value = (1 + (3-1)*0.7)}, -- Attack (broken)
@@ -6449,6 +6642,7 @@ return {
       index = 198, --Malthael Touch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 284, op = "<=", value = (25 + (40-25)*0.7)}, -- Summon HP
       {index = 285, op = "<=", value = (25 + (40-25)*0.7)}, -- Summon CR
@@ -6465,6 +6659,7 @@ return {
       index = 199, --Boneshade, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 83, op = "<=", param = 2, value = (1 + (2-1)*0.7)}, -- Necro skills
       {index = 107, op = "<=", param = 67, value = (4 + (5-4)*0.7)}, -- Teeth
@@ -6482,6 +6677,7 @@ return {
       index = 200, --Death's Web, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 127, op = "<=", value = (1 + (2-1)*0.7)}, -- +1-2 to All Skills
       {index = 336, op = "<=", value = (40 + (50-40)*0.7)}, -- -40-50% Enemy Poison Res
@@ -6814,6 +7010,7 @@ return {
       index = 201, --Nord's Tenderizer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 148, op = "<=", value = (5 + (15-5)*0.7)}, -- Cold Absorb 5-15%
       {index = 119, op = "<=", value = (150 + (180-150)*0.7)}, -- 150-180% Bonus to Attack Rating
@@ -6828,6 +7025,7 @@ return {
       index = 202, --Heaven's Light, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 139, op = "<=", value = (15 + (20-15)*0.7)}, -- +15-20 Life after each Demon Kill
       {index = 83, op = "<=", param = 3, value = (2 + (3-2)*0.7)}, -- +2-3 to Paladin Skill Levels
@@ -6841,6 +7039,7 @@ return {
       index = 203, --The Redeemer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 121, op = "<=", value = (200 + (250-200)*0.7)}, -- +200-250% Damage to Demons
       {index = 107, op = "<=", param = 118, value = (2 + (4-2)*0.7)}, -- +2-4 to Holy Shock (Paladin only)
@@ -6856,6 +7055,7 @@ return {
       index = 204, --Astreon's Iron Ward, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 119, op = "<=", value = (150 + (200-150)*0.7)}, -- 150-200% Bonus to Attack Rating
       {index = 34, op = "<=", value = (4 + (7-4)*0.7)}, -- Damage Reduced by 4-7
@@ -6871,6 +7071,7 @@ return {
       index = 205, --Demon Limb, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (7 + (13-7)*0.7)}, -- 7-13% Life stolen per hit
       {index = 39, op = "<=", value = (15 + (25-15)*0.7)}, -- Fire Resist +15-25%
@@ -6886,6 +7087,7 @@ return {
       index = 206, --Stormlash, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 145, op = "<=", value = (3 + (9-3)*0.7)}, -- +3-9 Lightning Absorb
       },
@@ -6898,6 +7100,7 @@ return {
       index = 207, --Baranar's Star, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (8 + (12-8)*0.7)}, -- Damage Reduced by 8-12
       },
@@ -6910,6 +7113,7 @@ return {
       index = 208, --Horizon's Tornado, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (8 + (12-8)*0.7)}, -- Magic Damage Reduced by 8-12
       },
@@ -6922,6 +7126,7 @@ return {
       index = 209, --Schaefer's Hammer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -6933,6 +7138,7 @@ return {
       index = 210, --Windhammer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 136, op = "<=", value = (10 + (25-10)*0.7)}, -- 10-25% Chance of Crushing Blow
       {index = 34, op = "<=", value = (8 + (12-8)*0.7)}, -- Damage Reduced by 8-12
@@ -6947,6 +7153,7 @@ return {
       index = 211, --The Cranium Basher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (14 + (20-14)*0.7)}, -- Damage Reduced by 14-20
       {index = 35, op = "<=", value = (14 + (20-14)*0.7)}, -- Magic Damage Reduced by 14-20
@@ -6960,6 +7167,7 @@ return {
       index = 212, --Vows of Promise, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (30 + (45-30)*0.7)}, -- +30-45% Increased Attack Speed
       {index = 138, op = "<=", value = (5 + (7-5)*0.7)}, -- +5-7 to Mana after each Kill
@@ -6975,6 +7183,7 @@ return {
       index = 213, --Djinn Slayer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 121, op = "<=", value = (100 + (150-100)*0.7)}, -- +100-150% Damage to Demons
       {index = 123, op = "<=", value = (200 + (300-200)*0.7)}, -- +200-300 to Attack Rating against Demons
@@ -6991,6 +7200,7 @@ return {
       index = 214, --Bloodmoon, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Life stolen per hit
       {index = 86, op = "<=", value = (7 + (13-7)*0.7)}, -- +7-13 Life after each Kill
@@ -7006,6 +7216,7 @@ return {
       index = 215, --Starward Fencer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (3 + (10-3)*0.7)}, -- 3-10% Life stolen per hit
       {index = 34, op = "<=", value = (9 + (13-9)*0.7)}, -- Damage Reduced by 9-13
@@ -7019,6 +7230,7 @@ return {
       index = 216, --Lightsabre, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 62, op = "<=", value = (5 + (7-5)*0.7)}, -- 5-7% Mana stolen per hit
       {index = 35, op = "<=", value = (15 + (25-15)*0.7)}, -- Magic Damage Reduced by 15-25
@@ -7032,6 +7244,7 @@ return {
       index = 217, --Azurewrath, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 151, op = "<=", param = 380, value = (10 + (13-10)*0.7)}, -- Level 10-13 Sanctuary Aura When Equipped
       {index = 0, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10 to all Attributes
@@ -7046,6 +7259,7 @@ return {
       index = 218, --Frostwind, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 148, op = "<=", value = (7 + (15-7)*0.7)}, -- Cold Absorb 7-15%
       {index = 97, op = "<=", param = 156, value = (7 + (14-7)*0.7)}, -- +7-14 to Arctic Blast
@@ -7059,6 +7273,7 @@ return {
       index = 219, --Last Legend, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 119, value = (1 + (3-1)*0.7)}, -- +1-3 to Faithful Follower (Paladin only)
       {index = 97, op = "<=", param = 175, value = (2 + (3-2)*0.7)}, -- +2-3 to Chance For Glory
@@ -7075,6 +7290,7 @@ return {
       index = 220, --Oashi, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 35, op = "<=", value = (12 + (15-12)*0.7)}, -- Magic Damage Reduced by 12-15
       },
@@ -7391,6 +7607,7 @@ return {
       index = 221, --Gleam Rod, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 151, op = "<=", param = 389, value = (15 + (20-15)*0.7)}, -- Level 15-20 Magic Conviction Aura When Equipped
       },
@@ -7403,6 +7620,7 @@ return {
       index = 222, --Flamebellow, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 142, op = "<=", value = (20 + (30-20)*0.7)}, -- Fire Absorb 20-30%
       {index = 0, op = "<=", value = (10 + (20-10)*0.7)}, -- +10-20 to Strength
@@ -7419,6 +7637,7 @@ return {
       index = 223, --Doombringer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (5 + (7-5)*0.7)}, -- 5-7% Life stolen per hit
       {index = 34, op = "<=", value = (20 + (30-20)*0.7)}, -- Damage Reduced by 20-30
@@ -7432,6 +7651,7 @@ return {
       index = 224, --Burning Bane, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 151, op = "<=", param = 387, value = (15 + (20-15)*0.7)}, -- Level 15-20 Fire Conviction Aura When Equipped
       },
@@ -7444,6 +7664,7 @@ return {
       index = 225, --The Grandfather, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 151, op = "<=", param = 503, value = (10 + (20-10)*0.7)}, -- Level 10-20 Physical Conviction Aura When Equipped
       {index = 34, op = "<=", value = (20 + (25-20)*0.7)}, -- Damage Reduced by 20-25
@@ -7458,6 +7679,7 @@ return {
       index = 226, --Wizardspike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 77, op = "<=", value = (15 + (30-15)*0.7)}, -- Increase Maximum Mana by 15-30%
       {index = 39, op = "<=", value = (75 + (95-75)*0.7)}, -- All Resistances +75-95%
@@ -7471,6 +7693,7 @@ return {
       index = 227, --Rapid Strike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -7482,6 +7705,7 @@ return {
       index = 228, --Fleshripper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (5 + (20-5)*0.7)}, -- 5-20% Chance of Open Wounds
       {index = 97, op = "<=", param = 180, value = (6 + (10-6)*0.7)}, -- +6-10 to Patient Zero
@@ -7495,6 +7719,7 @@ return {
       index = 229, --Ghostflame, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 62, op = "<=", value = (10 + (15-10)*0.7)}, -- 10-15% Mana stolen per hit
       {index = 93, op = "<=", value = (25 + (40-25)*0.7)}, -- +25-40% Increased Attack Speed
@@ -7508,6 +7733,7 @@ return {
       index = 230, --Sentinel's Call, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 266, value = (3 + (5-3)*0.7)}, -- +3-5 to Blade Fury (Assassin only)
       {index = 107, op = "<=", param = 257, value = (2 + (4-2)*0.7)}, -- +2-4 to Blade Sentinel (Assassin only)
@@ -7523,6 +7749,7 @@ return {
       index = 231, --Gimmershred, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -7534,6 +7761,7 @@ return {
       index = 232, --Warshrike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -7545,6 +7773,7 @@ return {
       index = 233, --Lacerator, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (20 + (30-20)*0.7)}, -- 20-30% Chance of Open Wounds
       },
@@ -7557,6 +7786,7 @@ return {
       index = 234, --Contemplation, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 127, op = "<=", value = (2 + (3-2)*0.7)}, -- +2-3 to All Skills
       {index = 0, op = "<=", value = (40 + (60-40)*0.7)}, -- +40-60 to Strength
@@ -7570,6 +7800,7 @@ return {
       index = 235, --Main Hand, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 135, op = "<=", value = (10 + (30-10)*0.7)}, -- 10-30% Chance of Open Wounds
       },
@@ -7582,6 +7813,7 @@ return {
       index = 236, --Demon's Arch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (6 + (12-6)*0.7)}, -- 6-12% Life stolen per hit
       },
@@ -7594,6 +7826,7 @@ return {
       index = 237, --Wraith Flight, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (9 + (13-9)*0.7)}, -- 9-13% Life stolen per hit
       {index = 111, op = "<=", value = (200 + (250-200)*0.7)}, -- Damage +200-250
@@ -7608,6 +7841,7 @@ return {
       index = 238, --Gargoyle's Bite, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (9 + (15-9)*0.7)}, -- 9-15% Life stolen per hit
       },
@@ -7620,6 +7854,7 @@ return {
       index = 239, --Arioc's Needle, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 141, op = "<=", value = (30 + (50-30)*0.7)}, -- 30-50% Deadly Strike
       {index = 127, op = "<=", value = (2 + (4-2)*0.7)}, -- +2-4 to All Skills
@@ -7635,6 +7870,7 @@ return {
       index = 240, --Rock Piercer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 357, op = "<=", value = (40 + (60-40)*0.7)}, -- +40-60% to Magic Skill Damage
       {index = 107, op = "<=", param = 30, value = (3 + (7-3)*0.7)}, -- +3-7 to Fend (Amazon only)
@@ -7980,6 +8216,7 @@ return {
       index = 241, --Viperfork, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (200 + (250-200)*0.7)}, -- +200-250 to Attack Rating
       {index = 45, op = "<=", value = (30 + (50-30)*0.7)}, -- Poison Resist +30-50%
@@ -7993,6 +8230,7 @@ return {
       index = 242, --Flash Forward, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 151, op = "<=", param = 390, value = (15 + (20-15)*0.7)}, -- Level 15-20 Lightning Conviction Aura When Equipped
       },
@@ -8005,6 +8243,7 @@ return {
       index = 243, --Steel Pillar, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 136, op = "<=", value = (10 + (30-10)*0.7)}, -- 10-30% Chance of Crushing Blow
       {index = 34, op = "<=", value = (13 + (17-13)*0.7)}, -- Damage Reduced by 13-17
@@ -8019,6 +8258,7 @@ return {
       index = 244, --Bonehew, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (13 + (17-13)*0.7)}, -- Damage Reduced by 13-17
       {index = 35, op = "<=", value = (13 + (17-13)*0.7)}, -- Magic Damage Reduced by 13-17
@@ -8032,6 +8272,7 @@ return {
       index = 245, --Tundra Tamer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 151, op = "<=", param = 388, value = (15 + (20-15)*0.7)}, -- Level 15-20 Cold Conviction Aura When Equipped
       },
@@ -8044,6 +8285,7 @@ return {
       index = 246, --The Reaper's Toll, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (11 + (15-11)*0.7)}, -- 11-15% Life stolen per hit
       {index = 97, op = "<=", param = 179, value = (1 + (5-1)*0.7)}, -- +1-5 to Calcified Carve
@@ -8058,6 +8300,7 @@ return {
       index = 247, --Tomb Reaver, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 122, op = "<=", value = (150 + (230-150)*0.7)}, -- +150-230% Damage to Undead
       {index = 80, op = "<=", value = (50 + (80-50)*0.7)}, -- +50-80% Chance of Higher Quality Items
@@ -8076,6 +8319,7 @@ return {
       index = 248, --Wind Shatter, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 151, value = (3 + (6-3)*0.7)}, -- +3-6 to Whirlwind (Barbarian only)
       {index = 150, op = "<=", value = (40 + (60-40)*0.7)}, -- Slows Target by 40-60%
@@ -8092,6 +8336,7 @@ return {
       index = 249, --Bonespire, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 97, op = "<=", param = 178, value = (3 + (5-3)*0.7)}, -- +3-5 to Bone Spikes
       },
@@ -8104,6 +8349,7 @@ return {
       index = 250, --Nature's Intention, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 332, op = "<=", value = (25 + (50-25)*0.7)}, -- +25-50% to Poison Skill Damage
       {index = 357, op = "<=", value = (25 + (50-25)*0.7)}, -- +25-50% to Magic Skill Damage
@@ -8122,6 +8368,7 @@ return {
       index = 251, --Thermite Quicksand, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 48, op = "<=", value = (200 + (250-200)*0.7)}, -- +200-250 to Minimum Fire Damage
       {index = 49, op = "<=", value = (375 + (505-375)*0.7)}, -- +375-505 to Maximum Fire Damage
@@ -8138,6 +8385,7 @@ return {
       index = 252, --Ondal's Wisdom, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 1, op = "<=", value = (40 + (50-40)*0.7)}, -- +40-50 to Energy
       {index = 127, op = "<=", value = (2 + (4-2)*0.7)}, -- +2-4 to All Skills
@@ -8153,6 +8401,7 @@ return {
       index = 253, --Stone Crusher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 0, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30 to Strength
       {index = 136, op = "<=", value = (10 + (25-10)*0.7)}, -- 10-25% Chance of Crushing Blow
@@ -8167,6 +8416,7 @@ return {
       index = 254, --Mang Song's Lesson, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 333, op = "<=", value = (7 + (15-7)*0.7)}, -- -7-15% to Enemy Fire Resistance
       {index = 334, op = "<=", value = (7 + (15-7)*0.7)}, -- -7-15% to Enemy Lightning Resistance
@@ -8189,6 +8439,7 @@ return {
       index = 255, --Cold Crow's Caw, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 19, op = "<=", value = (75 + (200-75)*0.7)}, -- +75-200 to Attack Rating
       {index = 188, op = "<=", param = 1, value = (2 + (5-2)*0.7)}, -- +2-5 to Passive and Magic Skills (Amazon Only)
@@ -8202,6 +8453,7 @@ return {
       index = 256, --Trembling Vortex, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 331, op = "<=", value = (15 + (25-15)*0.7)}, -- +15-25% to Cold Skill Damage
       },
@@ -8214,6 +8466,7 @@ return {
       index = 257, --Corrupted String, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 76, op = "<=", value = (-10 + (-5+10)*0.7)}, -- Decrease Maximum Life by -5 - -10%
       },
@@ -8226,6 +8479,7 @@ return {
       index = 258, --Gyro Blaster, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 97, op = "<=", param = 182, value = (5 + (7-5)*0.7)}, -- +5-7 to Electro Ball
       {index = 330, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30% to Lightning Skill Damage
@@ -8241,6 +8495,7 @@ return {
       index = 259, --Underground, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (10 + (15-10)*0.7)}, -- All Resistances +10-15
       {index = 119, op = "<=", value = (75 + (150-75)*0.7)}, -- 75-150% Bonus to Attack Rating
@@ -8254,6 +8509,7 @@ return {
       index = 260, --Eaglehorn, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -8586,6 +8842,7 @@ return {
       index = 261, -- Widowmaker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 6, value = (3 + (6-3)*0.7)}, -- +3-6 to Magic Arrow (Amazon only)
       {index = 97, op = "<=", param = 22, value = (3 + (5-3)*0.7)}, -- +3-5 to Guided Arrow
@@ -8599,6 +8856,7 @@ return {
       index = 262, -- Windforce, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 96, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30% Faster Run/Walk
       {index = 62, op = "<=", value = (6 + (8-6)*0.7)}, -- 6-8% Mana stolen per hit
@@ -8612,6 +8870,7 @@ return {
       index = 263, -- Shadow Hunter, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 188, op = "<=", param = 49, value = (2 + (4-2)*0.7)}, -- +2-4 to Shadow Disciplines (Assassin Only)
       {index = 192, op = "<=", value = (30 + (40-30)*0.7)}, -- Enemy physical immunity reduced by 30-40%
@@ -8625,6 +8884,7 @@ return {
       index = 264, -- Amnesty's Glare, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -8636,6 +8896,7 @@ return {
       index = 265, -- Hellrack, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 119, op = "<=", value = (100 + (150-100)*0.7)}, -- 100-150% Bonus to Attack Rating
       {index = 189, op = "<=", value = (20 + (30-20)*0.7)}, -- Enemy fire immunity reduced by 20-30%
@@ -8649,6 +8910,7 @@ return {
       index = 266, -- Gut Siphon, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 83, op = "<=", param = 6, value = (2 + (3-2)*0.7)}, -- +2-3 to Assassin Skill Levels
       {index = 60, op = "<=", value = (12 + (18-12)*0.7)}, -- 12-18% Life stolen per hit
@@ -8663,6 +8925,7 @@ return {
       index = 267, -- Enlightener, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 138, op = "<=", value = (1 + (4-1)*0.7)}, -- +1-4 to Mana after each Kill
       {index = 9, op = "<=", value = ((8 + (25-8)*0.7) * 256)}, -- +8-25 to Mana
@@ -8677,6 +8940,7 @@ return {
       index = 268, -- Endothermic Stone, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 27, op = "<=", value = (10 + (30-10)*0.7)}, -- Regenerate Mana 10-30%
       {index = 77, op = "<=", value = (8 + (20-8)*0.7)}, -- Increase Maximum Mana by 8-20%
@@ -8694,6 +8958,7 @@ return {
       index = 269, -- Sensor, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 31, op = "<=", value = (10 + (25-10)*0.7)}, -- +10-25 Defense
       {index = 7, op = "<=", value = ((15 + (20-15)*0.7) * 256)}, -- +15-20 to Life
@@ -8708,6 +8973,7 @@ return {
       index = 270, -- Lightning Rod, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 334, op = "<=", value = (7 + (15-7)*0.7)}, -- -7-15% to Enemy Lightning Resistance
       {index = 145, op = "<=", value = (1 + (5-1)*0.7)}, -- +1-5 Lightning Absorb
@@ -8724,6 +8990,7 @@ return {
       index = 271, -- Energizer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 9, op = "<=", value = ((30 + (50-30)*0.7) * 256)}, -- +30-50 to Mana
       },
@@ -8736,6 +9003,7 @@ return {
       index = 272, -- The Artemis String, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (10 + (15-10)*0.7)}, -- +10-15% Increased Attack Speed
       {index = 122, op = "<=", value = (60 + (80-60)*0.7)}, -- +60-80% Damage to Undead
@@ -8751,6 +9019,7 @@ return {
       index = 273, -- Pinaka, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 331, op = "<=", value = (10 + (15-10)*0.7)}, -- +10-15% to Cold Skill Damage
       {index = 9, op = "<=", value = ((35 + (45-35)*0.7) * 256)}, -- +35-45 to Mana
@@ -8765,6 +9034,7 @@ return {
       index = 274, -- The Pain Producer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30% Increased Attack Speed
       {index = 60, op = "<=", value = (3 + (5-3)*0.7)}, -- 3-5% Life stolen per hit
@@ -8781,6 +9051,7 @@ return {
       index = 275, -- The Poking Pike, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 93, op = "<=", value = (15 + (25-15)*0.7)}, -- +15-25% Increased Attack Speed
       {index = 34, op = "<=", value = (4 + (6-4)*0.7)}, -- Damage Reduced by 4-6
@@ -8795,6 +9066,7 @@ return {
       index = 276, -- Skovos Striker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 188, op = "<=", param = 1, value = (1 + (2-1)*0.7)}, -- +1-2 to Passive and Magic Skills (Amazon Only)
       {index = 62, op = "<=", value = (4 + (6-4)*0.7)}, -- 4-6% Mana stolen per hit
@@ -8809,6 +9081,7 @@ return {
       index = 277, -- Risen Phoenix, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 407, op = "<=", value = (1 + (3-1)*0.7)}, -- +1-3 to Fire Skills
       },
@@ -8821,6 +9094,7 @@ return {
       index = 278, -- Glacial Oasis, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 188, op = "<=", param = 10, value = (1 + (3-1)*0.7)}, -- +1-3 to Cold Skills (Sorceress Only)
       {index = 105, op = "<=", value = (20 + (40-20)*0.7)}, -- +20-40% Faster Cast Rate
@@ -8837,6 +9111,7 @@ return {
       index = 279, -- Thunderous, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 31, op = "<=", value = (50 + (175-50)*0.7)}, -- +50-175 Defense
       {index = 188, op = "<=", param = 9, value = (2 + (4-2)*0.7)}, -- +2-4 to Lightning Skills (Sorceress Only)
@@ -8850,6 +9125,7 @@ return {
       index = 280, -- Magic, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 80, op = "<=", value = (20 + (60-20)*0.7)}, -- +20-60% Chance of Higher Quality Items
       {index = 329, op = "<=", value = (10 + (20-10)*0.7)}, -- +10-20% to Fire Skill Damage
@@ -9175,6 +9451,7 @@ return {
       index = 281, -- The Oculus, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9186,6 +9463,7 @@ return {
       index = 282, -- Windraven, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (15 + (30-15)*0.7)}, -- All Resistances +15-30%
       {index = 31, op = "<=", value = (200 + (400-200)*0.7)}, -- +200-400 Defense
@@ -9201,6 +9479,7 @@ return {
       index = 283, -- no item yet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- NO STATS FOUND IN SOURCE FILE
       },
@@ -9213,6 +9492,7 @@ return {
       index = 284, -- no item yet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- NO STATS FOUND IN SOURCE FILE
       },
@@ -9225,6 +9505,7 @@ return {
       index = 285, -- Lycander's Aim, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 62, op = "<=", value = (5 + (8-5)*0.7)}, -- 5-8% Mana stolen per hit
       },
@@ -9237,6 +9518,7 @@ return {
       index = 286, -- Titan's Revenge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (5 + (9-5)*0.7)}, -- 5-9% Life stolen per hit
       },
@@ -9249,6 +9531,7 @@ return {
       index = 287, -- Lycander's Flank, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 60, op = "<=", value = (5 + (9-5)*0.7)}, -- 5-9% Life stolen per hit
       },
@@ -9261,6 +9544,7 @@ return {
       index = 288, -- Above All, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 107, op = "<=", param = 58, value = (4 + (7-4)*0.7)}, -- +4-7 to Energy Shield (Sorceress only)
       {index = 107, op = "<=", param = 37, value = (3 + (5-3)*0.7)}, -- +3-5 to Warmth (Sorceress only)
@@ -9278,6 +9562,7 @@ return {
       index = 289, -- Eschuta's Temper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 83, op = "<=", param = 1, value = (1 + (3-1)*0.7)}, -- +1-3 to Sorceress Skill Levels
       {index = 329, op = "<=", value = (10 + (20-10)*0.7)}, -- +10-20% to Fire Skill Damage
@@ -9293,6 +9578,7 @@ return {
       index = 290, -- Belphegor's Beating, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 139, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30 Life after each Demon Kill
       {index = 31, op = "<=", value = (200 + (400-200)*0.7)}, -- +200-400 Defense
@@ -9307,6 +9593,7 @@ return {
       index = 291, -- Tempest Fiery, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 127, op = "<=", value = (1 + (2-1)*0.7)}, -- +1-2 to All Skills
       {index = 329, op = "<=", value = (10 + (15-10)*0.7)}, -- +10-15% to Fire Skill Damage
@@ -9323,6 +9610,7 @@ return {
       index = 292, -- Death's Fathom, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 331, op = "<=", value = (15 + (30-15)*0.7)}, -- +15-30% to Cold Skill Damage
       {index = 39, op = "<=", value = (25 + (40-25)*0.7)}, -- Fire Resist +25-40%
@@ -9337,6 +9625,7 @@ return {
       index = 293, -- Blood Raven's Charge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 119, op = "<=", value = (200 + (300-200)*0.7)}, -- 200-300% Bonus to Attack Rating
       {index = 107, op = "<=", param = 16, value = (3 + (6-3)*0.7)}, -- +3-6 to Exploding Arrow (Amazon only)
@@ -9354,6 +9643,7 @@ return {
       index = 294, -- Shredwind Hell, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 119, op = "<=", value = (100 + (200-100)*0.7)}, -- 100-200% Bonus to Attack Rating
       {index = 188, op = "<=", param = 0, value = (1 + (3-1)*0.7)}, -- +1-3 to Bow and Crossbow Skills (Amazon Only)
@@ -9368,6 +9658,7 @@ return {
       index = 295, -- Thunderstroke, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 188, op = "<=", param = 2, value = (2 + (4-2)*0.7)}, -- +2-4 to Javelin and Spear Skills (Amazon Only)
       {index = 107, op = "<=", param = 35, value = (1 + (3-1)*0.7)}, -- +1-3 to Lightning Fury (Amazon only)
@@ -9381,6 +9672,7 @@ return {
       index = 296, -- Stoneraven, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 39, op = "<=", value = (30 + (50-30)*0.7)}, -- All Resistances +30-50%
       {index = 31, op = "<=", value = (400 + (600-400)*0.7)}, -- +400-600 Defense
@@ -9395,6 +9687,7 @@ return {
       index = 297, -- Biggin's Bonnet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 34, op = "<=", value = (1 + (3-1)*0.7)}, -- Damage Reduced by 1-3
       },
@@ -9407,6 +9700,7 @@ return {
       index = 298, -- Tarnhelm, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       {index = 79, op = "<=", value = (15 + (20-15)*0.7)}, -- 15-20% Extra Gold from Monsters
       {index = 80, op = "<=", value = (25 + (50-25)*0.7)}, -- +25-50% Chance of Higher Quality Items
@@ -9421,6 +9715,7 @@ return {
       index = 299, -- Coif of Glory, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9432,6 +9727,7 @@ return {
       index = 300, -- Duskdeep, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9718,6 +10014,7 @@ return {
       index = 301, -- Howltusk, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9729,6 +10026,7 @@ return {
       index = 302, -- Undead Crown, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9740,6 +10038,7 @@ return {
       index = 303, -- The Face of Horror, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -9752,6 +10051,7 @@ return {
       index = 304, -- Greyform, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9763,6 +10063,7 @@ return {
       index = 305, -- Blinkbat's Form, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -9775,6 +10076,7 @@ return {
       index = 306, -- The Centurion, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9786,6 +10088,7 @@ return {
       index = 307, -- Twitchthroe, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -9798,6 +10101,7 @@ return {
       index = 308, -- Darkglow, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       { index = 35, op = "<=", value = (3 + (5-3)*0.7) }, -- Magic Damage Reduced by 3-5
@@ -9811,6 +10115,7 @@ return {
       index = 309, -- Hawkmail, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -9823,6 +10128,7 @@ return {
       index = 310, -- Sparking Mail, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 128, op = "<=", value = (10 + (14-10)*0.7) }, -- Attacker Takes Lightning Damage of 10-14
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
@@ -9836,6 +10142,7 @@ return {
       index = 311, -- Venom Ward, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9847,6 +10154,7 @@ return {
       index = 312, -- Iceblink, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9858,6 +10166,7 @@ return {
       index = 313, -- Boneflesh, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9869,6 +10178,7 @@ return {
       index = 314, -- Rockfleece, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9880,6 +10190,7 @@ return {
       index = 315, -- Rattlecage, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -9892,6 +10203,7 @@ return {
       index = 316, -- Goldskin, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9903,6 +10215,7 @@ return {
       index = 317, -- Silks of the Victor, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (5 + (7-5)*0.7) }, -- Damage Reduced by 5-7
       { index = 35, op = "<=", value = (5 + (7-5)*0.7) }, -- Magic Damage Reduced by 5-7
@@ -9916,6 +10229,7 @@ return {
       index = 318, -- Heavenly Garb, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -9927,6 +10241,7 @@ return {
       index = 319, -- Pelta Lunata, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (2 + (3-2)*0.7) }, -- Smite: 2-3
       },
@@ -9939,6 +10254,7 @@ return {
       index = 320, -- Umbral Disk, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (3 + (4-3)*0.7) }, -- Smite: 3-4
       },
@@ -10233,6 +10549,7 @@ return {
       index = 321, -- Stormguild, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (3 + (4-3)*0.7) }, -- Smite: 3-4
       },
@@ -10245,6 +10562,7 @@ return {
       index = 322, -- Steelclash, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (7 + (8-7)*0.7) }, -- Smite: 7-8
       },
@@ -10257,6 +10575,7 @@ return {
       index = 323, -- Bverrit Keep, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (6 + (7-6)*0.7) }, -- Smite: 6-7
       },
@@ -10269,6 +10588,7 @@ return {
       index = 324, -- The Ward, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (30 + (50-30)*0.7) }, -- All Resistances +30-50%
       { index = 388, op = "<=", value = (5 + (6-5)*0.7) }, -- Smite: 5-6
@@ -10282,6 +10602,7 @@ return {
       index = 325, -- The Hand of Broc, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -10294,6 +10615,7 @@ return {
       index = 326, -- Bloodfist, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       { index = 34, op = "<=", value = (1 + (3-1)*0.7) }, -- Damage Reduced by 1-3
@@ -10307,6 +10629,7 @@ return {
       index = 327, -- Chance Guards, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 80, op = "<=", value = (25 + (40-25)*0.7) }, -- +25-40% Chance of Higher Quality Items
       },
@@ -10319,6 +10642,7 @@ return {
       index = 328, -- Magefist (fire), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10330,6 +10654,7 @@ return {
       index = 329, -- Frostburn, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10341,6 +10666,7 @@ return {
       index = 330, -- Hotspur, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -10353,6 +10679,7 @@ return {
       index = 331, -- Gorefoot, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 140, op = "<=", value = (3 + (5-3)*0.7) }, -- Open Wounds Blood Visual +3-5
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
@@ -10366,6 +10693,7 @@ return {
       index = 332, -- Treads of Cthon, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 357, op = "<=", value = (5 + (10-5)*0.7) }, -- +5-10% to Magic Skill Damage
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
@@ -10379,6 +10707,7 @@ return {
       index = 333, -- Goblin Toe, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10390,6 +10719,7 @@ return {
       index = 334, -- Tearhaunch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10401,6 +10731,7 @@ return {
       index = 335, -- Lenymo, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (8 + (10-8)*0.7) }, -- +8-10% to Experience Gained
       },
@@ -10413,6 +10744,7 @@ return {
       index = 336, -- Snakecord, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -10425,6 +10757,7 @@ return {
       index = 337, -- Nightsmoke, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       },
@@ -10437,6 +10770,7 @@ return {
       index = 338, -- Goldwrap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 79, op = "<=", value = (12 + (20-12)*0.7) }, -- 12-20% Extra Gold from Monsters
       },
@@ -10449,6 +10783,7 @@ return {
       index = 339, -- Bladebuckle, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10460,6 +10795,7 @@ return {
       index = 340, -- Wormskull, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 124, op = "<=", value = (50 + (100-50)*0.7) }, -- +50-100 to Attack Rating against Undead
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
@@ -10765,6 +11101,7 @@ return {
       index = 341, -- Wall of the Eyeless, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5% to Experience Gained
       { index = 388, op = "<=", value = (3 + (6-3)*0.7) }, -- Smite: 3-6
@@ -10778,6 +11115,7 @@ return {
       index = 342, -- Swordback Hold, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 135, op = "<=", value = (15 + (25-15)*0.7) }, -- 15-25% Chance of Open Wounds
       { index = 140, op = "<=", value = (3 + (5-3)*0.7) }, -- Open Wounds Blood Visual +3-5
@@ -10792,6 +11130,7 @@ return {
       index = 343, -- Peasant Crown, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 74, op = "<=", value = (6 + (12-6)*0.7) }, -- Replenish Life +6-12
       },
@@ -10804,6 +11143,7 @@ return {
       index = 344, -- Rockstopper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 41, op = "<=", value = (20 + (40-20)*0.7) }, -- Lightning Resist +20-40%
       { index = 39, op = "<=", value = (20 + (50-20)*0.7) }, -- Fire Resist +20-50%
@@ -10818,6 +11158,7 @@ return {
       index = 345, -- Stealskull, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 80, op = "<=", value = (30 + (50-30)*0.7) }, -- +30-50% Chance of Higher Quality Items
       },
@@ -10830,6 +11171,7 @@ return {
       index = 346, -- Darksight Helm, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (20 + (40-20)*0.7) }, -- Fire Resist +20-40%
       },
@@ -10842,6 +11184,7 @@ return {
       index = 347, -- Valkyrie Wing, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 0, value = (1 + (2-1)*0.7) }, -- +1-2 to Amazon Skill Levels
       { index = 138, op = "<=", value = (2 + (4-2)*0.7) }, -- +2-4 to Mana after each Kill
@@ -10855,6 +11198,7 @@ return {
       index = 348, -- Crown of Thieves, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (9 + (12-9)*0.7) }, -- 9-12% Life stolen per hit
       { index = 79, op = "<=", value = (20 + (25-20)*0.7) }, -- 20-25% Extra Gold from Monsters
@@ -10868,6 +11212,7 @@ return {
       index = 349, -- Blackhorn's Face, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10879,6 +11224,7 @@ return {
       index = 350, -- The Spirit Shroud, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 35, op = "<=", value = (7 + (11-7)*0.7) }, -- Magic Damage Reduced by 7-11
       },
@@ -10891,6 +11237,7 @@ return {
       index = 351, -- Skin of the Vipermagi, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (20 + (35-20)*0.7) }, -- All Resistances +20-35%
       { index = 35, op = "<=", value = (9 + (13-9)*0.7) }, -- Magic Damage Reduced by 9-13
@@ -10904,6 +11251,7 @@ return {
       index = 352, -- Skin of the Flayed One, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 74, op = "<=", value = (15 + (25-15)*0.7) }, -- Replenish Life +15-25
       { index = 60, op = "<=", value = (5 + (7-5)*0.7) }, -- 5-7% Life stolen per hit
@@ -10917,6 +11265,7 @@ return {
       index = 353, -- Iron Pelt, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 35, op = "<=", value = (10 + (16-10)*0.7) }, -- Magic Damage Reduced by 10-16
       { index = 34, op = "<=", value = (15 + (20-15)*0.7) }, -- Damage Reduced by 15-20
@@ -10930,6 +11279,7 @@ return {
       index = 354, -- Spirit Forge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10941,6 +11291,7 @@ return {
       index = 355, -- Crow Caw, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10952,6 +11303,7 @@ return {
       index = 356, -- Shaftstop, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (9 + (13-9)*0.7) }, -- Damage Reduced by 9-13
       },
@@ -10964,6 +11316,7 @@ return {
       index = 357, -- Duriel's Shell, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (8 + (12-8)*0.7) }, -- Damage Reduced by 8-12
       { index = 35, op = "<=", value = (8 + (12-8)*0.7) }, -- Magic Damage Reduced by 8-12
@@ -10977,6 +11330,7 @@ return {
       index = 358, -- Skullder's Ire, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -10988,6 +11342,7 @@ return {
       index = 359, -- Guardian Angel, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (7 + (15-7)*0.7) }, -- Damage Reduced by 7-15
       { index = 35, op = "<=", value = (7 + (15-7)*0.7) }, -- Magic Damage Reduced by 7-15
@@ -11001,6 +11356,7 @@ return {
       index = 360, -- Toothrow, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 78, op = "<=", value = (20 + (40-20)*0.7) }, -- Attacker Takes Damage of 20-40
       { index = 135, op = "<=", value = (10 + (15-10)*0.7) }, -- 10-15% Chance of Open Wounds
@@ -11305,6 +11661,7 @@ return {
       index = 361, -- Atma's Wail, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11316,6 +11673,7 @@ return {
       index = 362, -- Black Hades, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 123, op = "<=", value = (200 + (250-200)*0.7) }, -- +200-250 to Attack Rating against Demons
       { index = 121, op = "<=", value = (30 + (60-30)*0.7) }, -- +30-60% Damage to Demons
@@ -11330,6 +11688,7 @@ return {
       index = 363, -- Corpsemourn, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11341,6 +11700,7 @@ return {
       index = 364, -- Que-Hegan's Wisdom, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 35, op = "<=", value = (6 + (10-6)*0.7) }, -- Magic Damage Reduced by 6-10
       },
@@ -11353,6 +11713,7 @@ return {
       index = 365, -- Visceratuant, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (12 + (13-12)*0.7) }, -- Smite: 12-13
       },
@@ -11365,6 +11726,7 @@ return {
       index = 366, -- Moser's Blessed Circle, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (14 + (15-14)*0.7) }, -- Smite: 14-15
       { index = 34, op = "<=", value = (5 + (10-5)*0.7) }, -- Damage Reduced by 5-10
@@ -11379,6 +11741,7 @@ return {
       index = 367, -- Stormchaser, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (11 + (15-11)*0.7) }, -- Smite: 11-15
       },
@@ -11391,6 +11754,7 @@ return {
       index = 368, -- Tiamat's Rebuke, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (25 + (35-25)*0.7) }, -- All Resistances +25-35%
       { index = 388, op = "<=", value = (26 + (27-26)*0.7) }, -- Smite: 26-27
@@ -11404,6 +11768,7 @@ return {
       index = 369, -- Gerke's Sanctuary, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (15 + (20-15)*0.7) }, -- Damage Reduced by 15-20
       { index = 35, op = "<=", value = (18 + (23-18)*0.7) }, -- Magic Damage Reduced by 18-23
@@ -11419,6 +11784,7 @@ return {
       index = 370, -- Radament's Sphere, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (16 + (17-16)*0.7) }, -- Smite: 16-17
       },
@@ -11431,6 +11797,7 @@ return {
       index = 371, -- Venom Grip, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11442,6 +11809,7 @@ return {
       index = 372, -- Gravepalm, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 122, op = "<=", value = (100 + (200-100)*0.7) }, -- +100-200% Damage to Undead
       { index = 124, op = "<=", value = (100 + (200-100)*0.7) }, -- +100-200 to Attack Rating against Undead
@@ -11455,6 +11823,7 @@ return {
       index = 373, -- Ghoulhide, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 62, op = "<=", value = (4 + (5-4)*0.7) }, -- 4-5% Mana stolen per hit
       },
@@ -11467,6 +11836,7 @@ return {
       index = 374, -- Lava Gout, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11478,6 +11848,7 @@ return {
       index = 375, -- Hellmouth, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 35, op = "<=", value = (4 + (6-4)*0.7) }, -- Magic Damage Reduced by 4-6
       },
@@ -11490,6 +11861,7 @@ return {
       index = 376, -- Infernostride, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 79, op = "<=", value = (10 + (20-10)*0.7) }, -- 10-20% Extra Gold from Monsters
       },
@@ -11502,6 +11874,7 @@ return {
       index = 377, -- Waterwalk, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 7, op = "<=", value = ((45 + (65-45)*0.7) * 256) }, -- +45-65 to Life
       { index = 74, op = "<=", value = (5 + (10-5)*0.7) }, -- Replenish Life +5-10
@@ -11515,6 +11888,7 @@ return {
       index = 378, -- Silkweave, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11526,6 +11900,7 @@ return {
       index = 379, -- War Traveler, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 80, op = "<=", value = (30 + (50-30)*0.7) }, -- +30-50% Chance of Higher Quality Items
       { index = 78, op = "<=", value = (5 + (10-5)*0.7) }, -- Attacker Takes Damage of 5-10
@@ -11539,6 +11914,7 @@ return {
       index = 380, -- Gore Rider, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 135, op = "<=", value = (5 + (10-5)*0.7) }, -- 5-10% Chance of Open Wounds
       { index = 34, op = "<=", value = (0 + (5-0)*0.7) }, -- Damage Reduced by 0-5
@@ -11845,6 +12221,7 @@ return {
       index = 381, -- String of Ears, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 35, op = "<=", value = (10 + (15-10)*0.7) }, -- Magic Damage Reduced by 10-15
       { index = 36, op = "<=", value = (10 + (15-10)*0.7) }, -- Damage Reduced by 10-15%
@@ -11859,6 +12236,7 @@ return {
       index = 382, -- Razortail, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11870,6 +12248,7 @@ return {
       index = 383, -- Gloom's Trap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 77, op = "<=", value = (15 + (20-15)*0.7) }, -- Increase Maximum Mana by 15-20%
       { index = 62, op = "<=", value = (5 + (8-5)*0.7) }, -- 5-8% Mana stolen per hit
@@ -11884,6 +12263,7 @@ return {
       index = 384, -- Snowclash, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11895,6 +12275,7 @@ return {
       index = 385, -- Thundergod's Vigor, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11906,6 +12287,7 @@ return {
       index = 386, -- Vampire Gaze, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (6 + (8-6)*0.7) }, -- 6-8% Life stolen per hit
       { index = 62, op = "<=", value = (6 + (8-6)*0.7) }, -- 6-8% Mana stolen per hit
@@ -11921,6 +12303,7 @@ return {
       index = 387, -- Lidless Wall, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 138, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5 to Mana after each Kill
       { index = 388, op = "<=", value = (14 + (20-14)*0.7) }, -- Smite: 14-20
@@ -11934,6 +12317,7 @@ return {
       index = 388, -- Lance Guard, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (35 + (36-35)*0.7) }, -- Smite: 35-36
       },
@@ -11946,6 +12330,7 @@ return {
       index = 389, -- Primal Power, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 3, op = "<=", value = (5 + (15-5)*0.7) }, -- +5-15 to Vitality
       },
@@ -11958,6 +12343,7 @@ return {
       index = 390, -- Murder of Crows, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 283, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Summoning Power
       { index = 403, op = "<=", value = (45 + (55-45)*0.7) }, -- Increase Raven Damage by 45-55%
@@ -11971,6 +12357,7 @@ return {
       index = 391, -- Cheetah Stance, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 96, op = "<=", value = (5 + (10-5)*0.7) }, -- +5-10% Faster Run/Walk
       { index = 99, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Faster Hit Recovery
@@ -11987,6 +12374,7 @@ return {
       index = 392, -- Uproar, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -11998,6 +12386,7 @@ return {
       index = 393, -- Flame Spirit, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Increased Attack Speed
       },
@@ -12010,6 +12399,7 @@ return {
       index = 394, -- Toothless Maw, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -12021,6 +12411,7 @@ return {
       index = 395, -- Darkfear, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 156, op = "<=", value = (5 + (10-5)*0.7) }, -- +5-10% Chance of Piercing Attack
       },
@@ -12033,6 +12424,7 @@ return {
       index = 396, -- Thermal Shock, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 335, op = "<=", value = (5 + (10-5)*0.7) }, -- -5-10% to Enemy Cold Resistance
       { index = 333, op = "<=", value = (5 + (10-5)*0.7) }, -- -5-10% to Enemy Fire Resistance
@@ -12046,6 +12438,7 @@ return {
       index = 397, -- Nature's Protector, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (10 + (15-10)*0.7) }, -- All Resistances +10-15%
       },
@@ -12058,6 +12451,7 @@ return {
       index = 398, -- Reckless Fury, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -12069,6 +12463,7 @@ return {
       index = 399, -- Siggard's Stealth, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (6 + (7-6)*0.7) }, -- Smite: 6-7
       { index = 96, op = "<=", value = (5 + (10-5)*0.7) }, -- +5-10% Faster Run/Walk
@@ -12082,6 +12477,7 @@ return {
       index = 400, -- Caster's Courage, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (8 + (9-8)*0.7) }, -- Smite: 8-9
       { index = 1, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15 to Energy
@@ -12414,6 +12810,7 @@ return {
       index = 401, --Briar Patch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (10 + (11-10)*0.7) }, -- Smite: 10-11
       { index = 3, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15 to Vitality
@@ -12427,6 +12824,7 @@ return {
       index = 402, --Ricochet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (12 + (13-12)*0.7) }, -- Smite: 12-13
       { index = 93, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Increased Attack Speed
@@ -12440,6 +12838,7 @@ return {
       index = 403, --Favored Path, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (16 + (17-16)*0.7) }, -- Smite: 16-17
       { index = 39, op = "<=", value = (10 + (20-10)*0.7) }, -- All Resistances +10-20%
@@ -12456,6 +12855,7 @@ return {
       index = 404, --Old Friend, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -12467,6 +12867,7 @@ return {
       index = 405, --Decomposed, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 45, op = "<=", value = (20 + (30-20)*0.7) }, -- Poison Resist +20-30%
       { index = 102, op = "<=", value = (16 + (27-16)*0.7) }, -- +16-27% Faster Block Rate
@@ -12481,6 +12882,7 @@ return {
       index = 406, --Tangled Fellow, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 9, op = "<=", value = ((15 + (25-15)*0.7) * 256) }, -- +15-25 to Mana
       { index = 20, op = "<=", value = (11 + (12-11)*0.7) }, -- +3-4% Chance to Block (value 11-12)
@@ -12494,6 +12896,7 @@ return {
       index = 407, --Stubborn Stone, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 284, op = "<=", value = (6 + (8-6)*0.7) }, -- Summon Max HP: +6-8%
       { index = 7, op = "<=", value = ((15 + (25-15)*0.7) * 256) }, -- +15-25 to Life
@@ -12507,6 +12910,7 @@ return {
       index = 408, --Spiked Dreamcatcher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 332, op = "<=", value = (4 + (6-4)*0.7) }, -- +4-6% to Poison Skill Damage
       { index = 357, op = "<=", value = (4 + (6-4)*0.7) }, -- +4-6% to Magic Skill Damage
@@ -12522,6 +12926,7 @@ return {
       index = 409, --Journeyman's Band, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 415, op = "<=", value = (3 + (5-3)*0.7) }, -- Increase charm max weight by 3-5
       { index = 142, op = "<=", value = (1 + (3-1)*0.7) }, -- Fire Absorb 1-3%
@@ -12538,6 +12943,7 @@ return {
       index = 410, --Hygieia's Purity, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 415, op = "<=", value = (3 + (5-3)*0.7) }, -- Increase charm max weight by 3-5
       { index = 151, op = "<=", param = 109, value = (5 + (8-5)*0.7) }, -- Level 5-8 Clear Ailment Aura When Equipped
@@ -12553,6 +12959,7 @@ return {
       index = 411, --Kira's Guardian, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (50 + (70-50)*0.7) }, -- All Resistances +50-70%
       { index = 415, op = "<=", value = (3 + (5-3)*0.7) }, -- Increase charm max weight by 3-5
@@ -12566,6 +12973,7 @@ return {
       index = 412, --Griffon's Eye, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 330, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15% to Lightning Skill Damage
       { index = 334, op = "<=", value = (15 + (20-15)*0.7) }, -- -15-20% to Enemy Lightning 
@@ -12580,6 +12988,7 @@ return {
       index = 413, --Harlequin Crest, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -12591,6 +13000,7 @@ return {
       index = 414, --Tarnhelm's Revenge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (20 + (35-20)*0.7) }, -- +20-35 to Strength
       { index = 187, op = "<=", value = (5 + (15-5)*0.7) }, -- Enemy cold immunity reduced by 5-15%
@@ -12611,6 +13021,7 @@ return {
       index = 415, --Steel Shade, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 143, op = "<=", value = (5 + (11-5)*0.7) }, -- +5-11 Fire Absorb
       { index = 62, op = "<=", value = (4 + (8-4)*0.7) }, -- 4-8% Mana stolen per hit
@@ -12625,6 +13036,7 @@ return {
       index = 416, --Veil of Steel, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -12636,6 +13048,7 @@ return {
       index = 417, --Nightwing's Veil, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 2, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20 to Dexterity
       { index = 149, op = "<=", value = (5 + (9-5)*0.7) }, -- +5-9 Cold Absorb
@@ -12650,6 +13063,7 @@ return {
       index = 418, --Crown of Ages, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (20 + (30-20)*0.7) }, -- All Resistances +20-30%
       { index = 36, op = "<=", value = (10 + (15-10)*0.7) }, -- Damage Reduced by 10-15%
@@ -12663,6 +13077,7 @@ return {
       index = 419, --Andariel's Visage, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (25 + (30-25)*0.7) }, -- +25-30 to Strength
       { index = 60, op = "<=", value = (8 + (10-8)*0.7) }, -- 8-10% Life stolen per hit
@@ -12676,6 +13091,7 @@ return {
       index = 420, --Ormus' Robes, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 329, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15% to Fire Skill Damage
       { index = 330, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15% to Lightning Skill Damage
@@ -13037,6 +13453,7 @@ return {
       index = 421, --Arcane Protector, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (15 + (20-15)*0.7) }, -- All Resistances +15-20%
       { index = 107, op = "<=", param = 58, value = (3 + (5-3)*0.7) }, -- +3-5 to Energy Shield (Sorceress only)
@@ -13051,6 +13468,7 @@ return {
       index = 422, --Spell Splitter, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 276, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Spell Power
       { index = 286, op = "<=", value = (25 + (40-25)*0.7) }, -- Reduce Cooldowns by 25-40%
@@ -13070,6 +13488,7 @@ return {
       index = 423, --The Gladiator's Bane, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (15 + (20-15)*0.7) }, -- Damage Reduced by 15-20
       { index = 35, op = "<=", value = (15 + (20-15)*0.7) }, -- Magic Damage Reduced by 15-20
@@ -13083,6 +13502,7 @@ return {
       index = 424, --Balled Lightning, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (15 + (25-15)*0.7) }, -- All Resistances +15-25
       { index = 79, op = "<=", value = (10 + (20-10)*0.7) }, -- 10-20% Extra Gold from Monsters
@@ -13098,6 +13518,7 @@ return {
       index = 425, -- Giant Crusher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 4, value = (1 + (2-1)*0.7) }, -- +1-2 to Barbarian Skill Levels
       { index = 262, op = "<=", value = (5 + (10-5)*0.7) }, -- Increase Strength by +5-10%
@@ -13112,6 +13533,7 @@ return {
       index = 426, -- Chained Lightning, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 217, op = "<=", value = ((1 + (2-1)*0.7) * 2048) }, -- +1-2 Mana per level
       { index = 107, op = "<=", param = 53, value = (3 + (6-3)*0.7) }, -- +3-6 to Chain Lightning (Sorceress only)
@@ -13125,6 +13547,7 @@ return {
       index = 427, -- Savitr's Garb, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 99, op = "<=", value = (12 + (24-12)*0.7) }, -- +12-24% Faster Hit Recovery
       { index = 286, op = "<=", value = (10 + (20-10)*0.7) }, -- Reduce Cooldowns by 10-20%
@@ -13140,6 +13563,7 @@ return {
       index = 428, -- Arkaine's Valor, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 127, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 to All Skills
       { index = 34, op = "<=", value = (20 + (25-20)*0.7) }, -- Damage Reduced by 20-25
@@ -13155,6 +13579,7 @@ return {
       index = 429, -- Strength Unleashed, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 262, op = "<=", value = (5 + (15-5)*0.7) }, -- Increase Strength by +5-15%
       { index = 278, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Combat Power
@@ -13172,6 +13597,7 @@ return {
       index = 430, -- Leviathan, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 36, op = "<=", value = (15 + (25-15)*0.7) }, -- Damage Reduced by 15-25%
       { index = 0, op = "<=", value = (40 + (50-40)*0.7) }, -- +40-50 to Strength
@@ -13185,6 +13611,7 @@ return {
       index = 431, -- Duality, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 136, op = "<=", value = (10 + (20-10)*0.7) }, -- 10-20% Chance of Crushing Blow
       { index = 286, op = "<=", value = (15 + (25-15)*0.7) }, -- Reduce Cooldowns by 15-25%
@@ -13204,6 +13631,7 @@ return {
       index = 432, -- Steel Carapace, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (9 + (14-9)*0.7) }, -- Damage Reduced by 9-14
       { index = 43, op = "<=", value = (40 + (60-40)*0.7) }, -- Cold Resist +40-60%
@@ -13218,6 +13646,7 @@ return {
       index = 433, -- Tyrael's Might, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 121, op = "<=", value = (50 + (100-50)*0.7) }, -- +50-100% Damage to Demons
       { index = 39, op = "<=", value = (20 + (30-20)*0.7) }, -- All Resistances +20-30%
@@ -13234,6 +13663,7 @@ return {
       index = 434, -- Spiritual Protector, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 7, op = "<=", value = ((50 + (100-50)*0.7) * 256) }, -- +50-100 to Life
       { index = 76, op = "<=", value = (5 + (10-5)*0.7) }, -- Increase Maximum Life by 5-10%
@@ -13249,6 +13679,7 @@ return {
       index = 435, -- Cleansing Ward, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 262, op = "<=", value = (3 + (5-3)*0.7) }, -- Increase Strength by +3-5%
       { index = 263, op = "<=", value = (3 + (5-3)*0.7) }, -- Increase Dexterity by +3-5%
@@ -13265,6 +13696,7 @@ return {
       index = 436, -- Blackoak Shield, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (39 + (40-39)*0.7) }, -- Smite: 39-40
       },
@@ -13277,6 +13709,7 @@ return {
       index = 437, -- Astrogha's Web, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 86, op = "<=", value = (3 + (7-3)*0.7) }, -- +3-7 Life after each Kill
       { index = 138, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5 to Mana after each Kill
@@ -13294,6 +13727,7 @@ return {
       index = 438, -- Stormshield, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (60 + (61-60)*0.7) }, -- Smite: 60-61
       { index = 34, op = "<=", value = (7 + (13-7)*0.7) }, -- Damage Reduced by 7-13
@@ -13307,6 +13741,7 @@ return {
       index = 439, -- Medusa's Gaze, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (5 + (9-5)*0.7) }, -- 5-9% Life stolen per hit
       { index = 43, op = "<=", value = (40 + (80-40)*0.7) }, -- Cold Resist +40-80%
@@ -13321,6 +13756,7 @@ return {
       index = 440, -- Spirit Ward, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 149, op = "<=", value = (6 + (11-6)*0.7) }, -- +6-11 Cold Absorb
       { index = 39, op = "<=", value = (30 + (40-30)*0.7) }, -- All Resistances +30-40%
@@ -13662,6 +14098,7 @@ return {
       index = 441, -- Indra's Mark, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 330, op = "<=", value = (5 + (15-5)*0.7) }, -- +5-15% to Lightning Skill Damage
       { index = 286, op = "<=", value = (10 + (20-10)*0.7) }, -- Reduce Cooldowns by 10-20%
@@ -13676,6 +14113,7 @@ return {
       index = 442, -- Dracul's Grasp, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (7 + (10-7)*0.7) }, -- 7-10% Life stolen per hit
       { index = 86, op = "<=", value = (5 + (10-5)*0.7) }, -- +5-10 Life after each Kill
@@ -13690,6 +14128,7 @@ return {
       index = 443, -- Soul Drainer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (4 + (7-4)*0.7) }, -- 4-7% Life stolen per hit
       { index = 62, op = "<=", value = (4 + (7-4)*0.7) }, -- 4-7% Mana stolen per hit
@@ -13704,6 +14143,7 @@ return {
       index = 444, -- Carthas's Presence, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 85, op = "<=", value = (5 + (10-5)*0.7) }, -- +5-10% to Experience Gained
       { index = 74, op = "<=", value = (5 + (10-5)*0.7) }, -- Replenish Life +5-10
@@ -13721,6 +14161,7 @@ return {
       index = 445, -- Steelrend, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (15 + (20-15)*0.7) }, -- +15-20 to Strength
       { index = 151, op = "<=", param = 98, value = (5 + (7-5)*0.7) }, -- Level 5-7 Might Aura When Equipped
@@ -13735,6 +14176,7 @@ return {
       index = 446, -- Mana Wyrm, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 96, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Faster Run/Walk
       { index = 39, op = "<=", value = (10 + (15-10)*0.7) }, -- Fire Resist +10-15%
@@ -13749,6 +14191,7 @@ return {
       index = 447, -- Sandstorm Trek, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 9, op = "<=", value = ((25 + (50-25)*0.7) * 256) }, -- +25-50 to Mana
       { index = 45, op = "<=", value = (40 + (70-40)*0.7) }, -- Poison Resist +40-70%
@@ -13765,6 +14208,7 @@ return {
       index = 448, -- Marrowwalk, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 74, op = "<=", value = (3 + (10-3)*0.7) }, -- Replenish Life +3-10
       { index = 0, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20 to Strength
@@ -13779,6 +14223,7 @@ return {
       index = 449, -- Crimson Shift, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (15 + (25-15)*0.7) }, -- Fire Resist +15-25%
       { index = 41, op = "<=", value = (15 + (25-15)*0.7) }, -- Lightning Resist +15-25%
@@ -13795,6 +14240,7 @@ return {
       index = 450, -- Lelantus's Frenzy, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 86, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5 Life after each Kill
       { index = 138, op = "<=", value = (2 + (5-2)*0.7) }, -- +2-5 to Mana after each Kill
@@ -13811,6 +14257,7 @@ return {
       index = 451, -- Arachnid Mesh, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 97, op = "<=", param = 183, value = (1 + (3-1)*0.7) }, -- +1-3 to Arachnophobia
       },
@@ -13823,6 +14270,7 @@ return {
       index = 452, -- Nosferatu's Coil, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (5 + (7-5)*0.7) }, -- 5-7% Life stolen per hit
       },
@@ -13835,6 +14283,7 @@ return {
       index = 453, -- Verdungo's Hearty Cord, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 3, op = "<=", value = (30 + (40-30)*0.7) }, -- +30-40 to Vitality
       { index = 36, op = "<=", value = (10 + (15-10)*0.7) }, -- Damage Reduced by 10-15%
@@ -13849,6 +14298,7 @@ return {
       index = 454, -- Magni's Warband, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (25 + (45-25)*0.7) }, -- +25-45 to Strength
       { index = 278, op = "<=", value = (4 + (7-4)*0.7) }, -- +4-7 Combat Power
@@ -13863,6 +14313,7 @@ return {
       index = 455, -- Arcanist's Safeguard, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 99, op = "<=", value = (12 + (24-12)*0.7) }, -- +12-24% Faster Hit Recovery
       { index = 7, op = "<=", value = ((75 + (125-75)*0.7) * 256) }, -- +75-125 to Life
@@ -13876,9 +14327,11 @@ return {
       index = 456, -- Giant Skull, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (25 + (35-25)*0.7) }, -- +25-35 to Strength
       },
+      prefix = "<",
       hide = true,
       filter_levels = "1,2,3"
     },
@@ -13888,6 +14341,7 @@ return {
       index = 457, -- Head Hunter's Glory, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 32, op = "<=", value = (300 + (350-300)*0.7) }, -- +300-350 Defense vs. Missile
       { index = 45, op = "<=", value = (30 + (40-30)*0.7) }, -- Poison Resist +30-40%
@@ -13904,6 +14358,7 @@ return {
       index = 458, -- Spike Thorn, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 36, op = "<=", value = (15 + (20-15)*0.7) }, -- Damage Reduced by 15-20%
       { index = 388, op = "<=", value = (75 + (76-75)*0.7) }, -- Smite: 75-76
@@ -13918,6 +14373,7 @@ return {
       index = 459, -- Flame of Combat, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 278, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Combat Power
       { index = 283, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Summoning Power
@@ -13932,6 +14388,7 @@ return {
       index = 460, -- Mystic Command, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 276, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Spell Power
       { index = 283, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Summoning Power
@@ -14276,6 +14733,7 @@ return {
       index = 461, -- Rama's Protector, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 5, value = (1 + (2-1)*0.7) }, -- +1-2 to Druid Skill Levels
       { index = 39, op = "<=", value = (10 + (20-10)*0.7) }, -- All Resistances +10-20%
@@ -14292,6 +14750,7 @@ return {
       index = 462, -- Snow Spirit, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 43, op = "<=", value = (30 + (50-30)*0.7) }, -- Cold Resist +30-50%
       { index = 44, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15% to Maximum Cold Resist
@@ -14306,6 +14765,7 @@ return {
       index = 463, -- Efreeti's Fury, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 107, op = "<=", param = 248, value = (3 + (7-3)*0.7) }, -- +3-7 to Fiery Fury (Druid only)
       { index = 189, op = "<=", value = (10 + (20-10)*0.7) }, -- Enemy fire immunity reduced by 10-20%
@@ -14319,6 +14779,7 @@ return {
       index = 464, -- Combat Visor, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 278, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Combat Power
       { index = 7, op = "<=", value = ((50 + (75-50)*0.7) * 256) }, -- +50-75 to Life
@@ -14332,6 +14793,7 @@ return {
       index = 465, -- Strength of Pride, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 4, value = (1 + (2-1)*0.7) }, -- +1-2 to Barbarian Skill Levels
       { index = 0, op = "<=", value = (15 + (20-15)*0.7) }, -- +15-20 to Strength
@@ -14345,6 +14807,7 @@ return {
       index = 466, -- Fighter's Stance, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 4, value = (1 + (2-1)*0.7) }, -- +1-2 to Barbarian Skill Levels
       { index = 192, op = "<=", value = (10 + (15-10)*0.7) }, -- Enemy physical immunity reduced by 10-15%
@@ -14360,6 +14823,7 @@ return {
       index = 467, -- Piercing Cold, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (25 + (35-25)*0.7) }, -- All Resistances +25-35%
       { index = 99, op = "<=", value = (12 + (24-12)*0.7) }, -- +12-24% Faster Hit Recovery
@@ -14376,6 +14840,7 @@ return {
       index = 468, -- Arreat's Face, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (3 + (6-3)*0.7) }, -- 3-6% Life stolen per hit
       },
@@ -14388,6 +14853,7 @@ return {
       index = 469, -- Fara's Defender, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (15 + (25-15)*0.7) }, -- All Resistances +15-25%
       { index = 388, op = "<=", value = (20 + (21-20)*0.7) }, -- Smite: 20-21
@@ -14402,6 +14868,7 @@ return {
       index = 470, -- Rakkis's Guard, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 193, op = "<=", value = (5 + (15-5)*0.7) }, -- Enemy magic immunity reduced by 5-15%
       { index = 276, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Spell Power
@@ -14417,6 +14884,7 @@ return {
       index = 471, -- Assaulter's Armament, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 107, op = "<=", param = 106, value = (2 + (4-2)*0.7) }, -- +2-4 to Zeal (Paladin only)
       { index = 278, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Combat Power
@@ -14434,6 +14902,7 @@ return {
       index = 472, -- Herald of Zakarum, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 388, op = "<=", value = (32 + (33-32)*0.7) }, -- Smite: 32-33
       },
@@ -14446,6 +14915,7 @@ return {
       index = 473, -- Blackheart's Barrage, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 107, op = "<=", param = 107, value = (3 + (7-3)*0.7) }, -- +3-7 to Shield Toss (Paladin only)
       { index = 60, op = "<=", value = (5 + (10-5)*0.7) }, -- 5-10% Life stolen per hit
@@ -14463,6 +14933,7 @@ return {
       index = 474, -- Mehtan's Carrion, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 288, op = "<=", value = (15 + (20-15)*0.7) }, -- Increase Bone Skill Damage: 15-20%
       { index = 39, op = "<=", value = (20 + (30-20)*0.7) }, -- Fire Resist +20-30%
@@ -14478,6 +14949,7 @@ return {
       index = 475, -- Venom Storm, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 410, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 to Poison Skills
       { index = 191, op = "<=", value = (5 + (10-5)*0.7) }, -- Enemy poison immunity reduced by 5-10%
@@ -14492,6 +14964,7 @@ return {
       index = 476, -- Bone Zone, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 18, value = (1 + (3-1)*0.7) }, -- +1-3 to Summoning Skills
       { index = 107, op = "<=", param = 68, value = (1 + (3-1)*0.7) }, -- +1-3 to Bone Armor (Necromancer only)
@@ -14506,6 +14979,7 @@ return {
       index = 477, -- Contagion, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 151, op = "<=", param = 180, value = (3 + (6-3)*0.7) }, -- Level 3-6 Patient Zero Aura When Equipped
       { index = 39, op = "<=", value = (15 + (25-15)*0.7) }, -- All Resistances +15-25%
@@ -14520,6 +14994,7 @@ return {
       index = 478, -- Homunculus, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -14531,6 +15006,7 @@ return {
       index = 479, -- Cerebus' Bite, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 41, value = (2 + (4-2)*0.7) }, -- +2-4 to Blaze Wolf (Druid only)
       { index = 60, op = "<=", value = (7 + (10-7)*0.7) }, -- 7-10% Life stolen per hit
@@ -14547,6 +15023,7 @@ return {
       index = 480, -- Pack Mentality, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 40, value = (2 + (4-2)*0.7) }, -- +2-4 to Nature's Teachings (Druid only)
       { index = 107, op = "<=", param = 247, value = (3 + (5-3)*0.7) }, -- +3-5 to Grizzly (Druid only)
@@ -14904,6 +15381,7 @@ return {
       index = 481, -- Spirit Keeper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 145, op = "<=", value = (9 + (14-9)*0.7) }, -- +9-14 Lightning Absorb
       { index = 39, op = "<=", value = (30 + (40-30)*0.7) }, -- Fire Resist +30-40%
@@ -14919,6 +15397,7 @@ return {
       index = 482, -- Ravenlore, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (15 + (25-15)*0.7) }, -- All Resistances +15-25%
       { index = 1, op = "<=", value = (20 + (30-20)*0.7) }, -- +20-30 to Energy
@@ -14934,6 +15413,7 @@ return {
       index = 483, -- Jalal's Mane, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -14945,6 +15425,7 @@ return {
       index = 484, -- Berserker's Stance, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 4, value = (1 + (2-1)*0.7) }, -- +1-2 to Barbarian Skill Levels
       { index = 192, op = "<=", value = (15 + (25-15)*0.7) }, -- Enemy physical immunity reduced by 15-25%
@@ -14959,6 +15440,7 @@ return {
       index = 485, -- Wolfhowl, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 34, value = (2 + (3-2)*0.7) }, -- +2-3 to Destructive Range (Barb only)
       { index = 0, op = "<=", value = (8 + (15-8)*0.7) }, -- +8-15 to Strength
@@ -14979,6 +15461,7 @@ return {
       index = 486, -- Demonhorn's Edge, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (3 + (6-3)*0.7) }, -- 3-6% Life stolen per hit
       { index = 188, op = "<=", param = 32, value = (1 + (3-1)*0.7) }, -- +1-3 to Close Quarters (Barb only)
@@ -14995,6 +15478,7 @@ return {
       index = 487, -- Halaberd's Reign, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 74, op = "<=", value = (15 + (23-15)*0.7) }, -- Replenish Life +15-23
       { index = 107, op = "<=", param = 149, value = (2 + (3-2)*0.7) }, -- +2-3 to War Stance (Barbarian only)
@@ -15009,6 +15493,7 @@ return {
       index = 488, -- Warrior's Resolve, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (15 + (25-15)*0.7) }, -- +15-25% Increased Attack Speed
       { index = 7, op = "<=", value = ((50 + (100-50)*0.7) * 256) }, -- +50-100 to Life
@@ -15024,6 +15509,7 @@ return {
       index = 489, -- Primordial Punisher, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 3, value = (1 + (2-1)*0.7) }, -- +1-2 to Paladin Skill Levels
       { index = 286, op = "<=", value = (20 + (30-20)*0.7) }, -- Reduce Cooldowns by 20-30%
@@ -15040,6 +15526,7 @@ return {
       index = 490, -- Alma Negra, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 3, value = (1 + (2-1)*0.7) }, -- +1-2 to Paladin Skill Levels
       { index = 35, op = "<=", value = (5 + (9-5)*0.7) }, -- Magic Damage Reduced by 5-9
@@ -15055,6 +15542,7 @@ return {
       index = 491, -- Faithful Guardian, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 107, op = "<=", param = 96, value = (3 + (5-3)*0.7) }, -- +3-5 to Sacrifice (Paladin only)
       { index = 107, op = "<=", param = 119, value = (3 + (5-3)*0.7) }, -- +3-5 to Faithful Follower (Paladin only)
@@ -15071,6 +15559,7 @@ return {
       index = 492, -- Dragonscale, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 142, op = "<=", value = (10 + (20-10)*0.7) }, -- Fire Absorb 10-20%
       { index = 0, op = "<=", value = (15 + (25-15)*0.7) }, -- +15-25 to Strength
@@ -15085,6 +15574,7 @@ return {
       index = 493, -- Shield of Forsaken Light, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (20 + (30-20)*0.7) }, -- +20-30 all Attributes
       { index = 83, op = "<=", param = 3, value = (2 + (3-2)*0.7) }, -- +2-3 to Paladin Skill Levels
@@ -15103,6 +15593,7 @@ return {
       index = 494, -- Onikuma, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (30 + (55-30)*0.7) }, -- All Resistances +30-55%
       { index = 107, op = "<=", param = 87, value = (2 + (4-2)*0.7) }, -- +2-4 to Decrepify (Necromancer only)
@@ -15118,6 +15609,7 @@ return {
       index = 495, -- Bone Parade, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 18, value = (1 + (2-1)*0.7) }, -- +1-2 to Summoning Skills
       { index = 288, op = "<=", value = (25 + (35-25)*0.7) }, -- Increase Bone Skill Damage: 25-35%
@@ -15135,6 +15627,7 @@ return {
       index = 496, -- Elanuzuru, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 18, value = (1 + (2-1)*0.7) }, -- +1-2 to Summoning Skills
       { index = 283, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5 Summoning Power
@@ -15149,6 +15642,7 @@ return {
       index = 497, -- Boneflame, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 2, value = (2 + (3-2)*0.7) }, -- +2-3 to Necromancer Skill Levels
       { index = 39, op = "<=", value = (20 + (30-20)*0.7) }, -- All Resistances +20-30%
@@ -15162,6 +15656,7 @@ return {
       index = 498, -- Darkforce Spawn, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 16, value = (1 + (3-1)*0.7) }, -- +1-3 to Curses
       { index = 188, op = "<=", param = 17, value = (1 + (3-1)*0.7) }, -- +1-3 to Poison and Bone Skills
@@ -15177,6 +15672,7 @@ return {
       index = 499, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15188,6 +15684,7 @@ return {
       index = 500, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15494,6 +15991,7 @@ return {
       index = 501, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15505,6 +16003,7 @@ return {
       index = 502, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15516,6 +16015,7 @@ return {
       index = 503, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15527,6 +16027,7 @@ return {
       index = 504, -- Earth Shifter, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 41, value = (1 + (5-1)*0.7) }, -- +1-5 to Blaze Wolf (Druid Only)
       },
@@ -15539,6 +16040,7 @@ return {
       index = 505, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15550,6 +16052,7 @@ return {
       index = 506, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15561,6 +16064,7 @@ return {
       index = 507, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15572,6 +16076,7 @@ return {
       index = 508, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15583,6 +16088,7 @@ return {
       index = 509, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15594,6 +16100,7 @@ return {
       index = 510, -- Shadow Dancer, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 2, op = "<=", value = (15 + (25-15)*0.7) }, -- +15-25 to Dexterity
       { index = 188, op = "<=", param = 49, value = (1 + (2-1)*0.7) }, -- +1-2 to Shadow Disciplines (Assassin only)
@@ -15607,6 +16114,7 @@ return {
       index = 511, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15618,6 +16126,7 @@ return {
       index = 512, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15629,6 +16138,7 @@ return {
       index = 513, -- Templar's Might, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 32, op = "<=", value = (250 + (300-250)*0.7) }, -- +250-300 Defense vs. Missile
       { index = 0, op = "<=", value = (15 + (25-15)*0.7) }, -- +15-25 to Strength
@@ -15644,6 +16154,7 @@ return {
       index = 514, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15655,6 +16166,7 @@ return {
       index = 515, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15666,6 +16178,7 @@ return {
       index = 516, -- Nature's Nurture, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 5, value = (1 + (2-1)*0.7) }, -- +1-2 to Druid Skill Levels
       { index = 283, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Summoning Power
@@ -15684,6 +16197,7 @@ return {
       index = 517, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15695,6 +16209,7 @@ return {
       index = 518, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -15706,6 +16221,7 @@ return {
       index = 519, -- Firebelr, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 276, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Spell Power
       { index = 418, op = "<=", value = (3 + (5-3)*0.7) }, -- Increase explosion radius of fireball by 3-5
@@ -15721,6 +16237,7 @@ return {
       index = 520, -- Flightless, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 2, op = "<=", value = (5 + (15-5)*0.7) }, -- +5-15 to Dexterity
       },
@@ -16027,6 +16544,7 @@ return {
       index = 521, -- Pinpoint, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (7 + (10-7)*0.7) }, -- All Resistances +7-10%
       { index = 19, op = "<=", value = (60 + (180-60)*0.7) }, -- +60-180 to Attack Rating
@@ -16040,6 +16558,7 @@ return {
       index = 522, -- Nokozan Relic, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16051,6 +16570,7 @@ return {
       index = 523, -- The Eye of Etlich, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 32, op = "<=", value = (10 + (40-10)*0.7) }, -- +10-40 Defense vs. Missile
       { index = 89, op = "<=", value = (1 + (5-1)*0.7) }, -- +1-5 to Light Radius
@@ -16065,6 +16585,7 @@ return {
       index = 524, -- The Mahim-Oak Curio, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16076,6 +16597,7 @@ return {
       index = 525, -- Nagelring, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 19, op = "<=", value = (50 + (75-50)*0.7) }, -- +50-75 to Attack Rating
       { index = 80, op = "<=", value = (15 + (30-15)*0.7) }, -- +15-30% Chance of Higher Quality Items
@@ -16090,6 +16612,7 @@ return {
       index = 526, -- Manald Heal, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 62, op = "<=", value = (4 + (7-4)*0.7) }, -- 4-7% Mana stolen per hit
       { index = 74, op = "<=", value = (5 + (8-5)*0.7) }, -- Replenish Life +5-8
@@ -16104,6 +16627,7 @@ return {
       index = 527, -- The Stone of Jordan, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16115,6 +16639,7 @@ return {
       index = 528, -- Bul-Kathos' Wedding Band, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (3 + (5-3)*0.7) }, -- 3-5% Life stolen per hit
       { index = 138, op = "<=", value = (2 + (8-2)*0.7) }, -- +2-8 to Mana after each Kill
@@ -16128,6 +16653,7 @@ return {
       index = 529, -- The Cat's Eye, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16139,6 +16665,7 @@ return {
       index = 530, -- The Rising Sun, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16150,6 +16677,7 @@ return {
       index = 531, -- Crescent Moon, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 62, op = "<=", value = (11 + (15-11)*0.7) }, -- 11-15% Mana stolen per hit
       { index = 60, op = "<=", value = (3 + (6-3)*0.7) }, -- 3-6% Life stolen per hit
@@ -16164,6 +16692,7 @@ return {
       index = 532, -- Mara's Kaleidoscope, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (20 + (30-20)*0.7) }, -- All Resistances +20-30%
       },
@@ -16176,6 +16705,7 @@ return {
       index = 533, -- Atma's Scarab, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16187,6 +16717,7 @@ return {
       index = 534, -- Dwarf Star, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 80, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Chance of Higher Quality Items
       { index = 96, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15% Faster Run/Walk
@@ -16201,6 +16732,7 @@ return {
       index = 535, -- Raven Frost, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 2, op = "<=", value = (15 + (20-15)*0.7) }, -- +15-20 to Dexterity
       { index = 19, op = "<=", value = (150 + (250-150)*0.7) }, -- +150-250 to Attack Rating
@@ -16214,6 +16746,7 @@ return {
       index = 536, -- Highlord's Wrath, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16225,6 +16758,7 @@ return {
       index = 537, -- Saracen's Chance, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (15 + (25-15)*0.7) }, -- All Resistances +15-25%
       },
@@ -16237,6 +16771,7 @@ return {
       index = 538, -- Nature's Peace, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (7 + (11-7)*0.7) }, -- Damage Reduced by 7-11
       { index = 45, op = "<=", value = (20 + (30-20)*0.7) }, -- Poison Resist +20-30%
@@ -16250,6 +16785,7 @@ return {
       index = 539, -- Seraph's Hymn, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 26, value = (1 + (2-1)*0.7) }, -- +1-2 to Ascending Leadership (Paladin only)
       { index = 121, op = "<=", value = (25 + (50-25)*0.7) }, -- +25-50% Damage to Demons
@@ -16266,6 +16802,7 @@ return {
       index = 540, -- Wisp Projector, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 144, op = "<=", value = (10 + (20-10)*0.7) }, -- Lightning Absorb 10-20%
       { index = 80, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Chance of Higher Quality Items
@@ -16577,6 +17114,7 @@ return {
       index = 541, -- Constricting Ring, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 39, op = "<=", value = (30 + (40-30)*0.7) }, -- All Resistances +30-40%
       { index = 80, op = "<=", value = (45 + (70-45)*0.7) }, -- +45-70% Chance of Higher Quality Items
@@ -16593,6 +17131,7 @@ return {
       index = 542, -- Gheed's Fortune, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 80, op = "<=", value = (20 + (40-20)*0.7) }, -- +20-40% Chance of Higher Quality Items
       { index = 79, op = "<=", value = (20 + (40-20)*0.7) }, -- 20-40% Extra Gold from Monsters
@@ -16607,6 +17146,7 @@ return {
       index = 543, -- Annihilus, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20 to Strength (all attribute)
       { index = 39, op = "<=", value = (10 + (20-10)*0.7) }, -- All Resistances +10-20%
@@ -16621,6 +17161,7 @@ return {
       index = 544, -- Carrion Wind, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 32, op = "<=", value = (100 + (160-100)*0.7) }, -- +100-160 Defense vs. Missile
       { index = 60, op = "<=", value = (6 + (9-6)*0.7) }, -- 6-9% Life stolen per hit
@@ -16634,6 +17175,7 @@ return {
       index = 545, -- Metalgrid, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 31, op = "<=", value = (300 + (350-300)*0.7) }, -- +300-350 Defense
       { index = 39, op = "<=", value = (25 + (35-25)*0.7) }, -- All Resistances +25-35%
@@ -16650,6 +17192,7 @@ return {
       index = 546, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16661,6 +17204,7 @@ return {
       index = 547, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16672,6 +17216,7 @@ return {
       index = 548, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16683,6 +17228,7 @@ return {
       index = 549, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16694,6 +17240,7 @@ return {
       index = 550, -- Lightning Facet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 334, op = "<=", value = (3 + (5-3)*0.7) }, -- -3-5% Enemy Lightning Resistance
       { index = 330, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5% Lightning Skill Damage
@@ -16707,6 +17254,7 @@ return {
       index = 551, -- Cold Facet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 335, op = "<=", value = (3 + (5-3)*0.7) }, -- -3-5% Enemy Cold Resistance
       { index = 331, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5% Cold Skill Damage
@@ -16720,6 +17268,7 @@ return {
       index = 552, -- Fire Facet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 333, op = "<=", value = (3 + (5-3)*0.7) }, -- -3-5% Enemy Fire Resistance
       { index = 329, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5% Fire Skill Damage
@@ -16733,6 +17282,7 @@ return {
       index = 553, -- Poison Facet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 332, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5% Poison Skill Damage
       { index = 336, op = "<=", value = (3 + (5-3)*0.7) }, -- -3-5% Enemy Poison Resistance
@@ -16746,6 +17296,7 @@ return {
       index = 554, -- Physical Facet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16757,6 +17308,7 @@ return {
       index = 555, -- Magic Facet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16768,6 +17320,7 @@ return {
       index = 556, -- Hellfire Torch, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20 to Strength (all attribute)
       { index = 39, op = "<=", value = (10 + (20-10)*0.7) }, -- All Resistances +10-20%
@@ -16781,6 +17334,7 @@ return {
       index = 557, -- Beacon of Hope (blank), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16792,6 +17346,7 @@ return {
       index = 558, -- The Statue of Mythos (blank), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16803,6 +17358,7 @@ return {
       index = 559, -- Quality of Life Bag (blank), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -16814,6 +17370,7 @@ return {
       index = 560, -- Magefist (Lightning), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17115,6 +17672,7 @@ return {
       index = 561, -- Magefist (Cold), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17126,6 +17684,7 @@ return {
       index = 562, -- Magefist (Poison), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17137,6 +17696,7 @@ return {
       index = 563, -- Magefist (Magic), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17148,6 +17708,7 @@ return {
       index = 564, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17159,6 +17720,7 @@ return {
       index = 565, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17170,6 +17732,7 @@ return {
       index = 566, -- Hydra Master, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 97, op = "<=", param = 648, value = (10 + (15-10)*0.7) }, -- +10-15 to Tri-Hydra
       { index = 265, op = "<=", value = (10 + (20-10)*0.7) }, -- Increase Energy by +10-20%
@@ -17187,6 +17750,7 @@ return {
       index = 567, -- Spiritual Savior, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 19, op = "<=", value = (50 + (80-50)*0.7) }, -- +50-80 to Attack Rating
       { index = 119, op = "<=", value = (15 + (20-15)*0.7) }, -- 15-20% Bonus to Attack Rating
@@ -17205,6 +17769,7 @@ return {
       index = 568, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17216,6 +17781,7 @@ return {
       index = 569, -- Fletcher's Fury, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 0, value = (1 + (2-1)*0.7) }, -- +1-2 to Bow and Crossbow Skills (Amazon)
       { index = 119, op = "<=", value = (20 + (30-20)*0.7) }, -- 20-30% Bonus to Attack Rating
@@ -17231,6 +17797,7 @@ return {
       index = 570, -- Indra's Guidance, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 119, op = "<=", value = (20 + (30-20)*0.7) }, -- 20-30% Bonus to Attack Rating
       { index = 93, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Increased Attack Speed
@@ -17246,6 +17813,7 @@ return {
       index = 571, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17257,6 +17825,7 @@ return {
       index = 572, -- Robbin's Temple, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 415, op = "<=", value = (3 + (5-3)*0.7) }, -- Increase charm max weight by 3-5
       { index = 105, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Faster Cast Rate
@@ -17271,6 +17840,7 @@ return {
       index = 573, -- Gula's Testament of Gluttony, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17282,6 +17852,7 @@ return {
       index = 574, -- Luxuria's Testament of Lust, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17293,6 +17864,7 @@ return {
       index = 575, -- Avaritia's Testament of Greed, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17304,6 +17876,7 @@ return {
       index = 576, -- Ira's Testament of Wrath, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17315,6 +17888,7 @@ return {
       index = 577, -- Acedia's Testament of Sloth, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17326,6 +17900,7 @@ return {
       index = 578, -- Vanagloria's Testament of Vanity, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17337,6 +17912,7 @@ return {
       index = 579, -- Superbia's Testament of Hubris, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17348,6 +17924,7 @@ return {
       index = 580, -- Seven Deadly Sins, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17683,6 +18260,7 @@ return {
       index = 581, -- Spirit Striker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20% Increased Attack Speed
       { index = 62, op = "<=", value = (5 + (8-5)*0.7) }, -- 5-8% Mana stolen per hit
@@ -17696,6 +18274,7 @@ return {
       index = 582, -- Aim of Indra, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (15 + (25-15)*0.7) }, -- IAS
       { index = 334, op = "<=", value = (10 + (15-10)*0.7) }, -- -Enemy Lightning Res
@@ -17710,6 +18289,7 @@ return {
       index = 583, -- Enchanted Flame, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (20 + (30-20)*0.7) }, -- IAS
       { index = 189, op = "<=", value = (10 + (20-10)*0.7) }, -- -Fire Immunity
@@ -17724,6 +18304,7 @@ return {
       index = 584, -- Mageflight, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (20 + (30-20)*0.7) }, -- IAS
       { index = 357, op = "<=", value = (20 + (30-20)*0.7) }, -- Magic Skill Damage
@@ -17738,6 +18319,7 @@ return {
       index = 585, -- Energy Manipulator, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 427, op = "<=", value = (25 + (35-25)*0.7) }, -- Buff Duration
       { index = 107, op = "<=", param = 58, value = (3 + (5-3)*0.7) }, -- Energy Shield
@@ -17752,6 +18334,7 @@ return {
       index = 586, -- Trinity, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 329, op = "<=", value = (15 + (25-15)*0.7) }, -- Fire Skill Damage
       { index = 331, op = "<=", value = (15 + (25-15)*0.7) }, -- Cold Skill Damage
@@ -17769,6 +18352,7 @@ return {
       index = 587, -- Quintessence, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 262, op = "<=", value = (5 + (15-5)*0.7) }, -- Strength %
       { index = 263, op = "<=", value = (5 + (15-5)*0.7) }, -- Dexterity %
@@ -17784,6 +18368,7 @@ return {
       index = 588, -- Life Everlasting, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 151, op = "<=", param = 99, value = (10 + (15-10)*0.7) }, -- Prayer Aura
       { index = 7, op = "<=", value = ((25 + (50-25)*0.7) * 256) }, -- Life
@@ -17800,6 +18385,7 @@ return {
       index = 589, -- Hunter's Mark, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 151, op = "<=", param = 108, value = (5 + (10-5)*0.7) }, -- Blessed Aim Aura
       { index = 62, op = "<=", value = (6 + (10-6)*0.7) }, -- Mana leech
@@ -17813,6 +18399,7 @@ return {
       index = 590, -- Unholy Commander, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (10 + (15-10)*0.7) }, -- Strength
       },
@@ -17825,6 +18412,7 @@ return {
       index = 591, -- Tommy's Enlightener, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 111, op = "<=", value = (60 + (120-60)*0.7) }, -- Damage
       { index = 107, op = "<=", param = 112, value = (3 + (7-3)*0.7) }, -- Blessed Hammer
@@ -17840,6 +18428,7 @@ return {
       index = 592, -- Curtis's Fortifier, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 0, op = "<=", value = (10 + (20-10)*0.7) }, -- Strength
       { index = 39, op = "<=", value = (10 + (20-10)*0.7) }, -- Res
@@ -17855,6 +18444,7 @@ return {
       index = 593, -- Kurec's Pride, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 36, op = "<=", value = (10 + (15-10)*0.7) }, -- DR
       { index = 39, op = "<=", value = (30 + (40-30)*0.7) }, -- Fire res
@@ -17869,6 +18459,7 @@ return {
       index = 594, -- Spiritual Guardian, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 9, op = "<=", value = ((50 + (100-50)*0.7) * 256) }, -- Mana
       { index = 77, op = "<=", value = (5 + (10-5)*0.7) }, -- Max mana %
@@ -17887,6 +18478,7 @@ return {
       index = 595, -- Blackmaw's Brutality, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 151, op = "<=", param = 503, value = (10 + (15-10)*0.7) }, -- Physical Conviction Aura
       { index = 93, op = "<=", value = (10 + (15-10)*0.7) }, -- IAS
@@ -17901,6 +18493,7 @@ return {
       index = 596, -- Spencer's Dispenser, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 107, op = "<=", param = 48, value = (2 + (4-2)*0.7) }, -- Rolling Thunder
       { index = 190, op = "<=", value = (15 + (25-15)*0.7) }, -- -Lightning Immunity
@@ -17915,6 +18508,7 @@ return {
       index = 597, -- Fletching of Frostbite, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (20 + (30-20)*0.7) }, -- IAS
       { index = 331, op = "<=", value = (20 + (30-20)*0.7) }, -- Cold dmg
@@ -17929,6 +18523,7 @@ return {
       index = 598, -- A Healthy Breakfast, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17940,6 +18535,7 @@ return {
       index = 599, -- The Statue of Mythos (Amazon), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -17951,6 +18547,7 @@ return {
       index = 600, -- The Statue of Mythos (Assassin), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18244,6 +18841,7 @@ return {
       index = 601, -- The Statue of Mythos (Barbarian), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18255,6 +18853,7 @@ return {
       index = 602, -- The Statue of Mythos (Druid), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18266,6 +18865,7 @@ return {
       index = 603, -- The Statue of Mythos (Necromancer), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18277,6 +18877,7 @@ return {
       index = 604, -- The Statue of Mythos (Paladin), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18288,6 +18889,7 @@ return {
       index = 605, -- The Statue of Mythos (Sorceress), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18299,6 +18901,7 @@ return {
       index = 606, -- Cola Cube, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18310,6 +18913,7 @@ return {
       index = 607, -- Soul Stompers, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 96, op = "<=", value = (15 + (25-15)*0.7) }, -- Faster Run/Walk
       { index = 145, op = "<=", value = (8 + (10-8)*0.7) }, -- Lightning Absorb
@@ -18324,6 +18928,7 @@ return {
       index = 608, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18335,6 +18940,7 @@ return {
       index = 609, -- Kingdom's Heart, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 34, op = "<=", value = (15 + (25-15)*0.7) }, -- DR
       { index = 35, op = "<=", value = (15 + (25-15)*0.7) }, -- MDR
@@ -18348,6 +18954,7 @@ return {
       index = 610, -- Prismatic Facet, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18359,6 +18966,7 @@ return {
       index = 611, -- Blank Talent, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18370,6 +18978,7 @@ return {
       index = 612, -- ------- bugged cap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18381,6 +18990,7 @@ return {
       index = 613, -- ------- Bugged cap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18392,6 +19002,7 @@ return {
       index = 614, -- ------- Bugged cap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18403,6 +19014,7 @@ return {
       index = 615, -- ------- Bugged cap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18414,6 +19026,7 @@ return {
       index = 616, -- ------- Bugged cap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18425,6 +19038,7 @@ return {
       index = 617, -- ------- Bugged cap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18436,6 +19050,7 @@ return {
       index = 618, -- ------- Bugged cap, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18447,6 +19062,7 @@ return {
       index = 619, -- ------- Bugged wep, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18458,6 +19074,7 @@ return {
       index = 620, -- ------- Bugged wep, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18768,6 +19385,7 @@ return {
       index = 621, -- Crainte Vomir, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18779,6 +19397,7 @@ return {
       index = 622, -- Crainte Vomir (duplicate entry), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18790,6 +19409,7 @@ return {
       index = 623, -- Spiritual Sentinel, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 193, op = "<=", value = (30 + (50-30)*0.7) }, -- Enemy magic immunity reduced by 30-50%
       { index = 40, op = "<=", value = (3 + (5-3)*0.7) }, -- +3-5% to Maximum Fire Resist
@@ -18805,6 +19425,7 @@ return {
       index = 624, -- Spiritual Warden, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 191, op = "<=", value = (30 + (50-30)*0.7) }, -- Enemy poison immunity reduced by 30-50%
       { index = 77, op = "<=", value = (5 + (10-5)*0.7) }, -- Increase Maximum Mana by 5-10%
@@ -18823,6 +19444,7 @@ return {
       index = 625, -- -------, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18834,6 +19456,7 @@ return {
       index = 626, -- Harlequin Crest (1.08), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 127, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 to All Skills
       },
@@ -18846,6 +19469,7 @@ return {
       index = 627, -- The Cat's Eye (1.08), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 278, op = "<=", value = (1 + (3-1)*0.7) }, -- +1-3 Combat Power
       },
@@ -18858,6 +19482,7 @@ return {
       index = 628, -- Arkaine's Valor (Bugged), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 127, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 to All Skills
       { index = 99, op = "<=", value = (20 + (30-20)*0.7) }, -- +20-30% Faster Hit Recovery
@@ -18871,6 +19496,7 @@ return {
       index = 629, -- String of Ears (Bugged), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (15 + (20-15)*0.7) }, -- IAS
       { index = 39, op = "<=", value = (15 + (25-15)*0.7) }, -- All Resistances
@@ -18885,6 +19511,7 @@ return {
       index = 630, -- Wizardspike (Fused), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 105, op = "<=", value = (35 + (50-35)*0.7) }, -- FCR
       { index = 39, op = "<=", value = (50 + (75-50)*0.7) }, -- All Resistances
@@ -18898,6 +19525,7 @@ return {
       index = 631, -- Exsanguinate, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 60, op = "<=", value = (10 + (15-10)*0.7) }, -- Life stolen per hit
       { index = 0, op = "<=", value = (10 + (15-10)*0.7) }, -- Strength
@@ -18912,6 +19540,7 @@ return {
       index = 632, -- Monar's Gale, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 107, op = "<=", param = 250, value = (3 + (5-3)*0.7) }, -- Hurricane
       { index = 331, op = "<=", value = (15 + (20-15)*0.7) }, -- Cold Skill Damage
@@ -18926,6 +19555,7 @@ return {
       index = 633, -- The Statue of Mythos (Amazon LB1), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18937,6 +19567,7 @@ return {
       index = 634, -- The Statue of Mythos (Assassin LB1), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18948,6 +19579,7 @@ return {
       index = 635, -- The Statue of Mythos (Barbarian LB1), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18959,6 +19591,7 @@ return {
       index = 636, -- The Statue of Mythos (Druid LB1), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18970,6 +19603,7 @@ return {
       index = 637, -- The Statue of Mythos (Necromancer LB1), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18981,6 +19615,7 @@ return {
       index = 638, -- The Statue of Mythos (Paladin LB1), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -18992,6 +19627,7 @@ return {
       index = 639, -- The Statue of Mythos (Sorceress LB1), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19003,6 +19639,7 @@ return {
       index = 640, -- The Statue of Mythos (Amazon LB2), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19313,6 +19950,7 @@ return {
       index = 641, -- The Statue of Mythos (Assassin LB2), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19324,6 +19962,7 @@ return {
       index = 642, -- The Statue of Mythos (Barbarian LB2), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19335,6 +19974,7 @@ return {
       index = 643, -- The Statue of Mythos (Druid LB2), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19346,6 +19986,7 @@ return {
       index = 644, -- The Statue of Mythos (Necromancer LB2), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19357,6 +19998,7 @@ return {
       index = 645, -- The Statue of Mythos (Paladin LB2), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19368,6 +20010,7 @@ return {
       index = 646, -- The Statue of Mythos (Sorceress LB2), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19379,6 +20022,7 @@ return {
       index = 647, -- The Statue of Mythos (Amazon LB3), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19390,6 +20034,7 @@ return {
       index = 648, -- The Statue of Mythos (Assassin LB3), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19401,6 +20046,7 @@ return {
       index = 649, -- The Statue of Mythos (Barbarian LB3), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19412,6 +20058,7 @@ return {
       index = 650, -- The Statue of Mythos (Druid LB3), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19423,6 +20070,7 @@ return {
       index = 651, -- The Statue of Mythos (Necromancer LB3), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19434,6 +20082,7 @@ return {
       index = 652, -- The Statue of Mythos (Paladin LB3), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19445,6 +20094,7 @@ return {
       index = 653, -- The Statue of Mythos (Sorceress LB3), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19456,6 +20106,7 @@ return {
       index = 654, -- Kuroneko no Himitsu, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 96, op = "<=", value = (15 + (20-15)*0.7) }, -- FRW
       { index = 1, op = "<=", value = (35 + (50-35)*0.7) }, -- Energy
@@ -19470,6 +20121,7 @@ return {
       index = 655, -- Dustdevil, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 151, op = "<=", param = 381, value = (6 + (10-6)*0.7) }, -- Redemption Aura
       { index = 97, op = "<=", param = 151, value = (1 + (3-1)*0.7) }, -- Whirlwind
@@ -19485,6 +20137,7 @@ return {
       index = 656, -- Improvise, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 99, op = "<=", value = (20 + (30-20)*0.7) }, -- FHR
       { index = 136, op = "<=", value = (15 + (30-15)*0.7) }, -- Crushing Blow
@@ -19499,6 +20152,7 @@ return {
       index = 657, -- Ken'Juk's Blighted Visage, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 410, op = "<=", value = (1 + (2-1)*0.7) }, -- Poison Skill
       { index = 336, op = "<=", value = (15 + (25-15)*0.7) }, -- -Enemy Poison Res
@@ -19514,6 +20168,7 @@ return {
       index = 658, -- Philios Prophecy, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 188, op = "<=", param = 1, value = (2 + (5-2)*0.7) }, -- Passive/Magic Skills
       { index = 107, op = "<=", param = 7, value = (3 + (7-3)*0.7) }, -- Prismatic Arrow
@@ -19529,6 +20184,7 @@ return {
       index = 659, -- Whisper, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 2, op = "<=", value = (5 + (15-5)*0.7) }, -- Dexterity
       { index = 156, op = "<=", value = (10 + (20-10)*0.7) }, -- Piercing Attack
@@ -19542,6 +20198,7 @@ return {
       index = 660, -- Dragon's Cinder, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (20 + (30-20)*0.7) }, -- IAS
       { index = 189, op = "<=", value = (20 + (30-20)*0.7) }, -- -Fire Immunity
@@ -19858,6 +20515,7 @@ return {
       index = 661, -- Serpent's Fangs, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 93, op = "<=", value = (20 + (30-20)*0.7) }, -- +20-30% Increased Attack Speed
       { index = 191, op = "<=", value = (20 + (30-20)*0.7) }, -- Enemy poison immunity reduced by 20-30%
@@ -19874,6 +20532,7 @@ return {
       index = 662, -- Valkyrie Wing 1.08, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 276, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Spell Power
       { index = 278, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Combat Power
@@ -19887,6 +20546,7 @@ return {
       index = 663, -- War Traveler (Bugged), hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19898,6 +20558,7 @@ return {
       index = 664, -- Undead Crown Fused, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 283, op = "<=", value = (1 + (2-1)*0.7) }, -- +1-2 Summoning Power
       { index = 124, op = "<=", value = (50 + (100-50)*0.7) }, -- +50-100 to Attack Rating against Undead
@@ -19911,6 +20572,7 @@ return {
       index = 665, -- Colossal Charm, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 276, op = "<=", value = (0 + (3-0)*0.7) }, -- +0-3 Spell Power
       { index = 278, op = "<=", value = (0 + (3-0)*0.7) }, -- +0-3 Combat Power
@@ -19929,6 +20591,7 @@ return {
       index = 666, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19940,6 +20603,7 @@ return {
       index = 667, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19951,6 +20615,7 @@ return {
       index = 668, -- Black Suede, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 96, op = "<=", value = (5 + (20-5)*0.7) }, -- +5-20% Faster Run/Walk
       { index = 7, op = "<=", value = ((20 + (40-20)*0.7) * 256) }, -- +20-40 to Life
@@ -19965,6 +20630,7 @@ return {
       index = 669, -- Allebasi, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 105, op = "<=", value = (10 + (15-10)*0.7) }, -- +10-15% Faster Cast Rate
       { index = 9, op = "<=", value = ((10 + (20-10)*0.7) * 256) }, -- +10-20 to Mana
@@ -19980,6 +20646,7 @@ return {
       index = 670, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -19991,6 +20658,7 @@ return {
       index = 671, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -20002,6 +20670,7 @@ return {
       index = 672, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -20013,6 +20682,7 @@ return {
       index = 673, -- Bigfoot, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 151, op = "<=", param = 113, value = (1 + (5-1)*0.7) }, -- Level 1-5 Concentration Aura When Equipped
       { index = 93, op = "<=", value = (15 + (30-15)*0.7) }, -- +15-30% Increased Attack Speed
@@ -20028,6 +20698,7 @@ return {
       index = 674, -- Static Calling, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 83, op = "<=", param = 2, value = (1 + (2-1)*0.7) }, -- +1-2 to Necromancer Skill Levels
       { index = 281, op = "<=", value = (100 + (150-100)*0.7) }, -- Summon Damage: +100-150%
@@ -20042,6 +20713,7 @@ return {
       index = 675, --Prismatic Magefist, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -20053,6 +20725,7 @@ return {
       index = 676, --The Rising Wisp, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -20064,6 +20737,7 @@ return {
       index = 677, -- Akara's Blessing, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       { index = 143, op = "<=", value = (3 + (6-3)*0.7) }, -- +3-6 Fire Absorb
       },
@@ -20076,6 +20750,7 @@ return {
       index = 678, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -20087,6 +20762,7 @@ return {
       index = 679, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -20098,6 +20774,7 @@ return {
       index = 680, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
       --hide = true,
@@ -20391,6 +21068,7 @@ return {
       index = 681, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20403,6 +21081,7 @@ return {
       index = 682, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20415,6 +21094,7 @@ return {
       index = 683, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20427,6 +21107,7 @@ return {
       index = 684, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20439,6 +21120,7 @@ return {
       index = 685, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20451,6 +21133,7 @@ return {
       index = 686, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20463,6 +21146,7 @@ return {
       index = 687, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20475,6 +21159,7 @@ return {
       index = 688, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20487,6 +21172,7 @@ return {
       index = 689, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20499,6 +21185,7 @@ return {
       index = 690, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20511,6 +21198,7 @@ return {
       index = 691, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20523,6 +21211,7 @@ return {
       index = 692, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20535,6 +21224,7 @@ return {
       index = 693, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20547,6 +21237,7 @@ return {
       index = 694, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20559,6 +21250,7 @@ return {
       index = 695, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20571,6 +21263,7 @@ return {
       index = 696, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20583,6 +21276,7 @@ return {
       index = 697, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20595,6 +21289,7 @@ return {
       index = 698, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20607,6 +21302,7 @@ return {
       index = 699, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
@@ -20619,6 +21315,7 @@ return {
       index = 700, -- -------
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       -- No stats (placeholder)
       },
