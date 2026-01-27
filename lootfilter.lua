@@ -81,7 +81,7 @@ closePipe()
 -- Clear cache and load config
 package.loaded["lootfilter_config"] = nil
 local config = loadConfig("lootfilter_config.lua")
-local version = "1.4.1"
+local version = "1.4.2"
 local mod = "RMD"
 local userLanguage = config.language or "enUS"
 
@@ -917,85 +917,71 @@ function ApplyFilter(Me, Item, Result, level)
         return
     end
 
+    -- Helper function to check level matches
     local function level_matches(selectedLevel, ruleLevels)
-        if not ruleLevels then
-            return true -- always apply
-        end
-
+        if not ruleLevels then return true end
         for lvl in string.gmatch(ruleLevels, "[^,]+") do
-            lvl = lvl:gsub("%s+", "") -- trim spaces
+            lvl = lvl:gsub("%s+", "")
             if lvl:match("^(%d+)%+$") then
                 local minLevel = tonumber(lvl:match("^(%d+)%+$"))
-                if tonumber(selectedLevel) >= minLevel then
-                    return true
-                end
+                if tonumber(selectedLevel) >= minLevel then return true end
             elseif lvl:match("^(%d+)%-$") then
                 local maxLevel = tonumber(lvl:match("^(%d+)%-$"))
-                if tonumber(selectedLevel) <= maxLevel then
-                    return true
-                end
+                if tonumber(selectedLevel) <= maxLevel then return true end
             elseif tonumber(lvl) == tonumber(selectedLevel) then
                 return true
             end
         end
-
         return false
     end
 
     -- pick ruleset
     local selectedLevel = level or config.filter_level or "1"
     local rules = {}
-
     for _, rule in ipairs(config.rules or {}) do
         if level_matches(selectedLevel, rule.filter_levels) then
             table.insert(rules, rule)
         end
     end
 
-
-
     -- load overrides
     if config.allowOverrides then
-    if config.debug then
-        print("Attempting to load override rules...")
-    end
-
-    local success, overrideConfig = pcall(require, "override_rules")
-    if success and overrideConfig.rules then
-        local overrideRules = {}
-
-        if type(overrideConfig.rules[1]) == "table" then
-            -- Legacy format: plain list
-            overrideRules = overrideConfig.rules
-            if config.debug then
-                print("Override file using legacy format")
-            end
-        elseif selectedLevel and overrideConfig.rules[selectedLevel] then
-            -- Level-based format
-            overrideRules = overrideConfig.rules[selectedLevel]
-            if config.debug then
-                print("Override file using level-based format, matched " .. selectedLevel)
-            end
-        elseif overrideConfig.rules.level_1 then
-            -- Fallback to level_1 if defined
-            overrideRules = overrideConfig.rules.level_1
-            if config.debug then
-                print("Override file has level_1 fallback")
-            end
-        end
-
-        for _, r in ipairs(overrideRules or {}) do
-            table.insert(rules, r)
-        end
-
         if config.debug then
-            print("Override rules applied: " .. #overrideRules .. " rules added")
+            print("Attempting to load override rules...")
         end
-    elseif config.debug then
-        print("Failed to load override rules or no rules found")
-    end
-end
 
+        local success, overrideConfig = pcall(require, "override_rules")
+        if success and overrideConfig.rules then
+            local overrideRules = {}
+
+            if type(overrideConfig.rules[1]) == "table" then
+                overrideRules = overrideConfig.rules
+                if config.debug then
+                    print("Override file using legacy format")
+                end
+            elseif selectedLevel and overrideConfig.rules[selectedLevel] then
+                overrideRules = overrideConfig.rules[selectedLevel]
+                if config.debug then
+                    print("Override file using level-based format, matched " .. selectedLevel)
+                end
+            elseif overrideConfig.rules.level_1 then
+                overrideRules = overrideConfig.rules.level_1
+                if config.debug then
+                    print("Override file has level_1 fallback")
+                end
+            end
+
+            for _, r in ipairs(overrideRules or {}) do
+                table.insert(rules, r)
+            end
+
+            if config.debug then
+                print("Override rules applied: " .. #overrideRules .. " rules added")
+            end
+        elseif config.debug then
+            print("Failed to load override rules or no rules found")
+        end
+    end
 
     -- load item data
     local code, quality, rarity, index, location, area, ilvl, itype, identified, maxsock = Item.Txt.Code, Item.Data.Quality, Item.Rarity, Item.Data.FileIndex, Item.Mode, Item.Area, Item.Data.ItemLevel, Item.isType, Item.Data.Flags, Item:MaxSockets()
@@ -1003,7 +989,6 @@ end
     function SSet()
     end
     HideAllItems = HideAllItems or SSet()
-
 
     local matched = false
     local baseName = Result.Name
@@ -1088,7 +1073,28 @@ end
                 end
             end
 
-            
+            if rule.identified ~= nil then
+                local isID = IsIdentified(Item.Data.Flags)
+                if rule.identified ~= isID then
+                    allConditionsMet = false
+                    table.insert(failedReasons, "identified mismatch (got " .. tostring(isID) .. ", expected " .. tostring(rule.identified) .. ")")
+                end
+            end
+
+             -- Parse Grail Status
+            if rule.grail ~= nil then
+                local grail = Result and Result.Grail
+                local actual = false
+
+                if grail and grail.isGrail then
+                    actual = grail.collected
+                end
+
+                if rule.grail ~= actual then
+                    allConditionsMet = false
+                    table.insert(failedReasons, "grail mismatch (got collected=" .. tostring(actual) .. ", expected=" .. tostring(rule.grail) .. ")")
+                end
+            end
 
             if rule.rarity and not check_op(rarity, rule.rarity) then
                 allConditionsMet = false
