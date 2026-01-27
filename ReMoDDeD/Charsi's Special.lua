@@ -6,8 +6,10 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Aggressive","Aggressive + Hunter"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.8K{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v1.8L{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
+audioVoice = 0, -- Choice of voice for TTS.
+audioPlayback = true, -- Turns ON/OFF sounds feature.
     rules = {
         { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
             codes = "allitems",
@@ -516,7 +518,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{ -- Notify about LB bases
 			codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
 			quality = "3-",
-			notify = "LB Base{link}"
+			notify = "LB Base{name}"
 		},
 		{ -- Magic LB items - for crafting - description
 			codes = { "l07", "l08", "l09", "l10", "l11", "l12" },
@@ -528,7 +530,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 			codes = { "l07", "l08", "l09", "l10", "l11", "l12" },
 			quality = "4",
 			border = { 99, 99, 230, 230, 1 },
-			notify = "Craft beyond limits{blue}{link}"
+			notify = "Craft beyond limits{blue}{name}"
 		},
 		
 		
@@ -660,7 +662,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 			codes = "allitems",
 			location = { "onground", "onplayer", "atvendor", "equipped" },
 			itype = { 45, 50, 10, 12 },
-			suffix_desc = "{blue}Max Sockets: {maxsock}\n"
+			prefix_desc = "{white}Max Sockets: {maxsock}\n"
 		},
 		{ -- Hide gold drops under 500 for clvl above 80 Lite
 			code = "gld",
@@ -761,8 +763,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 		},
 		{ -- Style for Beacon of Hope
 			code = "BoH",
-			name_override = "{red}Is that a... bacon?",
-			notify = "{red}Important Item: {name}"
+			notify = "{red}Important Item: {name}\n{red}Edyrem:{white} Is that a... bacon?"
 		},
 		{ -- Border for Superior 0os non-eth Bases
 			codes = "allitems",
@@ -1147,53 +1148,24 @@ allowOverrides = true, -- Necessary, do not turn off.
 			stat = { index = 93, op = ">=", value = 14 },
 			suffix = " {yellow}{stat=(93)}%%IAS"
 		},
-		
-		
+
+
+
 			
 		
 		--																             Additional/missing prefixes or gameplay tips for various items
 		
 		-- Additional information:
 		{code="rin",index=527,location={"onplayer","atvendor","equipped"},prefix="{gray}Can be sold to any vendor in Hell to spawn Dclone{gold}\n"}, -- SoJ Dclone note
-		{code="tes",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 4-7 Gem Points\n{orange}"},-- Twisted Essence of Suffering
-		{code="ceh",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 1-3 High Rune Points\n{orange}"},-- Charged Essense of Hatred
-		{code="bet",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Set Cores\n{orange}"},-- Burning Essence of Terror
-		{code="fed",location={"onplayer","atvendor"},prefix="{gray}Cube with QoL Bag to get 3-6 Unique Cores\n{orange}"},-- Festering Essence of Destruction
 		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff (credits to Wolfie, mine now hehe)
 		{codes={"u01","u02"},location={"onplayer","atvendor"},prefix="{red} !!!{white} For {yellow}Rare{white} and {gold}Unique{white} items only{red} !!!\n"}, -- Upconverter 2 and 3
-		{codes={"z75","z74"},location={"onplayer","atvendor"},prefix_desc="{gray}{gold}Storage Bag {gray}(30 {yellow}Jewels{gray}) + Item UpConverter (Advanced) = {gold}Rainbow Facet{gray} (random)\n{gold}Storage Bag{gray} (5 {yellow}Jewels{gray}) + {gold}Unique{gray}/{green}Set{gray} Item + Identify Scroll = Re-Rolled Stats\n{gold}Storage Bag{gray} (10 {blue}Jewels{gray}) + Item UpConverter (basic) + Token of Evil = {yellow}Jewel{gray} (random)\n{white}Jewel Recipes:\n\n"}, -- Jewel Converter
-		{codes={"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},location={"onplayer","atvendor"},prefix="{gray}One of the {yellow}Body Parts{gray} used in {red}Demon Tempering\n"}, -- Demon Tempering Body Parts
-		{codes="allitems",quality="7",rarity="0",identified=true,index={6,45,55,71,299,330,335},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Normal bases
-		{codes="allitems",quality="7",rarity="1",identified=true,index={143,281,286,347,366,369,379,386,483},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Exceptional bases
-		{codes="allitems",quality="7",rarity="2",identified=true,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, Elite bases
-		{codes="allitems",quality="7",identified=true,index={525,527,529,532,543,556},location={"onplayer","atvendor","equipped"},prefix="{yellow}Can be Demon Tempered{gold}\n"}, -- Sacret Relics for Demon Tempering, misc items
 		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{yellow}[DT]"}, -- Sacret Relics for Demon Tempering - HUNTER
-		{code="y67",location={"onplayer","atvendor"},prefix="{gray}Cube it with a {dark green}Demon Temper-able{gray} item and then with a {yellow}Body Part{gray} to Temper it\n{yellow}Ingredient{gray} for {red}Demon Tempering\n"}, -- Scroll of Belial
-		{code="S01",location={"onplayer","atvendor"},prefix="{white}+1-3 Soul Shards\n"}, -- Soul Shard
-		{code="b64",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube a stack of 10 to create Premium Socket Remover\n"}, -- Socket Remover
-		{code="b65",location={"onplayer","atvendor"},prefix="{red}If stacked, cube alone to remove 1 quantity before using\n{gray}Cube alone to turn back into 10 Socket Removers\n"}, -- Premium Socket Remover
-		{code="cm3",identified=true,index=590,location={"onplayer","atvendor"},prefix="{grey}Cube alone to change amount summoned (5 max)\n{gold}"}, -- Unholy Commander
-		{code="cm3",identified=true,index=611,location={"onplayer","atvendor"},prefix="{grey}Can be enhanced. Cannot be re-rolled.\n{gold}"}, -- Blank Talent
-		{code="yps",location={"onplayer","atvendor"},prefix_desc="{grey}Used for {green}Set{gray} Blood Contracts{white}\n"}, -- Antidote Potion
-		{code="wms",location={"onplayer","atvendor"},prefix_desc="{grey}Used for {gold}Unique{gray} Blood Contracts{white}\n"}, -- Thawing Potion
 		{code="isc",location={"onplayer","atvendor"},prefix="{grey}ID Scroll + HP potion in NM/Hell = New Beacon\nUsed for re-rolling Unique/Set items\n"}, -- Identify Scroll
 		{code="GBd",location={"onplayer","atvendor"},prefix="{grey}Used for splitting stacked {yellow}Gold Bars{white}\n"}, -- Gold Bar Splitter
 		{code="TK8",location={"onplayer","atvendor"},name_override="{grey}Beacon of Hope + X (Summon lvl +1) Class Tokens = Upgraded Summon\nClass Token + Beacon of Hope = Added Soul Summon\nToken Forger + Beacon of Hope (100 Soul Shards) = Class Token{white}\nToken Forger"}, -- Token Forger
-		{code="leg",location={"onplayer","atvendor"},prefix="{grey}Cube alone for MooMoo Farm\n{white}"}, -- Wirt's Leg
-		{code="std",location={"onplayer","atvendor"},prefix="{grey}Can be sold to any vendor in Hell to spawn Diablo Clone\nCube with Hellfire Torch or Annihilus to reroll them\n{gold}"}, -- Standard of Heroes
-		{code="Y21",location={"onplayer","atvendor"},prefix_desc="{white}1 Gold Bar + item = added Ethereal\n{red}or\n"}, -- Gold Bar
 		{code="y66",location={"onplayer","atvendor"},prefix="{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"},-- Starter Pack
 		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
 		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress Scroll icon inside cube to show recipes and Runewords\n"},-- Horadric Cube
-		{code="pk1",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Hate\nConversion:\n{orange}"}, --  Key of Terror
-		{code="pk2",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Destruction\nConversion:\n{orange}"}, --  Key of Hate
-		{code="pk3",location="onplayer",prefix="{gray}Cube 2 copies to obtain 1x Key of Terror\nConversion:\n{orange}"}, --  Key of Destruction
-		{code="Z42",location={"onplayer","atvendor"},prefix="{gold}The Countess {white}(A1: Black Marsh->Forgotten Tower)\n{gray}Key is obtained in {orange}Hell{gray} from:\n"}, --  Key of Terror Remover
-		{code="Z43",location={"onplayer","atvendor"},prefix="{gold}The Summoner {white}(A2: Arcane Sanctuary)\n{gray}Key is obtained in {orange}Hell{gray} from:\n"}, --  Key of Hate Remover
-		{code="Z44",location={"onplayer","atvendor"},prefix="{gold}Nihlathak {white}(A5: Halls of Vaught)\n{gray}Key is obtained in {orange}Hell{gray} from:\n"}, --  Key of Destruction Remover
-		{code="Z45",location={"onplayer","atvendor"},prefix="{gold}Lilith {white}(A5: Matron's Den)\n{gray}Organ is obtained in {orange}Hell{gray} from:\n"}, --  Diablo's Horn Remover
-		{code="Z46",location={"onplayer","atvendor"},prefix="{gold}Uber Duriel {white}(A5: Forgotten Sands)\n{gray}Organ is obtained in {orange}Hell{gray} from:\n"}, --  Baal's Eye Remover
-		{code="Z47",location={"onplayer","atvendor"},prefix="{gold}Uber Izual {white}(A5: Furnace of Pain)\n{gray}Organ is obtained in {orange}Hell{gray} from:\n"}, --  Mephisto's Brain Remover
 		{codes={"z19","z20","z21","z22","z23","z24","z25","z26","z27"},location={"onplayer","atvendor"},suffix=" {gold}({red}1 Use Per Item{gold})"}, -- Ultra Enhancement Crystals
 		
 		-- Gameplay Tips:
@@ -1205,9 +1177,9 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{code="mss",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="You might need to refresh a few times for it to appear (next to jewelry)\nsockets to items, can be gold gambled from {red}Edyrem\n{orange}Gameplay Tip:{gold} Ramaladni's Gift{gay} which adds\n"},-- Mephisto's Soulstone - Nightmare
 		{code="mss",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}Entrance to levels full of Torment (Hell only)\n{orange}Gameplay Tip:{gray} The {white}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soulstone - Hell
 		{code="mss",notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Mephisto's Soul Stone - notify
-		{code="tr2",location={"onplayer","atvendor"},difficulty="Normal",prefix="{orange}Gameplay Tip:{gray} QoL Options in Launcher have many useful things. Recommend to check it out!\n{red}On use, permanently adds 10%% to All Resistances\n"},-- Scroll of Resistance - Normal
-		{code="tr2",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}However, your '- x resistance' stats do not update those numbers!\nYour '- x immunity' stats, Curses and Conviction Auras affect those numbers\n\nLauncher - Options - QoL Options - Monster HP Bar - choose any 'Advanced' option\n{orange}Gameplay Tip:{gray} You can see all enemy {white}Resistance Values{gray} if you set it in:\n{red}On use, permanently adds 10%% to All Resistances\n"},-- Scroll of Resistance - Nightmare
-		{code="tr2",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}'LB' icon in item name means 'Limit Broken Base' (ilvl 103+)\n'EB' icon in item name means 'Elite Base'\n{red}On use, permanently adds 10%% to All Resistances\n"},-- Scroll of Resistance - Hell
+		{code="tr2",location={"onplayer","atvendor"},difficulty="Normal",prefix="{orange}Gameplay Tip:{gray} QoL Options in Launcher have many useful things. Recommend to check it out!\n"},-- Scroll of Resistance - Normal
+		{code="tr2",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}However, your '- x resistance' stats do not update those numbers!\nYour '- x immunity' stats, Curses and Conviction Auras affect those numbers\n\nLauncher - Options - QoL Options - Monster HP Bar - choose any 'Advanced' option\n{orange}Gameplay Tip:{gray} You can see all enemy {white}Resistance Values{gray} if you set it in:\n"},-- Scroll of Resistance - Nightmare
+		{code="tr2",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}'LB' icon in item name means 'Limit Broken Base' (ilvl 103+)\n'EB' icon in item name means 'Elite Base'\n"},-- Scroll of Resistance - Hell
 		{code="tr2",location={"onplayer","atvendor"},notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Scroll of Resistance - notify
 		{code="bks",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose {white}'Jeweled Runewords'{gray} can be made by filling excess sockets with Jewels (not gems!) {red}BEFORE{gray} Runes\n{orange}Gameplay Tip:{gray} You can make Runewords in items that have more sockets that those RWs need runes.\n"}, -- Scroll of Inifuss - Normal
 		{code="bks",difficulty="Normal",notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Scroll of Inifuss - notify
@@ -1465,12 +1437,12 @@ allowOverrides = true, -- Necessary, do not turn off.
 		
 		
 		--                                                                                           EVENTS
-		{ -- Event Boxes notification and style
+		{ -- Event Boxes
             code = "Ev03",
             notify = "{purple}Event Box!",
 			name_override = "Gamba Box!",
-			background = {46, 47, 67, 230},
-			border = {7, 10, 92, 230, 2},
+			background = { 46, 47, 67, 230 },
+			border = { 7, 10, 92, 230, 2 },
 			notify = "{red}Edyrem: {white}Is for me?",
             name_style = "Rainbow"
         },
@@ -1478,7 +1450,7 @@ allowOverrides = true, -- Necessary, do not turn off.
 			code = "Ev04",
 			notify = "{orange}Stocking Stuffer  (o_O) !"
 		},
-		{
+		{ -- Milk&Cookies
 			codes = { "Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10" },
 			notify = "{red}Edyrem{white}: Mmmmm, tasty Milk and Cookies"
 		},
@@ -1514,124 +1486,10 @@ allowOverrides = true, -- Necessary, do not turn off.
 		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=20},prefix_desc="{lilac}Color Dyed: {orange}Orange\n"}, --Color Dyed: Orange
 		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=22},prefix_desc="{lilac}Color Dyed: {white}Bright White\n"}, --Color Dyed: Bright White
 		{ -- Dye Bottles notification and style
-			codes = {"Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73"},
+			codes = { "Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73" },
 			notify = "{yellow}Dye Bottle!",
-			border = {10, 14, 92, 255, 2},
+			border = { 10, 14, 92, 255, 2 },
 			name_style = "RainbowStatic"
-		},
-		
-
-
-		
-		
-		
-		--                                                                                  Show Rune Points on Runes
-		
-		
-		{code="r01",location={"onplayer","atvendor"},prefix="{gray}+1 Low Point when bagged{orange}\n"}, --El Rune
-		{code="r02",location={"onplayer","atvendor"},prefix="{gray}+2 Low Points when bagged{orange}\n"}, --Eld Rune
-		{code="r03",location={"onplayer","atvendor"},prefix="{gray}+4 Low Points when bagged{orange}\n"}, --Tir Rune
-		{code="r04",location={"onplayer","atvendor"},prefix="{gray}+8 Low Points when bagged{orange}\n"}, --Nef Rune
-		{code="r05",location={"onplayer","atvendor"},prefix="{gray}+16 Low Points when bagged{orange}\n"}, --Eth Rune
-		{code="r06",location={"onplayer","atvendor"},prefix="{gray}+32 Low Points when bagged{orange}\n"}, --Ith Rune
-		{code="r07",location={"onplayer","atvendor"},prefix="{gray}+64 Low Points when bagged{orange}\n"}, --Tal Rune
-		{code="r08",location={"onplayer","atvendor"},prefix="{gray}+128 Low Points when bagged{orange}\n"}, --Ral Rune
-		{code="r09",location={"onplayer","atvendor"},prefix="{gray}+256 Low Points when bagged{orange}\n"}, --Ort Rune
-		{code="r10",location={"onplayer","atvendor"},prefix="{gray}+512 Low Points when bagged{orange}\n"}, --Thul Rune
-		{code="r11",location={"onplayer","atvendor"},prefix="{gray}+1024 Low Points when bagged{orange}\n"}, --Amn Rune
-		{code="r12",location={"onplayer","atvendor"},prefix="{gray}+1 Mid Point when bagged{orange}\n"}, --Sol Rune
-		{code="r13",location={"onplayer","atvendor"},prefix="{gray}+2 Mid Points when bagged{orange}\n"}, --Shael Rune
-		{code="r14",location={"onplayer","atvendor"},prefix="{gray}+4 Mid Points when bagged{orange}\n"}, --Dol Rune
-		{code="r15",location={"onplayer","atvendor"},prefix="{gray}+8 Mid Points when bagged{orange}\n"}, --Hel Rune
-		{code="r16",location={"onplayer","atvendor"},prefix="{gray}+16 Mid Points when bagged{orange}\n"}, --Io Rune
-		{code="r17",location={"onplayer","atvendor"},prefix="{gray}+32 Mid Points when bagged{orange}\n"}, --Lum Rune
-		{code="r18",location={"onplayer","atvendor"},prefix="{gray}+64 Mid Points when bagged{orange}\n"}, --Ko Rune
-		{code="r19",location={"onplayer","atvendor"},prefix="{gray}+128 Mid Points when bagged{orange}\n"}, --Fal Rune
-		{code="r20",location={"onplayer","atvendor"},prefix="{gray}+256 Mid Points when bagged{orange}\n"}, --Lem Rune
-		{code="r21",location={"onplayer","atvendor"},prefix="{gray}+512 Mid Points when bagged{orange}\n"}, --Pul Rune
-		{code="r22",location={"onplayer","atvendor"},prefix="{gray}+1024 Mid Points when bagged{orange}\n"}, --Um Rune
-		{code="r23",location={"onplayer","atvendor"},prefix="{gray}+1 High Point when bagged{orange}\n"}, --Mal Rune
-		{code="r24",location={"onplayer","atvendor"},prefix="{gray}+2 High Points when bagged{orange}\n"}, --Ist Rune
-		{code="r25",location={"onplayer","atvendor"},prefix="{gray}+4 High Points when bagged{orange}\n"}, --Gul Rune
-		{code="r26",location={"onplayer","atvendor"},prefix="{gray}+8 High Points when bagged{orange}\n"}, --Vex Rune
-		{code="r27",location={"onplayer","atvendor"},prefix="{gray}+16 High Points when bagged{orange}\n"}, --Ohm Rune
-		{code="r28",location={"onplayer","atvendor"},prefix="{gray}+32 High Points when bagged{orange}\n"}, --Lo Rune
-		{code="r29",location={"onplayer","atvendor"},prefix="{gray}+64 High Points when bagged{orange}\n"}, --Sur Rune
-		{code="r30",location={"onplayer","atvendor"},prefix="{gray}+128 High Points when bagged{orange}\n"}, --Ber Rune
-		{code="r31",location={"onplayer","atvendor"},prefix="{gray}+256 High Points when bagged{orange}\n"}, --Jah Rune
-		{code="r32",location={"onplayer","atvendor"},prefix="{gray}+512 High Points when bagged{orange}\n"}, --Cham Rune
-		{code="r33",location={"onplayer","atvendor"},prefix="{gray}+1024 High Points when bagged{orange}\n"}, --Zod Rune
-		{code="r34",location={"onplayer","atvendor"},prefix="{gray}+1 Ultra Point when bagged{orange}\n"}, --Di Rune
-		{code="r35",location={"onplayer","atvendor"},prefix="{gray}+2 Ultra Points when bagged{orange}\n"}, --Ab Rune
-		{code="r36",location={"onplayer","atvendor"},prefix="{gray}+4 Ultra Points when bagged{orange}\n"}, --Er Rune
-		
-		
-		
-
-		
-		
-		--                                                                                 Forsaken Pacts usage
-		
-        {code="L00",location={"onplayer","atvendor"},prefix_desc="{green}Mirrored Flames {white}- {gray}Civerb's + Aldur's\n{white}Used for:\n\n"}, --Civerb's Forsaken Pact
-		{code="L01",location={"onplayer","atvendor"},prefix_desc="{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Hsaru's Forsaken Pact
-		{code="L02",location={"onplayer","atvendor"},prefix_desc="{green}Mikael's Toxicity {white}- {gray}Cleglaw's + Rathma's\n{white}Used for:\n\n"}, --Cleglaw's Forsaken Pact
-		{code="L03",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Iratha's Forsaken Pact
-		{code="L04",location={"onplayer","atvendor"},prefix_desc="{green}Plates Of Protection {white}- {gray}Isenhart's + Sazabi's + Wonder Wear\n{white}Used for:\n\n"}, --Isenhart's Forsaken Pact
-		{code="L05",location={"onplayer","atvendor"},prefix_desc="{green}Blessings of Artemis {white}- {gray}Vidala's + M'avina's + Bul Kathos'\n{white}Used for:\n\n"}, --Vidala's Forsaken Pact
-		{code="L06",location={"onplayer","atvendor"},prefix_desc="{green}Raijin's Rebellion {white}- {gray}Milabrega's + Cathan's + Heaven's\n{white}Used for:\n\n"}, --Milabrega's Forsaken Pact
-		{code="L07",location={"onplayer","atvendor"},prefix_desc="{green}Raijin's Rebellion {white}- {gray}Milabrega's + Cathan's + Heaven's\n{white}Used for:\n\n"}, --Cathan's Forsaken Pact
-		{code="L08",location={"onplayer","atvendor"},prefix_desc="{green}Underworld's Unrest {white}- {gray}Tancred's + Trang-Oul's\n{white}Used for:\n\n"}, --Tancred's Forsaken Pact
-		{code="L09",location={"onplayer","atvendor"},prefix_desc="{green}Justitia's Divinity {white}- {gray}Sigon's + Orphan's\n{green}Pulsing Presence {white}- {gray}Sigon's + Angelic's + Heaven's\n{green}Blacklight {white}- {gray}Sigon's + Immortal King's {red}-Paladin and Barbarian only\n{white}Used for:\n\n"}, --Sigon's Forsaken Pact
-		{code="L10",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal + Aldur's + Immortal King's\n{white}Used for:\n\n"}, --Infernal Forsaken Pact
-		{code="L11",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{green}Artio's Calling {white}- {gray}Berserker's + Cow King's\n{white}Used for:\n\n"}, --Berserker's Forsaken Pact
-		{code="L12",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{green}Memento Mori {white}- {gray}Rathma's + Artio's Calling + Death's\n{white}Used for:\n\n"}, --Death's Forsaken Pact
-		{code="L13",location={"onplayer","atvendor"},prefix_desc="{green}Pulsing Presence {white}- {gray}Sigon's + Angelic's + Heaven's\n{green}Celestial Caress {white}- {gray}Angelic's + The Disciple's + Vessel's\n{white}Used for:\n\n"}, --Angelic Forsaken Pact
-		{code="L14",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Arctic Forsaken Pact
-		{code="L15",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Arcanna's Forsaken Pact
-		{code="L16",location={"onplayer","atvendor"},prefix_desc="{green}Silhouette of Silence {white}- {gray}Natalya's + Kreigur's\n{green}Path of the Vortex {white}- {gray}Unstoppable Force + Natalya's {red}-Barbarian and Assassin only\n{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Natalya's Forsaken Pact
-		{code="L17",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal's + Aldur's + Immortal King's\n{green}Mirrored Flames {white}- {gray}Civerb's + Aldur's\n{white}Used for:\n\n"}, --Aldur's Forsaken Pact
-		{code="L18",location={"onplayer","atvendor"},prefix_desc="{green}Warrior's Wrath {white}- {gray}Infernal's + Aldur's + Immortal King's\n{green}Blacklight {white}- {gray}Sigon's + Immortal King's {red}-Paladin and Barbarian only\n{white}Used for:\n\n"}, --Immortal King's Forsaken Pact
-		{code="L19",location={"onplayer","atvendor"},prefix_desc="{green}Sacrificial Tribute {white}- {gray}Tal Rasha's + Griswold's + Mirrored Flames\n{white}Used for:\n\n"}, --Tal Rasha's Forsaken Pact
-		{code="L20",location={"onplayer","atvendor"},prefix_desc="{green}Sacrificial Tribute {white}- {gray}Tal Rasha's + Griswold's + Mirrored Flames\n{white}Used for:\n\n"}, --Griswold's Forsaken Pact
-		{code="L21",location={"onplayer","atvendor"},prefix_desc="{green}Underworld's Unrest {white}- {gray}Tancred's + Trang-Oul's\n{white}Used for:\n\n"}, --Trang-Oul's Forsaken Pact
-		{code="L22",location={"onplayer","atvendor"},prefix_desc="{green}Blessings of Artemis {white}- {gray}Vidala's + M'avina's + Bul Kathos'\n{white}Used for:\n\n"}, --M'avina's Forsaken Pact
-		{code="L23",location={"onplayer","atvendor"},prefix_desc="{green}Celestial Caress {white}- {gray}Angelic's + The Disciple's + Vessel's\n{white}Used for:\n\n"}, --The Disciple's Forsaken Pact
-		{code="L24",location={"onplayer","atvendor"},prefix_desc="{green}Raijin's Rebellion {white}- {gray}Milabrega's + Cathan's + Heaven's\n{green}Pulsing Presence {white}- {gray}Sigon's + Angelic's + Heaven's\n{white}Used for:\n\n"}, --Heaven's Forsaken Pact
-		{code="L25",location={"onplayer","atvendor"},prefix_desc="{green}Justitia's Divinity {white}- {gray}Sigon's + Orphan's\n{white}Used for:\n\n"}, --Orphan's Forsaken Pact
-		{code="L26",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Hwanin's Forsaken Pact
-		{code="L27",location={"onplayer","atvendor"},prefix_desc="{green}Plates Of Protection {white}- {gray}Isenhart's + Sazabi's + Wonder Wear\n{white}Used for:\n\n"}, --Sazabi's Forsaken Pact
-		{code="L28",location={"onplayer","atvendor"},prefix_desc="{green}Unstoppable Force {white}- {gray}Berserker's + Death's + Bul-Kathos'\n{green}Blessings of Artemis {white}- {gray}Vidala's + M'avina's + Bul Kathos'\n{white}Used for:\n\n"}, --Bul-Kathos' Forsaken Pact
-		{code="L29",location={"onplayer","atvendor"},prefix_desc="{green}Artio's Calling {white}- {gray}Berserker's + Cow King's\n{white}Used for:\n\n"}, --Cow King's Forsaken Pact
-		{code="L30",location={"onplayer","atvendor"},prefix_desc="{green}Elemental Blueprints {white}- {gray}Iratha's + Arcanna's + Naj's\n{white}Used for:\n\n"}, --Naj's Forsaken Pact
-		{code="L31",location={"onplayer","atvendor"},name_override="{green}Sander's Forsaken Pact",prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sander's Forsaken Pact
-		{code="L32",location={"onplayer","atvendor"},prefix_desc="{green}Celestial Caress {white}- {gray}Angelic's + Disciple's + Vessel's\n{green}Breaker of Chains {white}- {gray}Vessel's + Majestic\n{white}Used for:\n\n"}, --Vessel's Forsaken Pact
-		{code="L33",location={"onplayer","atvendor"},prefix_desc="{green}Breaker of Chains {white}- {gray}Vessel's + Majestic\n{white}Used for:\n\n"}, --Majestic Forsaken Pact
-		{code="L34",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Skovos Forsaken Pact
-		{code="L35",location={"onplayer","atvendor"},name_override="{green}Wonder Wear Forsaken Pact",prefix_desc="{green}Plates Of Protection {white}- {gray}Isenhart's + Sazabi's + Wonder Wear\n{white}Used for:\n\n"}, --Wonder Wear Forsaken Pact
-		{code="L36",location={"onplayer","atvendor"},prefix_desc="{green}Cascading Caldera {white}- {gray}Vizjerei's + Elemental Blueprints + Battlemage's\n{white}Used for:\n\n"}, --Vizjerei's Forsaken Pact
-		{code="L37",location={"onplayer","atvendor"},prefix_desc="{green}Cascading Caldera {white}- {gray}Vizjerei's + Elemental Blueprints + Battlemage's\n{white}Used for:\n\n"}, --Battlemage's Forsaken Pact
-		{code="L38",location={"onplayer","atvendor"},prefix_desc="{green}Black Tempest {white}- {gray}Glacial + Blessings of Artemis\n{white}Used for:\n\n"}, --Glacial Forsaken Pact
-		{code="L39",location={"onplayer","atvendor"},prefix_desc="{green}Mikael's Toxicity {white}- {gray}Cleglaw's + Rathma's\n{green}Memento Mori {white}- {gray}Rathma's + Artio's Calling + Death's\n{white}Used for:\n\n"}, --Rathma's Forsaken Pact
-		{code="L40",location={"onplayer","atvendor"},prefix_desc="{green}Mangala's Teachings {white}- {gray}Hsaru's + Natalya's + Stacatomamba's\n{white}Used for:\n\n"}, --Stacatomamba's Forsaken Pact
-		{code="L41",location={"onplayer","atvendor"},prefix_desc="{green}Silhouette of Silence {white}- {gray}Natalya's + Kreigur's\n{white}Used for:\n\n"}, --Kreigur's Forsaken Pact
-		{code="L42",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sukami Forsaken Pact
-		{code="L43",location={"onplayer","atvendor"},prefix_desc="{green}Sacrificial Tribute {white}- {gray}Tal Rasha's + Griswold's + Mirrored Flames\n{white}Used for:\n\n"}, --Mirrored Flames Forsaken Pact
-		{code="L44",location={"onplayer","atvendor"},prefix_desc="{green}Path of the Vortex {white}- {gray}Unstoppable Force + Natalya's {red}-Barbarian and Assassin only\n{white}Used for:\n\n"}, --Unstoppable Force Forsaken Pact
-		{code="L45",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Underworld's Unrest Forsaken Pact
-		{code="L46",location={"onplayer","atvendor"},prefix_desc="{green}Cascading Caldera {white}- {gray}Vizjerei's + Elemental Blueprints + Battlemage's\n{white}Used for:\n\n"}, --Elemental Blueprints Forsaken Pact
-		{code="L47",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Raijin's Rebellion Forsaken Pact
-		{code="L48",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Mikael's Toxicity Forsaken Pact
-		{code="L49",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Warrior's Wrath Forsaken Pact
-		{code="L50",location={"onplayer","atvendor"},prefix_desc="{green}Black Tempest {white}- {gray}Glacial + Blessings of Artemis\n{white}Used for:\n\n"}, --Blessings of Artemis Forsaken Pact
-		{code="L51",location={"onplayer","atvendor"},prefix_desc="{green}Memento Mori {white}- {gray}Rathma's + Artio's Calling + Death's\n{white}Used for:\n\n"}, --Artio's Calling Forsaken Pact
-		{code="L52",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Justitia's Divinity Forsaken Pact
-		{code="L53",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Pulsing Presence Forsaken Pact
-		{code="L54",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Celestial Caress Forsaken Pact
-		{code="L55",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Breaker of Chains Forsaken Pact
-		{code="L56",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Silhouette of Silence Forsaken Pact
-		{code="L57",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Mangala's Teachings Forsaken Pact
-		{code="L58",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Sacrificial Trinity Forsaken Pact
-		{code="L59",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"}, --Plates of Protection Forsaken Pact
-		{code="L60",location={"onplayer","atvendor"},prefix_desc="{red} Currently not used in any Pact\n{white}Used for:\n\n"} --Black Tempest Forsaken Pact
+		}
     }
 }
