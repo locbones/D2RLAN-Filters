@@ -1,4 +1,4 @@
---- Filter Title: WolfieeifloW's Filter v1.51
+--- Filter Title: WolfieeifloW's Filter v1.52
 --- Filter Type: Relaxed, non-strict
 --- Filter Description: Adding some QoL to the game while maintaining a very LoD-like style.\n\nHides small gold piles, Magic items that can be gambled instead for crafting, and in the later character levels it hides useless & non max-socket bases; everything else is shown.\nNotifies and adds borders to good items and new RMD items.\nFilter is very non-strict. For those who are collectors or those who like to still see loot.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/wolfiefilter.lua
@@ -17,34 +17,12 @@
 -- All items will be shown in towns for muling and other purposes.
 
 return {
-    reload = "WolfieeifloW's Filter v1.51: {green}reloaded",
+    reload = "WolfieeifloW's Filter v1.52: {green}reloaded",
     allowOverrides = true,
     -- debug = true,
     audioVoice = 1,
     audioPlayback = true,
     rules = {
-        { -- Rule 1: Items for upcoming anniversary event
-            codes = "allitems",
-            index = { 530, 540, 328, 560, 561, 562, 563 },
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{tan}Keep for Anniversary event!\n"
-        },
-        { -- Rule 2: Items for upcoming anniversary event
-            code = "z22",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{tan}Keep for Anniversary event!\n"
-        },
-        { -- Rule 3: Items for upcoming anniversary event
-            codes = "allitems",
-            index = { 530, 540, 328, 560, 561, 562, 563 },
-            notify = "{tan}Keep for Anniversary event: {link}",
-            border = { 255, 0, 0, 255, 5 }
-        },
-        { -- Rule 4: Items for upcoming anniversary event
-            code = "z22",
-            notify = "{tan}Keep for Anniversary event: {link}",
-            border = { 255, 0, 0, 255, 5 }
-        },
         -- +-------------------------+
         -- | GOLD                    |
         -- +-------------------------+
@@ -180,7 +158,7 @@ return {
             name_override = "{green}Set Jewelry\n{orange}Blood Contract"
         },
         { -- Rule 29: Random RMD items that have gold names (used to match chat color brackets for notify)
-            codes = { "a06", "b64", "b65", "BoH", "luv", "m27", "m32", "m33", "m34", "m35", "m36", "Rgx", "TK0", "TK8", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "Z02", "Z03", "Z04", "Z05", "Z06", "Z07", "Z08", "Z09", "Z10", "Z11", "Z12", "Z13", "Z14", "Z15", "Z16", "Z17", "Z18", "Z19", "Z20", "Z21", "Z22", "Z23", "Z24", "Z25", "Z26", "Z27", "Z28", "Z29", "Z30", "Z31", "Z32", "Z33", "Z34", "Z35", "Z36", "Z37", "Z38", "Z39", "Z40", "Z41", "Z42", "Z43", "Z44", "Z45", "Z46", "Z47", "Z48", "Z49", "Z50", "Z51", "z80", "z81", "z82", "z83", "z84" },
+            codes = { "a06", "b64", "b65", "b66", "BoH", "luv", "m27", "m32", "m33", "m34", "m35", "m36", "Rgx", "TK0", "TK8", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "Z02", "Z03", "Z04", "Z05", "Z06", "Z07", "Z08", "Z09", "Z10", "Z11", "Z12", "Z13", "Z14", "Z15", "Z16", "Z17", "Z18", "Z19", "Z20", "Z21", "Z22", "Z23", "Z24", "Z25", "Z26", "Z27", "Z28", "Z29", "Z30", "Z31", "Z32", "Z33", "Z34", "Z35", "Z36", "Z37", "Z38", "Z39", "Z40", "Z41", "Z42", "Z43", "Z44", "Z45", "Z46", "Z47", "Z48", "Z49", "Z50", "Z51", "z80", "z81", "z82", "z83", "z84" },
             notify = "{purple}RMD Item {gold}{link}",
             border = { 174, 0, 255, 255, 3 }
         },
@@ -218,36 +196,6 @@ return {
             code = "GBd",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Used for splitting stacked {gold}Gold Bars\n"
-        },
-        { -- Rule 37: Add helper text to Key of Terror Remover to show where the key drops
-            code = "Z42",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Key of Terror {grey}drops from Hell The Countess (Act 1: Forgotten Tower)\n"
-        },
-        { -- Rule 38: Add helper text to Key of Hate Remover to show where the key drops
-            code = "Z43",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Key of Hate {grey}drops from Hell The Summoner (Act 2: Arcane Sanctuary)\n"
-        },
-        { -- Rule 39: Add helper text to Key of Destruction Remover to show where the key drops
-            code = "Z44",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Key of Destruction {grey}drops from Hell Nihlathak (Act 5: Halls of Vaught)\n"
-        },
-        { -- Rule 40: Add helper text to Diablo's Horn Remover to show where the key drops
-            code = "Z45",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Diablo's Horn {grey}drops from Lilth (Matron's Den)\n"
-        },
-        { -- Rule 41: Add helper text to Baal's Eye Remover to show where the key drops
-            code = "Z46",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Baal's Eye {grey}drops from Über Duriel (Forgotten Sand)\n"
-        },
-        { -- Rule 42: Add helper text to Mephisto's Brain Remover to show where the key drops
-            code = "Z47",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{orange}Mephisto's Brain {grey}drops from Über Izual (Furnace of Pain)\n"
         },
         { -- Rule 43: UpConverter's are only for Rare and Unique items
             codes = { "u01", "u02" },
@@ -311,186 +259,6 @@ return {
             codes = { "r34", "r35", "r36" },
             notify = "{purple}Ultra Rune {orange}{link}",
             border = { 255, 168, 0, 255, 7 }
-        },
-        { -- Rule 53: Show Rune Points on El Rune
-            code = "r01",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +1{white}){orange}\n"
-        },
-        { -- Rule 54: Show Rune Points on Eld Rune
-            code = "r02",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +2{white}){orange}\n"
-        },
-        { -- Rule 55: Show Rune Points on Tir Rune
-            code = "r03",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +4{white}){orange}\n"
-        },
-        { -- Rule 56: Show Rune Points on Nef Rune
-            code = "r04",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +8{white}){orange}\n"
-        },
-        { -- Rule 57: Show Rune Points on Eth Rune
-            code = "r05",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +16{white}){orange}\n"
-        },
-        { -- Rule 58: Show Rune Points on Ith Rune
-            code = "r06",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +32{white}){orange}\n"
-        },
-        { -- Rule 59: Show Rune Points on Tal Rune
-            code = "r07",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +64{white}){orange}\n"
-        },
-        { -- Rule 60: Show Rune Points on Ral Rune
-            code = "r08",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +128{white}){orange}\n"
-        },
-        { -- Rule 61: Show Rune Points on Ort Rune
-            code = "r09",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +256{white}){orange}\n"
-        },
-        { -- Rule 62: Show Rune Points on Thul Rune
-            code = "r10",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +512{white}){orange}\n"
-        },
-        { -- Rule 63: Show Rune Points on Amn Rune
-            code = "r11",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Low Points{blue} +1024{white}){orange}\n"
-        },
-        { -- Rule 64: Show Rune Points on Sol Rune
-            code = "r12",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +1{white}){orange}\n"
-        },
-        { -- Rule 65: Show Rune Points on Shael Rune
-            code = "r13",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +2{white}){orange}\n"
-        },
-        { -- Rule 66: Show Rune Points on Dol Rune
-            code = "r14",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +4{white}){orange}\n"
-        },
-        { -- Rule 67: Show Rune Points on Hel Rune
-            code = "r15",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +8{white}){orange}\n"
-        },
-        { -- Rule 68: Show Rune Points on #VALUE! Rune
-            code = "r16",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +16{white}){orange}\n"
-        },
-        { -- Rule 69: Show Rune Points on Lum Rune
-            code = "r17",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +32{white}){orange}\n"
-        },
-        { -- Rule 70: Show Rune Points on Ko Rune
-            code = "r18",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +64{white}){orange}\n"
-        },
-        { -- Rule 71: Show Rune Points on Fal Rune
-            code = "r19",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +128{white}){orange}\n"
-        },
-        { -- Rule 72: Show Rune Points on Lem Rune
-            code = "r20",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +256{white}){orange}\n"
-        },
-        { -- Rule 73: Show Rune Points on Pul Rune
-            code = "r21",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +512{white}){orange}\n"
-        },
-        { -- Rule 74: Show Rune Points on Um Rune
-            code = "r22",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Mid Points{blue} +1024{white}){orange}\n"
-        },
-        { -- Rule 75: Show Rune Points on Mal Rune
-            code = "r23",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +1{white}){orange}\n"
-        },
-        { -- Rule 76: Show Rune Points on Ist Rune
-            code = "r24",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +2{white}){orange}\n"
-        },
-        { -- Rule 77: Show Rune Points on Gul Rune
-            code = "r25",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +4{white}){orange}\n"
-        },
-        { -- Rule 78: Show Rune Points on Vex Rune
-            code = "r26",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +8{white}){orange}\n"
-        },
-        { -- Rule 79: Show Rune Points on Ohm Rune
-            code = "r27",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +16{white}){orange}\n"
-        },
-        { -- Rule 80: Show Rune Points on Lo Rune
-            code = "r28",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +32{white}){orange}\n"
-        },
-        { -- Rule 81: Show Rune Points on Sur Rune
-            code = "r29",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +64{white}){orange}\n"
-        },
-        { -- Rule 82: Show Rune Points on Ber Rune
-            code = "r30",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +128{white}){orange}\n"
-        },
-        { -- Rule 83: Show Rune Points on Jah Rune
-            code = "r31",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +256{white}){orange}\n"
-        },
-        { -- Rule 84: Show Rune Points on Cham Rune
-            code = "r32",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +512{white}){orange}\n"
-        },
-        { -- Rule 85: Show Rune Points on Zod Rune
-            code = "r33",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(High Points{blue} +1024{white}){orange}\n"
-        },
-        { -- Rule 86: Show Rune Points on Di Rune
-            code = "r34",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Ultra Points{blue} +1{white}){orange}\n"
-        },
-        { -- Rule 87: Show Rune Points on Ab Rune
-            code = "r35",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Ultra Points{blue} +2{white}){orange}\n"
-        },
-        { -- Rule 88: Show Rune Points on Er Rune
-            code = "r36",
-            location = { "onplayer", "atvendor" },
-            prefix = "{white}(Ultra Points{blue} +4{white}){orange}\n"
         },
         -- +-------------------------+
         -- | MAGIC ITEMS             |
@@ -1011,314 +779,6 @@ return {
         --     prefix_desc = "{green}xx\n{grey}Used in {green}Forsaken Pacts{grey}:\n"
         -- },
         -- +-------------------------+
-        -- | FORSAKEN PACTS HELPERS  |
-        -- +-------------------------+
-        { -- Rule 138: Civerb's Vestments Forsaken Pact
-            code = "L00",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Mirrored Flames {grey}({green}Civerb's + Aldur's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 139: Hsarus' Defense Forsaken Pact
-            code = "L01",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Mangala's Teachings {grey}({green}Hsarus' + Natalya's + Stacatomamba's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 140: Cleglaw's Brace Forsaken Pact
-            code = "L02",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Mikael's Toxicity {grey}({green}Cleglaw's + Rathma's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 141: Iratha's Finery Forsaken Pact
-            code = "L03",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Elemental Blueprints {grey}({green}Iratha's + Arcanna's + Naj's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 142: Isenhart's Armory Forsaken Pact
-            code = "L04",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Plates of Protection {grey}({green}Isenhart's + Sazabi's + Wonder Wear{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 143: Vidala's Rig Forsaken Pact
-            code = "L05",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Blessing of Artemis {grey}({green}Vidala's + M'avina's + Bul-Kathos'{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 144: Milabrega's Regalia Forsaken Pact
-            code = "L06",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Raijin's Rebellion {grey}({green}Milabrega's + Cathan's + Heaven's Brethren{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 145: Cathan's Traps Forsaken Pact
-            code = "L07",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Raijin's Rebellion {grey}({green}Milabrega's + Cathan's + Heaven's Brethren{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 146: Tancred's Battlegear Forsaken Pact
-            code = "L08",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Underworld Unrest {grey}({green}Trang-Oul's + Tancred's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 147: Sigon's Complete Steel Forsaken Pact
-            code = "L09",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Blacklight (Paladin) {grey}({green}Sigon's + Immortal King{grey})\n{green}Blacklight (Barbarian) {grey}({green}Sigon's + Immortal King{grey})\n{green}Pulsing Presence {grey}({green}Sigon's + Angelic + Heaven's Brethren{grey})\n{green}Justitia's Divinity {grey}({green}Sigon's + Orphan's Call{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 148: Infernal Tools Forsaken Pact
-            code = "L10",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Warrior's Wrath {grey}({green}Immortal King + Aldur's + Infernal{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 149: Berserker's Arsenal Forsaken Pact
-            code = "L11",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Unstoppable Force {grey}({green}Bul-Kathos' + Berserker's + Death's{grey})\n{green}Artio's Calling {grey}({green}Berserker's + Cow King's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 150: Death's Disguise Forsaken Pact
-            code = "L12",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Unstoppable Force {grey}({green}Bul-Kathos' + Berserker's + Death's{grey})\n{green}Memento Mori {grey}({green}Rathma's + Artio's Calling + Death's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 151: Angelic Raiment Forsaken Pact
-            code = "L13",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Pulsing Presence {grey}({green}Sigon's + Angelic + Heaven's Brethren{grey})\n{green}Celestial Caress {grey}({green}Angelic + Disciple + Holy Vessel's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 152: Arctic Gear Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L14",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 153: Arcanna's Tricks Forsaken Pact
-            code = "L15",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Elemental Blueprints {grey}({green}Iratha's + Arcanna's + Naj's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 154: Natalya's Odium Forsaken Pact
-            code = "L16",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Path of the Vortex (Barbarian) {grey}({green}Unstoppable Force + Natalya's{grey})\n{green}Path of the Vortex (Assassin) {grey}({green}Unstoppable Force + Natalya's{grey})\n{green}Silhouette of Silence {grey}({green}Natalya's + Kreigur's{grey})\n{green}Mangala's Teachings {grey}({green}Hsarus' + Natalya's + Stacatomamba's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 155: Aldur's Watchtower Forsaken Pact
-            code = "L17",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Warrior's Wrath {grey}({green}Immortal King + Aldur's + Infernal{grey})\n{green}Mirrored Flames {grey}({green}Civerb's + Aldur's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 156: Immortal King Forsaken Pact
-            code = "L18",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Blacklight (Paladin) {grey}({green}Sigon's + Immortal King{grey})\n{green}Blacklight (Barbarian) {grey}({green}Sigon's + Immortal King{grey})\n{green}Warrior's Wrath {grey}({green}Immortal King + Aldur's + Infernal{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 157: Tal Rasha's Wrappings Forsaken Pact
-            code = "L19",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Sacrificial Tribute {grey}({green}Tal Rasha's + Griswold's + Mirrored Flames{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 158: Griswold's Legacy Forsaken Pact
-            code = "L20",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Sacrificial Tribute {grey}({green}Tal Rasha's + Griswold's + Mirrored Flames{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 159: Trang-Oul's Avatar Forsaken Pact
-            code = "L21",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Underworld Unrest {grey}({green}Trang-Oul's + Tancred's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 160: M'avina's Battle Hymn Forsaken Pact
-            code = "L22",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Blessing of Artemis {grey}({green}Vidala's + M'avina's + Bul-Kathos'{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 161: The Disciple Forsaken Pact
-            code = "L23",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Celestial Caress {grey}({green}Angelic + Disciple + Holy Vessel's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 162: Heaven's Brethren Forsaken Pact
-            code = "L24",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Raijin's Rebellion {grey}({green}Milabrega's + Cathan's + Heaven's Brethren{grey})\n{green}Pulsing Presence {grey}({green}Sigon's + Angelic + Heaven's Brethren{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 163: Orphan's Call Forsaken Pact
-            code = "L25",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Justitia's Divinity {grey}({green}Sigon's + Orphan's Call{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 164: Hwanin's Majesty Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L26",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 165: Sazabi's Grand Tribute Forsaken Pact
-            code = "L27",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Plates of Protection {grey}({green}Isenhart's + Sazabi's + Wonder Wear{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 166: Bul-Kathos' Children Forsaken Pact
-            code = "L28",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Unstoppable Force {grey}({green}Bul-Kathos' + Berserker's + Death's{grey})\n{green}Blessing of Artemis {grey}({green}Vidala's + M'avina's + Bul-Kathos'{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 167: Cow King's Leathers Forsaken Pact
-            code = "L29",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Artio's Calling {grey}({green}Berserker's + Cow King's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 168: Naj's Ancient Vestige Forsaken Pact
-            code = "L30",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Elemental Blueprints {grey}({green}Iratha's + Arcanna's + Naj's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 169: Sander's Folly Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L31",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 170: Holy Vessel Forsaken Pact
-            code = "L32",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Celestial Caress {grey}({green}Angelic + Disciple + Holy Vessel's{grey})\n{green}Breaker of Chains {grey}({green}Holy Vessel's + Majestic Lancer's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 171: Majestic Lancer Forsaken Pact
-            code = "L33",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Breaker of Chains {grey}({green}Holy Vessel's + Majestic Lancer's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 172: Skovos Storm Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L34",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 173: Wonder Wear Forsaken Pact
-            code = "L35",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Plates of Protection {grey}({green}Isenhart's + Sazabi's + Wonder Wear{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 174: Vizjerei Vocation Forsaken Pact
-            code = "L36",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Cascading Caldera {grey}({green}Elemental Blueprints + Vizjerei + Beyond Battlemage{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 175: Beyond Battlemage Forsaken Pact
-            code = "L37",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Cascading Caldera {grey}({green}Elemental Blueprints + Vizjerei + Beyond Battlemage{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 176: Glacial Plains Forsaken Pact
-            code = "L38",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Black Tempest {grey}({green}Glacial Plains + Blessings of Artemis{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 177: Rathma's Calling Forsaken Pact
-            code = "L39",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Mikael's Toxicity {grey}({green}Cleglaw's + Rathma's{grey})\n{green}Memento Mori {grey}({green}Rathma's + Artio's Calling + Death's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 178: Stacatomamba's Guidance Forsaken Pact
-            code = "L40",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Mangala's Teachings {grey}({green}Hsarus' + Natalya's + Stacatomamba's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 179: Kreigur's Mastery Forsaken Pact
-            code = "L41",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Silhouette of Silence {grey}({green}Natalya's + Kreigur's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 180: Scarlet Sukami Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L42",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 181: Mirrored Flames Forsaken Pact
-            code = "L43",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Sacrificial Tribute {grey}({green}Tal Rasha's + Griswold's + Mirrored Flames{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 182: Unstoppable Force Forsaken Pact
-            code = "L44",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Path of the Vortex (Barbarian) {grey}({green}Unstoppable Force + Natalya's{grey})\n{green}Path of the Vortex (Assassin) {grey}({green}Unstoppable Force + Natalya's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 183: Underworld's Unrest Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L45",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 184: Elemental Blueprints Forsaken Pact
-            code = "L46",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Cascading Caldera {grey}({green}Elemental Blueprints + Vizjerei + Beyond Battlemage{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 185: Raijin's Rebellion Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L47",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 186: Mikael's Toxicity Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L48",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 187: Warrior's Wrath Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L49",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 188: Blessings of Artemis Forsaken Pact
-            code = "L50",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Black Tempest {grey}({green}Glacial Plains + Blessings of Artemis{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 189: Artio's Calling Forsaken Pact
-            code = "L51",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{green}Memento Mori {grey}({green}Rathma's + Artio's Calling + Death's{grey})\nUsed in {green}Forsaken Pacts{grey}:\n"
-        },
-        { -- Rule 190: Justitia's Divinity Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L52",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 191: Pulsing Presence Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L53",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 192: Celestial Caress Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L54",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 193: Breaker of Chains Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L55",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 194: Silhouette of Silence Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L56",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 195: Mangala's Teachings Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L57",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 196: Sacrificial Trinity Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L58",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 197: Plates of Protection Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L59",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        { -- Rule 198: Black Tempest Forsaken Pact (not currently used in any Forsaken Forsaken Pacts)
-            code = "L60",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Not used in any {green}Forsaken Pacts{grey} currently\n"
-        },
-        -- +-------------------------+
         -- | RARE ITEMS              |
         -- +-------------------------+
         { -- Rule 199: Small border on Rare Jewels
@@ -1419,7 +879,6 @@ return {
             itype = 84,
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{purple}Grand Charm\n{gold}Unholy Commander",
-            prefix_desc = "{grey}Cube alone to change number of {blue}Leoric's Chosen {grey}(max 5)\n"
         },
         { -- Rule 211: Correcting Kuroneko no Himitsu name color
             code = "cm3",
@@ -1438,7 +897,6 @@ return {
             itype = 84,
             location = { "onplayer", "onground", "atvendor" },
             name_override = "{purple}Grand Charm\n{gold}Blank Talent",
-            prefix_desc = "{grey}Can be modified with Enhancement Crystals\n"
         },
         -- +-------------------------+
         -- | CRAFTED ITEMS           |
@@ -1456,46 +914,6 @@ return {
             quality = "9",
             notify = "{green}DON'T FORGET ME! {link}"
         },
-        { -- Rule 215: Normal Uniques that can be Demon-Tempered
-            codes = "allitems",
-            quality = "7",
-            rarity = "0",
-            stat = { index = 402, op = "==", value = 0 },
-            index =  { 6, 45, 55, 71, 299, 330, 335 },
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
-        },
-        { -- Rule 216: Exceptional Uniques that can be Demon-Tempered
-            codes = "allitems",
-            quality = "7",
-            rarity = "1",
-            stat = { index = 402, op = "==", value = 0 },
-            index =  { 143, 281, 286, 347, 366, 369, 379, 386, 483 },
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
-        },
-        { -- Rule 217: Elite Uniques that can be Demon-Tempered
-            codes = "allitems",
-            quality = "7",
-            rarity = "2",
-            stat = { index = 402, op = "==", value = 0 },
-            index =  { 189, 211, 213, 217, 225, 226, 231, 246, 247, 249, 254, 262, 292, 295, 412, 413, 418, 423, 428, 433, 438, 445, 447, 453 },
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
-        },
-        { -- Rule 218: Misc Uniques that can be Demon-Tempered
-            codes = "allitems",
-            quality = "7",
-            stat = { index = 402, op = "==", value = 0 },
-            index =  { 525, 527, 529, 532, 543, 556 },
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Can be {dark green}Demon-Tempered\n"
-        },
-        {-- Rule 219: Parts for Demon-Tempering
-            codes = { "y67", "C00", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34", "C35", "C36", "C37" },
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Used in {dark green}Demon-Tempering\n"
-        },
         -- +-------------------------+
         -- | POTIONS & SCROLLS       |
         -- +-------------------------+
@@ -1504,16 +922,6 @@ return {
             difficulty = "1+",
             area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
-        },
-        { -- Rule 221: Add helper text to Antidote Potion that it's used in Blood Contracts
-            code = "yps",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Used for {green}Set {gray}Blood Contracts\n"
-        },
-        { -- Rule 222: Add helper text to Thawing Potion that it's used in Blood Contracts
-            code = "wms",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Used for {gold}Unique {gray}Blood Contracts\n"
         },
         { -- Rule 223: Add helper text to Scroll of Identify for some cube recipes it's in
             code = "isc",
@@ -1575,11 +983,6 @@ return {
             code = "bkd",
             location = { "onplayer", "atvendor" },
             prefix_desc = "{grey}Go to Act 1: Stony Field\n\n"
-        },
-        { -- Rule 231: Wirt's Leg
-            code = "leg",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube alone in Act 1 to open Cow Level\n"
         },
         { -- Rule 232: Horadric Malus
             code = "hdm",
@@ -1679,37 +1082,37 @@ return {
         { -- Rule 251: Twisted Essence of Suffering
             code = "tes",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(4-7) Gems {red}or\n\n{grey}Drops from Hell Andariel & Hell Duriel\n{orange}",
+            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Drops from Hell Andariel & Hell Duriel\n{orange}",
         },
         { -- Rule 252: Charged Essence of Hatred
             code = "ceh",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(1-3) High Rune Points {red}or\n\n{grey}Drops from Hell Mephisto\n{orange}",
+            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Drops from Hell Mephisto\n{orange}",
         },
         { -- Rule 253: Burning Essence of Terror
             code = "bet",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(3-6) Set Cores {red}or\n\n{grey}Drops from Hell Diablo\n{orange}",
+            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Drops from Hell Diablo\n{orange}",
         },
         { -- Rule 254: Festering Essence of Destruction
             code = "fed",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Cube with {tan}Storage Bag {grey}for +(3-6) Unique Cores {red}or\n\n{grey}Drops from Hell Baal\n{orange}",
+            prefix_desc = "{grey}Cube with 1x of each {orange}Essence {grey}for a {gold}Socket Remover\n{grey}Drops from Hell Baal\n{orange}",
         },
         { -- Rule 255: Key of Terror
             code = "pk1",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube 2x {orange}Key of Terror {grey}to get 1x {orange}Key of Hate\n{red}or\n{orange}Key of Destruction {grey}(Hell Nihlathak)\n{orange}Key of Hate {grey}(Hell Summoner)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Countess\n{orange}"
+            prefix_desc = "{orange}Key of Destruction {grey}(Hell Nihlathak)\n{orange}Key of Hate {grey}(Hell Summoner)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Countess\n{orange}"
         },
         { -- Rule 256: Key of Hate
             code = "pk2",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube 2x {orange}Key of Hate {grey}to get 1x {orange}Key of Destruction\n{red}or\n{orange}Key of Destruction {grey}(Hell Nihlathak)\n{orange}Key of Terror {grey}(Hell Countess)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Summoner\n{orange}"
+            prefix_desc = "{orange}Key of Destruction {grey}(Hell Nihlathak)\n{orange}Key of Terror {grey}(Hell Countess)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Summoner\n{orange}"
         },
         { -- Rule 257: Key of Destruction
             code = "pk3",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube 2x {orange}Key of Destruction {grey}to get 1x {orange}Key of Terror\n{red}or\n{orange}Key of Hate {grey}(Hell Summoner)\n{orange}Key of Terror {grey}(Hell Countess)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Nihlathak\n{orange}"
+            prefix_desc = "{orange}Key of Hate {grey}(Hell Summoner)\n{orange}Key of Terror {grey}(Hell Countess)\nOpen Mini-Über portal by cubing in Act 5 with:\n\nDrops from Hell Nihlathak\n{orange}"
         },
         { -- Rule 258: Mephisto's Brain
             code = "mbr",
@@ -1729,7 +1132,7 @@ return {
         { -- Rule 261: Standard of Heroes
             code = "std",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube with {gold}Hellfire Torch {grey}to re-roll the {gold}Hellfire Torch {grey}(any class)\nCube with {gold}Annihilus {grey}to re-roll the {gold}Annihilus {red}or\n{grey}Can be sold to {white}vendors {grey}to spawn Über Diablo {red}or\n\n{grey}Drops from Über Tristram\n"
+            prefix_desc = "{grey}Drops from Über Tristram\n"
         },
         { -- Rule 262: Amethyst gems
             codes = "allitems",
@@ -1797,15 +1200,6 @@ return {
             location = { "onplayer", "atvendor" },
             prefix = "{grey}Used in {white}Legion {grey}crafting\n{white}"
         },
-        { -- Rule 274: Skull Remover
-            code = "Z08",
-            location = { "onplayer", "atvendor" },
-        },
-        { -- Rule 275: Adding Soul Shards helper text
-            code = "S01",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{tan}1-3 Soul Shards (used for Soul Summons)\n",
-        },
         { -- Rule 276: Normal Unique Armor & Weapon upgrade recipe
             codes = NOT { "bks", "bkd", "leg", "hdm", "ass", "hst", "vip", "msf", "j34", "g34", "xyz", "g33", "qey", "qbr", "qhr", "qf1", "qf2", "bbb", "mss", "hfh", "ice", "tr2", "std" },
             itype = { 45, 50 },
@@ -1838,22 +1232,14 @@ return {
             location = "onplayer",
             prefix_desc = "{grey}Upgrade Recipe: cube with {gold}Item UpConverter {white}(Elite)\n{gold}"
         },
-        { -- Rule 280: Socket Remover
-            code = "b64",
-            location = { "onplayer", "atvendor" },
-            prefix_desc = "{grey}Cube a stack of 10x for a {gold}Premium Socket Remover\n{grey}Cube alone to remove 1x from the stack {pink}or\n",
-            suffix_desc = "{tan}Cube alone to remove 1 quantity before using\n"
-        },
         { -- Rule 281: Premium Socket Remover
             code = "b65",
-            location = { "onplayer", "atvendor" },
+            location = { "onplayer", "atvendor", "onground" },
             name_override = "{gold}Premium Socket Remover",
-            prefix_desc = "{grey}Cube 1x alone for 10x {gold}Socket Remover\n{grey}Cube alone to remove 1x from the stack {pink}or\n",
-            suffix_desc = "{tan}Cube alone to remove 1 quantity before using\n"
         },
         { -- Rule 282: Infinite Socket Remover
             code = "b66",
-            location = { "onplayer", "atvendor" },
+            location = { "onplayer", "atvendor", "onground" },
             name_override = "{gold}Infinite Socket Remover",
         },
         { -- Rule 283: Rainbow Facets
@@ -1948,7 +1334,7 @@ return {
         { -- Rule 301: Display cube recipes on Gold Bar that relate to it
             code = "Y21",
             location = { "onplayer", "atvendor" },
-            prefix_desc = "{pink}Demon-Temper recipe only works if you are LB2: Path of the Blacksmith\n{dark green}Demon-Tempered Unique {grey}+ 1x {gold}Gold Bar {grey}= Dismantle (Generate Original Unique)\n{grey}Any Item + 1x {gold}Gold Bar {grey}= Add Ethereal to Item\n\n"
+            prefix_desc = "{pink}Demon-Temper recipe only works if you are LB2: Path of the Blacksmith\n{dark green}Demon-Tempered Unique {grey}+ 1x {gold}Gold Bar {grey}= Dismantle (Generate Original Unique)\n\n"
         },
         { -- Rule 302: On Ramaladni's Gift display the limits it has on Weapons
             code = "Rgx",
