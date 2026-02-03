@@ -18,7 +18,7 @@
 
 return {
     reload = "WolfieeifloW's Filter v1.51: {green}reloaded",
-    allowOverrides = false,
+    allowOverrides = true,
     -- debug = true,
     audioVoice = 1,
     audioPlayback = true,
