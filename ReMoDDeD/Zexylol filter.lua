@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.41
+--- Filter Title: Zexylol's Hardfilter v1.42
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques Max stat is done, all stats <70% hidden (outside of towns)!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -11,12 +11,12 @@ return {
   rules = {
   --Rules Debugg.
     {
-      --codes = "allitems",
-      --location = {"onground", "onplayer","equipped"},
+      codes = "allitems",
+      location = {"onground", "onplayer","equipped"},
       --prefix = "S388={stat=(388)}|S20={stat=(20)}|",
       --prefix = "[{index}]",
       --prefix = "[{code}]",
-      --prefix = "[{code}] [{rarity}] [{index}] [{itype}]",
+      --prefix = "C=[{code}] R=[{rarity}] In=[{index}] IT=[{itype}] IL=[{ilvl}]",
       --suffix = "[{quality}]",
       --suffix = "[{rarity}]",
       --suffix = "[{index}]",
@@ -938,6 +938,7 @@ return {
     {--Hide pots, Minor/major HP / MP, small Rejuvs.
       codes = {"hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs"},
       location = {"onground", "dropping"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       hide = true,
       filter_levels = "1,2"
     },
@@ -17137,7 +17138,7 @@ return {
       { index = 79, op = "<=", value = (20 + (40-20)*0.7) }, -- 20-40% Extra Gold from Monsters
       { index = 0, op = "<=", value = (5 + (15-5)*0.7) }, -- +5-15 to Strength (all attribute)
       },
-      hide = true,
+      --hide = true,
       filter_levels = "1,2,3"
     },
     {
@@ -17152,7 +17153,7 @@ return {
       { index = 39, op = "<=", value = (10 + (20-10)*0.7) }, -- All Resistances +10-20%
       { index = 85, op = "<=", value = (5 + (10-5)*0.7) }, -- +5-10% to Experience Gained
       },
-      hide = true,
+      --hide = true,
       filter_levels = "1,2,3"
     },
     {
@@ -17325,7 +17326,7 @@ return {
       { index = 0, op = "<=", value = (10 + (20-10)*0.7) }, -- +10-20 to Strength (all attribute)
       { index = 39, op = "<=", value = (10 + (20-10)*0.7) }, -- All Resistances +10-20%
       },
-      hide = true,
+      --hide = true,
       filter_levels = "1,2,3"
     },
     {
@@ -17419,7 +17420,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 564, -- -------
+      index = 564, -- ------- Broken
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -17433,7 +17434,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 565, -- -------
+      index = 565, -- ------- Broken
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -17486,7 +17487,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 568, -- -------
+      index = 568, -- ------- Broken
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -18656,7 +18657,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 608, -- -------
+      index = 608, -- ------- Riddle Clueless Beginner
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20354,7 +20355,21 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 670, -- -------
+      index = 670, -- Evil Barrier
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = {
+      -- Choose your own stats charm
+      },
+      border = {165, 146, 099, 230},
+      --notify = "Unique Special charm",
+      suffix = "\n {red} Make your own Charm!",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 671, -- ------- Evil Barrier p2
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20368,7 +20383,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 671, -- -------
+      index = 672, -- ------- Evil Barrier p3
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20382,7 +20397,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 672, -- -------
+      index = 673, -- ------- Evil Barrier p4
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20396,7 +20411,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 673, -- Bigfoot
+      index = 674, -- Bigfoot
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20413,7 +20428,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 674, -- Static Calling
+      index = 675, -- Static Calling
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20429,7 +20444,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 675, --Prismatic Magefist
+      index = 676, --Prismatic Magefist
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20442,7 +20457,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 676, --The Rising Wisp
+      index = 677, --The Rising Wisp
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20455,7 +20470,7 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 677, -- Akara's Blessing
+      index = 678, -- Akara's Blessing
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
@@ -20469,43 +20484,32 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 678, -- -------
+      index = 679, -- Vestment of The Piercing Ray
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      notify = "{green} NEW UNIQUE",
+      suffix = "\n {red} Need Stats Range",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 679, -- -------
+      index = 680, -- Spartan's Ire
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
-      -- No stats (placeholder)
+      --{ index = 31, op = "==", value = 400 }, -- +300-400 Defense
+      { index = 151, op = ">=", param = 104, value = 10}, -- Level 5-10 Defiance Aura When Equipped
+      { index = 127, op = "==", value = 2}, -- +1-2 to All Skills
+      {index = 286, op = "==", value = 35}, --Reduce Cooldowns by 25-35%
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
-      filter_levels = "1,2,3"
-    },
-    {
-      codes = "allitems",
-      quality = "7",
-      index = 680, -- -------
-      runeword = false,
-      location = {"onground", "onplayer","equipped"},
-      stat = {
-      -- No stats (placeholder)
-      },
-      border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      --notify = "Unique Placeholder",
+      suffix = "\n {red} Maxed Stats",
       filter_levels = "1,2,3"
     },
   --Hide <70% Unique Index 661-680
@@ -20734,7 +20738,19 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 677, -- Akara's Blessing, hide <70%
+      index = 677, -- -------
+      runeword = false,
+      location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      stat = {
+      },
+      --hide = true,
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = 678, -- Akara's Blessing, hide <70%
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
@@ -20742,18 +20758,6 @@ return {
       { index = 143, op = "<=", value = (3 + (6-3)*0.7) }, -- +3-6 Fire Absorb
       },
       hide = true,
-      filter_levels = "1,2,3"
-    },
-    {
-      codes = "allitems",
-      quality = "7",
-      index = 678, -- -------
-      runeword = false,
-      location = {"onground"},
-      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      stat = {
-      },
-      --hide = true,
       filter_levels = "1,2,3"
     },
     {
