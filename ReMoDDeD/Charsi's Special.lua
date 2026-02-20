@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Aggressive","Aggressive + Hunter"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.8L{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v1.9{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
 audioPlayback = true, -- Turns ON/OFF sounds feature.
@@ -662,7 +662,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			codes = "allitems",
 			location = { "onground", "onplayer", "atvendor", "equipped" },
 			itype = { 45, 50, 10, 12 },
-			prefix_desc = "{white}Max Sockets: {maxsock}\n"
+			suffix_desc = "Max Sockets: {maxsock}\n"
 		},
 		{ -- Hide gold drops under 500 for clvl above 80 Lite
 			code = "gld",
@@ -1167,8 +1167,68 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
 		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress Scroll icon inside cube to show recipes and Runewords\n"},-- Horadric Cube
 		{codes={"z19","z20","z21","z22","z23","z24","z25","z26","z27"},location={"onplayer","atvendor"},suffix=" {gold}({red}1 Use Per Item{gold})"}, -- Ultra Enhancement Crystals
+		{code="b65",location={"onplayer","atvendor","equipped","onground"},name_override="{gold}Premium Socket Remover"}, -- Premium Socket Remover name fix
 		
-		-- Gameplay Tips:
+		
+		
+		
+		
+		--																                            Monster Body Parts and Vendor Souls
+		
+		{code="C00",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Pestilence\n{gold}Used for:\n\n"}, -- Andariels Flag
+		{code="C01",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Anuburaks FLag
+		{code="C02",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Baals Flag
+		{code="C03",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Famine\n{gold}Used for:\n\n"}, -- Deddomers Flag
+		{code="C04",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Rain\n{gold}Used for:\n\n"}, -- Diablos Flag
+		{code="C05",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Eternity\n{gold}Used for:\n\n"}, -- Duriels Flag
+		{code="C06",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Destruction\n{gold}Used for:\n\n"}, -- Forsaken Izuals Flag
+		{code="C07",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Alacrity\n{gold}Used for:\n\n"}, -- Gurkas Flag
+		{code="C08",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Mephistos Flag
+		{code="C09",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Queen Syndreds Flag
+		{code="C10",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Mystery{white}, {yellow}Obsession\n{gold}Used for:\n\n"}, -- Akaras Soul
+		{code="C11",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Ancient's Pledge\n{gold}Used for:\n\n"}, -- Ancients Soul usage
+		{code="C12",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Baals Soul
+		{code="C13",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Amity{white}, {yellow}Gloom\n{gold}Used for:\n\n"}, -- Blood Ravens Soul
+		{code="C14",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Forsaken Izuals Soul
+		{code="C15",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Fortitude\n{gold}Used for:\n\n"}, -- Griswolds Soul
+		{code="C16",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Gurkas Soul
+		{code="C17",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Izuals Soul
+		{code="C18",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Bone\n{gold}Used for:\n\n"}, -- Radaments Soul
+		{code="C19",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Corpsefires Jawbone
+		{code="C20",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Limit Break II {grey}(Path of the Blacksmith)\n{gold}Used for:\n\n"}, -- Deddomers Jawbone
+		{code="C21",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- ??? Griswolds Jawbone
+		{code="C22",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Deception\n{gold}Used for:\n\n"}, -- ??? Mephistos Jawbone
+		{code="C23",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Radaments Jawbone
+		{code="C24",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- ??? Thresh Sockets Jawbone
+		{code="C25",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Diablos Horn
+		{code="C26",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Duriels Horn
+		{code="C27",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Hephastos Horn
+		{code="C28",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- The Smiths Horn
+		{code="C29",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Thresh Sockets Horn
+		{code="C30",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Anuburaks Tail
+		{code="C31",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Diablos Tail
+		{code="C32",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Fangskins Tail
+		{code="C33",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Forsaken Izuals Tail
+		{code="C34",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Rift\n{gold}Used for:\n\n"}, -- Izuals Tail
+		{code="C35",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Andariels Fang
+		{code="C36",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Fangskins Fang
+		{code="C37",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Queen Syndreds Fang
+		{code="C38",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Runic Forging Tier 5: {yellow}Broken Promise{white}, {yellow}Steel{white}, {yellow}Edge\n{gold}Used for:\n\n"}, -- Charsis Soul
+		{code="C39",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Radiance{white}, {yellow}Myth{white}, {yellow}Voice of Reason\n{gold}Used for:\n\n"}, -- Faras Soul
+		{code="C40",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Daylight\n{gold}Used for:\n\n"}, -- Drognans Soul
+		{code="C41",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Envy{white}, {yellow}Passion\n{gold}Used for:\n\n"}, -- Hratlis Soul
+		{code="C42",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Lightning{white}, {yellow}Zephyr\n{gold}Used for:\n\n"}, -- Ormus' Soul
+		{code="C43",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Rhyme\n{gold}Used for:\n\n"}, -- Jamellas Soul
+		{code="C44",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Oath\n{gold}Used for:\n\n"}, -- Halbus Soul
+		{code="C45",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Runic Forging Tier 5: {yellow}King's Grace\n{gold}Used for:\n\n"}, -- Larzuks Soul
+		{code="C46",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Lust\n{gold}Used for:\n\n"}, -- Malahs Soul
+
+
+
+
+		
+		--                                                                                                    Gameplay Tips
+		
 		{code="hdm",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Doing so will enhance said Runeword. Max upgrade Tier is {white}5{gray}\nTo do it, cube Runeword with the same runes you used to make it\n{orange}Gameplay tip:{gray} Runewords with a {white}Hammer{gray} icon can be {white}Runic Forged\n"},-- Horadric Malus - Normal
 		{code="hdm",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}More about it on our Discord server!\ndrop specific item/s on specific difficulty called {white}'Flavor Drops'\n{orange}Gameplay tip:{gray} Some Unique Monsters have increased chance to\n"},-- Horadric Malus - Nightmare
 		{code="hdm",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}You will still want less MF to farm bases of course, but overall it's the best place for farming bases!\n{orange}Gameplay tip:{white} Cow Level{gray} is specifically tailored in ReMoDDeD to drop as many {white}bases{gray} as possible\n"},-- Horadric Malus - Hell
@@ -1392,6 +1452,8 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{codes="allitems",quality="5",identified=false,index=139,filter_levels="2,4",suffix="|Wonderous"}, --Wonderous Torso
 		{codes="allitems",quality="5",identified=false,index=140,filter_levels="2,4",suffix="|Wonderous"}, --Wonderous Gloves
 		
+		
+		
 
 		--                                                         UNIQUE HUNTER: Show what good (of my personal choice) unique jewelry is before identifying it
 		
@@ -1404,10 +1466,41 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{codes="allitems",quality="7",identified=false,index=532,filter_levels="2,4",suffix="|Mara's",notify="Valuable Amulet nearby!"}, --Mara's Kaleidoscope Amulet
 		
 		
+		
+		
+		
 
-
-
-
+		--                                                                                             Audio
+		{ -- Audio for Ultra Runes
+			codes = { "r34", "r35", "r36" },
+			audio = "HR_Drop_Loud.mp3"
+		},
+		{ -- Audio for Dye Bottles
+			codes = {"Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73"},
+			audio = "DyeBottleCharsi.mp3"
+		},
+		{ -- Audio for Codex
+            codes = {"a10", "a11", "a12", "a13", "a14", "a15", "a16", "a17", "a18", "a19", "a20", "a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a30", "a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a40", "a41", "a42", "a43", "a44", "a45", "a46", "a47", "a48", "a49", "a50", "a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a60", "a61", "a62", "a63", "a64", "a65"},
+			audio = "BookCharsi.wav"
+        },
+		{ -- Audio for Demon Tempering Body Parts
+			codes = {"C00","C01","C02","C03","C04","C05","C06","C07","C08","C09","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37"},
+			audio = "Ding1Charsi.mp3"
+		},
+		{ -- Audio for Ultra Enhancement Crystals, Ramaladni's Gift, Socket Remover and Gem Vein
+			codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27", "Rgx", "b64", "y33"},
+			audio = "Ding1Charsi.mp3"
+		},
+		{ -- Audio for Grail Tracker Finder - HUNTER
+			codes = "allitems",
+			quality = "5,7",
+			grail = false,
+			filter_levels = "2,4",
+			audio = "GrailDingCharsi.wav"
+		},
+		
+		
+		
 
 		--                                                                                     Quest item notifies
 		
@@ -1432,6 +1525,19 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{code="vps",notify="{red}Edyrem: {white} o7"}, -- Energy Drink notify
 		
 		
+		
+		
+		
+		
+		--                                                                                        Grail Tracker
+		{ -- Grail Tracker Finder - HUNTER
+			codes = "allitems",
+			quality = "5,7",
+			grail = false,
+			notify = "{yellow}Grail Tracker: {white}New item has appeared!",
+			suffix = " \n{yellow}! Grail !",
+			filter_levels = "2,4"
+		},
 		
 		
 		
@@ -1485,6 +1591,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=19},prefix_desc="{lilac}Color Dyed: {purple}Dark Purple\n"}, --Color Dyed: Dark Purple
 		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=20},prefix_desc="{lilac}Color Dyed: {orange}Orange\n"}, --Color Dyed: Orange
 		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=22},prefix_desc="{lilac}Color Dyed: {white}Bright White\n"}, --Color Dyed: Bright White
+		
 		{ -- Dye Bottles notification and style
 			codes = { "Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73" },
 			notify = "{yellow}Dye Bottle!",
