@@ -1,21 +1,14 @@
---- Filter Title: Sheep's Filter v1.21
+--- Filter Title: Sheep's Filter v1.23
 --- Filter Type: (General Filter)
 --- Filter Description: \nRule 0: Runewords beg you to keep them. \nRule 0b: Shows number of sockets. \nRule 0c: Hides scrolls on the ground. \nRule 0d: Hides scrolls on the ground. \nRule 0e: Hides all non-rare or lower arrows above level 60. \nRule 0f: Hides all white arrows. \nRule 2: Good bases — shows 3-skill scepters in red. \nRule 3: Adds border and notifies when uniques drop. \nRule 4: Adds border and notifies when sets drop. \nRule 5: Rune notification with special border and colors. \nRule 6: Unique Archons (color swap). \nRule 7: Potential high-quality uniques (e.g., Hydra Master) (color swap). \nRule 8: Unique charms (color swap). \nRule 9: Facet charms (color swap). \nRule 10: Treasure chests/gem veins. \nRule 11: Valuable uniques. \nRule 12: Hides zero-skill Paladin weapons. \nRule 13: Hides non-superior/non-class items by level (still shows 3-socket ones). \nRule 14: Hides non-class base magic items by level. \nRule 15: Hides low gold piles by level. \nRule 16: Codex tome. \nRule 17: Quest item notification. \nRule e1: Sorting of weapon bases by socket amount (hides 2 sockets or fewer on bases that cap at 3 sockets at level 80). \nRule e2: Added symbol for new bases.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
 return {
-    reload = "{pink}Sheep's Base Filter v1.21 {grey} 1/16/26{Green}Reloaded",
+    reload = "{pink}Sheep's Base Filter v1.23 {grey} 2/23/26{Green} Reloaded",
     allowOverrides = true,
     audioVoice = 1,
     audioPlayback = true,
     rules = {
-       ---Rule event rare jewel only in tundra
-        {
-            codes = NOT {"jew"},
-            quality = "6",
-            hide = true,
-            difficulty = "1+",
-            area = "Frozen Tundra"
-        },
+ 
         --add color to superior at vendor
         {
              codes = "allitems",
@@ -30,6 +23,14 @@ return {
             itype = { 5, 6, 10, 12, 45, 50, 58, 82, 83, 84 },
             suffix = " ({ilvl})",
         },
+               ---Grail I Guess
+
+        ---{
+           -- codes = "allitems",
+           -- quality = {"5","7"},
+           -- grail = false,
+           -- suffix = "{red}|G|",
+        --},
          -- Display the socket amount on items in their description (stolen from vivasen ofc)
         {
 			codes="allitems",
@@ -898,7 +899,7 @@ return {
         {
             code = "gld",
             background = {180, 199, 0, 110},
-            name_override = "{name} G"
+            name_override = "{white}{name} G"
         },
         ---Rule 19 rare jewel borders
         {
@@ -992,20 +993,8 @@ return {
             --prefix = "{gold}",
             border = { 255, 255, 255, 230, 3 },
             background = { 30, 100, 30, 200 },
-        },
-            ---- Event Notficiations 
-        {
-            codes = {"Ev03", "Ev04", "Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10"},
-            notify = "{orange}Happy Holidays!: {name}",
-            name_style = "Christmas",
-            border = { 30, 100, 30, 230, 2 }
-        },
-        {
-            codes = {"Ev00","Ev01","Ev02"},
-            notify = "{orange}That Poor Snowman...",
-            --name_style = "Christmas",
-
         }
+
     }
 }
 
