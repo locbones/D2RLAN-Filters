@@ -1,12 +1,12 @@
 --- Filter Title:Charsi's Special
---- Filter Type: 4 levels, cosmetic styles for loot, tips on various items
---- Filter Description:ReMoDDeD Only! Not recommended to use it in other mods as it contains RMD only information.\nFilter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, press F12 while in-game, go to 'Hotkey Controls' and setup a hotkey for 'Cycle Filter Level', you will likely need to restart the game once after setting this.\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Aggressive -- Level 4: Aggressive + Hunter\n2 LEVELS (2 and 4) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 500 (Lite) and 900 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden at all times.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nQuest item notifies (some cringey comments to confuse players a bit lol)\nIf you have any suggestions, or found a bug or unintended behavior, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
+--- Filter Type: 6 levels, cosmetic styles for loot, tips on various items
+--- Filter Description:ReMoDDeD Only! Not recommended to use it in other mods as it contains RMD only information.\nFilter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, press F12 while in-game, go to 'Hotkey Controls' and setup a hotkey for 'Cycle Filter Level', you will likely need to restart the game once after setting this.\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Lite + Hunter + Grail -- Level 4: Aggressive -- Level 5: Aggressive + Hunter -- Level 6: Aggressive + Hunter + Grail\n4 LEVELS (2,3,5 and 6) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 500 (Lite) and 900 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden at all times.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nGrail functionality supported at Filter Levels 3 and 6. Will send chat notify and add Grail text on top of items name if said item was not collected yet in any shared stash tab.\nQuest item notifies (some cringey comments to confuse players a bit lol)\nIf you have any suggestions, or found a bug or unintended behavior, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
 filter_level = 1,
-filter_titles = {"Lite","Lite + Hunter","Aggressive","Aggressive + Hunter"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.9{gold}) {Green}Reloaded", -- Filter reload message.
+filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
+reload = "{gold}Charsi's Special ({yellow}v1.9.1{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
 audioPlayback = true, -- Turns ON/OFF sounds feature.
@@ -32,7 +32,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hide badly rolled STR% Strong and Mighty Belt Superior bases (max 2os)
@@ -43,7 +43,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display decently rolled STR% Strong and Mighty Belt Superior bases (max 2os)
@@ -59,7 +59,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 3os
@@ -69,7 +69,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hide badly rolled FRW% Bladed Boots and Combat Kicks Superior bases (max 3os)
@@ -80,7 +80,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display decently rolled FRW% Bladed Boots and Combat Kicks Superior bases (max 3os)
@@ -97,7 +97,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display decently rolled AR% Amazon Circlet Superior bases (max 3os)
@@ -114,7 +114,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display good rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
@@ -137,7 +137,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display decently rolled FCR% Sorceress Gloves Superior bases (max 3os)
@@ -154,7 +154,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display perf rolled Blaze Wolf skills Druid Helmet bases (max 3os)
@@ -171,7 +171,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display perf rolled Frost Bear skills Druid Helmet bases (max 3os)
@@ -188,7 +188,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display decently rolled Raven Damage Druid Helmet bases (max 3os)
@@ -205,7 +205,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display +3 LF Amazon Javs Superior bases (max 3os)
@@ -221,7 +221,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 4os
@@ -231,7 +231,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hide badly rolled Assassin Katanas bases (max 4os)
@@ -242,7 +242,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			stat = { index = 427, op = "<", value = 40 },
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display good rolled Assassin Katanas bases (max 4os)
@@ -259,7 +259,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display perf rolled Necro Shield bases (max 4os)
@@ -277,7 +277,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display decently rolled Pally Shield Superior bases (max 4os)
@@ -296,7 +296,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display almost perf rolled Enlightened Plate Superior bases (max 4os)
@@ -314,7 +314,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display good rolled Cload/Mantle Superior bases (max 4os)
@@ -336,7 +336,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 5os
@@ -346,7 +346,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hides leftover (non-superior) bases (max 5os)
@@ -356,7 +356,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 6os
@@ -366,7 +366,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hide NOT 1/2 bow skills Grand Matron Bow or Matrialchal Bow Superior bases (max 6os)
@@ -377,13 +377,13 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display 1 bow skills Grand Matron Bow Superior bases (max 6os) - aggressive only
 			codes = { "amc", "amb" },
 			quality = "3-",
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			stat = { index = 188, op = "==", value = 1, param = 0 },
 			suffix = "{yellow} [+1 Bow skills]"
 		},
@@ -401,7 +401,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display 2 Pala skills Caduceous and Divine Scepter bases (max 6os)
@@ -424,7 +424,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display >=120% Summon Damage Necro Sickle bases (max 6os)
@@ -441,7 +441,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Display >=4% Life Leech Bloodletting Sword base (max 6os)
@@ -457,7 +457,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Hide all Indestructible/EtH Armor Bases (gets rid of indest/eth superior)
@@ -469,7 +469,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = {index = 152, op = "==", value = 0},
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Hides all 1 socket bases (does not include LB bases) in Normal and Nightmare when clvl is below 80
@@ -490,7 +490,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulties = { "Normal", "Nightmare" },
 			runeword = false,
 			pstat = { index = 12, op = "<", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Suffix for potentially great bases while leveling - Normal
@@ -553,7 +553,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			pstat = { index = 12, op = ">=", value = 100 },
-			filter_levels = "1,2",
+			filter_levels = "1,2,3",
 			hide = true
 		},
 		{ -- Hide Magic Ring/Amulet in Hell (shown earlier for crafting reasons) - aggressive
@@ -561,7 +561,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "4",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Hides magic Large Charms, Aggressive
@@ -570,7 +570,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulties = { "Nightmare", "Hell" },
 			pstat = { index = 12, op = ">=", value = 30 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		
@@ -585,7 +585,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		
@@ -600,14 +600,14 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",	
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "1,2",
+			filter_levels = "1,2,3",
 			hide = true
 		},
 		{ -- Hides all magic arrows/bolts at all times - Aggressive
 			codes = { "aqv", "cqv" },
 			quality = "4",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Hides all rare arrows/bolts - Aggressive
@@ -616,7 +616,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",	
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			hide = true
 		},
 		{ -- Hide white arrows/bolts at all times
@@ -638,7 +638,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
 		{ -- Style for Magic Jewels
@@ -670,7 +670,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "1,2",
+			filter_levels = "1,2,3",
             hide = true
         },
 		{ -- Hide omega low gold while leveling
@@ -695,20 +695,20 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
             codes = { "hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs" },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			filter_levels = "1,2",
+			filter_levels = "1,2,3",
 			pstat = { index = 12, op = ">=", value = 80 },
             hide = true
         },
         { -- Hides all potion drops besides any rejuvs at all times- Aggressive
             codes = { "hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5" },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
             hide = true
         },
         { -- Hides small rejuv drops after clvl 80 - Aggressive
             code = "rvs",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			filter_levels = "3,4",
+			filter_levels = "4,5,6",
 			pstat = { index = 12, op = ">=", value = 80 },
             hide = true
         },
@@ -804,7 +804,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Style for Gold
 			code = "gld",
 			border = { 230, 255, 0, 165, 1 },
-			name_override = "{name}{yellow}g"
+			name_override = "{white}{name}{yellow}g"
 		},
 		{ -- Hide all Low Runes
 			codes = { "r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11" },
@@ -823,7 +823,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			codes = "allitems",
 			quality = "9",
 			border = { 0, 35, 255, 70, 3 },
-			background = { 178, 255, 212, 190 },
+			background = { 178, 255, 212, 235 },
 			notify = "{red}Demon Tempered item on ground!"
 		},
 		{ -- Style for Facets
@@ -1155,19 +1155,71 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		--																             Additional/missing prefixes or gameplay tips for various items
 		
-		-- Additional information:
-		{code="rin",index=527,location={"onplayer","atvendor","equipped"},prefix="{gray}Can be sold to any vendor in Hell to spawn Dclone{gold}\n"}, -- SoJ Dclone note
-		{code="hst",location={"onplayer","equipped"},prefix_desc="{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"}, -- Horadric Staff (credits to Wolfie, mine now hehe)
-		{codes={"u01","u02"},location={"onplayer","atvendor"},prefix="{red} !!!{white} For {yellow}Rare{white} and {gold}Unique{white} items only{red} !!!\n"}, -- Upconverter 2 and 3
-		{codes="allitems",quality="7",identified=false,index={189,211,213,217,225,226,231,246,247,249,254,262,292,295,412,413,418,423,428,433,438,445,447,453,525,527,529,532,543,556,143,281,286,347,366,369,379,386,483,6,45,55,71,299,330,335},filter_levels="2,4",location={"onplayer","atvendor","onground"},suffix="{yellow}[DT]"}, -- Sacret Relics for Demon Tempering - HUNTER
-		{code="isc",location={"onplayer","atvendor"},prefix="{grey}ID Scroll + HP potion in NM/Hell = New Beacon\nUsed for re-rolling Unique/Set items\n"}, -- Identify Scroll
-		{code="GBd",location={"onplayer","atvendor"},prefix="{grey}Used for splitting stacked {yellow}Gold Bars{white}\n"}, -- Gold Bar Splitter
-		{code="TK8",location={"onplayer","atvendor"},name_override="{grey}Beacon of Hope + X (Summon lvl +1) Class Tokens = Upgraded Summon\nClass Token + Beacon of Hope = Added Soul Summon\nToken Forger + Beacon of Hope (100 Soul Shards) = Class Token{white}\nToken Forger"}, -- Token Forger
-		{code="y66",location={"onplayer","atvendor"},prefix="{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"},-- Starter Pack
-		{code="Z01",location={"onplayer","atvendor"},prefix="{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"},-- QoL Bag
-		{code="box",location={"onplayer","atvendor"},prefix_desc="{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress Scroll icon inside cube to show recipes and Runewords\n"},-- Horadric Cube
-		{codes={"z19","z20","z21","z22","z23","z24","z25","z26","z27"},location={"onplayer","atvendor"},suffix=" {gold}({red}1 Use Per Item{gold})"}, -- Ultra Enhancement Crystals
-		{code="b65",location={"onplayer","atvendor","equipped","onground"},name_override="{gold}Premium Socket Remover"}, -- Premium Socket Remover name fix
+		{ -- SoJ Dclone note
+			code = "rin",
+			index = 527,
+			location = { "onplayer", "atvendor", "equipped" },
+			prefix = "{gray}Can be sold to any vendor in Hell to spawn Dclone{gold}\n"
+		},
+		{ -- Horadric Staff (credits to Wolfie, mine now hehe)
+			code = "hst",
+			location = { "onplayer", "equipped" },
+			prefix_desc = "{yellow}0   )   []   +   >>   /_\\   0)\nTombs:\n"
+		},
+		{ -- Upconverter 2 and 3
+			codes = { "u01", "u02" },
+			location = { "onplayer", "atvendor" },
+			prefix = "{red} !!!{white} For {yellow}Rare{white} and {gold}Unique{white} items only{red} !!!\n"
+		},
+		{ -- Sacret Relics for Demon Tempering - HUNTER
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = { 189, 211, 213, 217, 225, 226, 231, 246, 247, 249, 254, 262, 292, 295, 412, 413, 418, 423, 428, 433, 438, 445, 447, 453, 525, 527, 529, 532, 543, 556, 143, 281, 286, 347, 366, 369, 379, 386, 483, 6, 45, 55, 71, 299, 330, 335 },
+			filter_levels = "2,3,5,6",
+			location = { "onplayer", "atvendor", "onground" },
+			suffix = "{yellow}[DT]"
+		},
+		{ -- Identify Scroll
+			code = "isc",
+			location = { "onplayer", "atvendor" },
+			prefix = "{grey}ID Scroll + HP potion in NM/Hell = New Beacon\nUsed for re-rolling Unique/Set items\n"
+		},
+		{ -- Gold Bar Splitter
+			code = "GBd",
+			location = { "onplayer", "atvendor" },
+			prefix = "{grey}Used for splitting stacked {yellow}Gold Bars{white}\n"
+		},
+		{ -- Token Forger
+			code = "TK8",
+			location = { "onplayer", "atvendor" },
+			name_override = "{grey}Beacon of Hope + X (Summon lvl +1) Class Tokens = Upgraded Summon\nClass Token + Beacon of Hope = Added Soul Summon\nToken Forger + Beacon of Hope (100 Soul Shards) = Class Token{white}\nToken Forger"
+		},
+		{ -- Starter Pack
+			code = "y66",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Visit our discord 'D2R-Modding' for any help if needed :)\n"
+		},
+		{ -- QoL Bag
+			code = "Z01",
+			location = { "onplayer", "atvendor" },
+			prefix = "{gray}Warning: Jewels will be sacrificed!\nMagic/Rare Jewels, Uber Organ/Keys, Gems\nRunes, Unique/Set cores, Full Rejuvs\n{white}Can store various items such as:\n"
+		},
+		{ -- Horadric Cube
+			code = "box",
+			location = { "onplayer", "atvendor" },
+			prefix_desc = "{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress Scroll icon inside cube to show recipes and Runewords\n"
+		},
+		{ -- Ultra Enhancement Crystals
+			codes = { "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27" },
+			location = { "onplayer", "atvendor" },
+			suffix = " {gold}({red}1 Use Per Item{gold})"
+		},
+		{ -- Premium Socket Remover name fix
+			code = "b65",
+			location = { "onplayer", "atvendor", "equipped", "onground" },
+			name_override = "{gold}Premium Socket Remover"
+		},
 		
 		
 		
@@ -1175,53 +1227,241 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		--																                            Monster Body Parts and Vendor Souls
 		
-		{code="C00",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Pestilence\n{gold}Used for:\n\n"}, -- Andariels Flag
-		{code="C01",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Anuburaks FLag
-		{code="C02",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Baals Flag
-		{code="C03",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Famine\n{gold}Used for:\n\n"}, -- Deddomers Flag
-		{code="C04",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Rain\n{gold}Used for:\n\n"}, -- Diablos Flag
-		{code="C05",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Eternity\n{gold}Used for:\n\n"}, -- Duriels Flag
-		{code="C06",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Destruction\n{gold}Used for:\n\n"}, -- Forsaken Izuals Flag
-		{code="C07",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Alacrity\n{gold}Used for:\n\n"}, -- Gurkas Flag
-		{code="C08",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Mephistos Flag
-		{code="C09",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Queen Syndreds Flag
-		{code="C10",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Mystery{white}, {yellow}Obsession\n{gold}Used for:\n\n"}, -- Akaras Soul
-		{code="C11",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Ancient's Pledge\n{gold}Used for:\n\n"}, -- Ancients Soul usage
-		{code="C12",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Baals Soul
-		{code="C13",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Amity{white}, {yellow}Gloom\n{gold}Used for:\n\n"}, -- Blood Ravens Soul
-		{code="C14",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Forsaken Izuals Soul
-		{code="C15",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Fortitude\n{gold}Used for:\n\n"}, -- Griswolds Soul
-		{code="C16",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Gurkas Soul
-		{code="C17",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Izuals Soul
-		{code="C18",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Bone\n{gold}Used for:\n\n"}, -- Radaments Soul
-		{code="C19",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Corpsefires Jawbone
-		{code="C20",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Limit Break II {grey}(Path of the Blacksmith)\n{gold}Used for:\n\n"}, -- Deddomers Jawbone
-		{code="C21",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- ??? Griswolds Jawbone
-		{code="C22",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Deception\n{gold}Used for:\n\n"}, -- ??? Mephistos Jawbone
-		{code="C23",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Radaments Jawbone
-		{code="C24",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- ??? Thresh Sockets Jawbone
-		{code="C25",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Diablos Horn
-		{code="C26",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Duriels Horn
-		{code="C27",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Hephastos Horn
-		{code="C28",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- The Smiths Horn
-		{code="C29",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Thresh Sockets Horn
-		{code="C30",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Anuburaks Tail
-		{code="C31",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Diablos Tail
-		{code="C32",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Fangskins Tail
-		{code="C33",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Forsaken Izuals Tail
-		{code="C34",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Rift\n{gold}Used for:\n\n"}, -- Izuals Tail
-		{code="C35",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Andariels Fang
-		{code="C36",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Fangskins Fang
-		{code="C37",location={"onplayer","atvendor"},prefix="{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"}, -- Queen Syndreds Fang
-		{code="C38",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Runic Forging Tier 5: {yellow}Broken Promise{white}, {yellow}Steel{white}, {yellow}Edge\n{gold}Used for:\n\n"}, -- Charsis Soul
-		{code="C39",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Radiance{white}, {yellow}Myth{white}, {yellow}Voice of Reason\n{gold}Used for:\n\n"}, -- Faras Soul
-		{code="C40",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Daylight\n{gold}Used for:\n\n"}, -- Drognans Soul
-		{code="C41",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Envy{white}, {yellow}Passion\n{gold}Used for:\n\n"}, -- Hratlis Soul
-		{code="C42",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Lightning{white}, {yellow}Zephyr\n{gold}Used for:\n\n"}, -- Ormus' Soul
-		{code="C43",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Rhyme\n{gold}Used for:\n\n"}, -- Jamellas Soul
-		{code="C44",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Oath\n{gold}Used for:\n\n"}, -- Halbus Soul
-		{code="C45",location={"onplayer","atvendor"},prefix="{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Runic Forging Tier 5: {yellow}King's Grace\n{gold}Used for:\n\n"}, -- Larzuks Soul
-		{code="C46",location={"onplayer","atvendor"},prefix="{white}Runic Forging Tier 5: {yellow}Lust\n{gold}Used for:\n\n"}, -- Malahs Soul
+		{ -- Andariels Flag
+			code = "C00",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Pestilence\n{gold}Used for:\n\n"
+		},
+		{ -- Anuburaks FLag
+			code = "C01",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Baals Flag
+			code = "C02",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Deddomers Flag
+			code = "C03",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Famine\n{gold}Used for:\n\n"
+		},
+		{ -- Diablos Flag
+			code = "C04",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Rain\n{gold}Used for:\n\n"
+		},
+		{ -- Duriels Flag
+			code = "C05",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Eternity\n{gold}Used for:\n\n"
+		},
+		{ -- Forsaken Izuals Flag
+			code = "C06",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Destruction\n{gold}Used for:\n\n"
+		},
+		{ -- Gurkas Flag
+			code = "C07",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Alacrity\n{gold}Used for:\n\n"
+		},
+		{ -- Mephistos Flag
+			code = "C08",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Queen Syndreds Flag
+			code = "C09",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Akaras Soul
+			code = "C10",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Mystery{white}, {yellow}Obsession\n{gold}Used for:\n\n"
+		},
+		{ -- Ancients Soul
+			code = "C11",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Ancient's Pledge\n{gold}Used for:\n\n"
+		},
+		{ -- Baals Soul
+			code = "C12",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Blood Ravens Soul
+			code = "C13",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Amity{white}, {yellow}Gloom\n{gold}Used for:\n\n"
+		},
+		{ -- Forsaken Izuals Soul
+			code = "C14",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Griswolds Soul
+			code = "C15",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Fortitude\n{gold}Used for:\n\n"
+		},
+		{ -- Gurkas Soul
+			code = "C16",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Izuals Soul
+			code = "C17",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Radaments Soul
+			code = "C18",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Bone\n{gold}Used for:\n\n"
+		},
+		{ -- Corpsefires Jawbone
+			code = "C19",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Deddomers Jawbone
+			code = "C20",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Limit Break II {grey}(Path of the Blacksmith)\n{gold}Used for:\n\n"
+		},
+		{ -- ??? Griswolds Jawbone
+			code = "C21",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- ??? Mephistos Jawbone
+			code = "C22",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Deception\n{gold}Used for:\n\n"
+		},
+		{ -- Radaments Jawbone
+			code = "C23",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- ??? Thresh Sockets Jawbone
+			code = "C24",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Diablos Horn
+			code = "C25",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Duriels Horn
+			code = "C26",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Hephastos Horn
+			code = "C27",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- The Smiths Horn
+			code = "C28",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Thresh Sockets Horn
+			code = "C29",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Anuburaks Tail
+			code = "C30",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Diablos Tail
+			code = "C31",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Fangskins Tail
+			code = "C32",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Forsaken Izuals Tail
+			code = "C33",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Izuals Tail
+			code = "C34",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Rift\n{gold}Used for:\n\n"
+		},
+		{ -- Andariels Fang
+			code = "C35",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Fangskins Fang
+			code = "C36",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Queen Syndreds Fang
+			code = "C37",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+		},
+		{ -- Charsis Soul
+			code = "C38",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Runic Forging Tier 5: {yellow}Broken Promise{white}, {yellow}Steel{white}, {yellow}Edge\n{gold}Used for:\n\n"
+		},
+		{ -- Faras Soul
+			code = "C39",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Radiance{white}, {yellow}Myth{white}, {yellow}Voice of Reason\n{gold}Used for:\n\n"
+		},
+		{ -- Drognans Soul
+			code = "C40",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Daylight\n{gold}Used for:\n\n"
+		},
+		{ -- Hratlis Soul
+			code = "C41",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Envy{white}, {yellow}Passion\n{gold}Used for:\n\n"
+		},
+		{ -- Ormus' Soul
+			code = "C42",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Lightning{white}, {yellow}Zephyr\n{gold}Used for:\n\n"
+		},
+		{ -- Jamellas Soul
+			code = "C43",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Rhyme\n{gold}Used for:\n\n"
+		},
+		{ -- Halbus Soul
+			code = "C44",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Oath\n{gold}Used for:\n\n"
+		},
+		{ -- Larzuks Soul
+			code = "C45",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Runic Forging Tier 5: {yellow}King's Grace\n{gold}Used for:\n\n"
+		},
+		{ -- Malahs Soul
+			code = "C46",
+			location = { "onplayer", "atvendor" },
+			prefix = "{white}Runic Forging Tier 5: {yellow}Lust\n{gold}Used for:\n\n"
+		},
 
 
 
@@ -1229,241 +1469,1477 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		--                                                                                                    Gameplay Tips
 		
-		{code="hdm",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Doing so will enhance said Runeword. Max upgrade Tier is {white}5{gray}\nTo do it, cube Runeword with the same runes you used to make it\n{orange}Gameplay tip:{gray} Runewords with a {white}Hammer{gray} icon can be {white}Runic Forged\n"},-- Horadric Malus - Normal
-		{code="hdm",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}More about it on our Discord server!\ndrop specific item/s on specific difficulty called {white}'Flavor Drops'\n{orange}Gameplay tip:{gray} Some Unique Monsters have increased chance to\n"},-- Horadric Malus - Nightmare
-		{code="hdm",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}You will still want less MF to farm bases of course, but overall it's the best place for farming bases!\n{orange}Gameplay tip:{white} Cow Level{gray} is specifically tailored in ReMoDDeD to drop as many {white}bases{gray} as possible\n"},-- Horadric Malus - Hell
-		{code="hdm",notify="{orange}New gameplay tip available! Look at description of {name}"}, -- Horadric Malus - notify
-		{code="mss",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}or by holding ALT and clicking on any attribute '+' in character stats window\nYou respec by clicking recpec button in your skills window\n\ncheck the checkbox 'respec' in Launchers main window, inside 'Launch Options'\n{orange}Gameplay Tip:{gray} You can {white}infinitely respec{gray} your stats/skills if you\n"},-- Mephisto's Soulstone - Normal
-		{code="mss",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="You might need to refresh a few times for it to appear (next to jewelry)\nsockets to items, can be gold gambled from {red}Edyrem\n{orange}Gameplay Tip:{gold} Ramaladni's Gift{white}, which adds\n\n"},-- Mephisto's Soulstone - Nightmare
-		{code="mss",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}Entrance to levels full of Torment (Hell only)\n{orange}Gameplay Tip:{gray} The {white}Worldstone Chamber{gray} contains an\n"},-- Mephisto's Soulstone - Hell
-		{code="mss",notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Mephisto's Soul Stone - notify
-		{code="tr2",location={"onplayer","atvendor"},difficulty="Normal",prefix="{orange}Gameplay Tip:{gray} QoL Options in Launcher have many useful things. Recommend to check it out!\n"},-- Scroll of Resistance - Normal
-		{code="tr2",location={"onplayer","atvendor"},difficulty="Nightmare",prefix="{gray}However, your '- x resistance' stats do not update those numbers!\nYour '- x immunity' stats, Curses and Conviction Auras affect those numbers\n\nLauncher - Options - QoL Options - Monster HP Bar - choose any 'Advanced' option\n{orange}Gameplay Tip:{gray} You can see all enemy {white}Resistance Values{gray} if you set it in:\n"},-- Scroll of Resistance - Nightmare
-		{code="tr2",location={"onplayer","atvendor"},difficulty="Hell",prefix="{gray}'LB' icon in item name means 'Limit Broken Base' (ilvl 103+)\n'EB' icon in item name means 'Elite Base'\n"},-- Scroll of Resistance - Hell
-		{code="tr2",location={"onplayer","atvendor"},notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Scroll of Resistance - notify
-		{code="bks",location={"onplayer","atvendor"},difficulty="Normal",prefix="{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose {white}'Jeweled Runewords'{gray} can be made by filling excess sockets with Jewels (not gems!) {red}BEFORE{gray} Runes\n{orange}Gameplay Tip:{gray} You can make Runewords in items that have more sockets that those RWs need runes.\n"}, -- Scroll of Inifuss - Normal
-		{code="bks",difficulty="Normal",notify="{orange}New gameplay tip available! Look at description of {name}"}, --  Scroll of Inifuss - notify
+		{ -- Horadric Malus - Normal
+			code = "hdm",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Normal",
+			prefix = "{gray}Doing so will enhance said Runeword. Max upgrade Tier is {white}5{gray}\nTo do it, cube Runeword with the same runes you used to make it\n{orange}Gameplay tip:{gray} Runewords with a {white}Hammer{gray} icon can be {white}Runic Forged\n"
+		},
+		{ -- Horadric Malus - Nightmare
+			code = "hdm",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Nightmare",
+			prefix = "{gray}More about it on our Discord server!\ndrop specific item/s on specific difficulty called {white}'Flavor Drops'\n{orange}Gameplay tip:{gray} Some Unique Monsters have increased chance to\n"
+		},
+		{ -- Horadric Malus - Hell
+			code = "hdm",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Hell",
+			prefix = "{gray}You will still want less MF to farm bases of course, but overall it's the best place for farming bases!\n{orange}Gameplay tip:{white} Cow Level{gray} is specifically tailored in ReMoDDeD to drop as many {white}bases{gray} as possible\n"
+		},
+		{ -- Horadric Malus - notify
+			code = "hdm",
+			notify = "{orange}New gameplay tip available! Look at description of {name}"
+		},
+		{ -- Mephisto's Soulstone - Normal
+			code = "mss",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Normal",
+			prefix = "{gray}or by holding ALT and clicking on any attribute '+' in character stats window\nYou respec by clicking recpec button in your skills window\n\ncheck the checkbox 'respec' in Launchers main window, inside 'Launch Options'\n{orange}Gameplay Tip:{gray} You can {white}infinitely respec{gray} your stats/skills if you\n"
+		},
+		{ -- Mephisto's Soulstone - Nightmare
+			code = "mss",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Nightmare",
+			prefix = "You might need to refresh a few times for it to appear (next to jewelry)\nsockets to items, can be gold gambled from {red}Edyrem\n{orange}Gameplay Tip:{gold} Ramaladni's Gift{white}, which adds\n\n"
+		},
+		{ -- Mephisto's Soulstone - Hell
+			code = "mss",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Hell",
+			prefix = "{gray}Entrance to levels full of Torment (Hell only)\n{orange}Gameplay Tip:{gray} The {white}Worldstone Chamber{gray} contains an\n"
+		},
+		{ --  Mephisto's Soul Stone - notify
+			code = "mss",
+			notify = "{orange}New gameplay tip available! Look at description of {name}"
+		},
+		{ -- Scroll of Resistance - Normal
+			code = "tr2",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Normal",
+			prefix = "{orange}Gameplay Tip:{gray} QoL Options in Launcher have many useful things. Recommend to check it out!\n"
+		},
+		{ -- Scroll of Resistance - Nightmare
+			code = "tr2",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Nightmare",
+			prefix = "{gray}However, your '- x resistance' stats do not update those numbers!\nYour '- x immunity' stats, Curses and Conviction Auras affect those numbers\n\nLauncher - Options - QoL Options - Monster HP Bar - choose any 'Advanced' option\n{orange}Gameplay Tip:{gray} You can see all enemy {white}Resistance Values{gray} if you set it in:\n"
+		},
+		{ -- Scroll of Resistance - Hell
+			code = "tr2",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Hell",
+			prefix = "{gray}'LB' icon in item name means 'Limit Broken Base' (ilvl 103+)\n'EB' icon in item name means 'Elite Base'\n"
+		},
+		{ --  Scroll of Resistance - notify
+			code = "tr2",
+			location = { "onplayer", "atvendor" },
+			notify = "{orange}New gameplay tip available! Look at description of {name}"
+		},
+		{ -- Scroll of Inifuss - Normal
+			code = "bks",
+			location = { "onplayer", "atvendor" },
+			difficulty = "Normal",
+			prefix = "{gray}Example: Spirit in 6os Spell Blade = Jewel+Jewel+Tal+Thul+Ort+Amn\nThose {white}'Jeweled Runewords'{gray} can be made by filling excess sockets with Jewels (not gems!) {red}BEFORE{gray} Runes\n{orange}Gameplay Tip:{gray} You can make Runewords in items that have more sockets that those RWs need runes.\n"
+		},
+		{ --  Scroll of Inifuss - notify
+			code = "bks",
+			difficulty = "Normal",
+			notify = "{orange}New gameplay tip available! Look at description of {name}"
+		},
 		
 		
 		
 		
 		--                                                             SET HUNTER: Show what set x item belongs to, before identifying it. "Hunter" levels only!
 		
-		{codes="allitems",quality="5",identified=false,index=66,filter_levels="2,4",suffix="{green}|Aldur's"}, --Aldur's Helmet
-		{codes="allitems",quality="5",identified=false,index=67,filter_levels="2,4",suffix="|Aldur's"}, --Aldur's Torso
-		{codes="allitems",quality="5",identified=false,index=68,filter_levels="2,4",suffix="|Aldur's"}, --Aldur's Weapon
-		{codes="allitems",quality="5",identified=false,index=69,filter_levels="2,4",suffix="|Aldur's"}, --Aldur's Boots
+		{ -- Aldur's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 66,
+			filter_levels = "2,3,5,6",
+			suffix = "{green}|Aldur's"
+		},
+		{ -- Aldur's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 67,
+			filter_levels = "2,3,5,6",
+			suffix = "|Aldur's"
+		},
+		{ -- Aldur's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 68,
+			filter_levels = "2,3,5,6",
+			suffix = "|Aldur's"
+		},
+		{ -- Aldur's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 69,
+			filter_levels = "2,3,5,6",
+			suffix = "|Aldur's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=50,filter_levels="2,4",suffix="|Angelic"}, --Angelic Weapon
-		{codes="allitems",quality="5",identified=false,index=51,filter_levels="2,4",suffix="|Angelic"}, --Angelic Torso
-		{codes="allitems",quality="5",identified=false,index=52,filter_levels="2,4",suffix="|Angelic"}, --Angelic Ring
-		{codes="allitems",quality="5",identified=false,index=53,filter_levels="2,4",suffix="|Angelic"}, --Angelic Amulet
+		{ -- Angelic Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 50,
+			filter_levels = "2,3,5,6",
+			suffix = "|Angelic"
+		},
+		{ -- Angelic Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 51,
+			filter_levels = "2,3,5,6",
+			suffix = "|Angelic"
+		},
+		{ -- Angelic Ring
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 52,
+			filter_levels = "2,3,5,6",
+			suffix = "|Angelic"
+		},
+		{ -- Angelic Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 53,
+			filter_levels = "2,3,5,6",
+			suffix = "|Angelic"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=58,filter_levels="2,4",suffix="|Arcanna's"}, --Arcanna's Amulet
-		{codes="allitems",quality="5",identified=false,index=59,filter_levels="2,4",suffix="|Arcanna's"}, --Arcanna's Weapon
-		{codes="allitems",quality="5",identified=false,index=60,filter_levels="2,4",suffix="|Arcanna's"}, --Arcanna's Helmet
-		{codes="allitems",quality="5",identified=false,index=61,filter_levels="2,4",suffix="|Arcanna's"}, --Arcanna's Torso
+		{ -- Arcanna's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 58,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arcanna's"
+		},
+		{ -- Arcanna's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 59,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arcanna's"
+		},
+		{ -- Arcanna's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 60,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arcanna's"
+		},
+		{ -- Arcanna's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 61,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arcanna's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=54,filter_levels="2,4",suffix="|Arctic"}, --Arctic Weapon
-		{codes="allitems",quality="5",identified=false,index=55,filter_levels="2,4",suffix="|Arctic"}, --Arctic Torso
-		{codes="allitems",quality="5",identified=false,index=56,filter_levels="2,4",suffix="|Arctic"}, --Arctic Belt
-		{codes="allitems",quality="5",identified=false,index=57,filter_levels="2,4",suffix="|Arctic"}, --Arctic Gloves
+		{ -- Arctic Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 54,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arctic"
+		},
+		{ -- Arctic Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 55,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arctic"
+		},
+		{ -- Arctic Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 56,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arctic"
+		},
+		{ -- Arctic Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 57,
+			filter_levels = "2,3,5,6",
+			suffix = "|Arctic"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=144,filter_levels="2,4",suffix="{green}|Battlemage's"}, --Battlemage's Weapon
-		{codes="allitems",quality="5",identified=false,index=145,filter_levels="2,4",suffix="|Battlemage's"}, --Battlemage's Shield
-		{codes="allitems",quality="5",identified=false,index=146,filter_levels="2,4",suffix="|Battlemage's"}, --Battlemage's Torso
+		{ -- Battlemage's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 144,
+			filter_levels = "2,3,5,6",
+			suffix = "{green}|Battlemage's"
+		},
+		{ -- Battlemage's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 145,
+			filter_levels = "2,3,5,6",
+			suffix = "|Battlemage's"
+		},
+		{ -- Battlemage's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 146,
+			filter_levels = "2,3,5,6",
+			suffix = "|Battlemage's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=44,filter_levels="2,4",suffix="|Berserker's"}, --Berserker's Helmet
-		{codes="allitems",quality="5",identified=false,index=45,filter_levels="2,4",suffix="|Berserker's"}, --Berserker's Torso
-		{codes="allitems",quality="5",identified=false,index=46,filter_levels="2,4",suffix="|Berserker's"}, --Berserker's Weapon
+		{ -- Berserker's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 44,
+			filter_levels = "2,3,5,6",
+			suffix = "|Berserker's"
+		},
+		{ -- Berserker's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 45,
+			filter_levels = "2,3,5,6",
+			suffix = "|Berserker's"
+		},
+		{ -- Berserker's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 46,
+			filter_levels = "2,3,5,6",
+			suffix = "|Berserker's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=115,filter_levels="2,4",suffix="|Bul-Katho's"}, --Bul-Katho's Weapon big
-		{codes="allitems",quality="5",identified=false,index=116,filter_levels="2,4",suffix="|Bul-Katho's"}, --Bul-Katho's Weapon smol
+		{ -- Bul-Katho's Weapon big
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 115,
+			filter_levels = "2,3,5,6",
+			suffix = "|Bul-Katho's"
+		},
+		{ -- Bul-Katho's Weapon smol
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 116,
+			filter_levels = "2,3,5,6",
+			suffix = "|Bul-Katho's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=25,filter_levels="2,4",suffix="|Cathan's"}, --Cathan's Weapon
-		{codes="allitems",quality="5",identified=false,index=26,filter_levels="2,4",suffix="|Cathan's"}, --Cathan's Torso
-		{codes="allitems",quality="5",identified=false,index=27,filter_levels="2,4",suffix="|Cathan's"}, --Cathan's Helmet
-		{codes="allitems",quality="5",identified=false,index=28,filter_levels="2,4",suffix="|Cathan's"}, --Cathan's Amulet
-		{codes="allitems",quality="5",identified=false,index=29,filter_levels="2,4",suffix="|Cathan's"}, --Cathan's Ring
+		{ -- Cathan's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 25,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cathan's"
+		},
+		{ -- Cathan's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 26,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cathan's"
+		},
+		{ -- Cathan's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 27,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cathan's"
+		},
+		{ -- Cathan's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 28,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cathan's"
+		},
+		{ -- Cathan's Ring
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 29,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cathan's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=0,filter_levels="2,4",suffix="|Civerb's"}, --Civerb's Shield
-		{codes="allitems",quality="5",identified=false,index=1,filter_levels="2,4",suffix="|Civerb's"}, --Civerb's Amulet
-		{codes="allitems",quality="5",identified=false,index=2,filter_levels="2,4",suffix="|Civerb's"}, --Civerb's Weapon
+		{ -- Civerb's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 0,
+			filter_levels = "2,3,5,6",
+			suffix = "|Civerb's"
+		},
+		{ -- Civerb's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 1,
+			filter_levels = "2,3,5,6",
+			suffix = "|Civerb's"
+		},
+		{ -- Civerb's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 2,
+			filter_levels = "2,3,5,6",
+			suffix = "|Civerb's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=6,filter_levels="2,4",suffix="|Cleglaw's"}, --Cleglaw's Weapon
-		{codes="allitems",quality="5",identified=false,index=7,filter_levels="2,4",suffix="|Cleglaw's"}, --Cleglaw's Shield
-		{codes="allitems",quality="5",identified=false,index=8,filter_levels="2,4",suffix="|Cleglaw's"}, --Cleglaw's Gloves
+		{ -- Cleglaw's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 6,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cleglaw's"
+		},
+		{ -- Cleglaw's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 7,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cleglaw's"
+		},
+		{ -- Cleglaw's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 8,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cleglaw's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=117,filter_levels="2,4",suffix="|Cow King's"}, --Cow King's Helmet
-		{codes="allitems",quality="5",identified=false,index=118,filter_levels="2,4",suffix="|Cow King's"}, --Cow King's Torso
-		{codes="allitems",quality="5",identified=false,index=119,filter_levels="2,4",suffix="|Cow King's"}, --Cow King's Boots
+		{ -- Cow King's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 117,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cow King's"
+		},
+		{ -- Cow King's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 118,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cow King's"
+		},
+		{ -- Cow King's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 119,
+			filter_levels = "2,3,5,6",
+			suffix = "|Cow King's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=47,filter_levels="2,4",suffix="|Death's"}, --Death's Gloves
-		{codes="allitems",quality="5",identified=false,index=48,filter_levels="2,4",suffix="|Death's"}, --Death's Belt
-		{codes="allitems",quality="5",identified=false,index=49,filter_levels="2,4",suffix="|Death's"}, --Death's Weapon
+		{ -- Death's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 47,
+			filter_levels = "2,3,5,6",
+			suffix = "|Death's"
+		},
+		{ -- Death's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 48,
+			filter_levels = "2,3,5,6",
+			suffix = "|Death's"
+		},
+		{ -- Death's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 49,
+			filter_levels = "2,3,5,6",
+			suffix = "|Death's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=147,filter_levels="2,4",suffix="|Glacial"}, --Glacial Helmet
-		{codes="allitems",quality="5",identified=false,index=148,filter_levels="2,4",suffix="|Glacial"}, --Glacial Belt
-		{codes="allitems",quality="5",identified=false,index=149,filter_levels="2,4",suffix="|Glacial"}, --Glacial Shield
+		{ -- Glacial Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 147,
+			filter_levels = "2,3,5,6",
+			suffix = "|Glacial"
+		},
+		{ -- Glacial Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 148,
+			filter_levels = "2,3,5,6",
+			suffix = "|Glacial"
+		},
+		{ -- Glacial Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 149,
+			filter_levels = "2,3,5,6",
+			suffix = "|Glacial"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=81,filter_levels="2,4",suffix="|Griswold's"}, --Griswold's Helmet
-		{codes="allitems",quality="5",identified=false,index=82,filter_levels="2,4",suffix="{green}|Griswold's"}, --Griswold's Torso
-		{codes="allitems",quality="5",identified=false,index=83,filter_levels="2,4",suffix="|Griswold's"}, --Griswold's Weapon
-		{codes="allitems",quality="5",identified=false,index=84,filter_levels="2,4",suffix="|Griswold's"}, --Griswold's Shield
+		{ -- Griswold's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 81,
+			filter_levels = "2,3,5,6",
+			suffix = "|Griswold's"
+		},
+		{ -- Griswold's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 82,
+			filter_levels = "2,3,5,6",
+			suffix = "{green}|Griswold's"
+		},
+		{ -- Griswold's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 83,
+			filter_levels = "2,3,5,6",
+			suffix = "|Griswold's"
+		},
+		{ -- Griswold's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 84,
+			filter_levels = "2,3,5,6",
+			suffix = "|Griswold's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=100,filter_levels="2,4",suffix="|Heaven's"}, --Heaven's Weapon
-		{codes="allitems",quality="5",identified=false,index=101,filter_levels="2,4",suffix="|Heaven's"}, --Heaven's Shield
-		{codes="allitems",quality="5",identified=false,index=102,filter_levels="2,4",suffix="|Heaven's"}, --Heaven's Torso
-		{codes="allitems",quality="5",identified=false,index=103,filter_levels="2,4",suffix="|Heaven's"}, --Heaven's Helmet
+		{ -- Heaven's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 100,
+			filter_levels = "2,3,5,6",
+			suffix = "|Heaven's"
+		},
+		{ -- Heaven's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 101,
+			filter_levels = "2,3,5,6",
+			suffix = "|Heaven's"
+		},
+		{ -- Heaven's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 102,
+			filter_levels = "2,3,5,6",
+			suffix = "|Heaven's"
+		},
+		{ -- Heaven's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 103,
+			filter_levels = "2,3,5,6",
+			suffix = "|Heaven's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=3,filter_levels="2,4",suffix="|Hsarus'"}, --Hsarus' Boots
-		{codes="allitems",quality="5",identified=false,index=4,filter_levels="2,4",suffix="|Hsarus'"}, --Hsarus' Shield
-		{codes="allitems",quality="5",identified=false,index=5,filter_levels="2,4",suffix="|Hsarus'"}, --Hsarus' Belt
+		{ -- Hsarus' Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 3,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hsarus'"
+		},
+		{ -- Hsarus' Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 4,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hsarus'"
+		},
+		{ -- Hsarus' Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 5,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hsarus'"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=108,filter_levels="2,4",suffix="|Hwanin's"}, --Hwanin's Helmet
-		{codes="allitems",quality="5",identified=false,index=109,filter_levels="2,4",suffix="|Hwanin's"}, --Hwanin's Torso
-		{codes="allitems",quality="5",identified=false,index=110,filter_levels="2,4",suffix="|Hwanin's"}, --Hwanin's Belt
-		{codes="allitems",quality="5",identified=false,index=111,filter_levels="2,4",suffix="|Hwanin's"}, --Hwanin's Weapon
+		{ -- Hwanin's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 108,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hwanin's"
+		},
+		{ -- Hwanin's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 109,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hwanin's"
+		},
+		{ -- Hwanin's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 110,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hwanin's"
+		},
+		{ -- Hwanin's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 111,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hwanin's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=70,filter_levels="2,4",suffix="|IK"}, --IK Helmet
-		{codes="allitems",quality="5",identified=false,index=71,filter_levels="2,4",suffix="|IK"}, --IK Torso
-		{codes="allitems",quality="5",identified=false,index=72,filter_levels="2,4",suffix="|IK"}, --IK Belt
-		{codes="allitems",quality="5",identified=false,index=73,filter_levels="2,4",suffix="|IK"}, --IK Gloves
-		{codes="allitems",quality="5",identified=false,index=74,filter_levels="2,4",suffix="|IK"}, --IK Boots
-		{codes="allitems",quality="5",identified=false,index=75,filter_levels="2,4",suffix="{green}|IK"}, --IK Weapon
+		{ -- IK Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 70,
+			filter_levels = "2,3,5,6",
+			suffix = "|IK"
+		},
+		{ -- IK Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 71,
+			filter_levels = "2,3,5,6",
+			suffix = "|IK"
+		},
+		{ -- IK Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 72,
+			filter_levels = "2,3,5,6",
+			suffix = "|IK"
+		},
+		{ -- IK Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 73,
+			filter_levels = "2,3,5,6",
+			suffix = "|IK"
+		},
+		{ -- IK Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 74,
+			filter_levels = "2,3,5,6",
+			suffix = "|IK"
+		},
+		{ -- IK Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 75,
+			filter_levels = "2,3,5,6",
+			suffix = "{green}|IK"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=41,filter_levels="2,4",suffix="|Infernal"}, --Infernal Helmet
-		{codes="allitems",quality="5",identified=false,index=42,filter_levels="2,4",suffix="|Infernal"}, --Infernal Weapon
-		{codes="allitems",quality="5",identified=false,index=43,filter_levels="2,4",suffix="|Infernal"}, --Infernal Belt
+		{ -- Infernal Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 41,
+			filter_levels = "2,3,5,6",
+			suffix = "|Infernal"
+		},
+		{ -- Infernal Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 42,
+			filter_levels = "2,3,5,6",
+			suffix = "|Infernal"
+		},
+		{ -- Infernal Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 43,
+			filter_levels = "2,3,5,6",
+			suffix = "|Infernal"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=9,filter_levels="2,4",suffix="|Iratha's"}, --Iratha's Amulet
-		{codes="allitems",quality="5",identified=false,index=10,filter_levels="2,4",suffix="|Iratha's"}, --Iratha's Gloves
-		{codes="allitems",quality="5",identified=false,index=11,filter_levels="2,4",suffix="|Iratha's"}, --Iratha's Helmet
-		{codes="allitems",quality="5",identified=false,index=12,filter_levels="2,4",suffix="|Iratha's"}, --Iratha's Belt
+		{ -- Iratha's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 9,
+			filter_levels = "2,3,5,6",
+			suffix = "|Iratha's"
+		},
+		{ -- Iratha's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 10,
+			filter_levels = "2,3,5,6",
+			suffix = "|Iratha's"
+		},
+		{ -- Iratha's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 11,
+			filter_levels = "2,3,5,6",
+			suffix = "|Iratha's"
+		},
+		{ -- Iratha's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 12,
+			filter_levels = "2,3,5,6",
+			suffix = "|Iratha's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=13,filter_levels="2,4",suffix="|Isenhart's"}, --Isenhart's Weapon
-		{codes="allitems",quality="5",identified=false,index=14,filter_levels="2,4",suffix="|Isenhart's"}, --Isenhart's Shield
-		{codes="allitems",quality="5",identified=false,index=15,filter_levels="2,4",suffix="|Isenhart's"}, --Isenhart's Torso
-		{codes="allitems",quality="5",identified=false,index=16,filter_levels="2,4",suffix="|Isenhart's"}, --Isenhart's Helmet
+		{ -- Isenhart's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 13,
+			filter_levels = "2,3,5,6",
+			suffix = "|Isenhart's"
+		},
+		{ -- Isenhart's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 14,
+			filter_levels = "2,3,5,6",
+			suffix = "|Isenhart's"
+		},
+		{ -- Isenhart's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 15,
+			filter_levels = "2,3,5,6",
+			suffix = "|Isenhart's"
+		},
+		{ -- Isenhart's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 16,
+			filter_levels = "2,3,5,6",
+			suffix = "|Isenhart's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=156,filter_levels="2,4",suffix="|Kreigur's W"}, --Kreigur's Will
-		{codes="allitems",quality="5",identified=false,index=157,filter_levels="2,4",suffix="|Kreigur's J"}, --Kreigur's Judgement
+		{ -- Kreigur's Will
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 156,
+			filter_levels = "2,3,5,6",
+			suffix = "|Kreigur's W"
+		},
+		{ -- Kreigur's Judgement
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 157,
+			filter_levels = "2,3,5,6",
+			suffix = "|Kreigur's J"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=131,filter_levels="2,4",suffix="|Majestic"}, --Majestic Weapon
-		{codes="allitems",quality="5",identified=false,index=132,filter_levels="2,4",suffix="|Majestic"}, --Majestic Shield
-		{codes="allitems",quality="5",identified=false,index=133,filter_levels="2,4",suffix="|Majestic"}, --Majestic Helmet
+		{ -- Majestic Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 131,
+			filter_levels = "2,3,5,6",
+			suffix = "|Majestic"
+		},
+		{ -- Majestic Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 132,
+			filter_levels = "2,3,5,6",
+			suffix = "|Majestic"
+		},
+		{ -- Majestic Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 133,
+			filter_levels = "2,3,5,6",
+			suffix = "|Majestic"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=90,filter_levels="2,4",suffix="|M'avina's"}, --M'avina's Helmet
-		{codes="allitems",quality="5",identified=false,index=91,filter_levels="2,4",suffix="|M'avina's"}, --M'avina's Torso
-		{codes="allitems",quality="5",identified=false,index=92,filter_levels="2,4",suffix="|M'avina's"}, --M'avina's Gloves
-		{codes="allitems",quality="5",identified=false,index=93,filter_levels="2,4",suffix="|M'avina's"}, --M'avina's Belt
-		{codes="allitems",quality="5",identified=false,index=94,filter_levels="2,4",suffix="|M'avina's"}, --M'avina's Weapon
+		{ -- M'avina's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 90,
+			filter_levels = "2,3,5,6",
+			suffix = "|M'avina's"
+		},
+		{ -- M'avina's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 91,
+			filter_levels = "2,3,5,6",
+			suffix = "|M'avina's"
+		},
+		{ -- M'avina's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 92,
+			filter_levels = "2,3,5,6",
+			suffix = "|M'avina's"
+		},
+		{ -- M'avina's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 93,
+			filter_levels = "2,3,5,6",
+			suffix = "|M'avina's"
+		},
+		{ -- M'avina's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 94,
+			filter_levels = "2,3,5,6",
+			suffix = "|M'avina's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=123,filter_levels="2,4",suffix="|Sander's"}, --Sander's Helmet
-		{codes="allitems",quality="5",identified=false,index=124,filter_levels="2,4",suffix="|Sander's"}, --Sander's Boots
-		{codes="allitems",quality="5",identified=false,index=125,filter_levels="2,4",suffix="|Sander's"}, --Sander's Gloves
-		{codes="allitems",quality="5",identified=false,index=126,filter_levels="2,4",suffix="|Sander's"}, --Sander's Weapon
+		{ -- Sander's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 123,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sander's"
+		},
+		{ -- Sander's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 124,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sander's"
+		},
+		{ -- Sander's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 125,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sander's"
+		},
+		{ -- Sander's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 126,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sander's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=21,filter_levels="2,4",suffix="|Milabrega's"}, --Milabrega's Shield
-		{codes="allitems",quality="5",identified=false,index=22,filter_levels="2,4",suffix="|Milabrega's"}, --Milabrega's Weapon
-		{codes="allitems",quality="5",identified=false,index=23,filter_levels="2,4",suffix="|Milabrega's"}, --Milabrega's Helmet
-		{codes="allitems",quality="5",identified=false,index=24,filter_levels="2,4",suffix="|Milabrega's"}, --Milabrega's Torso
+		{ -- Milabrega's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 21,
+			filter_levels = "2,3,5,6",
+			suffix = "|Milabrega's"
+		},
+		{ -- Milabrega's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 22,
+			filter_levels = "2,3,5,6",
+			suffix = "|Milabrega's"
+		},
+		{ -- Milabrega's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 23,
+			filter_levels = "2,3,5,6",
+			suffix = "|Milabrega's"
+		},
+		{ -- Milabrega's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 24,
+			filter_levels = "2,3,5,6",
+			suffix = "|Milabrega's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=120,filter_levels="2,4",suffix="|Naj's"}, --Naj's Weapon
-		{codes="allitems",quality="5",identified=false,index=121,filter_levels="2,4",suffix="|Naj's"}, --Naj's Torso
-		{codes="allitems",quality="5",identified=false,index=122,filter_levels="2,4",suffix="|Naj's"}, --Naj's Helmet
+		{ -- Naj's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 120,
+			filter_levels = "2,3,5,6",
+			suffix = "|Naj's"
+		},
+		{ -- Naj's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 121,
+			filter_levels = "2,3,5,6",
+			suffix = "|Naj's"
+		},
+		{ -- Naj's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 122,
+			filter_levels = "2,3,5,6",
+			suffix = "|Naj's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=62,filter_levels="2,4",suffix="|Natalya's"}, --Natalya's Helmet
-		{codes="allitems",quality="5",identified=false,index=63,filter_levels="2,4",suffix="|Natalya's"}, --Natalya's Weapon
-		{codes="allitems",quality="5",identified=false,index=64,filter_levels="2,4",suffix="|Natalya's"}, --Natalya's Torso
-		{codes="allitems",quality="5",identified=false,index=65,filter_levels="2,4",suffix="|Natalya's"}, --Natalya's Boots
+		{ -- Natalya's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 62,
+			filter_levels = "2,3,5,6",
+			suffix = "|Natalya's"
+		},
+		{ -- Natalya's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 63,
+			filter_levels = "2,3,5,6",
+			suffix = "|Natalya's"
+		},
+		{ -- Natalya's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 64,
+			filter_levels = "2,3,5,6",
+			suffix = "|Natalya's"
+		},
+		{ -- Natalya's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 65,
+			filter_levels = "2,3,5,6",
+			suffix = "|Natalya's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=104,filter_levels="2,4",suffix="|Orphan's"}, --Orphan's Helmet
-		{codes="allitems",quality="5",identified=false,index=105,filter_levels="2,4",suffix="|Orphan's"}, --Orphan's Belt
-		{codes="allitems",quality="5",identified=false,index=106,filter_levels="2,4",suffix="|Orphan's"}, --Orphan's Gloves
-		{codes="allitems",quality="5",identified=false,index=107,filter_levels="2,4",suffix="|Orphan's"}, --Orphan's Shield
+		{ -- Orphan's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 104,
+			filter_levels = "2,3,5,6",
+			suffix = "|Orphan's"
+		},
+		{ -- Orphan's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 105,
+			filter_levels = "2,3,5,6",
+			suffix = "|Orphan's"
+		},
+		{ -- Orphan's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 106,
+			filter_levels = "2,3,5,6",
+			suffix = "|Orphan's"
+		},
+		{ -- Orphan's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 107,
+			filter_levels = "2,3,5,6",
+			suffix = "|Orphan's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=150,filter_levels="2,4",suffix="|Rathma's"}, --Rathma's Weapon
-		{codes="allitems",quality="5",identified=false,index=151,filter_levels="2,4",suffix="|Rathma's"}, --Rathma's Shield
-		{codes="allitems",quality="5",identified=false,index=152,filter_levels="2,4",suffix="|Rathma's"}, --Rathma's Helmet
-		{codes="allitems",quality="5",identified=false,index=153,filter_levels="2,4",suffix="{green}|Rathma's"}, --Rathma's Torso
+		{ -- Rathma's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 150,
+			filter_levels = "2,3,5,6",
+			suffix = "|Rathma's"
+		},
+		{ -- Rathma's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 151,
+			filter_levels = "2,3,5,6",
+			suffix = "|Rathma's"
+		},
+		{ -- Rathma's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 152,
+			filter_levels = "2,3,5,6",
+			suffix = "|Rathma's"
+		},
+		{ -- Rathma's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 153,
+			filter_levels = "2,3,5,6",
+			suffix = "{green}|Rathma's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=112,filter_levels="2,4",suffix="|Sazabi's"}, --Sazabi's Weapon
-		{codes="allitems",quality="5",identified=false,index=113,filter_levels="2,4",suffix="|Sazabi's"}, --Sazabi's Torso
-		{codes="allitems",quality="5",identified=false,index=114,filter_levels="2,4",suffix="|Sazabi's"}, --Sazabi's Helmet
+		{ -- Sazabi's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 112,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sazabi's"
+		},
+		{ -- Sazabi's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 113,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sazabi's"
+		},
+		{ -- Sazabi's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 114,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sazabi's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=35,filter_levels="2,4",suffix="|Sigon's"}, --Sigon's Gloves
-		{codes="allitems",quality="5",identified=false,index=36,filter_levels="2,4",suffix="|Sigon's"}, --Sigon's Helmet
-		{codes="allitems",quality="5",identified=false,index=37,filter_levels="2,4",suffix="|Sigon's"}, --Sigon's Torso
-		{codes="allitems",quality="5",identified=false,index=38,filter_levels="2,4",suffix="|Sigon's"}, --Sigon's Boots
-		{codes="allitems",quality="5",identified=false,index=39,filter_levels="2,4",suffix="|Sigon's"}, --Sigon's Belt
-		{codes="allitems",quality="5",identified=false,index=40,filter_levels="2,4",suffix="|Sigon's"}, --Sigon's Shield
+		{ -- Sigon's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 35,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sigon's"
+		},
+		{ -- Sigon's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 36,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sigon's"
+		},
+		{ -- Sigon's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 37,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sigon's"
+		},
+		{ -- Sigon's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 38,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sigon's"
+		},
+		{ -- Sigon's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 39,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sigon's"
+		},
+		{ -- Sigon's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 40,
+			filter_levels = "2,3,5,6",
+			suffix = "|Sigon's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=134,filter_levels="2,4",suffix="|Skovos's"}, --Skovos's Weapon
-		{codes="allitems",quality="5",identified=false,index=135,filter_levels="2,4",suffix="|Skovos's"}, --Skovos's Gloves
-		{codes="allitems",quality="5",identified=false,index=136,filter_levels="2,4",suffix="|Skovos's"}, --Skovos's Arrows
+		{ -- Skovos's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 134,
+			filter_levels = "2,3,5,6",
+			suffix = "|Skovos's"
+		},
+		{ -- Skovos's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 135,
+			filter_levels = "2,3,5,6",
+			suffix = "|Skovos's"
+		},
+		{ -- Skovos's Arrows
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 136,
+			filter_levels = "2,3,5,6",
+			suffix = "|Skovos's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=154,filter_levels="2,4",suffix="|Stacato Sigil"}, --Stacatomamba's Sigil
-		{codes="allitems",quality="5",identified=false,index=155,filter_levels="2,4",suffix="|Mamba Circle"}, --Stacatomamba's Circle
+		{ -- Stacatomamba's Sigil
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 154,
+			filter_levels = "2,3,5,6",
+			suffix = "|Stacato Sigil"
+		},
+		{ -- Stacatomamba's Circle
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 155,
+			filter_levels = "2,3,5,6",
+			suffix = "|Mamba Circle"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=158,filter_levels="2,4",suffix="|(su)Kami"}, --Sukami's Kami
-		{codes="allitems",quality="5",identified=false,index=159,filter_levels="2,4",suffix="|Su(kami)"}, --Sukami's Su
+		{ -- Sukami's Kami
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 158,
+			filter_levels = "2,3,5,6",
+			suffix = "|(su)Kami"
+		},
+		{ -- Sukami's Su
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 159,
+			filter_levels = "2,3,5,6",
+			suffix = "|Su(kami)"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=76,filter_levels="2,4",suffix="|Tal Rasha's"}, --Tal Rasha's Belt
-		{codes="allitems",quality="5",identified=false,index=77,filter_levels="2,4",suffix="|Tal Rasha's"}, --Tal Rasha's Amulet
-		{codes="allitems",quality="5",identified=false,index=78,filter_levels="2,4",suffix="|Tal Rasha's"}, --Tal Rasha's Weapon
-		{codes="allitems",quality="5",identified=false,index=79,filter_levels="2,4",suffix="|Tal Rasha's"}, --Tal Rasha's Torso
-		{codes="allitems",quality="5",identified=false,index=80,filter_levels="2,4",suffix="|Tal Rasha's"}, --Tal Rasha's Helmet
+		{ -- Tal Rasha's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 76,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tal Rasha's"
+		},
+		{ -- Tal Rasha's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 77,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tal Rasha's"
+		},
+		{ -- Tal Rasha's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 78,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tal Rasha's"
+		},
+		{ -- Tal Rasha's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 79,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tal Rasha's"
+		},
+		{ -- Tal Rasha's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 80,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tal Rasha's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=30,filter_levels="2,4",suffix="|Tancred's"}, --Tancred's Weapon
-		{codes="allitems",quality="5",identified=false,index=31,filter_levels="2,4",suffix="|Tancred's"}, --Tancred's Torso
-		{codes="allitems",quality="5",identified=false,index=32,filter_levels="2,4",suffix="|Tancred's"}, --Tancred's Boots
-		{codes="allitems",quality="5",identified=false,index=33,filter_levels="2,4",suffix="|Tancred's"}, --Tancred's Amulet
-		{codes="allitems",quality="5",identified=false,index=34,filter_levels="2,4",suffix="|Tancred's"}, --Tancred's Helmet
+		{ -- Tancred's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 30,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tancred's"
+		},
+		{ -- Tancred's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 31,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tancred's"
+		},
+		{ -- Tancred's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 32,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tancred's"
+		},
+		{ -- Tancred's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 33,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tancred's"
+		},
+		{ -- Tancred's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 34,
+			filter_levels = "2,3,5,6",
+			suffix = "|Tancred's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=95,filter_levels="2,4",suffix="|Disciple's"}, --The Disciple's Amulet
-		{codes="allitems",quality="5",identified=false,index=96,filter_levels="2,4",suffix="|Disciple's"}, --The Disciple's Gloves
-		{codes="allitems",quality="5",identified=false,index=97,filter_levels="2,4",suffix="|Disciple's"}, --The Disciple's Boots
-		{codes="allitems",quality="5",identified=false,index=98,filter_levels="2,4",suffix="|Disciple's"}, --The Disciple's Torso
-		{codes="allitems",quality="5",identified=false,index=99,filter_levels="2,4",suffix="|Disciple's"}, --The Disciple's Belt
+		{ -- The Disciple's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 95,
+			filter_levels = "2,3,5,6",
+			suffix = "|Disciple's"
+		},
+		{ -- The Disciple's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 96,
+			filter_levels = "2,3,5,6",
+			suffix = "|Disciple's"
+		},
+		{ -- The Disciple's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 97,
+			filter_levels = "2,3,5,6",
+			suffix = "|Disciple's"
+		},
+		{ -- The Disciple's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 98,
+			filter_levels = "2,3,5,6",
+			suffix = "|Disciple's"
+		},
+		{ -- The Disciple's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 99,
+			filter_levels = "2,3,5,6",
+			suffix = "|Disciple's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=85,filter_levels="2,4",suffix="|Trang-Oul's"}, --Trang-Oul's Helmet
-		{codes="allitems",quality="5",identified=false,index=86,filter_levels="2,4",suffix="|Trang-Oul's"}, --Trang-Oul's Torso
-		{codes="allitems",quality="5",identified=false,index=87,filter_levels="2,4",suffix="|Trang-Oul's"}, --Trang-Oul's Shield
-		{codes="allitems",quality="5",identified=false,index=88,filter_levels="2,4",suffix="|Trang-Oul's"}, --Trang-Oul's Gloves
-		{codes="allitems",quality="5",identified=false,index=89,filter_levels="2,4",suffix="|Trang-Oul's"}, --Trang-Oul's Belt
+		{ -- Trang-Oul's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 85,
+			filter_levels = "2,3,5,6",
+			suffix = "|Trang-Oul's"
+		},
+		{ -- Trang-Oul's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 86,
+			filter_levels = "2,3,5,6",
+			suffix = "|Trang-Oul's"
+		},
+		{ -- Trang-Oul's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 87,
+			filter_levels = "2,3,5,6",
+			suffix = "|Trang-Oul's"
+		},
+		{ -- Trang-Oul's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 88,
+			filter_levels = "2,3,5,6",
+			suffix = "|Trang-Oul's"
+		},
+		{ -- Trang-Oul's Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 89,
+			filter_levels = "2,3,5,6",
+			suffix = "|Trang-Oul's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=127,filter_levels="2,4",suffix="|Vessel's"}, --Vessel's Torso
-		{codes="allitems",quality="5",identified=false,index=128,filter_levels="2,4",suffix="|Vessel's"}, --Vessel's Shield
-		{codes="allitems",quality="5",identified=false,index=129,filter_levels="2,4",suffix="|Vessel's"}, --Vessel's Helmet
-		{codes="allitems",quality="5",identified=false,index=130,filter_levels="2,4",suffix="|Vessel's"}, --Vessel's Weapon
+		{ -- Vessel's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 127,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vessel's"
+		},
+		{ -- Vessel's Shield
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 128,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vessel's"
+		},
+		{ -- Vessel's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 129,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vessel's"
+		},
+		{ -- Vessel's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 130,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vessel's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=17,filter_levels="2,4",suffix="|Vidala's"}, --Vidala's Weapon
-		{codes="allitems",quality="5",identified=false,index=18,filter_levels="2,4",suffix="|Vidala's"}, --Vidala's Boots
-		{codes="allitems",quality="5",identified=false,index=19,filter_levels="2,4",suffix="|Vidala's"}, --Vidala's Torso
-		{codes="allitems",quality="5",identified=false,index=20,filter_levels="2,4",suffix="|Vidala's"}, --Vidala's Amulet
+		{ -- Vidala's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 17,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vidala's"
+		},
+		{ -- Vidala's Boots
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 18,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vidala's"
+		},
+		{ -- Vidala's Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 19,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vidala's"
+		},
+		{ -- Vidala's Amulet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 20,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vidala's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=141,filter_levels="2,4",suffix="|Vizjerei's"}, --Vizjerei's Gloves
-		{codes="allitems",quality="5",identified=false,index=142,filter_levels="2,4",suffix="|Vizjerei's"}, --Vizjerei's Weapon
-		{codes="allitems",quality="5",identified=false,index=143,filter_levels="2,4",suffix="|Vizjerei's"}, --Vizjerei's Helmet
+		{ -- Vizjerei's Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 141,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vizjerei's"
+		},
+		{ -- Vizjerei's Weapon
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 142,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vizjerei's"
+		},
+		{ -- Vizjerei's Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 143,
+			filter_levels = "2,3,5,6",
+			suffix = "|Vizjerei's"
+		},
 		
-		{codes="allitems",quality="5",identified=false,index=137,filter_levels="2,4",suffix="|Wonderous"}, --Wonderous Belt
-		{codes="allitems",quality="5",identified=false,index=138,filter_levels="2,4",suffix="|Wonderous"}, --Wonderous Helmet
-		{codes="allitems",quality="5",identified=false,index=139,filter_levels="2,4",suffix="|Wonderous"}, --Wonderous Torso
-		{codes="allitems",quality="5",identified=false,index=140,filter_levels="2,4",suffix="|Wonderous"}, --Wonderous Gloves
+		{ -- Wonderous Belt
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 137,
+			filter_levels = "2,3,5,6",
+			suffix = "|Wonderous"
+		},
+		{ -- Wonderous Helmet
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 138,
+			filter_levels = "2,3,5,6",
+			suffix = "|Wonderous"
+		},
+		{ -- Wonderous Torso
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 139,
+			filter_levels = "2,3,5,6",
+			suffix = "|Wonderous"
+		},
+		{ -- Wonderous Gloves
+			codes = "allitems",
+			quality = "5",
+			identified = false,
+			index = 140,
+			filter_levels = "2,3,5,6",
+			suffix = "|Wonderous"
+		},
 		
 		
 		
 
 		--                                                         UNIQUE HUNTER: Show what good (of my personal choice) unique jewelry is before identifying it
 		
-		{codes="allitems",quality="7",identified=false,index=527,filter_levels="2,4",suffix="|SoJ"}, --Stone of Jordan
-		{codes="allitems",quality="7",identified=false,index=528,filter_levels="2,4",suffix="|BK"}, --Bul-Kathos' Wedding Band
-		{codes="allitems",quality="7",identified=false,index=588,filter_levels="2,4",suffix="|Life Ev"}, --Life Everlasting
-		{codes="allitems",quality="7",identified=false,index=589,filter_levels="2,4",suffix="|Hunt Mark"}, --Hunter's Mark
-		{codes="allitems",quality="7",identified=false,index=541,filter_levels="2,4",suffix="|Constr",notify="Valuable Ring nearby!"}, --Constricting Ring
-		{codes="allitems",quality="7",identified=false,index=587,filter_levels="2,4",suffix="|Quintessence",notify="Rare amulet nearby!"}, --Quintessence Amulet
-		{codes="allitems",quality="7",identified=false,index=532,filter_levels="2,4",suffix="|Mara's",notify="Valuable Amulet nearby!"}, --Mara's Kaleidoscope Amulet
+		{ -- Stone of Jordan
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = 527,
+			filter_levels = "2,3,5,6",
+			suffix = "|SoJ"
+		},
+		{ -- Bul-Kathos' Wedding Band
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = 528,
+			filter_levels = "2,3,5,6",
+			suffix = "|BK"
+		},
+		{ -- Life Everlasting
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = 588,
+			filter_levels = "2,3,5,6",
+			suffix = "|Life Ev"
+		},
+		{ -- Hunter's Mark
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = 589,
+			filter_levels = "2,3,5,6",
+			suffix = "|Hunt Mark"
+		},
+		{ -- Constricting Ring
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = 541,
+			filter_levels = "2,3,5,6",
+			suffix = "|Constr",
+			notify = "Valuable Ring nearby!"
+		},
+		{ -- Quintessence Amulet
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = 587,
+			filter_levels = "2,3,5,6",
+			suffix = "|Quintessence",
+			notify = "Rare amulet nearby!"
+		},
+		{ -- Mara's Kaleidoscope Amulet
+			codes = "allitems",
+			quality = "7",
+			identified = false,
+			index = 532,
+			filter_levels = "2,3,5,6",
+			suffix = "|Mara's",
+			notify = "Valuable Amulet nearby!"
+		},
 		
 		
 		
@@ -1491,11 +2967,11 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27", "Rgx", "b64", "y33"},
 			audio = "Ding1Charsi.mp3"
 		},
-		{ -- Audio for Grail Tracker Finder - HUNTER
+		{ -- Audio for Grail Tracker Finder
 			codes = "allitems",
 			quality = "5,7",
 			grail = false,
-			filter_levels = "2,4",
+			filter_levels = "3,6",
 			audio = "GrailDingCharsi.wav"
 		},
 		
@@ -1504,39 +2980,96 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 
 		--                                                                                     Quest item notifies
 		
-		{code="qey",notify="{red}???: {white}A group of aspiring heroes, I see. I hope you know what you are getting yourself into.\n{red}Edyrem: {white}Who was that?"}, -- Khalim's Eye
-		{code="qbr",notify="{red}???: {white}You proved yourself determined enough... Fine, I will aid you. Find my heart, I can feel it deep beneath Kurast."}, -- Khalim's Brain
-		{code="qhr",notify="{red}???: {white}Completely filled with hatred, what an irony. It's time to meet with old friends in Travincal"}, -- Khalim's Heart
-		{code="qf1",notify="{red}???: {white}A fine piece of weaponry it once was, now only a memory. Assemble my scattered will, Nephalem."}, -- Khalim's Flail
-		{code="qf2",location="equipped",notify="{red}Khalim: {white}I SHALL HAVE MY VENGEANCE, DEMON! Even if it's not me that delivers it.\n{red}Edyrem: {white}Your deed is done, priest. It's time to join us."}, -- Khalim's Will
-		{code="tr1",notify="{red}Edyrem: {white}A true heroes they were."}, -- Horadric Scroll
-		{code="msf",notify="{red}Edyrem: {white}King of Staffs."}, -- Staff of Kings
-		{code="vip",notify="{red}Edyrem: {white}Clouds only block the sunshine temporarily. The sun always returns."}, -- Amulet of the Viper
-		{code="leg",notify="{red}Edyrem: {white}Ooooh Who lives in a pineapple under the sea..."}, -- Wirt's Leg
-		{code="ass",notify="{red}Edyrem: {white}My precious~~"}, -- Book of Skill
-		{code="hst",notify="{red}Edyrem: {white}Why would you do that?"}, -- Horadric Staff
-		{code="j34",notify="{red}Edyrem: {white}Is that an Anime Figurine?"}, -- A Jade Figurine onground
-		{code="j34",location="onplayer",prefix="{gray}It is in fact, not an Anime Figurine :v\n"}, -- A Jade Figurine onground
-		{code="g34",location="onplayer",notify="{red}Edyrem: {white}Pfff, what a waste of Gold. Could have been made into a Gold Bar..."}, -- Golden Bird
-		{code="g33",notify="{red}Edyrem: {white}Don't even dare pointing that at me!"}, -- The Gidbinn
-		{code="bbb",notify="{red}Edyrem: {white}MY TACO RECIPE! So that's where I put it..."}, -- Lam Esen's Tome
-		{code="xyz",location="onplayer",notify="{red}Edyrem: {white}If only we could mass produce that D:"}, -- Potion of life
-		{code="hfh",notify="{red}Edyrem: {white}We have a bad feeling about this -_-"}, -- Hellforge Hammer
-		{code="vps",notify="{red}Edyrem: {white} o7"}, -- Energy Drink notify
-		
+		{ -- Khalim's Eye
+			code = "qey",
+			notify = "{red}???: {white}A group of aspiring heroes, I see. I hope you know what you are getting yourself into.\n{red}Edyrem: {white}Who was that?"
+		},
+		{ -- Khalim's Brain
+			code = "qbr",
+			notify = "{red}???: {white}You proved yourself determined enough... Fine, I will aid you. Find my heart, I can feel it deep beneath Kurast."
+		},
+		{ -- Khalim's Heart
+			code = "qhr",
+			notify = "{red}???: {white}Completely filled with hatred, what an irony. It's time to meet with old friends in Travincal"
+		},
+		{ -- Khalim's Flail
+			code = "qf1",
+			notify = "{red}???: {white}A fine piece of weaponry it once was, now only a memory. Assemble my scattered will, Nephalem."
+		},
+		{ -- Khalim's Will
+			code = "qf2",
+			location = "equipped",
+			notify = "{red}Khalim: {white}I SHALL HAVE MY VENGEANCE, DEMON! Even if it's not me that delivers it.\n{red}Edyrem: {white}Your deed is done, priest. It's time to join us."
+		},
+		{ -- Horadric Scroll
+			code = "tr1",
+			notify = "{red}Edyrem: {white}A true heroes they were."
+		},
+		{ -- Staff of Kings
+			code = "msf",
+			notify = "{red}Edyrem: {white}King of Staffs."
+		},
+		{ -- Amulet of the Viper
+			code = "vip",
+			notify = "{red}Edyrem: {white}Clouds only block the sunshine temporarily. The sun always returns."
+		},
+		{ -- Wirt's Leg
+			code = "leg",
+			notify = "{red}Edyrem: {white}Ooooh Who lives in a pineapple under the sea..."
+		},
+		{ -- Book of Skill
+			code = "ass",
+			notify = "{red}Edyrem: {white}My precious~~"
+		},
+		{ -- Horadric Staff
+			code = "hst",
+			notify = "{red}Edyrem: {white}Why would you do that?"
+		},
+		{ -- A Jade Figurine onground
+			code = "j34",
+			notify = "{red}Edyrem: {white}Is that an Anime Figurine?"
+		},
+		{ -- A Jade Figurine onplayer
+			code = "j34",
+			location = "onplayer",
+			prefix = "{gray}It is in fact, not an Anime Figurine :v\n"
+		},
+		{ -- Golden Bird
+			code = "g34",
+			location = "onplayer",
+			notify = "{red}Edyrem: {white}Pfff, what a waste of Gold. Could have been made into a Gold Bar..."
+		},
+		{ -- The Gidbinn
+			code = "g33",
+			difficulty = "Normal",
+			notify = "{red}Edyrem: {white}Hey! You needed that for {gold}Evil Barrier{white} I think."
+		},
+		{ -- Lam Esen's Tome
+			code = "bbb",
+			notify = "{red}Edyrem: {white}MY TACO RECIPE! So that's where I put it..."
+		},
+		{ -- Potion of life
+			code = "xyz",
+			location = "onplayer",
+			notify = "{red}Edyrem: {white}If only we could mass produce that D:"
+		},
+		{ -- Hellforge Hammer
+			code = "hfh",
+			notify = "{red}Edyrem: {white}We have a bad feeling about this -_-"
+		},
 		
 		
 		
 		
 		
 		--                                                                                        Grail Tracker
-		{ -- Grail Tracker Finder - HUNTER
+		{ -- Grail Tracker Finder
 			codes = "allitems",
 			quality = "5,7",
 			grail = false,
 			notify = "{yellow}Grail Tracker: {white}New item has appeared!",
 			suffix = " \n{yellow}! Grail !",
-			filter_levels = "2,4"
+			filter_levels = "3,6"
 		},
 		
 		
@@ -1570,28 +3103,132 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		--                                                                                            Color Dyes
 		
 		
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=1},prefix_desc="{lilac}Color Dyed: {white}White\n"}, --Color Dyed: White
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=2},prefix_desc="{lilac}Color Dyed: {grey}Light Grey\n"}, --Color Dyed: Light Grey
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=3},prefix_desc="{lilac}Color Dyed: {grey}Dark Grey\n"}, --Color Dyed: Dark Grey
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=4},prefix_desc="{lilac}Color Dyed: {grey}Black\n"}, --Color Dyed: Black
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=5},prefix_desc="{lilac}Color Dyed: {blue}Bright White\n"}, --Color Dyed: Light Blue
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=6},prefix_desc="{lilac}Color Dyed: {blue}Dark Blue\n"}, --Color Dyed: Dark Blue
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=7},prefix_desc="{lilac}Color Dyed: {blue}Crystal Blue\n"}, --Color Dyed: Crystal Blue
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=8},prefix_desc="{lilac}Color Dyed: {red}Light Red\n"}, --Color Dyed: Light Red
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=9},prefix_desc="{lilac}Color Dyed: {red}Dark Red\n"}, --Color Dyed: Dark Red
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=10},prefix_desc="{lilac}Color Dyed: {red}Crystal Red\n"}, --Color Dyed: Crystal Red
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=11},prefix_desc="{lilac}Color Dyed: {green}Light Green\n"}, --Color Dyed: Light Green
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=12},prefix_desc="{lilac}Color Dyed: {green}Dark Green\n"}, --Color Dyed: Dark Green
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=13},prefix_desc="{lilac}Color Dyed: {green}Crystal Green\n"}, --Color Dyed: Crystal Green
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=14},prefix_desc="{lilac}Color Dyed: {yellow}Light Yellow\n"}, --Color Dyed: Light Yellow
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=15},prefix_desc="{lilac}Color Dyed: {yellow}Dark Yellow\n"}, --Color Dyed: Dark Yellow
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=16},prefix_desc="{lilac}Color Dyed: {gold}Light Gold\n"}, --Color Dyed: Light Gold
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=17},prefix_desc="{lilac}Color Dyed: {gold}Dark Gold\n"}, --Color Dyed: Dark Gold
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=18},prefix_desc="{lilac}Color Dyed: {purple}Light Purple\n"}, --Color Dyed: Light Purple
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=19},prefix_desc="{lilac}Color Dyed: {purple}Dark Purple\n"}, --Color Dyed: Dark Purple
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=20},prefix_desc="{lilac}Color Dyed: {orange}Orange\n"}, --Color Dyed: Orange
-		{codes="allitems",location={"onplayer","equipped","atvendor"},stat={index=433,op="==",value=22},prefix_desc="{lilac}Color Dyed: {white}Bright White\n"}, --Color Dyed: Bright White
-		
+		{ -- Color Dyed: White
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 1 },
+			prefix_desc = "{lilac}Color Dyed: {white}White\n"
+		},
+		{ -- Color Dyed: Light Grey
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 2 },
+			prefix_desc = "{lilac}Color Dyed: {grey}Light Grey\n"
+		},
+		{ -- Color Dyed: Dark Grey
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 3 },
+			prefix_desc = "{lilac}Color Dyed: {grey}Dark Grey\n"
+		},
+		{ -- Color Dyed: Black
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 4 },
+			prefix_desc = "{lilac}Color Dyed: {grey}Black\n"
+		},
+		{ -- Color Dyed: Light Blue
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 5 },
+			prefix_desc = "{lilac}Color Dyed: {blue}Bright White\n"
+		},
+		{ -- Color Dyed: Dark Blue
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 6 },
+			prefix_desc = "{lilac}Color Dyed: {blue}Dark Blue\n"
+		},
+		{ -- Color Dyed: Crystal Blue
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 7 },
+			prefix_desc = "{lilac}Color Dyed: {blue}Crystal Blue\n"
+		},
+		{ -- Color Dyed: Light Red
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 8 },
+			prefix_desc = "{lilac}Color Dyed: {red}Light Red\n"
+		},
+		{ -- Color Dyed: Dark Red
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 9 },
+			prefix_desc = "{lilac}Color Dyed: {red}Dark Red\n"
+		},
+		{ -- Color Dyed: Crystal Red
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 10 },
+			prefix_desc = "{lilac}Color Dyed: {red}Crystal Red\n"
+		},
+		{ -- Color Dyed: Light Green
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 11 },
+			prefix_desc = "{lilac}Color Dyed: {green}Light Green\n"
+		},
+		{ -- Color Dyed: Dark Green
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 12 },
+			prefix_desc = "{lilac}Color Dyed: {green}Dark Green\n"
+		},
+		{ -- Color Dyed: Crystal Green
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 13 },
+			prefix_desc = "{lilac}Color Dyed: {green}Crystal Green\n"
+		},
+		{ -- Color Dyed: Light Yellow
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 14 },
+			prefix_desc = "{lilac}Color Dyed: {yellow}Light Yellow\n"
+		},
+		{ -- Color Dyed: Dark Yellow
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 15 },
+			prefix_desc = "{lilac}Color Dyed: {yellow}Dark Yellow\n"
+		},
+		{ -- Color Dyed: Light Gold
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 16 },
+			prefix_desc = "{lilac}Color Dyed: {gold}Light Gold\n"
+		},
+		{ -- Color Dyed: Dark Gold
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 17 },
+			prefix_desc = "{lilac}Color Dyed: {gold}Dark Gold\n"
+		},
+		{ -- Color Dyed: Light Purple
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 18 },
+			prefix_desc = "{lilac}Color Dyed: {purple}Light Purple\n"
+		},
+		{ -- Color Dyed: Dark Purple
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 19 },
+			prefix_desc = "{lilac}Color Dyed: {purple}Dark Purple\n"
+		},
+		{ -- Color Dyed: Orange
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 20 },
+			prefix_desc = "{lilac}Color Dyed: {orange}Orange\n"
+		},
+		{ -- Color Dyed: Bright White
+			codes = "allitems",
+			location = { "onplayer", "equipped", "atvendor" },
+			stat = { index = 433, op = "==", value = 22 },
+			prefix_desc = "{lilac}Color Dyed: {white}Bright White\n"
+		},
 		{ -- Dye Bottles notification and style
 			codes = { "Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73" },
 			notify = "{yellow}Dye Bottle!",
