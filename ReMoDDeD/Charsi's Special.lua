@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.9.2{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v1.9.3{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
 audioPlayback = true, -- Turns ON/OFF sounds feature.
@@ -18,33 +18,41 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
             suffix = " ({ilvl})",
         },
 
-
-		--																	      			         	BASES
-
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {orange}-{code}"},  -- DEBUG - Show item code
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {blue}-{index}"}, -- DEBUG - Show item index
-		--{codes={"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {orange}[{code}]"},  -- DEBUG - Show item code for Charms
-		--{codes={"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {blue}[{index}]\n"}, -- DEBUG - Show item index for Charms
-		{ -- Hides all unwanted bases with max 2os
-			codes = { "Bb3", "cap", "uhc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "mbl", "tbl", "vbl", "hbl", "lbl", "xlb", "lbt", "mbt", "vbt", "Ag1", "Ag3", "xlg", "mgl", "vgl", "lgl", "xap", "hlm", "skp", "xuc", "xml", "buc", "sml", "Wp2", "Gg2", "Gg1", "Wp1", "Na1", "Sa1", "Sa2", "hla", "lea", "qui", "stu", "ces", "ktr", "jav", "pil", "7dg", "7di", "9dg", "9di", "dgr", "dir", "obd", "obc", "obb", "obe", "ob8", "ob7", "ob6", "ob9", "ob4", "ob1", "ob2", "ob3", "7ta", "9ta", "tax", "7tk", "9tk", "9bk", "bkf", "tkf", "7yw", "7bw", "7wn", "7gw", "9wn", "9gw", "9yw", "9bw", "bwn", "gwn", "wnd", "ywn" },
-            quality = "3-",
-            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",
-			runeword = false,
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
-            hide = true
-        },
-		{ -- Hide badly rolled STR% Strong and Mighty Belt Superior bases (max 2os)
-			codes = { "Bb2", "Bb1" },
+		--{codes={"cm1","cm2","cm3","z00","z01","z02","z03","z04","z05","z06","z07","z08","z09","z10","z11","z12","z13","z14","z15","z16","z17","z18","Z96","Z97","Z98","Z99","z19","z20","z21","z22","z23","z24","z25","z26","z27","Z88","Z89","Z90","Z91","Z92","Z93","Z93","Z94","Z95"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {orange}[{code}]"},  -- DEBUG - Show item code for charms/enhancements
+		--{codes={"cm1","cm2","cm3","z00","z01","z02","z03","z04","z05","z06","z07","z08","z09","z10","z11","z12","z13","z14","z15","z16","z17","z18","Z96","Z97","Z98","Z99","z19","z20","z21","z22","z23","z24","z25","z26","z27","Z88","Z89","Z90","Z91","Z92","Z93","Z93","Z94","Z95"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {blue}[{index}]\n"}, -- DEBUG - Show item index for charms/enhancements
+		
+		
+		--																	      			         	BASES - misc + Lite
+		
+		{ -- Hides all 1 socket bases (does not include LB bases) in Normal and Nightmare when clvl is below 80
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "3-",
-			stat = { index = 262, op = "<", value = 10 },
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",
+			sockets = "1",
 			runeword = false,
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulties = { "Normal", "Nightmare" },
+			pstat = { index = 12, op = "<", value = 80 },
 			hide = true
+		},
+		{ -- Suffix for potentially great bases while leveling - Normal
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
+			quality = "3",
+			sockets = "2+",
+			difficulty = "Normal",
+			runeword = false,
+			pstat = { index = 12, op = "<", value = 80 },
+			suffix = "{yellow}[Good?]"
+		},
+		{ -- Suffix for potentially great bases while leveling - Nightmare
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
+			quality = "3",
+			sockets = "3+",
+			difficulty = "Nightmare",
+			runeword = false,
+			pstat = { index = 12, op = "<", value = 80 },
+			suffix = "{yellow}[Good?]"
 		},
 		{ -- Display decently rolled STR% Strong and Mighty Belt Superior bases (max 2os)
 			codes = { "Bb2", "Bb1" },
@@ -52,70 +60,17 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			stat = { index = 262, op = ">=", value = 10 },
 			suffix = "{yellow} [{stat=(262)}%% STR]"
 		},
-		{ -- Hides leftover (non-superior) bases (max 2os)
-			codes = { "7tk", "7bk", "umc", "ulc" },
-            quality = "2",
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",
-			runeword = false,
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
-            hide = true
-        },
-		{ -- Hides all unwanted bases with max 3os
-			codes = { "utb", "7cl", "uhb", "xtb", "8ss", "6ss", "sst", "xmb", "xvb", "xhb", "tbt", "Ab1", "utg", "uhg", "xtg", "xmg", "xvg", "xhg", "hgl", "bae", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba2", "ba3", "ba1", "drd", "dr8", "dra", "dr3", "dr5", "dr1", "ulm", "urn", "uhl", "ukp", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1", "ne1", "ne2", "ne6", "ne7", "uuc", "xsh", "bsh", "lrg", "spk", "Na2", "Na3", "Sa3", "xla", "xui", "xea", "brs", "chn", "ltp", "rng", "scl", "7ha", "9ha", "hax", "sbw", "7sp", "spc", "clb", "9cl", "7cs", "9sp", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "k02", "k01", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9sm", "9ss", "9sb", "9fc", "flc", "sbr", "scm", "ssd", "wsd" },
-            quality = "3-",
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",
-			runeword = false,
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
-            hide = true
-        },
-		{ -- Hide badly rolled FRW% Bladed Boots and Combat Kicks Superior bases (max 3os)
-			codes = { "Ab3", "Ab2" },
-			quality = "3-",
-			stat = { index = 96, op = "<", value = 14 },
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",
-			runeword = false,
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
-			hide = true
-		},
 		{ -- Display decently rolled FRW% Bladed Boots and Combat Kicks Superior bases (max 3os)
 			codes = { "Ab3", "Ab2" },
 			quality = "3-",
 			stat = { index = 96, op = ">=", value = 14 },
 			suffix = "{yellow} [{stat=(96)}%% FRW]"
 		},
-		{ -- Hide badly rolled AR% Amazon Circlet Superior bases (max 3os)
-			codes = { "Zc1", "Zc2", "Zc3" },
-			quality = "3-",
-			stat = { index = 119, op = "<", value = 29 },
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",
-			runeword = false,
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
-			hide = true
-		},
 		{ -- Display decently rolled AR% Amazon Circlet Superior bases (max 3os)
 			codes = { "Zc1", "Zc2", "Zc3" },
 			quality = "3-",
 			stat = { index = 119, op = ">=", value = 29 },
 			suffix = "{yellow} [{stat=(119)} AR%%]"
-		},
-		{ -- Hide badly rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
-			code = "Ag2",
-			quality = "3-",
-			stat = { index = 221, op = "<", value = 5 },
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",
-			runeword = false,
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
-			hide = true
 		},
 		{ -- Display good rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
 			codes = { "Ag1", "Ag2", "Ag3" },
@@ -129,6 +84,192 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			stat = { index = 221, op = "==", value = 6 },
 			suffix = "{yellow} [Best Dex/lvl]"
 		},
+		{ -- Display decently rolled FCR% Sorceress Gloves Superior bases (max 3os)
+			codes = { "Vg1", "Vg2", "Vg3" },
+			quality = "3-",
+			stat = { index = 105, op = ">=", value = 21 },
+			suffix = "{yellow} [{stat=(105)}%% FCR]"
+		},
+		{ -- Display perf rolled Blaze Wolf skills Druid Helmet bases (max 3os)
+			codes = { "drb", "drf", "dr6" },
+			quality = "3-",
+			stat = { index = 188, op = "==", value = 3, param = 41 },
+			suffix = "{yellow} [3 to Blaze Wolf]"
+		},
+		{ -- Display perf rolled Frost Bear skills Druid Helmet bases (max 3os)
+			codes = { "dre", "dr9", "dr4" },
+			quality = "3-",
+			stat = { index = 188, op = "==", value = 3, param = 42 },
+			suffix = "{yellow} [3 to Frost Bear]"
+		},
+		{ -- Display decently rolled Raven Damage Druid Helmet bases (max 3os)
+			codes = { "drc", "dr7", "dr2" },
+			quality = "3-",
+			stat = { index = 403, op = ">=", value = 180 },
+			suffix = "{yellow} [{stat=(403)} Raven Damage]"
+		},
+		{ -- Display +3 LF Amazon Javs Superior bases (max 3os)
+			codes = { "amf", "ama", "am5" },
+			quality = "3-",
+			stat = { index = 107, op = "==", value = 3, param = 35 },
+			suffix = "{yellow} [3 LF]"
+		},
+		{ -- Display good rolled Assassin Katanas bases (max 4os)
+			codes = { "72h", "92h", "k03" },
+			quality = "3-",
+			stat = { index = 427, op = ">=", value = 35 },
+			suffix = "{yellow}[{stat=(427)}%% Buff]"
+		},
+		{ -- Display perf rolled Necro Shield bases (max 4os)
+			codes = { "nea", "nef", "neg", "neb", "ned", "nee", "ne9", "ne8", "ne5", "ne4", "ne3" },
+			quality = "3-",
+			stat = { index = 188, op = "==", value = 3, param = 18 },
+			suffix = "{yellow}[+3 Summoning]"
+		},
+		{ -- Display decently rolled Pally Shield Superior bases (max 4os)
+			codes = { "pac", "pab", "pad", "pae", "paf" },
+			quality = "3-",
+            stat = { index = { 39, 41, 43, 45 }, op = ">=", value = 35 },
+			suffix = "{yellow} [{stat=(45)}%% All Res]"
+		},
+		{ -- Display good rolled Enlightened Plate Superior bases (max 4os)
+			code = "Bp3",	
+			quality = "3-",
+            stat = { index = { 39, 41, 43, 45 }, op = ">=", value = 11 },
+			suffix = "{yellow}[{stat=(45)}%% All Res]"
+		},
+		{ -- Display good rolled Cload/Mantle Superior bases (max 4os)
+			codes = { "Ca1", "Ca2", "Ca3" },
+			quality = "3-",
+			stat = { index = 188, op = "==", value = 3, param = 49 },
+			suffix = "{yellow}[+3 Shadow Disciplines]"
+		},
+		{ -- Display perf rolled Cload/Mantle Superior bases (max 4os)
+			codes = { "Ca1", "Ca2", "Ca3" },
+			quality = "3-",
+			stat = { index = 188, op = "==", value = 4, param = 49 },
+			suffix = "{yellow}[+4 Shadow Disciplines]"
+		},
+		{ -- Display 1 bow skills Grand Matron Bow Superior bases (max 6os)
+			codes = { "amc", "amb" },
+			quality = "3-",
+			stat = { index = 188, op = "==", value = 1, param = 0 },
+			suffix = "{yellow} [+1 Bow skills]"
+		},
+		{ -- Display 2 bow skills Grand Matron Bow Superior bases (max 6os)
+			codes = { "amc", "amb" },
+			quality = "3-",
+			stat = { index = 188, op = "==", value = 2, param = 0 },
+			suffix = "{yellow} [+2 Bow skills]"
+		},
+		{ -- Display 2 Pala skills Caduceous and Divine Scepter bases (max 6os)
+			codes = { "7ws", "9ws" },
+			quality = "3-",
+			stat = { index = 83, op = "==", value = 2, param = 3 },
+			suffix = "{yellow} [+2 Paladin skills]"
+		},
+		{ -- Display 3 Pala skills Caduceous and Divine Scepter bases (max 6os)
+			codes = { "7ws", "9ws" },
+			quality = "3-",
+			stat = { index = 83, op = "==", value = 3, param = 3 },
+			suffix = "{yellow} [+3 Paladin skills]"
+		},
+		{ -- Display >=120% Summon Damage Necro Sickle bases (max 6os)
+			codes = { "7mp", "9mp", "mpi" },
+			quality = "3-",
+			stat = { index = 281, op = ">=", value = 120 },
+			suffix = "{yellow} [{stat=(281)}%% Summon Damage]"
+		},
+		{ -- Display >=4% Life Leech Bloodletting Sword base (max 6os)
+			code = "Bf6",
+			quality = "3-",
+			stat = { index = 60, op = ">=", value = 4 },
+			suffix = "{yellow} [{stat=(60)}%% LL]"
+		},		
+		
+		
+		
+		--																	      			         	BASES - Intermediate Placeholder
+		
+		
+		
+		
+		--																	      			         	BASES - Aggressive
+		
+		{ -- Hides all unwanted bases (max 2os)
+			codes = { "Bb3", "cap", "uhc", "utc", "uvc", "ztb", "zlb", "zmb", "zvb", "zhb", "mbl", "tbl", "vbl", "hbl", "lbl", "xlb", "lbt", "mbt", "vbt", "Ag1", "Ag3", "xlg", "mgl", "vgl", "lgl", "xap", "hlm", "skp", "xuc", "xml", "buc", "sml", "Wp2", "Gg2", "Gg1", "Wp1", "Na1", "Sa1", "Sa2", "hla", "lea", "qui", "stu", "ces", "ktr", "jav", "pil", "7dg", "7di", "9dg", "9di", "dgr", "dir", "obd", "obc", "obb", "obe", "ob8", "ob7", "ob6", "ob9", "ob4", "ob1", "ob2", "ob3", "7ta", "9ta", "tax", "7tk", "7bk", "9tk", "9bk", "bkf", "tkf", "7yw", "7bw", "7wn", "7gw", "9wn", "9gw", "9yw", "9bw", "bwn", "gwn", "wnd", "ywn" },
+            quality = "3-",
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+            hide = true
+        },
+		{ -- Hide badly rolled STR% Strong and Mighty Belt bases (max 2os)
+			codes = { "Bb2", "Bb1" },
+			quality = "3-",
+			stat = { index = 262, op = "<", value = 10 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+			hide = true
+		},
+		{ -- Hides leftover (non-superior) bases (max 2os)
+			codes = { "umc", "ulc" },
+            quality = "2",
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+            hide = true
+        },
+		{ -- Hides all unwanted bases (max 3os)
+			codes = { "utb", "7cl", "uhb", "xtb", "8ss", "6ss", "sst", "xmb", "xvb", "xhb", "tbt", "Ab1", "utg", "uhg", "xtg", "xmg", "xvg", "xhg", "hgl", "bae", "bac", "baf", "ba6", "ba7", "ba8", "ba9", "baa", "ba4", "ba5", "ba2", "ba3", "ba1", "drd", "dr8", "dra", "dr3", "dr5", "dr1", "ulm", "urn", "uhl", "ukp", "uhm", "Pc3", "Pc2", "xhl", "xlm", "xsk", "xrn", "xh9", "xkp", "xhm", "bhm", "crn", "fhl", "ghm", "msk", "Pc1", "ne1", "ne2", "ne6", "ne7", "uuc", "xsh", "bsh", "lrg", "spk", "Na2", "Na3", "Sa3", "xla", "xui", "xea", "brs", "chn", "ltp", "rng", "scl", "7ha", "9ha", "hax", "sbw", "7sp", "spc", "clb", "9cl", "7cs", "9sp", "7lw", "7tw", "7qr", "7ar", "7xf", "7wb", "9xf", "9lw", "9tw", "9cs", "9ar", "9qr", "9wb", "btl", "clw", "axf", "skr", "wrb", "lxb", "7s7", "7ja", "7pi", "9pi", "9s9", "9ja", "ssp", "7kr", "7bl", "9kr", "9bl", "bld", "kri", "Pm1", "Pm2", "Pm3", "7mt", "7ma", "9ma", "9mt", "mac", "mst", "obf", "oba", "ob5", "7sc", "7qs", "9qs", "9sc", "gsc", "scp", "Ds1", "Ds2", "Ds3", "k02", "k01", "2hs", "7sm", "7sb", "7ss", "7fc", "7wd", "9wd", "9sm", "9ss", "9sb", "9fc", "flc", "sbr", "scm", "ssd", "wsd" },
+            quality = "3-",
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+            hide = true
+        },
+		{ -- Hide badly rolled FRW% Bladed Boots and Combat Kicks bases (max 3os)
+			codes = { "Ab3", "Ab2" },
+			quality = "3-",
+			stat = { index = 96, op = "<", value = 14 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+			hide = true
+		},
+		{ -- Hide badly rolled AR% Amazon Circlet Superior bases (max 3os)
+			codes = { "Zc1", "Zc2", "Zc3" },
+			quality = "3-",
+			stat = { index = 119, op = "<", value = 29 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+			hide = true
+		},
+		{ -- Hide badly rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
+			code = "Ag2",
+			quality = "3-",
+			stat = { index = 221, op = "<", value = 5 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+			hide = true
+		},
 		{ -- Hide badly rolled FCR% Sorceress Gloves Superior bases (max 3os)
 			codes = { "Vg1", "Vg2", "Vg3" },
 			quality = "3-",
@@ -139,12 +280,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Display decently rolled FCR% Sorceress Gloves Superior bases (max 3os)
-			codes = { "Vg1", "Vg2", "Vg3" },
-			quality = "3-",
-			stat = { index = 105, op = ">=", value = 21 },
-			suffix = "{yellow} [{stat=(105)}%% FCR]"
 		},
 		{ -- Hide badly rolled Blaze Wolf skills Druid Helmet bases (max 3os)
 			codes = { "drb", "drf", "dr6" },
@@ -157,12 +292,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Display perf rolled Blaze Wolf skills Druid Helmet bases (max 3os)
-			codes = { "drb", "drf", "dr6" },
-			quality = "3-",
-			stat = { index = 188, op = "==", value = 3, param = 41 },
-			suffix = "{yellow} [3 to Blaze Wolf]"
-		},
 		{ -- Hide badly rolled Frost Bear skills Druid Helmet bases (max 3os)
 			codes = { "dre", "dr9", "dr4" },
 			quality = "3-",
@@ -174,28 +303,16 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Display perf rolled Frost Bear skills Druid Helmet bases (max 3os)
-			codes = { "dre", "dr9", "dr4" },
-			quality = "3-",
-			stat = { index = 188, op = "==", value = 3, param = 42 },
-			suffix = "{yellow} [3 to Frost Bear]"
-		},
 		{ -- Hide badly rolled Raven Damage Druid Helmet bases (max 3os)
 			codes = { "drc", "dr7", "dr2" },
 			quality = "3-",
-			stat = { index = 403, op = "<", value = 200 },
+			stat = { index = 403, op = "<", value = 180 },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Display decently rolled Raven Damage Druid Helmet bases (max 3os)
-			codes = { "drc", "dr7", "dr2" },
-			quality = "3-",
-			stat = { index = 403, op = ">=", value = 200 },
-			suffix = "{yellow} [{stat=(403)} Raven Damage]"
 		},
 		{ -- Hide NOT +3 LF Amazon Javs Superior bases (max 3os)
 			codes = { "amf", "ama", "am5" },
@@ -207,12 +324,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Display +3 LF Amazon Javs Superior bases (max 3os)
-			codes = { "amf", "ama", "am5" },
-			quality = "3-",
-			stat = { index = 107, op = "==", value = 3, param = 35 },
-			suffix = "{yellow} [3 LF]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 3os)
 			codes = { "hbt", "tgl", "umb", "uvb", "ulb", "ci3", "ci2", "ci0", "ci1", "ulg", "uvg", "umg", "bab", "bad", "uh9", "usk", "uap" },
@@ -245,12 +356,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Display good rolled Assassin Katanas bases (max 4os)
-			codes = { "72h", "92h", "k03" },
-			quality = "3-",
-			stat = { index = 427, op = ">=", value = 35 },
-			suffix = "{yellow}[{stat=(427)}%% Buff]"
-		},
 		{ -- Hide badly rolled Necro Shield bases (max 4os)
 			codes = { "nea", "nef", "neg", "neb", "ned", "nee", "ne9", "ne8", "ne5", "ne4", "ne3" },
 			quality = "3-",
@@ -261,12 +366,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Display perf rolled Necro Shield bases (max 4os)
-			codes = { "nea", "nef", "neg", "neb", "ned", "nee", "ne9", "ne8", "ne5", "ne4", "ne3" },
-			quality = "3-",
-			stat = { index = 188, op = "==", value = 3, param = 18 },
-			suffix = "{yellow}[+3 Summoning]"
 		},
 		{ -- Hide badly rolled Pala Shield bases (max 4os)
 			codes = { "pac", "pab", "pad", "pae", "paf" },
@@ -280,29 +379,16 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Display decently rolled Pally Shield Superior bases (max 4os)
-			codes = { "pac", "pab", "pad", "pae", "paf" },
-			quality = "3-",
-            stat = { index = { 39, 41, 43, 45 }, op = ">=", value = 35 },
-			suffix = "{yellow} [{stat=(45)}%% All Res]"
-		},
 		{ -- Hide badly rolled Enlightened Plate Superior bases (max 4os)
 			code = "Bp3",	
 			quality = "3-",
-            stat = { index = 43, op = "<", value = 13 },
-            stat = { index = 45, op = "<", value = 13 },
+            stat = { index = { 39, 41, 43, 45 }, op = "<", value = 11 },
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Display almost perf rolled Enlightened Plate Superior bases (max 4os)
-			code = "Bp3",	
-			quality = "3-",
-            stat = { index = { 39, 41, 43, 45 }, op = ">=", value = 13 },
-			suffix = "{yellow}[{stat=(45)}%% All Res]"
 		},
 		{ -- Hide badly rolled Cloak/Mantle Superior bases (max 4os)
 			codes = { "Ca1", "Ca2", "Ca3" },
@@ -314,18 +400,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Display good rolled Cload/Mantle Superior bases (max 4os)
-			codes = { "Ca1", "Ca2", "Ca3" },
-			quality = "3-",
-			stat = { index = 188, op = "==", value = 3, param = 49 },
-			suffix = "{yellow}[+3 Shadow Disciplines]"
-		},
-		{ -- Display perf rolled Cload/Mantle Superior bases (max 4os)
-			codes = { "Ca1", "Ca2", "Ca3" },
-			quality = "3-",
-			stat = { index = 188, op = "==", value = 4, param = 49 },
-			suffix = "{yellow}[+4 Shadow Disciplines]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 4os)
 			codes = { "urg", "uit", "kit", "utp" },
@@ -378,18 +452,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Display 1 bow skills Grand Matron Bow Superior bases (max 6os)
-			codes = { "amc", "amb" },
-			quality = "3-",
-			stat = { index = 188, op = "==", value = 1, param = 0 },
-			suffix = "{yellow} [+1 Bow skills]"
-		},
-		{ -- Display 2 bow skills Grand Matron Bow Superior bases (max 6os)
-			codes = { "amc", "amb" },
-			quality = "3-",
-			stat = { index = 188, op = "==", value = 2, param = 0 },
-			suffix = "{yellow} [+2 Bow skills]"
-		},
 		{ -- Hide NOT 2/3 Pala skills Caduceous and Divine Scepter bases (max 6os)
 			codes = { "7ws", "9ws" },
 			quality = "3-",
@@ -400,18 +462,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Display 2 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = { "7ws", "9ws" },
-			quality = "3-",
-			stat = { index = 83, op = "==", value = 2, param = 3 },
-			suffix = "{yellow} [+2 Paladin skills]"
-		},
-		{ -- Display 3 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = { "7ws", "9ws" },
-			quality = "3-",
-			stat = { index = 83, op = "==", value = 3, param = 3 },
-			suffix = "{yellow} [+3 Paladin skills]"
 		},
 		{ -- Hide <120% Summon Damage Necro Sickle bases (max 6os)
 			codes = { "7mp", "9mp", "mpi" },
@@ -424,13 +474,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Display >=120% Summon Damage Necro Sickle bases (max 6os)
-			codes = { "7mp", "9mp", "mpi" },
-			quality = "3-",
-			stat = { index = 281, op = ">=", value = 120 },
-			suffix = "{yellow} [{stat=(281)}%% Summon Damage]"
-		},
-		{ -- Hide <5% Life Leech Bloodletting Sword base (max 6os)
+		{ -- Hide <4% Life Leech Bloodletting Sword base (max 6os)
 			code = "Bf6",
 			quality = "3-",
 			stat = { index = 60, op = "<", value = 4 },
@@ -441,11 +485,22 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Display >=4% Life Leech Bloodletting Sword base (max 6os)
-			code = "Bf6",
+		{ -- Hide <15% Deadly Strike Hellforged Axe base (max 6os)
+			code = "Bf3",
 			quality = "3-",
-			stat = { index = 60, op = ">=", value = 4 },
-			suffix = "{yellow} [{stat=(60)}%% LL]"
+			stat = { index = 141, op = "<", value = 15 },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			runeword = false,
+			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6",
+			hide = true
+		},
+		{ -- Display >=15% Deadly Strike Hellforged Axe base (max 6os)
+			code = "Bf3",
+			quality = "3-",
+			stat = { index = 141, op = ">=", value = 15 },
+			suffix = "{yellow} [{stat=(141)}%% Deadly]"
 		},
 		{ -- Hides leftover (non-superior) bases (max 6os)
 			codes = { "Bf3", "7wa", "72a", "6hx", "9fl", "7pa", "7cr", "7b8" },
@@ -469,16 +524,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Hides all 1 socket bases (does not include LB bases) in Normal and Nightmare when clvl is below 80
-			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
-			quality = "3-",
-			sockets = "1",
-			runeword = false,
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulties = { "Normal", "Nightmare" },
-			pstat = { index = 12, op = "<", value = 80 },
-			hide = true
-		},
 		{ -- Hides all 0 socket not superior bases (does not include LB bases) in Normal and Nightmare when clvl is below 80 - aggressive only
 			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "2",
@@ -489,24 +534,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			pstat = { index = 12, op = "<", value = 80 },
 			filter_levels = "4,5,6",
 			hide = true
-		},
-		{ -- Suffix for potentially great bases while leveling - Normal
-			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
-			quality = "3",
-			sockets = "2+",
-			difficulty = "Normal",
-			runeword = false,
-			pstat = { index = 12, op = "<", value = 80 },
-			suffix = "{yellow}[Good?]"
-		},
-		{ -- Suffix for potentially great bases while leveling - Nightmare
-			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
-			quality = "3",
-			sockets = "3+",
-			difficulty = "Nightmare",
-			runeword = false,
-			pstat = { index = 12, op = "<", value = 80 },
-			suffix = "{yellow}[Good?]"
 		},
 
 		
@@ -527,7 +554,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			codes = { "l07", "l08", "l09", "l10", "l11", "l12" },
 			quality = "4",
 			border = { 99, 99, 230, 230, 1 },
-			notify = "Craft beyond limits{blue}{name}"
+			notify = "Craft beyond limits {blue}{name}"
 		},
 		
 		
@@ -913,15 +940,34 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
             itype = { 45, 50 },
             prefix = "{red}ⅳ{gold} "
         },
-		{ -- Rename for Ultra Enhancement Crystals
-			codes = { "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27" },
-			location = { "onground", "onplayer", "atvendor" },
-			name_override = "{gold}Ultra Enhancement Crystal"
-		},
-		{ -- Onground Style and notify for Ultra Enhancement Crystals
+		{ -- Rename for Ultra Enhancement Crystals 1
 			codes = { "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27" },
 			notify = "Valuable Item: {red}Ultra Enhancement",
-			background_style = "TamarilloGlow"
+			background_style = "TamarilloGlow",
+			name_override = "{gold}Ultra Enhancement Crystal"
+		},
+		{ -- Rename for Ultra Enhancement Crystals 2
+			codes = { "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27" },
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Ultra Enhancement Crystal ({tan}1 Use Per Item{gold})"
+		},
+		{ -- Rename for High Enhancement Crystals 1
+			codes = { "z00", "z01", "z02", "z03", "z04", "z05", "z06", "z07", "z08", "z09", "z10", "z11", "z12", "z13", "z14", "z15", "z16", "z17", "z18", "Z96", "Z97", "Z98", "Z99" },
+			name_override = "{gold}High Enhancement Crystal"
+		},
+		{ -- Rename for High Enhancement Crystals 2
+			codes = { "z00", "z01", "z02", "z03", "z04", "z05", "z06", "z07", "z08", "z09", "z10", "z11", "z12", "z13", "z14", "z15", "z16", "z17", "z18", "Z96", "Z97", "Z98", "Z99" },
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}High Enhancement Crystal ({tan}1 Use Per Item{gold})"
+		},
+		{ -- Rename for Mid Enhancement Crystals 1
+			codes = { "Z88", "Z89", "Z90", "Z91", "Z92", "Z93", "Z93", "Z94", "Z95" },
+			name_override = "{gold}Mid Enhancement Crystal"
+		},
+		{ -- Rename for Mid Enhancement Crystals 2
+			codes = { "Z88", "Z89", "Z90", "Z91", "Z92", "Z93", "Z93", "Z94", "Z95" },
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Mid Enhancement Crystal ({tan}10 Uses Per Item{gold})"
 		},
 		{ -- Onground display for Amethyst Remover
 			code = "Z02",
@@ -1218,11 +1264,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "box",
 			location = { "onplayer", "atvendor" },
 			prefix_desc = "{gray}Press Portal icon inside cube to show 'Rift' with rotating recipes/perks inside\nPress Scroll icon inside cube to show recipes and Runewords\n"
-		},
-		{ -- Ultra Enhancement Crystals
-			codes = { "z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27" },
-			location = { "onplayer", "atvendor" },
-			suffix = " {gold}({red}1 Use Per Item{gold})"
 		},
 		{ -- Premium Socket Remover name fix
 			code = "b65",
@@ -2950,6 +2991,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = 4,
 			identified = false,
 			filter_levels = "2,3,5,6",
+			location = { "onground", "onplayer" },
             stat = { index = { 39, 41, 43, 45 }, op = "==", value = 5 },
 			suffix = "{yellow} [5%% All Res]"
 		},
@@ -2957,14 +2999,16 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "jew",
 			quality = "4,6",
 			filter_levels = "2,3,5,6",
+			location = { "onground", "onplayer" },
 			identified = false,
-            stat = { index = 17, op = ">=", value = 35 },
+            stat = {{ index = 93, op = "<", value = 1 }, { index = 17, op = ">=", value = 35 }},
 			suffix = "{yellow} [{stat=(17)}%% ED]"
 		},
 		{ -- 15% IAS and any ED% magic/rare Jewels
 			code = "jew",
 			quality = "4,6",
 			filter_levels = "2,3,5,6",
+			location = { "onground", "onplayer" },
 			identified = false,
             stat = {{ index = 93, op = "==", value = 15 }, { index = 17, op = ">=", value = 1 }},
 			suffix = "{yellow} [15%% IAS, {stat=(17)}%% ED]"
@@ -2973,6 +3017,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "cm1",
 			quality = 4,
 			filter_levels = "2,3,5,6",
+			location = { "onground", "onplayer" },
 			identified = false,
             stat = { index = 80, op = "==", value = 7 },
 			suffix = "{yellow} [{stat=(80)}%% MF]"
@@ -3146,7 +3191,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			audio = "DropCharsi.mp3"
 		},
 		{ -- Audio for Grail Tracker Finder
-			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std" },
+			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std", "B01", "B02", "B03" },
 			quality = "5,7",
 			grail = false,
 			filter_levels = "3,6",
@@ -3217,9 +3262,20 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			location = "onplayer",
 			notify = "{red}Edyrem: {white}Pfff, what a waste of Gold. Could have been made into a Gold Bar..."
 		},
-		{ -- Lam Esen's Tome
+		{ -- Lam Esen's Tome - normal
 			code = "bbb",
-			notify = "{red}Edyrem: {white}MY TACO RECIPE! So that's where I put it..."
+			difficulty = "Normal",
+			notify = "{red}Edyrem: {white}MY PIZZA RECIPE! So that's where I put it..."
+		},
+		{ -- Lam Esen's Tome - nightmare
+			code = "bbb",
+			difficulty = "Nightmare",
+			notify = "{red}Edyrem: {white}MY PIZZA RECIPE! So tha... Didn't I find it already? A Deja vu?"
+		},
+		{ -- Lam Esen's Tome - hell
+			code = "bbb",
+			difficulty = "Hell",
+			notify = "{red}Edyrem: {white}MY PIZZA R... Hold on, what's going on in here? Who is doing it?"
 		},
 		{ -- Potion of life
 			code = "xyz",
@@ -3237,7 +3293,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		--                                                                                        Grail Tracker
 		{ -- Grail Tracker Finder
-			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std" },
+			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std", "B01", "B02", "B03" },
 			quality = "5,7",
 			grail = false,
 			notify = "{yellow}Grail Tracker: {white}New item has appeared!",
@@ -3567,6 +3623,21 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "Bt42",
 			location = { "onplayer", "atvendor" },
 			prefix = "Quest: 42\n"
+		},
+		{ -- Parchment of Proof 43
+			code = "Bt43",
+			location = { "onplayer", "atvendor" },
+			prefix = "Quest: 43\n"
+		},
+		{ -- Parchment of Proof 44
+			code = "Bt44",
+			location = { "onplayer", "atvendor" },
+			prefix = "Quest: 44\n"
+		},
+		{ -- Parchment of Proof 45
+			code = "Bt45",
+			location = { "onplayer", "atvendor" },
+			prefix = "Quest: 45\n"
 		},
 		{ -- Evil Barrier notify - identified
 			code = "B01",
