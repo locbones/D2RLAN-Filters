@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.9.3{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v1.9.4{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
 audioPlayback = true, -- Turns ON/OFF sounds feature.
@@ -1345,7 +1345,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Blood Ravens Soul
 			code = "C13",
 			location = { "onplayer", "atvendor" },
-			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Amity{white}, {yellow}Gloom\n{gold}Used for:\n\n"
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Gloom\n{gold}Used for:\n\n"
 		},
 		{ -- Forsaken Izuals Soul
 			code = "C14",
@@ -1380,7 +1380,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Deddomers Jawbone
 			code = "C20",
 			location = { "onplayer", "atvendor" },
-			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Limit Break II {grey}(Path of the Blacksmith)\n{gold}Used for:\n\n"
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Limit Break II {grey}(Path of the Blacksmith)\n{white}Runic Forging Tier 5: {yellow}Amity\n{gold}Used for:\n\n"
 		},
 		{ -- ??? Griswolds Jawbone
 			code = "C21",
