@@ -1,12 +1,12 @@
 --- Filter Title:Charsi's Special
---- Filter Type: 6 levels, cosmetic styles for loot, tips on various items
---- Filter Description:ReMoDDeD Only! Not recommended to use it in other mods as it contains RMD only information.\nFilter for both starting and demanding players with Lite and Aggressive levels that are cycled between at-will in-game.\nTo cycle through levels, press F12 while in-game, go to 'Hotkey Controls' and setup a hotkey for 'Cycle Filter Level', you will likely need to restart the game once after setting this.\nLevel 1: Lite -- Level 2: Lite + Hunter -- Level 3: Lite + Hunter + Grail -- Level 4: Aggressive -- Level 5: Aggressive + Hunter -- Level 6: Aggressive + Hunter + Grail\n4 LEVELS (2,3,5 and 6) contain SET HUNTER: Tells you which set item is from what set, while on ground and not identified yet (chat message while cycling through fiter levels tells you what Level are you on).\n+ UNIQUE HUNTER for jewelry only(!) of my own choosing, only those rarer ones. Tells you some jewelry names while on ground and not identified yet\nThis filter is light on bases at levels 'Lite' and aggressive for bases at levels 'Aggressive' (Hell + clvl(80+) only).\nNot a single Unique/Set item is hidden!\nNot a single `hide` works indide town!\nAt level 'Aggressive', leaves good and up bases only (of my personal choosing so you might not agree on some, but just in case I left at least 1 base of each item slot to be able to drop).\nAt level 'Aggressive', hides ~half non-superior bases.\nDoes not hide any Runewords\nQoL options like styles for loot, general tips on some items, expanding some item descriptions with additional information.\nIndication on items able to be Demon Tempered.\nHides ALL magic items (besides Small/Grand Charms and Jewels ofc) BUT ONLY on character lvl above 30 and in NM or Hell.\nAt level 'Aggressive', hides ALL rare items (besides jewels ofc) BUT ONLY on character lvl above 80 and in Hell.\nDisplays very good Superior rolls as suffix.\nDisplays very good staff-mods on items as suffix.\nStyle for Gold on ground and hides all gold under 500 (Lite) and 900 (Aggressive) in Hell and clvl 80+.\nTP/ID scrolls hidden at all times.\nNotification for High and Ultra Runes, Unique Charms, Codex and Event items.\nWarning before throwing out important misc items (like Cube).\nHides all Low Runes in Hell and clvl 80+.\nDisplays socket count for all items in turquoise.\nHides all potion drops besides Full Rejuvs in Hell and clvl 80+ (Lite only)\nHides all potion drops besides any Rejuvs before clvl 80, and hides small Rejuvs after clvl 80 (aggressive only).\nGrail functionality supported at Filter Levels 3 and 6. Will send chat notify and add Grail text on top of items name if said item was not collected yet in any shared stash tab.\nQuest item notifies (some cringey comments to confuse players a bit lol)\nIf you have any suggestions, or found a bug or unintended behavior, please contact me on our discord in "loot-filters" channel :)\nMade by: Vivasen
+--- Filter Type: General use with 9 filter levels.
+--- Filter Description:ReMoDDeD Only!\nNot recommended to use it in other mods as it contains RMD only information on items and whole item filtering logic is tempered specifically for RMD.\n\nFilter designed as universally suitable for all, starting, intermediate and demanding players with Lite, Intermediate and Aggressive filter levels that are cycled between at-will in-game.\nTo cycle through levels, press F12 while in-game, go to 'Hotkey Controls' and set up a hotkey for 'Cycle Filter Level' (you might need to restart the game once after setting this hotkey, but it should work without the need to restart).\n\nAs of now, filter has 9 different levels, with 3 main ones that later divide into "Hunter" and "Grail" sub-levels:\n\nLite (levels 1/2/3):\nFor new players or those that do not want any filtering at all. These levels do not hide anything besides ID/TP Scroll drops and really low gold piles, to minimize amount of items hidden and at the same time reduce screen clutter that can get little out of hand in the mod.\n\nIntermediate (levels 4/5/6):\nFor players that want to get rid of some of most the more useless bases and all magic (blue) items, while still seeing most of the drops. Hides (in Hell only), all normal rarity, not-superior armor bases and normal rarity weapons unless they have a good roll of "buff duration" Superior (for CTA purposes). Now you can farm /p20 Cows without the hear of overloading your screen with loot until it starts being hidden by the game (given that the gold is picked up).\n\nAggressive (levels 7/8/9):\nFor those that don't want to see both magic and rare items and don't want to see any bases unless they are useful in some capacity. These levels have complex filtering system that might make the game look quite... "empty".\n\nSix levels (2,3,5,6,8 and 9) contain "HUNTER":/nTells you which set item is from, while on ground and not identified yet (chat message while cycling through filter levels tells you what Level are you on).\n+ For Unique items, "HUNTER" levels are not as advanced, they tell only good jewelry(!) of my own choosing (only those rarer ones).\n\nThree levels (3,6 and 9) contain "Grail" functionality:/nIt will send chat notify and add Grail text on top of items name if said item was not collected yet in any shared stash tab (list updates upon making new game session).\n\nNo items are hidden in tows. Filter does not hide any Runewords, Set, Unique or other items of any value.\nBig part of the filter are also QoL options like styles for loot, general tips on some items or expanding some item descriptions with additional information.\n\nFilter supports "Filter Sounds" as well, which as of right now, need to be installed manually. For both instructions on that as well as sounds themselves, you can find it in our discord in "loot-filters" channel.\n\nIf you have any suggestions, or found a bug or (you think) unintended behavior, please contact me on our discord in "loot-filters" channel :)\n\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
 filter_level = 1,
-filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v1.9.4{gold}) {Green}Reloaded", -- Filter reload message.
+filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Intermediate","Intermediate + Hunter","Intermediate + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
+reload = "{gold}Charsi's Special ({yellow}v2.0{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
 audioPlayback = true, -- Turns ON/OFF sounds feature.
@@ -20,22 +20,12 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {orange}-{code}"},  -- DEBUG - Show item code
 		--{codes=NOT{"cm1","cm2","cm3"},location={"onground", "onplayer", "atvendor", "equipped"},suffix=" {blue}-{index}"}, -- DEBUG - Show item index
-		--{codes={"cm1","cm2","cm3","z00","z01","z02","z03","z04","z05","z06","z07","z08","z09","z10","z11","z12","z13","z14","z15","z16","z17","z18","Z96","Z97","Z98","Z99","z19","z20","z21","z22","z23","z24","z25","z26","z27","Z88","Z89","Z90","Z91","Z92","Z93","Z93","Z94","Z95"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {orange}[{code}]"},  -- DEBUG - Show item code for charms/enhancements
+		--{codes={"cm1", "b66", "cm2","cm3","z00","z01","z02","z03","z04","z05","z06","z07","z08","z09","z10","z11","z12","z13","z14","z15","z16","z17","z18","Z96","Z97","Z98","Z99","z19","z20","z21","z22","z23","z24","z25","z26","z27","Z88","Z89","Z90","Z91","Z92","Z93","Z93","Z94","Z95"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {orange}[{code}]"},  -- DEBUG - Show item code for charms/enhancements
 		--{codes={"cm1","cm2","cm3","z00","z01","z02","z03","z04","z05","z06","z07","z08","z09","z10","z11","z12","z13","z14","z15","z16","z17","z18","Z96","Z97","Z98","Z99","z19","z20","z21","z22","z23","z24","z25","z26","z27","Z88","Z89","Z90","Z91","Z92","Z93","Z93","Z94","Z95"},location={"onground", "onplayer", "atvendor", "equipped"},prefix_desc=" {blue}[{index}]\n"}, -- DEBUG - Show item index for charms/enhancements
 		
 		
 		--																	      			         	BASES - misc + Lite
 		
-		{ -- Hides all 1 socket bases (does not include LB bases) in Normal and Nightmare when clvl is below 80
-			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
-			quality = "3-",
-			sockets = "1",
-			runeword = false,
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulties = { "Normal", "Nightmare" },
-			pstat = { index = 12, op = "<", value = 80 },
-			hide = true
-		},
 		{ -- Suffix for potentially great bases while leveling - Normal
 			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
 			quality = "3",
@@ -54,37 +44,37 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			pstat = { index = 12, op = "<", value = 80 },
 			suffix = "{yellow}[Good?]"
 		},
-		{ -- Display decently rolled STR% Strong and Mighty Belt Superior bases (max 2os)
+		{ -- Display decently rolled STR% Strong and Mighty Belt bases (max 2os)
 			codes = { "Bb2", "Bb1" },
 			quality = "3-",
 			stat = { index = 262, op = ">=", value = 10 },
 			suffix = "{yellow} [{stat=(262)}%% STR]"
 		},
-		{ -- Display decently rolled FRW% Bladed Boots and Combat Kicks Superior bases (max 3os)
+		{ -- Display decently rolled FRW% Bladed Boots and Combat Kicks bases (max 3os)
 			codes = { "Ab3", "Ab2" },
 			quality = "3-",
 			stat = { index = 96, op = ">=", value = 14 },
 			suffix = "{yellow} [{stat=(96)}%% FRW]"
 		},
-		{ -- Display decently rolled AR% Amazon Circlet Superior bases (max 3os)
+		{ -- Display decently rolled AR% Amazon Circlet bases (max 3os)
 			codes = { "Zc1", "Zc2", "Zc3" },
 			quality = "3-",
 			stat = { index = 119, op = ">=", value = 29 },
 			suffix = "{yellow} [{stat=(119)} AR%%]"
 		},
-		{ -- Display good rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
+		{ -- Display good rolled DEX/LVL Amazon Gloves bases (max 3os)
 			codes = { "Ag1", "Ag2", "Ag3" },
 			quality = "3-",
 			stat = { index = 221, op = "==", value = 5 },
 			suffix = "{yellow} [Good Dex/lvl]"
 		},
-		{ -- Display best rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
+		{ -- Display best rolled DEX/LVL Amazon Gloves bases (max 3os)
 			codes = { "Ag1", "Ag2", "Ag3" },
 			quality = "3-",
 			stat = { index = 221, op = "==", value = 6 },
 			suffix = "{yellow} [Best Dex/lvl]"
 		},
-		{ -- Display decently rolled FCR% Sorceress Gloves Superior bases (max 3os)
+		{ -- Display decently rolled FCR% Sorceress Gloves bases (max 3os)
 			codes = { "Vg1", "Vg2", "Vg3" },
 			quality = "3-",
 			stat = { index = 105, op = ">=", value = 21 },
@@ -108,7 +98,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			stat = { index = 403, op = ">=", value = 180 },
 			suffix = "{yellow} [{stat=(403)} Raven Damage]"
 		},
-		{ -- Display +3 LF Amazon Javs Superior bases (max 3os)
+		{ -- Display +3 LF Amazon Javs bases (max 3os)
 			codes = { "amf", "ama", "am5" },
 			quality = "3-",
 			stat = { index = 107, op = "==", value = 3, param = 35 },
@@ -117,7 +107,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Display good rolled Assassin Katanas bases (max 4os)
 			codes = { "72h", "92h", "k03" },
 			quality = "3-",
-			stat = { index = 427, op = ">=", value = 35 },
+			stat = { index = 427, op = ">=", value = 40 },
 			suffix = "{yellow}[{stat=(427)}%% Buff]"
 		},
 		{ -- Display perf rolled Necro Shield bases (max 4os)
@@ -126,50 +116,50 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			stat = { index = 188, op = "==", value = 3, param = 18 },
 			suffix = "{yellow}[+3 Summoning]"
 		},
-		{ -- Display decently rolled Pally Shield Superior bases (max 4os)
+		{ -- Display decently rolled Pally Shield bases (max 4os)
 			codes = { "pac", "pab", "pad", "pae", "paf" },
 			quality = "3-",
             stat = { index = { 39, 41, 43, 45 }, op = ">=", value = 35 },
 			suffix = "{yellow} [{stat=(45)}%% All Res]"
 		},
-		{ -- Display good rolled Enlightened Plate Superior bases (max 4os)
+		{ -- Display good rolled Enlightened Plate bases (max 4os)
 			code = "Bp3",	
 			quality = "3-",
             stat = { index = { 39, 41, 43, 45 }, op = ">=", value = 11 },
 			suffix = "{yellow}[{stat=(45)}%% All Res]"
 		},
-		{ -- Display good rolled Cload/Mantle Superior bases (max 4os)
+		{ -- Display good rolled Cload/Mantle bases (max 4os)
 			codes = { "Ca1", "Ca2", "Ca3" },
 			quality = "3-",
 			stat = { index = 188, op = "==", value = 3, param = 49 },
 			suffix = "{yellow}[+3 Shadow Disciplines]"
 		},
-		{ -- Display perf rolled Cload/Mantle Superior bases (max 4os)
+		{ -- Display perf rolled Cload/Mantle bases (max 4os)
 			codes = { "Ca1", "Ca2", "Ca3" },
 			quality = "3-",
 			stat = { index = 188, op = "==", value = 4, param = 49 },
 			suffix = "{yellow}[+4 Shadow Disciplines]"
 		},
-		{ -- Display 1 bow skills Grand Matron Bow Superior bases (max 6os)
+		{ -- Display 1 bow skills Elite Bow bases (max 6os)
 			codes = { "amc", "amb" },
 			quality = "3-",
 			stat = { index = 188, op = "==", value = 1, param = 0 },
 			suffix = "{yellow} [+1 Bow skills]"
 		},
-		{ -- Display 2 bow skills Grand Matron Bow Superior bases (max 6os)
+		{ -- Display 2 bow skills Elite Bow bases (max 6os)
 			codes = { "amc", "amb" },
 			quality = "3-",
 			stat = { index = 188, op = "==", value = 2, param = 0 },
 			suffix = "{yellow} [+2 Bow skills]"
 		},
-		{ -- Display 2 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = { "7ws", "9ws" },
+		{ -- Display 2 Pala skills War Scepter, Caduceous and Divine Scepter bases
+			codes = { "wsp", "7ws", "9ws" },
 			quality = "3-",
 			stat = { index = 83, op = "==", value = 2, param = 3 },
 			suffix = "{yellow} [+2 Paladin skills]"
 		},
-		{ -- Display 3 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = { "7ws", "9ws" },
+		{ -- Display 3 Pala skills War Scepter, Caduceous and Divine Scepter bases
+			codes = { "wsp", "7ws", "9ws" },
 			quality = "3-",
 			stat = { index = 83, op = "==", value = 3, param = 3 },
 			suffix = "{yellow} [+3 Paladin skills]"
@@ -189,10 +179,42 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		
 		
-		--																	      			         	BASES - Intermediate Placeholder
+		--																	      			         	BASES - Intermediate
 		
-		
-		
+		{ -- Hides all 1 socket bases (does not include LB bases) in Normal and Nightmare when clvl is below 80 - Intermediate
+			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9" },
+			quality = "3-",
+			sockets = "1",
+			runeword = false,
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulties = { "Normal", "Nightmare" },
+			filter_levels = "4,5,6",
+			pstat = { index = 12, op = "<", value = 80 },
+			hide = true
+		},
+		{ -- Hide all normal weapons unless they are good roll of "buff duration" Superior (for CTA purposes) - Hell only, Intermediate
+			codes = "allitems",
+			itype = 45,
+			rarity = 0,
+			quality = "3-",
+			difficulty = "Hell",
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			runeword = false,
+			filter_levels = "4,5,6",
+			stat = { index = 427, op = "<", value = 18},
+			hide = true
+		},
+		{ -- Hide all normal, not-superior armor bases - Hell only, Intermediate
+			codes = "allitems",
+			itype = 50,
+			rarity = 0,
+			quality = "2",
+			difficulty = "Hell",
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			runeword = false,
+			filter_levels = "4,5,6",
+			hide = true
+		},
 		
 		--																	      			         	BASES - Aggressive
 		
@@ -203,7 +225,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hide badly rolled STR% Strong and Mighty Belt bases (max 2os)
@@ -214,7 +236,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hides leftover (non-superior) bases (max 2os)
@@ -224,7 +246,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hides all unwanted bases (max 3os)
@@ -234,7 +256,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hide badly rolled FRW% Bladed Boots and Combat Kicks bases (max 3os)
@@ -245,7 +267,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled AR% Amazon Circlet Superior bases (max 3os)
@@ -256,7 +278,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled DEX/LVL Amazon Gloves Superior bases (max 3os)
@@ -267,7 +289,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled FCR% Sorceress Gloves Superior bases (max 3os)
@@ -278,7 +300,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled Blaze Wolf skills Druid Helmet bases (max 3os)
@@ -289,7 +311,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled Frost Bear skills Druid Helmet bases (max 3os)
@@ -300,7 +322,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled Raven Damage Druid Helmet bases (max 3os)
@@ -311,10 +333,10 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
-		{ -- Hide NOT +3 LF Amazon Javs Superior bases (max 3os)
+		{ -- Hide NOT +3 LF Amazon Javs bases (max 3os)
 			codes = { "amf", "ama", "am5" },
 			quality = "3-",
 			stat = { index = 107, op = "<", value = 3, param = 35 },
@@ -322,7 +344,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hides leftover (non-superior) bases (max 3os)
@@ -332,7 +354,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 4os
@@ -342,7 +364,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hide badly rolled Assassin Katanas bases (max 4os)
@@ -350,10 +372,10 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "3-",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			stat = { index = 427, op = "<", value = 35 },
+			stat = { index = 427, op = "<", value = 40 },
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled Necro Shield bases (max 4os)
@@ -364,7 +386,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled Pala Shield bases (max 4os)
@@ -376,7 +398,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled Enlightened Plate Superior bases (max 4os)
@@ -387,7 +409,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide badly rolled Cloak/Mantle Superior bases (max 4os)
@@ -398,7 +420,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hides leftover (non-superior) bases (max 4os)
@@ -408,17 +430,17 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 5os
-			codes = { "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "wsp", "scy", "9b8" },
+			codes = { "axe", "bax", "2ax", "lax", "am2", "am1", "6hb", "6cb", "6sb", "8cb", "8sb", "8hb", "lbw", "6rx", "6mx", "8rx", "8mx", "rxb", "fla", "bar", "brn", "pax", "spr", "tri", "vou", "scy", "9b8" },
             quality = "3-",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hides leftover (non-superior) bases (max 5os)
@@ -428,7 +450,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hides all unwanted bases with max 6os
@@ -438,7 +460,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hide NOT 1/2 bow skills Grand Matron Bow or Matrialchal Bow Superior bases (max 6os)
@@ -449,18 +471,18 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
-		{ -- Hide NOT 2/3 Pala skills Caduceous and Divine Scepter bases (max 6os)
-			codes = { "7ws", "9ws" },
+		{ -- Hide NOT 2/3 Pala skills War Scepter, Caduceous and Divine Scepter bases (max 5/6os)
+			codes = { "wsp", "7ws", "9ws" },
 			quality = "3-",
 			stat = { index = 83, op = "<", value = 2, param = 3 },
 			area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide <120% Summon Damage Necro Sickle bases (max 6os)
@@ -471,7 +493,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide <4% Life Leech Bloodletting Sword base (max 6os)
@@ -482,7 +504,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hide <15% Deadly Strike Hellforged Axe base (max 6os)
@@ -493,7 +515,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Display >=15% Deadly Strike Hellforged Axe base (max 6os)
@@ -509,7 +531,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Hide all Indestructible/EtH Armor Bases (gets rid of indest/eth superior)
@@ -521,7 +543,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Hell",
 			runeword = false,
 			pstat = {index = 152, op = "==", value = 0},
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 		{ -- Hides all 0 socket not superior bases (does not include LB bases) in Normal and Nightmare when clvl is below 80 - aggressive only
@@ -532,7 +554,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulties = { "Normal", "Nightmare" },
 			runeword = false,
 			pstat = { index = 12, op = "<", value = 80 },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
 
@@ -550,12 +572,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			location = { "onplayer", "atvendor", "equipped" },
 			prefix_desc = "{orange}LB items can have more than normal max sockets (means a lot of Lems for GF)\n{red}Trash, but nice for crafting with purpose of Gold Find Items\n"
 		},
-		{ -- Magic LB items - for crafting - notify
-			codes = { "l07", "l08", "l09", "l10", "l11", "l12" },
-			quality = "4",
-			border = { 99, 99, 230, 230, 1 },
-			notify = "Craft beyond limits {blue}{name}"
-		},
 		
 		
 
@@ -563,38 +579,39 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		--													                                               MAGIC
 		
-		{ -- Hides all magic items (does not include LB bases for crafting, jewels and S/L/G charms) from clvl 30 above Normal
+		{ -- Hides all magic items (does not include LB bases for crafting, jewels and S/L/G charms) from clvl 30 above Normal - Intermediate and Aggressive
 			codes = { "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l13", "l14", "l15", "l16", "l17", "l18" },
 			quality = "4",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulties = { "Nightmare", "Hell" },
 			pstat = { index = 12, op = ">=", value = 30 },
+			filter_levels = "4,5,6,7,8,9",
 			hide = true
 		},
-		{ -- Hide Magic Ring/Amulet at clvl 100+ in Hell (shown earlier for crafting reasons) - lite
+		{ -- Hide Magic Ring/Amulet at clvl 100+ in Hell (shown earlier for crafting reasons) - Intermediate
 			codes = { "rin", "amu" },
 			quality = "4",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			pstat = { index = 12, op = ">=", value = 100 },
-			filter_levels = "1,2,3",
+			filter_levels = "4,5,6",
 			hide = true
 		},
-		{ -- Hide Magic Ring/Amulet in Hell (shown earlier for crafting reasons) - aggressive
+		{ -- Hide Magic Ring/Amulet in Hell (shown earlier for crafting reasons) - Aggressive
 			codes = { "rin", "amu" },
 			quality = "4",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
-		{ -- Hides magic Large Charms, Aggressive
+		{ -- Hides magic Large Charms, Intermediate and Aggressive
 			codes = "cm2",
 			quality = "4",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulties = { "Nightmare", "Hell" },
 			pstat = { index = 12, op = ">=", value = 30 },
-			filter_levels = "4,5,6",
+			filter_levels = "4,5,6,7,8,9",
 			hide = true
 		},
 		
@@ -603,12 +620,23 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		
 				--													                                         RARE
-		{ -- Hides all rare items, besides Jewels
+		{ -- Hides all rare items, besides Jewels - Hell only, Aggressive
 			codes = { "rin", "amu", "cap", "skp", "hlm", "fhl", "ghm", "crn", "msk", "qui", "lea", "hla", "stu", "rng", "scl", "chn", "brs", "spl", "plt", "fld", "gth", "ful", "aar", "ltp", "buc", "sml", "lrg", "kit", "tow", "gts", "lgl", "vgl", "mgl", "tgl", "hgl", "lbt", "vbt", "mbt", "tbt", "hbt", "lbl", "vbl", "mbl", "tbl", "hbl", "bhm", "bsh", "spk", "xap", "xkp", "xlm", "xhl", "xhm", "xrn", "xsk", "xui", "xea", "xla", "xtu", "xng", "xcl", "xhn", "xrs", "xpl", "xlt", "xld", "xth", "xul", "xar", "xtp", "xuc", "xml", "xrg", "xit", "xow", "xts", "xlg", "xvg", "xmg", "xtg", "xhg", "xlb", "xvb", "xmb", "xtb", "xhb", "zlb", "zvb", "zmb", "ztb", "zhb", "xh9", "xsh", "xpk", "dr1", "dr2", "dr3", "dr4", "dr5", "ba1", "ba2", "ba3", "ba4", "ba5", "pa1", "pa2", "pa3", "pa4", "pa5", "ne1", "ne2", "ne3", "ne4", "ne5", "ci0", "ci1", "ci2", "ci3", "uap", "ukp", "ulm", "uhl", "uhm", "urn", "usk", "uui", "uea", "ula", "utu", "ung", "ucl", "uhn", "urs", "upl", "ult", "uld", "uth", "uul", "uar", "utp", "uuc", "uml", "urg", "uit", "uow", "uts", "ulg", "uvg", "umg", "utg", "uhg", "ulb", "uvb", "umb", "utb", "uhb", "ulc", "uvc", "umc", "utc", "uhc", "uh9", "ush", "upk", "dr6", "dr7", "dr8", "dr9", "dra", "ba6", "ba7", "ba8", "ba9", "baa", "pa6", "pa7", "pa8", "pa9", "paa", "ne6", "ne7", "ne8", "ne9", "nea", "drb", "drc", "drd", "dre", "drf", "bab", "bac", "bad", "bae", "baf", "pab", "pac", "pad", "pae", "paf", "neb", "neg", "ned", "nee", "nef", "Ca1", "Ca2", "Ca3", "Wp1", "Wp2", "Wp3", "Gg1", "Gg2", "Gg3", "Ab1", "Ab2", "Ab3", "Bp1", "Bp2", "Bp3", "Oa1", "Oa2", "Oa3", "Vg1", "Vg2", "Vg3", "Bb1", "Bb2", "Bb3", "Zc1", "Zc2", "Zc3", "St1", "St2", "Pc1", "Pc2", "Pc3", "Ag1", "Ag2", "Ag3", "Na1", "Na2", "Na3", "Sa1", "Sa2", "Sa3", "St3", "St4", "St5", "St6", "St7", "St8", "St9", "St0", "D01", "D03", "D04", "D05", "D08", "D09", "D11", "D12", "D17", "D19", "D20", "D21", "D23", "D29", "D35", "D36", "D37", "D38", "D45", "hax", "axe", "2ax", "mpi", "wax", "lax", "bax", "btx", "gax", "gix", "wnd", "ywn", "bwn", "gwn", "clb", "scp", "gsc", "wsp", "spc", "mac", "mst", "fla", "whm", "mau", "gma", "ssd", "scm", "sbr", "flc", "crs", "bsd", "lsd", "wsd", "2hs", "clm", "gis", "bsw", "flb", "gsd", "dgr", "dir", "kri", "bld", "tkf", "tax", "bkf", "bal", "jav", "pil", "ssp", "glv", "tsp", "spr", "tri", "brn", "spt", "pik", "bar", "vou", "scy", "pax", "hal", "wsc", "sst", "lst", "cst", "bst", "wst", "sbw", "hbw", "lbw", "cbw", "sbb", "lbb", "swb", "lwb", "lxb", "mxb", "hxb", "rxb", "gps", "ops", "gpm", "opm", "gpl", "opl", "d33", "9ha", "9ax", "92a", "9mp", "9wa", "9la", "9ba", "9bt", "9ga", "9gi", "9wn", "9yw", "9bw", "9gw", "9cl", "9sc", "9qs", "9ws", "9sp", "9ma", "9mt", "9fl", "9wh", "9m9", "9gm", "9ss", "9sm", "9sb", "9fc", "9cr", "9bs", "9ls", "9wd", "92h", "9cm", "9gs", "9b9", "9fb", "9gd", "9dg", "9di", "9kr", "9bl", "9tk", "9ta", "9bk", "9b8", "9ja", "9pi", "9s9", "9gl", "9ts", "9sr", "9tr", "9br", "9st", "9p9", "9b7", "9vo", "9s8", "9pa", "9h9", "9wc", "8ss", "8ls", "8cs", "8bs", "8ws", "8sb", "8hb", "8lb", "8cb", "8s8", "8l8", "8sw", "8lw", "8lx", "8mx", "8hx", "8rx", "ktr", "wrb", "axf", "ces", "clw", "btl", "skr", "9ar", "9wb", "9xf", "9cs", "9lw", "9tw", "9qr", "7ar", "7wb", "7xf", "7cs", "7lw", "7tw", "7qr", "7ha", "7ax", "72a", "7mp", "7wa", "7la", "7ba", "7bt", "7ga", "7gi", "7wn", "7yw", "7bw", "7gw", "7cl", "7sc", "7qs", "7ws", "7sp", "7ma", "7mt", "7fl", "7wh", "7m7", "7gm", "7ss", "7sm", "7sb", "7fc", "7cr", "7bs", "7ls", "7wd", "72h", "7cm", "7gs", "7b7", "7fb", "7gd", "7dg", "7di", "7kr", "7bl", "7tk", "7ta", "7bk", "7b8", "7ja", "7pi", "7s7", "7gl", "7ts", "7sr", "7tr", "7br", "7st", "7p7", "7o7", "7vo", "7s8", "7pa", "7h7", "7wc", "6ss", "6ls", "6cs", "6bs", "6ws", "6sb", "6hb", "6lb", "6cb", "6s7", "6l7", "6sw", "6lw", "6lx", "6mx", "6hx", "6rx", "ob1", "ob2", "ob3", "ob4", "ob5", "am1", "am2", "am3", "am4", "am5", "ob6", "ob7", "ob8", "ob9", "oba", "am6", "am7", "am8", "am9", "ama", "obb", "obc", "obd", "obe", "obf", "amb", "amc", "amd", "ame", "amf", "k01", "k02", "k03", "Ds1", "Ds2", "Ds3", "Pm1", "Pm2", "Pm3", "Bm1", "Bm2", "Bm3", "Bm4", "Bm5", "Bm6", "Bm7", "Bm8", "Bm9", "Bf1", "Bf2", "Bf3", "Bf4", "Bf5", "Bf6", "D00", "Ss1", "Ss2", "Ss3", "Ss4", "D02", "D13", "D14", "D15", "D16", "D24", "D25", "D26", "D27", "D28", "D30", "D31", "D34", "D39", "D40", "D41", "D42", "D43", "D44", "Ev9", "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14", "l15", "l16", "l17", "l18" },
 			quality = "6",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
 			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "7,8,9",
+			hide = true
+		},
+		{ -- Hide all rare, normal rarity weapons - Hell only, Intermediate
+			codes = "allitems",
+			itype = 45,
+			rarity = 0,
+			quality = "6",
+			difficulty = "Hell",
+            area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			runeword = false,
 			filter_levels = "4,5,6",
 			hide = true
 		},
@@ -618,34 +646,26 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		
 		--													                                                ARROWS and BOLTS
-		{ -- Hides all magic and rare arrows/bolts - Lite
+		{ -- Hides all magic and rare arrows/bolts - Hell only, Intermediate and Aggressive
 			codes = { "aqv", "cqv" },
 			quality = { "4", "6" },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",	
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "1,2,3",
+			difficulty = "Hell",
+			filter_levels = "4,5,6,7,8,9",
 			hide = true
 		},
-		{ -- Hides all magic arrows/bolts at all times - Aggressive
+		{ -- Hides all magic arrows/bolts - NM, Aggressive
 			codes = { "aqv", "cqv" },
 			quality = "4",
+			difficulty = "Nightmare",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
 			hide = true
 		},
-		{ -- Hides all rare arrows/bolts - Aggressive
-			codes = { "aqv", "cqv" },
-			quality = "6",
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			difficulty = "Hell",	
-			pstat = { index = 12, op = ">=", value = 80 },
-			filter_levels = "4,5,6",
-			hide = true
-		},
-		{ -- Hide white arrows/bolts at all times
+		{ -- Hide white arrows/bolts at all times - Intermediate and Aggressive
 			codes = { "aqv", "cqv" },
 			quality = "2",
+			filter_levels = "4,5,6,7,8,9",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			hide = true
 		},
@@ -657,14 +677,14 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		--													                                                 MISC and STYLES
 
 
-		{ -- Hide omega low gold while leveling
+		{ -- Hide gold drops under 10 for Normal difficulty besides first half of A1 - All Levels
 			code = "gld",
             stat = { index = 14, op = "<", value = 10 }, 
-			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			pstat = { index = 12, op = "between", value = { 10, 79 } },
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath", "Blood Moor", "Cold Plains", "Stony Field", "Dark Wood", "Den Of Evil", "Cave Level 1", "Underground Passage Level 1", "Cave Level 2", "Underground Passage Level 2", "Burial Grounds", "Crypt", "Mausoleum" },
+			difficulty = "Normal",
             hide = true
         },
-		{ -- Hide gold drops under 50 in Nightmare Lite
+		{ -- Hide gold drops under 50 for Nightmare difficulty - Lite
 			code = "gld",
             stat = { index = 14, op = "<=", value = 49 }, 
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
@@ -672,30 +692,44 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "1,2,3",
             hide = true
         },
-		{ -- Hide gold drops under 500 for clvl above 80 Lite
+		{ -- Hide gold drops under 200 for Hell difficulty - Lite
 			code = "gld",
-            stat = { index = 14, op = "<=", value = 499 }, 
+            stat = { index = 14, op = "<=", value = 199 }, 
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "1,2,3",
             hide = true
         },
-		{ -- Hide gold drops under 150 in Nightmare Aggressive
+		{ -- Hide gold drops under 80 in Nightmare difficulty - Intermediate
 			code = "gld",
-            stat = { index = 14, op = "<=", value = 149 }, 
+            stat = { index = 14, op = "<=", value = 79 }, 
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Nightmare",
 			filter_levels = "4,5,6",
             hide = true
         },
-		{ -- Hide gold drops under 900 for clvl above 80 Aggressive
+		{ -- Hide gold drops under 600 in Hell difficulty - Intermediate
 			code = "gld",
-            stat = { index = 14, op = "<=", value=899 }, 
+            stat = { index = 14, op = "<=", value = 599 }, 
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = { index = 12, op = ">=", value = 80 },
 			filter_levels = "4,5,6",
+            hide = true
+        },
+		{ -- Hide gold drops under 150 in Nightmare - Aggressive
+			code = "gld",
+            stat = { index = 14, op = "<=", value = 149 }, 
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Nightmare",
+			filter_levels = "7,8,9",
+            hide = true
+        },
+		{ -- Hide gold drops under 1000 in Hell difficulty - Aggressive
+			code = "gld",
+            stat = { index = 14, op = "<=", value=999 }, 
+			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
+			difficulty = "Hell",
+			filter_levels = "7,8,9",
             hide = true
         },
 		{ -- Style for Magic Jewels
@@ -725,32 +759,32 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
             codes = { "l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18" },
 			quality = 7,
             itype = { 45, 50 },
-            notify = "Unique LB item dropped!"
+            notify = "{red}Unique LB item dropped!"
         },
         { -- Hides id/tp scroll drops at all times
             codes = { "tsc", "isc" },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
             hide = true
         },
-        { -- Hides all potion drops besides full rejuvs from clvl 80 in Hell - Lite
+        { -- Hides all potion drops besides full rejuvs from clvl 90 in Hell - Lite and Intermediate
             codes = { "hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs" },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			filter_levels = "1,2,3",
-			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "1,2,3,4,5,6",
+			pstat = { index = 12, op = ">=", value = 90 },
             hide = true
         },
         { -- Hides all potion drops besides any rejuvs at all times- Aggressive
             codes = { "hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5" },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			filter_levels = "4,5,6",
+			filter_levels = "7,8,9",
             hide = true
         },
-        { -- Hides small rejuv drops after clvl 80 - Aggressive
+        { -- Hides small rejuv drops after clvl 90 - Aggressive
             code = "rvs",
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
-			filter_levels = "4,5,6",
-			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "7,8,9",
+			pstat = { index = 12, op = ">=", value = 90 },
             hide = true
         },
 		{ -- Style for Unique items
@@ -779,7 +813,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
         },
 		{ -- EEE Notify
 			code = "a66",
-			notify = "{red}Very {gold}important item on ground!"
+			notify = "{red}VERY {white}important item on ground!"
 		},
 		{ -- Ultra Runes notification and style
             codes = { "r34", "r35", "r36" },
@@ -788,7 +822,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
         },
 		{ -- ID/TP Tomes, Cube and Key notify and style
 			codes = {"tbk", "ibk", "key", "box","y34","y35","y36","y37","y38","y39","y40"},
-			notify = "{red}Are you sure you want to leave it?",
+			notify = "{white}Are you sure you want to leave it?",
 			border = { 255, 133, 255, 190, 1 },
 			prefix = "{pink}"
 		},
@@ -799,7 +833,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		},
 		{ -- Style for Beacon of Hope
 			code = "BoH",
-			notify = "{red}Important Item: {name}\n{red}Edyrem:{white} Is that a... bacon?"
+			notify = "{yellow}Important Item: {gold}{name}\n{red}Edyrem:{white} Is that a... bacon?"
 		},
 		{ -- Border for Superior 0os non-eth Bases
 			codes = "allitems",
@@ -823,7 +857,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		},
 		{ -- Scroll of Torment border
 			codes = { "K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80" },
-			border = { 0, 130, 0, 220, 2 }
+			border = { 0, 130, 0, 220, 1 }
 		},
 		{ -- Ramaladni's Gift, Socket Remover, Soul Shards and Gem Vein style
 			codes = { "Rgx", "b64","S01", "y33" },
@@ -832,21 +866,21 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		},
 		{ -- Style for Scroll of Triumph
 			code = "a06",
-			name_override = "Are ya winning son?",
-			notify = "{red}Edyrem: {white}Yes, dad.",
-			background = { 165, 146, 99, 150 },
-			border = { 0, 0, 0, 215, 3 }
+			notify = "{red}???: {white}Are ya winning son?\n{gold}[Game] {red}Edyrem: {white}Yes, dad.",
+			name_style = "Christmas",
+			border = { 0, 35, 255, 80, 3 },
 		},
 		{ -- Style for Gold
 			code = "gld",
-			border = { 230, 255, 0, 165, 1 },
+			border = { 230, 255, 70, 165, 1 },
 			name_override = "{white}{name}{yellow}g"
 		},
-		{ -- Hide all Low Runes
+		{ -- Hide all Low Runes from clvl 90, Hell - Intermediate and Aggressive
 			codes = { "r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11" },
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Hell",
-			pstat = { index = 12, op = ">=", value = 80 },
+			filter_levels = "4,5,6,7,8,9",
+			pstat = { index = 12, op = ">=", value = 90 },
 			hide = true
 		},
 		{ -- Display socket count number of all socketed, identified items. onground only
@@ -858,8 +892,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Style for Demon Tempered Items
 			codes = "allitems",
 			quality = "9",
-			border = { 0, 35, 255, 70, 3 },
-			background = { 178, 255, 212, 235 },
+			border = { 117, 38, 19, 230, 2 },
 			notify = "{red}Demon Tempered item on ground!"
 		},
 		{ -- Style for Facets
@@ -872,9 +905,22 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Style for Premium Socket Remover
 			code = "b65",
 			notify = "{red}Are you sure?",
-			name_override = "Premium socket remover",
+			name_override = "Premium Socket Remover",
 			border = { 7, 167, 222, 170, 1 },
 			name_style = "Cotton Candy"
+		},
+		{ -- Infinite Premium Socket Remover, name change, onground
+			code = "b66",
+			notify = "{red}Are you sure?",
+			name_override = "Infinite Socket Remover",
+			border = { 7, 167, 222, 170, 1 },
+			name_style = "Cotton Candy"
+		},
+		{ -- Infinite Premium Socket Remover, name change and additional info, onplayer
+			code = "b66",
+			name_override = "{gold}Infinite Premium Socket Remover",
+			prefix = "{gray}Not consumed upon use\n",
+			location = { "onplayer", "atvendor", "equipped" }
 		},
 		{ -- Style for Uber Keys/Organs
 			codes = { "pk1", "pk2", "pk3", "dhn", "bey", "mbr" },
@@ -969,6 +1015,15 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			location = { "onplayer", "atvendor" },
 			name_override = "{gold}Mid Enhancement Crystal ({tan}10 Uses Per Item{gold})"
 		},
+		{ -- Rename for Low Enhancement Crystals 1
+			codes = { "Z60", "Z61", "Z62", "Z63", "Z64", "Z65", "Z66", "Z67", "Z68", "Z69", "Z70", "Z71", "Z72", "Z73", "Z74", "Z75", "Z76", "Z77", "Z78", "Z79", "Z80", "Z81", "Z82", "Z83", "Z84", "Z85", "Z86", "Z87" },
+			name_override = "{gold}Low Enhancement Crystal"
+		},
+		{ -- Rename for Low Enhancement Crystals 2
+			codes = { "Z60", "Z61", "Z62", "Z63", "Z64", "Z65", "Z66", "Z67", "Z68", "Z69", "Z70", "Z71", "Z72", "Z73", "Z74", "Z75", "Z76", "Z77", "Z78", "Z79", "Z80", "Z81", "Z82", "Z83", "Z84", "Z85", "Z86", "Z87" },
+			location = { "onplayer", "atvendor" },
+			name_override = "{gold}Low Enhancement Crystal ({tan}Unlimited Uses{gold})"
+		},
 		{ -- Onground display for Amethyst Remover
 			code = "Z02",
 			name_override = "{purple}Amethyst {gold}Remover"
@@ -997,13 +1052,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "Z08",
 			name_override = "{gray}Skull {gold}Remover"
 		},
-		{ -- Unholy Commander name color fix, identified
-			code = "cm3",
-			index = 590,
-			identified = true,
-			location = { "onplayer", "atvendor", "onground" },
-			name_override = "{purple}Grand Charm\n{gold}Unholy Commander ({ilvl})"
-		},
 		{ -- Unholy Commander name color fix, not identified and onground
 			code = "cm3",
 			index = 590,
@@ -1017,13 +1065,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			identified = false,
 			location = { "onplayer", "atvendor" },
 			name_override = "{gold}Grand Charm ({ilvl})"
-		},
-		{ -- Blank Talent name color fix, identified
-			code = "cm3",
-			index = 611,
-			identified = true,
-			location = { "onplayer", "atvendor", "onground" },
-			name_override = "{purple}Grand Charm\n{gold}Blank Talent ({ilvl})"
 		},
 		{ -- Blank Talent name color fix, not identified and onground
 			code = "cm3",
@@ -1039,13 +1080,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			location = { "onplayer", "atvendor" },
 			name_override = "{gold}Grand Charm ({ilvl})"
 		},
-		{ -- Gheed's Fortune name color fix, identified
-			code = "cm3",
-			index = 542,
-			identified = true,
-			location = { "onplayer", "atvendor", "onground" },
-			name_override = "{purple}Grand Charm\n{gold}Gheed's Fortune ({ilvl})"
-		},
 		{ -- Gheed's Fortune name color fix, not identified and onground
 			code = "cm3",
 			index = 542,
@@ -1059,13 +1093,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			identified = false,
 			location = { "onplayer", "atvendor" },
 			name_override = "{gold}Grand Charm ({ilvl})"
-		},
-		{ -- Annihilus name color fix, identified
-			code = "cm1",
-			index = 543,
-			identified = true,
-			location = { "onplayer", "atvendor", "onground" },
-			name_override = "{purple}Small Charm\n{gold}Annihilus ({ilvl})"
 		},
 		{ -- Annihilus name color fix, not identified and onground
 			code = "cm1",
@@ -1081,13 +1108,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			location = { "onplayer", "atvendor" },
 			name_override = "{gold}Small Charm ({ilvl})"
 		},
-		{ --Cola Cube name color fix, identified
-			code = "cm1",
-			index = 606,
-			identified = true,
-			location = { "onplayer", "atvendor", "onground" },
-			name_override = "{purple}Small Charm\n{gold}Cola Cube ({ilvl})"
-		},
 		{ -- Cola Cube name color fix, not identified and onground
 			code = "cm1",
 			index = 606,
@@ -1101,13 +1121,6 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			identified = false,
 			location = { "onplayer", "atvendor" },
 			name_override = "{gold}Small Charm ({ilvl})"
-		},
-		{ -- Kuroneko no Himitsu name color fix, identified
-			code = "cm3",
-			index = 654,
-			identified = true,
-			location = { "onplayer", "atvendor", "onground" },
-			name_override = "{purple}Grand Charm\n{gold}Kuroneko no Himitsu ({ilvl})"
 		},
 		{ -- Kuroneko no Himitsu name color fix, not identified and onground
 			code = "cm3",
@@ -1137,6 +1150,10 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			location = "onground",
 			notify = "{gold}Unique: Large Charm",
 			name_override = "{gold}Large Charm ({ilvl})"
+		},
+		{ -- Soul of Edyrem notify
+			code = "m37",
+			notify = "{red}Edyrem{white}: . . ."
 		},
 
 
@@ -1186,7 +1203,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			maxsock = "5+",
 			quality = "3",
 			runeword = false,
-			stat = { index = 427, op = ">=", value = 19 },
+			stat = { index = 427, op = ">=", value = 18 },
 			suffix = " {yellow}{stat=(427)}%% Buff Dura"
 		},
 		{ -- FCR
@@ -1231,7 +1248,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = { 189, 211, 213, 217, 225, 226, 231, 246, 247, 249, 254, 262, 292, 295, 412, 413, 418, 423, 428, 433, 438, 445, 447, 453, 525, 527, 529, 532, 543, 556, 143, 281, 286, 347, 366, 369, 379, 386, 483, 6, 45, 55, 71, 299, 330, 335 },
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			location = { "onplayer", "atvendor", "onground" },
 			suffix = "{yellow}[DT]"
 		},
@@ -1345,7 +1362,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Blood Ravens Soul
 			code = "C13",
 			location = { "onplayer", "atvendor" },
-			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Gloom\n{gold}Used for:\n\n"
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Runic Forging Tier 5: {yellow}Gloom, Amity\n{gold}Used for:\n\n"
 		},
 		{ -- Forsaken Izuals Soul
 			code = "C14",
@@ -1380,7 +1397,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Deddomers Jawbone
 			code = "C20",
 			location = { "onplayer", "atvendor" },
-			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Limit Break II {grey}(Path of the Blacksmith)\n{white}Runic Forging Tier 5: {yellow}Amity\n{gold}Used for:\n\n"
+			prefix = "{white}Body part for {dark green}Demon Tempering\n{white}Limit Break II {grey}(Path of the Blacksmith)\n{gold}Used for:\n\n"
 		},
 		{ -- ??? Griswolds Jawbone
 			code = "C21",
@@ -1598,7 +1615,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 66,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "{green}|Aldur's"
 		},
 		{ -- Aldur's Torso
@@ -1606,7 +1623,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 67,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Aldur's"
 		},
 		{ -- Aldur's Weapon
@@ -1614,7 +1631,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 68,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Aldur's"
 		},
 		{ -- Aldur's Boots
@@ -1622,7 +1639,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 69,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Aldur's"
 		},
 		
@@ -1631,7 +1648,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 50,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Angelic"
 		},
 		{ -- Angelic Torso
@@ -1639,7 +1656,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 51,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Angelic"
 		},
 		{ -- Angelic Ring
@@ -1647,7 +1664,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 52,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Angelic"
 		},
 		{ -- Angelic Amulet
@@ -1655,7 +1672,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 53,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Angelic"
 		},
 		
@@ -1664,7 +1681,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 58,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arcanna's"
 		},
 		{ -- Arcanna's Weapon
@@ -1672,7 +1689,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 59,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arcanna's"
 		},
 		{ -- Arcanna's Helmet
@@ -1680,7 +1697,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 60,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arcanna's"
 		},
 		{ -- Arcanna's Torso
@@ -1688,7 +1705,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 61,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arcanna's"
 		},
 		
@@ -1697,7 +1714,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 54,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arctic"
 		},
 		{ -- Arctic Torso
@@ -1705,7 +1722,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 55,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arctic"
 		},
 		{ -- Arctic Belt
@@ -1713,7 +1730,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 56,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arctic"
 		},
 		{ -- Arctic Gloves
@@ -1721,7 +1738,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 57,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Arctic"
 		},
 		
@@ -1730,7 +1747,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 144,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "{green}|Battlemage's"
 		},
 		{ -- Battlemage's Shield
@@ -1738,7 +1755,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 145,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Battlemage's"
 		},
 		{ -- Battlemage's Torso
@@ -1746,7 +1763,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 146,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Battlemage's"
 		},
 		
@@ -1755,7 +1772,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 44,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Berserker's"
 		},
 		{ -- Berserker's Torso
@@ -1763,7 +1780,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 45,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Berserker's"
 		},
 		{ -- Berserker's Weapon
@@ -1771,7 +1788,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 46,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Berserker's"
 		},
 		
@@ -1780,7 +1797,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 115,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Bul-Katho's"
 		},
 		{ -- Bul-Katho's Weapon smol
@@ -1788,7 +1805,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 116,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Bul-Katho's"
 		},
 		
@@ -1797,7 +1814,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 25,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cathan's"
 		},
 		{ -- Cathan's Torso
@@ -1805,7 +1822,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 26,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cathan's"
 		},
 		{ -- Cathan's Helmet
@@ -1813,7 +1830,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 27,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cathan's"
 		},
 		{ -- Cathan's Amulet
@@ -1821,7 +1838,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 28,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cathan's"
 		},
 		{ -- Cathan's Ring
@@ -1829,7 +1846,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 29,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cathan's"
 		},
 		
@@ -1838,7 +1855,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 0,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Civerb's"
 		},
 		{ -- Civerb's Amulet
@@ -1846,7 +1863,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 1,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Civerb's"
 		},
 		{ -- Civerb's Weapon
@@ -1854,7 +1871,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 2,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Civerb's"
 		},
 		
@@ -1863,7 +1880,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 6,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cleglaw's"
 		},
 		{ -- Cleglaw's Shield
@@ -1871,7 +1888,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 7,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cleglaw's"
 		},
 		{ -- Cleglaw's Gloves
@@ -1879,7 +1896,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 8,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cleglaw's"
 		},
 		
@@ -1888,7 +1905,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 117,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cow King's"
 		},
 		{ -- Cow King's Torso
@@ -1896,7 +1913,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 118,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cow King's"
 		},
 		{ -- Cow King's Boots
@@ -1904,7 +1921,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 119,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Cow King's"
 		},
 		
@@ -1913,7 +1930,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 47,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Death's"
 		},
 		{ -- Death's Belt
@@ -1921,7 +1938,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 48,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Death's"
 		},
 		{ -- Death's Weapon
@@ -1929,7 +1946,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 49,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Death's"
 		},
 		
@@ -1938,7 +1955,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 147,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Glacial"
 		},
 		{ -- Glacial Belt
@@ -1946,7 +1963,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 148,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Glacial"
 		},
 		{ -- Glacial Shield
@@ -1954,7 +1971,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 149,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Glacial"
 		},
 		
@@ -1963,7 +1980,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 81,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Griswold's"
 		},
 		{ -- Griswold's Torso
@@ -1971,7 +1988,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 82,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "{green}|Griswold's"
 		},
 		{ -- Griswold's Weapon
@@ -1979,7 +1996,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 83,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Griswold's"
 		},
 		{ -- Griswold's Shield
@@ -1987,7 +2004,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 84,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Griswold's"
 		},
 		
@@ -1996,7 +2013,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 100,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Heaven's"
 		},
 		{ -- Heaven's Shield
@@ -2004,7 +2021,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 101,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Heaven's"
 		},
 		{ -- Heaven's Torso
@@ -2012,7 +2029,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 102,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Heaven's"
 		},
 		{ -- Heaven's Helmet
@@ -2020,7 +2037,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 103,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Heaven's"
 		},
 		
@@ -2029,7 +2046,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 3,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hsarus'"
 		},
 		{ -- Hsarus' Shield
@@ -2037,7 +2054,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 4,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hsarus'"
 		},
 		{ -- Hsarus' Belt
@@ -2045,7 +2062,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 5,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hsarus'"
 		},
 		
@@ -2054,7 +2071,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 108,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hwanin's"
 		},
 		{ -- Hwanin's Torso
@@ -2062,7 +2079,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 109,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hwanin's"
 		},
 		{ -- Hwanin's Belt
@@ -2070,7 +2087,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 110,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hwanin's"
 		},
 		{ -- Hwanin's Weapon
@@ -2078,7 +2095,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 111,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hwanin's"
 		},
 		
@@ -2087,7 +2104,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 70,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|IK"
 		},
 		{ -- IK Torso
@@ -2095,7 +2112,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 71,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|IK"
 		},
 		{ -- IK Belt
@@ -2103,7 +2120,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 72,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|IK"
 		},
 		{ -- IK Gloves
@@ -2111,7 +2128,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 73,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|IK"
 		},
 		{ -- IK Boots
@@ -2119,7 +2136,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 74,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|IK"
 		},
 		{ -- IK Weapon
@@ -2127,7 +2144,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 75,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "{green}|IK"
 		},
 		
@@ -2136,7 +2153,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 41,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Infernal"
 		},
 		{ -- Infernal Weapon
@@ -2144,7 +2161,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 42,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Infernal"
 		},
 		{ -- Infernal Belt
@@ -2152,7 +2169,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 43,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Infernal"
 		},
 		
@@ -2161,7 +2178,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 9,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Iratha's"
 		},
 		{ -- Iratha's Gloves
@@ -2169,7 +2186,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 10,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Iratha's"
 		},
 		{ -- Iratha's Helmet
@@ -2177,7 +2194,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 11,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Iratha's"
 		},
 		{ -- Iratha's Belt
@@ -2185,7 +2202,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 12,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Iratha's"
 		},
 		
@@ -2194,7 +2211,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 13,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Isenhart's"
 		},
 		{ -- Isenhart's Shield
@@ -2202,7 +2219,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 14,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Isenhart's"
 		},
 		{ -- Isenhart's Torso
@@ -2210,7 +2227,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 15,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Isenhart's"
 		},
 		{ -- Isenhart's Helmet
@@ -2218,7 +2235,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 16,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Isenhart's"
 		},
 		
@@ -2227,7 +2244,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 156,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Kreigur's W"
 		},
 		{ -- Kreigur's Judgement
@@ -2235,7 +2252,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 157,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Kreigur's J"
 		},
 		
@@ -2244,7 +2261,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 131,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Majestic"
 		},
 		{ -- Majestic Shield
@@ -2252,7 +2269,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 132,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Majestic"
 		},
 		{ -- Majestic Helmet
@@ -2260,7 +2277,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 133,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Majestic"
 		},
 		
@@ -2269,7 +2286,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 90,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|M'avina's"
 		},
 		{ -- M'avina's Torso
@@ -2277,7 +2294,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 91,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|M'avina's"
 		},
 		{ -- M'avina's Gloves
@@ -2285,7 +2302,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 92,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|M'avina's"
 		},
 		{ -- M'avina's Belt
@@ -2293,7 +2310,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 93,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|M'avina's"
 		},
 		{ -- M'avina's Weapon
@@ -2301,7 +2318,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 94,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|M'avina's"
 		},
 		
@@ -2310,7 +2327,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 123,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sander's"
 		},
 		{ -- Sander's Boots
@@ -2318,7 +2335,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 124,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sander's"
 		},
 		{ -- Sander's Gloves
@@ -2326,7 +2343,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 125,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sander's"
 		},
 		{ -- Sander's Weapon
@@ -2334,7 +2351,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 126,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sander's"
 		},
 		
@@ -2343,7 +2360,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 21,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Milabrega's"
 		},
 		{ -- Milabrega's Weapon
@@ -2351,7 +2368,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 22,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Milabrega's"
 		},
 		{ -- Milabrega's Helmet
@@ -2359,7 +2376,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 23,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Milabrega's"
 		},
 		{ -- Milabrega's Torso
@@ -2367,7 +2384,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 24,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Milabrega's"
 		},
 		
@@ -2376,7 +2393,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 120,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Naj's"
 		},
 		{ -- Naj's Torso
@@ -2384,7 +2401,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 121,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Naj's"
 		},
 		{ -- Naj's Helmet
@@ -2392,7 +2409,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 122,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Naj's"
 		},
 		
@@ -2401,7 +2418,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 62,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Natalya's"
 		},
 		{ -- Natalya's Weapon
@@ -2409,7 +2426,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 63,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Natalya's"
 		},
 		{ -- Natalya's Torso
@@ -2417,7 +2434,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 64,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Natalya's"
 		},
 		{ -- Natalya's Boots
@@ -2425,7 +2442,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 65,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Natalya's"
 		},
 		
@@ -2434,7 +2451,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 104,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Orphan's"
 		},
 		{ -- Orphan's Belt
@@ -2442,7 +2459,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 105,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Orphan's"
 		},
 		{ -- Orphan's Gloves
@@ -2450,7 +2467,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 106,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Orphan's"
 		},
 		{ -- Orphan's Shield
@@ -2458,7 +2475,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 107,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Orphan's"
 		},
 		
@@ -2467,7 +2484,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 150,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Rathma's"
 		},
 		{ -- Rathma's Shield
@@ -2475,7 +2492,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 151,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Rathma's"
 		},
 		{ -- Rathma's Helmet
@@ -2483,7 +2500,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 152,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Rathma's"
 		},
 		{ -- Rathma's Torso
@@ -2491,7 +2508,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 153,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "{green}|Rathma's"
 		},
 		
@@ -2500,7 +2517,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 112,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sazabi's"
 		},
 		{ -- Sazabi's Torso
@@ -2508,7 +2525,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 113,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sazabi's"
 		},
 		{ -- Sazabi's Helmet
@@ -2516,7 +2533,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 114,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sazabi's"
 		},
 		
@@ -2525,7 +2542,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 35,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sigon's"
 		},
 		{ -- Sigon's Helmet
@@ -2533,7 +2550,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 36,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sigon's"
 		},
 		{ -- Sigon's Torso
@@ -2541,7 +2558,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 37,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sigon's"
 		},
 		{ -- Sigon's Boots
@@ -2549,7 +2566,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 38,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sigon's"
 		},
 		{ -- Sigon's Belt
@@ -2557,7 +2574,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 39,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sigon's"
 		},
 		{ -- Sigon's Shield
@@ -2565,7 +2582,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 40,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Sigon's"
 		},
 		
@@ -2574,7 +2591,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 134,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Skovos's"
 		},
 		{ -- Skovos's Gloves
@@ -2582,7 +2599,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 135,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Skovos's"
 		},
 		{ -- Skovos's Arrows
@@ -2590,7 +2607,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 136,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Skovos's"
 		},
 		
@@ -2599,7 +2616,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 154,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Stacato Sigil"
 		},
 		{ -- Stacatomamba's Circle
@@ -2607,7 +2624,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 155,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Mamba Circle"
 		},
 		
@@ -2616,7 +2633,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 158,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|(su)Kami"
 		},
 		{ -- Sukami's Su
@@ -2624,7 +2641,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 159,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Su(kami)"
 		},
 		
@@ -2633,7 +2650,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 76,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tal Rasha's"
 		},
 		{ -- Tal Rasha's Amulet
@@ -2641,7 +2658,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 77,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tal Rasha's"
 		},
 		{ -- Tal Rasha's Weapon
@@ -2649,7 +2666,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 78,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tal Rasha's"
 		},
 		{ -- Tal Rasha's Torso
@@ -2657,7 +2674,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 79,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tal Rasha's"
 		},
 		{ -- Tal Rasha's Helmet
@@ -2665,7 +2682,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 80,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tal Rasha's"
 		},
 		
@@ -2674,7 +2691,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 30,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tancred's"
 		},
 		{ -- Tancred's Torso
@@ -2682,7 +2699,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 31,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tancred's"
 		},
 		{ -- Tancred's Boots
@@ -2690,7 +2707,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 32,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tancred's"
 		},
 		{ -- Tancred's Amulet
@@ -2698,7 +2715,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 33,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tancred's"
 		},
 		{ -- Tancred's Helmet
@@ -2706,7 +2723,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 34,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Tancred's"
 		},
 		
@@ -2715,7 +2732,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 95,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Disciple's"
 		},
 		{ -- The Disciple's Gloves
@@ -2723,7 +2740,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 96,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Disciple's"
 		},
 		{ -- The Disciple's Boots
@@ -2731,7 +2748,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 97,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Disciple's"
 		},
 		{ -- The Disciple's Torso
@@ -2739,7 +2756,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 98,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Disciple's"
 		},
 		{ -- The Disciple's Belt
@@ -2747,7 +2764,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 99,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Disciple's"
 		},
 		
@@ -2756,7 +2773,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 85,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Trang-Oul's"
 		},
 		{ -- Trang-Oul's Torso
@@ -2764,7 +2781,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 86,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Trang-Oul's"
 		},
 		{ -- Trang-Oul's Shield
@@ -2772,7 +2789,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 87,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Trang-Oul's"
 		},
 		{ -- Trang-Oul's Gloves
@@ -2780,7 +2797,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 88,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Trang-Oul's"
 		},
 		{ -- Trang-Oul's Belt
@@ -2788,7 +2805,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 89,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Trang-Oul's"
 		},
 		
@@ -2797,7 +2814,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 127,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vessel's"
 		},
 		{ -- Vessel's Shield
@@ -2805,7 +2822,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 128,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vessel's"
 		},
 		{ -- Vessel's Helmet
@@ -2813,7 +2830,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 129,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vessel's"
 		},
 		{ -- Vessel's Weapon
@@ -2821,7 +2838,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 130,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vessel's"
 		},
 		
@@ -2830,7 +2847,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 17,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vidala's"
 		},
 		{ -- Vidala's Boots
@@ -2838,7 +2855,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 18,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vidala's"
 		},
 		{ -- Vidala's Torso
@@ -2846,7 +2863,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 19,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vidala's"
 		},
 		{ -- Vidala's Amulet
@@ -2854,7 +2871,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 20,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vidala's"
 		},
 		
@@ -2863,7 +2880,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 141,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vizjerei's"
 		},
 		{ -- Vizjerei's Weapon
@@ -2871,7 +2888,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 142,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vizjerei's"
 		},
 		{ -- Vizjerei's Helmet
@@ -2879,7 +2896,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 143,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Vizjerei's"
 		},
 		
@@ -2888,7 +2905,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 137,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Wonderous"
 		},
 		{ -- Wonderous Helmet
@@ -2896,7 +2913,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 138,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Wonderous"
 		},
 		{ -- Wonderous Torso
@@ -2904,7 +2921,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 139,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Wonderous"
 		},
 		{ -- Wonderous Gloves
@@ -2912,7 +2929,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "5",
 			identified = false,
 			index = 140,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Wonderous"
 		},
 		
@@ -2926,7 +2943,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = 527,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|SoJ"
 		},
 		{ -- Bul-Kathos' Wedding Band
@@ -2934,7 +2951,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = 528,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|BK"
 		},
 		{ -- Life Everlasting
@@ -2942,7 +2959,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = 588,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Life Ev"
 		},
 		{ -- Hunter's Mark
@@ -2950,7 +2967,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = 589,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Hunt Mark"
 		},
 		{ -- Constricting Ring
@@ -2958,7 +2975,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = 541,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Constr",
 			notify = "Valuable Ring nearby!"
 		},
@@ -2967,7 +2984,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = 587,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Quintessence",
 			notify = "{red}Edyrem: {white}Now that's a rare find."
 		},
@@ -2976,7 +2993,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			quality = "7",
 			identified = false,
 			index = 532,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			suffix = "|Mara's",
 			notify = "Valuable Amulet nearby!"
 		},
@@ -2990,7 +3007,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "cm1",
 			quality = 4,
 			identified = false,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			location = { "onground", "onplayer" },
             stat = { index = { 39, 41, 43, 45 }, op = "==", value = 5 },
 			suffix = "{yellow} [5%% All Res]"
@@ -2998,7 +3015,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- High ED% magic/rare Jewels
 			code = "jew",
 			quality = "4,6",
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			location = { "onground", "onplayer" },
 			identified = false,
             stat = {{ index = 93, op = "<", value = 1 }, { index = 17, op = ">=", value = 35 }},
@@ -3007,7 +3024,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- 15% IAS and any ED% magic/rare Jewels
 			code = "jew",
 			quality = "4,6",
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			location = { "onground", "onplayer" },
 			identified = false,
             stat = {{ index = 93, op = "==", value = 15 }, { index = 17, op = ">=", value = 1 }},
@@ -3016,7 +3033,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- MF Small Charms
 			code = "cm1",
 			quality = 4,
-			filter_levels = "2,3,5,6",
+			filter_levels = "2,3,5,6,8,9",
 			location = { "onground", "onplayer" },
 			identified = false,
             stat = { index = 80, op = "==", value = 7 },
@@ -3161,7 +3178,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 
 		
-		
+			
 
 		--                                                                                             Audio
 		{ -- Audio for Ultra Runes
@@ -3194,8 +3211,12 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std", "B01", "B02", "B03" },
 			quality = "5,7",
 			grail = false,
-			filter_levels = "3,6",
+			filter_levels = "3,6,9",
 			audio = "GrailDingCharsi.wav"
+		},
+		{ -- Audio for Candy Corn and Cornucopia
+			codes = { "Ev11", "Ev12" },
+			audio = "EventItemCharsi.mp3"
 		},
 		
 		
@@ -3293,14 +3314,13 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		
 		--                                                                                        Grail Tracker
 		{ -- Grail Tracker Finder
-			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std", "B01", "B02", "B03" },
+			codes = NOT { "j00", "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std", "B01", "B02", "B03" },
 			quality = "5,7",
 			grail = false,
 			notify = "{yellow}Grail Tracker: {white}New item has appeared!",
 			suffix = " \n{yellow}! Grail !",
-			filter_levels = "3,6"
+			filter_levels = "3,6,9"
 		},
-		
 		
 		
 		
@@ -3322,6 +3342,26 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			codes = { "Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10" },
 			notify = "{red}Edyrem{white}: Mmmmm, tasty Milk and Cookies"
 		},
+		{ -- Candy Corn
+			code = "Ev11",
+			border = { 0, 35, 255, 130, 2 },
+			notify = "{orange}Candy Corn ヽ(°〇°)ﾉ"
+		},
+		{ -- Cornucopia
+			code = "Ev12",
+			border = { 0, 35, 255, 130, 2 },
+			notify = "{red}Edyrem{white}: That's a LOT of candy!"
+		},
+		{ -- Faceted Memory name fix, identified
+			code = "j00",
+			identified = true,
+			name_override = "{gold}Jewel\nFaceted Memory ({ilvl})"
+		},
+		{ -- Faceted Memory notify, unidentified
+			code = "j00",
+			identified = false,
+			notify = "{orange}That Unique Jewel looks a bit special!"
+		},
 
 		
 		
@@ -3341,7 +3381,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Normal",
 			area = "Stony Field",
 			identified = false,
-			notify = "{red}Edyrem: {white}Hey! You need that for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need that {gold}Hand Axe{white} for {purple}Evil Barrier{white} I think."
 		},
 		{ -- The Gidbinn
 			code = "g33",
@@ -3352,7 +3392,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "Rgx",
 			difficulty = "Normal",
 			area = "Chaos Sanctuary",
-			notify = "{red}Edyrem: {white}Hey! You need that for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need that Gift for {purple}Evil Barrier{white} I think."
 		},
 		{ -- Hexfire
 			code = "9sb",
@@ -3361,13 +3401,13 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Nightmare",
 			area = "Stony Field",
 			identified = false,
-			notify = "{red}Edyrem: {white}Hey! You need that for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need that {gold}Shamshir{white} for {purple}Evil Barrier{white} I think."
 		},
 		{ -- Color Dye Bottle (Crystal Blue)
 			code = "Z55",
 			difficulty = "Nightmare",
 			area = "Halls Of The Dead Level 3",
-			notify = "{red}Edyrem: {white}Hey! You need that bottle for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need that Dye Bottle for {purple}Evil Barrier{white} I think."
 		},
 		{ -- Skin of the Vipermagi
 			code = "xea",
@@ -3376,7 +3416,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Nightmare",
 			area = "Claw Viper Temple Level 2",
 			identified = false,
-			notify = "{red}Edyrem: {white}Hey! You need that for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need that {gold}Serpentskin Armor{white} for {purple}Evil Barrier{white} I think."
 		},
 		{ -- Arm of King Leoric
 			code = "9bw",
@@ -3385,7 +3425,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Nightmare",
 			area = "Disused Reliquary",
 			identified = false,
-			notify = "{red}Edyrem: {white}Hey! You need that for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need {gold}Tomb Wand{white} that for {purple}Evil Barrier{white} I think."
 		},
 		{ -- Gem Vein
 			code = "y33",
@@ -3397,7 +3437,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "S01",
 			difficulty = "Nightmare",
 			area = "Chaos Sanctuary",
-			notify = "{red}Edyrem: {white}Hey! You need 1 of those Shards for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need 1 of those Soul Shards for {purple}Evil Barrier{white} I think."
 		},
 		{ -- Unrelenting Will
 			code = "9ts",
@@ -3406,7 +3446,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Nightmare",
 			area = "Abaddon",
 			identified = false,
-			notify = "{red}Edyrem: {white}Hey! You need that for {purple}Evil Barrier{white} I think."
+			notify = "{red}Edyrem: {white}Hey! You need that {gold}Harpoon{white} for {purple}Evil Barrier{white} I think."
 		},
 		{ -- Socket Remover
 			code = "b64",
