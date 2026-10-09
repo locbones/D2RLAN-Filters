@@ -25,7 +25,7 @@ return {
       --prefix = "C=[{code}] R=[{rarity}] In=[{index}] IT=[{itype}] IL=[{ilvl}]",
       --suffix = "[{quality}]",
       --suffix = "[{rarity}]",
-      suffix = "[{index}]",
+      --suffix = "[{index}]",
       --suffix = "[{ilvl}]",
       --prefix = "Sockets[{maxsock}]",
       --filter_levels = "1,2,3"
