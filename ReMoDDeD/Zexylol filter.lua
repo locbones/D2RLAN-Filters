@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v1.43
+--- Filter Title: Zexylol's Hardfilter v2.0
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques Max stat is done, all stats <70% hidden (outside of towns)!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -9,26 +9,62 @@ return {
   filter_titles = {"Endgame", "Gearing", "Leveling",},
   allowOverrides = true,
   rules = {
-    
-    {--Rules Debugg.
+        { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
+            codes = "allitems",
+            location = { "onground", "onplayer", "equipped", "atvendor" },
+            itype = { 5, 6, 10, 12, 45, 50, 58, 82, 83, 84 },
+            suffix = " ({ilvl})",
+        },
+  --Rules Debugg.
+    {
       codes = "allitems",
       location = {"onground", "onplayer","equipped"},
-      --prefix = "S21={stat=(21)}|S22={stat=(22)}|",
+      --prefix = "S388={stat=(83,2)}|S20={stat=(284)}|",
       --prefix = "[{index}]",
       --prefix = "[{code}]",
       --prefix = "C=[{code}] R=[{rarity}] In=[{index}] IT=[{itype}] IL=[{ilvl}]",
       --suffix = "[{quality}]",
       --suffix = "[{rarity}]",
-      --suffix = "[{index}]",
+      suffix = "[{index}]",
       --suffix = "[{ilvl}]",
       --prefix = "Sockets[{maxsock}]",
+      --filter_levels = "1,2,3"
     },
+  --[[Rules Event Items
+    {--Snowballs
+      codes = {"Ev00", "Ev01", "Ev02"},
+      location = {"onground"},
+      notify = "ÿc;Throwing time!!",
+      filter_levels = "1,2,3"
+    },
+    {--Cube items
+      codes = {"Ev03", "Ev04"},
+      location = {"onground"},
+      notify = "ÿc;Cubing!",
+      filter_levels = "1,2,3"
+    },
+    {--Potions
+      codes = {"Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10"},
+      location = {"onground"},
+      notify = "ÿc;Drink me!",
+      filter_levels = "1,2,3"
+    },
+    {--Thanksgiving Items
+      codes = {"Ev1", "Ev2", "Ev3", "Ev4", "Ev5", "Ev6", "Ev7", "Ev8", "elx"},
+      location = {"onground"},
+      notify = "ÿc;YUMMY PIE!",
+      filter_levels = "1,2,3"
+    },]]--
+  --Rules 1-9 shows sockets, runewords, tempered, crafted, low/mid/hi/ultra runes, tempering souls.
+  
+  --Rules Sockets.
     {--Display socket count in green if maxed [x]
       codes = "allitems",
       location = {"onground", "onplayer", "equipped", "atvendor"},
       maxsock = true,
       itype = {10, 12, 45, 50 },
       prefix_desc = "{green} [Sockets: {sockets}/{maxsock}] \n",
+      filter_levels = "1,2,3"
     },
     {--Display socket count in grey if not maxed [x]
       codes = "allitems",
@@ -36,34 +72,45 @@ return {
       maxsock = false,
       itype = {10, 12, 45, 50 },
       prefix_desc = "{gray} [Sockets: {sockets}/{maxsock}] \n",
+      filter_levels = "1,2,3"
     },
+
+  --Rules Item Tags
     {--Display Runewords tag.
       codes = "allitems",
       location = {"onground", "onplayer", "equipped", "atvendor"},
       runeword = true,
       suffix = "\n{red}Runeword",
+      hide = false,
+      filter_levels = "1,2,3"
     },
     {--Display Temepered tag.
       codes = "allitems",
       quality = "tempered",
       suffix = "\n{red}Tempered",
       location = {"onground", "onplayer", "equipped", "atvendor"},
+      hide = false,
+      filter_levels = "1,2,3"
     },
     {--Display Crafted tag.
       codes = "allitems",
       quality = "crafted",
       suffix = "\n{red} Crafted",
       location = {"onground", "onplayer", "equipped", "atvendor"},
+      hide = false,
+      filter_levels = "1,2,3"
     },
     {--Display Low rune name.
       codes = {"r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r10", "r11"},
       suffix = "\n{gray} Low Points Rune",
+      --notify = "{gray} Low Rune Points!", --Disabled, remove --in fron of notify to activate.
       hide = false,
       filter_levels = "1,2,3"
     },
     {--Display Mid rune name.
       codes = {"r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22"},
       suffix = "\n{green} Mid Points Rune",
+      --notify = "{green} Mid Rune Points!", --Disabled, remove --in fron of notify to activate.
       hide = false,
       filter_levels = "1,2,3"
     },
@@ -71,6 +118,8 @@ return {
       codes = {"r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33"},
       suffix = "\n{red} High Points Rune",
       notify = "{red} High Rune Points!",
+      hide = false,
+      filter_levels = "1,2,3"
     },
     {--Display Ultra rune name with notify.
       codes = {"r34", "r35", "r36"},
@@ -78,23 +127,29 @@ return {
       suffix = "\n Ultra Points Rune",
       notify = "{pink} Ultra Rune Points!",
       border = {255,0,0},
+      hide = false,
+      filter_levels = "1,2,3"
     },
     {--Display Ultra Enhancment crystals
       codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
       notify = "{red} Ultra Enhancement Crystal",
       name_override = "{red} Ultra Enhancement Crystal",
       border = {255,0,0},
+      filter_levels = "1,2,3",
     },
     {--Color Dyes
       codes = {"z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69","z70", "z71", "z72", "z73"},
       border = { 255, 255, 255},
     },
     {--Display DemonTempering name with notify.
-      codes = {"C00", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34", "C35", "C36", "C37"},
+      codes = {"C00", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", 
+      "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", 
+      "C32", "C33", "C34", "C35", "C36", "C37"},
       name_style = "Toxic Fog",
       suffix = "\n Temepered Mats!",
       notify = "{pink} Tempered Material!",
       border = {255,0,0},
+      filter_levels = "1,2,3"
     },
     { -- Display Unique Small Charm Color
       codes = "allitems",
@@ -125,10 +180,13 @@ return {
       quality = 5,
       border = {000, 255, 000},
     },
+  --Rules 10-11 Hide Gold.
+
     {--Hide Gold <1000, level 50-98
       code = "gld",
       stat = {index = 14, op = "<=", value = 1000 }, --Goldstack under 1000 is hidden.
       pstat = {index = 12, op = ">=", value = 50 }, --Level above 50.
+      location = {"onground", "dropping"},
       hide = true, 
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2"
@@ -137,180 +195,678 @@ return {
       code = "gld",
       stat = {index = 14, op = "<=", value = 5000 }, --Goldstack under 5000 is hidden.
       pstat = {index = 12, op = ">=", value = 99 }, --Level above 99.
+      location = {"onground", "dropping"},
       hide = true, 
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1"
     },
-    {--Hide all Inferior, Normal, Magic and Rare Normal Weapons
-      codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", "mpi", "brn", "mxb", "hal", "spr", "Bm7", "crs", "lxb", "mst", "2hs", "cst", "scp", "lst", "Pm1", "bsd", "bwn", "gix", "tax", "ywn", "wsd", "spc", "wnd", "dir", "ssd", "gsc", "whm", "Bf4", "wsp", "axe", "ssp", "bld", "clb", "sbw", "am5", "clw", "btx", "sst", "am1", "Bf1", "ktr", "sbb", "Bm1", "swb", "skr", "tsp", "spt", "vou", "2ax", "bal", "am4", "bst", "kri", "Ds1", "lsd", "bsw", "clm", "ob4", "gwn", "ob2", "ob1", "bkf", "tkf", "ob3", "axf", "sbr", "fla", "flc", "pil", "bax", "wax", "lbb", "scm", "hbw", "hax", "lax", "92h", "k01", "gsd", "flb", "gax", "pik", "wst", "scy", "am3", "bar", "hxb", "Ds4", "wsc", "lbw", "tri", "pax", "cbw"},
-      quality = "1,2,4,6",
+
+  --Rule 12-17 Hide all Inferior and normal types of weapons.
+
+    {--Hide all Inferior, Normal Weapons
+      codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", 
+      "mpi", "brn", "mxb", "hal", "spr", "Bm7", "crs", "lxb", "mst", "2hs", "cst", "scp", "lst", "Pm1", "bsd", "bwn", "gix", 
+      "tax", "ywn", "wsd", "spc", "wnd", "dir", "ssd", "gsc", "whm", "Bf4", "wsp", "axe", "ssp", "bld", "clb", "sbw", "am5", 
+      "clw", "btx", "sst", "am1", "Bf1", "ktr", "sbb", "Bm1", "swb", "skr", "tsp", "spt", "vou", "2ax", "bal", "am4", "bst", 
+      "kri", "Ds1", "lsd", "bsw", "clm", "ob4", "gwn", "ob2", "ob1", "bkf", "tkf", "ob3", "axf", "sbr", "fla", "flc", "pil", 
+      "bax", "wax", "lbb", "scm", "hbw", "hax", "lax", "92h", "k01", "gsd", "flb", "gax", "pik", "wst", "scy", "am3", "bar", 
+      "hxb", "Ds4", "wsc", "lbw", "tri", "pax", "cbw"},
+      quality = "1",
       rarity = "0",
       runeword = false,
+      location = {"onground", "dropping"},
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2,3"
     },
-    {--Hide all Inferior, Normal, Magic and Rare Exceptional Weapons
+    {--Hide all Inferior, Exceptional Weapons
+      codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", 
+      "9bw", "9bt", "8ls", "am7", "9tr", "9sm", "9wn", "8lx", "Bf5", "9cr", "9sr", "9wa", "9pa", "8cb", "9m9", "8sb", "9fl", 
+      "9sc", "9kr", "9s9", "9h9", "9wd", "8l8", "9ws", "9ja", "9xf", "8cs", "9bs", "9gs", "8hb", "9b7", "am6", "9p9", "9qs", 
+      "9gi", "92h", "ob6", "9ss", "9lw", "9la", "8ws", "9fb", "9ma", "9yw", "Pm2", "9bk", "9tk", "am8", "9ha", "8mx", "9qr", 
+      "8s8", "Bm5", "oba", "k02", "9gw", "9mp", "Bf2", "9cm", "9vo", "ama", "9sb", "9b8", "ob9", "8lw", "9br", "8hx", "9s8", 
+      "9di", "9ar", "9gm", "9pi", "9tw", "9ls", "8rx", "ob7", "ob8", "9cl", "9gd", "8lb", "8bs", "9ba", "9wh", "am9", "9wc", 
+      "9b9", "9ga", "9ts", "Bm2", "Ds2", "Ds5"},
+      quality = "1",
+      rarity = "1",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Inferior, Elite Weapons
+      codes = {"l13", "7sp", "7ts", "7o7", "Ss2", "l17", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", 
+      "7bs", "l14", "7qs", "Ds3", "Bm9", "6ls", "Ss3", "6lx", "6s7", "Pm3", "7gs", "6sb", "7bk", "7xf", "amd", "7st", "7pi", 
+      "7gw", "7sr", "7vo", "l15", "72a", "7di", "obd", "7la", "7ma", "7lw", "7h7", "7gm", "Bm6", "7fl", "6lb", "k03", "7cl", 
+      "6ss", "7wd", "7ba", "7s7", "7tw", "ame", "7p7", "7sb", "7fb", "6lw", "7wh", "7yw", "obc", "7ta", "obb", "7sc", "amf", 
+      "7gi", "6mx", "Bm3", "7ax", "7wb", "Bf3", "7mt", "6hb", "7ss", "7cs", "7kr", "7tr", "6ws", "7s8", "Ds6", "amc", "7bt", 
+      "7b7", "7wc", "Ss4", "6l7", "6rx", "l16", "7b8", "7mp", "Bf6", "7ls", "7qr", "6cb", "7m7", "7cm", "7pa", "7gd", "7bw", 
+      "7tk", "7ja", "7br", "obf", "7wa", "7gl", "6bs", "7ga", "7ha", "7ar", "7ws", "6cs", "72h", "7fc", "Ss1"},
+      quality = "1",
+      rarity = "2",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Normal, Normal Weapons
+      codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", 
+      "mpi", "brn", "mxb", "hal", "spr", "Bm7", "crs", "lxb", "mst", "2hs", "cst", "scp", "lst", "Pm1", "bsd", "bwn", "gix", 
+      "tax", "ywn", "wsd", "spc", "wnd", "dir", "ssd", "gsc", "whm", "Bf4", "wsp", "axe", "ssp", "bld", "clb", "sbw", "am5", 
+      "clw", "btx", "sst", "am1", "Bf1", "ktr", "sbb", "Bm1", "swb", "skr", "tsp", "spt", "vou", "2ax", "bal", "am4", "bst", 
+      "kri", "Ds1", "lsd", "bsw", "clm", "ob4", "gwn", "ob2", "ob1", "bkf", "tkf", "ob3", "axf", "sbr", "fla", "flc", "pil", 
+      "bax", "wax", "lbb", "scm", "hbw", "hax", "lax", "92h", "k01", "gsd", "flb", "gax", "pik", "wst", "scy", "am3", "bar", 
+      "hxb", "Ds4", "wsc", "lbw", "tri", "pax", "cbw"},
+      quality = "2",
+      rarity = "0",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Normal, Exceptional Weapons
       codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", "9bw", "9bt", "8ls", "am7", "9tr", "9sm", "9wn", "8lx", "Bf5", "9cr", "9sr", "9wa", "9pa", "8cb", "9m9", "8sb", "9fl", "9sc", "9kr", "9s9", "9h9", "9wd", "8l8", "9ws", "9ja", "9xf", "8cs", "9bs", "9gs", "8hb", "9b7", "am6", "9p9", "9qs", "9gi", "92h", "ob6", "9ss", "9lw", "9la", "8ws", "9fb", "9ma", "9yw", "Pm2", "9bk", "9tk", "am8", "9ha", "8mx", "9qr", "8s8", "Bm5", "oba", "k02", "9gw", "9mp", "Bf2", "9cm", "9vo", "ama", "9sb", "9b8", "ob9", "8lw", "9br", "8hx", "9s8", "9di", "9ar", "9gm", "9pi", "9tw", "9ls", "8rx", "ob7", "ob8", "9cl", "9gd", "8lb", "8bs", "9ba", "9wh", "am9", "9wc", "9b9", "9ga", "9ts", "Bm2", "Ds2", "Ds5"},
-      quality = "1,2,4,6",
+      quality = "2",
       rarity = "1",
       runeword = false,
+      location = {"onground", "dropping"},
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2,3"
     },
-    {--Hide all Inferior, Normal, Magic and Rare Elite Weapons
-      codes = {"l13", "7sp", "7ts", "7o7", "Ss2", "l17", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", "7bs", "l14", "7qs", "Ds3", "Bm9", "6ls", "Ss3", "6lx", "6s7", "Pm3", "7gs", "6sb", "7bk", "7xf", "amd", "7st", "7pi", "7gw", "7sr", "7vo", "l15", "72a", "7di", "obd", "7la", "7ma", "7lw", "7h7", "7gm", "Bm6", "7fl", "6lb", "k03", "7cl", "6ss", "7wd", "7ba", "7s7", "7tw", "ame", "7p7", "7sb", "7fb", "6lw", "7wh", "7yw", "obc", "7ta", "obb", "7sc", "amf", "7gi", "6mx", "Bm3", "7ax", "7wb", "Bf3", "7mt", "6hb", "7ss", "7cs", "7kr", "7tr", "6ws", "7s8", "Ds6", "amc", "7bt", "7b7", "7wc", "Ss4", "6l7", "6rx", "l16", "7b8", "7mp", "Bf6", "7ls", "7qr", "6cb", "7m7", "7cm", "7pa", "7gd", "7bw", "7tk", "7ja", "7br", "obf", "7wa", "7gl", "6bs", "7ga", "7ha", "7ar", "7ws", "6cs", "72h", "7fc", "Ss1", "l18"},
-      quality = "1,2,4,6",
+    {--Hide all Normal, Elite Weapons
+      codes = {"7sp", "7ts", "7o7", "Ss2", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", "7bs", "7qs", 
+      "Ds3", "Bm9", "6ls", "Ss3", "6lx", "6s7", "Pm3", "7gs", "6sb", "7bk", "7xf", "amd", "7st", "7pi", "7gw", "7sr", "7vo", 
+      "72a", "7di", "obd", "7la", "7ma", "7lw", "7h7", "7gm", "Bm6", "7fl", "6lb", "k03", "7cl", "6ss", "7wd", "7ba", "7s7", 
+      "7tw", "ame", "7p7", "7sb", "7fb", "6lw", "7wh", "7yw", "obc", "7ta", "obb", "7sc", "amf", "7gi", "6mx", "Bm3", "7ax", 
+      "7wb", "Bf3", "7mt", "6hb", "7ss", "7cs", "7kr", "7tr", "6ws", "7s8", "Ds6", "amc", "7bt", "7b7", "7wc", "Ss4", "6l7", 
+      "6rx", "7b8", "7mp", "Bf6", "7ls", "7qr", "6cb", "7m7", "7cm", "7pa", "7gd", "7bw", "7tk", "7ja", "7br", "obf", "7wa", 
+      "7gl", "6bs", "7ga", "7ha", "7ar", "7ws", "6cs", "72h", "7fc", "Ss1", "l13", "l17", "l14", "l15", "l16"},
+      quality = "2",
       rarity = "2",
       runeword = false,
+      location = {"onground", "dropping"},
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2,3"
     },
-    {--Hide all Inferior, Normal, Magic and Rare Normal Armors
-      codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", "bhm", "ba2", "ba5", "dr5", "plt", "msk", "tgl", "gth", "Zc1", "pa1", "ba1", "ne5", "ne1", "Vg4", "Bb1", "Oa1", "Wp1", "ba3", "dr2", "Na1", "Ag1", "Vg1", "Ag4", "bsh", "Pc1", "ci1", "Bb4", "ci0", "Ca1", "Gg1", "Sa1", "Ca4", "ba4", "Ab1", "dr4", "dr3", "scl", "hbt", "Bp1", "Sa4", "ne3", "ful", "Ab4", "fhl", "cap", "spk", "lrg", "fld", "stu", "mbt", "ltp", "buc", "mbl", "crn", "sml", "skp", "ne4", "vbl", "pa2", "lbt", "tbl", "Bp4", "tow", "hgl", "mgl", "brs", "spl", "tbt", "hbl", "pa4", "gts", "vbt", "lgl", "lea", "lbl"},
-      quality = "1,2,4,6",
+
+  --[[Rule 18-19 Hides Superior Weapons that is Normal och Exceptional Rarity.
+
+    Disabled due to low level req might be needed.
+
+    {--Hide all Superior, Normal Weapons
+      codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", 
+      "mpi", "brn", "mxb", "hal", "spr", "Bm7", "crs", "lxb", "mst", "2hs", "cst", "scp", "lst", "Pm1", "bsd", "bwn", "gix", 
+      "tax", "ywn", "wsd", "spc", "wnd", "dir", "ssd", "gsc", "whm", "Bf4", "wsp", "axe", "ssp", "bld", "clb", "sbw", "am5", 
+      "clw", "btx", "sst", "am1", "Bf1", "ktr", "sbb", "Bm1", "swb", "skr", "tsp", "spt", "vou", "2ax", "bal", "am4", "bst", 
+      "kri", "Ds1", "lsd", "bsw", "clm", "ob4", "gwn", "ob2", "ob1", "bkf", "tkf", "ob3", "axf", "sbr", "fla", "flc", "pil", 
+      "bax", "wax", "lbb", "scm", "hbw", "hax", "lax", "92h", "k01", "gsd", "flb", "gax", "pik", "wst", "scy", "am3", "bar", 
+      "hxb", "Ds4", "wsc", "lbw", "tri", "pax", "cbw"},
+      quality = "3",
       rarity = "0",
       runeword = false,
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2,3"
     },
-    {--Hide all Inferior, Normal, Magic and Rare Exceptional Armors
-      codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", "ztb", "zvb", "Bb2", "dr7", "Bp2", "ba6", "dr9", "xtg", "xvb", "Vg5", "xvg", "ba9", "xml", "ba7", "Wp2", "Zc2", "xmb", "pa6", "xts", "ne8", "dr8", "xuc", "xpl", "xlt", "Ca5", "ne6", "Ab5", "dra", "Bp5", "Ab2", "xar", "xit", "xsh", "xhn", "Gg2", "dr6", "ne9", "xld", "xtb", "ba8", "pa7", "pa9", "pa8", "xap", "xrn", "xrs", "xhm", "Zc5", "xmg", "Vg2", "Pc2", "nea", "baa", "xlb", "xrg", "xea", "ne7", "xth", "xtu", "xcl", "xpk", "ci2", "xng", "Oa2", "xtp", "zlb", "zhb", "Bb5"},
-      quality = "1,2,4,6",
+    {--Hide all Superior, Exceptional Weapons
+      codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", 
+      "9bw", "9bt", "8ls", "am7", "9tr", "9sm", "9wn", "8lx", "Bf5", "9cr", "9sr", "9wa", "9pa", "8cb", "9m9", "8sb", "9fl", 
+      "9sc", "9kr", "9s9", "9h9", "9wd", "8l8", "9ws", "9ja", "9xf", "8cs", "9bs", "9gs", "8hb", "9b7", "am6", "9p9", "9qs", 
+      "9gi", "92h", "ob6", "9ss", "9lw", "9la", "8ws", "9fb", "9ma", "9yw", "Pm2", "9bk", "9tk", "am8", "9ha", "8mx", "9qr", 
+      "8s8", "Bm5", "oba", "k02", "9gw", "9mp", "Bf2", "9cm", "9vo", "ama", "9sb", "9b8", "ob9", "8lw", "9br", "8hx", "9s8", 
+      "9di", "9ar", "9gm", "9pi", "9tw", "9ls", "8rx", "ob7", "ob8", "9cl", "9gd", "8lb", "8bs", "9ba", "9wh", "am9", "9wc", 
+      "9b9", "9ga", "9ts", "Bm2", "Ds2", "Ds5"},
+      quality = "3",
       rarity = "1",
       runeword = false,
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2,3"
+    },]]--
+
+  --Rule 20-25 Hide all Magic and Rare Weapons that is Normal, Exceptional or Elite.
+
+    {--Hide all Magic, Normal Weapons
+      codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", 
+      "mpi", "brn", "mxb", "hal", "spr", "Bm7", "crs", "lxb", "mst", "2hs", "cst", "scp", "lst", "Pm1", "bsd", "bwn", "gix", 
+      "tax", "ywn", "wsd", "spc", "wnd", "dir", "ssd", "gsc", "whm", "Bf4", "wsp", "axe", "ssp", "bld", "clb", "sbw", "am5", 
+      "clw", "btx", "sst", "am1", "Bf1", "ktr", "sbb", "Bm1", "swb", "skr", "tsp", "spt", "vou", "2ax", "bal", "am4", "bst", 
+      "kri", "Ds1", "lsd", "bsw", "clm", "ob4", "gwn", "ob2", "ob1", "bkf", "tkf", "ob3", "axf", "sbr", "fla", "flc", "pil", 
+      "bax", "wax", "lbb", "scm", "hbw", "hax", "lax", "92h", "k01", "gsd", "flb", "gax", "pik", "wst", "scy", "am3", "bar", 
+      "hxb", "Ds4", "wsc", "lbw", "tri", "pax", "cbw"},
+      quality = "4",
+      rarity = "0",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
     },
-    {--Hide all Inferior, Normal, Magic and Rare Elite Armors
-      codes = {"nef", "utc", "paf", "pab", "uul", "l09", "l04", "l01", "Bp6", "pae", "l03", "utp", "utg", "baf", "ulc", "ci3", "l08", "ned", "uh9", "uhm", "Pc3", "Na3", "Ca3", "Zc6", "Sa3", "upk", "uhl", "pad", "usk", "utu", "ula", "Vg6", "pac", "ukp", "upl", "Gg3", "drc", "neb", "uvb", "l12", "uvc", "uap", "uts", "Ab3", "utb", "drd", "Ca6", "l06", "l02", "Ag6", "l07", "Sa6", "bab", "urg", "ult", "l11", "urn", "uld", "ung", "Na6", "drb", "uhb", "uui", "ucl", "Vg3", "uow", "uhn", "uar", "umg", "neg", "uhg", "Ag3", "umb", "bac", "drf", "uvg", "ulm", "bae", "ush", "uit", "nee", "uea", "uhc", "umc", "dre", "Ab6", "Zc3", "ulb", "l10", "uml", "Bb6", "Bb3", "ulg", "uth", "l05", "Bp3", "bad", "urs", "Wp3", "uuc", "Oa3"},
-      quality = "1,2,4,6",
+    {--Hide all Magic, Exceptional Weapons
+      codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", 
+      "9bw", "9bt", "8ls", "am7", "9tr", "9sm", "9wn", "8lx", "Bf5", "9cr", "9sr", "9wa", "9pa", "8cb", "9m9", "8sb", "9fl", 
+      "9sc", "9kr", "9s9", "9h9", "9wd", "8l8", "9ws", "9ja", "9xf", "8cs", "9bs", "9gs", "8hb", "9b7", "am6", "9p9", "9qs", 
+      "9gi", "92h", "ob6", "9ss", "9lw", "9la", "8ws", "9fb", "9ma", "9yw", "Pm2", "9bk", "9tk", "am8", "9ha", "8mx", "9qr", 
+      "8s8", "Bm5", "oba", "k02", "9gw", "9mp", "Bf2", "9cm", "9vo", "ama", "9sb", "9b8", "ob9", "8lw", "9br", "8hx", "9s8", 
+      "9di", "9ar", "9gm", "9pi", "9tw", "9ls", "8rx", "ob7", "ob8", "9cl", "9gd", "8lb", "8bs", "9ba", "9wh", "am9", "9wc", 
+      "9b9", "9ga", "9ts", "Bm2", "Ds2", "Ds5"},
+      quality = "4",
+      rarity = "1",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Magic, Elite Weapons
+      codes = {"l13", "7sp", "7ts", "7o7", "Ss2", "l17", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", 
+      "7bs", "l14", "7qs", "Ds3", "Bm9", "6ls", "Ss3", "6lx", "6s7", "Pm3", "7gs", "6sb", "7bk", "7xf", "amd", "7st", "7pi", 
+      "7gw", "7sr", "7vo", "l15", "72a", "7di", "obd", "7la", "7ma", "7lw", "7h7", "7gm", "Bm6", "7fl", "6lb", "k03", "7cl", 
+      "6ss", "7wd", "7ba", "7s7", "7tw", "ame", "7p7", "7sb", "7fb", "6lw", "7wh", "7yw", "obc", "7ta", "obb", "7sc", "amf", 
+      "7gi", "6mx", "Bm3", "7ax", "7wb", "Bf3", "7mt", "6hb", "7ss", "7cs", "7kr", "7tr", "6ws", "7s8", "Ds6", "amc", "7bt", 
+      "7b7", "7wc", "Ss4", "6l7", "6rx", "l16", "7b8", "7mp", "Bf6", "7ls", "7qr", "6cb", "7m7", "7cm", "7pa", "7gd", "7bw", 
+      "7tk", "7ja", "7br", "obf", "7wa", "7gl", "6bs", "7ga", "7ha", "7ar", "7ws", "6cs", "72h", "7fc", "Ss1"},
+      quality = "4",
       rarity = "2",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Rare, Normal Weapons
+      codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", 
+      "mpi", "brn", "mxb", "hal", "spr", "Bm7", "crs", "lxb", "mst", "2hs", "cst", "scp", "lst", "Pm1", "bsd", "bwn", "gix", 
+      "tax", "ywn", "wsd", "spc", "wnd", "dir", "ssd", "gsc", "whm", "Bf4", "wsp", "axe", "ssp", "bld", "clb", "sbw", "am5", 
+      "clw", "btx", "sst", "am1", "Bf1", "ktr", "sbb", "Bm1", "swb", "skr", "tsp", "spt", "vou", "2ax", "bal", "am4", "bst", 
+      "kri", "Ds1", "lsd", "bsw", "clm", "ob4", "gwn", "ob2", "ob1", "bkf", "tkf", "ob3", "axf", "sbr", "fla", "flc", "pil", 
+      "bax", "wax", "lbb", "scm", "hbw", "hax", "lax", "92h", "k01", "gsd", "flb", "gax", "pik", "wst", "scy", "am3", "bar", 
+      "hxb", "Ds4", "wsc", "lbw", "tri", "pax", "cbw"},
+      quality = "6",
+      rarity = "0",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Rare, Exceptional Weapons
+      codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", 
+      "9bw", "9bt", "8ls", "am7", "9tr", "9sm", "9wn", "8lx", "Bf5", "9cr", "9sr", "9wa", "9pa", "8cb", "9m9", "8sb", "9fl", 
+      "9sc", "9kr", "9s9", "9h9", "9wd", "8l8", "9ws", "9ja", "9xf", "8cs", "9bs", "9gs", "8hb", "9b7", "am6", "9p9", "9qs", 
+      "9gi", "92h", "ob6", "9ss", "9lw", "9la", "8ws", "9fb", "9ma", "9yw", "Pm2", "9bk", "9tk", "am8", "9ha", "8mx", "9qr", 
+      "8s8", "Bm5", "oba", "k02", "9gw", "9mp", "Bf2", "9cm", "9vo", "ama", "9sb", "9b8", "ob9", "8lw", "9br", "8hx", "9s8", 
+      "9di", "9ar", "9gm", "9pi", "9tw", "9ls", "8rx", "ob7", "ob8", "9cl", "9gd", "8lb", "8bs", "9ba", "9wh", "am9", "9wc", 
+      "9b9", "9ga", "9ts", "Bm2", "Ds2", "Ds5"},
+      quality = "6",
+      rarity = "1",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Rare, Elite Weapons
+      codes = {"l13", "7sp", "7ts", "7o7", "Ss2", "l17", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", 
+      "7bs", "l14", "7qs", "Ds3", "Bm9", "6ls", "Ss3", "6lx", "6s7", "Pm3", "7gs", "6sb", "7bk", "7xf", "amd", "7st", "7pi", 
+      "7gw", "7sr", "7vo", "l15", "72a", "7di", "obd", "7la", "7ma", "7lw", "7h7", "7gm", "Bm6", "7fl", "6lb", "k03", "7cl", 
+      "6ss", "7wd", "7ba", "7s7", "7tw", "ame", "7p7", "7sb", "7fb", "6lw", "7wh", "7yw", "obc", "7ta", "obb", "7sc", "amf", 
+      "7gi", "6mx", "Bm3", "7ax", "7wb", "Bf3", "7mt", "6hb", "7ss", "7cs", "7kr", "7tr", "6ws", "7s8", "Ds6", "amc", "7bt", 
+      "7b7", "7wc", "Ss4", "6l7", "6rx", "l16", "7b8", "7mp", "Bf6", "7ls", "7qr", "6cb", "7m7", "7cm", "7pa", "7gd", "7bw", 
+      "7tk", "7ja", "7br", "obf", "7wa", "7gl", "6bs", "7ga", "7ha", "7ar", "7ws", "6cs", "72h", "7fc", "Ss1"},
+      quality = "6",
+      rarity = "2",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+
+  --Rule 26-31 Hide all Inferior and normal types of Armors.
+
+    {--Hide all Inferior, Normal Armors
+      codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", 
+      "bhm", "ba2", "ba5", "dr5", "plt", "msk", "tgl", "gth", "Zc1", "pa1", "ba1", "ne5", "ne1", "Vg4", "Bb1", "Oa1", "Wp1", 
+      "ba3", "dr2", "Na1", "Ag1", "Vg1", "Ag4", "bsh", "Pc1", "ci1", "Bb4", "ci0", "Ca1", "Gg1", "Sa1", "Ca4", "ba4", "Ab1", 
+      "dr4", "dr3", "scl", "hbt", "Bp1", "Sa4", "ne3", "ful", "Ab4", "fhl", "cap", "spk", "lrg", "fld", "stu", "mbt", "ltp", 
+      "buc", "mbl", "crn", "sml", "skp", "ne4", "vbl", "pa2", "lbt", "tbl", "Bp4", "tow", "hgl", "mgl", "brs", "spl", "tbt", 
+      "hbl", "pa4", "gts", "vbt", "lgl", "lea", "lbl"},
+      quality = "1",
+      rarity = "0",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Inferior, Exceptional Armors
+      codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
+      "ztb", "zvb", "Bb2", "dr7", "Bp2", "ba6", "dr9", "xtg", "xvb", "Vg5", "xvg", "ba9", "xml", "ba7", "Wp2", "Zc2", "xmb", 
+      "pa6", "xts", "ne8", "dr8", "xuc", "xpl", "xlt", "Ca5", "ne6", "Ab5", "dra", "Bp5", "Ab2", "xar", "xit", "xsh", "xhn", 
+      "Gg2", "dr6", "ne9", "xld", "xtb", "ba8", "pa7", "pa9", "pa8", "xap", "xrn", "xrs", "xhm", "Zc5", "xmg", "Vg2", "Pc2", 
+      "nea", "baa", "xlb", "xrg", "xea", "ne7", "xth", "xtu", "xcl", "xpk", "ci2", "xng", "Oa2", "xtp", "zlb", "zhb", "Bb5"},
+      quality = "1",
+      rarity = "1",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Inferior, Elite Armors
+      codes = {"nef", "utc", "paf", "pab", "uul", "l09", "l04", "l01", "Bp6", "pae", "l03", "utp", "utg", "baf", "ulc", 
+      "ci3", "l08", "ned", "uh9", "uhm", "Pc3", "Na3", "Ca3", "Zc6", "Sa3", "upk", "uhl", "pad", "usk", "utu", "ula", "Vg6", 
+      "pac", "ukp", "upl", "Gg3", "drc", "neb", "uvb", "l12", "uvc", "uap", "uts", "Ab3", "utb", "drd", "Ca6", "l06", "l02", 
+      "Ag6", "l07", "Sa6", "bab", "urg", "ult", "l11", "urn", "uld", "ung", "Na6", "drb", "uhb", "uui", "ucl", "Vg3", "uow", 
+      "uhn", "uar", "umg", "neg", "uhg", "Ag3", "umb", "bac", "drf", "uvg", "ulm", "bae", "ush", "uit", "nee", "uea", "uhc", 
+      "umc", "dre", "Ab6", "Zc3", "ulb", "l10", "uml", "Bb6", "Bb3", "ulg", "uth", "l05", "Bp3", "bad", "urs", "Wp3", "uuc", 
+      "Oa3"},
+      quality = "1",
+      rarity = "2",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Normal, Normal Armors
+      codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", 
+      "bhm", "ba2", "ba5", "dr5", "plt", "msk", "tgl", "gth", "Zc1", "pa1", "ba1", "ne5", "ne1", "Vg4", "Bb1", "Oa1", "Wp1", 
+      "ba3", "dr2", "Na1", "Ag1", "Vg1", "Ag4", "bsh", "Pc1", "ci1", "Bb4", "ci0", "Ca1", "Gg1", "Sa1", "Ca4", "ba4", "Ab1", 
+      "dr4", "dr3", "scl", "hbt", "Bp1", "Sa4", "ne3", "ful", "Ab4", "fhl", "cap", "spk", "lrg", "fld", "stu", "mbt", "ltp", 
+      "buc", "mbl", "crn", "sml", "skp", "ne4", "vbl", "pa2", "lbt", "tbl", "Bp4", "tow", "hgl", "mgl", "brs", "spl", "tbt", 
+      "hbl", "pa4", "gts", "vbt", "lgl", "lea", "lbl"},
+      quality = "2",
+      rarity = "0",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Normal, Exceptional Armors
+      codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
+      "ztb", "zvb", "Bb2", "dr7", "Bp2", "ba6", "dr9", "xtg", "xvb", "Vg5", "xvg", "ba9", "xml", "ba7", "Wp2", "Zc2", "xmb", 
+      "pa6", "xts", "ne8", "dr8", "xuc", "xpl", "xlt", "Ca5", "ne6", "Ab5", "dra", "Bp5", "Ab2", "xar", "xit", "xsh", "xhn", 
+      "Gg2", "dr6", "ne9", "xld", "xtb", "ba8", "pa7", "pa9", "pa8", "xap", "xrn", "xrs", "xhm", "Zc5", "xmg", "Vg2", "Pc2", 
+      "nea", "baa", "xlb", "xrg", "xea", "ne7", "xth", "xtu", "xcl", "xpk", "ci2", "xng", "Oa2", "xtp", "zlb", "zhb", "Bb5"},
+      quality = "2",
+      rarity = "1",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Normal, Elite Armors
+      codes = {"nef", "utc", "paf", "pab", "uul", "l04", "Bp6", "pae", "utp", "utg", "baf", "ulc", "ci3", "ned", "uh9", 
+      "uhm", "Pc3", "Na3", "Ca3", "Zc6", "Sa3", "upk", "uhl", "pad", "usk", "utu", "ula", "Vg6", "pac", "ukp", "upl", "Gg3", 
+      "drc", "neb", "uvb", "uvc", "uap", "uts", "Ab3", "utb", "drd", "Ca6", "Ag6", "Sa6", "bab", "urg", "ult", "urn", "uld", 
+      "ung", "Na6", "drb", "uhb", "uui", "ucl", "Vg3", "uow", "uhn", "uar", "umg", "neg", "uhg", "Ag3", "umb", "bac", "drf", 
+      "uvg", "ulm", "bae", "ush", "uit", "nee", "uea", "uhc", "umc", "dre", "Ab6", "Zc3", "ulb", "uml", "Bb6", "Bb3", "ulg", 
+      "uth", "Bp3", "bad", "urs", "Wp3", "uuc", "Oa3", "l01", "l03", "l09", "l08", "l12", "l11", "l06", "l02", "l07", "l10", 
+      "l05"},
+      quality = "2",
+      rarity = "2",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+
+  --[[Rule 32-33 Hides Superior Armors that is Normal och Exceptional Rarity.
+
+    Disabled due to low level req might be needed.
+
+    {--Hide all Superior, Normal Armors
+      codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", 
+      "bhm", "ba2", "ba5", "dr5", "plt", "msk", "tgl", "gth", "Zc1", "pa1", "ba1", "ne5", "ne1", "Vg4", "Bb1", "Oa1", "Wp1", 
+      "ba3", "dr2", "Na1", "Ag1", "Vg1", "Ag4", "bsh", "Pc1", "ci1", "Bb4", "ci0", "Ca1", "Gg1", "Sa1", "Ca4", "ba4", "Ab1", 
+      "dr4", "dr3", "scl", "hbt", "Bp1", "Sa4", "ne3", "ful", "Ab4", "fhl", "cap", "spk", "lrg", "fld", "stu", "mbt", "ltp", 
+      "buc", "mbl", "crn", "sml", "skp", "ne4", "vbl", "pa2", "lbt", "tbl", "Bp4", "tow", "hgl", "mgl", "brs", "spl", "tbt", 
+      "hbl", "pa4", "gts", "vbt", "lgl", "lea", "lbl"},
+      quality = "3",
+      rarity = "0",
       runeword = false,
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2,3"
     },
+    {--Hide all superior, Exceptional Armors
+      codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
+      "ztb", "zvb", "Bb2", "dr7", "Bp2", "ba6", "dr9", "xtg", "xvb", "Vg5", "xvg", "ba9", "xml", "ba7", "Wp2", "Zc2", "xmb", 
+      "pa6", "xts", "ne8", "dr8", "xuc", "xpl", "xlt", "Ca5", "ne6", "Ab5", "dra", "Bp5", "Ab2", "xar", "xit", "xsh", "xhn", 
+      "Gg2", "dr6", "ne9", "xld", "xtb", "ba8", "pa7", "pa9", "pa8", "xap", "xrn", "xrs", "xhm", "Zc5", "xmg", "Vg2", "Pc2", 
+      "nea", "baa", "xlb", "xrg", "xea", "ne7", "xth", "xtu", "xcl", "xpk", "ci2", "xng", "Oa2", "xtp", "zlb", "zhb", "Bb5"},
+      quality = "3",
+      rarity = "1",
+      runeword = false,
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },]]--
+
+  --Rule 34-39 Hide all Magic and Rare Weapons that is Normal, Exceptional or Elite.
+
+    {--Hide all Magic, Normal Armors
+      codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", 
+      "bhm", "ba2", "ba5", "dr5", "plt", "msk", "tgl", "gth", "Zc1", "pa1", "ba1", "ne5", "ne1", "Vg4", "Bb1", "Oa1", "Wp1", 
+      "ba3", "dr2", "Na1", "Ag1", "Vg1", "Ag4", "bsh", "Pc1", "ci1", "Bb4", "ci0", "Ca1", "Gg1", "Sa1", "Ca4", "ba4", "Ab1", 
+      "dr4", "dr3", "scl", "hbt", "Bp1", "Sa4", "ne3", "ful", "Ab4", "fhl", "cap", "spk", "lrg", "fld", "stu", "mbt", "ltp", 
+      "buc", "mbl", "crn", "sml", "skp", "ne4", "vbl", "pa2", "lbt", "tbl", "Bp4", "tow", "hgl", "mgl", "brs", "spl", "tbt", 
+      "hbl", "pa4", "gts", "vbt", "lgl", "lea", "lbl"},
+      quality = "4",
+      rarity = "0",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Magic, Exceptional Armors
+      codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
+      "ztb", "zvb", "Bb2", "dr7", "Bp2", "ba6", "dr9", "xtg", "xvb", "Vg5", "xvg", "ba9", "xml", "ba7", "Wp2", "Zc2", "xmb", 
+      "pa6", "xts", "ne8", "dr8", "xuc", "xpl", "xlt", "Ca5", "ne6", "Ab5", "dra", "Bp5", "Ab2", "xar", "xit", "xsh", "xhn", 
+      "Gg2", "dr6", "ne9", "xld", "xtb", "ba8", "pa7", "pa9", "pa8", "xap", "xrn", "xrs", "xhm", "Zc5", "xmg", "Vg2", "Pc2", 
+      "nea", "baa", "xlb", "xrg", "xea", "ne7", "xth", "xtu", "xcl", "xpk", "ci2", "xng", "Oa2", "xtp", "zlb", "zhb", "Bb5"},
+      quality = "4",
+      rarity = "1",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Magic, Elite Armors
+      codes = {"nef", "utc", "paf", "pab", "uul", "l09", "l04", "l01", "Bp6", "pae", "l03", "utp", "utg", "baf", "ulc", 
+      "ci3", "l08", "ned", "uh9", "uhm", "Pc3", "Na3", "Ca3", "Zc6", "Sa3", "upk", "uhl", "pad", "usk", "utu", "ula", "Vg6", 
+      "pac", "ukp", "upl", "Gg3", "drc", "neb", "uvb", "l12", "uvc", "uap", "uts", "Ab3", "utb", "drd", "Ca6", "l06", "l02", 
+      "Ag6", "l07", "Sa6", "bab", "urg", "ult", "l11", "urn", "uld", "ung", "Na6", "drb", "uhb", "uui", "ucl", "Vg3", "uow", 
+      "uhn", "uar", "umg", "neg", "uhg", "Ag3", "umb", "bac", "drf", "uvg", "ulm", "bae", "ush", "uit", "nee", "uea", "uhc", 
+      "umc", "dre", "Ab6", "Zc3", "ulb", "l10", "uml", "Bb6", "Bb3", "ulg", "uth", "l05", "Bp3", "bad", "urs", "Wp3", "uuc", 
+      "Oa3"},
+      quality = "4",
+      rarity = "2",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Rare, Normal Armors
+      codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", 
+      "bhm", "ba2", "ba5", "dr5", "plt", "msk", "tgl", "gth", "Zc1", "pa1", "ba1", "ne5", "ne1", "Vg4", "Bb1", "Oa1", "Wp1", 
+      "ba3", "dr2", "Na1", "Ag1", "Vg1", "Ag4", "bsh", "Pc1", "ci1", "Bb4", "ci0", "Ca1", "Gg1", "Sa1", "Ca4", "ba4", "Ab1", 
+      "dr4", "dr3", "scl", "hbt", "Bp1", "Sa4", "ne3", "ful", "Ab4", "fhl", "cap", "spk", "lrg", "fld", "stu", "mbt", "ltp", 
+      "buc", "mbl", "crn", "sml", "skp", "ne4", "vbl", "pa2", "lbt", "tbl", "Bp4", "tow", "hgl", "mgl", "brs", "spl", "tbt", 
+      "hbl", "pa4", "gts", "vbt", "lgl", "lea", "lbl"},
+      quality = "6",
+      rarity = "0",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Rare, Exceptional Armors
+      codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
+      "ztb", "zvb", "Bb2", "dr7", "Bp2", "ba6", "dr9", "xtg", "xvb", "Vg5", "xvg", "ba9", "xml", "ba7", "Wp2", "Zc2", "xmb", 
+      "pa6", "xts", "ne8", "dr8", "xuc", "xpl", "xlt", "Ca5", "ne6", "Ab5", "dra", "Bp5", "Ab2", "xar", "xit", "xsh", "xhn", 
+      "Gg2", "dr6", "ne9", "xld", "xtb", "ba8", "pa7", "pa9", "pa8", "xap", "xrn", "xrs", "xhm", "Zc5", "xmg", "Vg2", "Pc2", 
+      "nea", "baa", "xlb", "xrg", "xea", "ne7", "xth", "xtu", "xcl", "xpk", "ci2", "xng", "Oa2", "xtp", "zlb", "zhb", "Bb5"},
+      quality = "6",
+      rarity = "1",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+    {--Hide all Rare, Elite Armors
+      codes = {"nef", "utc", "paf", "pab", "uul", "l09", "l04", "l01", "Bp6", "pae", "l03", "utp", "utg", "baf", "ulc", 
+      "ci3", "l08", "ned", "uh9", "uhm", "Pc3", "Na3", "Ca3", "Zc6", "Sa3", "upk", "uhl", "pad", "usk", "utu", "ula", "Vg6", 
+      "pac", "ukp", "upl", "Gg3", "drc", "neb", "uvb", "l12", "uvc", "uap", "uts", "Ab3", "utb", "drd", "Ca6", "l06", "l02", 
+      "Ag6", "l07", "Sa6", "bab", "urg", "ult", "l11", "urn", "uld", "ung", "Na6", "drb", "uhb", "uui", "ucl", "Vg3", "uow", 
+      "uhn", "uar", "umg", "neg", "uhg", "Ag3", "umb", "bac", "drf", "uvg", "ulm", "bae", "ush", "uit", "nee", "uea", "uhc", 
+      "umc", "dre", "Ab6", "Zc3", "ulb", "l10", "uml", "Bb6", "Bb3", "ulg", "uth", "l05", "Bp3", "bad", "urs", "Wp3", "uuc", 
+      "Oa3"},
+      quality = "6",
+      rarity = "2",
+      runeword = false,
+      location = {"onground", "dropping"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
+    },
+
+  --Rule 40-41 Hide Arrows that are Inferior, Normal, Superior, Magic and Rare.
+
     {--Arrows who?
       codes = {"aqv", "cqv"},
-      quality = "1,2,3,4,6",
+      quality = "4-",
       rarity = "2-",
+      location = {"onground", "dropping"},
+      runeword = false,
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2,3"
     },
-    {--Hide all low Gems.
-      codes = {"gcr", "gcy", "gcb", "gsy", "gfv", "gfw", "gfy", "gfb", "skf", "gfg", "gsg", "sku", "gsr", "gsv", "gsw", "gfr", "gsb", "glb", "glw", "gzv", "glg", "skl", "glr", "skc", "gly", "gcv", "gcg", "gcw"},
+    {--Rare Arrows who?
+      codes = {"aqv", "cqv"},
+      quality = "6",
+      rarity = "2-",
+      location = {"onground", "dropping"},
+      runeword = false,
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2"
     },
-    {--Hide all high Gems. If you need.
+
+  --Rule 42-43 Hide all Gems.
+
+    {--Hide all low Gems.
+      codes = {"gcr", "gcy", "gcb", "gsy", "gfv", "gfw", "gfy", "gfb", "skf", "gfg", "gsg", "sku", "gsr", "gsv", "gsw", 
+      "gfr", "gsb", "glb", "glw", "gzv", "glg", "skl", "glr", "skc", "gly", "gcv", "gcg", "gcw"},
+      hide = true,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2"
+    },
+    {--Hide all high Gems. DISABLE THIS IF YOU NEED GEMS.
       codes = {"gpv", "skz", "gpr", "gpg", "gpb", "gpy", "gpw"},
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1"
     },
-    {--MAX ATTR Superiors
+
+  --Rule 49-53 Shows all SUPERIOR ITEMS with max suffix stat and border + notify
+
+    {--MAX ATTR!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 0, op = "==", value = 15 },},--MAX STR = MAX ATTR!
+      location = "onground",
+      stat = {
+      {index = 0, op = "==", value = 15 }, --MAX STR = MAX ATTR!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} Attribute!",
+      filter_levels = "1,2,3"
     },
-    {--MAX ALL RES Superiors
+    {--MAX ALL RES!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 39, op = "==", value = 10 },}, --MAX FIRE RESS = MAX ALL RES!
+      location = "onground",
+      stat = {
+      {index = 39, op = "==", value = 10 }, --MAX FIRE RESS = MAX ALL RES!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} All Res!",
+      filter_levels = "1,2,3"
     },
-    {--MAX ALL RES Superiors
+    {--MAX ALL RES!
       codes = {"Bp4", "Bp5"},
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 39, op = "==", value = 25 },}, --MAX FIRE RESS = MAX ALL RES!
+      location = "onground",
+      stat = {
+      {index = 39, op = "==", value = 25 }, --MAX FIRE RESS = MAX ALL RES!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} All Res!",
+      filter_levels = "1,2,3"
     },
-    {--MAX RES Superiors
+    {--MAX RES!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 40, op = "==", value = 5 },}, --MAX MAXFIRERESS = MAX RES!
+      location = "onground",
+      stat = {
+      {index = 40, op = "==", value = 5 }, --MAX MAXFIRERESS = MAX RES!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} Max res!",
+      filter_levels = "1,2,3"
     },
-    {--MAX CRUSHING BLOW! Superiors
+    {--MAX CRUSHING BLOW!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 136, op = "==", value = 10 },}, -- +10% Chance of Crushing Blow 
+      location = "onground",
+      stat = {
+      {index = 136, op = "==", value = 10 }, -- +10% Chance of Crushing Blow 
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} CB/AR!",
+      filter_levels = "1,2,3"
     },
-    {--MAX RUN SPEED! Superiors
+    --[[{--MAX CRUSHING BLOW!
+      code = {"Bm7", "Bm9"},
+      quality = "3",
+      runeword = false,
+      location = "onground",
+      stat = {
+      {index = 136, op = "==", value = 30 }, -- +30% Chance of Crushing Blow
+      },
+      border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
+      suffix = "\n {red} CB/AR!",
+      filter_levels = "1,2,3"
+    },]]--
+    {--MAX RUN SPEED!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 96, op = "==", value = 15 },}, --MAX RUN SPEED!
+      location = "onground",
+      stat = {
+      {index = 96, op = "==", value = 15 }, --MAX RUN SPEED!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} Run Speed!",
+      filter_levels = "1,2,3"
     },
-    {--MAX -ENEMY RES/IMMUNITY! Superiors
+    {--MAX -ENEMY RES/IMMUNITY!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 333, op = "==", value = 10 }, {index = 187, op = "==", value = 10 },}, --MAX -ENEMY RES / -IMMUNITY!
+      location = "onground",
+      stat = {
+      {index = 333, op = "==", value = 10 }, --MAX -ENEMY RES!
+      {index = 187, op = "==", value = 10 }, --MAX -IMMUNITY!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} -Res/Immune!",
+      filter_levels = "1,2,3"
     },
-    {--MAX ATTACKSPEED/CASTSPEED! Superiors
+    {--MAX ATTACKSPEED/CASTSPEED!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 93, op = "==", value = 15 },{index = 105, op = "==", value = 15 },}, --MAX ATTACKSPEED! --MAX CASTSPEED!
+      location = "onground",
+      stat = {
+      {index = 93, op = "==", value = 15 }, --MAX ATTACKSPEED!
+      {index = 105, op = "==", value = 15 }, --MAX CASTSPEED!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} Atkspd/FCR!",
+      filter_levels = "1,2,3"
     },
-    {--MAX EXPERIENCE GAINED! Superiors
+    {--MAX EXPERIENCE GAINED!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 85, op = "==", value = 10 },{index = 60, op = "==", value = 5 },{index = 62, op = "==", value = 5 },}, --MAX EXPERIENCE GAINED!--MAX LIFE STOLEN PER HIT!--MAX MANA STOLEN PER HIT!
+      location = "onground",
+      stat = {
+      {index = 85, op = "==", value = 10 }, --MAX EXPERIENCE GAINED!
+      {index = 60, op = "==", value = 5 }, --MAX LIFE STOLEN PER HIT!
+      {index = 62, op = "==", value = 5 }, --MAX MANA STOLEN PER HIT!
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} Exp/Life/Mana!",
+      filter_levels = "1,2,3"
     },
-    {--MAX COOLDOWN/BUFF DURATION! Superiors
+    {--MAX COOLDOWN/BUFF DURATION!
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
-      stat = {{index = 286, op = "==", value = 15 },{index = 427, op = "==", value = 20 },}, --Reduce Cooldowns by 15%--Increase Buff Durations by 20%
+      location = "onground",
+      stat = {
+      {index = 286, op = "==", value = 15 }, --Reduce Cooldowns by 15%
+      {index = 427, op = "==", value = 20 }, --Increase Buff Durations by 20%
+      },
       border = {204, 204, 204, 204},
+      --notify = "Maxed Superior!",
+      --name_style = "Rainbow",
       suffix = "\n {red} CD/Buff!",
+      filter_levels = "1,2,3"
     },
     {--Hides Supperior items by checking between the stats.
       codes = "allitems",
       quality = "3",
       runeword = false,
-      -----MAX STR = MAX ATTR!-----MAX FIRE RESS = MAX ALL RES!-----MAX MAXFIRERESS = MAX RES!----- +1-9% Chance of Crushing Blow-----MAX RUN SPEED!-----MAX -ENEMY RES! / IMMUNITY!-----MAX ATTACKSPEED! / CASTSPEED-----MAX EXPERIENCE GAINED!-----MAX LIFE STOLEN PER HIT!-----MAX MANA STOLEN PER HIT!-----Reduce Cooldowns by 1-14%-----Increase Buff Durations by 1-19%
-      stat = OR {{index = 0, op = "between", value = {1,14 }, },{index = 39, op = "between", value = {1,9 }, },{index = 40, op = "between", value = {1,4, }, },{index = 136, op = "between", value = {1,9, }, },{index = 96, op = "between", value = {1,14, }, },{index = 333, op = "between", value = {1,9, }, },{index = 187, op = "between", value = {1,9, }, },{index = 93, op = "between", value = {1,14}, },{index = 105, op = "between", value = {1,14}, },{index = 85, op = "between", value = {1,9, }, },{index = 60, op = "between", value = {1,4, }, },{index = 62, op = "between", value = {1,4, }, },{index = 286, op = "between", value = {1,14, }, },{index = 427, op = "between", value = {1,19, }, },},
+      location = {"onground", "dropping"},
+      stat = OR {
+      {index = 0, op = "between", value = {1,14 }, }, --MAX STR = MAX ATTR!
+      {index = 39, op = "between", value = {1,9 }, }, --MAX FIRE RESS = MAX ALL RES!
+      {index = 40, op = "between", value = {1,4, }, }, --MAX MAXFIRERESS = MAX RES!
+      {index = 136, op = "between", value = {1,9, }, }, -- +1-9% Chance of Crushing Blow
+      {index = 96, op = "between", value = {1,14, }, }, --MAX RUN SPEED!
+      {index = 333, op = "between", value = {1,9, }, }, --MAX -ENEMY RES! / IMMUNITY!
+      {index = 187, op = "between", value = {1,9, }, }, --MAX -ENEMY RES! / IMMUNITY!
+      {index = 93, op = "between", value = {1,14}, }, --MAX ATTACKSPEED! / CASTSPEED
+      {index = 105, op = "between", value = {1,14}, }, --MAX ATTACKSPEED! / CASTSPEED
+      {index = 85, op = "between", value = {1,9, }, }, --MAX EXPERIENCE GAINED!
+      {index = 60, op = "between", value = {1,4, }, }, --MAX LIFE STOLEN PER HIT!
+      {index = 62, op = "between", value = {1,4, }, }, --MAX MANA STOLEN PER HIT!
+      {index = 286, op = "between", value = {1,14, }, }, --Reduce Cooldowns by 1-14%
+      {index = 427, op = "between", value = {1,19, }, }, --Increase Buff Durations by 1-19%
+      },
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2"
@@ -319,51 +875,67 @@ return {
       codes = "allitems",
       quality = "3",
       runeword = false,
-      location = {"onground", "onplayer", "equipped", "atvendor"},
+      location = "onground",
       stat = {index = 152, op = "==", value = 1 },
       suffix = "{grey}\n Indestructible",
+      filter_levels = "1,2,3"
     },
+
+  --Rule 54-   MISC OR THINGS I FORGOT.
+
     {--Treasures Notify
-      codes = {"Rgx", "Ev0", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33","S01"},
+      codes = {"Rgx", "Ev0", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", 
+      "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33","S01"},
       notify = "ÿc;Treasure Nearby",
       border = {139, 99, 197},
+      filter_levels = "1,2,3"
     },
-    {--Hide Magic and Rare Rings/Amulet, change: hide = true,/false,
+    {--Hide Magic Rings/Amulet, if you want to get Magic rings/Amulet, change: hide = true, to: false, .
       codes = {"rin", "amu"},
-      quality = "4,6",
-      hide = true,
-      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      filter_levels = "1",
-    },
-    {--Display Scrolls of Torment and notify.
-      codes = {"K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
-      name_style = "Frost Wave",
-      suffix = "\n Trial Portal",
-      notify = "{pink} Trial Portal!",
-    },
-    {--Hide Magic Jewels, change: hide = true,/false,
-      code = "jew",
       quality = "4",
+      location = {"onground", "dropping"},
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       filter_levels = "1,2"
     },
-    {--Hide Charms, change: hide = true,/false,
-      codes = {"cm1", "cm2", "cm3"},
+    {--Display Scrolls of Torment and notify.
+      codes = {"K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", 
+      "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", 
+      "K33", "K34", "K35", "K36", "K37", "K38", "K39", "K40", "K41", "K42", "K43", "K44", "K45", "K46", "K47", "K48", "K49", 
+      "K50", "K51", "K52", "K53", "K54", "K55", "K56", "K57", "K58", "K59", "K60", "K61", "K62", "K63", "K64", "K65", "K66", 
+      "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
+      name_style = "Frost Wave",
+      suffix = "\n Trial Portal",
+      notify = "{pink} Trial Portal!",
+      filter_levels = "1,2,3"
+    },
+    {--Hide Magic Jewels, if you want to get Magic Jewels, change: hide = true, to: false, .
+      code = "jew",
       quality = "4",
+      location = {"onground", "dropping"},
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      filter_levels = "1"
+      filter_levels = "1,2"
+    },
+    {--Hide Charms, to hide Magic charms, change: hide = false, to: true, .
+      codes = {"cm1", "cm2", "cm3"},
+      quality = "4",
+      hide = false,
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
     },
     {--Weird items to hide.
       codes = {"Ag2", "Ag5", "Na5", "Na2", "Sa2", "Sa5"},
       quality = {"1", "2", "4", "6"},
       rarity = "2-",
+      location = {"onground", "dropping"},
       hide = true,
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
+      filter_levels = "1,2,3"
     },
     {--Hide pots, Minor/major HP / MP, small Rejuvs.
       codes = {"hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs"},
+      location = {"onground", "dropping"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       hide = true,
       filter_levels = "1,2"
@@ -374,6 +946,7 @@ return {
       location = {"onground", "onplayer", "equipped", "atvendor"},
       itype = {45, 50 },
       suffix = "{tan}ⅲ",
+      filter_levels = "1,2,3"
     },
     {--Display RMD "Limit Broken Bases"with a special LB icon in RMD Red, to the right of item name
       codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
@@ -381,187 +954,251 @@ return {
       itype = {45, 50 },
       ilvl = "103+",
       suffix = "{tan}ⅳ",
+      filter_levels = "1,2,3"
     },
+    --[[{--Uniques that can be Demon-Tempered
+      codes = "allitems",
+      quality = "7",
+      stat = {index = 402, op = "==", value = 0 },
+      index = {6, 45, 55, 71, 143, 189, 211, 213, 217, 225, 226, 231, 246, 247, 249, 254, 262, 281, 286, 292, 295, 299, 330, 335, 347, 366, 369, 379, 386, 412, 413, 418, 423, 428, 433, 438, 445, 447, 453, 483, 525, 527, 529, 532, 543, 556},
+      location = {"onplayer", "atvendor"},
+      prefix_desc = "{dark green}Can be Demon-Tempered\n",
+      filter_levels = "1,2,3",
+    },--]]
   --ALL UNIQUES MAX STATS Index 1-20
-    {--The Gnasher
+    {
       codes = "allitems",
       quality = "7",
-      index = 6,
+      index = 6, --The Gnasher
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 2-5, -- Magic Damage Reduced by 2-5, -- Base max damage * ED% = 8*1.7=13.6 = >13
-      stat = {{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 5 }, {index = 35, op = "==", value = 5 },{index = 22, op = ">=", value = 13},}, 
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 5 }, -- Damage Reduced by 2-5
+      {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 2-5
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats", 
+      filter_levels = "1,2,3",
     },
-    {--Deathspade
+    {
       codes = "allitems",
       quality = "7",
-      index = 7,
+      index = 7, --Deathspade
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Magic Damage Reduced by 2-5, 
-      stat = {{index = 85, op = "==", value = 5 },{index = 35, op = "==", value = 5 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 2-5
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Bladebone
+    {
       codes = "allitems",
       quality = "7",
-      index = 8,
+      index = 8, --Bladebone
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 4-8, -- Magic Damage Reduced by 4-8, 
-      stat = {{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 8 },{index = 35, op = "==", value = 8 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 8 }, -- Damage Reduced by 4-8
+      {index = 35, op = "==", value = 8 }, -- Magic Damage Reduced by 4-8
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Skull Splitter
+    {
       codes = "allitems",
       quality = "7",
-      index = 9,
+      index = 9, --Skull Splitter
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Adds 1-12/15 Lighting Damage,  -- +50-100 to Attack Rating, -- +2-5% to Experience Gained, -- Magic Damage Reduced by 3-7, 
-      stat = {{index = 51, op = "==", value = 15 },{index = 19, op = "==", value = 100 },{index = 85, op = "==", value = 5 },{index = 35, op = "==", value = 7 },},
+      stat = {
+      {index = 51, op = "==", value = 15 }, -- Adds 1-12/15 Lighting Damage
+      {index = 19, op = "==", value = 100 }, -- +50-100 to Attack Rating
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 7 }, -- Magic Damage Reduced by 3-7
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Rakescar
+    {
       codes = "allitems",
       quality = "7",
-      index = 10,
+      index = 10, --Rakescar
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 4-8, -- Magic Damage Reduced by 4-8, 
-      stat = {{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 8 },{index = 35, op = "==", value = 8 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 8 }, -- Damage Reduced by 4-8
+      {index = 35, op = "==", value = 8 }, -- Magic Damage Reduced by 4-8
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Axe of Fechmar
+    {
       codes = "allitems",
       quality = "7",
-      index = 11,
+      index = 11, --Axe of Fechmar
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 3-5, -- Magic Damage Reduced by 3-5, 
-      stat = {{index = 34, op = "==", value = 5 },{index = 35, op = "==", value = 5 },},
+      stat = {
+      {index = 34, op = "==", value = 5 }, -- Damage Reduced by 3-5
+      {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 3-5
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Goreshovel
+    {
       codes = "allitems",
       quality = "7",
-      index = 12,
+      index = 12, --Goreshovel
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 2-6, -- Magic Damage Reduced by 2-6, 
-      stat = {{index = 34, op = "==", value = 6 },{index = 35, op = "==", value = 6 },},
+      stat = {
+      {index = 34, op = "==", value = 6 }, -- Damage Reduced by 2-6
+      {index = 35, op = "==", value = 6 }, -- Magic Damage Reduced by 2-6
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--The Cheiftain
+    {
       codes = "allitems",
       quality = "7",
-      index = 13,
+      index = 13, --The Cheiftain
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- All Resistances +10-20%, -- Damage Reduced by 3-7, -- Magic Damage Reduced by 3-7, 
-      stat = {{index = 39, op = "==", value = 20 },{index = 34, op = "==", value = 7 },{index = 35, op = "==", value = 7 },},
+      stat = {
+      {index = 39, op = "==", value = 20 }, -- All Resistances +10-20%
+      {index = 34, op = "==", value = 7 }, -- Damage Reduced by 3-7
+      {index = 35, op = "==", value = 7 }, -- Magic Damage Reduced by 3-7
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Brainhew
+    {
       codes = "allitems",
       quality = "7",
-      index = 14,
+      index = 14, --Brainhew
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +10-13% Mana stolen per hit, -- Damage Reduced by 6-9, -- Magic Damage Reduced by 6-9, 
-      stat = {{index = 62, op = "==", value = 13 },{index = 34, op = "==", value = 9 },{index = 35, op = "==", value = 9 },},
+      stat = {
+      {index = 62, op = "==", value = 13 }, -- +10-13% Mana stolen per hit
+      {index = 34, op = "==", value = 9 }, -- Damage Reduced by 6-9
+      {index = 35, op = "==", value = 9 }, -- Magic Damage Reduced by 6-9
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Humongous
+    {
       codes = "allitems",
       quality = "7",
-      index = 15,
+      index = 15, --Humongous
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +20-30 Strength, -- Damage Reduced by 8-10, -- Magic Damage Reduced by 8-10, 
-      stat = {{index = 0, op = "==", value = 30 },{index = 34, op = "==", value = 10 },{index = 35, op = "==", value = 10 },},
+      stat = {
+      {index = 0, op = "==", value = 30 }, -- +20-30 Strength
+      {index = 34, op = "==", value = 10 }, -- Damage Reduced by 8-10
+      {index = 35, op = "==", value = 10 }, -- Magic Damage Reduced by 8-10
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Torch of Iro
+    {
       codes = "allitems",
       quality = "7",
-      index = 16,
+      index = 16, --Torch of Iro
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Fire Resist +5-10%
-      stat = {{index = 39, op = "==", value = 10 },},
+      stat = {
+      {index = 39, op = "==", value = 10 }, -- Fire Resist +5-10%
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Maelstrom
+    {
       codes = "allitems",
       quality = "7",
-      index = 17,
+      index = 17, --Maelstrom
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +5-10% to Magic Skill Damage, -- +1-3 to Terror, -- +1-3 to Dim Vision, -- +1-3 to Corpse Explosion,
-      stat = {{index = 357, op = "==", value = 10 },{index = 97, op = "==", param = 77, value = 3},{index = 97, op = "==", param = 71, value = 3},{index = 97, op = "==", param = 74, value = 3},},
+      stat = {
+      {index = 357, op = "==", value = 10 }, -- +5-10% to Magic Skill Damage
+      {index = 97, op = "==", param = 77, value = 3}, -- +1-3 to Terror
+      {index = 97, op = "==", param = 71, value = 3}, -- +1-3 to Dim Vision
+      {index = 97, op = "==", param = 74, value = 3}, -- +1-3 to Corpse Explosion
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Gravenspine
+    {
       codes = "allitems",
       quality = "7",
-      index = 18,
+      index = 18, --Gravenspine
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Summon Max HP: +10-20%, -- +25-50 to Mana (value*256), -- +1-2 to Decrepify,
-      stat = {{index = 284, op = "==", value = 20 },{index = 9, op = "==", value = 256*50 },{index = 97, op = "==", param = 87, value = 2},},
+      stat = {
+      {index = 284, op = "==", value = 20 }, -- Summon Max HP: +10-20%
+      {index = 9, op = "==", value = 256*50 }, -- +25-50 to Mana (value*256)
+      {index = 97, op = "==", param = 87, value = 2}, -- +1-2 to Decrepify
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Ume's Lament
+    {
       codes = "allitems",
       quality = "7",
-      index = 19,
+      index = 19, --Ume's Lament
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +1-2 to Decrepify, -- +2-5% to Experience Gained,
-      stat = {{index = 97, op = "==", param = 87, value = 2},{index = 85, op = "==", value = 5 },},
+      stat = {
+      {index = 97, op = "==", param = 87, value = 2}, -- +1-2 to Decrepify
+      {index = 85, op = "==", value = 5 } -- +2-5% to Experience Gained
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Felloak
+    {
       codes = "allitems",
       quality = "7",
-      index = 20,
+      index = 20, --Felloak
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained,
-      stat = {{index = 85, op = "==", value = 5 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
   --Hide <70% Unique Index 1-20
     {
@@ -571,10 +1208,13 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 2-5, -- Magic Damage Reduced by 2-5,
-      stat = {{index = 85, op = "<=", value = (2 + (5-2)*0.7)},{index = 34, op = "<=", value = (2 + (5-2)*0.7)},{index = 35, op = "<=", value = (2 + (5-2)*0.7)},},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (2 + (5-2)*0.7)}, -- Damage Reduced by 2-5
+      {index = 35, op = "<=", value = (2 + (5-2)*0.7)}, -- Magic Damage Reduced by 2-5
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -583,10 +1223,12 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +2-5% to Experience Gained, -- Magic Damage Reduced by 2-5,
-      stat = {{index = 85, op = "<=", value = (2 + (5-2)*0.7)},{index = 35, op = "<=", value = (2 + (5-2)*0.7)},},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (2 + (5-2)*0.7)}, -- Magic Damage Reduced by 2-5
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -595,10 +1237,13 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 4-8, -- Magic Damage Reduced by 4-8,
-      stat = {{index = 85, op = "<=", value = (2 + (5-2)*0.7)},{index = 34, op = "<=", value = (4 + (8-4)*0.7)},{index = 35, op = "<=", value = (4 + (8-4)*0.7)},},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
+      {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -607,10 +1252,14 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- Adds 1-12/15 Lightning Damage, -- +50-100 to Attack Rating, -- +2-5% to Experience Gained, -- Magic Damage Reduced by 3-7,
-      stat = {{index = 51, op = "<=", value = (1 + (15-1)*0.7)},{index = 19, op = "<=", value = (50 + (100-50)*0.7)},{index = 85, op = "<=", value = (2 + (5-2)*0.7)},{index = 35, op = "<=", value = (3 + (7-3)*0.7)},},
+      stat = {
+      {index = 51, op = "<=", value = (1 + (15-1)*0.7)}, -- Adds 1-12/15 Lightning Damage
+      {index = 19, op = "<=", value = (50 + (100-50)*0.7)}, -- +50-100 to Attack Rating
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 35, op = "<=", value = (3 + (7-3)*0.7)}, -- Magic Damage Reduced by 3-7
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -619,10 +1268,13 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 4-8, -- Magic Damage Reduced by 4-8,
-      stat = {{index = 85, op = "<=", value = (2 + (5-2)*0.7)},{index = 34, op = "<=", value = (4 + (8-4)*0.7)},{index = 35, op = "<=", value = (4 + (8-4)*0.7)},},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      {index = 34, op = "<=", value = (4 + (8-4)*0.7)}, -- Damage Reduced by 4-8
+      {index = 35, op = "<=", value = (4 + (8-4)*0.7)}, -- Magic Damage Reduced by 4-8
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -631,10 +1283,12 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- Damage Reduced by 3-5, -- Magic Damage Reduced by 3-5,
-      stat = {{index = 34, op = "<=", value = (3 + (5-3)*0.7)},{index = 35, op = "<=", value = (3 + (5-3)*0.7)},},
+      stat = {
+      {index = 34, op = "<=", value = (3 + (5-3)*0.7)}, -- Damage Reduced by 3-5
+      {index = 35, op = "<=", value = (3 + (5-3)*0.7)}, -- Magic Damage Reduced by 3-5
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -643,10 +1297,12 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- Damage Reduced by 2-6, -- Magic Damage Reduced by 2-6,
-      stat = {{index = 34, op = "<=", value = (2 + (6-2)*0.7)},{index = 35, op = "<=", value = (2 + (6-2)*0.7)},},
+      stat = {
+      {index = 34, op = "<=", value = (2 + (6-2)*0.7)}, -- Damage Reduced by 2-6
+      {index = 35, op = "<=", value = (2 + (6-2)*0.7)}, -- Magic Damage Reduced by 2-6
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -655,10 +1311,13 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- All Resistances +10-20%, -- Damage Reduced by 3-7, -- Magic Damage Reduced by 3-7,
-      stat = {{index = 39, op = "<=", value = (10 + (20-10)*0.7)},{index = 34, op = "<=", value = (3 + (7-3)*0.7)},{index = 35, op = "<=", value = (3 + (7-3)*0.7)},},
+      stat = {
+      {index = 39, op = "<=", value = (10 + (20-10)*0.7)}, -- All Resistances +10-20%
+      {index = 34, op = "<=", value = (3 + (7-3)*0.7)}, -- Damage Reduced by 3-7
+      {index = 35, op = "<=", value = (3 + (7-3)*0.7)}, -- Magic Damage Reduced by 3-7
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -667,10 +1326,13 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +10-13% Mana stolen per hit, -- Damage Reduced by 6-9, -- Magic Damage Reduced by 6-9,
-      stat = {{index = 62, op = "<=", value = (10 + (13-10)*0.7)},{index = 34, op = "<=", value = (6 + (9-6)*0.7)},{index = 35, op = "<=", value = (6 + (9-6)*0.7)},},
+      stat = {
+      {index = 62, op = "<=", value = (10 + (13-10)*0.7)}, -- +10-13% Mana stolen per hit
+      {index = 34, op = "<=", value = (6 + (9-6)*0.7)}, -- Damage Reduced by 6-9
+      {index = 35, op = "<=", value = (6 + (9-6)*0.7)}, -- Magic Damage Reduced by 6-9
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -679,10 +1341,13 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +20-30 Strength, -- Damage Reduced by 8-10, -- Magic Damage Reduced by 8-10,
-      stat = {{index = 0, op = "<=", value = (20 + (30-20)*0.7)},{index = 34, op = "<=", value = (8 + (10-8)*0.7)},{index = 35, op = "<=", value = (8 + (10-8)*0.7)},},
+      stat = {
+      {index = 0, op = "<=", value = (20 + (30-20)*0.7)}, -- +20-30 Strength
+      {index = 34, op = "<=", value = (8 + (10-8)*0.7)}, -- Damage Reduced by 8-10
+      {index = 35, op = "<=", value = (8 + (10-8)*0.7)}, -- Magic Damage Reduced by 8-10
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -691,10 +1356,11 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- Fire Resist +5-10%,
-      stat = {{index = 39, op = "<=", value = (5 + (10-5)*0.7)},},
+      stat = {
+      {index = 39, op = "<=", value = (5 + (10-5)*0.7)}, -- Fire Resist +5-10%
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -703,10 +1369,14 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +5-10% to Magic Skill Damage, -- +1-3 to Terror, -- +1-3 to Dim Vision, -- +1-3 to Corpse Explosion,
-      stat = {{index = 357, op = "<=", value = (5 + (10-5)*0.7)},{index = 97, op = "<=", param = 77, value = (1 + (3-1)*0.7)},{index = 97, op = "<=", param = 71, value = (1 + (3-1)*0.7)},{index = 97, op = "<=", param = 74, value = (1 + (3-1)*0.7)},},
+      stat = {
+      {index = 357, op = "<=", value = (5 + (10-5)*0.7)}, -- +5-10% to Magic Skill Damage
+      {index = 97, op = "<=", param = 77, value = (1 + (3-1)*0.7)}, -- +1-3 to Terror
+      {index = 97, op = "<=", param = 71, value = (1 + (3-1)*0.7)}, -- +1-3 to Dim Vision
+      {index = 97, op = "<=", param = 74, value = (1 + (3-1)*0.7)}, -- +1-3 to Corpse Explosion
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -715,10 +1385,13 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- Summon Max HP: +10-20%, -- +25-50 to Mana (value*256), -- +1-2 to Decrepify,
-      stat = {{index = 284, op = "<=", value = (10 + (20-10)*0.7)},{index = 9, op = "<=", value = (25 + (50-25)*0.7)*256},{index = 97, op = "<=", param = 87, value = (1 + (2-1)*0.7)},},
+      stat = {
+      {index = 284, op = "<=", value = (10 + (20-10)*0.7)}, -- Summon Max HP: +10-20%
+      {index = 9, op = "<=", value = (25 + (50-25)*0.7)*256}, -- +25-50 to Mana (value*256)
+      {index = 97, op = "<=", param = 87, value = (1 + (2-1)*0.7)}, -- +1-2 to Decrepify
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -727,10 +1400,12 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +1-2 to Decrepify, -- +2-5% to Experience Gained,
-      stat = {{index = 97, op = "<=", param = 87, value = (1 + (2-1)*0.7)},{index = 85, op = "<=", value = (2 + (5-2)*0.7)},},
+      stat = {
+      {index = 97, op = "<=", param = 87, value = (1 + (2-1)*0.7)}, -- +1-2 to Decrepify
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
@@ -739,250 +1414,309 @@ return {
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
-      -- +2-5% to Experience Gained,
-      stat = {{index = 85, op = "<=", value = (2 + (5-2)*0.7)},},
+      stat = {
+      {index = 85, op = "<=", value = (2 + (5-2)*0.7)}, -- +2-5% to Experience Gained
+      },
       hide = true,
-      filter_levels = "1,2"
+      filter_levels = "1,2,3"
     },
   --ALL UNIQUES MAX STATS Index 21-40
-    {--Knell Striker
+    {
       codes = "allitems",
       quality = "7",
-      index = 21,
+      index = 21, --Knell Striker
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      stat = {},
+      stat = {
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
-      suffix = "\n {red} Maxed Stats",
+      --notify = "Max Unique!",
+      suffix = "\n {red} [A]Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Rusthandle
+    {
       codes = "allitems",
       quality = "7",
-      index = 22,
+      index = 22, --Rusthandle
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +50-60% Damage to Undead, -- +1-3 to Vengeance (Paladin only),
-      stat = {{index = 122, op = "==", value = 60 },{index = 107, op = "==", param = 111, value = 3},},
+      stat = {
+      {index = 122, op = "==", value = 60 }, -- +50-60% Damage to Undead
+      {index = 107, op = "==", param = 111, value = 3}, -- +1-3 to Vengeance (Paladin only)
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Stormeye
+    {
       codes = "allitems",
       quality = "7",
-      index = 23,
+      index = 23, --Stormeye
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- +3-5 to Blessed Hammer (Paladin only),
-      stat = {{index = 85, op = "==", value = 5 },{index = 107, op = "==", param = 112, value = 5},},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 107, op = "==", param = 112, value = 5}, -- +3-5 to Blessed Hammer (Paladin only)
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Stoutnail
+    {
       codes = "allitems",
       quality = "7",
-      index = 24,
+      index = 24, --Stoutnail
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Attacker Takes Damage of 3-10,
-      stat = {{index = 78, op = "==", value = 10 },},
+      stat = {
+      {index = 78, op = "==", value = 10 }, -- Attacker Takes Damage of 3-10
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Crushflange
+    {
       codes = "allitems",
       quality = "7",
-      index = 25,
+      index = 25, --Crushflange
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 2-4,
-      stat = {{index = 34, op = "==", value = 4 },},
+      stat = {
+      {index = 34, op = "==", value = 4 }, -- Damage Reduced by 2-4
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Bloodrise
+    {
       codes = "allitems",
       quality = "7",
-      index = 26,
+      index = 26, --Bloodrise
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 4-6,
-      stat = {{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 6 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 6 }, -- Damage Reduced by 4-6
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--The General's Tan Do Li Ga
+    {
       codes = "allitems",
       quality = "7",
-      index = 27,
+      index = 27, --The General's Tan Do Li Ga
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 4-6,
-      stat = {{index = 34, op = "==", value = 6 },},
+      stat = {
+      {index = 34, op = "==", value = 6 }, -- Damage Reduced by 4-6
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Ironstone
+    {
       codes = "allitems",
       quality = "7",
-      index = 28,
+      index = 28, --Ironstone
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +100-150 to Attack Rating, -- Damage Reduced by 7-10,
-      stat = {{index = 19, op = "==", value = 150 },{index = 34, op = "==", value = 10 },},
+      stat = {
+      {index = 19, op = "==", value = 150 }, -- +100-150 to Attack Rating
+      {index = 34, op = "==", value = 10 }, -- Damage Reduced by 7-10
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Bonesnap
+    {
       codes = "allitems",
       quality = "7",
-      index = 29,
+      index = 29, --Bonesnap
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 4-6, -- Magic Damage Reduced by 4-6,
-      stat = {{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 6 },{index = 35, op = "==", value = 6 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 6 }, -- Damage Reduced by 4-6
+      {index = 35, op = "==", value = 6 } -- Magic Damage Reduced by 4-6
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Steeldriver
+    {
       codes = "allitems",
       quality = "7",
-      index = 30,
+      index = 30, --Steeldriver
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 7-9, -- Magic Damage Reduced by 7-9,
-      stat = {{index = 34, op = "==", value = 9 },{index = 35, op = "==", value = 9 },},
+      stat = {
+      {index = 34, op = "==", value = 9 }, -- Damage Reduced by 7-9
+      {index = 35, op = "==", value = 9 }, -- Magic Damage Reduced by 7-9
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Rixot's Keen
+    {
       codes = "allitems",
       quality = "7",
-      index = 31,
+      index = 31, --Rixot's Keen
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 1-3
-      stat = {{index = 34, op = "==", value = 3 },},
+      stat = {
+      {index = 34, op = "==", value = 3 } -- Damage Reduced by 1-3
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Blood Crescent
+    {
       codes = "allitems",
       quality = "7",
-      index = 32,
+      index = 32, --Blood Crescent
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 2-4,
-      stat = {{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 4 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 4 } -- Damage Reduced by 2-4
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Krintiz's Skewer
+    {
       codes = "allitems",
       quality = "7",
-      index = 33,
+      index = 33, --Krintiz's Skewer
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Damage Reduced by 2-6,
-      stat = {{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 6 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 6 } -- Damage Reduced by 2-6
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Gleamscythe
+    {
       codes = "allitems",
       quality = "7",
-      index = 34,
+      index = 34, --Gleamscythe
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 3-6,
-      stat = {{index = 34, op = "==", value = 6 },},
+      stat = {
+      {index = 34, op = "==", value = 6 } -- Damage Reduced by 3-6
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Light's Beacon
+    {
       codes = "allitems",
       quality = "7",
-      index = 35,
+      index = 35, --Light's Beacon
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +5-10% to Fire Skill Damage, -- +5-10% to Cold Skill Damage, -- +5-10% to Lightning Skill Damage, -- Magic Damage Reduced by 7-12,
-      stat = {{index = 329, op = "==", value = 10 },{index = 331, op = "==", value = 10 },{index = 330, op = "==", value = 10 },{index = 35, op = "==", value = 12 },},
+      stat = {
+      {index = 329, op = "==", value = 10 }, -- +5-10% to Fire Skill Damage
+      {index = 331, op = "==", value = 10 }, -- +5-10% to Cold Skill Damage
+      {index = 330, op = "==", value = 10 }, -- +5-10% to Lightning Skill Damage
+      {index = 35, op = "==", value = 12 }, -- Magic Damage Reduced by 7-12
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Griswold's Edge
+    {
       codes = "allitems",
       quality = "7",
-      index = 36,
+      index = 36, --Griswold's Edge
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +10-12 to Minimum Fire Damage, -- +15-25 to Maximum Fire Damage, -- +2-5% to Experience Gained,
-      stat = {{index = 48, op = "==", value = 12 },{index = 49, op = "==", value = 25 },{index = 85, op = "==", value = 5 },},
+      stat = {
+      {index = 48, op = "==", value = 12 }, -- +10-12 to Minimum Fire Damage
+      {index = 49, op = "==", value = 25 }, -- +15-25 to Maximum Fire Damage
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Hellplague
+    {
       codes = "allitems",
       quality = "7",
-      index = 37,
+      index = 37, --Hellplague
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Magic Damage Reduced by 4-6,
-      stat = {{index = 85, op = "==", value = 5 },{index = 35, op = "==", value = 6 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 6 } -- Magic Damage Reduced by 4-6
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Culwen's Point
+    {
       codes = "allitems",
       quality = "7",
-      index = 38,
+      index = 38, --Culwen's Point
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- Damage Reduced by 4-7,
-      stat = {{index = 34, op = "==", value = 7 },},
+      stat = {
+      {index = 34, op = "==", value = 7 } -- Damage Reduced by 4-7
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Shadowfang
+    {
       codes = "allitems",
       quality = "7",
-      index = 39,
+      index = 39, --Shadowfang
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- +2-5% to Experience Gained, -- Magic Damage Reduced by 3-5,
-      stat = {{index = 85, op = "==", value = 5 },{index = 35, op = "==", value = 5 },},
+      stat = {
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 35, op = "==", value = 5 }, -- Magic Damage Reduced by 3-5
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
-    {--Soulflay
+    {
       codes = "allitems",
       quality = "7",
-      index = 40,
+      index = 40, --Soulflay
       runeword = false,
       location = {"onground", "onplayer","equipped"},
-      -- 4-10% Mana stolen per hit, -- +2-5% to Experience Gained, -- Damage Reduced by 2-5,
-      stat = {{index = 62, op = "==", value = 10 },{index = 85, op = "==", value = 5 },{index = 34, op = "==", value = 5 },},
+      stat = {
+      {index = 62, op = "==", value = 10 }, -- 4-10% Mana stolen per hit
+      {index = 85, op = "==", value = 5 }, -- +2-5% to Experience Gained
+      {index = 34, op = "==", value = 5 } -- Damage Reduced by 2-5
+      },
       border = {165, 146, 099, 230},
-      --notify = "",
+      --notify = "Max Unique!",
       suffix = "\n {red} Maxed Stats",
+      filter_levels = "1,2,3"
     },
   --Hide <70% Unique Index 21-40
     {
@@ -991,6 +1725,7 @@ return {
       index = 21, --Knell Striker, hide <70%
       runeword = false,
       location = {"onground"},
+      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
@@ -1554,7 +2289,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2013,7 +2748,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2026,7 +2761,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2123,7 +2858,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2456,7 +3191,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2483,7 +3218,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2496,7 +3231,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2555,7 +3290,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -2705,7 +3440,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -3034,7 +3769,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -3621,7 +4356,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -3634,7 +4369,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -3647,7 +4382,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -3660,7 +4395,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -4322,7 +5057,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -4335,7 +5070,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -4363,7 +5098,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -4814,7 +5549,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -4827,7 +5562,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -4840,7 +5575,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -4853,7 +5588,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -6088,7 +6823,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -6664,7 +7399,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -6724,7 +7459,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -6737,7 +7472,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -7470,7 +8205,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
   --Hide <70% Unique Index 241-260
@@ -7835,7 +8570,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -8410,7 +9145,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -8692,7 +9427,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -8705,7 +9440,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
   --Hide <70% Unique Index 281-300
@@ -9008,7 +9743,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9021,7 +9756,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9048,7 +9783,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9075,7 +9810,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9146,7 +9881,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9159,7 +9894,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9172,7 +9907,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9185,7 +9920,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9212,7 +9947,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9240,7 +9975,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9636,7 +10371,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9649,7 +10384,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9706,7 +10441,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9719,7 +10454,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -9788,7 +10523,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10197,7 +10932,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10269,7 +11004,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10282,7 +11017,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10324,7 +11059,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10640,7 +11375,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10669,7 +11404,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10786,7 +11521,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10828,7 +11563,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -10884,7 +11619,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11214,7 +11949,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11243,7 +11978,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11256,7 +11991,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11362,7 +12097,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11389,7 +12124,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11445,7 +12180,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11808,7 +12543,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -11950,7 +12685,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -12001,7 +12736,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -13949,7 +14684,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -14345,7 +15080,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -15534,7 +16269,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -15563,7 +16298,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -15608,7 +16343,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -15636,7 +16371,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -15649,7 +16384,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -15692,7 +16427,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -15736,7 +16471,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -16284,7 +17019,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -16368,7 +17103,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
   --Hide <70% Unique Index 541-560
@@ -16651,7 +17386,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -16664,7 +17399,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -16677,7 +17412,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Max Unique!",
-      suffix = "\n {red} Maxed Stats",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
@@ -17486,7 +18221,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "",
-      --suffix = "",
+      suffix = "\n Healty",
       filter_levels = "1,2,3"
     },
     {
@@ -17969,7 +18704,7 @@ return {
       },
       border = {165, 146, 099, 230},
       --notify = "Blank Talent",
-      --suffix = "",
+      suffix = "\n Blank",
       filter_levels = "1,2,3"
     },
     {
@@ -18010,8 +18745,8 @@ return {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      --notify = "Unique Placeholder",
+      suffix = "\n {red} Bugged Item",
       filter_levels = "1,2,3"
     },
     {
@@ -20589,6 +21324,21 @@ return {
       -- No stats (placeholder)
       },
       --hide = true,
+      filter_levels = "1,2,3"
+    },
+  --ALL UNIQUES MAX STATS Index 701+
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {701, 702, 703, 704, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800},  -- -------
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = {
+      -- No stats (placeholder)
+      },
+      border = {165, 146, 099, 230},
+      notify = "Unique Placeholder",
+      suffix = "\n {red} NO STATS FOUND",
       filter_levels = "1,2,3"
     },
   },
