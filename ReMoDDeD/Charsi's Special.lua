@@ -1,12 +1,12 @@
 --- Filter Title:Charsi's Special
 --- Filter Type: General use with 9 filter levels.
---- Filter Description:ReMoDDeD Only!\nNot recommended to use it in other mods as it contains RMD only information on items and whole item filtering logic is tempered specifically for RMD.\n\nFilter designed as universally suitable for all, starting, intermediate and demanding players with Lite, Intermediate and Aggressive filter levels that are cycled between at-will in-game.\nTo cycle through levels, press F12 while in-game, go to 'Hotkey Controls' and set up a hotkey for 'Cycle Filter Level' (you might need to restart the game once after setting this hotkey, but it should work without the need to restart).\n\nAs of now, filter has 9 different levels, with 3 main ones that later divide into "Hunter" and "Grail" sub-levels:\n\nLite (levels 1/2/3):\nFor new players or those that do not want any filtering at all. These levels do not hide anything besides ID/TP Scroll drops and really low gold piles, to minimize amount of items hidden and at the same time reduce screen clutter that can get little out of hand in the mod.\n\nIntermediate (levels 4/5/6):\nFor players that want to get rid of some of most the more useless bases and all magic (blue) items, while still seeing most of the drops. Hides (in Hell only), all normal rarity, not-superior armor bases and normal rarity weapons unless they have a good roll of "buff duration" Superior (for CTA purposes). Now you can farm /p20 Cows without the hear of overloading your screen with loot until it starts being hidden by the game (given that the gold is picked up).\n\nAggressive (levels 7/8/9):\nFor those that don't want to see both magic and rare items and don't want to see any bases unless they are useful in some capacity. These levels have complex filtering system that might make the game look quite... "empty".\n\nSix levels (2,3,5,6,8 and 9) contain "HUNTER":/nTells you which set item is from, while on ground and not identified yet (chat message while cycling through filter levels tells you what Level are you on).\n+ For Unique items, "HUNTER" levels are not as advanced, they tell only good jewelry(!) of my own choosing (only those rarer ones).\n\nThree levels (3,6 and 9) contain "Grail" functionality:/nIt will send chat notify and add Grail text on top of items name if said item was not collected yet in any shared stash tab (list updates upon making new game session).\n\nNo items are hidden in tows. Filter does not hide any Runewords, Set, Unique or other items of any value.\nBig part of the filter are also QoL options like styles for loot, general tips on some items or expanding some item descriptions with additional information.\n\nFilter supports "Filter Sounds" as well, which as of right now, need to be installed manually. For both instructions on that as well as sounds themselves, you can find it in our discord in "loot-filters" channel.\n\nIf you have any suggestions, or found a bug or (you think) unintended behavior, please contact me on our discord in "loot-filters" channel :)\n\nMade by: Vivasen
+--- Filter Description:Filter designed as universally suitable for all, starting, intermediate and demanding players with Lite, Intermediate and Aggressive filter levels that are cycled between at-will in-game.\nAs of now, filter has 9 different levels, with 3 main ones that later divide into "Hunter" and "Grail" sub-levels:\n-Lite (levels 1/2/3):\nFor new players or those that do not want any filtering at all. These levels do not hide anything besides ID/TP Scroll drops and really low gold piles, to minimize amount of items hidden and at the same time reduce screen clutter that can get little out of hand in the mod.\n-Intermediate (levels 4/5/6):\nFor players that want to get rid of some of most the more useless bases and all magic (blue) items, while still seeing most of the drops. Hides (in Hell only), all normal rarity, not-superior armor bases and normal rarity weapons unless they have a good roll of "buff duration" Superior (for CTA purposes). Now you can farm /p20 Cows without the hear of overloading your screen with loot until it starts being hidden by the game (given that the gold is picked up).\n-Aggressive (levels 7/8/9):\nFor those that don't want to see both magic and rare items and don't want to see any bases unless they are useful in some capacity. These levels have complex filtering system that might make the game look quite... "empty".\n-Six levels (2,3,5,6,8 and 9) contain "HUNTER":\nTells you which set item is from, while on ground and not identified yet.\n-Three levels (3,6 and 9) contain "Grail" functionality:\nIt will send chat notify and add Grail text on top of items name if said item was not collected yet in any shared stash tab (list updates upon making new game session).\nNo items are hidden in tows. Filter does not hide any Runewords, Set, Unique or other items of any value.\nBig part of the filter are also QoL options like styles for loot, general tips on some items or expanding some item descriptions with additional information.\nFilter supports "Filter Sounds" as well, which as of right now, need to be installed manually. For both instructions on that as well as sounds themselves, you can find it in our discord in "loot-filters" channel.\nMade by: Vivasen
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Charsi's%20Special.lua
 
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Intermediate","Intermediate + Hunter","Intermediate + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v2.0{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v2.0.1{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
 audioPlayback = true, -- Turns ON/OFF sounds feature.
@@ -896,9 +896,17 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			notify = "{red}Demon Tempered item on ground!"
 		},
 		{ -- Style for Facets
-            codes = { "j00", "jew" },
+            code = "jew",
             quality = 7,
             notify = "{red}Rainbow Facet Nearby!",
+            name_style = "Rainbow",
+            border = { 255, 0, 0, 230, 1 } 
+        },
+		{ -- Style for Prismatic Facets
+            code = "j00",
+			index = 610,
+            quality = 7,
+            notify = "{red}Prismatic Facet Nearby!",
             name_style = "Rainbow",
             border = { 255, 0, 0, 230, 1 } 
         },
@@ -3354,15 +3362,26 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		},
 		{ -- Faceted Memory name fix, identified
 			code = "j00",
+			index =  NOT { 610 },
 			identified = true,
+			location = { "onground", "onplayer", "equipped", "atvendor" },
+			name_style = "Rainbow",
 			name_override = "{gold}Jewel\nFaceted Memory ({ilvl})"
 		},
-		{ -- Faceted Memory notify, unidentified
+		{ -- Faceted Memory notify, unidentified onground
 			code = "j00",
+			index =  NOT { 610 },
 			identified = false,
-			notify = "{orange}That Unique Jewel looks a bit special!"
+			name_style = "ToxicFog",
+			notify = "{orange}That Jewel looks a bit special!"
 		},
-
+		{ -- Faceted Memory notify, unidentified in eq
+			code = "j00",
+			index =  NOT { 610 },
+			identified = false,
+			location = { "onplayer", "equipped", "atvendor" },
+			name_style = "ToxicFog"
+		},
 		
 		
 		
