@@ -3467,7 +3467,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			index =  NOT { 610 },
 			identified = true,
 			location = { "onground", "onplayer", "equipped", "atvendor" },
-			name_style = "Rainbow",
+			name_style = "ToxicFog",
 			name_override = "{gold}Jewel\nFaceted Memory ({ilvl})"
 		},
 		{ -- Faceted Memory notify, unidentified onground
