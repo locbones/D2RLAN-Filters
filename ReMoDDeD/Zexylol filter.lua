@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v2.0
+--- Filter Title: Zexylol's Hardfilter v2.1
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques Max stat is done, all stats <70% hidden (outside of towns)!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -19,7 +19,8 @@ return {
     {
       codes = "allitems",
       location = {"onground", "onplayer","equipped"},
-      --prefix = "S388={stat=(83,2)}|S20={stat=(284)}|",
+      --difficulty = "Nightmare, Hell",
+      --prefix = "S388={stat=(107,29)}|S20={stat=(286)}|",
       --prefix = "[{index}]",
       --prefix = "[{code}]",
       --prefix = "C=[{code}] R=[{rarity}] In=[{index}] IT=[{itype}] IL=[{ilvl}]",
@@ -179,6 +180,63 @@ return {
       codes = "allitems",
       quality = 5,
       border = {000, 255, 000},
+    },
+    { -- Hide Small Charms with less then 5 CDR, 7 MR and 5 All Res
+      code = "cm1",
+      quality = 4,
+      stat = {
+      { index = 286, op = "<", value = 5 },
+      { index = 80, op = "<", value = 7 },
+      { index = 39, op = "<", value = 5 },
+      { index = 41, op = "<", value = 5 },
+      { index = 43, op = "<", value = 5 },
+      { index = 45, op = "<", value = 5 },
+      },
+      hide = true
+    },
+    {
+      code = "cm1",
+      quality = 4,
+      stat = {
+      { index = 286, op = "<", value = 5 }, 
+      { index = 80, op = "<", value = 7 }, 
+      { index = 39, op = ">=", value = 5 },
+      { index = 41, op = "<=", value = 1 },
+      },
+      hide = true
+    },
+    {
+      code = "cm1",
+      quality = 4,
+      stat = {
+      { index = 286, op = "<", value = 5 }, 
+      { index = 80, op = "<", value = 7 }, 
+      { index = 41, op = ">=", value = 5 },
+      { index = 43, op = "<=", value = 1 },
+      },
+      hide = true
+    },
+    {
+      code = "cm1",
+      quality = 4,
+      stat = {
+      { index = 286, op = "<", value = 5 }, 
+      { index = 80, op = "<", value = 7 }, 
+      { index = 43, op = ">=", value = 5 },
+      { index = 45, op = "<=", value = 1 },
+      },
+      hide = true
+    },
+    {
+      code = "cm1",
+      quality = 4,
+      stat = {
+      { index = 286, op = "<", value = 5 }, 
+      { index = 80, op = "<", value = 7 }, 
+      { index = 45, op = ">=", value = 5 },
+      { index = 39, op = "<=", value = 1 },
+      },
+      hide = true
     },
   --Rules 10-11 Hide Gold.
 
@@ -1725,7 +1783,6 @@ return {
       index = 21, --Knell Striker, hide <70%
       runeword = false,
       location = {"onground"},
-      area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
       },
@@ -20788,113 +20845,211 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 681, -- -------
+      index = 681, -- The Grandfather (1.08)
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
-      -- No stats (placeholder)
+      {index = 151, op = "==", param = 503, value = 20 }, -- Level 10-20 Physical Conviction Aura When Equipped
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      --notify = "Unique Placeholder",
+      suffix = "\n {red} Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 682, -- -------
+      index = 682, -- Baranar's Star (1.08)
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      --notify = "Unique Placeholder",
+      suffix = "\n {red} [A]Maxed Stats",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 683, -- -------
+      index = 683, -- Faceted Memory
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      notify = "Faceted Memory",
+      --suffix = "\n {red} Need skills rolled",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 684, -- -------
+      index = 684, -- Faceted Memory
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      notify = "Faceted Memory",
+      --suffix = "\n {red} Need skills rolled",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 685, -- -------
+      index = 685, -- Faceted Memory
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      notify = "Faceted Memory",
+      --suffix = "\n {red} Need skills rolled",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 686, -- -------
+      index = 686, -- Faceted Memory
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      notify = "Faceted Memory",
+      --suffix = "\n {red} Need skills rolled",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 687, -- -------
+      index = 687, -- Faceted Memory
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      notify = "Faceted Memory",
+      --suffix = "\n {red} Need skills rolled",
       filter_levels = "1,2,3"
     },
     {
       codes = "allitems",
       quality = "7",
-      index = 688, -- -------
+      index = 688, -- Faceted Memory
       runeword = false,
       location = {"onground", "onplayer","equipped"},
       stat = {
       -- No stats (placeholder)
       },
       border = {165, 146, 099, 230},
-      notify = "Unique Placeholder",
-      suffix = "\n {red} NO STATS FOUND",
+      notify = "Faceted Memory",
+      --suffix = "\n {red} Need skills rolled",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {683, 684, 685, 686, 687, 688}, -- Faceted Memorys - Amazon Skills
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = OR {
+      {index = 107, op = "==", param = {6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35}, value = 2},
+      },
+      border = {165, 146, 099, 230},
+      notify = "Faceted Memory",
+      suffix = "\n {red} Amazon Skiller Jewel!",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {683, 684, 685, 686, 687, 688}, -- Faceted Memorys - Sorceress Skills
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = OR {
+      { index = 107, op = "==", param = {36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65}, value = 2},
+      },
+      border = {165, 146, 099, 230},
+      notify = "Faceted Memory",
+      suffix = "\n {red} Sorceress Skiller Jewel!",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {683, 684, 685, 686, 687, 688}, -- Faceted Memorys - Necromancer Skills
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = OR {
+      { index = 107, op = "==", param = {66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95}, value = 2},
+      },
+      border = {165, 146, 099, 230},
+      notify = "Faceted Memory",
+      suffix = "\n {red} Necromancer Skiller Jewel!",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {683, 684, 685, 686, 687, 688}, -- Faceted Memorys - Paladin Skills
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = OR {
+      { index = 107, op = "==", param = {96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,174,175,176,177}, value = 2},
+      },
+      border = {165, 146, 099, 230},
+      notify = "Faceted Memory",
+      suffix = "\n {red} Paladin Skiller Jewel!",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {683, 684, 685, 686, 687, 688}, -- Faceted Memorys - Barbarian Skills
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = OR {
+      { index = 107, op = "==", param = {126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155}, value = 2},
+      },
+      border = {165, 146, 099, 230},
+      notify = "Faceted Memory",
+      suffix = "\n {red} Barbarian Skiller Jewel!",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {683, 684, 685, 686, 687, 688}, -- Faceted Memorys - Druid Skills
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = OR {
+      { index = 107, op = "==", param = {221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251}, value = 2},
+      },
+      border = {165, 146, 099, 230},
+      notify = "Faceted Memory",
+      suffix = "\n {red} Druid Skiller Jewel!",
+      filter_levels = "1,2,3"
+    },
+    {
+      codes = "allitems",
+      quality = "7",
+      index = {683, 684, 685, 686, 687, 688}, -- Faceted Memorys - Assassin Skills
+      runeword = false,
+      location = {"onground", "onplayer","equipped"},
+      stat = OR {
+      { index = 107, op = "==", param = {252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281}, value = 2},
+      },
+      border = {165, 146, 099, 230},
+      notify = "Faceted Memory",
+      suffix = "\n {red} Assassin Skiller Jewel!",
       filter_levels = "1,2,3"
     },
     {
@@ -21069,14 +21224,14 @@ return {
     {
       codes = "allitems",
       quality = "7",
-      index = 681, -- -------
+      index = 681, -- The Grandfather (1.08), hide < 70%
       runeword = false,
       location = {"onground"},
       area = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"},
       stat = {
-      -- No stats (placeholder)
+      {index = 151, op = "<=", param = 503, value = (10 + (20-10)*0.7)}, -- Level 10-20 Physical Conviction Aura When Equipped
       },
-      --hide = true,
+      hide = true,
       filter_levels = "1,2,3"
     },
     {
