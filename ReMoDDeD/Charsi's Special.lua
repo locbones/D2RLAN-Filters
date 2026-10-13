@@ -6,7 +6,7 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Intermediate","Intermediate + Hunter","Intermediate + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v2.1.2{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v2.1.3{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
 audioPlayback = true, -- Turns ON/OFF sounds feature.
@@ -193,7 +193,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			hide = true
 		},
 		{ -- Hide all normal weapons unless they are good roll of "buff duration" Superior (for CTA purposes) - Hell only, Intermediate
-			codes = "allitems",
+			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std", "B01", "B02", "B03" },
 			itype = 45,
 			rarity = 0,
 			quality = "3-",
@@ -205,7 +205,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			hide = true
 		},
 		{ -- Hide all normal, not-superior armor bases - Hell only, Intermediate
-			codes = "allitems",
+			codes = NOT { "j34", "jew", "qey", "g34", "xyz", "bks", "leg", "hdm", "ass", "msf", "hst", "vip", "box", "g33", "qbr", "bbb", "qhr", "qf1", "qf2", "mss", "hfh", "ice", "tr2", "BoH", "std", "B01", "B02", "B03" },
 			itype = 50,
 			rarity = 0,
 			quality = "2",
@@ -684,6 +684,20 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			difficulty = "Normal",
             hide = true
         },
+		{ -- Demonic Milk - onplayer
+			code = "CW1",
+			location = { "onplayer", "atvendor", "equipped" },
+			prefix_desc = "{gray}Oh heavens, the smell...\n"
+		},
+		{ -- Wirt's Another Leg - onground
+			code = "CW2",
+			notify = "{red}Edurem{white}: Wait, there is another one?"
+		},
+		{ -- Wirt's Another Leg - onplayer
+			code = "CW2",
+			location = { "onplayer", "atvendor", "equipped" },
+			prefix_desc = "{gray}Hmm, maybe there is an arm somewhere.\n"
+		},
 		{ -- Hide gold drops under 50 for Nightmare difficulty - Lite
 			code = "gld",
             stat = { index = 14, op = "<=", value = 49 }, 
@@ -732,13 +746,13 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			filter_levels = "7,8,9",
             hide = true
         },
-		{ -- Hide ass Small Charms that aren't either 5% AllRes, 5% CDR or 7% MF - Nightmare + Hell - Aggressive // Thanks, Zexy
+		{ -- Hide all Small Charms that aren't either +20 Life, 5% AllRes, 5% CDR or 7% MF - Nightmare + Hell - Aggressive // Thanks, Zexy
 			code = "cm1",
 			quality = 4,
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Nightmare,Hell",
 			filter_levels = "7,8,9",
-			stat = { { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 39, op = "<", value = 5 }, { index = 41, op = "<", value = 5 }, { index = 43, op = "<", value = 5 }, { index = 45, op = "<", value = 5 } },  
+			stat = { { index = 7, op = "<", value = 20*256 }, { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 39, op = "<", value = 5 }, { index = 41, op = "<", value = 5 }, { index = 43, op = "<", value = 5 }, { index = 45, op = "<", value = 5 } },  
 			hide = true
 		},
 		{ -- Small charm hiding check - Part 1 - Nightmare + Hell - Aggressive
@@ -747,7 +761,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Nightmare,Hell",
 			filter_levels = "7,8,9",
-			stat = { { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 39, op = ">=", value = 5 }, { index = 41, op = "<=", value = 1 } },
+			stat = { { index = 7, op = "<", value = 20*256 }, { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 39, op = ">=", value = 5 }, { index = 41, op = "<=", value = 1 } },
 			hide = true
 		},
 		{ -- Small charm hiding check - Part 2 - Nightmare + Hell - Aggressive
@@ -756,7 +770,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Nightmare,Hell",
 			filter_levels = "7,8,9",
-			stat = { { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 41, op = ">=", value = 5 }, { index = 43, op = "<=", value = 1 } },
+			stat = { { index = 7, op = "<", value = 20*256 }, { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 41, op = ">=", value = 5 }, { index = 43, op = "<=", value = 1 } },
 			hide = true
 		},
 		{ -- Small charm hiding check - Part 3 - Nightmare + Hell - Aggressive
@@ -765,7 +779,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Nightmare,Hell",
 			filter_levels = "7,8,9",
-			stat = { { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 43, op = ">=", value = 5 }, { index = 45, op = "<=", value = 1 } },
+			stat = { { index = 7, op = "<", value = 20*256 }, { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 43, op = ">=", value = 5 }, { index = 45, op = "<=", value = 1 } },
 			hide = true
 		},
 		{ -- Small charm hiding check - Part 4 - Nightmare + Hell - Aggressive
@@ -774,7 +788,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			area = NOT { "Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath" },
 			difficulty = "Nightmare,Hell",
 			filter_levels = "7,8,9",
-			stat = { { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 45, op = ">=", value = 5 }, { index = 39, op = "<=", value = 1 } },
+			stat = { { index = 7, op = "<", value = 20*256 }, { index = 286, op = "<", value = 5 }, { index = 80, op = "<", value = 7 }, { index = 45, op = ">=", value = 5 }, { index = 39, op = "<=", value = 1 } },
 			hide = true
 		},
 		{ -- Style for Magic Jewels
@@ -1516,7 +1530,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 		{ -- Thresh Sockets Horn
 			code = "C29",
 			location = { "onplayer", "atvendor" },
-			prefix = "{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
+			prefix = "{white}Crafting {green}Forsaken Pacts {grey}(list in cube recipes)\n{white}Body part for {dark green}Demon Tempering\n{gold}Used for:\n\n"
 		},
 		{ -- Anuburaks Tail
 			code = "C30",
@@ -3151,6 +3165,15 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			identified = false,
             stat = { index = 80, op = "==", value = 7 },
 			suffix = "{yellow} [{stat=(80)}%% MF]"
+		},
+		{ -- +20 Life Small Charms
+			code = "cm1",
+			quality = 4,
+			filter_levels = "2,3,5,6,8,9",
+			location = { "onground", "onplayer" },
+			identified = false,
+			stat = { index = 7, op = "==", value = 20*256 },
+			suffix = "{yellow} [20 Life]"
 		},
 		{ -- High ED% magic/rare Jewels
 			code = "jew",
