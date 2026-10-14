@@ -1,9 +1,9 @@
---- Filter Title: Sheep's Filter v1.23
+--- Filter Title: Sheep's Filter v1.26
 --- Filter Type: (General Filter)
 --- Filter Description: \nRule 0: Runewords beg you to keep them. \nRule 0b: Shows number of sockets. \nRule 0c: Hides scrolls on the ground. \nRule 0d: Hides scrolls on the ground. \nRule 0e: Hides all non-rare or lower arrows above level 60. \nRule 0f: Hides all white arrows. \nRule 2: Good bases — shows 3-skill scepters in red. \nRule 3: Adds border and notifies when uniques drop. \nRule 4: Adds border and notifies when sets drop. \nRule 5: Rune notification with special border and colors. \nRule 6: Unique Archons (color swap). \nRule 7: Potential high-quality uniques (e.g., Hydra Master) (color swap). \nRule 8: Unique charms (color swap). \nRule 9: Facet charms (color swap). \nRule 10: Treasure chests/gem veins. \nRule 11: Valuable uniques. \nRule 12: Hides zero-skill Paladin weapons. \nRule 13: Hides non-superior/non-class items by level (still shows 3-socket ones). \nRule 14: Hides non-class base magic items by level. \nRule 15: Hides low gold piles by level. \nRule 16: Codex tome. \nRule 17: Quest item notification. \nRule e1: Sorting of weapon bases by socket amount (hides 2 sockets or fewer on bases that cap at 3 sockets at level 80). \nRule e2: Added symbol for new bases.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
 return {
-    reload = "{pink}Sheep's Base Filter v1.23 {grey} 2/23/26{Green} Reloaded",
+    reload = "{pink}Sheep's Base Filter v1.26 {grey} 10/14/26{Green} Reloaded",
     allowOverrides = true,
     audioVoice = 1,
     audioPlayback = true,
@@ -315,7 +315,7 @@ return {
             border = { 255, 128, 0, 230, 2 } 
         },
         ---Charms in inventory
-                {
+        {
             codes = { "cm1", "cm2", "cm3", "m32", "m33", "m34", "m35","m36" },
             quality = 7,
             name_style = "Open Flames",
@@ -325,15 +325,14 @@ return {
         {
             codes = { "j00", "jew" },
             quality = 7,
-            name_override = "Rainbow Facet!!!",
-            notify = "{red}A Fragment of the Rainbow!",
+            notify = "{red}This jewel shines so bright",
             name_style = "Rainbow",
             border = { 255, 0, 0, 230, 2 } 
         },
         ---Rule 10: Treasure Chest/gem vein  
         {
             codes = { "S01","b64","b65","Rgx","Ev0", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", 
-            "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33" },
+            "y19", "y20", "y21", "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33", "Ev03" },
             notify = "{purple}An Extraordinary Find: {name}",
             name_style = "Cotton Candy",
             border = { 220, 120, 255, 230, 2 }
@@ -906,7 +905,7 @@ return {
             code = "jew",
             quality = "6",
             border = { 255, 255, 100, 230, 2 },
-            notify = "{yellow}Jewel Nearby",
+            notify = "{yellow}Jewel Nearby"
         },
                 ---Rule 19b magic jewel borders
         {
@@ -987,13 +986,54 @@ return {
             border = { 240, 0, 0, 230, 2 } 
 
         },
+        -- Demonic Milk - onplayer
+        { 
+			code = "CW1",
+			location = { "onplayer", "atvendor", "equipped" },
+			prefix_desc = "{gray}You probably shouldn't drink this...\n"
+		},
+        -- Wirt's Leg 2 - onground
+		{ 
+			code = "CW2",
+			notify = "{red}Quest Item: {name}"
+		},
+        -- Wirt's Leg 2 - onplayer
+		{ 
+			code = "CW2",
+			location = { "onplayer", "atvendor", "equipped" },
+			prefix_desc = "{gray}I hope you don't find a third one...\n"
+		},
         ---Dye Bottles
         {
             codes = {"z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69","z70", "z71", "z72", "z73"},
             --prefix = "{gold}",
             border = { 255, 255, 255, 230, 3 },
             background = { 30, 100, 30, 200 },
-        }
+        },
+        -- Stocking Stuffer
+		{ 
+			code = "Ev04",
+			notify = "{orange}Hopefully, it's not coal"
+		},
+         -- Milk&Cookies
+		{
+			codes = { "Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10" },
+			notify = "{orange}An offering to Satan... i mean Santa"
+		},
+         -- Candy Corn
+		{
+			code = "Ev11",
+			border = { 0, 35, 255, 130, 2 },
+			notify = "{orange}Happy Halloween"
+		},
+        -- Cornucopia
+		{ 
+			code = "Ev12",
+			border = { 0, 35, 255, 130, 2 },
+			notify = "{orange}Happy Halloween"
+		},
+     
+		
 
     }
 }
