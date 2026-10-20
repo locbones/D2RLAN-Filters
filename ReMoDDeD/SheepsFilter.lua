@@ -1,9 +1,9 @@
---- Filter Title: Sheep's Filter v1.27
+--- Filter Title: Sheep's Filter v1.28
 --- Filter Type: (General Filter)
 --- Filter Description: \nRule 0: Runewords beg you to keep them. \nRule 0b: Shows number of sockets. \nRule 0c: Hides scrolls on the ground. \nRule 0d: Hides scrolls on the ground. \nRule 0e: Hides all non-rare or lower arrows above level 60. \nRule 0f: Hides all white arrows. \nRule 2: Good bases — shows 3-skill scepters in red. \nRule 3: Adds border and notifies when uniques drop. \nRule 4: Adds border and notifies when sets drop. \nRule 5: Rune notification with special border and colors. \nRule 6: Unique Archons (color swap). \nRule 7: Potential high-quality uniques (e.g., Hydra Master) (color swap). \nRule 8: Unique charms (color swap). \nRule 9: Facet charms (color swap). \nRule 10: Treasure chests/gem veins. \nRule 11: Valuable uniques. \nRule 12: Hides zero-skill Paladin weapons. \nRule 13: Hides non-superior/non-class items by level (still shows 3-socket ones). \nRule 14: Hides non-class base magic items by level. \nRule 15: Hides low gold piles by level. \nRule 16: Codex tome. \nRule 17: Quest item notification. \nRule e1: Sorting of weapon bases by socket amount (hides 2 sockets or fewer on bases that cap at 3 sockets at level 80). \nRule e2: Added symbol for new bases.
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
 return {
-    reload = "{pink}Sheep's Base Filter v1.27 {grey} 10/16/26{Green} Reloaded",
+    reload = "{pink}Sheep's Base Filter v1.28 {grey} 10/19/26{Green} Reloaded",
     allowOverrides = true,
     audioVoice = 1,
     audioPlayback = true,
@@ -1005,7 +1005,7 @@ return {
 		},
         ---Dye Bottles
         {
-            codes = {"z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69","z70", "z71", "z72", "z73"},
+			codes = { "Z52", "Z53", "Z54", "Z55", "Z56", "Z57", "Z58", "Z59", "z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69", "z70", "z71", "z72", "z73" },
             --prefix = "{gold}",
             border = { 255, 255, 255, 230, 3 },
             background = { 30, 100, 30, 200 },
