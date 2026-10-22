@@ -6,10 +6,10 @@
 return {
 filter_level = 1,
 filter_titles = {"Lite","Lite + Hunter","Lite + Hunter + Grail","Intermediate","Intermediate + Hunter","Intermediate + Hunter + Grail","Aggressive","Aggressive + Hunter","Aggressive + Hunter + Grail"}, -- Names for Filter Levels, from 1-4 in order
-reload = "{gold}Charsi's Special ({yellow}v2.1.3{gold}) {Green}Reloaded", -- Filter reload message.
+reload = "{gold}Charsi's Special ({yellow}v2.1.4{gold}) {Green}Reloaded", -- Filter reload message.
 allowOverrides = true, -- Necessary, do not turn off.
 audioVoice = 0, -- Choice of voice for TTS.
-audioPlayback = true, -- Turns ON/OFF sounds feature.
+audioPlayback = false, -- Turns ON/OFF sounds feature.
     rules = {
         { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
             codes = "allitems",
@@ -1651,7 +1651,7 @@ audioPlayback = true, -- Turns ON/OFF sounds feature.
 			code = "mss",
 			location = { "onplayer", "atvendor" },
 			difficulty = "Normal",
-			prefix = "{gray}or by holding ALT and clicking on any attribute '+' in character stats window\nYou respec by clicking recpec button in your skills window\n\ncheck the checkbox 'respec' in Launchers main window, inside 'Launch Options'\n{orange}Gameplay Tip:{gray} You can {white}infinitely respec{gray} your stats/skills if you\n"
+			prefix = "{gray}or by holding ALT and clicking on any attribute '+' in character stats window\nYou respec by clicking recpec button in your skills window\n\ncheck the checkbox 'Infinite respec' in Launchers 'Settings' (needs game relaunch)\n{orange}Gameplay Tip:{gray} You can {white}infinitely respec{gray} your stats/skills if you\n"
 		},
 		{ -- Mephisto's Soulstone - Nightmare
 			code = "mss",
