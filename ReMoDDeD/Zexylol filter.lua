@@ -1,13 +1,34 @@
---- Filter Title: Zexylol's Hardfilter v2.2
+--- Filter Title: Zexylol's Hardfilter v2.5
 --- Filter Type: (Hardconfig filter)
---- Filter Description: \nReworked with new adjustmens \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques Max stat is done, all stats <70% hidden (outside of towns)!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
+--- Filter Description: \nReworked with new adjustmens \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques and Sets(0-159) that drop, Max stat is done, all stats <70% hidden (outside of towns)!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
 local UniDropLoc = {"onground", "onplayer","equipped"}
 local UniMaxBor = {165,146,099,230}
-local NotAreaTown = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"}
+local NotTown = NOT {"Rogue Encampment", "Lut Gholein", "Kurast Docktown", "The Pandemonium Fortress", "Harrogath"}
 local MaxTag = "\n {red} Maxed Stats"
+local F123 = "1,2,3"
+local F12 = "1,2"
 local T = true
 local F = false
+
+--[[Fun Test
+-- Starta om slumptalsgeneratorn baserat på klockan
+math.randomseed(os.time())
+
+-- Funktion som BARA genererar den slumpade koden (6 tecken)
+local function genereraSlumpNamn(langd)
+    local tecken = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%&*?+"
+    local NameOver = ""
+    
+    for i = 1, langd do
+    local randIndex = math.random(1, #tecken)
+    NameOver = NameOver .. string.sub(tecken, randIndex, randIndex)
+    end
+    
+    -- Returnerar enbart den slumpade koden i guld
+    return "{gold}[" .. NameOver .. "]"
+end
+]]--Fun end
 
 -- =============================================================================
 -- Master Value for Uniques. DO NOT TOUCH, except to add: custom_suffix = "text", To Uniques.
@@ -4781,87 +4802,1076 @@ local UniqueItemData = {
     },
 }
 -- =============================================================================
+-- Master Value for Sets. DO NOT TOUCH, except to add: custom_suffix = "text", To Sets.
+-- Need stat index and min / max values.
+-- =============================================================================
+local SetsItemData = {
+  [0] = {
+    name = "Civerb's Ward",
+    stats = {
+	  {id = {34,35}, min = 3, max = 5},
+    },
+    },
+  [1] = {
+    name = "Civerb's Icon",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [2] = {
+    name = "Civerb's Cudgel",
+    stats = {
+	  {id = 22, min = 40, max = 46},
+    },
+    },
+  [3] = {
+    name = "Hsarus' Iron Heel",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [4] = {
+    name = "Hsarus' Iron Fist",
+    stats = {
+	  {id = 34, min = 5, max = 7},
+	  {id = 35, min = 3, max = 5},
+    },
+    },
+  [5] = {
+    name = "Hsarus' Iron Stay",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [6] = {
+    name = "Cleglaw's Tooth",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [7] = {
+    name = "Cleglaw's Claw",
+    stats = {
+	  {id = {34,35}, min = 3, max = 5},
+    },
+    },
+  [8] = {
+    name = "Cleglaw's Pincers",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [9] = {
+    name = "Iratha's Collar",
+    stats = {
+    {id = 34, min = 2, max = 4},
+    },
+    },
+  [10] = {
+    name = "Iratha's Cuff",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [11] = {
+    name = "Iratha's Coil",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [12] = {
+    name = "Iratha's Cord",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [13] = {
+    name = "Isenhart's Lightbrand",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [14] = {
+    name = "Isenhart's Parry",
+    stats = {
+    {id = {34,35}, min = 4, max = 6},
+    },
+    },
+  [15] = {
+    name = "Isenhart's Case",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [16] = {
+    name = "Isenhart's Horns",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [17] = {
+    name = "Vidala's Barb",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [18] = {
+    name = "Vidala's Fetlock",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [19] = {
+    name = "Vidala's Ambush",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [20] = {
+    name = "Vidala's Snare",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [21] = {
+    name = "Milabrega's Orb",
+    stats = {
+    {id = 34, min = 6, max = 8},
+    },
+    },
+  [22] = {
+    name = "Milabrega's Rod",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [23] = {
+    name = "Milabrega's Diadem",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [24] = {
+    name = "Milabrega's Robe",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [25] = {
+    name = "Cathan's Rule",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [26] = {
+    name = "Cathan's Mesh",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [27] = {
+    name = "Cathan's Visage",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [28] = {
+    name = "Cathan's Sigil",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [29] = {
+    name = "Cathan's Seal",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [30] = {
+    name = "Tancred's Crowbill",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [31] = {
+    name = "Tancred's Spine",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [32] = {
+    name = "Tancred's Hobnails",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [33] = {
+    name = "Tancred's Weird",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [34] = {
+    name = "Tancred's Skull",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [35] = {
+    name = "Sigon's Gage",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [36] = {
+    name = "Sigon's Visor",
+    stats = {
+    {id = 34, min = 1, max = 3},
+    },
+    },
+  [37] = {
+    name = "Sigon's Shelter",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [38] = {
+    name = "Sigon's Sabot",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [39] = {
+    name = "Sigon's Wrap",
+    stats = {
+    {id = 35, min = 1, max = 3},
+    },
+    },
+  [40] = {
+    name = "Sigon's Guard",
+    stats = {
+    {id = {34,35}, min = 5, max = 7},
+    },
+    },
+  [41] = {
+    name = "Infernal Cranium",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [42] = {
+    name = "Infernal Torch",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [43] = {
+    name = "Infernal Sign",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [44] = {
+    name = "Berserker's Headgear",
+    stats = {
+    {id = 34, min = 2, max = 4},
+    },
+    },
+  [45] = {
+    name = "Berserker's Hauberk",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [46] = {
+    name = "Berserker's Hatchet",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [47] = {
+    name = "Death's Hand",
+    stats = {
+    {id = 34, min = 2, max = 4},
+    },
+    },
+  [48] = {
+    name = "Death's Guard",
+    stats = {
+    {id = 35, min = 2, max = 4},
+    },
+    },
+  [49] = {
+    name = "Death's Touch",
+    stats = {
+    {id = {34,35}, min = 3, max = 5},
+    },
+    },
+  [50] = {
+    name = "Angelic Sickle",
+    stats = {
+    {id = 35, min = 1, max = 3},
+    },
+    },
+  [51] = {
+    name = "Angelic Mantle",
+    stats = {
+    {id = 34, min = 4, max = 6},
+    },
+    },
+  [52] = {
+    name = "Angelic Halo",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [53] = {
+    name = "Angelic Wings",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [54] = {
+    name = "Arctic Horn",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [55] = {
+    name = "Arctic Furs",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [56] = {
+    name = "Arctic Binding",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [57] = {
+    name = "Arctic Mitts",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [58] = {
+    name = "Arcanna's Sign",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [59] = {
+    name = "Arcanna's Deathwand",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [60] = {
+    name = "Arcanna's Head",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [61] = {
+    name = "Arcanna's Flesh",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [62] = {
+    name = "Natalya's Totem",
+    stats = {
+    {id = {0,39}, min = 10, max = 20},
+    {id = 2, min = 20, max = 30},
+    },
+    },
+  [63] = {
+    name = "Natalya's Mark",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [64] = {
+    name = "Natalya's Shadow",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [65] = {
+    name = "Natalya's Soul",
+    stats = {
+    {id = {43,41}, min = 15, max = 25},
+    {id = 62, min = 2, max = 4},
+    },
+    },
+  [66] = {
+    name = "Aldur's Stony Gaze",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [67] = {
+    name = "Aldur's Deception",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [68] = {
+    name = "Aldur's Rhythm",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [69] = {
+    name = "Aldur's Advance",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [70] = {
+    name = "Immortal King's Will",
+    stats = {
+    {id = 80, min = 25, max = 40},
+    },
+    },
+  [71] = {
+    name = "Immortal King's Soul Cage",
+    stats = {
+    {id = {34,35}, min = 8, max = 12},
+    },
+    },
+  [72] = {
+    name = "Immortal King's Detail",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [73] = {
+    name = "Immortal King's Forge",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [74] = {
+    name = "Immortal King's Pillar",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [75] = {
+    name = "Immortal King's Stone Crusher",
+    stats = {
+    {id = {34,35}, min = 15, max = 20},
+    {id = 136, min = 30, max = 40},
+    },
+    },
+  [76] = {
+    name = "Tal Rasha's Fine-Spun Cloth",
+    stats = {
+    {id = 80, min = 10, max = 15},
+    },
+    },
+  [77] = {
+    name = "Tal Rasha's Adjudication",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [78] = {
+    name = "Tal Rasha's Lidless Eye",
+    stats = {
+    {id = 97, min = 1, max = 2, param = {61,63,65}},
+    },
+    },
+  [79] = {
+    name = "Tal Rasha's Guardianship",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [80] = {
+    name = "Tal Rasha's Horadric Crest",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [81] = {
+    name = "Griswold's Valor",
+    stats = {
+    {id = 80, min = 20, max = 30},
+    },
+    },
+  [82] = {
+    name = "Griswold's Heart",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [83] = {
+    name = "Griswold's Redemption",
+    stats = {
+    {id = {34,35}, min = 6, max = 10},
+    },
+    },
+  [84] = {
+    name = "Griswold's Honor",
+    stats = {
+    {id = {34,35}, min = 8, max = 12},
+    },
+    },
+  [85] = {
+    name = "Trang-Oul's Guise",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [86] = {
+    name = "Trang-Oul's Scales",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [87] = {
+    name = "Trang-Oul's Wing",
+    stats = {
+    {id = 39, min = 38, max = 45},
+    },
+    },
+  [88] = {
+    name = "Trang-Oul's Claws",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [89] = {
+    name = "Trang-Oul's Girth",
+    stats = {
+    {id = 9, min = 25, max = 50},
+    },
+    },
+  [90] = {
+    name = "M'avina's True Sight",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [91] = {
+    name = "M'avina's Embrace",
+    stats = {
+    {id = 35, min = 5, max = 12},
+    },
+    },
+  [92] = {
+    name = "M'avina's Icy Clutch",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [93] = {
+    name = "M'avina's Tenet",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [94] = {
+    name = "M'avina's Caster",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [95] = {
+    name = "Telling of Beads",
+    stats = {
+    {id = 45, min = 35, max = 50},
+    {id = 78, min = 8, max = 10},
+    },
+    },
+  [96] = {
+    name = "Laying of Hands",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [97] = {
+    name = "Rite of Passage",
+    stats = {
+    {id = 0, min = 5, max = 15},
+    },
+    },
+  [98] = {
+    name = "Dark Adherent",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [99] = {
+    name = "Credendum",
+    stats = {
+    },
+	  custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [100] = {
+    name = "Dangoon's Teaching",
+    stats = {
+    {id = 34, min = 6, max = 10},
+    },
+    },
+  [101] = {
+    name = "Taebaek's Glory",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [102] = {
+    name = "Haemosu's Adamant",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [103] = {
+    name = "Ondal's Almighty",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [104] = {
+    name = "Guillaume's Face",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [105] = {
+    name = "Wilhelm's Pride",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [106] = {
+    name = "Magnus' Skin",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [107] = {
+    name = "Whitstan's Guard",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [108] = {
+    name = "Hwanin's Splendor",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [109] = {
+    name = "Hwanin's Refuge",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [110] = {
+    name = "Hwanin's Blessing",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [111] = {
+    name = "Hwanin's Justice",
+    stats = {
+    {id = 34, min = 5, max = 8},
+    },
+    },
+  [112] = {
+    name = "Sazabi's Cobalt Redeemer",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [113] = {
+    name = "Sazabi's Ghost Liberator",
+    stats = {
+    {id = 7, min = 50, max = 75},
+    },
+    },
+  [114] = {
+    name = "Sazabi's Mental Sheath",
+    stats = {
+    {id = {39,41}, min = 15, max = 20},
+    },
+    },
+  [115] = {
+    name = "Bul-Kathos' Sacred Charge",
+    stats = {
+    {id = 34, min = 7, max = 13},
+    },
+    },
+  [116] = {
+    name = "Bul-Kathos' Tribal Guardian",
+    stats = {
+    {id = 35, min = 7, max = 13},
+    },
+    },
+  [117] = {
+    name = "Cow King's Horns",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [118] = {
+    name = "Cow King's Hide",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [119] = {
+    name = "Cow King's Hooves",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [120] = {
+    name = "Naj's Puzzler",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [121] = {
+    name = "Naj's Light Plate",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [122] = {
+    name = "Naj's Circlet",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [123] = {
+    name = "Sander's Paragon",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [124] = {
+    name = "Sander's Riprap",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [125] = {
+    name = "Sander's Taboo",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [126] = {
+    name = "Sander's Superstition",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [127] = {
+    name = "Vessel's Atonement",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [128] = {
+    name = "Vessel's Fulfillment",
+    stats = {
+    {id = 34, min = 4, max = 6},
+    },
+    },
+  [129] = {
+    name = "Vessel's Anointment",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [130] = {
+    name = "Vessel's Armament",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [131] = {
+    name = "Pointed Justice",
+    stats = {
+    {id = 97, min = 1, max = 2, param = {35,9}},
+    },
+    },
+  [132] = {
+    name = "True Parry",
+    stats = {
+    {id = 34, min = 4, max = 6},
+    },
+    },
+  [133] = {
+    name = "Solidarity",
+    stats = {
+    {id = 97, min = 1, max = 3, param = 8},
+    },
+    },
+  [134] = {
+    name = "Island Shore",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [135] = {
+    name = "Raging Seas",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [136] = {
+    name = "Eye of the Storm",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [137] = {
+    name = "Sturdy Garment",
+    stats = {
+    {id = 146, min = 1, max = 10},
+    {id = 36, min = 5, max = 10},
+    {id = 357, min = 5, max = 15},
+    },
+    },
+  [138] = {
+    name = "True Deflector",
+    stats = {
+    {id = 78, min = 3, max = 6},
+    {id = 107, min = 2, max = 5, param = 17},
+    },
+    },
+  [139] = {
+    name = "Encased Corset",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [140] = {
+    name = "Silver Bracers",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [141] = {
+    name = "Outreach",
+    stats = {
+    {id = 138, min = 1, max = 3},
+    {id = 139, min = 2, max = 4},
+    },
+    },
+  [142] = {
+    name = "Masterful Teachings",
+    stats = {
+    {id = 107, min = 1, max = 4, param = 54},
+    {id = 145, min = 1, max = 3},
+    },
+    },
+  [143] = {
+    name = "Inner Focus",
+    stats = {
+    {id = 74, min = 4, max = 6},
+    {id = 27, min = 60, max = 120},
+    },
+    },
+  [144] = {
+    name = "Disruptor",
+    stats = {
+    {id = 111, min = 20, max = 30},
+    {id = 119, min = 10, max = 30},
+    {id = 35, min = 5, max = 7},
+    },
+    },
+  [145] = {
+    name = "Bursting Desire",
+    stats = {
+    {id = 107, min = 3, max = 6, param = 62},
+    },
+    },
+  [146] = {
+    name = "Underestimated",
+    stats = {
+    {id = 97, min = 0, max = 3, param = 56},
+    {id = 1, min = 5, max = 25},
+    {id = 35, min = 3, max = 5},
+    },
+    },
+  [147] = {
+    name = "Tundra Storm",
+    stats = {
+    {id = 335, min = 35, max = 45},
+    {id = 9, min = 60, max = 100},
+    {id = 44, min = 5, max = 10},
+    },
+    },
+  [148] = {
+    name = "Enduring Onslaught",
+    stats = {
+    {id = 264, min = 4, max = 7},
+    },
+    },
+  [149] = {
+    name = "Frozen Goliath",
+    stats = {
+    {id = 107, min = 3, max = 5, param = 59},
+    {id = 33, min = 100, max = 150},
+    },
+    },
+  [150] = {
+    name = "Rathma's Reaper",
+    stats = {
+    {id = 107, min = 3, max = 5, param = 74},
+    },
+    },
+  [151] = {
+    name = "Rathma's Shelter",
+    stats = {
+    {id = 77, min = 12, max = 25},
+    {id = 379, min = 15, max = 20},
+    },
+    },
+  [152] = {
+    name = "Rathma's Vestage",
+    stats = {
+    {id = 3, min = 12, max = 25},
+    },
+    },
+  [153] = {
+    name = "Rathma's Fortress",
+    stats = {
+    {id = 77, min = 12, max = 25},
+    },
+    },
+  [154] = {
+    name = "Stacato's Sigil",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [155] = {
+    name = "Mamba's Circle",
+    stats = {
+    },
+    custom_suffix = "\n {red} [A]Maxed Stats",
+    },
+  [156] = {
+    name = "Kreigur's Will",
+    stats = {
+    {id = 283, min = 2, max = 4},
+    {id = 427, min = 15, max = 25},
+    },
+    },
+  [157] = {
+    name = "Kreigur's Judgement",
+    stats = {
+    {id = 93, min = 20, max = 45},
+    {id = 427, min = 15, max = 25},
+    },
+    },
+  [158] = {
+    name = "Kami",
+    stats = {
+    {id = 93, min = 20, max = 35},
+    {id = {62,60}, min = 5, max = 8},
+    {id = 35, min = 8, max = 12},
+    },
+    },
+  [159] = {
+    name = "Su",
+    stats = {
+    {id = 0, min = 30, max = 40},
+    {id = 34, min = 8, max = 12},
+    {id = 278, min = 3, max = 5},
+    },
+    },
+}
+-- =============================================================================
 -- Master Value for Superior items. DO NOT TOUCH.
 -- =============================================================================
 local SuperiorStatData = {
     [1] = {
-        name = "Attribute",
-        suffix = "\n {red} Attribute!",
-        stats = {
-            {id = 0, min = 1, max = 15}
-        }
+      name = "Attribute",
+      suffix = "\n {red} Attribute!",
+      stats = {
+      {id = 0, min = 1, max = 15}
+      }
     },
     [2] = {
-        name = "All Res",
-        suffix = "\n {red} All Res!",
-        stats = {
-            {id = 39, min = 1, max = 10}
-        }
+      name = "All Res",
+      suffix = "\n {red} All Res!",
+      stats = {
+      {id = 39, min = 1, max = 10}
+      }
     },
     [3] = {
-        name = "Max Res",
-        suffix = "\n {red} Max res!",
-        stats = {
-            {id = 40, min = 1, max = 5}
-        }
+      name = "Max Res",
+      suffix = "\n {red} Max res!",
+      stats = {
+      {id = 40, min = 1, max = 5}
+      }
     },
     [4] = {
-        name = "CB/AR",
-        suffix = "\n {red} CB/AR!",
-        stats = {
-            {id = 136, min = 1, max = 10}
-        }
+      name = "CB/AR",
+      suffix = "\n {red} CB/AR!",
+      stats = {
+      {id = 136, min = 1, max = 10}
+      }
     },
     [5] = {
-        name = "Run Speed",
-        suffix = "\n {red} Run Speed!",
-        stats = {
-            {id = 96, min = 1, max = 15}
-        }
+      name = "Run Speed",
+      suffix = "\n {red} Run Speed!",
+      stats = {
+      {id = 96, min = 1, max = 15}
+      }
     },
     [6] = {
-        name = "-Res/Immune",
-        suffix = "\n {red} -Res/Immune!",
-        stats = {
-            {id = 187, min = 1, max = 10},
-            {id = 333, min = 1, max = 10},
-        }
+      name = "-Res/Immune",
+      suffix = "\n {red} -Res/Immune!",
+      stats = {
+      {id = 187, min = 1, max = 10},
+      {id = 333, min = 1, max = 10},
+      }
     },
     [7] = {
-        name = "Atkspd/FCR",
-        suffix = "\n {red} Atkspd/FCR!",
-        stats = {
-            {id = 93, min = 1, max = 15},
-            {id = 105, min = 1, max = 15},
-        }
+      name = "Atkspd/FCR",
+      suffix = "\n {red} Atkspd/FCR!",
+      stats = {
+      {id = 93, min = 1, max = 15},
+      {id = 105, min = 1, max = 15},
+      }
     },
     [8] = {
-        name = "Exp/Life/Mana",
-        suffix = "\n {red} Exp/Life/Mana!",
-        stats = {
-            {id = 85, min = 1, max = 10},
-            {id = 60, min = 1, max = 5},
-            {id = 62, min = 1, max = 5},
-        }
+      name = "Exp/Life/Mana",
+      suffix = "\n {red} Exp/Life/Mana!",
+      stats = {
+      {id = 85, min = 1, max = 10},
+      {id = 60, min = 1, max = 5},
+      {id = 62, min = 1, max = 5},
+      }
     },
     [9] = {
-        name = "CD/Buff",
-        suffix = "\n {red} CD/Buff!",
-        stats = {
-            {id = 286, min = 1, max = 15},
-            {id = 427, min = 1, max = 20},
-        }
+      name = "CD/Buff",
+      suffix = "\n {red} CD/Buff!",
+      stats = {
+      {id = 286, min = 1, max = 15},
+      {id = 427, min = 1, max = 20},
+      }
     },
     [10] = {
-        name = "Indestructible",
-        suffix = "\n {red} Indestructible",
-        stats = {
-            {id = 152, min = 1, max = 2},
-        }
+      name = "Indestructible",
+      suffix = "\n {red} Indestructible",
+      stats = {
+      {id = 152, min = 1, max = 2},
+      }
     },
 }
-
-
 -- =============================================================================
 -- Lootfilter Rules! 
 -- =============================================================================
@@ -4872,18 +5882,18 @@ local filterConfig = {
   filter_titles = {"Endgame", "Gearing", "Leveling",},
   allowOverrides = T,
   rules = {
-        { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
-            codes = "allitems",
-            location = { "onground", "onplayer", "equipped", "atvendor" },
-            itype = { 5, 6, 10, 12, 45, 50, 58, 82, 83, 84 },
-        suffix = " ({ilvl})",
+      { --Display item levels for weapons, armors, charms, jewels, rings, amulets and arrows/bolts, to the right of item name, (x)
+      codes = "allitems",
+      location = { "onground", "onplayer", "equipped", "atvendor" },
+      itype = { 5, 6, 10, 12, 45, 50, 58, 82, 83, 84 },
+      suffix = " ({ilvl})",
     },
   --Rules Debugg.
     {
       codes = "allitems",
       location = UniDropLoc,
       --difficulty = "Nightmare, Hell",
-      --prefix = "S388={stat=(151,383)}|S20={stat=(97,718)}|",
+      --prefix = "|Index=[{index}]|Code=[{code}]|Stat1={stat=(107,59)}|Stat2={stat=(33)}|",
       --prefix = "[{index}]",
       --prefix = "[{code}]",
       --prefix = "[{itype}]",
@@ -4893,34 +5903,34 @@ local filterConfig = {
       --suffix = "[{index}]",
       --suffix = "[{ilvl}]",
       --prefix = "Sockets[{maxsock}]",
-      --filter_levels = "1,2,3"
+      --filter_levels = F123,
     },
-        {
+      {
       code = "CW2",
       location = {"onground", "onplayer", "equipped", "atvendor"},
       notify = "{red} OTHER LEG?!",
-      filter_levels = "1,2,3",
+      filter_levels = F123,
     },
   --[[Rules Event Items
     {--Snowballs
       codes = {"Ev00", "Ev01", "Ev02"},
       notify = "ÿc;Throwing time!!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Cube items
       codes = {"Ev03", "Ev04"},
       notify = "ÿc;Cubing!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Potions
       codes = {"Ev05", "Ev06", "Ev07", "Ev08", "Ev09", "Ev10"},
       notify = "ÿc;Drink me!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Thanksgiving Items
       codes = {"Ev1", "Ev2", "Ev3", "Ev4", "Ev5", "Ev6", "Ev7", "Ev8", "elx"},
       notify = "ÿc;YUMMY PIE!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },]]--
 
     --Display Rules
@@ -4932,7 +5942,7 @@ local filterConfig = {
       maxsock = T,
       itype = {10, 12, 45, 50 },
       prefix_desc = "{green} [Sockets: {sockets}/{maxsock}] \n",
-      filter_levels = "1,2,3",
+      filter_levels = F123,
     },
     {--Display socket count in grey if not maxed [x]
       codes = "allitems",
@@ -4940,7 +5950,7 @@ local filterConfig = {
       maxsock = F,
       itype = {10, 12, 45, 50 },
       prefix_desc = "{gray} [Sockets: {sockets}/{maxsock}] \n",
-      filter_levels = "1,2,3",
+      filter_levels = F123,
     },
     --Equipment Tag
     {--Display Runewords tag.
@@ -4949,7 +5959,7 @@ local filterConfig = {
       runeword = T,
       suffix = "\n{red}Runeword",
       hide = F,
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Display Temepered tag.
       codes = "allitems",
@@ -4957,7 +5967,7 @@ local filterConfig = {
       suffix = "\n{red}Tempered",
       location = {"onground", "onplayer", "equipped", "atvendor"},
       hide = F,
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Display Crafted tag.
       codes = "allitems",
@@ -4965,7 +5975,7 @@ local filterConfig = {
       suffix = "\n{red} Crafted",
       location = {"onground", "onplayer", "equipped", "atvendor"},
       hide = F,
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     { --Display Unique Charm Color
       codes = "allitems",
@@ -4986,37 +5996,37 @@ local filterConfig = {
       suffix = "\n{gray} Low Points Rune",
       --notify = "{gray} Low Rune Points!", --Disabled, remove --in fron of notify to activate.
       hide = F,
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Display Mid rune name.
       codes = {"r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22"},
       suffix = "\n{green} Mid Points Rune",
       --notify = "{green} Mid Rune Points!", --Disabled, remove --in fron of notify to activate.
       hide = F,
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Display High rune name with notify.
       codes = {"r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33"},
       suffix = "\n{red} High Points Rune",
-      notify = "{red} High Rune Points!",
+      --notify = "{red} High Rune Points!",
       hide = F,
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Display Ultra rune name with notify.
       codes = {"r34", "r35", "r36"},
       name_style = "Rainbow",
       suffix = "\n Ultra Points Rune",
-      notify = "{pink} Ultra Rune Points!",
+      --notify = "{pink} Ultra Rune Points!",
       border = {255,0,0},
       hide = F,
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Display Ultra Enhancment crystals
       codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
-      notify = "{red} Ultra Enhancement Crystal",
+      --notify = "{red} Ultra Enhancement Crystal",
       name_override = "{red} Ultra Enhancement Crystal",
       border = {255,0,0},
-      filter_levels = "1,2,3",
+      filter_levels = F123,
     },
     {--Color Dyes
       codes = {"z60", "z61", "z62", "z63", "z64", "z65", "z66", "z67", "z68", "z69","z70", "z71", "z72", "z73"},
@@ -5028,9 +6038,9 @@ local filterConfig = {
       "C32", "C33", "C34", "C35", "C36", "C37"},
       name_style = "Toxic Fog",
       suffix = "\n Temepered Mats!",
-      notify = "{pink} Tempered Material!",
+      --notify = "{pink} Tempered Material!",
       border = {255,0,0},
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     
     --Hide Gold
@@ -5038,18 +6048,16 @@ local filterConfig = {
       code = "gld",
       stat = {index = 14, op = "<=", value = 1000 }, --Goldstack under 1000 is hidden.
       pstat = {index = 12, op = ">=", value = 50 }, --Level above 50.
-      location = {"onground", "dropping"},
       hide = T, 
-      area = NotAreaTown,
-      filter_levels = "1,2"
+      area = NotTown,
+      filter_levels = F12,
     },
     {--Gold <5000, level 99+
       code = "gld",
       stat = {index = 14, op = "<=", value = 5000 }, --Goldstack under 5000 is hidden.
       pstat = {index = 12, op = ">=", value = 99 }, --Level above 99.
-      location = {"onground", "dropping"},
       hide = T, 
-      area = NotAreaTown,
+      area = NotTown,
       filter_levels = "1"
     },
 
@@ -5067,10 +6075,9 @@ local filterConfig = {
       quality = "1",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Inferior, Exceptional Weapons
       codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", 
@@ -5083,10 +6090,9 @@ local filterConfig = {
       quality = "1",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Inferior, Elite Weapons
       codes = {"l13", "7sp", "7ts", "7o7", "Ss2", "l17", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", 
@@ -5099,10 +6105,9 @@ local filterConfig = {
       quality = "1",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Normal, Normal Weapons
       codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", 
@@ -5115,20 +6120,18 @@ local filterConfig = {
       quality = "2",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Normal, Exceptional Weapons
       codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", "9bw", "9bt", "8ls", "am7", "9tr", "9sm", "9wn", "8lx", "Bf5", "9cr", "9sr", "9wa", "9pa", "8cb", "9m9", "8sb", "9fl", "9sc", "9kr", "9s9", "9h9", "9wd", "8l8", "9ws", "9ja", "9xf", "8cs", "9bs", "9gs", "8hb", "9b7", "am6", "9p9", "9qs", "9gi", "92h", "ob6", "9ss", "9lw", "9la", "8ws", "9fb", "9ma", "9yw", "Pm2", "9bk", "9tk", "am8", "9ha", "8mx", "9qr", "8s8", "Bm5", "oba", "k02", "9gw", "9mp", "Bf2", "9cm", "9vo", "ama", "9sb", "9b8", "ob9", "8lw", "9br", "8hx", "9s8", "9di", "9ar", "9gm", "9pi", "9tw", "9ls", "8rx", "ob7", "ob8", "9cl", "9gd", "8lb", "8bs", "9ba", "9wh", "am9", "9wc", "9b9", "9ga", "9ts", "Bm2", "Ds2", "Ds5"},
       quality = "2",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Normal, Elite Weapons
       codes = {"7sp", "7ts", "7o7", "Ss2", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", "7bs", "7qs", 
@@ -5141,10 +6144,9 @@ local filterConfig = {
       quality = "2",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     --Hide all Magic and Rare Weapons that is Normal, Exceptional or Elite.
     {--Hide all Magic, Normal Weapons
@@ -5158,10 +6160,9 @@ local filterConfig = {
       quality = "4",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Magic, Exceptional Weapons
       codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", 
@@ -5174,10 +6175,9 @@ local filterConfig = {
       quality = "4",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Magic, Elite Weapons
       codes = {"l13", "7sp", "7ts", "7o7", "Ss2", "l17", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", 
@@ -5190,10 +6190,9 @@ local filterConfig = {
       quality = "4",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Rare, Normal Weapons
       codes = {"rxb", "jav", "ces", "lwb", "Bm4", "mac", "gis", "gma", "am2", "wrb", "dgr", "mau", "ob5", "glv", "btl", 
@@ -5206,10 +6205,9 @@ local filterConfig = {
       quality = "6",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Rare, Exceptional Weapons
       codes = {"8sw", "9bl", "9sp", "9gl", "Bm8", "92a", "9wb", "9mt", "9cs", "8ss", "9dg", "9ta", "9fc", "9ax", "9st", 
@@ -5222,10 +6220,9 @@ local filterConfig = {
       quality = "6",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Rare, Elite Weapons
       codes = {"l13", "7sp", "7ts", "7o7", "Ss2", "l17", "6sw", "7sm", "7bl", "amb", "obe", "7dg", "7cr", "7wn", "6hx", 
@@ -5238,10 +6235,9 @@ local filterConfig = {
       quality = "6",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     --Hide all Inferior and normal types of Armors.
     {--Hide all Inferior, Normal Armors
@@ -5254,10 +6250,9 @@ local filterConfig = {
       quality = "1",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Inferior, Exceptional Armors
       codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
@@ -5268,10 +6263,9 @@ local filterConfig = {
       quality = "1",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Inferior, Elite Armors
       codes = {"nef", "utc", "paf", "pab", "uul", "l09", "l04", "l01", "Bp6", "pae", "l03", "utp", "utg", "baf", "ulc", 
@@ -5284,10 +6278,9 @@ local filterConfig = {
       quality = "1",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Normal, Normal Armors
       codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", 
@@ -5299,10 +6292,9 @@ local filterConfig = {
       quality = "2",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Normal, Exceptional Armors
       codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
@@ -5313,10 +6305,9 @@ local filterConfig = {
       quality = "2",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Normal, Elite Armors
       codes = {"nef", "utc", "paf", "pab", "uul", "l04", "Bp6", "pae", "utp", "utg", "baf", "ulc", "ci3", "ned", "uh9", 
@@ -5329,10 +6320,9 @@ local filterConfig = {
       quality = "2",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     --Hide all Magic and Rare Weapons that is Normal, Exceptional or Elite.
     {--Hide all Magic, Normal Armors
@@ -5345,10 +6335,9 @@ local filterConfig = {
       quality = "4",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Magic, Exceptional Armors
       codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
@@ -5359,10 +6348,9 @@ local filterConfig = {
       quality = "4",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Magic, Elite Armors
       codes = {"nef", "utc", "paf", "pab", "uul", "l09", "l04", "l01", "Bp6", "pae", "l03", "utp", "utg", "baf", "ulc", 
@@ -5375,10 +6363,9 @@ local filterConfig = {
       quality = "4",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Rare, Normal Armors
       codes = {"dr1", "hlm", "hla", "chn", "vgl", "ghm", "qui", "kit", "pa3", "pa5", "rng", "aar", "Na4", "Zc4", "ne2", 
@@ -5390,10 +6377,9 @@ local filterConfig = {
       quality = "6",
       rarity = "0",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Rare, Exceptional Armors
       codes = {"xla", "xow", "xhg", "xh9", "xhb", "zmb", "xui", "xul", "xhl", "xsk", "xkp", "xlm", "paa", "Ca2", "xlg", 
@@ -5404,10 +6390,9 @@ local filterConfig = {
       quality = "6",
       rarity = "1",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide all Rare, Elite Armors
       codes = {"nef", "utc", "paf", "pab", "uul", "l09", "l04", "l01", "Bp6", "pae", "l03", "utp", "utg", "baf", "ulc", 
@@ -5420,50 +6405,48 @@ local filterConfig = {
       quality = "6",
       rarity = "2",
       runeword = F,
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     --Hide Arrows that are Inferior, Normal, Superior, Magic and Rare.
     {--Hide Magic and below arrows and bolts
       codes = {"aqv", "cqv"},
       quality = "4-",
       rarity = "2-",
-      location = {"onground", "dropping"},
       runeword = F,
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide Rare arrows and bolts
       codes = {"aqv", "cqv"},
       quality = "6",
       rarity = "2-",
-      location = {"onground", "dropping"},
       runeword = F,
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2"
+      area = NotTown,
+      filter_levels = F12,
     },
     --Hide all Gems.
     {--Hide all low Gems.
       codes = {"gcr", "gcy", "gcb", "gsy", "gfv", "gfw", "gfy", "gfb", "skf", "gfg", "gsg", "sku", "gsr", "gsv", "gsw", 
       "gfr", "gsb", "glb", "glw", "gzv", "glg", "skl", "glr", "skc", "gly", "gcv", "gcg", "gcw"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2"
+      area = NotTown,
+      filter_levels = F12,
     },
     {--Hide all high Gems. DISABLE THIS IF YOU NEED GEMS.
       codes = {"gpv", "skz", "gpr", "gpg", "gpb", "gpy", "gpw"},
       hide = T,
-      area = NotAreaTown,
+      area = NotTown,
       filter_levels = "1"
     },
     --Hide Magic Charms
     { --Hide Small Charms with less then 5 CDR, 7 MR and 5 All Res
       code = "cm1",
       quality = 4,
+      area = NotTown,
       stat = {
       {index = {286,39,41,43,45}, op = "<", value = 5},
       {index = 80, op = "<", value = 7},
@@ -5520,25 +6503,23 @@ local filterConfig = {
     {--Treasures Notify
       codes = {"Rgx", "Ev0", "y09", "y10", "y11", "y12", "y13", "y14", "y15", "y16", "y17", "y18", "y19", "y20", "y21", 
       "y22", "y23", "y24", "y25", "y26", "y27", "y28", "y29", "y30", "y31", "y32", "y33","S01"},
-      notify = "ÿc;Treasure Nearby",
+      --notify = "ÿc;Treasure Nearby",
       border = {139, 99, 197},
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Hide Magic Rings/Amulet, if you want to get Magic rings/Amulet, change: hide = T, to: F, .
       codes = {"rin", "amu"},
       quality = "4",
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2"
+      area = NotTown,
+      filter_levels = F12,
     },
     {--Hide Rare Rings/Amulet, if you want to get Rare rings/Amulet, change: hide = T, to: F, .
       codes = {"rin", "amu"},
       quality = "6",
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2"
+      area = NotTown,
+      filter_levels = F12,
     },
     {--Display Scrolls of Torment and notify.
       codes = {"K01", "K02", "K03", "K04", "K05", "K06", "K07", "K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", 
@@ -5548,39 +6529,36 @@ local filterConfig = {
       "K67", "K68", "K69", "K70", "K71", "K72", "K73", "K74", "K75", "K76", "K77", "K78", "K79", "K80"},
       name_style = "Frost Wave",
       suffix = "\n Trial Portal",
-      notify = "{pink} Trial Portal!",
-      filter_levels = "1,2,3"
+      --notify = "{pink} Trial Portal!",
+      filter_levels = F123,
     },
     {--Hide Magic Jewels, if you want to get Magic Jewels, change: hide = T, to: F, .
       code = "jew",
       quality = "4",
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2"
+      area = NotTown,
+      filter_levels = F12,
     },
     {--Hide Charms, to hide Magic charms, change: hide = F, to: T, .
       codes = {"cm1", "cm2", "cm3"},
       quality = "4",
       hide = F,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Weird items to hide.
       codes = {"Ag2", "Ag5", "Na5", "Na2", "Sa2", "Sa5"},
       quality = {"1", "2", "4", "6"},
       rarity = "2-",
-      location = {"onground", "dropping"},
       hide = T,
-      area = NotAreaTown,
-      filter_levels = "1,2,3"
+      area = NotTown,
+      filter_levels = F123,
     },
     {--Hide pots, Minor/major HP / MP, small Rejuvs.
       codes = {"hp1", "hp2", "hp3", "hp4", "hp5", "mp1", "mp2", "mp3", "mp4", "mp5", "rvs"},
-      location = {"onground", "dropping"},
-      area = NotAreaTown,
+      area = NotTown,
       hide = T,
-      filter_levels = "1,2"
+      filter_levels = F12,
     },
     {--Display RMD "Elite Bases"with a special EB icon in RMD Red, to the right of item name
       codes = NOT {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
@@ -5588,7 +6566,7 @@ local filterConfig = {
       location = {"onground", "onplayer", "equipped", "atvendor"},
       itype = {45, 50 },
       suffix = "{tan}ⅲ",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {--Display RMD "Limit Broken Bases"with a special LB icon in RMD Red, to the right of item name
       codes = {"l01", "l02", "l03", "l04", "l05", "l06", "l07", "l08", "l09", "l10", "l11", "l12", "l13", "l14","l15", "l16", "l17", "l18"},
@@ -5596,7 +6574,7 @@ local filterConfig = {
       itype = {45, 50 },
       ilvl = "103+",
       suffix = "{tan}ⅳ",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     -- Faceted Memory
     {
@@ -5609,9 +6587,9 @@ local filterConfig = {
       {index = 107, op = "==", param = {6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35}, value = 2},
       },
       border = UniMaxBor,
-      notify = "Faceted Memory",
+      --notify = "Faceted Memory",
       suffix = "\n {red} Amazon Skiller Jewel!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {
       codes = "allitems",
@@ -5623,9 +6601,9 @@ local filterConfig = {
       { index = 107, op = "==", param = {36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65}, value = 2},
       },
       border = UniMaxBor,
-      notify = "Faceted Memory",
+      --notify = "Faceted Memory",
       suffix = "\n {red} Sorceress Skiller Jewel!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {
       codes = "allitems",
@@ -5637,9 +6615,9 @@ local filterConfig = {
       { index = 107, op = "==", param = {66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95}, value = 2},
       },
       border = UniMaxBor,
-      notify = "Faceted Memory",
+      --notify = "Faceted Memory",
       suffix = "\n {red} Necromancer Skiller Jewel!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {
       codes = "allitems",
@@ -5651,9 +6629,9 @@ local filterConfig = {
       { index = 107, op = "==", param = {96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,174,175,176,177}, value = 2},
       },
       border = UniMaxBor,
-      notify = "Faceted Memory",
+      --notify = "Faceted Memory",
       suffix = "\n {red} Paladin Skiller Jewel!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {
       codes = "allitems",
@@ -5665,9 +6643,9 @@ local filterConfig = {
       { index = 107, op = "==", param = {126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155}, value = 2},
       },
       border = UniMaxBor,
-      notify = "Faceted Memory",
+      --notify = "Faceted Memory",
       suffix = "\n {red} Barbarian Skiller Jewel!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {
       codes = "allitems",
@@ -5679,9 +6657,9 @@ local filterConfig = {
       { index = 107, op = "==", param = {221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251}, value = 2},
       },
       border = UniMaxBor,
-      notify = "Faceted Memory",
+      --notify = "Faceted Memory",
       suffix = "\n {red} Druid Skiller Jewel!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
     {
       codes = "allitems",
@@ -5693,9 +6671,9 @@ local filterConfig = {
       { index = 107, op = "==", param = {252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281}, value = 2},
       },
       border = UniMaxBor,
-      notify = "Faceted Memory",
+      --notify = "Faceted Memory",
       suffix = "\n {red} Assassin Skiller Jewel!",
-      filter_levels = "1,2,3"
+      filter_levels = F123,
     },
   }
 }
@@ -5707,77 +6685,185 @@ for itemIndex, itemInfo in pairs(UniqueItemData) do
   
   local itemSuffix = MaxTag
     if itemInfo.custom_suffix then
-        itemSuffix = itemInfo.custom_suffix
+      itemSuffix = itemInfo.custom_suffix
     end
-    
--- ---------------------------------------------------------------------
--- Rule for Maxed stats Uniques
--- ---------------------------------------------------------------------
-    local maxRule = {
-        codes = "allitems",
-        quality = "7",
-        index = itemIndex,
-        runeword = F,
-        location = UniDropLoc,
-        border = UniMaxBor,
-    suffix = itemSuffix,
-        filter_levels = "1,2,3",
-    stat = {}
-    }
 
-    for s = 1, #itemInfo.stats do
-        local stat = itemInfo.stats[s]
-        
-        -- Adjust some stats value with internal calculations.
-        local finalMax = stat.max
-        if stat.id == 9 then finalMax = stat.max * 256 end
-        if stat.id == 7 then finalMax = stat.max * 256 end
-        if stat.id == 216 then finalMax = stat.max * 2048 end
-        if stat.id == 217 then finalMax = stat.max * 2048 end
 
-        local statBlock = { index = stat.id, op = "==", value = finalMax }
-        
-        -- Param if needed
-        if stat.param then statBlock.param = stat.param end
-        
-        table.insert(maxRule.stat, statBlock)
-    end
-    table.insert(filterConfig.rules, maxRule)
+    --local nyttNamn = genereraSlumpNamn(8) --< Fun
 
 -- ---------------------------------------------------------------------
 -- Rule Hide Uniques <70% in all stats
 -- ---------------------------------------------------------------------
     local hideRule = {
-        codes = "allitems",
-        quality = "7",
-        index = itemIndex,
-        runeword = F,
-        area = NotAreaTown,
-        hide = T,
-        filter_levels = "1,2,3",
+      codes = "allitems",
+      quality = "7",
+      index = itemIndex,
+      runeword = F,
+      area = NotTown,
+      hide = T,
+      filter_levels = F123,
+      stat = OR { }
+    }
+
+    for s = 1, #itemInfo.stats do
+      local stat = itemInfo.stats[s]
+      
+      -- Calculate 70% Value: min + (max - min) * 0.7
+      local calculatedLimit = stat.min + (stat.max - stat.min) * 0.7
+      
+      -- Adjust some stats value with internal calculations.
+      if stat.id == 9 then calculatedLimit = calculatedLimit * 256 end
+      if stat.id == 7 then calculatedLimit = calculatedLimit * 256 end
+      if stat.id == 216 then calculatedLimit = calculatedLimit * 2048 end
+      if stat.id == 217 then calculatedLimit = calculatedLimit * 2048 end
+
+      -- OR calculation
+      local opType = "<="
+      local indexValue = stat.id
+      if type(stat.id) == "table" then
+      indexValue = OR(stat.id)
+      end
+
+      local statBlock = { index = indexValue, op = opType, value = calculatedLimit }
+      
+      -- Param if needed
+      if stat.param then statBlock.param = stat.param end
+      
+
+      table.insert(hideRule.stat, statBlock)
+    end
+    table.insert(filterConfig.rules, hideRule)
+
+-- ---------------------------------------------------------------------
+-- Rule for Maxed stats Uniques
+-- ---------------------------------------------------------------------
+    local maxRule = {
+      codes = "allitems",
+      quality = "7",
+      index = itemIndex,
+      runeword = F,
+      location = UniDropLoc,
+      border = UniMaxBor,
+      --name_override = nyttNamn, --< Fun
+    suffix = itemSuffix,
+      filter_levels = F123,
     stat = {}
     }
 
     for s = 1, #itemInfo.stats do
-        local stat = itemInfo.stats[s]
-        
-        -- Calculate 70% Value: min + (max - min) * 0.7
-        local calculatedLimit = stat.min + (stat.max - stat.min) * 0.7
-        
-        -- Adjust some stats value with internal calculations.
-        if stat.id == 9 then calculatedLimit = calculatedLimit * 256 end
-        if stat.id == 7 then calculatedLimit = calculatedLimit * 256 end
-        if stat.id == 216 then calculatedLimit = calculatedLimit * 2048 end
-        if stat.id == 217 then calculatedLimit = calculatedLimit * 2048 end
+      local stat = itemInfo.stats[s]
+      
+      -- Adjust some stats value with internal calculations.
+      local finalMax = stat.max
+      if stat.id == 9 then finalMax = stat.max * 256 end
+      if stat.id == 7 then finalMax = stat.max * 256 end
+      if stat.id == 216 then finalMax = stat.max * 2048 end
+      if stat.id == 217 then finalMax = stat.max * 2048 end
 
-        local statBlock = { index = stat.id, op = "<=", value = calculatedLimit }
-        
-        -- Param if needed
-        if stat.param then statBlock.param = stat.param end
-        
-        table.insert(hideRule.stat, statBlock)
+      local statBlock = { index = stat.id, op = "==", value = finalMax }
+      
+      -- Param if needed
+      if stat.param then statBlock.param = stat.param end
+      
+      table.insert(maxRule.stat, statBlock)
+    end
+    table.insert(filterConfig.rules, maxRule)
+
+
+end
+
+-- =============================================================================
+-- Custom rule to save suffixed added manually
+-- =============================================================================
+for itemIndex, itemInfo in pairs(SetsItemData) do
+  
+  local itemSuffix = MaxTag
+    if itemInfo.custom_suffix then
+      itemSuffix = itemInfo.custom_suffix
+    end
+
+
+    --local nyttNamn = genereraSlumpNamn(8) --< Fun
+
+-- ---------------------------------------------------------------------
+-- Rule Hide Uniques <70% in all stats
+-- ---------------------------------------------------------------------
+    local hideRule = {
+      codes = "allitems",
+      quality = "5",
+      index = itemIndex,
+      runeword = F,
+      area = NotTown,
+      hide = T,
+      filter_levels = F123,
+      stat = OR { }
+    }
+
+    for s = 1, #itemInfo.stats do
+      local stat = itemInfo.stats[s]
+      
+      -- Calculate 70% Value: min + (max - min) * 0.7
+      local calculatedLimit = stat.min + (stat.max - stat.min) * 0.7
+      
+      -- Adjust some stats value with internal calculations.
+      if stat.id == 9 then calculatedLimit = calculatedLimit * 256 end
+      if stat.id == 7 then calculatedLimit = calculatedLimit * 256 end
+      if stat.id == 216 then calculatedLimit = calculatedLimit * 2048 end
+      if stat.id == 217 then calculatedLimit = calculatedLimit * 2048 end
+
+      -- OR calculation
+      local opType = "<="
+      local indexValue = stat.id
+      if type(stat.id) == "table" then
+      indexValue = OR(stat.id)
+      end
+
+      local statBlock = { index = indexValue, op = opType, value = calculatedLimit }
+      
+      -- Param if needed
+      if stat.param then statBlock.param = stat.param end
+      
+
+      table.insert(hideRule.stat, statBlock)
     end
     table.insert(filterConfig.rules, hideRule)
+
+-- ---------------------------------------------------------------------
+-- Rule for Maxed stats Uniques
+-- ---------------------------------------------------------------------
+    local maxRule = {
+      codes = "allitems",
+      quality = "5",
+      index = itemIndex,
+      runeword = F,
+      location = UniDropLoc,
+      border = {000, 255, 000},
+      --name_override = nyttNamn, --< Fun
+    suffix = itemSuffix,
+      filter_levels = F123,
+    stat = {}
+    }
+
+    for s = 1, #itemInfo.stats do
+      local stat = itemInfo.stats[s]
+      
+      -- Adjust some stats value with internal calculations.
+      local finalMax = stat.max
+      if stat.id == 9 then finalMax = stat.max * 256 end
+      if stat.id == 7 then finalMax = stat.max * 256 end
+      if stat.id == 216 then finalMax = stat.max * 2048 end
+      if stat.id == 217 then finalMax = stat.max * 2048 end
+
+      local statBlock = { index = stat.id, op = "==", value = finalMax }
+      
+      -- Param if needed
+      if stat.param then statBlock.param = stat.param end
+      
+      table.insert(maxRule.stat, statBlock)
+    end
+    table.insert(filterConfig.rules, maxRule)
+
+
 end
 
 -- =============================================================================
@@ -5787,19 +6873,19 @@ end
 -- Hide value 1 to Max-1 value
 for groupIndex, groupInfo in pairs(SuperiorStatData) do
     for s = 1, #groupInfo.stats do
-        local stat = groupInfo.stats[s]
-        
-        table.insert(filterConfig.rules, {
-            codes = "allitems",
-            quality = "3",
-            runeword = F,
-            area = NotAreaTown,
-            hide = T,
-            filter_levels = "1,2,3",
-            stat = {
-                { index = stat.id, op = "between", value = { 1, stat.max - 1 } }
-            }
-        })
+      local stat = groupInfo.stats[s]
+      
+      table.insert(filterConfig.rules, {
+      codes = "allitems",
+      quality = "3",
+      runeword = F,
+      area = NotTown,
+      hide = T,
+      filter_levels = F123,
+      stat = {
+      { index = stat.id, op = "between", value = { 1, stat.max - 1 } }
+      }
+      })
     end
 end
 
@@ -5807,23 +6893,23 @@ end
 for groupIndex, groupInfo in pairs(SuperiorStatData) do
     
     local maxRule = {
-        codes = "allitems",
-        quality = "3",
-        runeword = F,
-        location = UniDropLoc,
-        border = {204, 204, 204, 204},
-        suffix = groupInfo.suffix,
-        filter_levels = "1,2,3",
-        stat = {}
+      codes = "allitems",
+      quality = "3",
+      runeword = F,
+      location = UniDropLoc,
+      border = {204, 204, 204, 204},
+      suffix = groupInfo.suffix,
+      filter_levels = F123,
+      stat = {}
     }
 
     for s = 1, #groupInfo.stats do
-        local stat = groupInfo.stats[s]
-        table.insert(maxRule.stat, {
-            index = stat.id,
-            op = "==",
-            value = stat.max
-        })
+      local stat = groupInfo.stats[s]
+      table.insert(maxRule.stat, {
+      index = stat.id,
+      op = "==",
+      value = stat.max
+      })
     end
     table.insert(filterConfig.rules, maxRule)
 end
@@ -5833,9 +6919,9 @@ table.insert(filterConfig.rules, {
     codes = "allitems",
     quality = "3",
     runeword = F,
-    location = {"onground", "dropping"},
+    location = "onground",
     hide = F,
-    filter_levels = "1,2,3"
+    filter_levels = F123,
 })
 
 return filterConfig
