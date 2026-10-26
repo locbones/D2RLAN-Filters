@@ -1,4 +1,4 @@
---- Filter Title: Zexylol's Hardfilter v2.5
+--- Filter Title: Zexylol's Hardfilter v2.7
 --- Filter Type: (Hardconfig filter)
 --- Filter Description: \nReworked with new adjustmens \nFilter to remove non perfect superior bases. \nThis filter removes alot of items, and will continue to expand on that front. \nAll Uniques and Sets(0-159) that drop, Max stat is done, all stats <70% hidden (outside of towns)!.\nThis does not include ED% (damage or defense), and not bonus damage on wep and bonus armor on armors.(will need to figure this out later.)
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/Zexylol%20filter.lua
@@ -4733,72 +4733,86 @@ local UniqueItemData = {
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
-  [691] = { -- 
-    name = "",
+  [691] = {
+    name = "Magic Boots",
     stats = {
+    {id = 93, min = 20, max = 40},  -- +20-40% Increased Attack Speed
+    {id = {136,141}, min = 20, max = 50},  -- 20-50% Chance of Crushing Blow, 20-50% Deadly Strike
     },
-    custom_suffix = "\n {red} Placeholder",
+    custom_suffix = "\n {red} NEW ITEM",
+    notify = "\n {red} NEW ITEM",
     },
   [692] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [693] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [694] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [695] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [696] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [697] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [698] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [699] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [700] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
   [701] = { -- 
     name = "",
     stats = {
     },
     custom_suffix = "\n {red} Placeholder",
+    notify = "\n {red} NEW ITEM",
     },
 }
 -- =============================================================================
@@ -4810,6 +4824,7 @@ local SetsItemData = {
     name = "Civerb's Ward",
     stats = {
 	  {id = {34,35}, min = 3, max = 5},
+    {id = 31, min = 27, max = 29},
     },
     },
   [1] = {
@@ -4823,10 +4838,12 @@ local SetsItemData = {
     stats = {
 	  {id = 22, min = 40, max = 46},
     },
+    custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [3] = {
     name = "Hsarus' Iron Heel",
     stats = {
+    {id = 31, min = 8, max = 9},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -4835,6 +4852,7 @@ local SetsItemData = {
     stats = {
 	  {id = 34, min = 5, max = 7},
 	  {id = 35, min = 3, max = 5},
+    {id = 31, min = 4, max = 6},
     },
     },
   [5] = {
@@ -4853,11 +4871,13 @@ local SetsItemData = {
     name = "Cleglaw's Claw",
     stats = {
 	  {id = {34,35}, min = 3, max = 5},
+    {id = 31, min = 25, max = 27},
     },
     },
   [8] = {
     name = "Cleglaw's Pincers",
     stats = {
+    {id = 31, min = 8, max = 9},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -4870,12 +4890,14 @@ local SetsItemData = {
   [10] = {
     name = "Iratha's Cuff",
     stats = {
+    {id = 31, min = 9, max = 11},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [11] = {
     name = "Iratha's Coil",
     stats = {
+    {id = 31, min = 25, max = 45},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -4895,17 +4917,20 @@ local SetsItemData = {
     name = "Isenhart's Parry",
     stats = {
     {id = {34,35}, min = 4, max = 6},
+    {id = 31, min = 70, max = 75},
     },
     },
   [15] = {
     name = "Isenhart's Case",
     stats = {
+    {id = 31, min = 105, max = 108},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [16] = {
     name = "Isenhart's Horns",
     stats = {
+    {id = 31, min = 23, max = 26},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -4918,12 +4943,14 @@ local SetsItemData = {
   [18] = {
     name = "Vidala's Fetlock",
     stats = {
+    {id = 31, min = 9, max = 11},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [19] = {
     name = "Vidala's Ambush",
     stats = {
+    {id = 31, min = 64, max = 67},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -4937,6 +4964,7 @@ local SetsItemData = {
     name = "Milabrega's Orb",
     stats = {
     {id = 34, min = 6, max = 8},
+    {id = 31, min = 41, max = 43},
     },
     },
   [22] = {
@@ -4948,12 +4976,14 @@ local SetsItemData = {
   [23] = {
     name = "Milabrega's Diadem",
     stats = {
+    {id = 31, min = 25, max = 45},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [24] = {
     name = "Milabrega's Robe",
     stats = {
+    {id = 31, min = 218, max = 233},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -4966,12 +4996,14 @@ local SetsItemData = {
   [26] = {
     name = "Cathan's Mesh",
     stats = {
+    {id = 31, min = 87, max = 90},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [27] = {
     name = "Cathan's Visage",
     stats = {
+    {id = 31, min = 9, max = 27},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -4996,12 +5028,14 @@ local SetsItemData = {
   [31] = {
     name = "Tancred's Spine",
     stats = {
+    {id = 31, min = 150, max = 161},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [32] = {
     name = "Tancred's Hobnails",
     stats = {
+    {id = 31, min = 2, max = 3},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5014,12 +5048,14 @@ local SetsItemData = {
   [34] = {
     name = "Tancred's Skull",
     stats = {
+    {id = 31, min = 33, max = 36},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [35] = {
     name = "Sigon's Gage",
     stats = {
+    {id = 31, min = 12, max = 15},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5027,6 +5063,7 @@ local SetsItemData = {
     name = "Sigon's Visor",
     stats = {
     {id = 34, min = 1, max = 3},
+    {id = 31, min = 55, max = 60},
     },
     },
   [37] = {
@@ -5038,6 +5075,7 @@ local SetsItemData = {
   [38] = {
     name = "Sigon's Sabot",
     stats = {
+    {id = 31, min = 12, max = 15},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5045,17 +5083,20 @@ local SetsItemData = {
     name = "Sigon's Wrap",
     stats = {
     {id = 35, min = 1, max = 3},
+    {id = 31, min = 8, max = 11},
     },
     },
   [40] = {
     name = "Sigon's Guard",
     stats = {
     {id = {34,35}, min = 5, max = 7},
+    {id = 31, min = 22, max = 25},
     },
     },
   [41] = {
     name = "Infernal Cranium",
     stats = {
+    {id = 31, min = 3, max = 5},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5075,11 +5116,13 @@ local SetsItemData = {
     name = "Berserker's Headgear",
     stats = {
     {id = 34, min = 2, max = 4},
+    {id = 31, min = 30, max = 33},
     },
     },
   [45] = {
     name = "Berserker's Hauberk",
     stats = {
+    {id = 31, min = 90, max = 95},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5093,6 +5136,7 @@ local SetsItemData = {
     name = "Death's Hand",
     stats = {
     {id = 34, min = 2, max = 4},
+    {id = 31, min = 2, max = 3},
     },
     },
   [48] = {
@@ -5140,6 +5184,7 @@ local SetsItemData = {
   [55] = {
     name = "Arctic Furs",
     stats = {
+    {id = 31, min = 45, max = 51},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5152,6 +5197,7 @@ local SetsItemData = {
   [57] = {
     name = "Arctic Mitts",
     stats = {
+    {id = 31, min = 9, max = 11},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5170,12 +5216,14 @@ local SetsItemData = {
   [60] = {
     name = "Arcanna's Head",
     stats = {
+    {id = 31, min = 8, max = 11},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [61] = {
     name = "Arcanna's Flesh",
     stats = {
+    {id = 31, min = 90, max = 107},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5184,6 +5232,7 @@ local SetsItemData = {
     stats = {
     {id = {0,39}, min = 10, max = 20},
     {id = 2, min = 20, max = 30},
+    {id = 31, min = 198, max = 254},
     },
     },
   [63] = {
@@ -5195,6 +5244,7 @@ local SetsItemData = {
   [64] = {
     name = "Natalya's Shadow",
     stats = {
+    {id = 31, min = 215, max = 325},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5203,17 +5253,20 @@ local SetsItemData = {
     stats = {
     {id = {43,41}, min = 15, max = 25},
     {id = 62, min = 2, max = 4},
+    {id = 31, min = 112, max = 173},
     },
     },
   [66] = {
     name = "Aldur's Stony Gaze",
     stats = {
+    {id = 31, min = 157, max = 179},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [67] = {
     name = "Aldur's Deception",
     stats = {
+    {id = 31, min = 746, max = 1414},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5226,6 +5279,7 @@ local SetsItemData = {
   [69] = {
     name = "Aldur's Advance",
     stats = {
+    {id = 31, min = 39, max = 51},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5233,29 +5287,34 @@ local SetsItemData = {
     name = "Immortal King's Will",
     stats = {
     {id = 80, min = 25, max = 40},
+    {id = 31, min = 160, max = 180},
     },
     },
   [71] = {
     name = "Immortal King's Soul Cage",
     stats = {
     {id = {34,35}, min = 8, max = 12},
+    {id = 31, min = 887, max = 1450},
     },
     },
   [72] = {
     name = "Immortal King's Detail",
     stats = {
+    {id = 31, min = 77, max = 93},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [73] = {
     name = "Immortal King's Forge",
     stats = {
+    {id = 31, min = 108, max = 123},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [74] = {
     name = "Immortal King's Pillar",
     stats = {
+    {id = 31, min = 118, max = 133},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5270,6 +5329,7 @@ local SetsItemData = {
     name = "Tal Rasha's Fine-Spun Cloth",
     stats = {
     {id = 80, min = 10, max = 15},
+    {id = 31, min = 35, max = 44},
     },
     },
   [77] = {
@@ -5287,12 +5347,14 @@ local SetsItemData = {
   [79] = {
     name = "Tal Rasha's Guardianship",
     stats = {
+    {id = 31, min = 833, max = 1346},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [80] = {
     name = "Tal Rasha's Horadric Crest",
     stats = {
+    {id = 31, min = 99, max = 139},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5300,11 +5362,13 @@ local SetsItemData = {
     name = "Griswold's Valor",
     stats = {
     {id = 80, min = 20, max = 30},
+    {id = 31, min = 372, max = 434},
     },
     },
   [82] = {
     name = "Griswold's Heart",
     stats = {
+    {id = 31, min = 917, max = 1062},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5312,17 +5376,20 @@ local SetsItemData = {
     name = "Griswold's Redemption",
     stats = {
     {id = {34,35}, min = 6, max = 10},
+    {id = 22, min = 162, max = 183},
     },
     },
   [84] = {
     name = "Griswold's Honor",
     stats = {
     {id = {34,35}, min = 8, max = 12},
+    {id = 31, min = 290, max = 445},
     },
     },
   [85] = {
     name = "Trang-Oul's Guise",
     stats = {
+    {id = 31, min = 180, max = 336},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5336,11 +5403,13 @@ local SetsItemData = {
     name = "Trang-Oul's Wing",
     stats = {
     {id = 39, min = 38, max = 45},
+    {id = 31, min = 175, max = 195},
     },
     },
   [88] = {
     name = "Trang-Oul's Claws",
     stats = {
+    {id = 31, min = 67, max = 78},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5348,11 +5417,13 @@ local SetsItemData = {
     name = "Trang-Oul's Girth",
     stats = {
     {id = 9, min = 25, max = 50},
+    {id = 31, min = 134, max = 199},
     },
     },
   [90] = {
     name = "M'avina's True Sight",
     stats = {
+    {id = 31, min = 200, max = 240},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5360,17 +5431,20 @@ local SetsItemData = {
     name = "M'avina's Embrace",
     stats = {
     {id = 35, min = 5, max = 12},
+    {id = 31, min = 1047, max = 1545},
     },
     },
   [92] = {
     name = "M'avina's Icy Clutch",
     stats = {
+    {id = 31, min = 84, max = 101},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [93] = {
     name = "M'avina's Tenet",
     stats = {
+    {id = 31, min = 81, max = 89},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5390,6 +5464,7 @@ local SetsItemData = {
   [96] = {
     name = "Laying of Hands",
     stats = {
+    {id = 31, min = 79, max = 118},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5397,17 +5472,20 @@ local SetsItemData = {
     name = "Rite of Passage",
     stats = {
     {id = 0, min = 5, max = 15},
+    {id = 31, min = 53, max = 63},
     },
     },
   [98] = {
     name = "Dark Adherent",
     stats = {
+    {id = 31, min = 666, max = 1115},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [99] = {
     name = "Credendum",
     stats = {
+    {id = 31, min = 108, max = 147},
     },
 	  custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5420,18 +5498,21 @@ local SetsItemData = {
   [101] = {
     name = "Taebaek's Glory",
     stats = {
+    {id = 31, min = 203, max = 347},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [102] = {
     name = "Haemosu's Adamant",
     stats = {
+    {id = 31, min = 688, max = 722},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [103] = {
     name = "Ondal's Almighty",
     stats = {
+    {id = 31, min = 164, max = 289},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5468,6 +5549,7 @@ local SetsItemData = {
   [109] = {
     name = "Hwanin's Refuge",
     stats = {
+    {id = 31, min = 376, max = 485},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5493,12 +5575,14 @@ local SetsItemData = {
     name = "Sazabi's Ghost Liberator",
     stats = {
     {id = 7, min = 50, max = 75},
+    {id = 31, min = 810, max = 1304},
     },
     },
   [114] = {
     name = "Sazabi's Mental Sheath",
     stats = {
     {id = {39,41}, min = 15, max = 20},
+    {id = 31, min = 175, max = 192},
     },
     },
   [115] = {
@@ -5516,6 +5600,7 @@ local SetsItemData = {
   [117] = {
     name = "Cow King's Horns",
     stats = {
+    {id = 31, min = 120, max = 133},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5528,6 +5613,7 @@ local SetsItemData = {
   [119] = {
     name = "Cow King's Hooves",
     stats = {
+    {id = 31, min = 30, max = 41},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5540,30 +5626,35 @@ local SetsItemData = {
   [121] = {
     name = "Naj's Light Plate",
     stats = {
+    {id = 31, min = 721, max = 1360},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [122] = {
     name = "Naj's Circlet",
     stats = {
+    {id = 31, min = 95, max = 108},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [123] = {
     name = "Sander's Paragon",
     stats = {
+    {id = 31, min = 13, max = 15},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [124] = {
     name = "Sander's Riprap",
     stats = {
+    {id = 31, min = 5, max = 6},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [125] = {
     name = "Sander's Taboo",
     stats = {
+    {id = 31, min = 25, max = 31},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5576,6 +5667,7 @@ local SetsItemData = {
   [127] = {
     name = "Vessel's Atonement",
     stats = {
+    {id = 31, min = 181, max = 211},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5583,17 +5675,20 @@ local SetsItemData = {
     name = "Vessel's Fulfillment",
     stats = {
     {id = 34, min = 4, max = 6},
+    {id = 31, min = 36, max = 53},
     },
     },
   [129] = {
     name = "Vessel's Anointment",
     stats = {
+    {id = 31, min = 25, max = 45},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
   [130] = {
     name = "Vessel's Armament",
     stats = {
+    {id = 22, min = 21, max = 28},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5613,6 +5708,7 @@ local SetsItemData = {
     name = "Solidarity",
     stats = {
     {id = 97, min = 1, max = 3, param = 8},
+    {id = 31, min = 20, max = 30},
     },
     },
   [134] = {
@@ -5624,6 +5720,7 @@ local SetsItemData = {
   [135] = {
     name = "Raging Seas",
     stats = {
+    {id = 31, min = 5, max = 6},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5646,6 +5743,7 @@ local SetsItemData = {
     stats = {
     {id = 78, min = 3, max = 6},
     {id = 107, min = 2, max = 5, param = 17},
+    {id = 31, min = 52, max = 68},
     },
     },
   [139] = {
@@ -5657,6 +5755,7 @@ local SetsItemData = {
   [140] = {
     name = "Silver Bracers",
     stats = {
+    {id = 31, min = 59, max = 91},
     },
     custom_suffix = "\n {red} [A]Maxed Stats",
     },
@@ -5665,6 +5764,7 @@ local SetsItemData = {
     stats = {
     {id = 138, min = 1, max = 3},
     {id = 139, min = 2, max = 4},
+    {id = 31, min = 9, max = 11},
     },
     },
   [142] = {
@@ -5679,6 +5779,7 @@ local SetsItemData = {
     stats = {
     {id = 74, min = 4, max = 6},
     {id = 27, min = 60, max = 120},
+    {id = 31, min = 20, max = 33},
     },
     },
   [144] = {
@@ -5693,6 +5794,7 @@ local SetsItemData = {
     name = "Bursting Desire",
     stats = {
     {id = 107, min = 3, max = 6, param = 62},
+    {id = 31, min = 59, max = 73},
     },
     },
   [146] = {
@@ -5701,6 +5803,7 @@ local SetsItemData = {
     {id = 97, min = 0, max = 3, param = 56},
     {id = 1, min = 5, max = 25},
     {id = 35, min = 3, max = 5},
+    {id = 31, min = 243, max = 347},
     },
     },
   [147] = {
@@ -5709,12 +5812,14 @@ local SetsItemData = {
     {id = 335, min = 35, max = 45},
     {id = 9, min = 60, max = 100},
     {id = 44, min = 5, max = 10},
+    {id = 31, min = 54, max = 94},
     },
     },
   [148] = {
     name = "Enduring Onslaught",
     stats = {
     {id = 264, min = 4, max = 7},
+    {id = 31, min = 64, max = 97},
     },
     },
   [149] = {
@@ -5722,12 +5827,14 @@ local SetsItemData = {
     stats = {
     {id = 107, min = 3, max = 5, param = 59},
     {id = 33, min = 100, max = 150},
+    {id = 31, min = 58, max = 85},
     },
     },
   [150] = {
     name = "Rathma's Reaper",
     stats = {
     {id = 107, min = 3, max = 5, param = 74},
+    {id = 22, min = 86, max = 107},
     },
     },
   [151] = {
@@ -5735,18 +5842,21 @@ local SetsItemData = {
     stats = {
     {id = 77, min = 12, max = 25},
     {id = 379, min = 15, max = 20},
+    {id = 31, min = 494, max = 572},
     },
     },
   [152] = {
     name = "Rathma's Vestage",
     stats = {
     {id = 3, min = 12, max = 25},
+    {id = 31, min = 150, max = 336},
     },
     },
   [153] = {
     name = "Rathma's Fortress",
     stats = {
     {id = 77, min = 12, max = 25},
+    {id = 31, min = 364, max = 705},
     },
     },
   [154] = {
@@ -5781,6 +5891,7 @@ local SetsItemData = {
     {id = 93, min = 20, max = 35},
     {id = {62,60}, min = 5, max = 8},
     {id = 35, min = 8, max = 12},
+    {id = 22, min = 264, max = 308},
     },
     },
   [159] = {
@@ -5789,6 +5900,7 @@ local SetsItemData = {
     {id = 0, min = 30, max = 40},
     {id = 34, min = 8, max = 12},
     {id = 278, min = 3, max = 5},
+    {id = 22, min = 204, max = 238},
     },
     },
 }
@@ -5893,7 +6005,7 @@ local filterConfig = {
       codes = "allitems",
       location = UniDropLoc,
       --difficulty = "Nightmare, Hell",
-      --prefix = "|Index=[{index}]|Code=[{code}]|Stat1={stat=(107,59)}|Stat2={stat=(33)}|",
+      --prefix = "|Index=[{index}]|Code=[{code}]|Stat22 MaxDam={stat=(22)}|Stat31 Defense={stat=(31)}|",
       --prefix = "[{index}]",
       --prefix = "[{code}]",
       --prefix = "[{itype}]",
@@ -6008,7 +6120,7 @@ local filterConfig = {
     {--Display High rune name with notify.
       codes = {"r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31", "r32", "r33"},
       suffix = "\n{red} High Points Rune",
-      --notify = "{red} High Rune Points!",
+      notify = "{red} High Rune Points!",
       hide = F,
       filter_levels = F123,
     },
@@ -6016,14 +6128,14 @@ local filterConfig = {
       codes = {"r34", "r35", "r36"},
       name_style = "Rainbow",
       suffix = "\n Ultra Points Rune",
-      --notify = "{pink} Ultra Rune Points!",
+      notify = "{pink} Ultra Rune Points!",
       border = {255,0,0},
       hide = F,
       filter_levels = F123,
     },
     {--Display Ultra Enhancment crystals
       codes = {"z19", "z20", "z21", "z22", "z23", "z24", "z25", "z26", "z27"},
-      --notify = "{red} Ultra Enhancement Crystal",
+      notify = "{red} Ultra Enhancement Crystal",
       name_override = "{red} Ultra Enhancement Crystal",
       border = {255,0,0},
       filter_levels = F123,
@@ -6786,7 +6898,7 @@ for itemIndex, itemInfo in pairs(SetsItemData) do
     --local nyttNamn = genereraSlumpNamn(8) --< Fun
 
 -- ---------------------------------------------------------------------
--- Rule Hide Uniques <70% in all stats
+-- Rule Hide Sets <70% in all stats
 -- ---------------------------------------------------------------------
     local hideRule = {
       codes = "allitems",
@@ -6829,7 +6941,7 @@ for itemIndex, itemInfo in pairs(SetsItemData) do
     table.insert(filterConfig.rules, hideRule)
 
 -- ---------------------------------------------------------------------
--- Rule for Maxed stats Uniques
+-- Rule for Maxed stats Sets
 -- ---------------------------------------------------------------------
     local maxRule = {
       codes = "allitems",
@@ -6854,7 +6966,14 @@ for itemIndex, itemInfo in pairs(SetsItemData) do
       if stat.id == 216 then finalMax = stat.max * 2048 end
       if stat.id == 217 then finalMax = stat.max * 2048 end
 
-      local statBlock = { index = stat.id, op = "==", value = finalMax }
+      local operator = "=="
+      
+      if stat.id == 22 or stat.id == 31 then 
+        operator = ">="
+        finalMax = stat.min + (stat.max - stat.min) * 0.71
+      end
+
+      local statBlock = { index = stat.id, op = operator, value = finalMax }
       
       -- Param if needed
       if stat.param then statBlock.param = stat.param end
