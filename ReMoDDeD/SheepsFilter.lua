@@ -1,4 +1,4 @@
---- Filter Title: Sheep's Filter v2.0
+--- Filter Title: Sheep's Filter v2.01
 --- Filter Type: (General Filter)
 --- Filter Description: The Point of this filter is that "It just works" \n \n The Concept is a simple filter that hides things you would not be picking up anyway. \n \n There are now 2 levels one for grail chasers and one for everyone else \n GLHF!
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
@@ -7,7 +7,7 @@ return {
     filter_titles = {"Base", "Grail:Updates on loading Tracker"},
     language = "enUS",
     
-    reload = "{pink}Sheep's Base Filter v2.0 {grey} 10/29/26{Green} Reloaded",
+    reload = "{pink}Sheep's Base Filter v2.01 {grey} 10/30/26{Green} Reloaded",
     allowOverrides = true,
     audioVoice = 1,
     audioPlayback = true,
@@ -1163,15 +1163,16 @@ return {
             runeword = false,
             prefix = "{red}WTF!!!",
             background = { 255, 255, 255, 255 },
-            border = { 240, 0, 0, 230, 2 } 
+            border = { 240, 0, 0, 230, 2 },
             --location = {"onground", "onplayer","equipped"},
             stat = {
+            {index = 24, op = "==", value = 332 }, -- Max damage none ethereal
             {index = 119, op = "==", value = 150 }, -- 100-150% Bonus to Attack Rating
             {index = 122, op = "==", value = 200 }, -- +100-200% Damage to Undead
             {index = 121, op = "==", value = 200 }, -- +100-200% Damage to Demons
-            notify = "{pink}PlausibleSheep{gold}:Congratulations on finding the rarest perfect item in Diablo 2 go show it off",
         },
-      suffix = "\n {red} Maxed Stats",
+            suffix = "\n {red} Maxed Stats",
+            notify = "{pink}PlausibleSheep{gold}:Congratulations on finding the rarest perfect item in Diablo 2 go show it off",
     },
         ---grail sets
         	{
