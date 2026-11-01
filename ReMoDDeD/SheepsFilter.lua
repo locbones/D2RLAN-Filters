@@ -1,4 +1,4 @@
---- Filter Title: Sheep's Filter v2.01
+--- Filter Title: Sheep's Filter v2.02
 --- Filter Type: (General Filter)
 --- Filter Description: The Point of this filter is that "It just works" \n \n The Concept is a simple filter that hides things you would not be picking up anyway. \n \n There are now 2 levels one for grail chasers and one for everyone else \n GLHF!
 --- Filter Link: https://github.com/locbones/D2RLAN-Filters/raw/refs/heads/main/ReMoDDeD/SheepsFilter.lua
@@ -7,7 +7,7 @@ return {
     filter_titles = {"Base", "Grail:Updates on loading Tracker"},
     language = "enUS",
     
-    reload = "{pink}Sheep's Base Filter v2.01 {grey} 10/30/26{Green} Reloaded",
+    reload = "{pink}Sheep's Base Filter v2.02 {grey} 11/1/26{Green} Reloaded",
     allowOverrides = true,
     audioVoice = 1,
     audioPlayback = true,
@@ -190,9 +190,6 @@ return {
             codes = { "pa1", "pa2", "pa3", "pa4", "pa5", "pa6", "pa7", "pa8", "pa9", "paa", "pab", "pac", "pad", "pae", "paf" },
             quality = "3-",
             stat = { index = 39, op = ">=", value = 40 }, -- This is the Res Check, change the Value to change the minimum amount of Res
-            stat = { index = 41, op = ">=", value = 40 },
-            stat = { index = 43, op = ">=", value = 40 },
-            stat = { index = 45, op = ">=", value = 40 },
             suffix = "{red}[High Resist]",
             border = { 255, 255, 255, 230, 2 } 
             --sockets = "0,4", -- add if you want socket sorting
